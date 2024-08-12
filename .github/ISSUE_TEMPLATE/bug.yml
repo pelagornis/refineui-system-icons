@@ -1,0 +1,41 @@
+name: Bug Report
+description: Found a bug in Refine UI System Icons? Create a report!
+title: "Insert title here"
+labels: ["type:bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Describe the bug and the expected behavior
+      placeholder: A clear and concise description of what the bug is, and what you expect to happen instead.
+    validations:
+      required: true
+  - type: textarea
+    id: error-log
+    attributes:
+      label: Error log
+      description: The full error message
+      placeholder: The full error message
+    validations:
+      required: true
+  - type: checkboxes
+    id: error-platform
+    attributes:
+      label: Platform
+      description: Platforms that experience errors
+      options:
+        - label: Web
+          required: false
+        - label: iOS
+          required: false
+        - label: macOS
+          required: false
+        - label: Android
+          required: false
+        - label: Windows
+          required: false
