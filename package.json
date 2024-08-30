@@ -1,9 +1,8 @@
 {
-    "name": "@pelagornis/refineui-system-icons",
+    "name": "@refineui/system-icons",
     "private": true,
     "workspaces": [
-      "packages/*",
-      "importer"
+      "packages/*"
     ],
     "description": "Refine UI System Icons are a collection of modern icons from Pelagornis.",
     "version": "1.0.0",
