@@ -1,0 +1,15 @@
+{
+    "name": "@pelagornis/refineui-system-icons",
+    "private": true,
+    "workspaces": [
+      "packages/*",
+      "importer"
+    ],
+    "description": "Refine UI System Icons are a collection of modern icons from Pelagornis.",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/pelagornis/refineui-system-icons.git"
+    }
+  }
