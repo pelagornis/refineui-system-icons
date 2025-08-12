@@ -1,0 +1,17 @@
+{
+  "name": "Align center horizontal",
+  "size": [
+    16,
+    20,
+    24,
+    28,
+    32,
+    48
+  ],
+  "style": [
+    "Filled",
+    "Regular"
+  ],
+  "keyword": "refineui-icon",
+  "description": "Used in align center horizontal scenarios."
+}

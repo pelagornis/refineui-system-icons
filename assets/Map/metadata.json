@@ -1,0 +1,17 @@
+{
+  "name": "Map",
+  "size": [
+    16,
+    20,
+    24,
+    28,
+    32,
+    48
+  ],
+  "style": [
+    "Filled",
+    "Regular"
+  ],
+  "keyword": "refineui-icon",
+  "description": "Used in map scenarios."
+}

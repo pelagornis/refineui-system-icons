@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refine UI System Icons</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <header class="header">
+            <h1>Refine UI System Icons</h1>
+            <p>Microsoft Fluent UI System Icons 구조를 참고한 아이콘 시스템</p>
+        </header>
+
+        <main class="main">
+            <div class="controls">
+                <div class="search-box">
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        placeholder="아이콘 검색..."
+                        class="search-input"
+                    >
+                </div>
+                
+                <div class="size-filter">
+                    <label>크기:</label>
+                    <select id="sizeSelect" class="size-select">
+                        <option value="all">모든 크기</option>
+                        <option value="16">16px</option>
+                        <option value="20">20px</option>
+                        <option value="24">24px</option>
+                        <option value="32">32px</option>
+                        <option value="48">48px</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="iconGrid" class="icon-grid">
+                <!-- 아이콘들이 여기에 동적으로 로드됩니다 -->
+            </div>
+        </main>
+
+        <div id="iconModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div id="modalContent"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../dist/index.js"></script>
+    <script>
+        // 아이콘 갤러리 초기화
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const sizeSelect = document.getElementById('sizeSelect');
+            const iconGrid = document.getElementById('iconGrid');
+            const modal = document.getElementById('iconModal');
+            const modalContent = document.getElementById('modalContent');
+            const closeBtn = document.querySelector('.close');
+
+            let allIcons = [];
+            let filteredIcons = [];
+
+            // 아이콘 로드
+            async function loadIcons() {
+                try {
+                    allIcons = await window.IconAPI.getAllIcons();
+                    filteredIcons = allIcons;
+                    renderIcons();
+                } catch (error) {
+                    console.error('아이콘 로드 실패:', error);
+                    iconGrid.innerHTML = '<p class="error">아이콘을 불러올 수 없습니다.</p>';
+                }
+            }
+
+            // 아이콘 렌더링
+            function renderIcons() {
+                iconGrid.innerHTML = filteredIcons.map(icon => `
+                    <div class="icon-item" onclick="showIconModal('${icon.slug}', ${icon.size})">
+                        <div class="icon-preview">
+                            <img src="${icon.url}" alt="${icon.name}" width="${icon.size}" height="${icon.size}">
+                        </div>
+                        <div class="icon-info">
+                            <div class="icon-name">${icon.name}</div>
+                            <div class="icon-slug">${icon.slug}</div>
+                            <div class="icon-size">${icon.size}px</div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            // 검색 필터링
+            function filterIcons() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const selectedSize = sizeSelect.value;
+
+                filteredIcons = allIcons.filter(icon => {
+                    const matchesSearch = icon.name.toLowerCase().includes(searchTerm) || 
+                                        icon.slug.toLowerCase().includes(searchTerm);
+                    const matchesSize = selectedSize === 'all' || icon.size.toString() === selectedSize;
+                    return matchesSearch && matchesSize;
+                });
+
+                renderIcons();
+            }
+
+            // 모달 표시
+            window.showIconModal = function(slug, size) {
+                const icon = allIcons.find(i => i.slug === slug && i.size === size);
+                if (!icon) return;
+
+                modalContent.innerHTML = `
+                    <h3>${icon.name}</h3>
+                    <div class="icon-display">
+                        <img src="${icon.url}" alt="${icon.name}" width="${icon.size * 2}" height="${icon.size * 2}">
+                    </div>
+                    <div class="icon-details">
+                        <p><strong>Slug:</strong> ${icon.slug}</p>
+                        <p><strong>Size:</strong> ${icon.size}px</p>
+                        <p><strong>URL:</strong> <code>${icon.url}</code></p>
+                    </div>
+                    <div class="icon-actions">
+                        <button onclick="downloadIcon('${icon.slug}', ${icon.size})">다운로드</button>
+                        <button onclick="copyUrl('${icon.url}')">URL 복사</button>
+                    </div>
+                `;
+                modal.style.display = 'block';
+            };
+
+            // 아이콘 다운로드
+            window.downloadIcon = function(slug, size) {
+                window.IconAPI.downloadIcon(slug, size);
+            };
+
+            // URL 복사
+            window.copyUrl = function(url) {
+                navigator.clipboard.writeText(url).then(() => {
+                    alert('URL이 클립보드에 복사되었습니다!');
+                });
+            };
+
+            // 이벤트 리스너
+            searchInput.addEventListener('input', filterIcons);
+            sizeSelect.addEventListener('change', filterIcons);
+            closeBtn.addEventListener('click', () => modal.style.display = 'none');
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) modal.style.display = 'none';
+            });
+
+            // 초기 로드
+            loadIcons();
+        });
+    </script>
+</body>
+</html>

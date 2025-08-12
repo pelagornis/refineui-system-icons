@@ -1,14 +1,49 @@
 {
-    "name": "@refineui/system-icons",
-    "private": true,
-    "workspaces": [
-      "packages/*"
-    ],
-    "description": "Refine UI System Icons are a collection of modern icons from Pelagornis.",
-    "version": "1.0.0",
-    "main": "index.js",
-    "repository": {
-      "type": "git",
-      "url": "git+https://github.com/pelagornis/refineui-system-icons.git"
-    }
-  }
+  "name": "refineui-system-icons",
+  "version": "1.0.0",
+  "description": "Refine UI System Icons - Microsoft Fluent UI System Icons 구조를 참고한 아이콘 시스템",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "extract": "python scripts/figma_icon_extractor.py",
+    "build": "python scripts/build_all.py",
+    "build:web": "python scripts/build_web.py",
+    "build:ios": "python scripts/build_ios.py",
+    "build:android": "python scripts/build_android.py",
+    "dev:web": "cd packages/icons-web && npm run serve",
+    "install:all": "npm install && npm run install:packages",
+    "install:packages": "npm install --workspace=@refineui/react-icons && npm install --workspace=@refineui/react-native-icons && npm install --workspace=@refineui/icons-web",
+    "build:packages": "npm run build --workspace=@refineui/react-icons && npm run build --workspace=@refineui/react-native-icons && npm run build --workspace=@refineui/icons-web",
+    "publish:packages": "npm publish --workspace=@refineui/react-icons && npm publish --workspace=@refineui/react-native-icons && npm publish --workspace=@refineui/icons-web"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.0",
+    "rollup": "^3.0.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.34.0",
+    "typescript": "^4.9.0"
+  },
+  "keywords": [
+    "icons",
+    "refineui",
+    "system-icons",
+    "react",
+    "react-native",
+    "web",
+    "figma",
+    "svg"
+  ],
+  "author": "Pelagornis",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pelagornis/refineui-system-icons.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pelagornis/refineui-system-icons/issues"
+  },
+  "homepage": "https://github.com/pelagornis/refineui-system-icons#readme"
+}

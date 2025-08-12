@@ -1,0 +1,72 @@
+name: Build Icons
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      figma_token:
+        description: 'Figma API Token'
+        required: true
+        type: string
+      figma_file_key:
+        description: 'Figma File Key'
+        required: true
+        type: string
+      page_name:
+        description: 'Page name containing icons'
+        required: false
+        type: string
+        default: 'System Icons'
+
+jobs:
+  extract-and-build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+          
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          
+      - name: Extract icons from Figma
+        run: |
+          python scripts/figma_icon_extractor.py \
+            --token ${{ github.event.inputs.figma_token || secrets.FIGMA_TOKEN }} \
+            --file-key ${{ github.event.inputs.figma_file_key || secrets.FIGMA_FILE_KEY }} \
+            --page "${{ github.event.inputs.page_name || 'System Icons' }}"
+        env:
+          FIGMA_TOKEN: ${{ github.event.inputs.figma_token || secrets.FIGMA_TOKEN }}
+          
+      - name: Build all platforms
+        run: python scripts/build_all.py
+        
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: built-icons
+          path: |
+            assets/
+            metadata/
+            packages/
+            ios/RefineIcons/
+          retention-days: 30
+          
+      - name: Commit changes
+        if: github.ref == 'refs/heads/main'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A
+          git diff --quiet && git diff --staged --quiet || git commit -m "Auto-build icons from Figma"
+          git push

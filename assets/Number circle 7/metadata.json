@@ -1,0 +1,17 @@
+{
+  "name": "Number circle 7",
+  "size": [
+    16,
+    20,
+    24,
+    28,
+    32,
+    48
+  ],
+  "style": [
+    "Filled",
+    "Regular"
+  ],
+  "keyword": "refineui-icon",
+  "description": "Used in number circle 7 scenarios."
+}

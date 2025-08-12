@@ -1,48 +1,135 @@
-node_modules
-npm-debug.log
-*.sublime-workspace
-tmp
-dev_tests/automatic/screenshots
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
 dist/
-!dist/.keep
-*.DS_Store
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
 
-.project
-.classpath
-.settings
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
 
-.idea
+# Secrets
+secrets/
+.secrets/
 
+# IDE
 .vscode/
+.idea/
+*.swp
+*.swo
+*~
 
-/build
-/.build
-/.swiftpm
-/*.xcodeproj
-xcuserdata
-/ios/RefineIcons/Tests
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 
-/packages/svg-icons/icons
-packages/react-icons/intermediate
-packages/react-icons/react-icons-test/
-packages/react-icons/lib/
-packages/react-icons/lib-cjs/
-packages/react-icons/src/icons
-packages/react-icons/src/sizedIcons
-packages/react-icons/src/index.tsx
-packages/react-icons/yarn.lock
-packages/react-icons/package-lock.json
+# Build outputs
+dist/
+build/
+*.tgz
+*.tar.gz
 
-packages/react-native-icons/intermediate
-packages/react-native-icons/react-icons-test/
-packages/react-native-icons/lib/
-packages/react-native-icons/lib-cjs/
-packages/react-native-icons/src/icons
-packages/react-native-icons/src/sizedIcons
-packages/react-native-icons/src/index.tsx
-packages/react-native-icons/yarn.lock
-packages/react-native-icons/package-lock.json
+# Logs
+logs
+*.log
 
-SvgList.txt
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
 
-.venv
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# nyc test coverage
+.nyc_output
+
+# Dependency directories
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+.parcel-cache
+
+# next.js build output
+.next
+
+# nuxt.js build output
+.nuxt
+
+# vuepress build output
+.vuepress/dist
+
+# Serverless directories
+.serverless
+
+# FuseBox cache
+.fusebox/
+
+# DynamoDB Local files
+.dynamodb/
+
+# TernJS port file
+.tern-port
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+# Temporary folders
+tmp/
+temp/

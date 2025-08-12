@@ -1,0 +1,17 @@
+{
+  "name": "Line horizontal 1 dashes",
+  "size": [
+    16,
+    20,
+    24,
+    28,
+    32,
+    48
+  ],
+  "style": [
+    "Filled",
+    "Regular"
+  ],
+  "keyword": "refineui-icon",
+  "description": "Used in line horizontal 1 dashes scenarios."
+}

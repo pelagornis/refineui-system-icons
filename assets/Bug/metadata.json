@@ -1,0 +1,17 @@
+{
+  "name": "Bug",
+  "size": [
+    16,
+    20,
+    24,
+    28,
+    32,
+    48
+  ],
+  "style": [
+    "Filled",
+    "Regular"
+  ],
+  "keyword": "refineui-icon",
+  "description": "Used in bug scenarios."
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Textbox align top right",
+  "size": [
+    16,
+    20,
+    24,
+    28,
+    32,
+    48
+  ],
+  "style": [
+    "Filled",
+    "Regular"
+  ],
+  "keyword": "refineui-icon",
+  "description": "Used in textbox align top right scenarios."
+}

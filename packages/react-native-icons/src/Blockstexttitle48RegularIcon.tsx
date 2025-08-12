@@ -1,0 +1,20 @@
+import React from 'react';
+import { Svg, Path } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Blockstexttitle48RegularIcon: React.FC<IconProps> = ({ 
+  size = 48, 
+  color = '#000000', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 48 48"
+      {{...props}}
+    >
+      <Path d="M12,2C6.48,2 2,6.48 2,12s4.48,10 10,10 10,-4.48 10,-10S17.52,2 12,2z" fill="{{color}}" />
+    </Svg>
+  );
+};

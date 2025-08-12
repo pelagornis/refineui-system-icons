@@ -1,0 +1,44 @@
+{
+  "name": "@refineui/icons-web",
+  "version": "1.0.0",
+  "description": "Refine UI System Icons Web Version - URL accessible icons",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "public"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "clean": "rimraf dist",
+    "serve": "http-server public -p 3000",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
+  "devDependencies": {
+    "rollup": "^3.0.0",
+    "rollup-plugin-typescript2": "^0.34.0",
+    "typescript": "^4.9.0",
+    "rimraf": "^3.0.2",
+    "http-server": "^14.1.1",
+    "@rollup/plugin-node-resolve": "^15.0.0",
+    "@rollup/plugin-commonjs": "^25.0.0",
+    "rollup-plugin-terser": "^7.0.2"
+  },
+  "keywords": [
+    "icons",
+    "refineui",
+    "system-icons",
+    "svg",
+    "web",
+    "url"
+  ],
+  "author": "Pelagornis",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pelagornis/refineui-system-icons.git",
+    "directory": "packages/icons-web"
+  }
+}
