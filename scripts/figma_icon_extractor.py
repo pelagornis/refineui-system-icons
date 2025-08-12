@@ -11,6 +11,7 @@ import re
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 from dataclasses import dataclass
+from datetime import datetime
 from urllib.parse import urlparse
 import logging
 
@@ -186,7 +187,8 @@ class FigmaIconExtractor:
     def get_svg_urls(self, node_ids: List[str]) -> Dict[str, str]:
         """아이콘들의 SVG URL 가져오기 (배치 처리)"""
         all_images = {}
-        batch_size = 50  # Figma API 제한: 한 번에 최대 50개
+        batch_size = 50  # 새로운 토큰으로 배치 크기 증가
+        max_retries = 15  # 최대 재시도 횟수 증가
         
         # 배치별로 처리
         for i in range(0, len(node_ids), batch_size):
@@ -201,38 +203,82 @@ class FigmaIconExtractor:
             }
             headers = {"X-Figma-Token": self.figma_token}
             
-            try:
-                response = requests.get(url, params=params, headers=headers)
-                response.raise_for_status()
-                
-                batch_images = response.json().get("images", {})
-                all_images.update(batch_images)
-                
-                # API 제한 방지를 위한 짧은 대기
-                import time
-                time.sleep(0.1)
-                
-            except requests.exceptions.RequestException as e:
-                logger.error(f"배치 {i//batch_size + 1} 처리 실패: {e}")
-                continue
+            # 재시도 로직
+            for retry in range(max_retries):
+                try:
+                    response = requests.get(url, params=params, headers=headers)
+                    
+                    if response.status_code == 429:
+                        # Rate limit 도달 시 더 오래 대기
+                        wait_time = (retry + 1) * 2  # 2초, 4초, 6초
+                        logger.warning(f"Rate limit 도달. {wait_time}초 대기 후 재시도... (시도 {retry + 1}/{max_retries})")
+                        import time
+                        time.sleep(wait_time)
+                        continue
+                    
+                    response.raise_for_status()
+                    
+                    batch_images = response.json().get("images", {})
+                    all_images.update(batch_images)
+                    
+                    # API 제한 방지를 위한 대기 시간 증가
+                    import time
+                    time.sleep(0.1)  # 새로운 토큰으로 대기 시간 줄임
+                    
+                    break  # 성공하면 재시도 루프 종료
+                    
+                except requests.exceptions.RequestException as e:
+                    if retry < max_retries - 1:
+                        wait_time = (retry + 1) * 1
+                        logger.warning(f"배치 {i//batch_size + 1} 처리 실패: {e}. {wait_time}초 후 재시도... (시도 {retry + 1}/{max_retries})")
+                        import time
+                        time.sleep(wait_time)
+                    else:
+                        logger.error(f"배치 {i//batch_size + 1} 처리 최종 실패: {e}")
+                        continue
         
         return all_images
 
     def download_svg(self, url: str, file_path: str) -> bool:
         """SVG 파일 다운로드"""
-        try:
-            response = requests.get(url)
-            response.raise_for_status()
-            
-            os.makedirs(os.path.dirname(file_path), exist_ok=True)
-            
-            with open(file_path, 'w', encoding='utf-8') as f:
-                f.write(response.text)
-            
-            return True
-        except Exception as e:
-            logger.error(f"SVG 다운로드 실패: {file_path} - {e}")
-            return False
+        max_retries = 15
+        
+        for retry in range(max_retries):
+            try:
+                response = requests.get(url)
+                
+                if response.status_code == 429:
+                    # Rate limit 도달 시 대기
+                    wait_time = (retry + 1) * 1
+                    logger.warning(f"Rate limit 도달. {wait_time}초 대기 후 재시도... (시도 {retry + 1}/{max_retries})")
+                    import time
+                    time.sleep(wait_time)
+                    continue
+                
+                response.raise_for_status()
+                
+                os.makedirs(os.path.dirname(file_path), exist_ok=True)
+                
+                with open(file_path, 'w', encoding='utf-8') as f:
+                    f.write(response.text)
+                
+                # 다운로드 간격 추가
+                import time
+                time.sleep(0.1)
+                
+                return True
+                
+            except Exception as e:
+                if retry < max_retries - 1:
+                    wait_time = (retry + 1) * 0.5
+                    logger.warning(f"SVG 다운로드 실패: {file_path} - {e}. {wait_time}초 후 재시도... (시도 {retry + 1}/{max_retries})")
+                    import time
+                    time.sleep(wait_time)
+                else:
+                    logger.error(f"SVG 다운로드 최종 실패: {file_path} - {e}")
+                    return False
+        
+        return False
 
     def create_assets_structure(self):
         """공용 assets 디렉토리 구조 생성"""
@@ -263,6 +309,20 @@ class FigmaIconExtractor:
         """메인 추출 프로세스"""
         logger.info("Figma 파일에서 아이콘 추출 시작...")
         
+        # 진행 상황 파일 경로
+        progress_file = "extraction_progress.json"
+        
+        # 이전 진행 상황 확인
+        start_index = 0
+        if os.path.exists(progress_file):
+            try:
+                with open(progress_file, 'r', encoding='utf-8') as f:
+                    progress_data = json.load(f)
+                    start_index = progress_data.get('last_processed_index', 0)
+                    logger.info(f"이전 진행 상황 발견: {start_index}번째 아이콘부터 재시작")
+            except Exception as e:
+                logger.warning(f"진행 상황 파일 읽기 실패: {e}")
+        
         # Figma 파일 정보 가져오기
         file_data = self.get_figma_file()
         
@@ -279,45 +339,68 @@ class FigmaIconExtractor:
             logger.warning("아이콘을 찾을 수 없습니다. 페이지 이름과 컴포넌트 설정을 확인해주세요.")
             return []
         
-        # 테스트용: 처음 5개만 처리 (환경변수로 제어)
+        # 배치 크기 설정 (환경변수로 제어)
+        batch_size = int(os.getenv('FIGMA_BATCH_SIZE', '50'))  # 기본 50개씩
+        max_icons = int(os.getenv('FIGMA_MAX_ICONS', '0'))  # 0이면 전체
+        
+        # 처리할 아이콘 범위 설정
+        end_index = len(icons)
+        if max_icons > 0:
+            end_index = min(start_index + max_icons, len(icons))
+        
+        # 처리할 아이콘 슬라이싱
+        icons_to_process = icons[start_index:end_index]
+        
+        logger.info(f"처리 범위: {start_index} ~ {end_index-1} ({len(icons_to_process)}개 아이콘)")
+        logger.info(f"배치 크기: {batch_size}개씩")
+        logger.info(f"예상 처리 시간: 약 {len(icons_to_process) * 2.0:.1f}초")
+        
+        # 테스트 모드 확인
         test_limit = os.getenv('FIGMA_TEST_LIMIT')
         if test_limit:
             try:
                 limit = int(test_limit)
-                icons = icons[:limit]
-                logger.info(f"테스트 모드: 처음 {len(icons)}개 아이콘만 처리합니다.")
+                icons_to_process = icons_to_process[:limit]
+                logger.info(f"테스트 모드: 처음 {len(icons_to_process)}개 아이콘만 처리합니다.")
             except ValueError:
                 logger.warning("FIGMA_TEST_LIMIT는 숫자여야 합니다.")
-        
-        # 진행 상황 표시
-        logger.info(f"처리 예상 시간: 약 {len(icons) * 0.5:.1f}초")
-        
-        # SVG URL 가져오기
-        node_ids = [icon["node_id"] for icon in icons]
-        svg_urls = self.get_svg_urls(node_ids)
         
         # 공용 assets 디렉토리 구조 생성
         self.create_assets_structure()
         
-        # 아이콘별로 그룹화 (중복 제거)
-        icon_groups = {}
-        seen_combinations = set()  # 중복 체크용
+        # 배치별로 처리
+        all_metadata = []
+        current_index = start_index
         
-        for icon in icons:
-            icon_name = icon["name"]
-            size = icon["size"]
-            style = icon["style"]
+        for batch_start in range(0, len(icons_to_process), batch_size):
+            batch_end = min(batch_start + batch_size, len(icons_to_process))
+            batch_icons = icons_to_process[batch_start:batch_end]
             
-            # 아이콘명 + 크기 + 스타일 조합으로 중복 체크
-            combination = f"{icon_name}_{size}_{style}"
-            if combination in seen_combinations:
-                continue
+            logger.info(f"배치 처리 중... ({batch_start + 1}-{batch_end}/{len(icons_to_process)})")
             
-            seen_combinations.add(combination)
+            # 현재 배치의 SVG URL 가져오기
+            node_ids = [icon["node_id"] for icon in batch_icons]
+            svg_urls = self.get_svg_urls(node_ids)
             
-            if icon_name not in icon_groups:
-                icon_groups[icon_name] = []
-            icon_groups[icon_name].append(icon)
+            # 아이콘별로 그룹화 (중복 제거)
+            icon_groups = {}
+            seen_combinations = set()  # 중복 체크용
+            
+            for icon in batch_icons:
+                icon_name = icon["name"]
+                size = icon["size"]
+                style = icon["style"]
+                
+                # 아이콘명 + 크기 + 스타일 조합으로 중복 체크
+                combination = f"{icon_name}_{size}_{style}"
+                if combination in seen_combinations:
+                    continue
+                
+                seen_combinations.add(combination)
+                
+                if icon_name not in icon_groups:
+                    icon_groups[icon_name] = []
+                icon_groups[icon_name].append(icon)
         
         # 아이콘별로 처리
         all_metadata = []
@@ -370,6 +453,20 @@ class FigmaIconExtractor:
             # 개별 아이콘 메타데이터 저장
             if icon_files:
                 self.save_icon_metadata(icon_name, icon_files)
+        
+        # 현재 배치 완료 후 진행 상황 저장
+        current_index = start_index + batch_end
+        progress_data = {
+            'last_processed_index': current_index,
+            'total_icons': len(icons),
+            'processed_icons': current_index,
+            'timestamp': datetime.now().isoformat()
+        }
+        
+        with open(progress_file, 'w', encoding='utf-8') as f:
+            json.dump(progress_data, f, indent=2, ensure_ascii=False)
+        
+        logger.info(f"배치 완료: {current_index}/{len(icons)} 아이콘 처리됨")
         
         # 전체 메타데이터 저장
         self.save_all_metadata(all_metadata)

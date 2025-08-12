@@ -524,7 +524,32 @@ export const {component_name}Icon: React.FC<IconProps> = ({{
         self.build_android_package(icons_data)
         self.build_flutter_package(icons_data)
         
+        # 폰트 빌드 추가
+        self.build_font_package(icons_data)
+        
         print("🎉 모든 플랫폼 빌드 완료!")
+    
+    def build_font_package(self, icons_data: Dict):
+        """폰트 패키지 빌드"""
+        print("🔤 폰트 패키지 빌드 시작...")
+        
+        fonts_dir = "fonts"
+        os.makedirs(fonts_dir, exist_ok=True)
+        
+        # FontBuilder 임포트 및 실행
+        try:
+            from build_font import FontBuilder
+            builder = FontBuilder(assets_dir=self.assets_dir, fonts_dir=fonts_dir)
+            success = builder.build_font()
+            
+            if success:
+                print("🎉 폰트 패키지 빌드 완료!")
+            else:
+                print("⚠️  폰트 빌드에 실패했습니다. FontForge 설치가 필요할 수 있습니다.")
+        except ImportError:
+            print("⚠️  build_font 모듈을 찾을 수 없습니다.")
+        except Exception as e:
+            print(f"❌ 폰트 빌드 오류: {e}")
 
 def main():
     """메인 실행 함수"""
