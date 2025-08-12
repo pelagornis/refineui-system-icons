@@ -15,8 +15,9 @@
     "dev:web": "cd packages/icons-web && npm run serve",
     "install:all": "npm install && npm run install:packages",
     "install:packages": "npm install --workspace=@refineui/react-icons && npm install --workspace=@refineui/react-native-icons && npm install --workspace=@refineui/icons-web",
-    "build:packages": "npm run build --workspace=@refineui/react-icons && npm run build --workspace=@refineui/react-native-icons && npm run build --workspace=@refineui/icons-web",
-    "publish:packages": "npm publish --workspace=@refineui/react-icons && npm publish --workspace=@refineui/react-native-icons && npm publish --workspace=@refineui/icons-web"
+    "build:packages": "npm run build --workspace=@refineui/react-icons && npm run build --workspace=@refineui/react-native-icons && npm run build --workspace=@refineui/icons-web && npm run build:font",
+    "publish:packages": "npm publish --workspace=@refineui/react-icons && npm publish --workspace=@refineui/react-native-icons && npm publish --workspace=@refineui/icons-web",
+    "build:font": "python scripts/build_font.py"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.0",
