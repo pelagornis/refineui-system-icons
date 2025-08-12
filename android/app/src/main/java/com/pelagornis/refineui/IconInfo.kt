@@ -1,3 +1,5 @@
 package com.pelagornis.refineui
 
-data class IconInfo()
+import androidx.annotation.DrawableRes
+
+data class IconInfo(@DrawableRes val iconResourceId: Int, val iconName: String)

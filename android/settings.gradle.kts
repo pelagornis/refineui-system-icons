@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "refineui-system-icons"
 include(":app")
+include(":library")
