@@ -111,18 +111,19 @@ npm run build --workspace=@refineui/icons-web
 | **@refineui/react-icons**        | React 웹용 아이콘 컴포넌트     | `import { AccessTime24Icon } from '@refineui/react-icons'`        | 16, 20, 24, 32, 48px |
 | **@refineui/react-native-icons** | React Native용 아이콘 컴포넌트 | `import { AccessTime24Icon } from '@refineui/react-native-icons'` | 16, 20, 24, 32, 48dp |
 | **@refineui/icons-web**          | URL 접근 가능한 웹 버전        | `https://your-domain.com/icons/24/access-time.svg`                | 16, 20, 24, 32, 48px |
-| **Font**                         | 웹폰트 버전                    | `<i class="ri ri-access-time"></i>`                                | 모든 크기 지원       |
+| **Font**                         | 웹폰트 버전                    | `<i class="ri ri-access-time"></i>`                               | 모든 크기 지원       |
 
 ### 📋 지원 플랫폼
 
-| 플랫폼           | 네이밍 규칙 | 출력 형식        | 크기 지원                          |
-| ---------------- | ----------- | ---------------- | ---------------------------------- |
-| **React Web**    | camelCase   | React 컴포넌트   | 16, 20, 24, 32, 48px               |
-| **React Native** | camelCase   | React Native SVG | 16, 20, 24, 32, 48dp               |
-| **Web URL**      | kebab-case  | SVG 파일         | 16, 20, 24, 32, 48px               |
-| **Font**         | kebab-case  | 웹폰트           | 모든 크기 지원                     |
-| **iOS**          | camelCase   | Asset Catalog    | 16, 20, 24, 32, 48pt               |
-| **Android**      | snake_case  | Vector Drawable  | mdpi, hdpi, xhdpi, xxhdpi, xxxhdpi |
+| 플랫폼              | 네이밍 규칙 | 출력 형식        | 크기 지원                          |
+| ------------------- | ----------- | ---------------- | ---------------------------------- |
+| **React Web**       | camelCase   | React 컴포넌트   | 16, 20, 24, 32, 48px               |
+| **React Native**    | camelCase   | React Native SVG | 16, 20, 24, 32, 48dp               |
+| **Web URL**         | kebab-case  | SVG 파일         | 16, 20, 24, 32, 48px               |
+| **Font**            | kebab-case  | 웹폰트           | 모든 크기 지원                     |
+| **iOS**             | camelCase   | Asset Catalog    | 16, 20, 24, 32, 48pt               |
+| **Android**         | snake_case  | Vector Drawable  | mdpi, hdpi, xhdpi, xxhdpi, xxxhdpi |
+| **Android Library** | snake_case  | Android Library  | mdpi, hdpi, xhdpi, xxhdpi, xxxhdpi |
 
 ### 🔧 설정 옵션
 
@@ -274,7 +275,7 @@ npm install @refineui/react-icons
 ```
 
 ```jsx
-import { AccessTime24Icon } from '@refineui/react-icons';
+import { AccessTime24Icon } from "@refineui/react-icons";
 
 function App() {
   return (
@@ -294,7 +295,7 @@ npm install @refineui/react-native-icons
 ```
 
 ```jsx
-import { AccessTime24Icon } from '@refineui/react-native-icons';
+import { AccessTime24Icon } from "@refineui/react-native-icons";
 
 function App() {
   return (
@@ -314,14 +315,39 @@ function App() {
 <img src="https://your-domain.com/icons/24/access-time.svg" alt="Access Time" />
 
 <!-- 또는 CSS로 배경 이미지 사용 -->
-<div style="background-image: url('https://your-domain.com/icons/24/access-time.svg')"></div>
+<div
+  style="background-image: url('https://your-domain.com/icons/24/access-time.svg')"
+></div>
+```
+
+#### Android Library
+
+```gradle
+// app/build.gradle
+dependencies {
+    implementation project(':refineui-icons')
+}
+```
+
+```xml
+<!-- XML에서 사용 -->
+<ImageView
+    android:layout_width="24dp"
+    android:layout_height="24dp"
+    android:src="@drawable/ic_refineui_access_time_24_regular" />
+```
+
+```kotlin
+// Kotlin에서 사용
+val iconDrawable = ContextCompat.getDrawable(context, R.drawable.ic_refineui_access_time_24_regular)
+imageView.setImageDrawable(iconDrawable)
 ```
 
 #### Font (웹폰트)
 
 ```html
 <!-- CSS 파일 포함 -->
-<link rel="stylesheet" href="./fonts/refineui-system-icons.css">
+<link rel="stylesheet" href="./fonts/refineui-system-icons.css" />
 
 <!-- 아이콘 사용 -->
 <i class="ri ri-access-time"></i>
@@ -329,6 +355,7 @@ function App() {
 ```
 
 **폰트 사용의 장점:**
+
 - 🚀 **빠른 로딩**: 하나의 폰트 파일로 모든 아이콘 로드
 - 🎨 **쉬운 스타일링**: CSS로 크기, 색상, 애니메이션 제어
 - 📱 **반응형**: 모든 디바이스에서 일관된 렌더링
