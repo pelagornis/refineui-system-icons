@@ -322,18 +322,22 @@ export const {component_name}Icon: React.FC<IconProps> = ({{
                     "source_path": source_path
                 })
         
-        # 각 DPI별로 처리
+        # 모든 아이콘을 drawable 폴더에 처리
+        drawable_dir = os.path.join(android_output, "drawable")
+        os.makedirs(drawable_dir, exist_ok=True)
+        
+        # 모든 아이콘을 하나의 폴더에 저장
+        all_icons = []
         for dpi, icons in dpi_groups.items():
-            dpi_dir = os.path.join(android_output, f"drawable-{dpi}")
-            os.makedirs(dpi_dir, exist_ok=True)
+            all_icons.extend(icons)
+        
+        for icon in all_icons:
+            # Android용 파일명 (snake_case)
+            android_filename = f"{self.slugify(icon['name'], 'android')}_{icon['size']}_{icon['style']}.xml"
+            dest_path = os.path.join(drawable_dir, android_filename)
             
-            for icon in icons:
-                # Android용 파일명 (snake_case)
-                android_filename = f"{self.slugify(icon['name'], 'android')}_{icon['size']}_{icon['style']}.xml"
-                dest_path = os.path.join(dpi_dir, android_filename)
-                
-                # SVG를 Android Vector Drawable로 변환
-                self.convert_svg_to_vector_drawable(icon['source_path'], dest_path)
+            # SVG를 Android Vector Drawable로 변환
+            self.convert_svg_to_vector_drawable(icon['source_path'], dest_path)
         
         # Android 리소스 파일 생성
         self.create_android_resources(icons_data, android_output)
