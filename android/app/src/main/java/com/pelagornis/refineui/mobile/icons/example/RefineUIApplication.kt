@@ -1,4 +1,4 @@
-package com.pelagornis.refineui
+package com.pelagornis.refineui.mobile.icons.example
 
 import android.app.Application
 import androidx.appcompat.app.AppCompatDelegate

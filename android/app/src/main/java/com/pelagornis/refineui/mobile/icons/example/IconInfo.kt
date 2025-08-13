@@ -1,4 +1,4 @@
-package com.pelagornis.refineui
+package com.pelagornis.refineui.mobile.icons.example
 
 import androidx.annotation.DrawableRes
 
