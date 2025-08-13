@@ -281,7 +281,7 @@ export const {component_name}Icon: React.FC<IconProps> = ({{
         """Android 패키지 빌드"""
         print("🤖 Android 패키지 빌드 중...")
         
-        android_output = "packages/android"
+        android_output = "android/library/src/main/res"
         os.makedirs(android_output, exist_ok=True)
         
         # DPI별로 그룹화
@@ -324,7 +324,7 @@ export const {component_name}Icon: React.FC<IconProps> = ({{
         
         # 각 DPI별로 처리
         for dpi, icons in dpi_groups.items():
-            dpi_dir = os.path.join(android_output, f"res/drawable-{dpi}")
+            dpi_dir = os.path.join(android_output, f"drawable-{dpi}")
             os.makedirs(dpi_dir, exist_ok=True)
             
             for icon in icons:
@@ -499,7 +499,7 @@ export const {component_name}Icon: React.FC<IconProps> = ({{
         
         strings_content += '</resources>'
         
-        strings_file = os.path.join(output_dir, "res/values/strings.xml")
+        strings_file = os.path.join(output_dir, "values/strings.xml")
         os.makedirs(os.path.dirname(strings_file), exist_ok=True)
         with open(strings_file, 'w', encoding='utf-8') as f:
             f.write(strings_content)
