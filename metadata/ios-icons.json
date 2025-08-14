@@ -1,0 +1,93 @@
+{
+  "platform": "ios",
+  "naming_convention": "camelCase",
+  "format": "imageset",
+  "icons": {
+    "ZoomOut": {
+      "name": "Zoom Out",
+      "sizes": [
+        16,
+        20,
+        24,
+        28,
+        32,
+        48
+      ],
+      "styles": [
+        "filled",
+        "regular"
+      ]
+    },
+    "AccessTime": {
+      "name": "Access Time",
+      "sizes": [
+        16,
+        20,
+        24,
+        28,
+        32,
+        48
+      ],
+      "styles": [
+        "filled",
+        "regular"
+      ]
+    },
+    "ZoomIn": {
+      "name": "Zoom In",
+      "sizes": [
+        16,
+        20,
+        24,
+        28,
+        32,
+        48
+      ],
+      "styles": [
+        "filled"
+      ]
+    },
+    "Add": {
+      "name": "Add",
+      "sizes": [
+        16,
+        20,
+        24,
+        28,
+        32,
+        48
+      ],
+      "styles": [
+        "filled",
+        "regular"
+      ]
+    },
+    "AddCircle": {
+      "name": "Add Circle",
+      "sizes": [
+        16,
+        20,
+        24,
+        28
+      ],
+      "styles": [
+        "regular"
+      ]
+    },
+    "Accessibility": {
+      "name": "Accessibility",
+      "sizes": [
+        16,
+        20,
+        24,
+        28,
+        32,
+        48
+      ],
+      "styles": [
+        "filled",
+        "regular"
+      ]
+    }
+  }
+}

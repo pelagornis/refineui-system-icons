@@ -1,0 +1,17 @@
+{
+  "name": "Home checkmark",
+  "size": [
+    16,
+    20,
+    24,
+    28,
+    32,
+    48
+  ],
+  "style": [
+    "filled",
+    "regular"
+  ],
+  "keyword": "refineui-icon",
+  "description": "Used in home checkmark scenarios."
+}

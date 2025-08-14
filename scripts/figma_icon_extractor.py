@@ -160,16 +160,6 @@ class FigmaIconExtractor:
                     traverse_nodes(child, current_name)
                 else:
                     traverse_nodes(child, parent_name)
-            
-            # 자식 노드들도 탐색 (현재 노드 이름을 부모 이름으로 전달)
-            current_name = node.get("name", "")
-            for child in node.get("children", []):
-                # 크기/테마 프레임이 아닌 경우에만 부모 이름으로 전달
-                if not (current_name.startswith("Size=") or current_name.startswith("Theme=") or 
-                       current_name.startswith("State=") or "=" in current_name):
-                    traverse_nodes(child, current_name)
-                else:
-                    traverse_nodes(child, parent_name)
         
         traverse_nodes(page)
         return icons
@@ -368,44 +358,31 @@ class FigmaIconExtractor:
         # 공용 assets 디렉토리 구조 생성
         self.create_assets_structure()
         
-        # 배치별로 처리
+        # 실시간으로 각 아이콘 처리
         all_metadata = []
-        current_index = start_index
+        processed_count = 0
+        seen_combinations = set()
         
-        for batch_start in range(0, len(icons_to_process), batch_size):
-            batch_end = min(batch_start + batch_size, len(icons_to_process))
-            batch_icons = icons_to_process[batch_start:batch_end]
+        for icon in icons_to_process:
+            icon_name = icon["name"]
+            node_id = icon["node_id"]
+            size = icon["size"]
+            style = icon["style"]
             
-            logger.info(f"배치 처리 중... ({batch_start + 1}-{batch_end}/{len(icons_to_process)})")
+            # 중복 조합 확인
+            combination = f"{icon_name}_{size}_{style}"
+            if combination in seen_combinations:
+                continue
+            seen_combinations.add(combination)
             
-            # 현재 배치의 SVG URL 가져오기
-            node_ids = [icon["node_id"] for icon in batch_icons]
-            svg_urls = self.get_svg_urls(node_ids)
+            # 개별 SVG URL 가져오기
+            svg_urls = self.get_svg_urls([node_id])
             
-            # 아이콘별로 그룹화 (중복 제거)
-            icon_groups = {}
-            seen_combinations = set()  # 중복 체크용
+            if node_id not in svg_urls:
+                logger.warning(f"SVG URL을 찾을 수 없음: {icon_name}")
+                continue
             
-            for icon in batch_icons:
-                icon_name = icon["name"]
-                size = icon["size"]
-                style = icon["style"]
-                
-                # 아이콘명 + 크기 + 스타일 조합으로 중복 체크
-                combination = f"{icon_name}_{size}_{style}"
-                if combination in seen_combinations:
-                    continue
-                
-                seen_combinations.add(combination)
-                
-                if icon_name not in icon_groups:
-                    icon_groups[icon_name] = []
-                icon_groups[icon_name].append(icon)
-        
-        # 아이콘별로 처리
-        all_metadata = []
-        for icon_name, icon_list in icon_groups.items():
-            logger.info(f"아이콘 처리 중: {icon_name}")
+            svg_url = svg_urls[node_id]
             
             # 아이콘별 디렉토리 생성 (Title Case로 변환)
             folder_name = self.to_title_case(icon_name)
@@ -413,92 +390,130 @@ class FigmaIconExtractor:
             svg_dir = os.path.join(icon_dir, "svg")
             os.makedirs(svg_dir, exist_ok=True)
             
-            icon_files = []
+            # 새로운 네이밍 규칙으로 파일명 생성
+            filename = self.generate_filename(icon_name, size, style)
+            full_path = os.path.join(svg_dir, filename)
             
-            for icon in icon_list:
-                node_id = icon["node_id"]
-                if node_id not in svg_urls:
-                    logger.warning(f"SVG URL을 찾을 수 없음: {icon_name}")
-                    continue
+            # SVG 다운로드
+            if self.download_svg(svg_url, full_path):
+                processed_count += 1
+                logger.info(f"✓ {processed_count:4d} - {filename} 다운로드 완료")
                 
-                svg_url = svg_urls[node_id]
-                size = icon["size"]
-                style = icon["style"]
-                
-                # 새로운 네이밍 규칙으로 파일명 생성
-                filename = self.generate_filename(icon_name, size, style)
-                full_path = os.path.join(svg_dir, filename)
-                
-                # SVG 다운로드
-                if self.download_svg(svg_url, full_path):
-                    
-                    all_metadata.append(IconMetadata(
-                        name=icon_name,
-                        slug=self.slugify(icon_name),
-                        size=size,
-                        node_id=node_id,
-                        style=style,
-                        file_path=full_path
-                    ))
-                    
-                    icon_files.append({
-                        "size": size,
-                        "style": style,
-                        "filename": filename,
-                        "path": full_path
-                    })
-                    
-                    logger.info(f"저장됨: {full_path}")
-            
-            # 개별 아이콘 메타데이터 저장
-            if icon_files:
-                self.save_icon_metadata(icon_name, icon_files)
+                all_metadata.append(IconMetadata(
+                    name=icon_name,
+                    slug=self.slugify(icon_name),
+                    size=size,
+                    node_id=node_id,
+                    style=style,
+                    file_path=full_path
+                ))
+            else:
+                logger.error(f"✗ {filename} 다운로드 실패")
         
-        # 현재 배치 완료 후 진행 상황 저장
-        current_index = start_index + batch_end
-        progress_data = {
-            'last_processed_index': current_index,
-            'total_icons': len(icons),
-            'processed_icons': current_index,
-            'timestamp': datetime.now().isoformat()
-        }
+        logger.info(f"총 {processed_count}개의 아이콘 파일이 생성되었습니다.")
         
-        with open(progress_file, 'w', encoding='utf-8') as f:
-            json.dump(progress_data, f, indent=2, ensure_ascii=False)
-        
-        logger.info(f"배치 완료: {current_index}/{len(icons)} 아이콘 처리됨")
-        
-        # 전체 메타데이터 저장
-        self.save_all_metadata(all_metadata)
-        logger.info(f"총 {len(all_metadata)}개의 아이콘 파일이 생성되었습니다.")
+        # 아이콘 추출 완료 후 assets 폴더에서 메타데이터 생성
+        logger.info("assets 폴더에서 메타데이터 생성 중...")
+        self.generate_metadata_from_assets()
         
         return all_metadata
 
-    def save_all_metadata(self, metadata: List[IconMetadata]):
-        """전체 메타데이터 저장"""
-        metadata_dir = "metadata"
-        os.makedirs(metadata_dir, exist_ok=True)
+    def generate_metadata_from_assets(self):
+        """assets 폴더에서 메타데이터 생성"""
+        logger.info("assets 폴더 스캔 중...")
         
-        # 아이콘별로 그룹화
         icons_data = {}
-        for item in metadata:
-            if item.slug not in icons_data:
-                icons_data[item.slug] = {
-                    "name": item.name,
-                    "slug": item.slug,
-                    "files": []
-                }
+        
+        if not os.path.exists(self.assets_dir):
+            logger.warning(f"{self.assets_dir} 디렉토리가 존재하지 않습니다.")
+            return
+        
+        for icon_folder in os.listdir(self.assets_dir):
+            icon_path = os.path.join(self.assets_dir, icon_folder)
             
-            icons_data[item.slug]["files"].append({
-                "size": item.size,
-                "style": item.style,
-                "node_id": item.node_id,
-                "file_path": item.file_path
-            })
+            if os.path.isdir(icon_path):
+                svg_dir = os.path.join(icon_path, "svg")
+                
+                if os.path.exists(svg_dir):
+                    svg_files = []
+                    sizes = set()
+                    styles = set()
+                    
+                    # SVG 파일들 스캔
+                    for file in os.listdir(svg_dir):
+                        if file.endswith('.svg'):
+                            # 파일명에서 크기와 스타일 추출
+                            parts = file.replace('.svg', '').split('_')
+                            if len(parts) >= 4:
+                                size = int(parts[-2])
+                                style = parts[-1]
+                                
+                                svg_files.append({
+                                    "filename": file,
+                                    "size": size,
+                                    "style": style,
+                                    "path": os.path.join(svg_dir, file)
+                                })
+                                
+                                sizes.add(size)
+                                styles.add(style)
+                    
+                    if svg_files:
+                        # 아이콘 이름을 Title Case로 변환
+                        icon_name = self.to_title_case(icon_folder)
+                        
+                        # 개별 아이콘 메타데이터 저장
+                        individual_metadata = {
+                            "name": icon_name,
+                            "size": sorted(list(sizes)),
+                            "style": sorted(list(styles)),
+                            "keyword": "refineui-icon",
+                            "description": f"Used in {icon_name.lower()} scenarios."
+                        }
+                        
+                        metadata_file = os.path.join(icon_path, "metadata.json")
+                        with open(metadata_file, 'w', encoding='utf-8') as f:
+                            json.dump(individual_metadata, f, indent=2, ensure_ascii=False)
+                        
+                        # 전체 메타데이터용 데이터 수집
+                        icons_data[icon_name] = {
+                            "name": icon_name,
+                            "slug": self.slugify(icon_folder),
+                            "size": sorted(list(sizes)),
+                            "style": sorted(list(styles)),
+                            "keyword": "refineui-icon",
+                            "description": f"Used in {icon_name.lower()} scenarios.",
+                            "files": svg_files
+                        }
         
         # 전체 메타데이터 저장
-        with open(f"{metadata_dir}/icons.json", 'w', encoding='utf-8') as f:
-            json.dump(icons_data, f, indent=2, ensure_ascii=False)
+        if icons_data:
+            metadata_dir = "metadata"
+            os.makedirs(metadata_dir, exist_ok=True)
+            
+            overall_metadata = {
+                "total_icons": len(icons_data),
+                "supported_sizes": [16, 20, 24, 28, 32, 48],
+                "supported_styles": ["regular", "filled"],
+                "icons": {}
+            }
+            
+            for icon_name, icon_info in icons_data.items():
+                overall_metadata["icons"][icon_info["slug"]] = icon_info
+            
+            # 전체 메타데이터 저장
+            metadata_file = os.path.join(metadata_dir, "icons.json")
+            with open(metadata_file, 'w', encoding='utf-8') as f:
+                json.dump(overall_metadata, f, indent=2, ensure_ascii=False)
+            
+            logger.info(f"✓ 메타데이터 생성 완료: {len(icons_data)}개 아이콘")
+        else:
+            logger.warning("생성할 메타데이터가 없습니다.")
+    
+    def save_all_metadata(self, metadata: List[IconMetadata]):
+        """전체 메타데이터 저장 (기존 메서드 - 호환성용)"""
+        # 이 메서드는 더 이상 사용되지 않음
+        pass
 
 def main():
     """메인 실행 함수"""

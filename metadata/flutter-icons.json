@@ -1,0 +1,93 @@
+{
+  "platform": "flutter",
+  "naming_convention": "snake_case",
+  "format": "svg",
+  "icons": {
+    "zoom_out": {
+      "name": "Zoom Out",
+      "sizes": [
+        16,
+        20,
+        24,
+        28,
+        32,
+        48
+      ],
+      "styles": [
+        "filled",
+        "regular"
+      ]
+    },
+    "access_time": {
+      "name": "Access Time",
+      "sizes": [
+        16,
+        20,
+        24,
+        28,
+        32,
+        48
+      ],
+      "styles": [
+        "filled",
+        "regular"
+      ]
+    },
+    "zoom_in": {
+      "name": "Zoom In",
+      "sizes": [
+        16,
+        20,
+        24,
+        28,
+        32,
+        48
+      ],
+      "styles": [
+        "filled"
+      ]
+    },
+    "add": {
+      "name": "Add",
+      "sizes": [
+        16,
+        20,
+        24,
+        28,
+        32,
+        48
+      ],
+      "styles": [
+        "filled",
+        "regular"
+      ]
+    },
+    "add_circle": {
+      "name": "Add Circle",
+      "sizes": [
+        16,
+        20,
+        24,
+        28
+      ],
+      "styles": [
+        "regular"
+      ]
+    },
+    "accessibility": {
+      "name": "Accessibility",
+      "sizes": [
+        16,
+        20,
+        24,
+        28,
+        32,
+        48
+      ],
+      "styles": [
+        "filled",
+        "regular"
+      ]
+    }
+  }
+}
