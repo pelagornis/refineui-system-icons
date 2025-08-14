@@ -156,13 +156,13 @@ export const {component_name}Icon: React.FC<IconProps> = ({{
                 with open(component_file, 'w', encoding='utf-8') as f:
                     f.write(component_code)
         
-        # Web 인덱스 파일 생성
+        # Create Web index file
         self.create_web_index(icons_data, web_output)
-        print("✅ Web 패키지 완료")
+        print("✅ Web package completed")
 
     def build_react_native_package(self, icons_data: Dict):
-        """React Native 패키지 빌드"""
-        print("📱 React Native 패키지 빌드 중...")
+        """Build React Native package"""
+        print("📱 Building React Native package...")
         
         rn_output = "packages/react-native-icons/src"
         os.makedirs(rn_output, exist_ok=True)
@@ -224,13 +224,13 @@ export const {component_name}Icon: React.FC<IconProps> = ({{
                 with open(component_file, 'w', encoding='utf-8') as f:
                     f.write(component_code)
         
-        # React Native 인덱스 파일 생성
+        # Create React Native index file
         self.create_react_native_index(icons_data, rn_output)
-        print("✅ React Native 패키지 완료")
+        print("✅ React Native package completed")
 
     def build_ios_package(self, icons_data: Dict):
-        """iOS 패키지 빌드"""
-        print("🍎 iOS 패키지 빌드 중...")
+        """Build iOS package"""
+        print("🍎 Building iOS package...")
         
         ios_output = "ios/RefineIcons/Resources/IconAssets.xcassets"
         os.makedirs(ios_output, exist_ok=True)
@@ -275,17 +275,20 @@ export const {component_name}Icon: React.FC<IconProps> = ({{
                 # Contents.json 생성
                 self.create_ios_contents_json(imageset_path, ios_filename)
         
-        print("✅ iOS 패키지 완료")
+        print("✅ iOS package completed")
 
     def build_android_package(self, icons_data: Dict):
-        """Android 패키지 빌드"""
-        print("🤖 Android 패키지 빌드 중...")
+        """Build Android package"""
+        print("🤖 Building Android package...")
         
         android_output = "android/library/src/main/res"
         os.makedirs(android_output, exist_ok=True)
         
-        # DPI별로 그룹화
-        dpi_groups = {}
+        # Create single drawable directory
+        drawable_dir = os.path.join(android_output, "drawable")
+        os.makedirs(drawable_dir, exist_ok=True)
+        
+        # Process all icons directly
         for icon_folder, icon_info in icons_data.items():
             icon_name = icon_info["name"]
             svg_dir = os.path.join(self.assets_dir, icon_folder, "svg")
@@ -293,12 +296,12 @@ export const {component_name}Icon: React.FC<IconProps> = ({{
             if not os.path.exists(svg_dir):
                 continue
                 
-            # SVG 파일들 스캔
+            # Scan SVG files
             for svg_file in os.listdir(svg_dir):
                 if not svg_file.endswith('.svg'):
                     continue
                 
-                # 파일명에서 크기와 스타일 추출
+                # Extract size and style from filename
                 parts = svg_file.replace('.svg', '').split('_')
                 if len(parts) >= 4:
                     size = int(parts[-2])
@@ -311,41 +314,20 @@ export const {component_name}Icon: React.FC<IconProps> = ({{
                 if not os.path.exists(source_path):
                     continue
                 
-                dpi = self.dpi_mapping.get(size, "mdpi")
-                if dpi not in dpi_groups:
-                    dpi_groups[dpi] = []
+                # Android filename (snake_case)
+                android_filename = f"{self.slugify(icon_name, 'android')}_{size}_{style}.xml"
+                dest_path = os.path.join(drawable_dir, android_filename)
                 
-                dpi_groups[dpi].append({
-                    "name": icon_name,
-                    "size": size,
-                    "style": style,
-                    "source_path": source_path
-                })
+                # Convert SVG to Android Vector Drawable
+                self.convert_svg_to_vector_drawable(source_path, dest_path)
         
-        # 모든 아이콘을 drawable 폴더에 처리
-        drawable_dir = os.path.join(android_output, "drawable")
-        os.makedirs(drawable_dir, exist_ok=True)
-        
-        # 모든 아이콘을 하나의 폴더에 저장
-        all_icons = []
-        for dpi, icons in dpi_groups.items():
-            all_icons.extend(icons)
-        
-        for icon in all_icons:
-            # Android용 파일명 (snake_case)
-            android_filename = f"{self.slugify(icon['name'], 'android')}_{icon['size']}_{icon['style']}.xml"
-            dest_path = os.path.join(drawable_dir, android_filename)
-            
-            # SVG를 Android Vector Drawable로 변환
-            self.convert_svg_to_vector_drawable(icon['source_path'], dest_path)
-        
-        # Android 리소스 파일 생성
+        # Create Android resource files
         self.create_android_resources(icons_data, android_output)
-        print("✅ Android 패키지 완료")
+        print("✅ Android package completed")
 
     def build_flutter_package(self, icons_data: Dict):
-        """Flutter 패키지 빌드"""
-        print("🦋 Flutter 패키지 빌드 중...")
+        """Build Flutter package"""
+        print("🦋 Building Flutter package...")
         
         flutter_output = "packages/flutter"
         os.makedirs(flutter_output, exist_ok=True)
@@ -382,10 +364,10 @@ export const {component_name}Icon: React.FC<IconProps> = ({{
                 # SVG 파일 복사
                 shutil.copy2(source_path, dest_path)
         
-        print("✅ Flutter 패키지 완료")
+        print("✅ Flutter package completed")
 
     def create_web_index(self, icons_data: Dict, output_dir: str):
-        """Web용 인덱스 파일 생성"""
+        """Create Web index file"""
         index_content = "// Auto-generated index file\n\n"
         
         for icon_folder, icon_info in icons_data.items():
@@ -417,7 +399,7 @@ export const {component_name}Icon: React.FC<IconProps> = ({{
             f.write(index_content)
 
     def create_react_native_index(self, icons_data: Dict, output_dir: str):
-        """React Native용 인덱스 파일 생성"""
+        """Create React Native index file"""
         index_content = "// Auto-generated index file\n\n"
         
         for icon_folder, icon_info in icons_data.items():
@@ -449,7 +431,7 @@ export const {component_name}Icon: React.FC<IconProps> = ({{
             f.write(index_content)
 
     def create_ios_contents_json(self, imageset_path: str, filename: str):
-        """iOS imageset용 Contents.json 생성"""
+        """Create iOS imageset Contents.json"""
         contents = {
             "images": [
                 {
@@ -469,11 +451,11 @@ export const {component_name}Icon: React.FC<IconProps> = ({{
             json.dump(contents, f, indent=2)
 
     def convert_svg_to_vector_drawable(self, svg_path: str, output_path: str):
-        """SVG를 Android Vector Drawable로 변환"""
+        """Convert SVG to Android Vector Drawable"""
         with open(svg_path, 'r', encoding='utf-8') as f:
             svg_content = f.read()
         
-        # 간단한 변환 (실제로는 더 정교한 파싱이 필요)
+        # Simple conversion (more sophisticated parsing needed in practice)
         vector_drawable = f'''<?xml version="1.0" encoding="utf-8"?>
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="24dp"
@@ -481,7 +463,7 @@ export const {component_name}Icon: React.FC<IconProps> = ({{
     android:viewportWidth="24"
     android:viewportHeight="24">
     
-    <!-- SVG 내용을 여기에 변환 -->
+    <!-- Convert SVG content here -->
     <path android:fillColor="#000000" android:pathData="M12,2C6.48,2 2,6.48 2,12s4.48,10 10,10 10,-4.48 10,-10S17.52,2 12,2z"/>
     
 </vector>'''
@@ -490,8 +472,8 @@ export const {component_name}Icon: React.FC<IconProps> = ({{
             f.write(vector_drawable)
 
     def create_android_resources(self, icons_data: Dict, output_dir: str):
-        """Android 리소스 파일들 생성"""
-        # strings.xml 생성
+        """Create Android resource files"""
+        # Create strings.xml
         strings_content = '''<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Icon names -->
@@ -509,60 +491,60 @@ export const {component_name}Icon: React.FC<IconProps> = ({{
             f.write(strings_content)
 
     def build_all_platforms(self):
-        """모든 플랫폼 빌드"""
-        print("🚀 모든 플랫폼 빌드 시작...")
+        """Build all platforms"""
+        print("🚀 Starting all platform builds...")
         
-        # assets 디렉토리 스캔
+        # Scan assets directory
         icons_data = self.scan_assets()
         
         if not icons_data:
-            print("⚠️  처리할 아이콘이 없습니다.")
+            print("⚠️  No icons to process.")
             return
         
-        print(f"📁 {len(icons_data)}개의 아이콘 폴더를 발견했습니다.")
+        print(f"📁 Found {len(icons_data)} icon folders.")
         
-        # 각 플랫폼별 빌드
+        # Build for each platform
         self.build_web_package(icons_data)
         self.build_react_native_package(icons_data)
         self.build_ios_package(icons_data)
         self.build_android_package(icons_data)
         self.build_flutter_package(icons_data)
         
-        # 폰트 빌드 추가
+        # Add font build
         self.build_font_package(icons_data)
         
-        print("🎉 모든 플랫폼 빌드 완료!")
+        print("🎉 All platform builds completed!")
     
     def build_font_package(self, icons_data: Dict):
-        """폰트 패키지 빌드"""
-        print("🔤 폰트 패키지 빌드 시작...")
+        """Build font package"""
+        print("🔤 Starting font package build...")
         
         fonts_dir = "fonts"
         os.makedirs(fonts_dir, exist_ok=True)
         
-        # FontBuilder 임포트 및 실행
+        # Import and run FontBuilder
         try:
             from build_font import FontBuilder
             builder = FontBuilder(assets_dir=self.assets_dir, fonts_dir=fonts_dir)
             success = builder.build_font()
             
             if success:
-                print("🎉 폰트 패키지 빌드 완료!")
+                print("🎉 Font package build completed!")
             else:
-                print("⚠️  폰트 빌드에 실패했습니다. FontForge 설치가 필요할 수 있습니다.")
+                print("⚠️  Font build failed. FontForge installation may be required.")
         except ImportError:
-            print("⚠️  build_font 모듈을 찾을 수 없습니다.")
+            print("⚠️  build_font module not found.")
         except Exception as e:
-            print(f"❌ 폰트 빌드 오류: {e}")
+            print(f"❌ Font build error: {e}")
 
 def main():
-    """메인 실행 함수"""
+    """Main execution function"""
     try:
         builder = PlatformBuilder()
         builder.build_all_platforms()
         return 0
     except Exception as e:
-        print(f"❌ 빌드 실패: {e}")
+        print(f"❌ Build failed: {e}")
         return 1
 
 if __name__ == "__main__":

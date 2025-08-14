@@ -51,10 +51,10 @@ class FontBuilder:
         
         # ttf2woff2 is optional
         try:
-            subprocess.run(["ttf2woff2", "--version"], capture_output=True, check=True)
+            subprocess.run(["ttf2woff2"], capture_output=True, check=False)
             logger.info(f"✓ ttf2woff2 installed")
             self.has_ttf2woff2 = True
-        except (subprocess.CalledProcessError, FileNotFoundError):
+        except FileNotFoundError:
             logger.warning(f"⚠ ttf2woff2 not found - WOFF2 fonts will not be generated")
             self.has_ttf2woff2 = False
         
@@ -208,15 +208,8 @@ font.close()
 """
         
         for icon_name, info in icon_mapping.items():
-            # Extract size from SVG filename
-            svg_path = info['svg_path']
-            svg_filename = os.path.basename(svg_path)
-            # ic_refineui_access_time_24_regular.svg -> size = 24
-            size_match = re.search(r'_(\d+)_(regular|filled)\.svg$', svg_filename)
-            size = size_match.group(1) if size_match else "24"  # default value 24
-            
             # Generate CSS class name: ic_refineui_iconName_size_theme
-            css_name = f"ic_refineui_{icon_name.lower().replace(' ', '_')}_{size}_{style}"
+            css_name = f"ic_refineui_{icon_name.lower().replace(' ', '_')}"
             css_content += f"""
 .{css_name}:before {{
     font-family: '{self.font_family}-{style.title()}';
@@ -285,15 +278,9 @@ font.close()
         # Regular icons
         if "regular" in all_icon_mappings:
             for icon_name, info in all_icon_mappings["regular"].items():
-                # Extract original name and size from icon name (e.g., "Access time_24_regular")
-                parts = icon_name.split('_')
-                if len(parts) >= 3:
-                    original_name = '_'.join(parts[:-2])  # "Access time"
-                    size = parts[-2]  # "24"
-                    
-                    # Generate CSS class name: ic_refineui_iconName_size_theme
-                    css_name = f"ic_refineui_{original_name.lower().replace(' ', '_')}_{size}_regular"
-                    css_content += f"""
+                # Generate CSS class name: ic_refineui_iconName_size_theme
+                css_name = f"ic_refineui_{icon_name.lower().replace(' ', '_')}"
+                css_content += f"""
 .{css_name}:before {{
     font-family: '{self.font_family}-Regular';
     font-weight: normal;
@@ -305,15 +292,9 @@ font.close()
         # Filled icons
         if "filled" in all_icon_mappings:
             for icon_name, info in all_icon_mappings["filled"].items():
-                # Extract original name and size from icon name (e.g., "Access time_24_filled")
-                parts = icon_name.split('_')
-                if len(parts) >= 3:
-                    original_name = '_'.join(parts[:-2])  # "Access time"
-                    size = parts[-2]  # "24"
-                    
-                    # Generate CSS class name: ic_refineui_iconName_size_theme
-                    css_name = f"ic_refineui_{original_name.lower().replace(' ', '_')}_{size}_filled"
-                    css_content += f"""
+                # Generate CSS class name: ic_refineui_iconName_size_theme
+                css_name = f"ic_refineui_{icon_name.lower().replace(' ', '_')}"
+                css_content += f"""
 .{css_name}:before {{
     font-family: '{self.font_family}-Filled';
     font-weight: normal;
@@ -346,22 +327,26 @@ font.close()
             }
             
             for icon_name, info in icon_mapping.items():
-                # Extract original name and size from icon name (e.g., "Access time_24_regular")
+                # Generate CSS class name: ic_refineui_iconName_size_theme
+                css_name = f"ic_refineui_{icon_name.lower().replace(' ', '_')}"
+                
+                # Extract name and size from icon_name (e.g., "Access time_24_regular")
                 parts = icon_name.split('_')
                 if len(parts) >= 3:
                     original_name = '_'.join(parts[:-2])  # "Access time"
                     size = parts[-2]  # "24"
-                    
-                    # Generate CSS class name: ic_refineui_iconName_size_theme
-                    css_name = f"ic_refineui_{original_name.lower().replace(' ', '_')}_{size}_{style}"
-                    mapping_data["icons"][css_name] = {
-                        "name": original_name,
-                        "size": size,
-                        "style": style,
-                        "unicode": info["unicode"],
-                        "unicode_hex": f"\\{info['unicode']:X}",
-                        "css_class": css_name
-                    }
+                else:
+                    original_name = icon_name
+                    size = "24"
+                
+                mapping_data["icons"][css_name] = {
+                    "name": original_name,
+                    "size": size,
+                    "style": style,
+                    "unicode": info["unicode"],
+                    "unicode_hex": f"\\{info['unicode']:X}",
+                    "css_class": css_name
+                }
         
         # Save combined mapping file
         mapping_path = os.path.join(self.fonts_dir, "icon-mapping.json")
@@ -541,13 +526,16 @@ You can use RefineUI System Icons as fonts. Regular and Filled styles are separa
         if "regular" in all_icon_mappings:
             readme_content += "### Regular style\n\n"
             for icon_name in sorted(all_icon_mappings["regular"].keys()):
-                # Extract size from SVG filename
-                svg_path = all_icon_mappings["regular"][icon_name]['svg_path']
-                svg_filename = os.path.basename(svg_path)
-                size_match = re.search(r'_(\d+)_(regular|filled)\.svg$', svg_filename)
-                size = size_match.group(1) if size_match else "24"  # default value 24
+                # Generate CSS class name: ic_refineui_iconName_size_theme
+                css_class = f"ic_refineui_{icon_name.lower().replace(' ', '_')}"
                 
-                css_class = f"ic_refineui_{icon_name.lower().replace(' ', '_')}_{size}_regular"
+                # Extract size from icon_name (e.g., "Access time_24_regular")
+                parts = icon_name.split('_')
+                if len(parts) >= 3:
+                    size = parts[-2]  # "24"
+                else:
+                    size = "24"
+                
                 readme_content += f"- `{css_class}` - {icon_name} ({size}px)\n"
             readme_content += "\n"
         
@@ -555,13 +543,16 @@ You can use RefineUI System Icons as fonts. Regular and Filled styles are separa
         if "filled" in all_icon_mappings:
             readme_content += "### Filled style\n\n"
             for icon_name in sorted(all_icon_mappings["filled"].keys()):
-                # Extract size from SVG filename
-                svg_path = all_icon_mappings["filled"][icon_name]['svg_path']
-                svg_filename = os.path.basename(svg_path)
-                size_match = re.search(r'_(\d+)_(regular|filled)\.svg$', svg_filename)
-                size = size_match.group(1) if size_match else "24"  # default value 24
+                # Generate CSS class name: ic_refineui_iconName_size_theme
+                css_class = f"ic_refineui_{icon_name.lower().replace(' ', '_')}"
                 
-                css_class = f"ic_refineui_{icon_name.lower().replace(' ', '_')}_{size}_filled"
+                # Extract size from icon_name (e.g., "Access time_24_filled")
+                parts = icon_name.split('_')
+                if len(parts) >= 3:
+                    size = parts[-2]  # "24"
+                else:
+                    size = "24"
+                
                 readme_content += f"- `{css_class}` - {icon_name} ({size}px)\n"
             readme_content += "\n"
         

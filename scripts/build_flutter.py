@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-iOS Platform Builder
-Build iOS-specific packages (Asset Catalog)
+Flutter Platform Builder
+Build Flutter-specific packages
 """
 
 import os
@@ -10,8 +10,8 @@ import shutil
 from pathlib import Path
 from typing import Dict, List
 
-class iOSPlatformBuilder:
-    """iOS platform-specific builder"""
+class FlutterPlatformBuilder:
+    """Flutter platform-specific builder"""
     
     def __init__(self):
         self.assets_dir = "assets"
@@ -69,12 +69,12 @@ class iOSPlatformBuilder:
         
         return icons_data
 
-    def build_ios_package(self, icons_data: Dict):
-        """Build iOS package"""
-        print("🍎 Building iOS package...")
+    def build_flutter_package(self, icons_data: Dict):
+        """Build Flutter package"""
+        print("🦋 Building Flutter package...")
         
-        ios_output = "ios/RefineIcons/Resources/IconAssets.xcassets"
-        os.makedirs(ios_output, exist_ok=True)
+        flutter_output = "packages/flutter"
+        os.makedirs(flutter_output, exist_ok=True)
         
         for icon_folder, icon_info in icons_data.items():
             icon_name = icon_info["name"]
@@ -101,46 +101,18 @@ class iOSPlatformBuilder:
                 if not os.path.exists(source_path):
                     continue
                 
-                # iOS filename (camelCase)
-                ios_filename = f"{self.slugify(icon_name, 'ios')}{size}{style.title()}.svg"
-                imageset_name = f"{self.slugify(icon_name, 'ios')}{size}{style.title()}.imageset"
-                imageset_path = os.path.join(ios_output, imageset_name)
-                
-                # Create imageset directory
-                os.makedirs(imageset_path, exist_ok=True)
+                # Flutter filename (snake_case)
+                flutter_filename = f"{self.slugify(icon_name, 'flutter')}_{size}_{style}.svg"
+                dest_path = os.path.join(flutter_output, flutter_filename)
                 
                 # Copy SVG file
-                dest_path = os.path.join(imageset_path, ios_filename)
                 shutil.copy2(source_path, dest_path)
-                
-                # Create Contents.json
-                self.create_ios_contents_json(imageset_path, ios_filename)
         
-        print("✅ iOS package completed")
+        print("✅ Flutter package completed")
 
-    def create_ios_contents_json(self, imageset_path: str, filename: str):
-        """Create iOS imageset Contents.json"""
-        contents = {
-            "images": [
-                {
-                    "idiom": "universal",
-                    "filename": filename,
-                    "scale": "1x"
-                }
-            ],
-            "info": {
-                "version": 1,
-                "author": "xcode"
-            }
-        }
-        
-        contents_file = os.path.join(imageset_path, "Contents.json")
-        with open(contents_file, 'w', encoding='utf-8') as f:
-            json.dump(contents, f, indent=2)
-
-    def build_ios_platform(self):
-        """Build iOS platform packages"""
-        print("🚀 Starting iOS platform builds...")
+    def build_flutter_platform(self):
+        """Build Flutter platform packages"""
+        print("🚀 Starting Flutter platform builds...")
         
         # Scan assets directory
         icons_data = self.scan_assets()
@@ -151,17 +123,17 @@ class iOSPlatformBuilder:
         
         print(f"📁 Found {len(icons_data)} icon folders.")
         
-        # Build iOS package
-        self.build_ios_package(icons_data)
+        # Build Flutter package
+        self.build_flutter_package(icons_data)
         
-        print("🎉 iOS platform builds completed!")
+        print("🎉 Flutter platform builds completed!")
         return True
 
 def main():
     """Main execution function"""
     try:
-        builder = iOSPlatformBuilder()
-        success = builder.build_ios_platform()
+        builder = FlutterPlatformBuilder()
+        success = builder.build_flutter_platform()
         return 0 if success else 1
     except Exception as e:
         print(f"❌ Build failed: {e}")

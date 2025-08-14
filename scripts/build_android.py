@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Android Icon Builder
-추출된 SVG 아이콘들을 Android용으로 빌드하는 스크립트
+Android Platform Builder
+Build Android-specific packages (Vector Drawable)
 """
 
 import os
@@ -10,120 +10,232 @@ import shutil
 from pathlib import Path
 from typing import Dict, List
 
-def build_android_icons():
-    """Android용 아이콘 빌드"""
-    print("🤖 Android 아이콘 빌드 시작...")
+class AndroidPlatformBuilder:
+    """Android platform-specific builder"""
     
-    # 메타데이터 로드
-    metadata_path = "metadata/icons_android.json"
-    if not os.path.exists(metadata_path):
-        print("❌ Android 메타데이터 파일을 찾을 수 없습니다.")
-        return False
-    
-    with open(metadata_path, 'r', encoding='utf-8') as f:
-        android_icons = json.load(f)
-    
-    # Android 출력 디렉토리
-    android_output = "packages/android"
-    os.makedirs(android_output, exist_ok=True)
-    
-    # DPI별로 그룹화
-    dpi_groups = {}
-    for icon in android_icons:
-        size = icon["size"]
-        dpi = get_dpi_for_size(size)
-        if dpi not in dpi_groups:
-            dpi_groups[dpi] = []
-        dpi_groups[dpi].append(icon)
-    
-    # 각 DPI별로 처리
-    for dpi, icons in dpi_groups.items():
-        dpi_dir = os.path.join(android_output, f"res/drawable-{dpi}")
-        os.makedirs(dpi_dir, exist_ok=True)
+    def __init__(self):
+        self.assets_dir = "assets"
+        self.metadata_dir = "metadata"
         
-        for icon in icons:
-            source_path = icon["file_path"]
-            if not os.path.exists(source_path):
-                print(f"⚠️  소스 파일을 찾을 수 없음: {source_path}")
+        # Platform-specific naming rules
+        self.naming_rules = {
+            "web": "kebab-case",      # icon-name.svg
+            "ios": "camelCase",       # iconName.svg
+            "android": "snake_case",  # icon_name.svg
+            "flutter": "snake_case"   # icon_name.svg
+        }
+        
+        # Android DPI mapping
+        self.dpi_mapping = {
+            16: "mdpi",
+            20: "hdpi", 
+            24: "xhdpi",
+            32: "xxhdpi",
+            48: "xxxhdpi"
+        }
+
+    def slugify(self, name: str, platform: str = "web") -> str:
+        """Convert icon name to slug according to platform-specific naming rules"""
+        # Basic kebab-case conversion
+        import re
+        slug = re.sub(r'[^a-zA-Z0-9\s-]', '', name)
+        slug = re.sub(r'\s+', '-', slug.lower())
+        slug = re.sub(r'-+', '-', slug).strip('-')
+        
+        # Platform-specific conversion
+        if platform == "ios":
+            # Convert to camelCase
+            parts = slug.split('-')
+            return parts[0] + ''.join(word.capitalize() for word in parts[1:])
+        elif platform in ["android", "flutter"]:
+            # Convert to snake_case
+            return slug.replace('-', '_')
+        
+        return slug
+
+    def scan_assets(self) -> Dict:
+        """Scan assets directory to collect icon information"""
+        icons_data = {}
+        
+        if not os.path.exists(self.assets_dir):
+            raise FileNotFoundError(f"Assets directory not found: {self.assets_dir}")
+        
+        for icon_folder in os.listdir(self.assets_dir):
+            icon_path = os.path.join(self.assets_dir, icon_folder)
+            if not os.path.isdir(icon_path):
                 continue
             
-            # Android용 파일명 (snake_case)
-            android_filename = f"{icon['slug']}.xml"
-            dest_path = os.path.join(dpi_dir, android_filename)
+            # Check metadata.json file
+            metadata_file = os.path.join(icon_path, "metadata.json")
+            if not os.path.exists(metadata_file):
+                continue
             
-            # SVG를 Android Vector Drawable로 변환
-            convert_svg_to_vector_drawable(source_path, dest_path)
-            print(f"✅ 생성됨: {dest_path}")
-    
-    # Android 리소스 파일 생성
-    create_android_resources(android_icons, android_output)
-    
-    print(f"🎉 Android 아이콘 빌드 완료!")
-    return True
+            # Load metadata
+            with open(metadata_file, 'r', encoding='utf-8') as f:
+                icon_metadata = json.load(f)
+            
+            icons_data[icon_folder] = icon_metadata
+        
+        return icons_data
 
-def get_dpi_for_size(size: int) -> str:
-    """크기에 따른 DPI 반환"""
-    dpi_mapping = {
-        16: "mdpi",
-        20: "hdpi",
-        24: "xhdpi", 
-        32: "xxhdpi",
-        48: "xxxhdpi"
-    }
-    return dpi_mapping.get(size, "mdpi")
+    def build_android_package(self, icons_data: Dict):
+        """Build Android package"""
+        print("🤖 Building Android package...")
+        
+        android_output = "android/library/src/main/res"
+        os.makedirs(android_output, exist_ok=True)
+        
+        # Create single drawable directory
+        drawable_dir = os.path.join(android_output, "drawable")
+        os.makedirs(drawable_dir, exist_ok=True)
+        
+        # Process all icons directly
+        for icon_folder, icon_info in icons_data.items():
+            icon_name = icon_info["name"]
+            svg_dir = os.path.join(self.assets_dir, icon_folder, "svg")
+            
+            if not os.path.exists(svg_dir):
+                continue
+                
+            # Scan SVG files
+            for svg_file in os.listdir(svg_dir):
+                if not svg_file.endswith('.svg'):
+                    continue
+                
+                # Extract size and style from filename
+                parts = svg_file.replace('.svg', '').split('_')
+                if len(parts) >= 4:
+                    size = int(parts[-2])
+                    style = parts[-1]
+                else:
+                    continue
+                
+                source_path = os.path.join(svg_dir, svg_file)
+                
+                if not os.path.exists(source_path):
+                    continue
+                
+                # Android filename (ic_refineui_iconName_size_theme format)
+                android_filename = f"ic_refineui_{self.slugify(icon_name, 'android')}_{size}_{style}.xml"
+                dest_path = os.path.join(drawable_dir, android_filename)
+                
+                # Convert SVG to Android Vector Drawable
+                self.convert_svg_to_vector_drawable(source_path, dest_path)
+        
+        # Create Android resource files
+        self.create_android_resources(icons_data, android_output)
+        
+        # Copy resources to app
+        self.copy_resources_to_app(android_output)
+        print("✅ Android package completed")
 
-def convert_svg_to_vector_drawable(svg_path: str, output_path: str):
-    """SVG를 Android Vector Drawable로 변환"""
-    with open(svg_path, 'r', encoding='utf-8') as f:
-        svg_content = f.read()
-    
-    # SVG 내용에서 path, rect 등의 요소 추출
-    # 간단한 변환 (실제로는 더 정교한 파싱이 필요)
-    vector_drawable = f'''<?xml version="1.0" encoding="utf-8"?>
+    def convert_svg_to_vector_drawable(self, svg_path: str, output_path: str):
+        """Convert SVG to Android Vector Drawable"""
+        with open(svg_path, 'r', encoding='utf-8') as f:
+            svg_content = f.read()
+        
+        # Simple conversion (more sophisticated parsing needed in practice)
+        vector_drawable = f'''<?xml version="1.0" encoding="utf-8"?>
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="24dp"
     android:height="24dp"
     android:viewportWidth="24"
     android:viewportHeight="24">
     
-    <!-- SVG 내용을 여기에 변환 -->
-    {extract_svg_elements(svg_content)}
+    <!-- Convert SVG content here -->
+    <path android:fillColor="#000000" android:pathData="M12,2C6.48,2 2,6.48 2,12s4.48,10 10,10 10,-4.48 10,-10S17.52,2 12,2z"/>
     
 </vector>'''
-    
-    with open(output_path, 'w', encoding='utf-8') as f:
-        f.write(vector_drawable)
+        
+        with open(output_path, 'w', encoding='utf-8') as f:
+            f.write(vector_drawable)
 
-def extract_svg_elements(svg_content: str) -> str:
-    """SVG에서 주요 요소들 추출"""
-    # 실제 구현에서는 SVG 파서를 사용해야 함
-    # 여기서는 간단한 예시
-    if '<path' in svg_content:
-        return '    <path android:fillColor="#000000" android:pathData="M12,2C6.48,2 2,6.48 2,12s4.48,10 10,10 10,-4.48 10,-10S17.52,2 12,2z"/>'
-    elif '<rect' in svg_content:
-        return '    <rect android:fillColor="#000000" android:width="24" android:height="24"/>'
-    else:
-        return '    <!-- SVG 변환 필요 -->'
-
-def create_android_resources(icons: List[Dict], output_dir: str):
-    """Android 리소스 파일들 생성"""
-    # strings.xml 생성
-    strings_content = '''<?xml version="1.0" encoding="utf-8"?>
+    def create_android_resources(self, icons_data: Dict, output_dir: str):
+        """Create Android resource files"""
+        # Create strings.xml
+        strings_content = '''<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Icon names -->
 '''
-    
-    for icon in icons:
-        strings_content += f'    <string name="icon_{icon["slug"]}">{icon["name"]}</string>\n'
-    
-    strings_content += '</resources>'
-    
-    strings_file = os.path.join(output_dir, "res/values/strings.xml")
-    os.makedirs(os.path.dirname(strings_file), exist_ok=True)
-    with open(strings_file, 'w', encoding='utf-8') as f:
-        f.write(strings_content)
-    
-    print(f"📄 Android 리소스 파일 생성: {strings_file}")
+        
+        for icon_folder, icon_info in icons_data.items():
+            icon_name = icon_info["name"]
+            strings_content += f'    <string name="icon_{self.slugify(icon_name, "android")}">{icon_name}</string>\n'
+        
+        strings_content += '</resources>'
+        
+        strings_file = os.path.join(output_dir, "values/strings.xml")
+        os.makedirs(os.path.dirname(strings_file), exist_ok=True)
+        with open(strings_file, 'w', encoding='utf-8') as f:
+            f.write(strings_content)
+
+    def copy_resources_to_app(self, library_output: str):
+        """Copy resources to Android app"""
+        print("📱 Copying resources to Android app...")
+        
+        app_output = "android/app/src/main/res"
+        os.makedirs(app_output, exist_ok=True)
+        
+        # Copy drawable resources
+        library_drawable = os.path.join(library_output, "drawable")
+        app_drawable = os.path.join(app_output, "drawable")
+        if os.path.exists(library_drawable):
+            os.makedirs(app_drawable, exist_ok=True)
+            for file in os.listdir(library_drawable):
+                source = os.path.join(library_drawable, file)
+                dest = os.path.join(app_drawable, file)
+                shutil.copy2(source, dest)
+        
+        # Copy values resources
+        library_values = os.path.join(library_output, "values")
+        app_values = os.path.join(app_output, "values")
+        if os.path.exists(library_values):
+            os.makedirs(app_values, exist_ok=True)
+            for file in os.listdir(library_values):
+                source = os.path.join(library_values, file)
+                dest = os.path.join(app_values, file)
+                shutil.copy2(source, dest)
+        
+        # Copy raw resources
+        library_raw = os.path.join(library_output, "raw")
+        app_raw = os.path.join(app_output, "raw")
+        if os.path.exists(library_raw):
+            os.makedirs(app_raw, exist_ok=True)
+            for file in os.listdir(library_raw):
+                source = os.path.join(library_raw, file)
+                dest = os.path.join(app_raw, file)
+                shutil.copy2(source, dest)
+        
+        print("✅ Resources copied to Android app")
+
+    def build_android_platform(self):
+        """Build Android platform packages"""
+        print("🚀 Starting Android platform builds...")
+        
+        # Scan assets directory
+        icons_data = self.scan_assets()
+        
+        if not icons_data:
+            print("⚠️  No icons to process.")
+            return False
+        
+        print(f"📁 Found {len(icons_data)} icon folders.")
+        
+        # Build Android package
+        self.build_android_package(icons_data)
+        
+        print("🎉 Android platform builds completed!")
+        return True
+
+def main():
+    """Main execution function"""
+    try:
+        builder = AndroidPlatformBuilder()
+        success = builder.build_android_platform()
+        return 0 if success else 1
+    except Exception as e:
+        print(f"❌ Build failed: {e}")
+        return 1
 
 if __name__ == "__main__":
-    build_android_icons()
+    exit(main())
