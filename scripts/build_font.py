@@ -40,7 +40,7 @@ class FontBuilder:
         
     def check_dependencies(self) -> bool:
         """필요한 도구들이 설치되어 있는지 확인"""
-        required_tools = ["fontforge", "svg2ttf", "ttf2woff2"]
+        required_tools = ["fontforge", "ttf2woff2"]
         
         for tool in required_tools:
             try:
@@ -59,6 +59,7 @@ class FontBuilder:
         logger.info("macOS:")
         logger.info("  brew install fontforge")
         logger.info("  npm install -g ttf2woff2")
+        logger.info("  # svg2ttf는 FontForge에 포함되어 있음")
         logger.info("")
         logger.info("Ubuntu/Debian:")
         logger.info("  sudo apt-get install fontforge")
