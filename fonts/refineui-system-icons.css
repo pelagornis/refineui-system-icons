@@ -1,5 +1,5 @@
 /* RefineUI System Icons Font CSS - Combined */
-/* Regular 스타일 */
+/* Regular style */
 @font-face {
     font-family: 'RefineUI-System-Icons-Regular';
     src: url('./refineui-system-icons-regular.woff2') format('woff2'),
@@ -11,7 +11,7 @@
     font-display: block;
 }
 
-/* Filled 스타일 */
+/* Filled style */
 @font-face {
     font-family: 'RefineUI-System-Icons-Filled';
     src: url('./refineui-system-icons-filled.woff2') format('woff2'),
@@ -23,7 +23,7 @@
     font-display: block;
 }
 
-/* 기본 아이콘 클래스 */
+/* Base icon class */
 .ic_refineui {
     font-size: 1em;
     line-height: 1;
@@ -33,21 +33,21 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* Regular 스타일 클래스 */
+/* Regular style class */
 .ic_refineui_regular {
     font-family: 'RefineUI-System-Icons-Regular';
     font-weight: normal;
     font-style: normal;
 }
 
-/* Filled 스타일 클래스 */
+/* Filled style class */
 .ic_refineui_filled {
     font-family: 'RefineUI-System-Icons-Filled';
     font-weight: normal;
     font-style: normal;
 }
 
-/* 개별 아이콘 클래스 */
+/* Individual icon classes */
 
 .ic_refineui_gavel_28_regular:before {
     font-family: 'RefineUI-System-Icons-Regular';

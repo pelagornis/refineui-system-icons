@@ -1,35 +1,35 @@
 # RefineUI System Icons Font
 
-RefineUI System Icons를 폰트로 사용할 수 있습니다. Regular와 Filled 스타일이 분리되어 있습니다.
+You can use RefineUI System Icons as fonts. Regular and Filled styles are separated.
 
-## 사용법
+## Usage
 
-### 1. CSS 파일 포함
+### 1. Include CSS file
 ```html
 <link rel="stylesheet" href="./refineui-system-icons.css">
 ```
 
-### 2. 아이콘 사용
+### 2. Use icons
 
-#### Regular 스타일
+#### Regular style
 ```html
-<!-- 24px Regular 스타일 -->
+<!-- 24px Regular style -->
 <i class="ic_refineui ic_refineui_regular ic_refineui_access_time_24_regular"></i>
 
-<!-- 또는 간단하게 -->
+<!-- Or simply -->
 <i class="ic_refineui_access_time_24_regular"></i>
 ```
 
-#### Filled 스타일
+#### Filled style
 ```html
-<!-- 24px Filled 스타일 -->
+<!-- 24px Filled style -->
 <i class="ic_refineui ic_refineui_filled ic_refineui_access_time_24_filled"></i>
 
-<!-- 또는 간단하게 -->
+<!-- Or simply -->
 <i class="ic_refineui_filled ic_refineui_access_time_24_filled"></i>
 ```
 
-#### 다양한 크기 사용
+#### Various sizes
 ```html
 <!-- 16px -->
 <i class="ic_refineui_access_time_16_regular"></i>
@@ -56,15 +56,15 @@ RefineUI System Icons를 폰트로 사용할 수 있습니다. Regular와 Filled
 <i class="ic_refineui_access_time_48_filled"></i>
 ```
 
-#### 크기 조정
+#### Size adjustment
 ```html
 <i class="ic_refineui_access_time_24_regular" style="font-size: 24px;"></i>
 <i class="ic_refineui_access_time_32_filled" style="font-size: 32px; color: #007bff;"></i>
 ```
 
-## 지원하는 아이콘
+## Supported Icons
 
-### Regular 스타일
+### Regular style
 
 - `ic_refineui_access_time_16_regular_16_regular` - Access time_16_regular (16px)
 - `ic_refineui_access_time_20_regular_20_regular` - Access time_20_regular (20px)
@@ -2665,7 +2665,7 @@ RefineUI System Icons를 폰트로 사용할 수 있습니다. Regular와 Filled
 - `ic_refineui_zoom_32_regular_32_regular` - Zoom_32_regular (32px)
 - `ic_refineui_zoom_48_regular_48_regular` - Zoom_48_regular (48px)
 
-### Filled 스타일
+### Filled style
 
 - `ic_refineui_access_time_16_filled_16_filled` - Access time_16_filled (16px)
 - `ic_refineui_access_time_20_filled_20_filled` - Access time_20_filled (20px)
@@ -5266,26 +5266,26 @@ RefineUI System Icons를 폰트로 사용할 수 있습니다. Regular와 Filled
 - `ic_refineui_zoom_32_filled_32_filled` - Zoom_32_filled (32px)
 - `ic_refineui_zoom_48_filled_48_filled` - Zoom_48_filled (48px)
 
-## 폰트 파일
+## Font Files
 
-### Regular 스타일
-- `refineui-system-icons-regular.woff2` - 최신 브라우저용 (권장)
-- `refineui-system-icons-regular.woff` - 구형 브라우저용
-- `refineui-system-icons-regular.ttf` - 데스크톱용
-- `refineui-system-icons-regular.otf` - 데스크톱용
+### Regular style
+- `refineui-system-icons-regular.woff2` - Modern browsers (recommended)
+- `refineui-system-icons-regular.woff` - Legacy browsers
+- `refineui-system-icons-regular.ttf` - Desktop
+- `refineui-system-icons-regular.otf` - Desktop
 
-### Filled 스타일
-- `refineui-system-icons-filled.woff2` - 최신 브라우저용 (권장)
-- `refineui-system-icons-filled.woff` - 구형 브라우저용
-- `refineui-system-icons-filled.ttf` - 데스크톱용
-- `refineui-system-icons-filled.otf` - 데스크톱용
+### Filled style
+- `refineui-system-icons-filled.woff2` - Modern browsers (recommended)
+- `refineui-system-icons-filled.woff` - Legacy browsers
+- `refineui-system-icons-filled.ttf` - Desktop
+- `refineui-system-icons-filled.otf` - Desktop
 
-## 통계
+## Statistics
 
-- **Regular**: 2598개 아이콘
-- **Filled**: 2598개 아이콘
-- **총합**: 5196개 아이콘
+- **Regular**: 2598 icons
+- **Filled**: 2598 icons
+- **Total**: 5196 icons
 
-## 아이콘 매핑
+## Icon Mapping
 
-전체 아이콘 목록은 `icon-mapping.json` 파일을 참조하세요.
+See `icon-mapping.json` file for the complete list of icons.
