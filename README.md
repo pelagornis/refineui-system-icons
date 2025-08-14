@@ -5,129 +5,129 @@ Refine UI System Icons are a collection of modern icons from Pelagornis.
 ![Official](https://img.shields.io/badge/project-official-green.svg?colorA=303033&colorB=226af6&label=Pelagornis)
 [![License](https://img.shields.io/github/license/pelagornis/refineui-system-icons)](https://github.com/pelagornis/refineui-system-icons/blob/main/LICENSE)
 
-## 🚀 Figma 아이콘 자동 추출 시스템
+## 🚀 Figma Icon Automatic Extraction System
 
-Microsoft Fluent UI System Icons 구조를 참고하여 설계된 확장 가능한 아이콘 추출 시스템입니다.
+An extensible icon extraction system designed with reference to Microsoft Fluent UI System Icons structure.
 
-### ✨ 주요 기능
+### ✨ Key Features
 
-- **Figma API 자동 추출**: Figma 파일에서 System Icons 자동 검색 및 추출
-- **다중 플랫폼 지원**: Web, iOS, Android, Flutter
-- **크기별 분류**: 16x16, 20x20, 24x24, 32x32, 48x48
-- **플랫폼별 네이밍**: Web(kebab-case), iOS(camelCase), Android(snake_case)
-- **메타데이터 관리**: JSON 기반 아이콘 메타데이터 저장
-- **자동화 스크립트**: Python 기반 빌드 자동화
+- **Figma API Automatic Extraction**: Automatic search and extraction of System Icons from Figma files
+- **Multi-platform Support**: Web, iOS, Android, Flutter
+- **Size-based Classification**: 16x16, 20x20, 24x24, 32x32, 48x48
+- **Platform-specific Naming**: Web(kebab-case), iOS(camelCase), Android(snake_case)
+- **Metadata Management**: JSON-based icon metadata storage
+- **Automation Scripts**: Python-based build automation
 
-### 📁 프로젝트 구조
+### 📁 Project Structure
 
 ```
 refineui-system-icons/
 ├── scripts/
-│   ├── figma_icon_extractor.py  # Figma 아이콘 추출기
-│   ├── build_all.py             # 전체 플랫폼 빌드
-│   ├── build_web.py             # Web용 빌드 (React + React Native + Web)
-│   ├── build_ios.py             # iOS용 빌드
-│   └── build_android.py         # Android용 빌드
-├── assets/                      # 추출된 아이콘 파일들
-│   ├── web/{size}/              # Web용 SVG
-│   ├── ios/{size}/              # iOS용 SVG
-│   ├── android/res/drawable-{dpi}/ # Android용 Vector Drawable
-│   └── flutter/{size}/          # Flutter용 SVG
-├── metadata/                    # 아이콘 메타데이터
-│   ├── icons.json              # 전체 메타데이터
-│   ├── icons_web.json          # Web용 메타데이터
-│   ├── icons_ios.json          # iOS용 메타데이터
-│   └── icons_android.json      # Android용 메타데이터
-└── packages/                    # 플랫폼별 패키지
-    ├── react-icons/             # @refineui/react-icons (React 웹용)
-    ├── react-native-icons/      # @refineui/react-native-icons (React Native용)
-    └── icons-web/               # @refineui/icons-web (URL 접근 가능한 웹 버전)
+│   ├── figma_icon_extractor.py  # Figma icon extractor
+│   ├── build_all.py             # All platform build
+│   ├── build_web.py             # Web build (React + React Native + Web)
+│   ├── build_ios.py             # iOS build
+│   └── build_android.py         # Android build
+├── assets/                      # Extracted icon files
+│   ├── web/{size}/              # Web SVG
+│   ├── ios/{size}/              # iOS SVG
+│   ├── android/res/drawable-{dpi}/ # Android Vector Drawable
+│   └── flutter/{size}/          # Flutter SVG
+├── metadata/                    # Icon metadata
+│   ├── icons.json              # Complete metadata
+│   ├── icons_web.json          # Web metadata
+│   ├── icons_ios.json          # iOS metadata
+│   └── icons_android.json      # Android metadata
+└── packages/                    # Platform-specific packages
+    ├── react-icons/             # @refineui/react-icons (React web)
+    ├── react-native-icons/      # @refineui/react-native-icons (React Native)
+    └── icons-web/               # @refineui/icons-web (URL accessible web version)
 ```
 
-### 🛠️ 설치 및 사용법
+### 🛠️ Installation and Usage
 
-#### 1. 의존성 설치
+#### 1. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-#### 2. Figma API 토큰 설정
+#### 2. Figma API Token Setup
 
-**🔑 필수 설정**: Figma API를 사용하려면 Personal Access Token이 필요합니다.
+**🔑 Required Setup**: Personal Access Token is required to use Figma API.
 
-1. [Figma Settings](https://www.figma.com/settings)에서 Personal Access Token 생성
-2. 토큰을 환경변수로 설정하거나 스크립트 실행 시 전달
+1. Generate Personal Access Token from [Figma Settings](https://www.figma.com/settings)
+2. Set token as environment variable or pass it when running the script
 
-**📖 자세한 설정 가이드**: [docs/FIGMA_SETUP.md](docs/FIGMA_SETUP.md)
+**📖 Detailed Setup Guide**: [docs/FIGMA_SETUP.md](docs/FIGMA_SETUP.md)
 
-#### 3. 아이콘 추출
+#### 3. Icon Extraction
 
 ```bash
-# 방법 1: 인수로 직접 전달
+# Method 1: Pass directly as arguments
 python scripts/figma_icon_extractor.py \
   --token YOUR_FIGMA_TOKEN \
   --file-key YOUR_FIGMA_FILE_KEY
 
-# 방법 2: 환경변수 사용
+# Method 2: Use environment variables
 export FIGMA_TOKEN="your_token_here"
 export FIGMA_FILE_KEY="your_file_key_here"
 python scripts/figma_icon_extractor.py
 
-# 방법 3: .env 파일 사용
+# Method 3: Use .env file
 cp env.example .env
-# .env 파일을 편집하여 실제 토큰과 파일 키 입력
+# Edit .env file to enter actual token and file key
 python scripts/figma_icon_extractor.py
 
-# 특정 페이지에서 추출
+# Extract from specific page
 python scripts/figma_icon_extractor.py \
   --token YOUR_FIGMA_TOKEN \
   --file-key YOUR_FIGMA_FILE_KEY \
   --page "System Icons"
 ```
 
-#### 4. 플랫폼별 빌드
+#### 4. Platform-specific Build
 
 ```bash
-# 모든 플랫폼 빌드
+# Build all platforms
 python scripts/build_all.py
 
-# 개별 플랫폼 빌드
-python scripts/build_web.py      # React + React Native + Web 버전
-python scripts/build_ios.py      # iOS용 Asset Catalog
-python scripts/build_android.py  # Android용 Vector Drawable
+# Individual platform build
+python scripts/build_web.py      # React + React Native + Web version
+python scripts/build_ios.py      # iOS Asset Catalog
+python scripts/build_android.py  # Android Vector Drawable
 
-# 패키지 빌드
-npm run build:packages           # 모든 패키지 빌드
+# Package build
+npm run build:packages           # Build all packages
 npm run build --workspace=@refineui/react-icons
 npm run build --workspace=@refineui/react-native-icons
 npm run build --workspace=@refineui/icons-web
 ```
 
-### 📦 패키지 구조
+### 📦 Package Structure
 
-| 패키지                           | 설명                           | 사용법                                                            | 크기 지원            |
-| -------------------------------- | ------------------------------ | ----------------------------------------------------------------- | -------------------- |
-| **@refineui/react-icons**        | React 웹용 아이콘 컴포넌트     | `import { AccessTime24Icon } from '@refineui/react-icons'`        | 16, 20, 24, 32, 48px |
-| **@refineui/react-native-icons** | React Native용 아이콘 컴포넌트 | `import { AccessTime24Icon } from '@refineui/react-native-icons'` | 16, 20, 24, 32, 48dp |
-| **@refineui/icons-web**          | URL 접근 가능한 웹 버전        | `https://your-domain.com/icons/24/access-time.svg`                | 16, 20, 24, 32, 48px |
-| **Font**                         | 웹폰트 버전                    | `<i class="ri ri-access-time"></i>`                               | 모든 크기 지원       |
+| Package                          | Description                  | Usage                                                             | Size Support         |
+| -------------------------------- | ---------------------------- | ----------------------------------------------------------------- | -------------------- |
+| **@refineui/react-icons**        | React web icon components    | `import { AccessTime24Icon } from '@refineui/react-icons'`        | 16, 20, 24, 32, 48px |
+| **@refineui/react-native-icons** | React Native icon components | `import { AccessTime24Icon } from '@refineui/react-native-icons'` | 16, 20, 24, 32, 48dp |
+| **@refineui/icons-web**          | URL accessible web version   | `https://your-domain.com/icons/24/access-time.svg`                | 16, 20, 24, 32, 48px |
+| **Font**                         | Web font version             | `<i class="ri ri-access-time"></i>`                               | All sizes supported  |
 
-### 📋 지원 플랫폼
+### 📋 Supported Platforms
 
-| 플랫폼              | 네이밍 규칙 | 출력 형식        | 크기 지원                          |
-| ------------------- | ----------- | ---------------- | ---------------------------------- |
-| **React Web**       | camelCase   | React 컴포넌트   | 16, 20, 24, 32, 48px               |
-| **React Native**    | camelCase   | React Native SVG | 16, 20, 24, 32, 48dp               |
-| **Web URL**         | kebab-case  | SVG 파일         | 16, 20, 24, 32, 48px               |
-| **Font**            | kebab-case  | 웹폰트           | 모든 크기 지원                     |
-| **iOS**             | camelCase   | Asset Catalog    | 16, 20, 24, 32, 48pt               |
-| **Android**         | snake_case  | Vector Drawable  | mdpi, hdpi, xhdpi, xxhdpi, xxxhdpi |
-| **Android Library** | snake_case  | Android Library  | mdpi, hdpi, xhdpi, xxhdpi, xxxhdpi |
+| Platform            | Naming Convention | Output Format    | Size Support                       |
+| ------------------- | ----------------- | ---------------- | ---------------------------------- |
+| **React Web**       | camelCase         | React Components | 16, 20, 24, 32, 48px               |
+| **React Native**    | camelCase         | React Native SVG | 16, 20, 24, 32, 48dp               |
+| **Web URL**         | kebab-case        | SVG Files        | 16, 20, 24, 32, 48px               |
+| **Font**            | kebab-case        | Web Fonts        | All sizes supported                |
+| **iOS**             | camelCase         | Asset Catalog    | 16, 20, 24, 32, 48pt               |
+| **Android**         | snake_case        | Vector Drawable  | mdpi, hdpi, xhdpi, xxhdpi, xxxhdpi |
+| **Android Library** | snake_case        | Android Library  | mdpi, hdpi, xhdpi, xxhdpi, xxxhdpi |
 
-### 🔧 설정 옵션
+### 🔧 Configuration Options
 
-#### 아이콘 크기 매핑
+#### Icon Size Mapping
 
 ```python
 supported_sizes = [16, 20, 24, 32, 48]
@@ -140,7 +140,7 @@ dpi_mapping = {
 }
 ```
 
-#### 플랫폼별 네이밍 규칙
+#### Platform-specific Naming Rules
 
 ```python
 naming_rules = {
@@ -151,7 +151,7 @@ naming_rules = {
 }
 ```
 
-### 📊 메타데이터 구조
+### 📊 Metadata Structure
 
 ```json
 {
@@ -176,9 +176,9 @@ naming_rules = {
 }
 ```
 
-### 🤖 CI/CD 지원
+### 🤖 CI/CD Support
 
-GitHub Actions를 통한 자동화 지원:
+Automation support through GitHub Actions:
 
 ```yaml
 name: Build Icons
