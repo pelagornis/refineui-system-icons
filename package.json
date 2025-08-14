@@ -46,5 +46,8 @@
   "bugs": {
     "url": "https://github.com/pelagornis/refineui-system-icons/issues"
   },
-  "homepage": "https://github.com/pelagornis/refineui-system-icons#readme"
+  "homepage": "https://github.com/pelagornis/refineui-system-icons#readme",
+  "dependencies": {
+    "ttf2woff2": "^8.0.0"
+  }
 }
