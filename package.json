@@ -23,7 +23,6 @@
     "@rollup/plugin-commonjs": "^25.0.0",
     "@rollup/plugin-node-resolve": "^15.0.0",
     "rollup": "^3.0.0",
-    "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.34.0",
     "typescript": "^4.9.0"
   },
@@ -46,8 +45,5 @@
   "bugs": {
     "url": "https://github.com/pelagornis/refineui-system-icons/issues"
   },
-  "homepage": "https://github.com/pelagornis/refineui-system-icons#readme",
-  "dependencies": {
-    "ttf2woff2": "^8.0.0"
-  }
+  "homepage": "https://github.com/pelagornis/refineui-system-icons#readme"
 }
