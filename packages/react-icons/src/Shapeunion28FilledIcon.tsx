@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Shapeunion28FilledIcon: React.FC<IconProps> = ({ 
+  size = 28, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 28 28"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.33333 17.8333H10.8333V21.3333C10.8333 22.622 11.878 23.6667 13.1667 23.6667H21.3333C22.622 23.6667 23.6667 22.622 23.6667 21.3333V13.1667C23.6667 11.878 22.622 10.8333 21.3333 10.8333H17.8333V7.33333C17.8333 6.04467 16.7887 5 15.5 5H7.33333C6.04467 5 5 6.04467 5 7.33333V15.5C5 16.7887 6.04467 17.8333 7.33333 17.8333Z" fill="black"/>
+    </svg>
+  );
+};

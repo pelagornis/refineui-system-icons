@@ -1,0 +1,22 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Mouse24RegularIcon: React.FC<IconProps> = ({ 
+  size = 24, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 24 24"
+      fill="none"
+      {{...props}}
+    >
+      width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M6 8C6 5.79086 7.79086 4 10 4H14C16.2091 4 18 5.79086 18 8V14C18 17.3137 15.3137 20 12 20C8.68629 20 6 17.3137 6 14V8ZM12.65 5.55C12.65 5.41193 12.7619 5.3 12.9 5.3H14C15.4912 5.3 16.7 6.50883 16.7 8V14C16.7 16.5957 14.5957 18.7 12 18.7C9.40426 18.7 7.3 16.5957 7.3 14V8C7.3 6.50883 8.50883 5.3 10 5.3H11.1C11.2381 5.3 11.35 5.41193 11.35 5.55V10C11.35 10.359 11.641 10.65 12 10.65C12.359 10.65 12.65 10.359 12.65 10V5.55Z" fill="black"/>
+    </Svg>
+  );
+};

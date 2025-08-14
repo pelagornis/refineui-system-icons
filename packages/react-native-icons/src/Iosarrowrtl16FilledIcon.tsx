@@ -1,0 +1,22 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Iosarrowrtl16FilledIcon: React.FC<IconProps> = ({ 
+  size = 16, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 16 16"
+      fill="none"
+      {{...props}}
+    >
+      width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.25424 13.5169C7.9585 13.2841 7.91436 12.8642 8.15567 12.579L11.5687 8.54436C11.6724 8.42172 11.6724 8.2456 11.5687 8.12296L8.15567 4.08834C7.91436 3.80309 7.9585 3.38319 8.25424 3.15045C8.54999 2.91771 8.98535 2.96028 9.22665 3.24553L13.1744 7.91225C13.3819 8.15755 13.3819 8.50977 13.1744 8.75507L9.22665 13.4218C8.98535 13.707 8.54999 13.7496 8.25424 13.5169Z" fill="black"/>
+    </Svg>
+  );
+};

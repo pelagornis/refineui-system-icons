@@ -1,0 +1,26 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Slidecontent48RegularIcon: React.FC<IconProps> = ({ 
+  size = 48, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 48 48"
+      fill="none"
+      {{...props}}
+    >
+      width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12.5 20C12.5 18.8954 13.3954 18 14.5 18H22.5C23.6046 18 24.5 18.8954 24.5 20V28C24.5 29.1046 23.6046 30 22.5 30H14.5C13.3954 30 12.5 29.1046 12.5 28V20Z" fill="black"/>
+<path d="M28 18.2C27.282 18.2 26.7 18.782 26.7 19.5C26.7 20.218 27.282 20.8 28 20.8H34C34.718 20.8 35.3 20.218 35.3 19.5C35.3 18.782 34.718 18.2 34 18.2H28Z" fill="black"/>
+<path d="M26.7 24C26.7 23.282 27.282 22.7 28 22.7H34C34.718 22.7 35.3 23.282 35.3 24C35.3 24.718 34.718 25.3 34 25.3H28C27.282 25.3 26.7 24.718 26.7 24Z" fill="black"/>
+<path d="M28 27.2C27.282 27.2 26.7 27.782 26.7 28.5C26.7 29.218 27.282 29.8 28 29.8H34C34.718 29.8 35.3 29.218 35.3 28.5C35.3 27.782 34.718 27.2 34 27.2H28Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12 12C9.79086 12 8 13.7909 8 16V32C8 34.2091 9.79086 36 12 36H36C38.2091 36 40 34.2091 40 32V16C40 13.7909 38.2091 12 36 12H12ZM36 14.6H12C11.2268 14.6 10.6 15.2268 10.6 16V32C10.6 32.7732 11.2268 33.4 12 33.4H36C36.7732 33.4 37.4 32.7732 37.4 32V16C37.4 15.2268 36.7732 14.6 36 14.6Z" fill="black"/>
+    </Svg>
+  );
+};

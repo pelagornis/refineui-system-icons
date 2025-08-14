@@ -1,0 +1,22 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Luggage20FilledIcon: React.FC<IconProps> = ({ 
+  size = 20, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 20 20"
+      fill="none"
+      {{...props}}
+    >
+      width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.08268 3C6.78362 3 6.54119 3.24244 6.54119 3.5415C6.54119 3.84056 6.78362 4.083 7.08268 4.083H7.37426V5.60407H6.66615C5.74596 5.60407 5 6.35003 5 7.27021V13.8382C5 14.7584 5.74596 15.5044 6.66615 15.5044H7.24931V15.7885C7.24931 16.0876 7.49174 16.33 7.79081 16.33C8.08987 16.33 8.3323 16.0876 8.3323 15.7885V15.5044H11.6646V15.7885C11.6646 16.0876 11.907 16.33 12.2061 16.33C12.5051 16.33 12.7476 16.0876 12.7476 15.7885V15.5044H13.3307C14.2509 15.5044 14.9969 14.7584 14.9969 13.8382V7.27021C14.9969 6.35003 14.2509 5.60407 13.3307 5.60407H12.6226V4.083H12.9142C13.2133 4.083 13.4557 3.84056 13.4557 3.5415C13.4557 3.24244 13.2133 3 12.9142 3H7.08268ZM11.5396 5.60407V4.083H8.45725V5.60407H11.5396Z" fill="black"/>
+    </Svg>
+  );
+};

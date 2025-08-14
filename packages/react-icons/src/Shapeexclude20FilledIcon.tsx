@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Shapeexclude20FilledIcon: React.FC<IconProps> = ({ 
+  size = 20, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.16667 12.1667H4.66667C3.74619 12.1667 3 11.4205 3 10.5V4.66667C3 3.74619 3.74619 3 4.66667 3H10.5C11.4205 3 12.1667 3.74619 12.1667 4.66667V7.16667H14.6667C15.5871 7.16667 16.3333 7.91286 16.3333 8.83333V14.6667C16.3333 15.5871 15.5871 16.3333 14.6667 16.3333H8.83333C7.91286 16.3333 7.16667 15.5871 7.16667 14.6667V12.1667ZM10.9167 8.25C11.0087 8.25 11.0833 8.32462 11.0833 8.41667V10.5C11.0833 10.8222 10.8222 11.0833 10.5 11.0833H8.41667C8.32462 11.0833 8.25 11.0087 8.25 10.9167V8.83333C8.25 8.51117 8.51117 8.25 8.83333 8.25H10.9167Z" fill="black"/>
+    </svg>
+  );
+};

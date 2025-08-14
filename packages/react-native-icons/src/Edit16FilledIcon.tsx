@@ -1,0 +1,23 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Edit16FilledIcon: React.FC<IconProps> = ({ 
+  size = 16, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 16 16"
+      fill="none"
+      {{...props}}
+    >
+      width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M3.45203 10.665C3.47829 10.5336 3.54283 10.413 3.63752 10.3183L9.47702 4.47695C9.54324 4.41071 9.65061 4.41071 9.71683 4.47695L12.1902 6.95108C12.2564 7.01732 12.2564 7.12472 12.1902 7.19096L6.35068 13.0323C6.25599 13.127 6.13539 13.1916 6.00408 13.2178L3.81169 13.6564C3.33708 13.7514 2.91863 13.3328 3.01355 12.8581L3.45203 10.665Z" fill="black"/>
+<path d="M12.7539 6.55541C12.8137 6.61528 12.9091 6.62239 12.9728 6.56656C13.3981 6.19348 13.6667 5.64587 13.6667 5.03551C13.6667 3.91132 12.7556 3 11.6318 3C11.0216 3 10.4742 3.26864 10.1012 3.69413C10.0454 3.7578 10.0525 3.85321 10.1124 3.91309L12.7539 6.55541Z" fill="black"/>
+    </Svg>
+  );
+};

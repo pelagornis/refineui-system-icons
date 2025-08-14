@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Add16RegularIcon: React.FC<IconProps> = ({ 
+  size = 16, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.33333 3C8.56825 3 8.75869 3.19044 8.75869 3.42536V7.90798H13.2413C13.4762 7.90798 13.6667 8.09841 13.6667 8.33333C13.6667 8.56825 13.4762 8.75869 13.2413 8.75869H8.75869V13.2413C8.75869 13.4762 8.56825 13.6667 8.33333 13.6667C8.09841 13.6667 7.90798 13.4762 7.90798 13.2413V8.75869H3.42536C3.19044 8.75869 3 8.56825 3 8.33333C3 8.09841 3.19044 7.90798 3.42536 7.90798H7.90798V3.42536C7.90798 3.19044 8.09841 3 8.33333 3Z" fill="black"/>
+    </svg>
+  );
+};

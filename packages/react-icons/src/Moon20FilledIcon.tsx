@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Moon20FilledIcon: React.FC<IconProps> = ({ 
+  size = 20, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M16.1799 11.4058C16.2428 11.177 15.9659 11.0166 15.7717 11.1528C14.8866 11.7733 13.8085 12.1374 12.6454 12.1374C9.6345 12.1374 7.19367 9.69716 7.19367 6.68698C7.19367 5.52426 7.55784 4.44658 8.17837 3.56171C8.3146 3.36745 8.15421 3.0905 7.92544 3.15344C5.08585 3.93465 3 6.5347 3 9.62181C3 13.3266 6.00411 16.33 9.70986 16.33C12.7978 16.33 15.3985 14.2447 16.1799 11.4058Z" fill="black"/>
+    </svg>
+  );
+};

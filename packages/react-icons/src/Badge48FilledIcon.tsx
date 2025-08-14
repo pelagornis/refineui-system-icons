@@ -1,0 +1,23 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Badge48FilledIcon: React.FC<IconProps> = ({ 
+  size = 48, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 48 48"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M35.7333 16.5333C38.0897 16.5333 40 14.6231 40 12.2667C40 9.91025 38.0897 8 35.7333 8C33.377 8 31.4667 9.91025 31.4667 12.2667C31.4667 14.6231 33.377 16.5333 35.7333 16.5333Z" fill="black"/>
+<path d="M35.7333 18.6667C36.4814 18.6667 37.1994 18.5383 37.8667 18.3025V35.7333C37.8667 38.0897 35.9564 40 33.6 40H12.2667C9.91029 40 8 38.0897 8 35.7333V14.4C8 12.0436 9.91029 10.1333 12.2667 10.1333H29.6975C29.4617 10.8006 29.3333 11.5187 29.3333 12.2667C29.3333 15.8013 32.1987 18.6667 35.7333 18.6667Z" fill="black"/>
+    </svg>
+  );
+};

@@ -1,0 +1,22 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Desktop28RegularIcon: React.FC<IconProps> = ({ 
+  size = 28, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 28 28"
+      fill="none"
+      {{...props}}
+    >
+      width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M5 7.33333C5 6.04467 6.04467 5 7.33333 5H21.3333C22.622 5 23.6667 6.04467 23.6667 7.33333V15.5C23.6667 16.7887 22.622 17.8333 21.3333 17.8333H17.5917V20.4H20.1667C20.5855 20.4 20.925 20.7395 20.925 21.1583C20.925 21.5772 20.5855 21.9167 20.1667 21.9167H8.5C8.08118 21.9167 7.74167 21.5772 7.74167 21.1583C7.74167 20.7395 8.08118 20.4 8.5 20.4H11.075V17.8333H7.33333C6.04467 17.8333 5 16.7887 5 15.5V7.33333ZM7.33333 6.51667H21.3333C21.7844 6.51667 22.15 6.8823 22.15 7.33333V15.5C22.15 15.951 21.7844 16.3167 21.3333 16.3167H7.33333C6.8823 16.3167 6.51667 15.951 6.51667 15.5V7.33333C6.51667 6.8823 6.8823 6.51667 7.33333 6.51667ZM12.5917 17.8333V20.4H16.075V17.8333H12.5917Z" fill="black"/>
+    </Svg>
+  );
+};

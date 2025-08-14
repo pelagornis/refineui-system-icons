@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Payment32FilledIcon: React.FC<IconProps> = ({ 
+  size = 32, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 32 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.66667 8C6.19391 8 5 9.19391 5 10.6667L5.00007 12.1333C5.00007 12.3174 5.14931 12.4667 5.3334 12.4667H26C26.1841 12.4667 26.3333 12.3174 26.3333 12.1333V10.6667C26.3333 9.19391 25.1394 8 23.6667 8H7.66667ZM26.3333 21.3333V14.5333C26.3333 14.3492 26.1841 14.2 26 14.2H5.33333C5.14924 14.2 5 14.3492 5 14.5333V21.3333C5 22.8061 6.19391 24 7.66667 24H23.6667C25.1394 24 26.3333 22.8061 26.3333 21.3333ZM9 19.1333C9 18.6547 9.38802 18.2667 9.86667 18.2667H12.1333C12.612 18.2667 13 18.6547 13 19.1333C13 19.612 12.612 20 12.1333 20H9.86667C9.38802 20 9 19.612 9 19.1333Z" fill="black"/>
+    </svg>
+  );
+};

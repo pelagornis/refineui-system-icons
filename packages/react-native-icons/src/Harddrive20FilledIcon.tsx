@@ -1,0 +1,23 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Harddrive20FilledIcon: React.FC<IconProps> = ({ 
+  size = 20, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 20 20"
+      fill="none"
+      {{...props}}
+    >
+      width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M16.33 11.7793C16.33 11.3193 15.957 10.9463 15.497 10.9463H3.83302C3.37296 10.9463 3 11.3193 3 11.7793V13.6247C3 14.3838 3.61538 14.9991 4.37449 14.9991H14.9555C15.7146 14.9991 16.33 14.3838 16.33 13.6247V11.7793ZM13.7473 13.0392C14.0855 13.0392 14.3597 12.767 14.3597 12.4313C14.3597 12.0955 14.0855 11.8233 13.7473 11.8233C13.4091 11.8233 13.135 12.0955 13.135 12.4313C13.135 12.767 13.4091 13.0392 13.7473 13.0392Z" fill="black"/>
+<path d="M3.35998 9.56146C3.29022 9.69996 3.3909 9.86339 3.54597 9.86339H15.784C15.9391 9.86339 16.0398 9.69996 15.97 9.56146L14.0535 5.75622C13.82 5.29253 13.3451 5 12.826 5H6.50404C5.98487 5 5.50999 5.29253 5.27646 5.75622L3.35998 9.56146Z" fill="black"/>
+    </Svg>
+  );
+};

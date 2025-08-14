@@ -1,0 +1,23 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Apptitle16FilledIcon: React.FC<IconProps> = ({ 
+  size = 16, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M4.00311 4.33373C4.00311 3.59713 4.59985 3 5.33596 3H11.3338C12.0699 3 12.6667 3.59713 12.6667 4.33373V10.3355C12.6667 11.0721 12.0699 11.6692 11.3338 11.6692H5.33596C4.59985 11.6692 4.00311 11.0721 4.00311 10.3355V4.33373Z" fill="black"/>
+<path d="M4 13.2365C4 13.4759 4.19394 13.67 4.43318 13.67H12.2304C12.4696 13.67 12.6636 13.4759 12.6636 13.2365C12.6636 12.9971 12.4696 12.8031 12.2304 12.8031H4.43318C4.19394 12.8031 4 12.9971 4 13.2365Z" fill="black"/>
+    </svg>
+  );
+};

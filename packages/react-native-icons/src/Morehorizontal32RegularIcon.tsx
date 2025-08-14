@@ -1,0 +1,24 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Morehorizontal32RegularIcon: React.FC<IconProps> = ({ 
+  size = 32, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 32 32"
+      fill="none"
+      {{...props}}
+    >
+      width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.33333 14C9.62196 14 10.6666 15.0447 10.6667 16.3333C10.6667 17.6221 9.622 18.6667 8.33333 18.6667C7.04467 18.6667 6 17.6221 6 16.3333C6.00006 15.0447 7.04471 14 8.33333 14Z" fill="black"/>
+<path d="M16.3333 14C17.622 14 18.6666 15.0447 18.6667 16.3333C18.6667 17.6221 17.622 18.6667 16.3333 18.6667C15.0447 18.6667 14 17.6221 14 16.3333C14.0001 15.0447 15.0447 14 16.3333 14Z" fill="black"/>
+<path d="M24.3333 14C25.622 14 26.6666 15.0447 26.6667 16.3333C26.6667 17.6221 25.622 18.6667 24.3333 18.6667C23.0447 18.6667 22 17.6221 22 16.3333C22.0001 15.0447 23.0447 14 24.3333 14Z" fill="black"/>
+    </Svg>
+  );
+};

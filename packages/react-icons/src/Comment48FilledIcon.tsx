@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Comment48FilledIcon: React.FC<IconProps> = ({ 
+  size = 48, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 48 48"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M14 37.9608C14 38.8305 14.9699 39.3141 15.6247 38.7708L23.9452 31.866C23.9807 31.8366 24.0247 31.8206 24.0702 31.8206H36C38.2091 31.8206 40 29.9629 40 27.6714V13.1492C40 10.8577 38.2091 9 36 9H12C9.79086 9 8 10.8577 8 13.1492V27.6714C8 29.9629 9.79086 31.8206 12 31.8206H13.8C13.9105 31.8206 14 31.9135 14 32.028V37.9608Z" fill="black"/>
+    </svg>
+  );
+};

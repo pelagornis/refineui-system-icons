@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Shapeintersect24RegularIcon: React.FC<IconProps> = ({ 
+  size = 24, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M6 15H9V18C9 19.1046 9.89543 20 11 20H18C19.1046 20 20 19.1046 20 18V11C20 9.89543 19.1046 9 18 9H15V6C15 4.89543 14.1046 4 13 4H6C4.89543 4 4 4.89543 4 6V13C4 14.1046 4.89543 15 6 15ZM13 5.3H6C5.6134 5.3 5.3 5.6134 5.3 6V13C5.3 13.3866 5.6134 13.7 6 13.7H9V11C9 9.89543 9.89543 9 11 9H13.7V6C13.7 5.6134 13.3866 5.3 13 5.3ZM18 10.3H15V13C15 14.1046 14.1046 15 13 15H10.3V18C10.3 18.3866 10.6134 18.7 11 18.7H18C18.3866 18.7 18.7 18.3866 18.7 18V11C18.7 10.6134 18.3866 10.3 18 10.3ZM12.9929 10.3L10.3 12.9929V12.4071L12.4071 10.3H12.9929ZM10.3 10.9929L10.9929 10.3C10.6119 10.3038 10.3038 10.6119 10.3 10.9929ZM13.7 11.0071L11.0071 13.7H11.5929L13.7 11.5929V11.0071ZM13.7 13.0071L13.0071 13.7C13.3881 13.6962 13.6962 13.3881 13.7 13.0071Z" fill="black"/>
+    </svg>
+  );
+};

@@ -1,0 +1,22 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Dualscreen16FilledIcon: React.FC<IconProps> = ({ 
+  size = 16, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 16 16"
+      fill="none"
+      {{...props}}
+    >
+      width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M3 5.33333C3 4.59695 3.59695 4 4.33333 4H7.56667C7.75076 4 7.9 4.14924 7.9 4.33333V11.6667C7.9 11.8508 7.75076 12 7.56667 12H4.33333C3.59695 12 3 11.403 3 10.6667V5.33333ZM8.76667 11.6667C8.76667 11.8508 8.9159 12 9.1 12H12.3333C13.0697 12 13.6667 11.403 13.6667 10.6667V5.33333C13.6667 4.59695 13.0697 4 12.3333 4H9.1C8.9159 4 8.76667 4.14924 8.76667 4.33333V11.6667ZM10.3333 9.9C10.094 9.9 9.9 10.094 9.9 10.3333C9.9 10.5727 10.094 10.7667 10.3333 10.7667H11C11.2393 10.7667 11.4333 10.5727 11.4333 10.3333C11.4333 10.094 11.2393 9.9 11 9.9H10.3333ZM5.66667 9.9C5.42734 9.9 5.23333 10.094 5.23333 10.3333C5.23333 10.5727 5.42734 10.7667 5.66667 10.7667H6.33333C6.57266 10.7667 6.76667 10.5727 6.76667 10.3333C6.76667 10.094 6.57266 9.9 6.33333 9.9H5.66667Z" fill="black"/>
+    </Svg>
+  );
+};

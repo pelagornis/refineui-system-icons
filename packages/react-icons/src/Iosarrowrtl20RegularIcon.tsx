@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Iosarrowrtl20RegularIcon: React.FC<IconProps> = ({ 
+  size = 20, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.1685 16.19C9.95432 15.9896 9.94274 15.6532 10.1427 15.4385L15.2588 9.94541C15.4052 9.78827 15.4052 9.54441 15.2588 9.38727L10.1427 3.89416C9.94274 3.67949 9.95432 3.34304 10.1685 3.14267C10.3828 2.94231 10.7185 2.95391 10.9184 3.16859L16.4504 9.10821C16.7432 9.42249 16.7432 9.91019 16.4504 10.2245L10.9184 16.1641C10.7185 16.3788 10.3828 16.3904 10.1685 16.19Z" fill="black"/>
+    </svg>
+  );
+};

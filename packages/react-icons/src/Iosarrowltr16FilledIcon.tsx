@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Iosarrowltr16FilledIcon: React.FC<IconProps> = ({ 
+  size = 16, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.07577 3.15012C8.37152 3.38286 8.41565 3.80277 8.17435 4.08802L4.76133 8.12263C4.65758 8.24528 4.65758 8.42139 4.76133 8.54404L8.17435 12.5787C8.41565 12.8639 8.37152 13.2838 8.07577 13.5165C7.78003 13.7493 7.34467 13.7067 7.10337 13.4215L3.15563 8.75474C2.94812 8.50945 2.94812 8.15722 3.15563 7.91193L7.10337 3.2452C7.34467 2.95996 7.78003 2.91739 8.07577 3.15012Z" fill="black"/>
+    </svg>
+  );
+};

@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Fastforward20FilledIcon: React.FC<IconProps> = ({ 
+  size = 20, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M8.01568 5.89556C8.01568 5.20719 8.7123 4.77695 9.26959 5.12114L15.9154 9.22558C16.4727 9.56977 16.4727 10.4302 15.9154 10.7744L9.26959 14.8789C8.7123 15.2231 8.01568 14.7928 8.01568 14.1044V12.7105C8.01568 12.6416 7.94601 12.5986 7.89028 12.633L4.25392 14.8789C3.69662 15.2231 3 14.7928 3 14.1044V5.89556C3 5.20719 3.69662 4.77695 4.25392 5.12114L7.89028 7.36696C7.94601 7.40138 8.01568 7.35836 8.01568 7.28952V5.89556Z" fill="black"/>
+    </svg>
+  );
+};

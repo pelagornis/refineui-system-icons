@@ -1,0 +1,22 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Usbcable16FilledIcon: React.FC<IconProps> = ({ 
+  size = 16, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 16 16"
+      fill="none"
+      {{...props}}
+    >
+      width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.68359 6.30957V6.31641H10.333C10.7104 6.31641 11.0166 6.62261 11.0166 7V10.333C11.0166 10.7104 10.7104 11.0166 10.333 11.0166H6.33301C5.95576 11.0164 5.65039 10.7103 5.65039 10.333V7C5.65039 6.62271 5.95576 6.31658 6.33301 6.31641H6.9834V6.30957H9.68359Z" fill="black" stroke="black" stroke-width="1.3"/>
+    </Svg>
+  );
+};

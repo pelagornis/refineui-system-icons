@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Usbcable24RegularIcon: React.FC<IconProps> = ({ 
+  size = 24, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M9 5C9 4.44772 9.44772 4 10 4H14C14.5523 4 15 4.44772 15 5V8C16.1046 8 17 8.89543 17 10V15C17 16.1046 16.1046 17 15 17H14V19.5C14 19.7761 13.7761 20 13.5 20C13.2239 20 13 19.7761 13 19.5V17H11V19.5C11 19.7761 10.7761 20 10.5 20C10.2239 20 10 19.7761 10 19.5V17H9C7.89543 17 7 16.1046 7 15V10C7 8.89543 7.89543 8 9 8V5ZM10.3 7.99V5.3H13.7V7.99H10.3ZM15 9.3H9C8.6134 9.3 8.3 9.6134 8.3 10V15C8.3 15.3866 8.6134 15.7 9 15.7H15C15.3866 15.7 15.7 15.3866 15.7 15V10C15.7 9.6134 15.3866 9.3 15 9.3Z" fill="black"/>
+    </svg>
+  );
+};

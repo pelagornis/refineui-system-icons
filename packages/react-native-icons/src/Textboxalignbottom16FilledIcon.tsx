@@ -1,0 +1,22 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Textboxalignbottom16FilledIcon: React.FC<IconProps> = ({ 
+  size = 16, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 16 16"
+      fill="none"
+      {{...props}}
+    >
+      width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M2 4.33375C2 3.59714 2.59714 3 3.33375 3H11.3363C12.0729 3 12.67 3.59714 12.67 4.33375V12.3363C12.67 13.0729 12.0729 13.67 11.3363 13.67H3.33375C2.59714 13.67 2 13.0729 2 12.3363V4.33375ZM3.90059 8.335C3.90059 8.0956 4.09466 7.90153 4.33406 7.90153H10.3359C10.5753 7.90153 10.7694 8.0956 10.7694 8.335C10.7694 8.5744 10.5753 8.76847 10.3359 8.76847H4.33406C4.09466 8.76847 3.90059 8.5744 3.90059 8.335ZM4.33406 10.2356C4.09466 10.2356 3.90059 10.4297 3.90059 10.6691C3.90059 10.9085 4.09466 11.1025 4.33406 11.1025H10.3359C10.5753 11.1025 10.7694 10.9085 10.7694 10.6691C10.7694 10.4297 10.5753 10.2356 10.3359 10.2356H4.33406Z" fill="black"/>
+    </Svg>
+  );
+};

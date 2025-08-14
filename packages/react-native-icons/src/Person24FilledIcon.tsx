@@ -1,0 +1,23 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Person24FilledIcon: React.FC<IconProps> = ({ 
+  size = 24, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 24 24"
+      fill="none"
+      {{...props}}
+    >
+      width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M10.6908 10.7C9.68997 10.2138 9.00008 9.18746 9.00008 8C9.00008 6.34315 10.3432 5 12 5C13.6568 5 14.9999 6.34315 14.9999 8C14.9999 9.18746 14.31 10.2138 13.3092 10.7C12.9136 10.8922 12.4694 11 12 11C11.5306 11 11.0864 10.8922 10.6908 10.7Z" fill="black"/>
+<path d="M16.251 12C17.7691 12 19.0479 13.2762 18.467 14.6788C18.1152 15.5281 17.5996 16.2997 16.9496 16.9497C16.2996 17.5998 15.528 18.1154 14.6787 18.4672C13.8295 18.8189 12.9192 19 12 19C11.0808 19 10.1705 18.8189 9.32129 18.4672C8.47203 18.1154 7.70038 17.5998 7.05039 16.9497C6.40039 16.2997 5.88479 15.5281 5.53302 14.6788C4.95206 13.2762 6.23087 12 7.74899 12H16.251Z" fill="black"/>
+    </Svg>
+  );
+};

@@ -1,0 +1,24 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Filter24RegularIcon: React.FC<IconProps> = ({ 
+  size = 24, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 24 24"
+      fill="none"
+      {{...props}}
+    >
+      width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 7.65011C4 7.29106 4.2911 7 4.6502 7H19.3498C19.7089 7 20 7.29106 20 7.65011C20 8.00915 19.7089 8.30021 19.3498 8.30021H4.6502C4.2911 8.30021 4 8.00915 4 7.65011Z" fill="black"/>
+<path d="M6.09988 12C6.09988 11.641 6.39098 11.3499 6.75008 11.3499H17.2498C17.6089 11.3499 17.9 11.641 17.9 12C17.9 12.3591 17.6089 12.6501 17.2498 12.6501H6.75008C6.39098 12.6501 6.09988 12.3591 6.09988 12Z" fill="black"/>
+<path d="M8.85008 15.6998C8.49099 15.6998 8.19988 15.9908 8.19988 16.3499C8.19988 16.7089 8.49099 17 8.85008 17H15.1499C15.509 17 15.8001 16.7089 15.8001 16.3499C15.8001 15.9908 15.509 15.6998 15.1499 15.6998H8.85008Z" fill="black"/>
+    </Svg>
+  );
+};

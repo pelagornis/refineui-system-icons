@@ -1,0 +1,23 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Keyboardoption24RegularIcon: React.FC<IconProps> = ({ 
+  size = 24, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4.64992 7C4.29098 7 4 7.29106 4 7.65011C4 8.00915 4.29098 8.30022 4.64992 8.30022H9.22788C9.4217 8.30022 9.59806 8.41228 9.68043 8.58777L13.3589 16.4249C13.5236 16.7759 13.8764 17 14.264 17H19.3501C19.709 17 20 16.7089 20 16.3499C20 15.9908 19.709 15.6998 19.3501 15.6998H14.7721C14.5783 15.6998 14.4019 15.5877 14.3196 15.4122L10.6411 7.57511C10.4764 7.22412 10.1236 7 9.73601 7H4.64992Z" fill="black"/>
+<path d="M13.47 7C13.1111 7 12.8201 7.29106 12.8201 7.65011C12.8201 8.00915 13.1111 8.30022 13.47 8.30022H19.3501C19.709 8.30022 20 8.00915 20 7.65011C20 7.29106 19.709 7 19.3501 7H13.47Z" fill="black"/>
+    </svg>
+  );
+};

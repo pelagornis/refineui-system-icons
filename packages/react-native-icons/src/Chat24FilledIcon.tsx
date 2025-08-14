@@ -1,0 +1,22 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Chat24FilledIcon: React.FC<IconProps> = ({ 
+  size = 24, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 24 24"
+      fill="none"
+      {{...props}}
+    >
+      width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12 20C16.4183 20 20 16.4183 20 12C20 7.58173 16.4183 4 12 4C7.58173 4 4 7.58173 4 12V19C4 19.5523 4.44772 20 5 20H12ZM7.34998 11C7.34998 10.641 7.64099 10.35 8 10.35H16C16.359 10.35 16.65 10.641 16.65 11C16.65 11.359 16.359 11.65 16 11.65H8C7.64099 11.65 7.34998 11.359 7.34998 11ZM7.34998 14C7.34998 13.641 7.64099 13.35 8 13.35H12C12.359 13.35 12.65 13.641 12.65 14C12.65 14.359 12.359 14.65 12 14.65H8C7.64099 14.65 7.34998 14.359 7.34998 14Z" fill="black"/>
+    </Svg>
+  );
+};

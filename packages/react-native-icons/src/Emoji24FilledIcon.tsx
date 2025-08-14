@@ -1,0 +1,22 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Emoji24FilledIcon: React.FC<IconProps> = ({ 
+  size = 24, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 24 24"
+      fill="none"
+      {{...props}}
+    >
+      width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM9 12C9.55228 12 10 11.5523 10 11C10 10.4477 9.55228 10 9 10C8.44772 10 8 10.4477 8 11C8 11.5523 8.44772 12 9 12ZM16 11C16 11.5523 15.5523 12 15 12C14.4477 12 14 11.5523 14 11C14 10.4477 14.4477 10 15 10C15.5523 10 16 10.4477 16 11ZM9.13059 13.8424C9.04353 13.4941 8.69062 13.2823 8.34235 13.3694C7.99409 13.4565 7.78234 13.8094 7.86941 14.1576C8.11321 15.1329 9.32199 16.65 12 16.65C14.678 16.65 15.8868 15.1329 16.1306 14.1576C16.2177 13.8094 16.0059 13.4565 15.6576 13.3694C15.3094 13.2823 14.9565 13.4941 14.8694 13.8424C14.7799 14.2005 14.122 15.35 12 15.35C9.87801 15.35 9.22012 14.2005 9.13059 13.8424Z" fill="black"/>
+    </Svg>
+  );
+};

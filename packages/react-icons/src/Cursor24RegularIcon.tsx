@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Cursor24RegularIcon: React.FC<IconProps> = ({ 
+  size = 24, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M5.45886 4.05872C4.59352 3.77027 3.77027 4.59353 4.05872 5.45886L8.65348 19.2431C8.98086 20.2253 10.3571 20.2605 10.7344 19.2964L12.7895 14.0444C13.0145 13.4694 13.4694 13.0145 14.0444 12.7895L19.2964 10.7344C20.2605 10.3571 20.2253 8.98084 19.2431 8.65346L5.45886 4.05872ZM5.41413 5.41412L9.71811 18.3261L11.5789 13.5707C11.936 12.658 12.6581 11.936 13.5707 11.5789L18.3261 9.7181L5.41413 5.41412Z" fill="black"/>
+    </svg>
+  );
+};

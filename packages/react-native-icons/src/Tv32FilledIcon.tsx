@@ -1,0 +1,23 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Tv32FilledIcon: React.FC<IconProps> = ({ 
+  size = 32, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 32 32"
+      fill="none"
+      {{...props}}
+    >
+      width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6.33333 8C5.59695 8 5 8.59695 5 9.33333V20C5 20.7364 5.59695 21.3333 6.33333 21.3333H25C25.7364 21.3333 26.3333 20.7364 26.3333 20V9.33333C26.3333 8.59695 25.7364 8 25 8H6.33333Z" fill="black"/>
+<path d="M8.53333 22.6667C8.05469 22.6667 7.66667 23.0547 7.66667 23.5333C7.66667 24.012 8.05469 24.4 8.53333 24.4H22.8C23.2786 24.4 23.6667 24.012 23.6667 23.5333C23.6667 23.0547 23.2786 22.6667 22.8 22.6667H8.53333Z" fill="black"/>
+    </Svg>
+  );
+};

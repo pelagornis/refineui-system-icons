@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Hourglasshalf32FilledIcon: React.FC<IconProps> = ({ 
+  size = 32, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 32 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M9.10855 5C7.41372 5 6.4138 6.80605 7.37401 8.13306L12.0053 14.5336C12.4991 15.2161 12.4991 16.1172 12.0053 16.7997L7.37401 23.2003C6.4138 24.5273 7.41372 26.3334 9.10855 26.3334H23.5581C25.2529 26.3334 26.2529 24.5273 25.2927 23.2003L20.6614 16.7997C20.1676 16.1172 20.1676 15.2161 20.6614 14.5336L25.2927 8.13306C26.2529 6.80605 25.2529 5 23.5581 5H9.10855ZM18.0654 17.2668C17.193 16.125 15.4737 16.125 14.6012 17.2668L10.2239 22.9953C9.88858 23.434 10.2014 24.0668 10.7536 24.0668H21.9131C22.4652 24.0668 22.778 23.434 22.4428 22.9953L18.0654 17.2668Z" fill="black"/>
+    </svg>
+  );
+};

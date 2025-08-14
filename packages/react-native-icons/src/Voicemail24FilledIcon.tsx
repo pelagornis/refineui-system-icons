@@ -1,0 +1,22 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Voicemail24FilledIcon: React.FC<IconProps> = ({ 
+  size = 24, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 24 24"
+      fill="none"
+      {{...props}}
+    >
+      width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M4 8C4 6.89543 4.89543 6 6 6H18C19.1046 6 20 6.89543 20 8V16C20 17.1046 19.1046 18 18 18H6C4.89543 18 4 17.1046 4 16V8ZM10.9754 12.85C11.0878 12.5893 11.15 12.3019 11.15 12C11.15 10.8126 10.1874 9.85 9 9.85C7.81259 9.85 6.85 10.8126 6.85 12C6.85 13.1874 7.81259 14.15 9 14.15H15C16.1874 14.15 17.15 13.1874 17.15 12C17.15 10.8126 16.1874 9.85 15 9.85C13.8126 9.85 12.85 10.8126 12.85 12C12.85 12.3019 12.9122 12.5893 13.0246 12.85H10.9754ZM9 11.15C8.53056 11.15 8.15 11.5306 8.15 12C8.15 12.4694 8.53056 12.85 9 12.85C9.46944 12.85 9.85 12.4694 9.85 12C9.85 11.5306 9.46944 11.15 9 11.15ZM15.85 12C15.85 12.4694 15.4694 12.85 15 12.85C14.5306 12.85 14.15 12.4694 14.15 12C14.15 11.5306 14.5306 11.15 15 11.15C15.4694 11.15 15.85 11.5306 15.85 12Z" fill="black"/>
+    </Svg>
+  );
+};

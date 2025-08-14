@@ -1,0 +1,22 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Pen28FilledIcon: React.FC<IconProps> = ({ 
+  size = 28, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 28 28"
+      fill="none"
+      {{...props}}
+    >
+      width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M18.461 5.89316C19.6519 4.70229 21.5826 4.70229 22.7735 5.89316C23.9644 7.08403 23.9644 9.01482 22.7735 10.2057L21.6022 11.377L22.7797 12.5808C23.0844 12.8923 23.0817 13.3911 22.7735 13.6993L19.6651 16.8077C19.3545 17.1183 18.851 17.1183 18.5404 16.8077C18.2298 16.4971 18.2298 15.9935 18.5404 15.6829L20.8786 13.3446C20.9971 13.2261 20.9982 13.0343 20.881 12.9144L20.6937 12.7229C20.5746 12.6012 20.3791 12.6001 20.2587 12.7205L10.3109 22.6683C10.002 22.9772 9.60125 23.1776 9.1688 23.2394L6.25727 23.6553C5.5305 23.7591 4.90754 23.1362 5.01137 22.4094L5.4273 19.4979C5.48908 19.0654 5.68945 18.6647 5.99834 18.3558L18.461 5.89316Z" fill="black"/>
+    </Svg>
+  );
+};

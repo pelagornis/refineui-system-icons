@@ -1,0 +1,22 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Checkmark32RegularIcon: React.FC<IconProps> = ({ 
+  size = 32, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 32 32"
+      fill="none"
+      {{...props}}
+    >
+      width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M26.0986 9.23492C26.4116 9.54815 26.4116 10.056 26.0986 10.3692L13.406 23.0703C12.6114 23.8654 11.3231 23.8654 10.5285 23.0703L5.23477 17.773C4.92174 17.4598 4.92174 16.952 5.23477 16.6387C5.54779 16.3255 6.0553 16.3255 6.36832 16.6387L11.6621 21.936C11.8306 22.1047 12.1039 22.1047 12.2724 21.936L24.965 9.23492C25.278 8.92169 25.7855 8.92169 26.0986 9.23492Z" fill="black"/>
+    </Svg>
+  );
+};

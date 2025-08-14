@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Emojigrimacing48FilledIcon: React.FC<IconProps> = ({ 
+  size = 48, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 48 48"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M40 24C40 32.8366 32.8366 40 24 40C15.1634 40 8 32.8366 8 24C8 15.1634 15.1634 8 24 8C32.8366 8 40 15.1634 40 24ZM20 22C20 23.1046 19.1046 24 18 24C16.8954 24 16 23.1046 16 22C16 20.8954 16.8954 20 18 20C19.1046 20 20 20.8954 20 22ZM32 22C32 23.1046 31.1046 24 30 24C28.8954 24 28 23.1046 28 22C28 20.8954 28.8954 20 30 20C31.1046 20 32 20.8954 32 22ZM24.8212 28.7H27.8455V31.3H24.8212L24.8212 28.7ZM20.1545 31.3H23.1788V28.7H20.1545V31.3ZM15.7 30C15.7 29.282 16.282 28.7 17 28.7H18.5121V31.3H17C16.282 31.3 15.7 30.718 15.7 30ZM31 28.7H29.4879L29.4879 31.3H31C31.718 31.3 32.3 30.718 32.3 30C32.3 29.282 31.718 28.7 31 28.7Z" fill="black"/>
+    </svg>
+  );
+};

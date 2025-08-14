@@ -1,0 +1,24 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Kotlin20FilledIcon: React.FC<IconProps> = ({ 
+  size = 20, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 20 20"
+      fill="none"
+      {{...props}}
+    >
+      width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M15.4006 3C16.2277 3 16.633 3.91466 16.0362 4.4343L10.4972 9.25705L3.77282 14.9733C3.47961 15.2225 3 15.0338 3 14.6692V10.4544C3 10.3439 3.04838 10.2379 3.13449 10.1598L10.892 3.12196C10.978 3.04387 11.0948 3 11.2165 3H15.4006Z" fill="black"/>
+<path d="M16.0506 14.8971C16.6453 15.4173 16.2395 16.33 15.4135 16.33H5.06878C4.65257 16.33 4.45122 15.8676 4.75498 15.6094L10.5785 10.659C10.7569 10.5074 11.0349 10.5092 11.2109 10.6631L16.0506 14.8971Z" fill="black"/>
+<path d="M8.24484 3C8.65382 3 8.8586 3.44876 8.56937 3.71116L3.78354 8.053C3.49436 8.31536 3 8.12949 3 7.7584V3.83312C3 3.373 3.41102 3 3.91803 3H8.24484Z" fill="black"/>
+    </Svg>
+  );
+};

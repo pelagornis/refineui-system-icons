@@ -1,0 +1,22 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Portusba28RegularIcon: React.FC<IconProps> = ({ 
+  size = 28, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 28 28"
+      fill="none"
+      {{...props}}
+    >
+      width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.33333 9C6.04467 9 5 10.0447 5 11.3333V14.8333C5 16.122 6.04467 17.1667 7.33333 17.1667H21.3333C22.622 17.1667 23.6667 16.122 23.6667 14.8333V11.3333C23.6667 10.0447 22.622 9 21.3333 9H7.33333ZM7.04167 10.1667C6.7195 10.1667 6.45833 10.4278 6.45833 10.75V13.0833H22.2083V10.75C22.2083 10.4278 21.9472 10.1667 21.625 10.1667H7.04167Z" fill="black"/>
+    </Svg>
+  );
+};

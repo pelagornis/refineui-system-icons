@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Linehorizontal132RegularIcon: React.FC<IconProps> = ({ 
+  size = 32, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 32 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M26.3333 15.8666C26.3333 16.3452 26.0523 16.7331 25.7056 16.7331L5.62769 16.7331C5.28103 16.7331 5 16.3451 5 15.8666C5 15.388 5.28103 15 5.62769 15L25.7056 15C26.0523 15 26.3333 15.388 26.3333 15.8666Z" fill="black"/>
+    </svg>
+  );
+};

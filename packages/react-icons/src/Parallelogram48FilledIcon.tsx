@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Parallelogram48FilledIcon: React.FC<IconProps> = ({ 
+  size = 48, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 48 48"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M16.4307 13.8323C16.9336 12.7227 18.1128 12 19.4202 12H36.7581C39.069 12 40.6364 14.1614 39.7475 16.1226L31.5693 34.1677C31.0664 35.2773 29.8872 36 28.5798 36H11.2419C8.93097 36 7.36365 33.8386 8.25249 31.8774L16.4307 13.8323Z" fill="black"/>
+    </svg>
+  );
+};

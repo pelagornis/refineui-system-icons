@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Portmicrousb16FilledIcon: React.FC<IconProps> = ({ 
+  size = 16, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M4.75648 6.239C4.89015 6.08835 5.08221 6 5.28638 6H10.047C10.2511 6 10.4432 6.08835 10.5769 6.239L12.0067 7.85049C12.728 8.66339 12.1842 10.0014 11.0652 10.0014H4.26817C3.1491 10.0014 2.60536 8.66339 3.32664 7.85049L4.75648 6.239Z" fill="black"/>
+    </svg>
+  );
+};

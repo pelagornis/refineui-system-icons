@@ -1,0 +1,22 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Chatempty16FilledIcon: React.FC<IconProps> = ({ 
+  size = 16, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 16 16"
+      fill="none"
+      {{...props}}
+    >
+      width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M8.33333 13.67C11.2788 13.67 13.6667 11.2814 13.6667 8.335C13.6667 5.38856 11.2788 3 8.33333 3C5.38782 3 3 5.38856 3 8.335V13.0031C3 13.3714 3.29848 13.67 3.66667 13.67H8.33333Z" fill="black"/>
+    </Svg>
+  );
+};

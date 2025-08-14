@@ -1,0 +1,24 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Fliphorizontal32RegularIcon: React.FC<IconProps> = ({ 
+  size = 32, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 32 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M18.8316 16.5727C18.2178 16.0509 18.2178 15.1161 18.8316 14.5943L24.794 9.52577C25.6574 8.79181 26.9999 9.39383 26.9999 10.515L26.9999 20.652C26.9999 21.7732 25.6574 22.3752 24.794 21.6412L18.8316 16.5727ZM25.2668 19.7927L20.3153 15.5835L25.2668 11.3743L25.2668 19.7927Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M13.8382 14.5943C14.452 15.1161 14.452 16.0509 13.8382 16.5727L7.87582 21.6412C7.01243 22.3752 5.66996 21.7732 5.66996 20.652L5.66996 10.515C5.66996 9.39383 7.01243 8.79181 7.87582 9.52577L13.8382 14.5943ZM7.40302 11.3743L12.3545 15.5835L7.40302 19.7927L7.40302 11.3743Z" fill="black"/>
+<path d="M15.4683 25.4794C15.4683 25.9492 15.8563 26.33 16.3349 26.33C16.8134 26.33 17.2014 25.9492 17.2014 25.4794L17.2014 5.85058C17.2014 5.38082 16.8135 5 16.3349 5C15.8563 5 15.4683 5.38082 15.4683 5.85058L15.4683 25.4794Z" fill="black"/>
+    </svg>
+  );
+};

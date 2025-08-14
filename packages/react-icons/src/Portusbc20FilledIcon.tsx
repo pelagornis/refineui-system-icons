@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Portusbc20FilledIcon: React.FC<IconProps> = ({ 
+  size = 20, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M6.5 7C5.11929 7 4 8.11929 4 9.5C4 10.8807 5.11929 12 6.5 12H13.1667C14.5474 12 15.6667 10.8807 15.6667 9.5C15.6667 8.11929 14.5474 7 13.1667 7H6.5Z" fill="black"/>
+    </svg>
+  );
+};

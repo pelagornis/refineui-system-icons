@@ -1,0 +1,24 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Flipverticial32FilledIcon: React.FC<IconProps> = ({ 
+  size = 32, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 32 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M16.5745 13.1695C16.0526 13.7835 15.1177 13.7835 14.5958 13.1695L9.52647 7.2062C8.7924 6.34268 9.39452 5 10.5158 5H20.6545C21.7758 5 22.3779 6.34268 21.6438 7.20621L16.5745 13.1695Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M14.5958 18.1637C15.1177 17.5498 16.0526 17.5498 16.5745 18.1637L21.6438 24.127C22.3779 24.9906 21.7758 26.3333 20.6545 26.3333H10.5158C9.39452 26.3333 8.79241 24.9906 9.52648 24.127L14.5958 18.1637Z" fill="black"/>
+<path d="M25.4826 16.5333C25.9525 16.5333 26.3333 16.1453 26.3333 15.6667C26.3333 15.188 25.9525 14.8 25.4826 14.8L5.85072 14.8C5.38088 14.8 5 15.188 5 15.6667C5 16.1453 5.38088 16.5333 5.85072 16.5333H25.4826Z" fill="black"/>
+    </svg>
+  );
+};

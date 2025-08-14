@@ -1,0 +1,22 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Hexagon28FilledIcon: React.FC<IconProps> = ({ 
+  size = 28, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 28 28"
+      fill="none"
+      {{...props}}
+    >
+      width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M8.96757 6.89091C9.32101 6.33599 9.93338 6 10.5913 6H18.0754C18.7333 6 19.3457 6.33599 19.6991 6.89091L23.3653 12.6469C23.7438 13.2411 23.7674 13.9946 23.4269 14.6114L19.7123 21.3407C19.3735 21.9544 18.7279 22.3355 18.0269 22.3355H10.6398C9.93876 22.3355 9.29316 21.9544 8.95439 21.3407L5.23973 14.6114C4.89925 13.9946 4.9229 13.2411 5.30139 12.6469L8.96757 6.89091Z" fill="black"/>
+    </Svg>
+  );
+};

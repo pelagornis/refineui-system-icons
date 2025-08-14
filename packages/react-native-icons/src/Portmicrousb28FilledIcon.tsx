@@ -1,0 +1,22 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Portmicrousb28FilledIcon: React.FC<IconProps> = ({ 
+  size = 28, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 28 28"
+      fill="none"
+      {{...props}}
+    >
+      width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M9.07384 11.4182C9.30776 11.1546 9.64387 11 10.0012 11H18.3322C18.6895 11 19.0256 11.1546 19.2595 11.4182L21.7617 14.2384C23.0239 15.6609 22.0724 18.0024 20.114 18.0024H8.21929C6.26092 18.0024 5.30939 15.6609 6.57161 14.2384L9.07384 11.4182Z" fill="black"/>
+    </Svg>
+  );
+};

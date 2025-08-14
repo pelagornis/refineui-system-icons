@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Videoclip28FilledIcon: React.FC<IconProps> = ({ 
+  size = 28, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 28 28"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.33333 6C6.04467 6 5 7.04467 5 8.33333V20C5 21.2887 6.04467 22.3333 7.33333 22.3333H21.3333C22.622 22.3333 23.6667 21.2887 23.6667 20V8.33333C23.6667 7.04467 22.622 6 21.3333 6H7.33333ZM17.5712 13.7427C17.9207 13.9174 17.9207 14.416 17.5712 14.5907L11.5195 17.616C11.2042 17.7736 10.8333 17.5444 10.8333 17.192V11.1413C10.8333 10.7889 11.2042 10.5597 11.5195 10.7173L17.5712 13.7427Z" fill="black"/>
+    </svg>
+  );
+};

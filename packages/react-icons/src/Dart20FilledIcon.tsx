@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Dart20FilledIcon: React.FC<IconProps> = ({ 
+  size = 20, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M10.2006 3.04249C10.4793 2.95509 10.784 3.00407 11.0207 3.17511L11.1338 3.27111L16.0576 8.19331L16.1195 8.26084C16.2546 8.42574 16.3294 8.63396 16.3294 8.84907V13.1611C16.3294 13.6731 15.9135 14.0884 15.4019 14.0886H14.0863V15.4033C14.0863 15.9153 13.6705 16.3299 13.1588 16.33H8.84438C8.59883 16.3299 8.36321 16.2326 8.18944 16.0591L3.2713 11.1434C2.98177 10.854 2.91685 10.4088 3.11103 10.0483L5.59165 5.44258L5.67301 5.29206L10.0631 3.09782L10.2006 3.04249ZM6.48741 12.8267L8.90946 15.2471H13.0034V13.7631L6.58667 7.02826L6.48741 12.8267ZM8.36273 5.15782H11.4893L10.4471 4.11562L8.36273 5.15782Z" fill="black"/>
+    </svg>
+  );
+};

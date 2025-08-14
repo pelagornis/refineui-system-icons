@@ -1,0 +1,23 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Tablet20RegularIcon: React.FC<IconProps> = ({ 
+  size = 20, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.33333 13.2917C7.03418 13.2917 6.79167 13.5342 6.79167 13.8333C6.79167 14.1325 7.03418 14.375 7.33333 14.375H12.3333C12.6325 14.375 12.875 14.1325 12.875 13.8333C12.875 13.5342 12.6325 13.2917 12.3333 13.2917H7.33333Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M4 4.66667C4 3.74619 4.74619 3 5.66667 3H14C14.9205 3 15.6667 3.74619 15.6667 4.66667V14.6667C15.6667 15.5871 14.9205 16.3333 14 16.3333H5.66667C4.74619 16.3333 4 15.5871 4 14.6667V4.66667ZM5.66667 4.08333H14C14.3222 4.08333 14.5833 4.3445 14.5833 4.66667V14.6667C14.5833 14.9888 14.3222 15.25 14 15.25H5.66667C5.3445 15.25 5.08333 14.9888 5.08333 14.6667V4.66667C5.08333 4.3445 5.3445 4.08333 5.66667 4.08333Z" fill="black"/>
+    </svg>
+  );
+};

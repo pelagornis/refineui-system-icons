@@ -1,0 +1,22 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Megaphone48FilledIcon: React.FC<IconProps> = ({ 
+  size = 48, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 48 48"
+      fill="none"
+      {{...props}}
+    >
+      width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M40 12.6104C40 10.0143 37.3436 8.33316 34.9806 9.25526L9.46412 19.2126C8.58121 19.5571 8 20.4077 8 21.3552V24.7546C8 25.7021 8.58122 26.5527 9.46412 26.8972L13.2023 28.356C12.7208 29.3081 12.4503 30.3807 12.4503 31.559C12.4503 35.6685 15.7409 39 19.8001 39C23.1312 39 25.9447 36.7565 26.8468 33.6805L34.9806 36.8545C37.3436 37.7766 40 36.0955 40 33.4994V12.6104ZM24.3831 32.8354L15.6216 29.3451C15.2498 30.0033 15.0511 30.7408 15.0511 31.559C15.0511 34.2636 17.2081 36.4 19.8001 36.4C21.9675 36.4 23.8308 34.9061 24.3831 32.8354Z" fill="black"/>
+    </Svg>
+  );
+};

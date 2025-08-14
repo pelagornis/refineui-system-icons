@@ -1,0 +1,24 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Equalcircle24RegularIcon: React.FC<IconProps> = ({ 
+  size = 24, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 24 24"
+      fill="none"
+      {{...props}}
+    >
+      width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.85 10.5C7.85 10.141 8.14102 9.85 8.5 9.85H15.5C15.859 9.85 16.15 10.141 16.15 10.5C16.15 10.859 15.859 11.15 15.5 11.15H8.5C8.14102 11.15 7.85 10.859 7.85 10.5Z" fill="black"/>
+<path d="M8.5 12.85C8.14102 12.85 7.85 13.141 7.85 13.5C7.85 13.859 8.14102 14.15 8.5 14.15H15.5C15.859 14.15 16.15 13.859 16.15 13.5C16.15 13.141 15.859 12.85 15.5 12.85H8.5Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM12 18.7C15.7003 18.7 18.7 15.7003 18.7 12C18.7 8.29969 15.7003 5.3 12 5.3C8.29969 5.3 5.3 8.29969 5.3 12C5.3 15.7003 8.29969 18.7 12 18.7Z" fill="black"/>
+    </Svg>
+  );
+};

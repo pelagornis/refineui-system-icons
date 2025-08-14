@@ -1,0 +1,24 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Barcharthorizontaldescending48FilledIcon: React.FC<IconProps> = ({ 
+  size = 48, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 48 48"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12 40C9.79086 40 8 38.2091 8 36C8 33.7909 9.79086 32 12 32H22C24.2091 32 26 33.7909 26 36C26 38.2091 24.2091 40 22 40H12Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12 28C9.79086 28 8 26.2091 8 24C8 21.7909 9.79086 20 12 20L28 20C30.2091 20 32 21.7909 32 24C32 26.2091 30.2091 28 28 28L12 28Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M8 12C8 14.2091 9.79086 16 12 16L36 16C38.2091 16 40 14.2091 40 12C40 9.79087 38.2091 8 36 8L12 8C9.79086 8 8 9.79086 8 12Z" fill="black"/>
+    </svg>
+  );
+};

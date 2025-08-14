@@ -1,0 +1,22 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Keyboardbackspace20FilledIcon: React.FC<IconProps> = ({ 
+  size = 20, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 20 20"
+      fill="none"
+      {{...props}}
+    >
+      width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.50478 6.28844C8.81591 6.63654 8.77616 7.16252 8.41599 7.46323L6.17764 9.33209H15.4716C15.9475 9.33209 16.3333 9.70499 16.3333 10.165C16.3333 10.625 15.9475 10.9979 15.4716 10.9979H6.17764L8.41599 12.8668C8.77616 13.1675 8.81591 13.6935 8.50478 14.0416C8.19365 14.3897 7.64945 14.4281 7.28928 14.1274L3.29842 10.7953C2.90053 10.4631 2.90053 9.86691 3.29842 9.5347L7.28928 6.20263C7.64945 5.90191 8.19365 5.94033 8.50478 6.28844Z" fill="black"/>
+    </Svg>
+  );
+};

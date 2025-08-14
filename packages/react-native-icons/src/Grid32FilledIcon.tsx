@@ -1,0 +1,25 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Grid32FilledIcon: React.FC<IconProps> = ({ 
+  size = 32, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 32 32"
+      fill="none"
+      {{...props}}
+    >
+      width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M5 7.66667C5 6.19391 6.19391 5 7.66667 5H11.6667C13.1394 5 14.3333 6.19391 14.3333 7.66667V11.6667C14.3333 13.1394 13.1394 14.3333 11.6667 14.3333H7.66667C6.19391 14.3333 5 13.1394 5 11.6667V7.66667Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M17 19.6667C17 18.1939 18.1939 17 19.6667 17H23.6667C25.1394 17 26.3333 18.1939 26.3333 19.6667V23.6667C26.3333 25.1394 25.1394 26.3333 23.6667 26.3333H19.6667C18.1939 26.3333 17 25.1394 17 23.6667V19.6667Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.66667 17C6.19391 17 5 18.1939 5 19.6667V23.6667C5 25.1394 6.19391 26.3333 7.66667 26.3333H11.6667C13.1394 26.3333 14.3333 25.1394 14.3333 23.6667V19.6667C14.3333 18.1939 13.1394 17 11.6667 17H7.66667Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M17 7.66667C17 6.19391 18.1939 5 19.6667 5H23.6667C25.1394 5 26.3333 6.19391 26.3333 7.66667V11.6667C26.3333 13.1394 25.1394 14.3333 23.6667 14.3333H19.6667C18.1939 14.3333 17 13.1394 17 11.6667V7.66667Z" fill="black"/>
+    </Svg>
+  );
+};

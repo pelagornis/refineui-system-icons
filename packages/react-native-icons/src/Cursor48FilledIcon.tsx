@@ -1,0 +1,22 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Cursor48FilledIcon: React.FC<IconProps> = ({ 
+  size = 48, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 48 48"
+      fill="none"
+      {{...props}}
+    >
+      width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.11743 10.9177C7.54054 9.18705 9.18705 7.54054 10.9177 8.11743L38.4862 17.3069C40.4505 17.9617 40.5211 20.7142 38.5929 21.4687L28.0888 25.579C26.9389 26.029 26.029 26.9388 25.5791 28.0888L21.4688 38.5929C20.7143 40.5211 17.9617 40.4505 17.307 38.4862L8.11743 10.9177Z" fill="black"/>
+    </Svg>
+  );
+};

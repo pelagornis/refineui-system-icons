@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Chevronleft32FilledIcon: React.FC<IconProps> = ({ 
+  size = 32, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 32 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M21.4733 24.0547C21.9937 24.5753 21.9937 25.4191 21.4733 25.9396C20.9529 26.4601 20.1092 26.4602 19.5888 25.9396L10.4827 16.8313C9.83907 16.1869 9.83913 15.1429 10.4827 14.4986L19.5888 5.39021L19.6903 5.29909C20.2138 4.87206 20.9854 4.90219 21.4733 5.39021C21.9612 5.87824 21.9913 6.65004 21.5644 7.1736L21.4733 7.27514L13.0856 15.6649L21.4733 24.0547Z" fill="black"/>
+    </svg>
+  );
+};

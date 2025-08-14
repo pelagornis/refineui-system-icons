@@ -1,0 +1,22 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Clipboard32FilledIcon: React.FC<IconProps> = ({ 
+  size = 32, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 32 32"
+      fill="none"
+      {{...props}}
+    >
+      width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M20.2311 6.26985H22.015C23.1113 6.26985 24 7.20792 24 8.36509V24.2381C24 25.3953 23.1113 26.3333 22.015 26.3333H9.98496C8.8887 26.3333 8 25.3953 8 24.2381V8.36509C8 7.20792 8.8887 6.26985 9.98496 6.26985H11.769C12.0725 5.52307 12.7754 5 13.594 5H18.406C19.2247 5 19.9275 5.52307 20.2311 6.26985ZM13.173 7.09524C13.173 6.84978 13.3615 6.65079 13.594 6.65079H18.406C18.6386 6.65079 18.8271 6.84978 18.8271 7.09524C18.8271 7.3407 18.6386 7.53968 18.406 7.53968H13.594C13.3615 7.53968 13.173 7.3407 13.173 7.09524Z" fill="black"/>
+    </Svg>
+  );
+};

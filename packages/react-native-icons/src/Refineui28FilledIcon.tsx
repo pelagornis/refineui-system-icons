@@ -1,0 +1,22 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Refineui28FilledIcon: React.FC<IconProps> = ({ 
+  size = 28, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 28 28"
+      fill="none"
+      {{...props}}
+    >
+      width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 23.2778V10.0316C5 6.14686 8.61403 5.05855 10.421 5H23.1768C23.3958 5 23.5733 5.17411 23.5733 5.38889V10.0316C23.5502 13.7811 20.4878 15.3426 18.6954 15.7278C18.5517 15.7587 18.4813 15.9237 18.5659 16.0417L23.5938 23.0541C23.7786 23.3118 23.5906 23.6667 23.2695 23.6667H17.8548C17.7202 23.6667 17.5948 23.5997 17.5217 23.4888L12.8125 16.3393C12.7053 16.1765 12.4477 16.2509 12.4477 16.4448V23.2778C12.4477 23.4926 12.2702 23.6667 12.0512 23.6667H5.39652C5.17753 23.6667 5 23.4926 5 23.2778Z" fill="black"/>
+    </Svg>
+  );
+};

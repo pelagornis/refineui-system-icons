@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Keyboardreturn20FilledIcon: React.FC<IconProps> = ({ 
+  size = 20, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.50476 6.28856C8.81588 6.63681 8.77612 7.16299 8.41596 7.46382L6.17761 9.33342H14.6098V7.1666C14.6098 6.70641 14.9956 6.33335 15.4716 6.33335C15.9475 6.33335 16.3333 6.70641 16.3333 7.1666V10.1667C16.3333 10.6269 15.9475 10.9999 15.4716 10.9999H6.17761L8.41596 12.8695C8.77612 13.1703 8.81588 13.6965 8.50476 14.0448C8.19364 14.393 7.64946 14.4315 7.2893 14.1306L3.29842 10.7972C2.90053 10.4649 2.90053 9.86845 3.29842 9.53611L7.2893 6.2027C7.64946 5.90187 8.19364 5.94032 8.50476 6.28856Z" fill="black"/>
+    </svg>
+  );
+};

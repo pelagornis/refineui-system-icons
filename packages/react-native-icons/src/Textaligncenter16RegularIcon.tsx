@@ -1,0 +1,24 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Textaligncenter16RegularIcon: React.FC<IconProps> = ({ 
+  size = 16, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 16 16"
+      fill="none"
+      {{...props}}
+    >
+      width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4.40507 5.45559C4.40507 5.20397 4.59909 5 4.83842 5H11.1615C11.4008 5 11.5948 5.20397 11.5948 5.45559C11.5948 5.7072 11.4008 5.91117 11.1615 5.91117H4.83842C4.59909 5.91117 4.40507 5.7072 4.40507 5.45559Z" fill="black"/>
+<path d="M3 8.5C3 8.24839 3.19402 8.04442 3.43335 8.04442H12.5667C12.806 8.04442 13 8.24839 13 8.5C13 8.75161 12.806 8.95559 12.5667 8.95559H3.43335C3.19402 8.95559 3 8.75161 3 8.5Z" fill="black"/>
+<path d="M6.24358 11.0888C6.00425 11.0888 5.81023 11.2928 5.81023 11.5444C5.81023 11.796 6.00425 12 6.24358 12H9.75639C9.99572 12 10.1897 11.796 10.1897 11.5444C10.1897 11.2928 9.99572 11.0888 9.75639 11.0888H6.24358Z" fill="black"/>
+    </Svg>
+  );
+};

@@ -1,0 +1,22 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Chart48RegularIcon: React.FC<IconProps> = ({ 
+  size = 48, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 48 48"
+      fill="none"
+      {{...props}}
+    >
+      width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M10.5999 9.29995C10.5999 8.58201 10.0179 8 9.29995 8C8.58201 8 8 8.58201 8 9.29995V36.7001C8 38.5226 9.4774 40 11.2999 40H38.7001C39.418 40 40 39.418 40 38.7001C40 38.1148 39.6132 37.6198 39.0812 37.4569V14.1282C39.0812 11.1883 35.5268 9.71602 33.448 11.7948L24.495 20.7479C24.2216 21.0212 23.7784 21.0212 23.505 20.7479L20.5108 17.7537C19.4401 16.683 17.7781 16.4784 16.4797 17.2574L10.5999 20.7853V9.29995ZM10.5999 23.8173V36.7001C10.5999 37.0867 10.9133 37.4001 11.2999 37.4001H36.4813V14.1282C36.4813 13.5046 35.7274 13.1923 35.2864 13.6332L26.3334 22.5863C25.0447 23.875 22.9553 23.875 21.6666 22.5863L18.6724 19.5921C18.4453 19.365 18.0928 19.3216 17.8173 19.4868L10.5999 23.8173Z" fill="black"/>
+    </Svg>
+  );
+};

@@ -1,0 +1,25 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Crop48FilledIcon: React.FC<IconProps> = ({ 
+  size = 48, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 48 48"
+      fill="none"
+      {{...props}}
+    >
+      width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M15.5294 8C16.569 8 17.4118 8.84276 17.4118 9.88235V28.7059C17.4118 29.7455 18.2545 30.5882 19.2941 30.5882H38.1176C39.1572 30.5882 40 31.431 40 32.4706C40 33.5102 39.1572 34.3529 38.1176 34.3529H19.2941C16.1753 34.3529 13.6471 31.8247 13.6471 28.7059V9.88235C13.6471 8.84276 14.4898 8 15.5294 8Z" fill="black"/>
+<path d="M11.7647 13.6471H9.88235C8.84276 13.6471 8 14.4898 8 15.5294C8 16.569 8.84276 17.4118 9.88235 17.4118H11.7647V13.6471Z" fill="black"/>
+<path d="M30.5882 36.2353V38.1176C30.5882 39.1572 31.431 40 32.4706 40C33.5102 40 34.3529 39.1572 34.3529 38.1176V36.2353H30.5882Z" fill="black"/>
+<path d="M34.3529 28.7059V19.2941C34.3529 16.1753 31.8247 13.6471 28.7059 13.6471H19.2941V17.4118H28.7059C29.7455 17.4118 30.5882 18.2545 30.5882 19.2941V28.7059H34.3529Z" fill="black"/>
+    </Svg>
+  );
+};

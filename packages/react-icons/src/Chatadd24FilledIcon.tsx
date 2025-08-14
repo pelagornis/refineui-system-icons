@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Chatadd24FilledIcon: React.FC<IconProps> = ({ 
+  size = 24, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M20 12C20 16.4183 16.4183 20 12 20H5C4.44772 20 4 19.5523 4 19V12C4 7.58173 7.58173 4 12 4C16.4183 4 20 7.58173 20 12ZM12.65 8.5C12.65 8.14102 12.359 7.85 12 7.85C11.641 7.85 11.35 8.14102 11.35 8.5V11.35H8.5C8.14102 11.35 7.85 11.641 7.85 12C7.85 12.359 8.14102 12.65 8.5 12.65H11.35V15.5C11.35 15.859 11.641 16.15 12 16.15C12.359 16.15 12.65 15.859 12.65 15.5V12.65H15.5C15.859 12.65 16.15 12.359 16.15 12C16.15 11.641 15.859 11.35 15.5 11.35H12.65V8.5Z" fill="black"/>
+    </svg>
+  );
+};

@@ -1,0 +1,22 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Wifi448RegularIcon: React.FC<IconProps> = ({ 
+  size = 48, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 48 48"
+      fill="none"
+      {{...props}}
+    >
+      width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M24.046 35.8496C25.4267 35.8496 26.546 34.7303 26.546 33.3496C26.546 31.9689 25.4267 30.8496 24.046 30.8496C22.6653 30.8496 21.546 31.9689 21.546 33.3496C21.546 34.7303 22.6653 35.8496 24.046 35.8496Z" fill="black"/>
+    </Svg>
+  );
+};

@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Iosarrowrtl48FilledIcon: React.FC<IconProps> = ({ 
+  size = 48, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 48 48"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M24.7631 39.5496C23.8754 38.8514 23.7429 37.5917 24.4672 36.7359L34.7115 24.6321C35.0229 24.2642 35.0229 23.7358 34.7115 23.3679L24.4672 11.2641C23.7429 10.4083 23.8754 9.14858 24.7631 8.45037C25.6508 7.75216 26.9575 7.87987 27.6818 8.73561L39.5311 22.7358C40.1539 23.4717 40.1539 24.5283 39.5311 25.2642L27.6818 39.2644C26.9575 40.1201 25.6508 40.2478 24.7631 39.5496Z" fill="black"/>
+    </svg>
+  );
+};
