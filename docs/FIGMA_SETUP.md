@@ -1,44 +1,52 @@
-# Figma API 설정 가이드
+# Figma API Setup Guide
 
-## 🔑 Figma Personal Access Token 생성
+## 🔑 Generate Figma Personal Access Token
 
-### 1. Figma 계정 로그인
-- [Figma](https://www.figma.com)에 로그인합니다.
+### 1. Login to Figma Account
 
-### 2. Settings 페이지 접속
-- 우측 상단의 프로필 아이콘 클릭
-- **Settings** 선택
+- Login to [Figma](https://www.figma.com).
 
-### 3. Personal Access Tokens 섹션
-- 좌측 메뉴에서 **Personal Access Tokens** 클릭
-- 또는 직접 URL 접속: https://www.figma.com/settings
+### 2. Access Settings Page
 
-### 4. 새 토큰 생성
-- **Create new token** 버튼 클릭
-- 토큰 이름 입력 (예: "RefineUI Icons Extractor")
-- **Create token** 클릭
+- Click the profile icon in the top right
+- Select **Settings**
 
-### 5. 토큰 복사 및 저장
-- 생성된 토큰을 안전한 곳에 복사해두세요
-- **⚠️ 주의**: 토큰은 한 번만 표시되므로 반드시 복사해두세요!
+### 3. Personal Access Tokens Section
 
-## 📁 Figma 파일 키 확인
+- Click **Personal Access Tokens** in the left menu
+- Or access directly: https://www.figma.com/settings
 
-### 1. Figma 파일 URL에서 추출
+### 4. Create New Token
+
+- Click **Create new token** button
+- Enter token name (e.g., "RefineUI Icons Extractor")
+- Click **Create token**
+
+### 5. Copy and Save Token
+
+- Copy the generated token to a safe place
+- **⚠️ Warning**: Token is shown only once, so make sure to copy it!
+
+## 📁 Figma File Key Verification
+
+### 1. Extract from Figma File URL
+
 ```
 https://www.figma.com/file/XXXXXXXXXXXXXXX/File-Name
                     ↑
-                파일 키 (32자리)
+                File key (32 characters)
 ```
 
-### 2. 파일 공유 설정
-- Figma 파일에서 **Share** 버튼 클릭
-- **Anyone with the link** 선택
-- **Can view** 권한 설정
+### 2. File Sharing Settings
 
-## 🚀 사용 방법
+- Click **Share** button in Figma file
+- Select **Anyone with the link**
+- Set **Can view** permission
 
-### 환경변수로 설정 (권장)
+## 🚀 Usage Methods
+
+### Set as Environment Variables (Recommended)
+
 ```bash
 # macOS/Linux
 export FIGMA_TOKEN="your_figma_token_here"
@@ -49,7 +57,8 @@ set FIGMA_TOKEN=your_figma_token_here
 set FIGMA_FILE_KEY=your_file_key_here
 ```
 
-### 스크립트 실행 시 직접 전달
+### Pass Directly When Running Script
+
 ```bash
 python scripts/figma_icon_extractor.py \
   --token "your_figma_token_here" \
@@ -57,56 +66,67 @@ python scripts/figma_icon_extractor.py \
   --page "System Icons"
 ```
 
-### .env 파일 사용
+### Use .env File
+
 ```bash
-# .env 파일 생성
+# Create .env file
 echo "FIGMA_TOKEN=your_figma_token_here" > .env
 echo "FIGMA_FILE_KEY=your_file_key_here" >> .env
 ```
 
-## 🔒 보안 주의사항
+## 🔒 Security Considerations
 
-### 토큰 보안
-- **절대** 코드에 토큰을 하드코딩하지 마세요
-- **절대** Git에 토큰을 커밋하지 마세요
-- 토큰이 노출되면 즉시 재생성하세요
+### Token Security
 
-### .gitignore 설정
+- **Never** hardcode tokens in code
+- **Never** commit tokens to Git
+- Regenerate token immediately if exposed
+
+### .gitignore Configuration
+
 ```gitignore
-# .gitignore에 추가
+# Add to .gitignore
 .env
 *.env
 secrets/
 ```
 
-### GitHub Secrets 설정
-GitHub Actions에서 사용할 경우:
+### GitHub Secrets Configuration
+
+When using with GitHub Actions:
+
 1. Repository Settings → Secrets and variables → Actions
-2. **New repository secret** 클릭
-3. `FIGMA_TOKEN`과 `FIGMA_FILE_KEY` 추가
+2. Click **New repository secret**
+3. Add `FIGMA_TOKEN` and `FIGMA_FILE_KEY`
 
-## 🛠️ 문제 해결
+## 🛠️ Troubleshooting
 
-### 토큰 권한 오류
+### Token Permission Error
+
 ```
 Error: 403 Forbidden
 ```
-- 토큰이 올바른지 확인
-- 파일에 대한 접근 권한 확인
-- 토큰이 만료되지 않았는지 확인
 
-### 파일 접근 오류
+- Verify token is correct
+- Check file access permissions
+- Verify token hasn't expired
+
+### File Access Error
+
 ```
 Error: 404 Not Found
 ```
-- 파일 키가 올바른지 확인
-- 파일이 공유되어 있는지 확인
-- 파일이 삭제되지 않았는지 확인
 
-### 페이지 찾기 오류
+- Verify file key is correct
+- Check if file is shared
+- Verify file hasn't been deleted
+
+### Page Not Found Error
+
 ```
 Error: Page 'System Icons' not found
 ```
+
 - 페이지 이름이 정확한지 확인
 - 페이지가 존재하는지 확인
 - 대소문자 구분 확인
