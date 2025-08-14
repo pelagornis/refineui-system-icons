@@ -1,17 +1,18 @@
 #!/usr/bin/env python3
 """
 RefineUI System Icons - Font Builder
-SVG 아이콘들을 폰트로 변환하는 스크립트
+Script to convert SVG icons into font files
 """
 
 import os
+import re
 import json
 import subprocess
 import logging
 from pathlib import Path
 from typing import Dict, List, Optional
 
-# 로깅 설정
+# Logging configuration
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
@@ -21,12 +22,12 @@ class FontBuilder:
         self.fonts_dir = fonts_dir
         self.temp_dir = "temp_font_build"
         
-        # 폰트 설정
+        # Font settings
         self.font_name = "RefineUI System Icons"
         self.font_family = "RefineUI-System-Icons"
         self.font_version = "1.0.0"
         
-        # 지원하는 폰트 형식
+        # Supported font formats
         self.font_formats = {
             "woff2": "web",
             "woff": "web", 
@@ -35,31 +36,38 @@ class FontBuilder:
             "eot": "legacy"
         }
         
-        # 유니코드 시작점 (Private Use Area)
+        # Unicode start point (Private Use Area)
         self.unicode_start = 0xF0000
         
     def check_dependencies(self) -> bool:
-        """필요한 도구들이 설치되어 있는지 확인"""
-        required_tools = ["fontforge", "ttf2woff2"]
+        """Check if required tools are installed"""
+        # FontForge is required
+        try:
+            subprocess.run(["fontforge", "--version"], capture_output=True, check=True)
+            logger.info(f"✓ fontforge installed")
+        except (subprocess.CalledProcessError, FileNotFoundError):
+            logger.error(f"✗ fontforge installation required")
+            return False
         
-        for tool in required_tools:
-            try:
-                subprocess.run([tool, "--version"], capture_output=True, check=True)
-                logger.info(f"✓ {tool} 설치됨")
-            except (subprocess.CalledProcessError, FileNotFoundError):
-                logger.error(f"✗ {tool} 설치 필요")
-                return False
+        # ttf2woff2 is optional
+        try:
+            subprocess.run(["ttf2woff2", "--version"], capture_output=True, check=True)
+            logger.info(f"✓ ttf2woff2 installed")
+            self.has_ttf2woff2 = True
+        except (subprocess.CalledProcessError, FileNotFoundError):
+            logger.warning(f"⚠ ttf2woff2 not found - WOFF2 fonts will not be generated")
+            self.has_ttf2woff2 = False
         
         return True
     
     def install_dependencies(self):
-        """필요한 도구들 설치 안내"""
-        logger.info("폰트 빌드를 위해 다음 도구들을 설치해주세요:")
+        """Installation guide for required tools"""
+        logger.info("Please install the following tools for font building:")
         logger.info("")
         logger.info("macOS:")
         logger.info("  brew install fontforge")
         logger.info("  npm install -g ttf2woff2")
-        logger.info("  # svg2ttf는 FontForge에 포함되어 있음")
+        logger.info("  # svg2ttf is included with FontForge")
         logger.info("")
         logger.info("Ubuntu/Debian:")
         logger.info("  sudo apt-get install fontforge")
@@ -69,12 +77,12 @@ class FontBuilder:
         logger.info("  choco install fontforge")
         logger.info("  npm install -g ttf2woff2")
     
-    def scan_icons(self) -> Dict[str, List[str]]:
-        """assets 디렉토리에서 모든 SVG 파일 스캔"""
-        icons = {}
+    def scan_icons(self) -> Dict[str, Dict[str, List[str]]]:
+        """Scan assets directory and separate Regular and Filled icons"""
+        icons = {"regular": {}, "filled": {}}
         
         if not os.path.exists(self.assets_dir):
-            logger.error(f"{self.assets_dir} 디렉토리가 존재하지 않습니다.")
+            logger.error(f"{self.assets_dir} directory does not exist.")
             return icons
         
         for icon_folder in os.listdir(self.assets_dir):
@@ -84,23 +92,36 @@ class FontBuilder:
                 svg_dir = os.path.join(icon_path, "svg")
                 
                 if os.path.exists(svg_dir):
-                    svg_files = []
+                    regular_files = []
+                    filled_files = []
+                    
                     for file in os.listdir(svg_dir):
                         if file.endswith('.svg'):
-                            svg_files.append(os.path.join(svg_dir, file))
+                            file_path = os.path.join(svg_dir, file)
+                            
+                            # Extract style from filename
+                            if file.endswith('_regular.svg'):
+                                regular_files.append(file_path)
+                            elif file.endswith('_filled.svg'):
+                                filled_files.append(file_path)
                     
-                    if svg_files:
-                        icons[icon_folder] = svg_files
+                    if regular_files:
+                        icons["regular"][icon_folder] = regular_files
+                    if filled_files:
+                        icons["filled"][icon_folder] = filled_files
         
-        logger.info(f"{len(icons)}개의 아이콘 폴더를 찾았습니다.")
+        logger.info(f"Regular: {len(icons['regular'])} folders, Filled: {len(icons['filled'])} folders found.")
         return icons
     
-    def create_fontforge_script(self, icons: Dict[str, List[str]]) -> str:
-        """FontForge 스크립트 생성"""
+    def create_fontforge_script(self, icons: Dict[str, List[str]], style: str) -> str:
+        """Generate FontForge script (by style)"""
+        font_family = f"{self.font_family}-{style.title()}"
+        font_name = f"{self.font_name} {style.title()}"
+        
         script_content = f"""
 #!/usr/bin/env fontforge
 
-# RefineUI System Icons Font Generator
+# RefineUI System Icons Font Generator - {style.title()}
 import fontforge
 import os
 
@@ -108,9 +129,9 @@ import os
 font = fontforge.font()
 
 # 폰트 정보 설정
-font.familyname = "{self.font_family}"
-font.fontname = "{self.font_family}"
-font.fullname = "{self.font_name}"
+font.familyname = "{font_family}"
+font.fontname = "{font_family}"
+font.fullname = "{font_name}"
 font.version = "{self.font_version}"
 font.copyright = "RefineUI System Icons"
 
@@ -129,213 +150,448 @@ unicode_start = {self.unicode_start}
         icon_mapping = {}
         
         for icon_name, svg_files in icons.items():
-            # 첫 번째 SVG 파일만 사용 (대표 아이콘)
-            if svg_files:
-                svg_path = svg_files[0]
-                unicode_point = self.unicode_start + unicode_counter
-                
-                script_content += f"""
-# {icon_name} 아이콘 추가
-glyph = font.createChar(unicode_start + {unicode_counter}, "{icon_name}")
+            # Generate individual glyphs for all SVG files
+            for svg_path in svg_files:
+                svg_filename = os.path.basename(svg_path)
+                # Extract size and style from filename
+                size_match = re.search(r'_(\d+)_(regular|filled)\.svg$', svg_filename)
+                if size_match:
+                    size = size_match.group(1)
+                    file_style = size_match.group(2)
+                    
+                    # Process only files matching current style
+                    if file_style == style:
+                        unicode_point = self.unicode_start + unicode_counter
+                        glyph_name = f"{icon_name}_{size}_{style}"
+                        
+                        script_content += f"""
+# Add {glyph_name} icon
+glyph = font.createChar(unicode_start + {unicode_counter}, "{glyph_name}")
 glyph.importOutlines("{svg_path}")
 glyph.width = 1200
 glyph.vwidth = 1200
 """
-                
-                icon_mapping[icon_name] = {
-                    "unicode": unicode_point,
-                    "svg_path": svg_path
-                }
-                unicode_counter += 1
+                        
+                        icon_mapping[glyph_name] = {
+                            "unicode": unicode_point,
+                            "svg_path": svg_path
+                        }
+                        unicode_counter += 1
         
-        # 폰트 저장
+        # Save font
         script_content += f"""
-# 폰트 저장
-font.generate("{self.fonts_dir}/refineui-system-icons.ttf")
-font.generate("{self.fonts_dir}/refineui-system-icons.otf")
+# Save font
+font.generate("{self.fonts_dir}/refineui-system-icons-{style}.ttf")
+font.generate("{self.fonts_dir}/refineui-system-icons-{style}.otf")
 font.close()
 """
         
         return script_content, icon_mapping
     
-    def create_css_file(self, icon_mapping: Dict) -> str:
-        """CSS 파일 생성"""
-        css_content = f"""/* RefineUI System Icons Font CSS */
+    def create_css_file(self, icon_mapping: Dict, style: str) -> str:
+        """Generate CSS file (by style)"""
+        font_family = f"{self.font_family}-{style.title()}"
+        
+        css_content = f"""/* RefineUI System Icons Font CSS - {style.title()} */
 @font-face {{
-    font-family: '{self.font_family}';
-    src: url('./refineui-system-icons.woff2') format('woff2'),
-         url('./refineui-system-icons.woff') format('woff'),
-         url('./refineui-system-icons.ttf') format('truetype'),
-         url('./refineui-system-icons.otf') format('opentype');
+    font-family: '{font_family}';
+    src: url('./refineui-system-icons-{style}.woff2') format('woff2'),
+         url('./refineui-system-icons-{style}.woff') format('woff'),
+         url('./refineui-system-icons-{style}.ttf') format('truetype'),
+         url('./refineui-system-icons-{style}.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
     font-display: block;
 }}
 
-/* 아이콘 클래스 */
-.ri {{
-    font-family: '{self.font_family}';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 1em;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}}
-
-/* 개별 아이콘 클래스 */
+/* Individual icon classes */
 """
         
         for icon_name, info in icon_mapping.items():
-            css_name = icon_name.lower().replace(' ', '-').replace('_', '-')
+            # Extract size from SVG filename
+            svg_path = info['svg_path']
+            svg_filename = os.path.basename(svg_path)
+            # ic_refineui_access_time_24_regular.svg -> size = 24
+            size_match = re.search(r'_(\d+)_(regular|filled)\.svg$', svg_filename)
+            size = size_match.group(1) if size_match else "24"  # default value 24
+            
+            # Generate CSS class name: ic_refineui_iconName_size_theme
+            css_name = f"ic_refineui_{icon_name.lower().replace(' ', '_')}_{size}_{style}"
             css_content += f"""
-.ri-{css_name}:before {{
+.{css_name}:before {{
+    font-family: '{self.font_family}-{style.title()}';
+    font-weight: normal;
+    font-style: normal;
     content: "\\{info['unicode']:X}";
 }}
 """
         
         return css_content
     
-    def create_icon_mapping_json(self, icon_mapping: Dict) -> str:
-        """아이콘 매핑 JSON 파일 생성"""
+    def create_combined_css(self, all_icon_mappings: Dict):
+        """Generate combined CSS file"""
+        css_content = """/* RefineUI System Icons Font CSS - Combined */
+/* Regular style */
+@font-face {
+    font-family: 'RefineUI-System-Icons-Regular';
+    src: url('./refineui-system-icons-regular.woff2') format('woff2'),
+         url('./refineui-system-icons-regular.woff') format('woff'),
+         url('./refineui-system-icons-regular.ttf') format('truetype'),
+         url('./refineui-system-icons-regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+/* Filled style */
+@font-face {
+    font-family: 'RefineUI-System-Icons-Filled';
+    src: url('./refineui-system-icons-filled.woff2') format('woff2'),
+         url('./refineui-system-icons-filled.woff') format('woff'),
+         url('./refineui-system-icons-filled.ttf') format('truetype'),
+         url('./refineui-system-icons-filled.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+/* Base icon class */
+.ic_refineui {
+    font-size: 1em;
+    line-height: 1;
+    font-weight: normal;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Regular style class */
+.ic_refineui_regular {
+    font-family: 'RefineUI-System-Icons-Regular';
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Filled style class */
+.ic_refineui_filled {
+    font-family: 'RefineUI-System-Icons-Filled';
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Individual icon classes */
+"""
+        
+        # Regular icons
+        if "regular" in all_icon_mappings:
+            for icon_name, info in all_icon_mappings["regular"].items():
+                # Extract original name and size from icon name (e.g., "Access time_24_regular")
+                parts = icon_name.split('_')
+                if len(parts) >= 3:
+                    original_name = '_'.join(parts[:-2])  # "Access time"
+                    size = parts[-2]  # "24"
+                    
+                    # Generate CSS class name: ic_refineui_iconName_size_theme
+                    css_name = f"ic_refineui_{original_name.lower().replace(' ', '_')}_{size}_regular"
+                    css_content += f"""
+.{css_name}:before {{
+    font-family: '{self.font_family}-Regular';
+    font-weight: normal;
+    font-style: normal;
+    content: "\\{info['unicode']:X}";
+}}
+"""
+        
+        # Filled icons
+        if "filled" in all_icon_mappings:
+            for icon_name, info in all_icon_mappings["filled"].items():
+                # Extract original name and size from icon name (e.g., "Access time_24_filled")
+                parts = icon_name.split('_')
+                if len(parts) >= 3:
+                    original_name = '_'.join(parts[:-2])  # "Access time"
+                    size = parts[-2]  # "24"
+                    
+                    # Generate CSS class name: ic_refineui_iconName_size_theme
+                    css_name = f"ic_refineui_{original_name.lower().replace(' ', '_')}_{size}_filled"
+                    css_content += f"""
+.{css_name}:before {{
+    font-family: '{self.font_family}-Filled';
+    font-weight: normal;
+    font-style: normal;
+    content: "\\{info['unicode']:X}";
+}}
+"""
+        
+        # Save combined CSS file
+        css_path = os.path.join(self.fonts_dir, "refineui-system-icons.css")
+        with open(css_path, 'w', encoding='utf-8') as f:
+            f.write(css_content)
+        
+        logger.info("✓ Combined CSS file generated successfully")
+    
+    def create_combined_mapping(self, all_icon_mappings: Dict):
+        """Generate combined icon mapping JSON"""
         mapping_data = {
             "font_name": self.font_name,
-            "font_family": self.font_family,
             "version": self.font_version,
             "unicode_start": self.unicode_start,
+            "styles": {},
             "icons": {}
         }
         
-        for icon_name, info in icon_mapping.items():
-            mapping_data["icons"][icon_name] = {
-                "unicode": info["unicode"],
-                "unicode_hex": f"\\{info['unicode']:X}",
-                "css_class": f"ri-{icon_name.lower().replace(' ', '-').replace('_', '-')}"
+        for style, icon_mapping in all_icon_mappings.items():
+            mapping_data["styles"][style] = {
+                "font_family": f"{self.font_family}-{style.title()}",
+                "count": len(icon_mapping)
             }
+            
+            for icon_name, info in icon_mapping.items():
+                # Extract original name and size from icon name (e.g., "Access time_24_regular")
+                parts = icon_name.split('_')
+                if len(parts) >= 3:
+                    original_name = '_'.join(parts[:-2])  # "Access time"
+                    size = parts[-2]  # "24"
+                    
+                    # Generate CSS class name: ic_refineui_iconName_size_theme
+                    css_name = f"ic_refineui_{original_name.lower().replace(' ', '_')}_{size}_{style}"
+                    mapping_data["icons"][css_name] = {
+                        "name": original_name,
+                        "size": size,
+                        "style": style,
+                        "unicode": info["unicode"],
+                        "unicode_hex": f"\\{info['unicode']:X}",
+                        "css_class": css_name
+                    }
         
-        return json.dumps(mapping_data, indent=2, ensure_ascii=False)
+        # Save combined mapping file
+        mapping_path = os.path.join(self.fonts_dir, "icon-mapping.json")
+        with open(mapping_path, 'w', encoding='utf-8') as f:
+            json.dump(mapping_data, f, indent=2, ensure_ascii=False)
+        
+        logger.info("✓ Combined icon mapping generated successfully")
+    
+    def create_icon_mapping_json(self, icon_mapping: Dict) -> str:
+        """Generate icon mapping JSON file (legacy method - for compatibility)"""
+        # This method is no longer used
+        pass
     
     def build_font(self):
-        """폰트 빌드 메인 프로세스"""
-        logger.info("RefineUI System Icons 폰트 빌드 시작...")
+        """Main font building process"""
+        logger.info("Starting RefineUI System Icons font build...")
         
-        # 의존성 확인
+        # Check dependencies
         if not self.check_dependencies():
             self.install_dependencies()
             return False
         
-        # 출력 디렉토리 생성
+        # Create output directories
         os.makedirs(self.fonts_dir, exist_ok=True)
         os.makedirs(self.temp_dir, exist_ok=True)
         
-        # 아이콘 스캔
+        # Scan icons (separate Regular and Filled)
         icons = self.scan_icons()
-        if not icons:
-            logger.error("빌드할 아이콘이 없습니다.")
+        if not icons["regular"] and not icons["filled"]:
+            logger.error("No icons to build.")
             return False
         
+        all_icon_mappings = {}
+        
         try:
-            # FontForge 스크립트 생성
-            fontforge_script, icon_mapping = self.create_fontforge_script(icons)
-            script_path = os.path.join(self.temp_dir, "generate_font.py")
+            # Generate fonts for each style
+            for style in ["regular", "filled"]:
+                if not icons[style]:
+                    logger.info(f"No {style.title()} style icons found.")
+                    continue
+                
+                logger.info(f"Generating {style.title()} font...")
+                
+                # Generate FontForge script
+                fontforge_script, icon_mapping = self.create_fontforge_script(icons[style], style)
+                script_path = os.path.join(self.temp_dir, f"generate_font_{style}.py")
+                
+                with open(script_path, 'w', encoding='utf-8') as f:
+                    f.write(fontforge_script)
+                
+                # Execute FontForge
+                result = subprocess.run(["fontforge", "-script", script_path], 
+                                      capture_output=True, text=True)
+                
+                if result.returncode != 0:
+                    logger.error(f"FontForge execution failed ({style}): {result.stderr}")
+                    continue
+                
+                # Generate WOFF2
+                ttf_path = os.path.join(self.fonts_dir, f"refineui-system-icons-{style}.ttf")
+                woff2_path = os.path.join(self.fonts_dir, f"refineui-system-icons-{style}.woff2")
+                
+                if os.path.exists(ttf_path) and self.has_ttf2woff2:
+                    try:
+                        subprocess.run(["ttf2woff2", ttf_path], check=True)
+                        if os.path.exists(woff2_path):
+                            logger.info(f"✓ {style.title()} WOFF2 font generated successfully")
+                    except Exception as e:
+                        logger.warning(f"{style.title()} WOFF2 generation failed: {e}")
+                
+                # Generate CSS file
+                css_content = self.create_css_file(icon_mapping, style)
+                css_path = os.path.join(self.fonts_dir, f"refineui-system-icons-{style}.css")
+                
+                with open(css_path, 'w', encoding='utf-8') as f:
+                    f.write(css_content)
+                
+                all_icon_mappings[style] = icon_mapping
+                logger.info(f"✓ {style.title()} font generation completed! {len(icon_mapping)} icons")
             
-            with open(script_path, 'w', encoding='utf-8') as f:
-                f.write(fontforge_script)
+            # Generate combined CSS file
+            self.create_combined_css(all_icon_mappings)
             
-            # FontForge 실행
-            logger.info("FontForge로 폰트 생성 중...")
-            result = subprocess.run(["fontforge", "-script", script_path], 
-                                  capture_output=True, text=True)
+            # Generate combined icon mapping JSON
+            self.create_combined_mapping(all_icon_mappings)
             
-            if result.returncode != 0:
-                logger.error(f"FontForge 실행 실패: {result.stderr}")
-                return False
+            # Generate README
+            self.create_font_readme(all_icon_mappings)
             
-            # 추가 폰트 형식 생성
-            logger.info("추가 폰트 형식 생성 중...")
-            
-            # WOFF2 생성
-            ttf_path = os.path.join(self.fonts_dir, "refineui-system-icons.ttf")
-            woff2_path = os.path.join(self.fonts_dir, "refineui-system-icons.woff2")
-            
-            if os.path.exists(ttf_path):
-                subprocess.run(["ttf2woff2", ttf_path], check=True)
-                if os.path.exists(woff2_path):
-                    logger.info("✓ WOFF2 폰트 생성 완료")
-            
-            # CSS 파일 생성
-            css_content = self.create_css_file(icon_mapping)
-            css_path = os.path.join(self.fonts_dir, "refineui-system-icons.css")
-            
-            with open(css_path, 'w', encoding='utf-8') as f:
-                f.write(css_content)
-            
-            # 아이콘 매핑 JSON 생성
-            mapping_json = self.create_icon_mapping_json(icon_mapping)
-            mapping_path = os.path.join(self.fonts_dir, "icon-mapping.json")
-            
-            with open(mapping_path, 'w', encoding='utf-8') as f:
-                f.write(mapping_json)
-            
-            # README 생성
-            self.create_font_readme(icon_mapping)
-            
-            logger.info(f"✓ 폰트 빌드 완료! {len(icon_mapping)}개 아이콘")
-            logger.info(f"출력 위치: {self.fonts_dir}/")
+            total_icons = sum(len(mapping) for mapping in all_icon_mappings.values())
+            logger.info(f"✓ Complete font build finished! {total_icons} icons")
+            logger.info(f"Output location: {self.fonts_dir}/")
             
             return True
             
         except Exception as e:
-            logger.error(f"폰트 빌드 실패: {e}")
+            logger.error(f"Font build failed: {e}")
             return False
         
         finally:
-            # 임시 파일 정리
+            # Clean up temporary files
             if os.path.exists(self.temp_dir):
                 import shutil
                 shutil.rmtree(self.temp_dir)
     
-    def create_font_readme(self, icon_mapping: Dict):
-        """폰트 사용법 README 생성"""
+    def create_font_readme(self, all_icon_mappings: Dict):
+        """Generate font usage README (Regular and Filled separated)"""
         readme_content = f"""# RefineUI System Icons Font
 
-RefineUI System Icons를 폰트로 사용할 수 있습니다.
+You can use RefineUI System Icons as fonts. Regular and Filled styles are separated.
 
-## 사용법
+## Usage
 
-### 1. CSS 파일 포함
+### 1. Include CSS file
 ```html
 <link rel="stylesheet" href="./refineui-system-icons.css">
 ```
 
-### 2. 아이콘 사용
-```html
-<!-- 기본 클래스 -->
-<i class="ri ri-access-time"></i>
+### 2. Use icons
 
-<!-- 크기 조정 -->
-<i class="ri ri-access-time" style="font-size: 24px;"></i>
+#### Regular style
+```html
+<!-- 24px Regular style -->
+<i class="ic_refineui ic_refineui_regular ic_refineui_access_time_24_regular"></i>
+
+<!-- Or simply -->
+<i class="ic_refineui_access_time_24_regular"></i>
 ```
 
-## 지원하는 아이콘
+#### Filled style
+```html
+<!-- 24px Filled style -->
+<i class="ic_refineui ic_refineui_filled ic_refineui_access_time_24_filled"></i>
+
+<!-- Or simply -->
+<i class="ic_refineui_filled ic_refineui_access_time_24_filled"></i>
+```
+
+#### Various sizes
+```html
+<!-- 16px -->
+<i class="ic_refineui_access_time_16_regular"></i>
+<i class="ic_refineui_access_time_16_filled"></i>
+
+<!-- 20px -->
+<i class="ic_refineui_access_time_20_regular"></i>
+<i class="ic_refineui_access_time_20_filled"></i>
+
+<!-- 24px -->
+<i class="ic_refineui_access_time_24_regular"></i>
+<i class="ic_refineui_access_time_24_filled"></i>
+
+<!-- 28px -->
+<i class="ic_refineui_access_time_28_regular"></i>
+<i class="ic_refineui_access_time_28_filled"></i>
+
+<!-- 32px -->
+<i class="ic_refineui_access_time_32_regular"></i>
+<i class="ic_refineui_access_time_32_filled"></i>
+
+<!-- 48px -->
+<i class="ic_refineui_access_time_48_regular"></i>
+<i class="ic_refineui_access_time_48_filled"></i>
+```
+
+#### Size adjustment
+```html
+<i class="ic_refineui_access_time_24_regular" style="font-size: 24px;"></i>
+<i class="ic_refineui_access_time_32_filled" style="font-size: 32px; color: #007bff;"></i>
+```
+
+## Supported Icons
 
 """
         
-        for icon_name in sorted(icon_mapping.keys()):
-            css_class = f"ri-{icon_name.lower().replace(' ', '-').replace('_', '-')}"
-            readme_content += f"- `{css_class}` - {icon_name}\n"
+        # Regular icons
+        if "regular" in all_icon_mappings:
+            readme_content += "### Regular style\n\n"
+            for icon_name in sorted(all_icon_mappings["regular"].keys()):
+                # Extract size from SVG filename
+                svg_path = all_icon_mappings["regular"][icon_name]['svg_path']
+                svg_filename = os.path.basename(svg_path)
+                size_match = re.search(r'_(\d+)_(regular|filled)\.svg$', svg_filename)
+                size = size_match.group(1) if size_match else "24"  # default value 24
+                
+                css_class = f"ic_refineui_{icon_name.lower().replace(' ', '_')}_{size}_regular"
+                readme_content += f"- `{css_class}` - {icon_name} ({size}px)\n"
+            readme_content += "\n"
         
-        readme_content += f"""
-## 폰트 파일
+        # Filled icons
+        if "filled" in all_icon_mappings:
+            readme_content += "### Filled style\n\n"
+            for icon_name in sorted(all_icon_mappings["filled"].keys()):
+                # Extract size from SVG filename
+                svg_path = all_icon_mappings["filled"][icon_name]['svg_path']
+                svg_filename = os.path.basename(svg_path)
+                size_match = re.search(r'_(\d+)_(regular|filled)\.svg$', svg_filename)
+                size = size_match.group(1) if size_match else "24"  # default value 24
+                
+                css_class = f"ic_refineui_{icon_name.lower().replace(' ', '_')}_{size}_filled"
+                readme_content += f"- `{css_class}` - {icon_name} ({size}px)\n"
+            readme_content += "\n"
+        
+        readme_content += f"""## Font Files
 
-- `refineui-system-icons.woff2` - 최신 브라우저용 (권장)
-- `refineui-system-icons.woff` - 구형 브라우저용
-- `refineui-system-icons.ttf` - 데스크톱용
-- `refineui-system-icons.otf` - 데스크톱용
+### Regular style
+- `refineui-system-icons-regular.woff2` - Modern browsers (recommended)
+- `refineui-system-icons-regular.woff` - Legacy browsers
+- `refineui-system-icons-regular.ttf` - Desktop
+- `refineui-system-icons-regular.otf` - Desktop
 
-## 아이콘 매핑
+### Filled style
+- `refineui-system-icons-filled.woff2` - Modern browsers (recommended)
+- `refineui-system-icons-filled.woff` - Legacy browsers
+- `refineui-system-icons-filled.ttf` - Desktop
+- `refineui-system-icons-filled.otf` - Desktop
 
-전체 아이콘 목록은 `icon-mapping.json` 파일을 참조하세요.
+## Statistics
+
+"""
+        
+        total_regular = len(all_icon_mappings.get("regular", {}))
+        total_filled = len(all_icon_mappings.get("filled", {}))
+        readme_content += f"- **Regular**: {total_regular} icons\n"
+        readme_content += f"- **Filled**: {total_filled} icons\n"
+        readme_content += f"- **Total**: {total_regular + total_filled} icons\n\n"
+        
+        readme_content += """## Icon Mapping
+
+See `icon-mapping.json` file for the complete list of icons.
 """
         
         readme_path = os.path.join(self.fonts_dir, "README.md")
@@ -343,14 +599,14 @@ RefineUI System Icons를 폰트로 사용할 수 있습니다.
             f.write(readme_content)
 
 def main():
-    """메인 함수"""
+    """Main function"""
     builder = FontBuilder()
     success = builder.build_font()
     
     if success:
-        logger.info("🎉 폰트 빌드가 성공적으로 완료되었습니다!")
+        logger.info("🎉 Font build completed successfully!")
     else:
-        logger.error("❌ 폰트 빌드에 실패했습니다.")
+        logger.error("❌ Font build failed.")
         exit(1)
 
 if __name__ == "__main__":

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Figma Icon Extractor
-Figma에서 System Icons를 자동으로 추출하여 공용 assets 구조로 저장하는 스크립트
+Script to automatically extract System Icons from Figma and save them in a common assets structure
 """
 
 import os
@@ -15,20 +15,20 @@ from datetime import datetime
 from urllib.parse import urlparse
 import logging
 
-# .env 파일 로드 (python-dotenv가 설치된 경우)
+# Load .env file (if python-dotenv is installed)
 try:
     from dotenv import load_dotenv
     load_dotenv()
 except ImportError:
     pass
 
-# 로깅 설정
+# Logging configuration
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
 @dataclass
 class IconMetadata:
-    """아이콘 메타데이터 클래스"""
+    """Icon metadata class"""
     name: str
     slug: str
     size: int
@@ -37,7 +37,7 @@ class IconMetadata:
     file_path: str
 
 class FigmaIconExtractor:
-    """Figma 아이콘 추출기"""
+    """Figma icon extractor"""
     
     def __init__(self, figma_token: str, file_key: str, page_name: str = "System Icons"):
         self.figma_token = figma_token
@@ -45,23 +45,23 @@ class FigmaIconExtractor:
         self.page_name = page_name
         self.base_url = "https://api.figma.com/v1"
         
-        # 지원하는 아이콘 크기
+        # Supported icon sizes
         self.supported_sizes = [16, 20, 24, 28, 32, 48]
         
-        # 공용 assets 구조
+        # Common assets structure
         self.assets_dir = "assets"
 
     def slugify(self, name: str) -> str:
-        """아이콘 이름을 slug 처리"""
-        # 기본 kebab-case 변환
+        """Convert icon name to slug"""
+        # Basic kebab-case conversion
         slug = re.sub(r'[^a-zA-Z0-9\s-]', '', name)
         slug = re.sub(r'\s+', '-', slug.lower())
         slug = re.sub(r'-+', '-', slug).strip('-')
         return slug
     
     def to_title_case(self, name: str) -> str:
-        """아이콘 이름을 Title Case로 변환"""
-        # kebab-case를 Title Case로 변환
+        """Convert icon name to Title Case"""
+        # Convert kebab-case to Title Case
         words = name.split('-')
         title_case = ' '.join(word.capitalize() for word in words)
         return title_case
@@ -69,21 +69,21 @@ class FigmaIconExtractor:
 
     
     def get_icon_style(self, name: str) -> str:
-        """아이콘 이름에서 스타일 추출 (regular/filled)"""
+        """Extract style from icon name (regular/filled)"""
         name_lower = name.lower()
         if 'filled' in name_lower or 'solid' in name_lower:
             return 'filled'
         elif 'regular' in name_lower or 'outline' in name_lower:
             return 'regular'
         else:
-            # 기본값은 regular
+            # Default is regular
             return 'regular'
     
     def generate_filename(self, icon_name: str, size: int, style: str) -> str:
-        """새로운 네이밍 규칙으로 파일명 생성"""
+        """Generate filename with new naming convention"""
         slug = self.slugify(icon_name)
         
-        # ic_refineui_아이콘네임_사이즈_스타일.svg
+        # ic_refineui_iconname_size_style.svg
         return f"ic_refineui_{slug}_{size}_{style}.svg"
 
     def get_figma_file(self) -> Dict:

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Platform Builder
-공용 assets를 각 플랫폼별로 변환하는 스크립트
+Script to convert common assets for different platforms
 """
 
 import os
@@ -11,13 +11,13 @@ from pathlib import Path
 from typing import Dict, List
 
 class PlatformBuilder:
-    """플랫폼별 빌더"""
+    """Platform-specific builder"""
     
     def __init__(self):
         self.assets_dir = "assets"
         self.metadata_dir = "metadata"
         
-        # 플랫폼별 네이밍 규칙
+        # Platform-specific naming rules
         self.naming_rules = {
             "web": "kebab-case",      # icon-name.svg
             "ios": "camelCase",       # iconName.svg
@@ -25,7 +25,7 @@ class PlatformBuilder:
             "flutter": "snake_case"   # icon_name.svg
         }
         
-        # Android DPI 매핑
+        # Android DPI mapping
         self.dpi_mapping = {
             16: "mdpi",
             20: "hdpi", 
@@ -35,51 +35,51 @@ class PlatformBuilder:
         }
 
     def slugify(self, name: str, platform: str = "web") -> str:
-        """아이콘 이름을 플랫폼별 네이밍 규칙에 따라 slug 처리"""
-        # 기본 kebab-case 변환
+        """Convert icon name to slug according to platform-specific naming rules"""
+        # Basic kebab-case conversion
         import re
         slug = re.sub(r'[^a-zA-Z0-9\s-]', '', name)
         slug = re.sub(r'\s+', '-', slug.lower())
         slug = re.sub(r'-+', '-', slug).strip('-')
         
-        # 플랫폼별 변환
+        # Platform-specific conversion
         if platform == "ios":
-            # camelCase로 변환
+            # Convert to camelCase
             parts = slug.split('-')
             return parts[0] + ''.join(word.capitalize() for word in parts[1:])
         elif platform in ["android", "flutter"]:
-            # snake_case로 변환
+            # Convert to snake_case
             return slug.replace('-', '_')
         
         return slug
 
     def load_metadata(self) -> Dict:
-        """메타데이터 로드"""
+        """Load metadata"""
         metadata_file = os.path.join(self.metadata_dir, "icons.json")
         if not os.path.exists(metadata_file):
-            raise FileNotFoundError(f"메타데이터 파일을 찾을 수 없습니다: {metadata_file}")
+            raise FileNotFoundError(f"Metadata file not found: {metadata_file}")
         
         with open(metadata_file, 'r', encoding='utf-8') as f:
             return json.load(f)
 
     def scan_assets(self) -> Dict:
-        """assets 디렉토리 스캔하여 아이콘 정보 수집"""
+        """Scan assets directory to collect icon information"""
         icons_data = {}
         
         if not os.path.exists(self.assets_dir):
-            raise FileNotFoundError(f"assets 디렉토리를 찾을 수 없습니다: {self.assets_dir}")
+            raise FileNotFoundError(f"Assets directory not found: {self.assets_dir}")
         
         for icon_folder in os.listdir(self.assets_dir):
             icon_path = os.path.join(self.assets_dir, icon_folder)
             if not os.path.isdir(icon_path):
                 continue
             
-            # metadata.json 파일 확인
+            # Check metadata.json file
             metadata_file = os.path.join(icon_path, "metadata.json")
             if not os.path.exists(metadata_file):
                 continue
             
-            # 메타데이터 로드
+            # Load metadata
             with open(metadata_file, 'r', encoding='utf-8') as f:
                 icon_metadata = json.load(f)
             
@@ -88,8 +88,8 @@ class PlatformBuilder:
         return icons_data
 
     def build_web_package(self, icons_data: Dict):
-        """Web 패키지 빌드"""
-        print("🌐 Web 패키지 빌드 중...")
+        """Build Web package"""
+        print("🌐 Building Web package...")
         
         web_output = "packages/react-icons/src"
         os.makedirs(web_output, exist_ok=True)
