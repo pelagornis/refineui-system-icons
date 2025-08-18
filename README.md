@@ -30,6 +30,7 @@ refineui-system-icons/
 │   └── build_android.py         # Android build
 ├── assets/                      # Extracted icon files
 │   ├── web/{size}/              # Web SVG
+
 │   ├── ios/{size}/              # iOS SVG
 │   ├── android/res/drawable-{dpi}/ # Android Vector Drawable
 │   └── flutter/{size}/          # Flutter SVG
