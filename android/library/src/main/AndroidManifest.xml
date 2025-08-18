@@ -2,9 +2,4 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.refineui.icons">
 
-    <!-- 라이브러리용 매니페스트 -->
-    <application>
-        <!-- 리소스만 제공하는 라이브러리이므로 별도 설정 없음 -->
-    </application>
-
 </manifest>
