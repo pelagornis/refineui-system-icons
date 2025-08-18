@@ -52,6 +52,12 @@ class _IconsGridPageState extends State<IconsGridPage> {
               );
             },
           ),
+          IconButton(
+            icon: const Icon(Icons.help_outline),
+            onPressed: () {
+              _showUsageExamples();
+            },
+          ),
         ],
       ),
       body: Column(
@@ -161,6 +167,7 @@ class _IconsGridPageState extends State<IconsGridPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            // 방법 1: Icon 위젯 사용 (가장 일반적)
             Icon(
               icon['iconData'],
               size: 32,
@@ -322,6 +329,122 @@ class _IconsGridPageState extends State<IconsGridPage> {
     ]);
     
     return icons;
+  }
+
+  void _showUsageExamples() {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('아이콘 사용 방법'),
+        content: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Text(
+                'Flutter에서 RefineUI 아이콘을 사용하는 방법:',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 16),
+              
+              // 방법 1: Icon 위젯
+              const Text('1. Icon 위젯 사용 (가장 일반적):', style: TextStyle(fontWeight: FontWeight.bold)),
+              Container(
+                padding: const EdgeInsets.all(8),
+                margin: const EdgeInsets.only(bottom: 8),
+                decoration: BoxDecoration(
+                  color: Colors.grey[100],
+                  borderRadius: BorderRadius.circular(4),
+                ),
+                child: const Text(
+                  'Icon(RefineUIIcons.add_24_regular, size: 24)',
+                  style: TextStyle(fontFamily: 'monospace'),
+                ),
+              ),
+              Row(
+                children: [
+                  Icon(RefineUIIcons.add_24_regular, size: 24, color: Colors.blue),
+                  const SizedBox(width: 8),
+                  const Text('→ 이렇게 표시됩니다'),
+                ],
+              ),
+              const SizedBox(height: 16),
+              
+              // 방법 2: IconButton
+              const Text('2. IconButton 사용:', style: TextStyle(fontWeight: FontWeight.bold)),
+              Container(
+                padding: const EdgeInsets.all(8),
+                margin: const EdgeInsets.only(bottom: 8),
+                decoration: BoxDecoration(
+                  color: Colors.grey[100],
+                  borderRadius: BorderRadius.circular(4),
+                ),
+                child: const Text(
+                  'IconButton(\n  icon: Icon(RefineUIIcons.add_24_regular),\n  onPressed: () {},\n)',
+                  style: TextStyle(fontFamily: 'monospace'),
+                ),
+              ),
+              IconButton(
+                icon: Icon(RefineUIIcons.add_24_regular),
+                onPressed: () {},
+              ),
+              const SizedBox(height: 16),
+              
+              // 방법 3: Text 위젯에서 직접 사용
+              const Text('3. Text 위젯에서 직접 사용:', style: TextStyle(fontWeight: FontWeight.bold)),
+              Container(
+                padding: const EdgeInsets.all(8),
+                margin: const EdgeInsets.only(bottom: 8),
+                decoration: BoxDecoration(
+                  color: Colors.grey[100],
+                  borderRadius: BorderRadius.circular(4),
+                ),
+                child: const Text(
+                  'Text(\n  String.fromCharCode(RefineUIIcons.add_24_regular.codePoint),\n  style: TextStyle(fontFamily: \'RefineUI-System-Icons-Regular\'),\n)',
+                  style: TextStyle(fontFamily: 'monospace'),
+                ),
+              ),
+              Text(
+                String.fromCharCode(RefineUIIcons.add_24_regular.codePoint),
+                style: const TextStyle(
+                  fontFamily: 'RefineUI-System-Icons-Regular',
+                  fontSize: 24,
+                  color: Colors.blue,
+                ),
+              ),
+              const SizedBox(height: 16),
+              
+              // 방법 4: 다양한 크기와 스타일
+              const Text('4. 다양한 크기와 스타일:', style: TextStyle(fontWeight: FontWeight.bold)),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Icon(RefineUIIcons.add_16_regular, size: 16),
+                  Icon(RefineUIIcons.add_20_regular, size: 20),
+                  Icon(RefineUIIcons.add_24_regular, size: 24),
+                  Icon(RefineUIIcons.add_28_regular, size: 28),
+                  Icon(RefineUIIcons.add_32_regular, size: 32),
+                ],
+              ),
+              const SizedBox(height: 8),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Icon(RefineUIIcons.add_24_regular, size: 24, color: Colors.blue),
+                  Icon(RefineUIIcons.add_24_filled, size: 24, color: Colors.red),
+                ],
+              ),
+            ],
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text('닫기'),
+          ),
+        ],
+      ),
+    );
   }
 }
 
