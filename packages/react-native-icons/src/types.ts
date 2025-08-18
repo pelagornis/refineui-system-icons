@@ -1,26 +1,21 @@
-import React from 'react';
-import { ViewStyle } from 'react-native';
+import { TextProps } from 'react-native';
 
-export interface IconProps {
-  /** 아이콘 크기 */
-  size?: number;
-  /** 아이콘 색상 */
+export interface IconProps extends TextProps {
+  /**
+   * The size of the icon.
+   * @default 20
+   */
+  size?: 12 | 16 | 20 | 24 | 28 | 32 | 48;
+  
+  /**
+   * The color of the icon.
+   * @default 'currentColor'
+   */
   color?: string;
-  /** 추가 스타일 */
-  style?: ViewStyle;
-  /** 테스트 ID */
-  testID?: string;
-}
-
-export interface IconSet {
-  [key: string]: React.FC<IconProps>;
-}
-
-export interface IconMetadata {
-  name: string;
-  slug: string;
-  size: number;
-  node_id: string;
-  platform: string;
-  file_path: string;
+  
+  /**
+   * Whether the icon should be filled or regular.
+   * @default 'regular'
+   */
+  variant?: 'regular' | 'filled';
 }
