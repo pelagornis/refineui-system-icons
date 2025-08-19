@@ -20,10 +20,3 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-  fonts:
-    - family: RefineUI-System-Icons-Regular
-      fonts:
-        - asset: ../lib/fonts/refineui-system-icons-regular.ttf
-    - family: RefineUI-System-Icons-Filled
-      fonts:
-        - asset: ../lib/fonts/refineui-system-icons-filled.ttf
