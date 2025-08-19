@@ -321,8 +321,8 @@ export const {component_name}Icon: React.FC<IconProps> = ({{
                 # Convert SVG to Android Vector Drawable
                 self.convert_svg_to_vector_drawable(source_path, dest_path)
         
-        # Create Android resource files
-        self.create_android_resources(icons_data, android_output)
+        # Create Android color resources (only the essential color file)
+        self.create_android_color_resources(android_output)
         print("✅ Android package completed")
 
     def build_flutter_package(self, icons_data: Dict):
@@ -471,24 +471,18 @@ export const {component_name}Icon: React.FC<IconProps> = ({{
         with open(output_path, 'w', encoding='utf-8') as f:
             f.write(vector_drawable)
 
-    def create_android_resources(self, icons_data: Dict, output_dir: str):
-        """Create Android resource files"""
-        # Create strings.xml
-        strings_content = '''<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- Icon names -->
-'''
+    def create_android_color_resources(self, output_dir: str):
+        """Create essential Android color resources"""
+        # Create color/refineui_default_tint.xml (essential for icon colors)
+        color_content = '''<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="#212121"/>
+</selector>'''
         
-        for icon_folder, icon_info in icons_data.items():
-            icon_name = icon_info["name"]
-            strings_content += f'    <string name="icon_{self.slugify(icon_name, "android")}">{icon_name}</string>\n'
-        
-        strings_content += '</resources>'
-        
-        strings_file = os.path.join(output_dir, "values/strings.xml")
-        os.makedirs(os.path.dirname(strings_file), exist_ok=True)
-        with open(strings_file, 'w', encoding='utf-8') as f:
-            f.write(strings_content)
+        color_file = os.path.join(output_dir, "color/refineui_default_tint.xml")
+        os.makedirs(os.path.dirname(color_file), exist_ok=True)
+        with open(color_file, 'w', encoding='utf-8') as f:
+            f.write(color_content)
 
     def build_all_platforms(self):
         """Build all platforms"""
