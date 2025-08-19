@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="16dp"
+    android:height="16dp"
+    android:viewportWidth="16"
+    android:viewportHeight="16">
+    <path android:pathData="M4.06667 7.16667C4.06667 6.92734 4.26068 6.73333 4.5 6.73333H10.1667C10.406 6.73333 10.6 6.92734 10.6 7.16667C10.6 7.40599 10.406 7.6 10.1667 7.6H4.5C4.26068 7.6 4.06667 7.40599 4.06667 7.16667Z" android:fillColor="@color/refineui_default_tint" />
+    <path android:pathData="M4.5 9.06667C4.26068 9.06667 4.06667 9.26068 4.06667 9.5C4.06667 9.73932 4.26068 9.93333 4.5 9.93333H10.1667C10.406 9.93333 10.6 9.73932 10.6 9.5C10.6 9.26068 10.406 9.06667 10.1667 9.06667H4.5Z" android:fillColor="@color/refineui_default_tint" />
+    <path android:pathData="M3.33333 3C2.59695 3 2 3.59695 2 4.33333V12.3333C2 13.0697 2.59695 13.6667 3.33333 13.6667H11.3333C12.0697 13.6667 12.6667 13.0697 12.6667 12.3333V4.33333C12.6667 3.59695 12.0697 3 11.3333 3H3.33333ZM11.3333 3.86667H3.33333C3.0756 3.86667 2.86667 4.0756 2.86667 4.33333V12.3333C2.86667 12.5911 3.0756 12.8 3.33333 12.8H11.3333C11.5911 12.8 11.8 12.5911 11.8 12.3333V4.33333C11.8 4.0756 11.5911 3.86667 11.3333 3.86667Z" android:fillColor="@color/refineui_default_tint" android:fillType="evenOdd"/>
+</vector>

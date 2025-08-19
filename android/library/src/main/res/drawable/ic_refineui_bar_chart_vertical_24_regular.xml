@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path android:pathData="M4 18C4 19.1046 4.89543 20 6 20C7.10457 20 8 19.1046 8 18V13C8 11.8954 7.10457 11 6 11C4.89543 11 4 11.8954 4 13L4 18ZM5.3 13L5.3 18C5.3 18.3866 5.6134 18.7 6 18.7C6.3866 18.7 6.7 18.3866 6.7 18L6.7 13C6.7 12.6134 6.3866 12.3 6 12.3C5.6134 12.3 5.3 12.6134 5.3 13Z" android:fillColor="@color/refineui_default_tint" android:fillType="evenOdd"/>
+    <path android:pathData="M10 18C10 19.1046 10.8954 20 12 20C13.1046 20 14 19.1046 14 18V10C14 8.89543 13.1046 8 12 8C10.8954 8 10 8.89543 10 10V18ZM11.3 10V18C11.3 18.3866 11.6134 18.7 12 18.7C12.3866 18.7 12.7 18.3866 12.7 18V10C12.7 9.6134 12.3866 9.3 12 9.3C11.6134 9.3 11.3 9.6134 11.3 10Z" android:fillColor="@color/refineui_default_tint" android:fillType="evenOdd"/>
+    <path android:pathData="M18 20C16.8954 20 16 19.1046 16 18V6C16 4.89543 16.8954 4 18 4C19.1046 4 20 4.89543 20 6V18C20 19.1046 19.1046 20 18 20ZM17.3 18V6C17.3 5.6134 17.6134 5.3 18 5.3C18.3866 5.3 18.7 5.6134 18.7 6V18C18.7 18.3866 18.3866 18.7 18 18.7C17.6134 18.7 17.3 18.3866 17.3 18Z" android:fillColor="@color/refineui_default_tint" android:fillType="evenOdd"/>
+</vector>

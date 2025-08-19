@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    <path android:pathData="M8 12C8 9.79086 9.79086 8 12 8H18C20.2091 8 22 9.79086 22 12V36C22 38.2091 20.2091 40 18 40H12C9.79086 40 8 38.2091 8 36V12Z" android:fillColor="@color/refineui_default_tint" />
+    <path android:pathData="M26 12C26 9.79086 27.7909 8 30 8H36C38.2091 8 40 9.79086 40 12V36C40 38.2091 38.2091 40 36 40H30C27.7909 40 26 38.2091 26 36V12Z" android:fillColor="@color/refineui_default_tint" />
+</vector>

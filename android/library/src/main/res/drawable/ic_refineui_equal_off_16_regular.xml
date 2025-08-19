@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="16dp"
+    android:height="16dp"
+    android:viewportWidth="16"
+    android:viewportHeight="16">
+    <path android:pathData="M2.73973 2.12692C2.5705 1.95769 2.29614 1.95769 2.12692 2.12692C1.95769 2.29614 1.95769 2.5705 2.12692 2.73973L13.2603 13.8731C13.4295 14.0423 13.7039 14.0423 13.8731 13.8731C14.0423 13.7039 14.0423 13.4295 13.8731 13.2603L2.73973 2.12692Z" android:fillColor="@color/refineui_default_tint" />
+    <path android:pathData="M3.1001 5.33325H3.99995L4.86646 6.19976H3.1001C2.86071 6.19976 2.66665 6.00578 2.66665 5.7665C2.66665 5.52722 2.86071 5.33325 3.1001 5.33325Z" android:fillColor="@color/refineui_default_tint" />
+    <path android:pathData="M6.66655 5.33325L7.53306 6.19976H12.8996C13.139 6.19976 13.333 6.00578 13.333 5.7665C13.333 5.52722 13.139 5.33325 12.8996 5.33325H6.66655Z" android:fillColor="@color/refineui_default_tint" />
+    <path android:pathData="M3.1001 9.79994H8.46664L9.33315 10.6664H3.1001C2.86071 10.6664 2.66665 10.4725 2.66665 10.2332C2.66665 9.99391 2.86071 9.79994 3.1001 9.79994Z" android:fillColor="@color/refineui_default_tint" />
+    <path android:pathData="M11.1332 9.79994L11.9997 10.6664H12.8996C13.139 10.6664 13.333 10.4725 13.333 10.2332C13.333 9.99391 13.139 9.79994 12.8996 9.79994H11.1332Z" android:fillColor="@color/refineui_default_tint" />
+</vector>

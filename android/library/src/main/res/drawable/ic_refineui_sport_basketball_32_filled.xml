@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="32dp"
+    android:height="32dp"
+    android:viewportWidth="32"
+    android:viewportHeight="32">
+    <path android:pathData="M24.5585 16.5333H20.6408C20.9368 18.4317 21.7962 20.1424 22.61 21.288L23.826 22.5375C25.2161 20.8883 26.1154 18.8119 26.2986 16.5333H24.5585Z" android:fillColor="@color/refineui_default_tint" />
+    <path android:pathData="M22.5683 9.99418C21.1804 11.5403 20.6165 13.1987 20.5418 14.8H24.5585H26.2986C26.1143 12.508 25.2055 10.4206 23.8014 8.7668L22.5683 9.99418Z" android:fillColor="@color/refineui_default_tint" />
+    <path android:pathData="M18.8075 14.8C18.8849 12.7917 19.5876 10.6874 21.3412 8.7668L22.5683 7.53337C20.9142 6.12843 18.8261 5.21905 16.5333 5.0347V6.77483V14.8H18.8075Z" android:fillColor="@color/refineui_default_tint" />
+    <path android:pathData="M12.4271 14.8H14.8V6.77483V5.0347C12.5242 5.21769 10.45 6.11504 8.80178 7.50234L9.94691 8.80425C10.9581 10.1543 12.0625 12.2647 12.4078 14.6597C12.4145 14.7063 12.421 14.7531 12.4271 14.8Z" android:fillColor="@color/refineui_default_tint" />
+    <path android:pathData="M10.6761 14.8C10.3811 12.9076 9.52614 11.2017 8.7146 10.0561L7.54249 8.75435C6.13237 10.4101 5.21945 12.5023 5.0347 14.8H6.77483H10.6761Z" android:fillColor="@color/refineui_default_tint" />
+    <path android:pathData="M8.75726 21.3296C10.1388 19.7862 10.7006 18.1314 10.7752 16.5333H6.77483H5.0347C5.21871 18.8217 6.12499 20.9063 7.52539 22.5588L8.75726 21.3296Z" android:fillColor="@color/refineui_default_tint" />
+    <path android:pathData="M14.8 24.5585V16.5333H12.5095C12.4322 18.5389 11.7313 20.6404 9.98276 22.5588L8.75726 23.7933C10.4125 25.202 12.5036 26.114 14.8 26.2986V24.5585Z" android:fillColor="@color/refineui_default_tint" />
+    <path android:pathData="M16.5333 16.5333V24.5585V26.2986C18.8454 26.1127 20.9494 25.1895 22.61 23.7643L21.3764 22.5375C20.3635 21.1878 19.2552 19.0736 18.9092 16.6737C18.9025 16.627 18.896 16.5802 18.8899 16.5333H16.5333Z" android:fillColor="@color/refineui_default_tint" />
+</vector>

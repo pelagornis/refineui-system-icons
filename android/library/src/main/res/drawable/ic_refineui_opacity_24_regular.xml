@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path android:pathData="M17.65 7.00001C17.65 7.35899 17.359 7.65001 17 7.65001C16.641 7.65001 16.35 7.35899 16.35 7.00001C16.35 6.64102 16.641 6.35001 17 6.35001C17.359 6.35001 17.65 6.64102 17.65 7.00001Z" android:fillColor="@color/refineui_default_tint" />
+    <path android:pathData="M15.65 9.00001C15.65 9.35899 15.359 9.65001 15 9.65001C14.641 9.65001 14.35 9.35899 14.35 9.00001C14.35 8.64102 14.641 8.35001 15 8.35001C15.359 8.35001 15.65 8.64102 15.65 9.00001Z" android:fillColor="@color/refineui_default_tint" />
+    <path android:pathData="M13 11.65C13.359 11.65 13.65 11.359 13.65 11C13.65 10.641 13.359 10.35 13 10.35C12.641 10.35 12.35 10.641 12.35 11C12.35 11.359 12.641 11.65 13 11.65Z" android:fillColor="@color/refineui_default_tint" />
+    <path android:pathData="M11 13.65C11.359 13.65 11.65 13.359 11.65 13C11.65 12.641 11.359 12.35 11 12.35C10.641 12.35 10.35 12.641 10.35 13C10.35 13.359 10.641 13.65 11 13.65Z" android:fillColor="@color/refineui_default_tint" />
+    <path android:pathData="M8.99998 15.65C9.35896 15.65 9.64998 15.359 9.64998 15C9.64998 14.641 9.35896 14.35 8.99998 14.35C8.64099 14.35 8.34998 14.641 8.34998 15C8.34998 15.359 8.64099 15.65 8.99998 15.65Z" android:fillColor="@color/refineui_default_tint" />
+    <path android:pathData="M6.99998 17.65C7.35896 17.65 7.64998 17.359 7.64998 17C7.64998 16.641 7.35896 16.35 6.99998 16.35C6.64099 16.35 6.34998 16.641 6.34998 17C6.34998 17.359 6.64099 17.65 6.99998 17.65Z" android:fillColor="@color/refineui_default_tint" />
+    <path android:pathData="M9.64998 17C9.64998 17.359 9.35896 17.65 8.99998 17.65C8.64099 17.65 8.34998 17.359 8.34998 17C8.34998 16.641 8.64099 16.35 8.99998 16.35C9.35896 16.35 9.64998 16.641 9.64998 17Z" android:fillColor="@color/refineui_default_tint" />
+    <path android:pathData="M11 17.65C11.359 17.65 11.65 17.359 11.65 17C11.65 16.641 11.359 16.35 11 16.35C10.641 16.35 10.35 16.641 10.35 17C10.35 17.359 10.641 17.65 11 17.65Z" android:fillColor="@color/refineui_default_tint" />
+    <path android:pathData="M11.65 15C11.65 15.359 11.359 15.65 11 15.65C10.641 15.65 10.35 15.359 10.35 15C10.35 14.641 10.641 14.35 11 14.35C11.359 14.35 11.65 14.641 11.65 15Z" android:fillColor="@color/refineui_default_tint" />
+    <path android:pathData="M13.65 13C13.65 13.359 13.359 13.65 13 13.65C12.641 13.65 12.35 13.359 12.35 13C12.35 12.641 12.641 12.35 13 12.35C13.359 12.35 13.65 12.641 13.65 13Z" android:fillColor="@color/refineui_default_tint" />
+    <path android:pathData="M13 15.65C13.359 15.65 13.65 15.359 13.65 15C13.65 14.641 13.359 14.35 13 14.35C12.641 14.35 12.35 14.641 12.35 15C12.35 15.359 12.641 15.65 13 15.65Z" android:fillColor="@color/refineui_default_tint" />
+    <path android:pathData="M13.65 17C13.65 17.359 13.359 17.65 13 17.65C12.641 17.65 12.35 17.359 12.35 17C12.35 16.641 12.641 16.35 13 16.35C13.359 16.35 13.65 16.641 13.65 17Z" android:fillColor="@color/refineui_default_tint" />
+    <path android:pathData="M15.65 13C15.65 13.359 15.359 13.65 15 13.65C14.641 13.65 14.35 13.359 14.35 13C14.35 12.641 14.641 12.35 15 12.35C15.359 12.35 15.65 12.641 15.65 13Z" android:fillColor="@color/refineui_default_tint" />
+    <path android:pathData="M15 15.65C15.359 15.65 15.65 15.359 15.65 15C15.65 14.641 15.359 14.35 15 14.35C14.641 14.35 14.35 14.641 14.35 15C14.35 15.359 14.641 15.65 15 15.65Z" android:fillColor="@color/refineui_default_tint" />
+    <path android:pathData="M15.65 17C15.65 17.359 15.359 17.65 15 17.65C14.641 17.65 14.35 17.359 14.35 17C14.35 16.641 14.641 16.35 15 16.35C15.359 16.35 15.65 16.641 15.65 17Z" android:fillColor="@color/refineui_default_tint" />
+    <path android:pathData="M15 11.65C15.359 11.65 15.65 11.359 15.65 11C15.65 10.641 15.359 10.35 15 10.35C14.641 10.35 14.35 10.641 14.35 11C14.35 11.359 14.641 11.65 15 11.65Z" android:fillColor="@color/refineui_default_tint" />
+    <path android:pathData="M17 13.65C17.359 13.65 17.65 13.359 17.65 13C17.65 12.641 17.359 12.35 17 12.35C16.641 12.35 16.35 12.641 16.35 13C16.35 13.359 16.641 13.65 17 13.65Z" android:fillColor="@color/refineui_default_tint" />
+    <path android:pathData="M17.65 15C17.65 15.359 17.359 15.65 17 15.65C16.641 15.65 16.35 15.359 16.35 15C16.35 14.641 16.641 14.35 17 14.35C17.359 14.35 17.65 14.641 17.65 15Z" android:fillColor="@color/refineui_default_tint" />
+    <path android:pathData="M17 17.65C17.359 17.65 17.65 17.359 17.65 17C17.65 16.641 17.359 16.35 17 16.35C16.641 16.35 16.35 16.641 16.35 17C16.35 17.359 16.641 17.65 17 17.65Z" android:fillColor="@color/refineui_default_tint" />
+    <path android:pathData="M17.65 11C17.65 11.359 17.359 11.65 17 11.65C16.641 11.65 16.35 11.359 16.35 11C16.35 10.641 16.641 10.35 17 10.35C17.359 10.35 17.65 10.641 17.65 11Z" android:fillColor="@color/refineui_default_tint" />
+    <path android:pathData="M17 9.65001C17.359 9.65001 17.65 9.35899 17.65 9.00001C17.65 8.64102 17.359 8.35001 17 8.35001C16.641 8.35001 16.35 8.64102 16.35 9.00001C16.35 9.35899 16.641 9.65001 17 9.65001Z" android:fillColor="@color/refineui_default_tint" />
+    <path android:pathData="M4 6C4 4.89543 4.89543 4 6 4H18C19.1046 4 20 4.89543 20 6V18C20 19.1046 19.1046 20 18 20H6C4.89543 20 4 19.1046 4 18V6ZM6 5.3H18C18.3866 5.3 18.7 5.6134 18.7 6V18C18.7 18.3866 18.3866 18.7 18 18.7H6C5.6134 18.7 5.3 18.3866 5.3 18V6C5.3 5.6134 5.6134 5.3 6 5.3Z" android:fillColor="@color/refineui_default_tint" android:fillType="evenOdd"/>
+</vector>
