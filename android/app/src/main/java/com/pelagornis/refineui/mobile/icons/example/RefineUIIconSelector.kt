@@ -125,7 +125,7 @@ class RefineUIIconSelector(private val context: Context) {
      * Convert icon name to drawable resource name
      */
     private fun convertIconNameToDrawableName(iconName: String): String {
-        // Remove ic_refineui_ prefix and convert to drawable format
+        // Convert ic_refineui_access_time_16_filled to access_time_16_filled
         return if (iconName.startsWith("ic_refineui_")) {
             iconName.substring("ic_refineui_".length)
         } else {
