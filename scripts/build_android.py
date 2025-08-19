@@ -150,23 +150,23 @@ class AndroidPlatformBuilder:
         
         # Extract path data from SVG
         paths = []
-        path_matches = re.findall(r'<path[^>]*d="([^"]*)"[^>]*/>', svg_content)
-        for path_data in path_matches:
-            # Clean up path data for Android
+        path_elements = re.findall(r'<path[^>]*/>', svg_content)
+        for path_element in path_elements:
+            # Extract path data
+            d_match = re.search(r'd="([^"]*)"', path_element)
+            if not d_match:
+                continue
+                
+            path_data = d_match.group(1)
             cleaned_path = path_data.replace('\n', ' ').replace('\t', ' ')
             cleaned_path = re.sub(r'\s+', ' ', cleaned_path).strip()
-            paths.append(cleaned_path)
-        
-        # If no paths found, try to extract from any path element
-        if not paths:
-            path_matches = re.findall(r'<path[^>]*/>', svg_content)
-            for path_match in path_matches:
-                d_match = re.search(r'd="([^"]*)"', path_match)
-                if d_match:
-                    path_data = d_match.group(1)
-                    cleaned_path = path_data.replace('\n', ' ').replace('\t', ' ')
-                    cleaned_path = re.sub(r'\s+', ' ', cleaned_path).strip()
-                    paths.append(cleaned_path)
+            
+            # Check for fill-rule="evenodd" or clip-rule="evenodd"
+            has_evenodd = False
+            if 'fill-rule="evenodd"' in path_element or 'clip-rule="evenodd"' in path_element:
+                has_evenodd = True
+            
+            paths.append((cleaned_path, has_evenodd))
         
         # Generate Android Vector Drawable
         vector_drawable = f'''<?xml version="1.0" encoding="utf-8"?>
@@ -178,22 +178,23 @@ class AndroidPlatformBuilder:
 '''
         
         # Add path elements
-        for path_data in paths:
+        for path_data, has_evenodd in paths:
             # Use different colors based on size
+            fill_type = 'android:fillType="evenOdd"' if has_evenodd else ''
             if width == 16:
-                vector_drawable += f'    <path android:pathData="{path_data}" android:fillColor="@color/refineui_default_tint"/>\n'
+                vector_drawable += f'    <path android:pathData="{path_data}" android:fillColor="@color/refineui_default_tint" {fill_type}/>\n'
             elif width == 20:
-                vector_drawable += f'    <path android:pathData="{path_data}" android:fillColor="@color/refineui_default_tint"/>\n'
+                vector_drawable += f'    <path android:pathData="{path_data}" android:fillColor="@color/refineui_default_tint" {fill_type}/>\n'
             elif width == 24:
-                vector_drawable += f'    <path android:pathData="{path_data}" android:fillColor="@color/refineui_default_tint"/>\n'
+                vector_drawable += f'    <path android:pathData="{path_data}" android:fillColor="@color/refineui_default_tint" {fill_type}/>\n'
             elif width == 28:
-                vector_drawable += f'    <path android:pathData="{path_data}" android:fillColor="@color/refineui_default_tint"/>\n'
+                vector_drawable += f'    <path android:pathData="{path_data}" android:fillColor="@color/refineui_default_tint" {fill_type}/>\n'
             elif width == 32:
-                vector_drawable += f'    <path android:pathData="{path_data}" android:fillColor="@color/refineui_default_tint"/>\n'
+                vector_drawable += f'    <path android:pathData="{path_data}" android:fillColor="@color/refineui_default_tint" {fill_type}/>\n'
             elif width == 48:
-                vector_drawable += f'    <path android:pathData="{path_data}" android:fillColor="@color/refineui_default_tint"/>\n'
+                vector_drawable += f'    <path android:pathData="{path_data}" android:fillColor="@color/refineui_default_tint" {fill_type}/>\n'
             else:
-                vector_drawable += f'    <path android:pathData="{path_data}" android:fillColor="@color/refineui_default_tint"/>\n'
+                vector_drawable += f'    <path android:pathData="{path_data}" android:fillColor="@color/refineui_default_tint" {fill_type}/>\n'
         
         vector_drawable += '</vector>'
         
