@@ -113,7 +113,7 @@ class IconListActivity : AppCompatActivity() {
      */
     private fun loadIconsByStyle(style: String) {
         val icons = iconSelector.getIconsByStyle(style)
-        statusText.text = "${style.capitalize()} Icons: ${icons.size}"
+        statusText.text = "${style.replaceFirstChar { it.uppercase() }} Icons: ${icons.size}"
         
         val adapter = IconAdapter(icons, iconSelector)
         recyclerView.adapter = adapter

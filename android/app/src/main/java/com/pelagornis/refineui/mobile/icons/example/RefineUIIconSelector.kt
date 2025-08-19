@@ -2,6 +2,7 @@ package com.pelagornis.refineui.mobile.icons.example
 
 import android.content.Context
 import android.content.res.Resources
+import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import org.json.JSONObject
 import java.io.IOException
@@ -17,11 +18,43 @@ class RefineUIIconSelector(private val context: Context) {
     private var iconMapping: JSONObject? = null
     private val resources: Resources = context.resources
     
+    // Font typefaces
+    private var regularTypeface: Typeface? = null
+    private var filledTypeface: Typeface? = null
+    
+    init {
+        loadFonts()
+    }
+    
+    private fun loadFonts() {
+        try {
+            regularTypeface = Typeface.createFromAsset(context.assets, "fonts/refineui_system_icons_regular.ttf")
+            filledTypeface = Typeface.createFromAsset(context.assets, "fonts/refineui_system_icons_filled.ttf")
+            android.util.Log.d("RefineUIIconSelector", "Fonts loaded successfully")
+        } catch (e: Exception) {
+            // Fallback to system fonts if custom fonts fail to load
+            regularTypeface = Typeface.DEFAULT
+            filledTypeface = Typeface.DEFAULT
+            android.util.Log.e("RefineUIIconSelector", "Failed to load fonts: ${e.message}")
+        }
+    }
+    
     /**
      * Get all available icons
      */
     fun getAllIcons(): List<String> {
-        return getIconsFromArray("refineui_icons")
+        return try {
+            val mapping = getIconMapping()
+            val iconsObject = mapping.getJSONObject("icons")
+            val icons = mutableListOf<String>()
+            val keys = iconsObject.keys()
+            while (keys.hasNext()) {
+                icons.add(keys.next())
+            }
+            icons.sorted()
+        } catch (e: Exception) {
+            emptyList()
+        }
     }
     
     /**
@@ -30,12 +63,17 @@ class RefineUIIconSelector(private val context: Context) {
     fun getIconsByStyle(style: String): List<String> {
         return try {
             val mapping = getIconMapping()
-            val iconsArray = mapping.getJSONObject("categories").getJSONArray(style)
+            val iconsObject = mapping.getJSONObject("icons")
             val icons = mutableListOf<String>()
-            for (i in 0 until iconsArray.length()) {
-                icons.add(iconsArray.getString(i))
+            val keys = iconsObject.keys()
+            while (keys.hasNext()) {
+                val iconName = keys.next()
+                val iconObject = iconsObject.getJSONObject(iconName)
+                if (iconObject.getString("style").equals(style, ignoreCase = true)) {
+                    icons.add(iconName)
+                }
             }
-            icons
+            icons.sorted()
         } catch (e: Exception) {
             emptyList()
         }
@@ -47,30 +85,84 @@ class RefineUIIconSelector(private val context: Context) {
     fun getIconsBySize(size: Int): List<String> {
         return try {
             val mapping = getIconMapping()
-            val iconsArray = mapping.getJSONObject("categories").getJSONObject("sizes").getJSONArray(size.toString())
+            val iconsObject = mapping.getJSONObject("icons")
             val icons = mutableListOf<String>()
-            for (i in 0 until iconsArray.length()) {
-                icons.add(iconsArray.getString(i))
+            val keys = iconsObject.keys()
+            while (keys.hasNext()) {
+                val iconName = keys.next()
+                val iconObject = iconsObject.getJSONObject(iconName)
+                if (iconObject.getString("size") == size.toString()) {
+                    icons.add(iconName)
+                }
             }
-            icons
+            icons.sorted()
         } catch (e: Exception) {
             emptyList()
         }
     }
     
     /**
-     * Get icon drawable by name
+     * Get icon drawable by name (legacy method for drawable resources)
      */
     fun getIconDrawable(iconName: String): Drawable? {
         return try {
-            val resourceId = resources.getIdentifier(iconName, "drawable", context.packageName)
+            // Convert icon name from ic_refineui_gavel_28_regular to gavel_28_regular format
+            val drawableName = convertIconNameToDrawableName(iconName)
+            val resourceId = resources.getIdentifier(drawableName, "drawable", context.packageName)
             if (resourceId != 0) {
                 resources.getDrawable(resourceId, context.theme)
             } else {
+                android.util.Log.e("RefineUIIconSelector", "Drawable not found: $drawableName")
                 null
             }
         } catch (e: Exception) {
+            android.util.Log.e("RefineUIIconSelector", "Error getting drawable for $iconName: ${e.message}")
             null
+        }
+    }
+    
+    /**
+     * Convert icon name to drawable resource name
+     */
+    private fun convertIconNameToDrawableName(iconName: String): String {
+        // Remove ic_refineui_ prefix and convert to drawable format
+        return if (iconName.startsWith("ic_refineui_")) {
+            iconName.substring("ic_refineui_".length)
+        } else {
+            iconName
+        }
+    }
+    
+    /**
+     * Get icon character by name
+     */
+    fun getIconChar(iconName: String): Char? {
+        return try {
+            val mapping = getIconMapping()
+            val iconObject = mapping.getJSONObject("icons").getJSONObject(iconName)
+            val unicode = iconObject.getInt("unicode")
+            unicode.toChar()
+        } catch (e: Exception) {
+            null
+        }
+    }
+    
+    /**
+     * Get icon typeface by name
+     */
+    fun getIconTypeface(iconName: String): Typeface? {
+        return try {
+            val mapping = getIconMapping()
+            val iconObject = mapping.getJSONObject("icons").getJSONObject(iconName)
+            val style = iconObject.getString("style")
+            
+            when (style.lowercase()) {
+                "regular" -> regularTypeface
+                "filled" -> filledTypeface
+                else -> regularTypeface
+            }
+        } catch (e: Exception) {
+            regularTypeface
         }
     }
     
@@ -106,7 +198,20 @@ class RefineUIIconSelector(private val context: Context) {
      * Get available categories
      */
     fun getCategories(): List<String> {
-        return getIconsFromArray("refineui_icon_categories")
+        return try {
+            val mapping = getIconMapping()
+            val iconsObject = mapping.getJSONObject("icons")
+            val categories = mutableSetOf<String>()
+            val keys = iconsObject.keys()
+            while (keys.hasNext()) {
+                val iconName = keys.next()
+                val iconObject = iconsObject.getJSONObject(iconName)
+                categories.add(iconObject.getString("name"))
+            }
+            categories.toList().sorted()
+        } catch (e: Exception) {
+            emptyList()
+        }
     }
     
     /**
@@ -115,31 +220,19 @@ class RefineUIIconSelector(private val context: Context) {
     fun getTotalIconCount(): Int {
         return try {
             val mapping = getIconMapping()
-            mapping.getInt("total_icons")
+            val iconsObject = mapping.getJSONObject("icons")
+            iconsObject.length()
         } catch (e: Exception) {
             0
         }
     }
     
-    private fun getIconsFromArray(arrayName: String): List<String> {
-        return try {
-            val arrayId = resources.getIdentifier(arrayName, "array", context.packageName)
-            if (arrayId != 0) {
-                resources.getStringArray(arrayId).toList()
-            } else {
-                emptyList()
-            }
-        } catch (e: Exception) {
-            emptyList()
-        }
-    }
+
     
     private fun getIconMapping(): JSONObject {
         if (iconMapping == null) {
             try {
-                val inputStream = resources.openRawResource(
-                    resources.getIdentifier("icon_mapping", "raw", context.packageName)
-                )
+                val inputStream = context.assets.open("icon-mapping.json")
                 val jsonString = inputStream.bufferedReader().use { it.readText() }
                 iconMapping = JSONObject(jsonString)
             } catch (e: IOException) {
