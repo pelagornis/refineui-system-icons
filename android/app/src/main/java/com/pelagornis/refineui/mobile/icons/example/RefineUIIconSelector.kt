@@ -2,263 +2,232 @@ package com.pelagornis.refineui.mobile.icons.example
 
 import android.content.Context
 import android.content.res.Resources
-import android.graphics.Typeface
 import android.graphics.drawable.Drawable
-import org.json.JSONObject
-import java.io.IOException
+import android.util.Log
 
 /**
  * RefineUI Icon Selector
  * 
  * Provides easy access to RefineUI System Icons in Android applications.
- * Supports filtering by size, style, and category.
+ * Uses Vector Drawables for better performance and scalability.
  */
 class RefineUIIconSelector(private val context: Context) {
     
-    private var iconMapping: JSONObject? = null
     private val resources: Resources = context.resources
+    private val packageName: String = context.packageName
     
-    // Font typefaces
-    private var regularTypeface: Typeface? = null
-    private var filledTypeface: Typeface? = null
-    
-    init {
-        loadFonts()
-    }
-    
-    private fun loadFonts() {
-        try {
-            regularTypeface = Typeface.createFromAsset(context.assets, "fonts/refineui_system_icons_regular.ttf")
-            filledTypeface = Typeface.createFromAsset(context.assets, "fonts/refineui_system_icons_filled.ttf")
-            android.util.Log.d("RefineUIIconSelector", "Fonts loaded successfully")
-        } catch (e: Exception) {
-            // Fallback to system fonts if custom fonts fail to load
-            regularTypeface = Typeface.DEFAULT
-            filledTypeface = Typeface.DEFAULT
-            android.util.Log.e("RefineUIIconSelector", "Failed to load fonts: ${e.message}")
+    companion object {
+        private const val TAG = "RefineUIIconSelector"
+        
+        /**
+         * Create a new RefineUIIconSelector instance
+         */
+        fun create(context: Context): RefineUIIconSelector {
+            return RefineUIIconSelector(context)
         }
     }
     
     /**
      * Get all available icons
      */
-    fun getAllIcons(): List<String> {
-        return try {
-            val mapping = getIconMapping()
-            val iconsObject = mapping.getJSONObject("icons")
-            val icons = mutableListOf<String>()
-            val keys = iconsObject.keys()
-            while (keys.hasNext()) {
-                icons.add(keys.next())
+    fun getAllIcons(): List<IconInfo> {
+        val icons = mutableListOf<IconInfo>()
+        
+        // Get all drawable resources that start with "ic_refineui_"
+        // Since we can't access R.drawable directly, we'll use a different approach
+        val drawableNames = getDrawableResourceNames()
+        for (resourceName in drawableNames) {
+            if (resourceName.startsWith("ic_refineui_")) {
+                try {
+                    val resourceId = resources.getIdentifier(resourceName, "drawable", packageName)
+                    if (resourceId != 0) {
+                        val iconInfo = parseIconInfo(resourceName, resourceId)
+                        if (iconInfo != null) {
+                            icons.add(iconInfo)
+                        }
+                    }
+                } catch (e: Exception) {
+                    Log.w(TAG, "Failed to get resource ID for $resourceName: ${e.message}")
+                }
             }
-            icons.sorted()
-        } catch (e: Exception) {
-            emptyList()
         }
+        
+        return icons.sortedBy { it.name }
+    }
+    
+    /**
+     * Get drawable resource names by scanning the drawable directory
+     * This is a workaround since we can't access R.drawable directly
+     */
+    private fun getDrawableResourceNames(): List<String> {
+        val drawableNames = mutableListOf<String>()
+        
+        // 라이브러리에서 모든 ic_refineui_로 시작하는 리소스를 자동으로 찾기
+        try {
+            // 라이브러리 패키지의 리소스에서 모든 drawable 필드를 가져오기
+            val libraryPackageName = "com.refineui.icons"
+            val libraryClass = Class.forName("$libraryPackageName.R\$drawable")
+            val fields = libraryClass.fields
+            
+            for (field in fields) {
+                val resourceName = field.name
+                if (resourceName.startsWith("ic_refineui_")) {
+                    try {
+                        val resourceId = field.getInt(null)
+                        if (resourceId != 0) {
+                            drawableNames.add(resourceName)
+                            Log.d(TAG, "Found icon in library: $resourceName")
+                        }
+                    } catch (e: Exception) {
+                        Log.w(TAG, "Failed to get resource ID for $resourceName: ${e.message}")
+                    }
+                }
+            }
+        } catch (e: Exception) {
+            Log.w(TAG, "Failed to access library R class: ${e.message}")
+            
+            // 폴백: 수동으로 몇 개의 아이콘만 추가
+            val fallbackIcons = listOf(
+                "ic_refineui_add_24_filled",
+                "ic_refineui_home_24_regular",
+                "ic_refineui_settings_24_filled",
+                "ic_refineui_search_24_regular",
+                "ic_refineui_heart_24_filled",
+                "ic_refineui_star_24_regular"
+            )
+            
+            for (iconName in fallbackIcons) {
+                val resourceId = resources.getIdentifier(iconName, "drawable", "com.refineui.icons")
+                if (resourceId != 0) {
+                    drawableNames.add(iconName)
+                    Log.d(TAG, "Found fallback icon: $iconName")
+                }
+            }
+        }
+        
+        Log.d(TAG, "Total icons found: ${drawableNames.size}")
+        return drawableNames
     }
     
     /**
      * Get icons by style (regular or filled)
      */
-    fun getIconsByStyle(style: String): List<String> {
-        return try {
-            val mapping = getIconMapping()
-            val iconsObject = mapping.getJSONObject("icons")
-            val icons = mutableListOf<String>()
-            val keys = iconsObject.keys()
-            while (keys.hasNext()) {
-                val iconName = keys.next()
-                val iconObject = iconsObject.getJSONObject(iconName)
-                if (iconObject.getString("style").equals(style, ignoreCase = true)) {
-                    icons.add(iconName)
-                }
-            }
-            icons.sorted()
-        } catch (e: Exception) {
-            emptyList()
-        }
+    fun getIconsByStyle(style: String): List<IconInfo> {
+        return getAllIcons().filter { it.style.equals(style, ignoreCase = true) }
     }
     
     /**
      * Get icons by size (16, 20, 24, 28, 32, 48)
      */
-    fun getIconsBySize(size: Int): List<String> {
-        return try {
-            val mapping = getIconMapping()
-            val iconsObject = mapping.getJSONObject("icons")
-            val icons = mutableListOf<String>()
-            val keys = iconsObject.keys()
-            while (keys.hasNext()) {
-                val iconName = keys.next()
-                val iconObject = iconsObject.getJSONObject(iconName)
-                if (iconObject.getString("size") == size.toString()) {
-                    icons.add(iconName)
-                }
-            }
-            icons.sorted()
-        } catch (e: Exception) {
-            emptyList()
-        }
-    }
-    
-    /**
-     * Get icon drawable by name (legacy method for drawable resources)
-     */
-    fun getIconDrawable(iconName: String): Drawable? {
-        return try {
-            // Convert icon name from ic_refineui_gavel_28_regular to gavel_28_regular format
-            val drawableName = convertIconNameToDrawableName(iconName)
-            val resourceId = resources.getIdentifier(drawableName, "drawable", context.packageName)
-            if (resourceId != 0) {
-                resources.getDrawable(resourceId, context.theme)
-            } else {
-                android.util.Log.e("RefineUIIconSelector", "Drawable not found: $drawableName")
-                null
-            }
-        } catch (e: Exception) {
-            android.util.Log.e("RefineUIIconSelector", "Error getting drawable for $iconName: ${e.message}")
-            null
-        }
-    }
-    
-    /**
-     * Convert icon name to drawable resource name
-     */
-    private fun convertIconNameToDrawableName(iconName: String): String {
-        // Convert ic_refineui_access_time_16_filled to access_time_16_filled
-        return if (iconName.startsWith("ic_refineui_")) {
-            iconName.substring("ic_refineui_".length)
-        } else {
-            iconName
-        }
-    }
-    
-    /**
-     * Get icon character by name
-     */
-    fun getIconChar(iconName: String): Char? {
-        return try {
-            val mapping = getIconMapping()
-            val iconObject = mapping.getJSONObject("icons").getJSONObject(iconName)
-            val unicode = iconObject.getInt("unicode")
-            unicode.toChar()
-        } catch (e: Exception) {
-            null
-        }
-    }
-    
-    /**
-     * Get icon typeface by name
-     */
-    fun getIconTypeface(iconName: String): Typeface? {
-        return try {
-            val mapping = getIconMapping()
-            val iconObject = mapping.getJSONObject("icons").getJSONObject(iconName)
-            val style = iconObject.getString("style")
-            
-            when (style.lowercase()) {
-                "regular" -> regularTypeface
-                "filled" -> filledTypeface
-                else -> regularTypeface
-            }
-        } catch (e: Exception) {
-            regularTypeface
-        }
-    }
-    
-    /**
-     * Get icon information by name
-     */
-    fun getIconInfo(iconName: String): IconInfo? {
-        return try {
-            val mapping = getIconMapping()
-            val iconObject = mapping.getJSONObject("icons").getJSONObject(iconName)
-            
-            IconInfo(
-                name = iconObject.getString("name"),
-                size = iconObject.getInt("size"),
-                style = iconObject.getString("style"),
-                drawable = iconObject.getString("drawable"),
-                category = iconObject.getString("category")
-            )
-        } catch (e: Exception) {
-            null
-        }
+    fun getIconsBySize(size: Int): List<IconInfo> {
+        return getAllIcons().filter { it.size == size }
     }
     
     /**
      * Search icons by name
      */
-    fun searchIcons(query: String): List<String> {
-        val allIcons = getAllIcons()
-        return allIcons.filter { it.contains(query, ignoreCase = true) }
+    fun searchIcons(query: String): List<IconInfo> {
+        val lowerQuery = query.lowercase()
+        return getAllIcons().filter { 
+            it.name.lowercase().contains(lowerQuery) || 
+            it.displayName.lowercase().contains(lowerQuery)
+        }
     }
     
     /**
-     * Get available categories
+     * Get icon drawable by resource name
      */
-    fun getCategories(): List<String> {
+    fun getIconDrawable(resourceName: String): Drawable? {
         return try {
-            val mapping = getIconMapping()
-            val iconsObject = mapping.getJSONObject("icons")
-            val categories = mutableSetOf<String>()
-            val keys = iconsObject.keys()
-            while (keys.hasNext()) {
-                val iconName = keys.next()
-                val iconObject = iconsObject.getJSONObject(iconName)
-                categories.add(iconObject.getString("name"))
+            // 먼저 라이브러리에서 찾아보기
+            val libraryResourceId = resources.getIdentifier(resourceName, "drawable", "com.refineui.icons")
+            if (libraryResourceId != 0) {
+                return resources.getDrawable(libraryResourceId, null)
             }
-            categories.toList().sorted()
+            
+            // 라이브러리에서 찾지 못했으면 앱 패키지에서 찾아보기
+            val appResourceId = resources.getIdentifier(resourceName, "drawable", packageName)
+            if (appResourceId != 0) {
+                return resources.getDrawable(appResourceId, null)
+            }
+            
+            null
         } catch (e: Exception) {
-            emptyList()
+            Log.e(TAG, "Failed to get drawable for $resourceName: ${e.message}")
+            null
         }
+    }
+    
+    /**
+     * Get icon drawable by IconInfo
+     */
+    fun getIconDrawable(iconInfo: IconInfo): Drawable? {
+        return getIconDrawable(iconInfo.resourceName)
+    }
+    
+    /**
+     * Parse icon information from resource name
+     * Format: ic_refineui_{iconName}_{size}_{style}
+     */
+    private fun parseIconInfo(resourceName: String, resourceId: Int): IconInfo? {
+        try {
+            // Remove "ic_refineui_" prefix
+            val nameWithoutPrefix = resourceName.removePrefix("ic_refineui_")
+            
+            // Split by underscore to get parts
+            val parts = nameWithoutPrefix.split("_")
+            if (parts.size < 3) {
+                Log.w(TAG, "Invalid resource name format: $resourceName")
+                return null
+            }
+            
+            // Last two parts are size and style
+            val size = parts[parts.size - 2].toIntOrNull()
+            val style = parts[parts.size - 1]
+            
+            if (size == null) {
+                Log.w(TAG, "Invalid size in resource name: $resourceName")
+                return null
+            }
+            
+            // Icon name is everything except the last two parts
+            val iconName = parts.dropLast(2).joinToString("_")
+            
+            // Convert snake_case to display name
+            val displayName = iconName.replace("_", " ").replaceFirstChar { it.uppercase() }
+            
+            return IconInfo(
+                name = iconName,
+                displayName = displayName,
+                resourceName = resourceName,
+                resourceId = resourceId,
+                size = size,
+                style = style
+            )
+        } catch (e: Exception) {
+            Log.e(TAG, "Failed to parse icon info for $resourceName: ${e.message}")
+            return null
+        }
+    }
+    
+    /**
+     * Get available sizes
+     */
+    fun getAvailableSizes(): List<Int> {
+        return getAllIcons().map { it.size }.distinct().sorted()
+    }
+    
+    /**
+     * Get available styles
+     */
+    fun getAvailableStyles(): List<String> {
+        return getAllIcons().map { it.style }.distinct().sorted()
     }
     
     /**
      * Get total icon count
      */
     fun getTotalIconCount(): Int {
-        return try {
-            val mapping = getIconMapping()
-            val iconsObject = mapping.getJSONObject("icons")
-            iconsObject.length()
-        } catch (e: Exception) {
-            0
-        }
-    }
-    
-
-    
-    private fun getIconMapping(): JSONObject {
-        if (iconMapping == null) {
-            try {
-                val inputStream = context.assets.open("icon-mapping.json")
-                val jsonString = inputStream.bufferedReader().use { it.readText() }
-                iconMapping = JSONObject(jsonString)
-            } catch (e: IOException) {
-                iconMapping = JSONObject()
-            }
-        }
-        return iconMapping!!
-    }
-    
-    /**
-     * Icon information data class
-     */
-    data class IconInfo(
-        val name: String,
-        val size: Int,
-        val style: String,
-        val drawable: String,
-        val category: String
-    )
-    
-    companion object {
-        /**
-         * Create RefineUIIconSelector instance
-         */
-        fun create(context: Context): RefineUIIconSelector {
-            return RefineUIIconSelector(context)
-        }
+        return getAllIcons().size
     }
 }

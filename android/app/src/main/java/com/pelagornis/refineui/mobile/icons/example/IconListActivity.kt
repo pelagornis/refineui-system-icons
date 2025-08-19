@@ -23,6 +23,7 @@ class IconListActivity : AppCompatActivity() {
     private lateinit var searchEditText: EditText
     private lateinit var styleSpinner: Spinner
     private lateinit var sizeSpinner: Spinner
+    private lateinit var adapter: IconAdapter
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +48,8 @@ class IconListActivity : AppCompatActivity() {
         
         // Setup RecyclerView
         recyclerView.layoutManager = GridLayoutManager(this, 4)
+        adapter = IconAdapter(iconSelector)
+        recyclerView.adapter = adapter
         
         // Setup search
         searchEditText.addTextChangedListener(object : TextWatcher {
@@ -100,83 +103,81 @@ class IconListActivity : AppCompatActivity() {
     }
     
     private fun loadAllIcons() {
-        val allIcons = iconSelector.getAllIcons()
-        statusText.text = "Total Icons: ${iconSelector.getTotalIconCount()}"
-        
-        // Create adapter and set to RecyclerView
-        val adapter = IconAdapter(allIcons, iconSelector)
-        recyclerView.adapter = adapter
+        val icons = iconSelector.getAllIcons()
+        adapter.updateIcons(icons)
+        updateStatus(icons.size)
     }
     
-    /**
-     * Load icons by style
-     */
     private fun loadIconsByStyle(style: String) {
         val icons = iconSelector.getIconsByStyle(style)
-        statusText.text = "${style.replaceFirstChar { it.uppercase() }} Icons: ${icons.size}"
-        
-        val adapter = IconAdapter(icons, iconSelector)
-        recyclerView.adapter = adapter
+        adapter.updateIcons(icons)
+        updateStatus(icons.size)
     }
     
-    /**
-     * Load icons by size
-     */
     private fun loadIconsBySize(size: Int) {
         val icons = iconSelector.getIconsBySize(size)
-        statusText.text = "${size}px Icons: ${icons.size}"
-        
-        val adapter = IconAdapter(icons, iconSelector)
-        recyclerView.adapter = adapter
+        adapter.updateIcons(icons)
+        updateStatus(icons.size)
+    }
+    
+    private fun searchIcons(query: String) {
+        val icons = iconSelector.searchIcons(query)
+        adapter.updateIcons(icons)
+        updateStatus(icons.size)
+    }
+    
+    private fun updateStatus(count: Int) {
+        statusText.text = "Showing $count icons"
     }
     
     /**
-     * Search icons
+     * RecyclerView Adapter for displaying icons
      */
-    private fun searchIcons(query: String) {
-        val icons = iconSelector.searchIcons(query)
-        statusText.text = "Search Results: ${icons.size} icons"
+    class IconAdapter(private val iconSelector: RefineUIIconSelector) : 
+        RecyclerView.Adapter<IconAdapter.IconViewHolder>() {
         
-        val adapter = IconAdapter(icons, iconSelector)
-        recyclerView.adapter = adapter
-    }
-}
-
-/**
- * RecyclerView Adapter for displaying icons
- */
-class IconAdapter(
-    private val icons: List<String>,
-    private val iconSelector: RefineUIIconSelector
-) : RecyclerView.Adapter<IconAdapter.IconViewHolder>() {
-    
-    class IconViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val imageView: ImageView = itemView.findViewById(R.id.iconImageView)
-        val textView: TextView = itemView.findViewById(R.id.iconNameText)
-    }
-    
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IconViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_icon, parent, false)
-        return IconViewHolder(view)
-    }
-    
-    override fun onBindViewHolder(holder: IconViewHolder, position: Int) {
-        val iconName = icons[position]
+        private var icons: List<IconInfo> = emptyList()
         
-        // Set icon drawable
-        val drawable = iconSelector.getIconDrawable(iconName)
-        holder.imageView.setImageDrawable(drawable)
+        fun updateIcons(newIcons: List<IconInfo>) {
+            icons = newIcons
+            notifyDataSetChanged()
+        }
         
-        // Set icon name
-        holder.textView.text = iconName
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IconViewHolder {
+            val view = LayoutInflater.from(parent.context)
+                .inflate(R.layout.item_icon, parent, false)
+            return IconViewHolder(view)
+        }
         
-        // Get icon info for tooltip
-        val iconInfo = iconSelector.getIconInfo(iconName)
-        iconInfo?.let {
-            holder.imageView.contentDescription = "${it.name} (${it.size}px, ${it.style})"
+        override fun onBindViewHolder(holder: IconViewHolder, position: Int) {
+            holder.bind(icons[position])
+        }
+        
+        override fun getItemCount(): Int = icons.size
+        
+        inner class IconViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+            private val iconImageView: ImageView = itemView.findViewById(R.id.iconImageView)
+            private val iconNameText: TextView = itemView.findViewById(R.id.iconNameText)
+            private val iconSizeText: TextView = itemView.findViewById(R.id.iconSizeText)
+            
+            fun bind(iconInfo: IconInfo) {
+                // Set icon drawable
+                val drawable = iconSelector.getIconDrawable(iconInfo)
+                iconImageView.setImageDrawable(drawable)
+                
+                // Set icon name
+                iconNameText.text = iconInfo.displayName
+                
+                // Set icon size and style
+                iconSizeText.text = "${iconInfo.size}px ${iconInfo.style}"
+                
+                // Set click listener
+                itemView.setOnClickListener {
+                    // Show icon details in a toast
+                    val message = "${iconInfo.displayName} (${iconInfo.size}px ${iconInfo.style})"
+                    Toast.makeText(itemView.context, message, Toast.LENGTH_SHORT).show()
+                }
+            }
         }
     }
-    
-    override fun getItemCount(): Int = icons.size
 }

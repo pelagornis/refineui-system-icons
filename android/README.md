@@ -1,8 +1,16 @@
-# RefineUI System Icons - Android Library
+# RefineUI System Icons - Android
 
-RefineUI System Icons를 Android 앱에서 사용할 수 있는 라이브러리입니다.
+RefineUI System Icons의 안드로이드 라이브러리입니다. 5,196개 이상의 벡터 아이콘을 제공합니다.
 
-## 📦 설치
+## 특징
+
+- **5,196+ 아이콘**: 다양한 카테고리의 아이콘 제공
+- **6가지 크기**: 16px, 20px, 24px, 28px, 32px, 48px
+- **2가지 스타일**: Regular, Filled
+- **Vector Drawable**: 어떤 크기에서도 선명하게 표시
+- **안드로이드 네이티브**: 안드로이드 앱에 최적화
+
+## 설치
 
 ### Gradle
 
@@ -12,217 +20,130 @@ dependencies {
 }
 ```
 
-### Maven
-
-```xml
-<dependency>
-    <groupId>com.pelagornis</groupId>
-    <artifactId>refineui-system-icons</artifactId>
-    <version>1.0.0</version>
-</dependency>
-```
-
-## 🚀 사용법
+## 사용법
 
 ### 1. 기본 사용법
 
 ```kotlin
-// ImageView에 아이콘 설정
-val imageView = findViewById<ImageView>(R.id.iconView)
-imageView.setImageResource(R.drawable.ic_refineui_access_time_24_regular)
+// XML에서 직접 사용
+<ImageView
+    android:layout_width="24dp"
+    android:layout_height="24dp"
+    android:src="@drawable/ic_refineui_add_24_filled" />
 
-// 또는 코드에서 설정
-imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_refineui_access_time_24_filled))
+// Kotlin에서 사용
+imageView.setImageResource(R.drawable.ic_refineui_home_24_regular)
 ```
 
-### 2. Icon Selector 사용법
+### 2. 동적 리소스 접근
 
 ```kotlin
-// Icon Selector 초기화
-val iconSelector = RefineUIIconSelector.create(this)
-
-// 모든 아이콘 가져오기
-val allIcons = iconSelector.getAllIcons()
-
-// 스타일별 아이콘 가져오기
-val regularIcons = iconSelector.getIconsByStyle("regular")
-val filledIcons = iconSelector.getIconsByStyle("filled")
-
-// 크기별 아이콘 가져오기
-val size24Icons = iconSelector.getIconsBySize(24)
-
-// 아이콘 검색
-val searchResults = iconSelector.searchIcons("access")
-
-// 아이콘 정보 가져오기
-val iconInfo = iconSelector.getIconInfo("ic_refineui_access_time_24_regular")
-iconInfo?.let {
-    println("Name: ${it.name}")
-    println("Size: ${it.size}")
-    println("Style: ${it.style}")
-    println("Category: ${it.category}")
+// 리소스 이름으로 동적 접근
+val resourceId = resources.getIdentifier("ic_refineui_settings_24_filled", "drawable", packageName)
+if (resourceId != 0) {
+    imageView.setImageResource(resourceId)
 }
 ```
 
-### 3. RecyclerView에서 아이콘 목록 표시
+### 3. IconSelector 사용
 
 ```kotlin
-class IconAdapter(private val icons: List<String>, private val iconSelector: RefineUIIconSelector) :
-    RecyclerView.Adapter<IconAdapter.ViewHolder>() {
+class MainActivity : AppCompatActivity() {
+    private lateinit var iconSelector: RefineUIIconSelector
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val imageView: ImageView = view.findViewById(R.id.iconImageView)
-        val textView: TextView = view.findViewById(R.id.iconNameText)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        // IconSelector 초기화
+        iconSelector = RefineUIIconSelector.create(this)
+
+        // 모든 아이콘 가져오기
+        val allIcons = iconSelector.getAllIcons()
+
+        // 스타일별 필터링
+        val filledIcons = iconSelector.getIconsByStyle("filled")
+        val regularIcons = iconSelector.getIconsByStyle("regular")
+
+        // 크기별 필터링
+        val size24Icons = iconSelector.getIconsBySize(24)
+
+        // 검색
+        val searchResults = iconSelector.searchIcons("add")
+
+        // 아이콘 Drawable 가져오기
+        val drawable = iconSelector.getIconDrawable("ic_refineui_add_24_filled")
+        imageView.setImageDrawable(drawable)
     }
-
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val iconName = icons[position]
-
-        // 아이콘 설정
-        val drawable = iconSelector.getIconDrawable(iconName)
-        holder.imageView.setImageDrawable(drawable)
-
-        // 아이콘 이름 설정
-        holder.textView.text = iconName
-    }
-
-    override fun getItemCount() = icons.size
 }
 ```
 
-## 📋 사용 가능한 아이콘
+## 아이콘 명명 규칙
 
-### 네이밍 규칙
+아이콘 리소스 이름은 다음 형식을 따릅니다:
 
 ```
 ic_refineui_{iconName}_{size}_{style}
 ```
 
-- `iconName`: 아이콘 이름 (snake_case)
-- `size`: 크기 (16, 20, 24, 28, 32, 48)
-- `style`: 스타일 (regular, filled)
+예시:
 
-### 예시
+- `ic_refineui_add_24_filled` - 24px 크기의 filled 스타일 add 아이콘
+- `ic_refineui_home_20_regular` - 20px 크기의 regular 스타일 home 아이콘
+- `ic_refineui_settings_32_filled` - 32px 크기의 filled 스타일 settings 아이콘
 
-```xml
-<!-- 24px Regular 스타일 -->
-<ImageView
-    android:layout_width="24dp"
-    android:layout_height="24dp"
-    android:src="@drawable/ic_refineui_access_time_24_regular" />
+## 아이콘 정보
 
-<!-- 32px Filled 스타일 -->
-<ImageView
-    android:layout_width="32dp"
-    android:layout_height="32dp"
-    android:src="@drawable/ic_refineui_access_time_32_filled" />
-```
-
-## 🎨 스타일
-
-### Regular (아웃라인)
-
-- 선 스타일의 아이콘
-- 깔끔하고 미니멀한 디자인
-- 기본 UI 요소에 적합
-
-### Filled (채워진)
-
-- 채워진 스타일의 아이콘
-- 강조나 액션 버튼에 적합
-- 더 강한 시각적 임팩트
-
-## 📏 크기
-
-- **16px**: 작은 UI 요소, 툴팁
-- **20px**: 기본 UI 요소
-- **24px**: 표준 아이콘 크기 (권장)
-- **28px**: 중간 크기 UI 요소
-- **32px**: 큰 UI 요소, 버튼
-- **48px**: 매우 큰 UI 요소, 카드
-
-## 🔍 Icon Selector API
-
-### RefineUIIconSelector 클래스
-
-```kotlin
-class RefineUIIconSelector(context: Context) {
-    // 모든 아이콘 가져오기
-    fun getAllIcons(): List<String>
-
-    // 스타일별 아이콘 가져오기
-    fun getIconsByStyle(style: String): List<String>
-
-    // 크기별 아이콘 가져오기
-    fun getIconsBySize(size: Int): List<String>
-
-    // 아이콘 검색
-    fun searchIcons(query: String): List<String>
-
-    // 아이콘 Drawable 가져오기
-    fun getIconDrawable(iconName: String): Drawable?
-
-    // 아이콘 정보 가져오기
-    fun getIconInfo(iconName: String): IconInfo?
-
-    // 카테고리 가져오기
-    fun getCategories(): List<String>
-
-    // 총 아이콘 수 가져오기
-    fun getTotalIconCount(): Int
-}
-```
-
-### IconInfo 데이터 클래스
+### IconInfo 클래스
 
 ```kotlin
 data class IconInfo(
-    val name: String,      // 아이콘 이름
-    val size: Int,         // 크기
-    val style: String,     // 스타일 (regular/filled)
-    val drawable: String,  // Drawable 리소스 이름
-    val category: String   // 카테고리
+    val name: String,           // 아이콘 이름 (예: "add", "home")
+    val displayName: String,    // 표시 이름 (예: "Add", "Home")
+    val resourceName: String,   // 리소스 이름 (예: "ic_refineui_add_24_filled")
+    val resourceId: Int,        // 리소스 ID
+    val size: Int,              // 아이콘 크기 (16, 20, 24, 28, 32, 48)
+    val style: String           // 아이콘 스타일 ("regular" 또는 "filled")
 )
 ```
 
-## 📊 통계
+## 예제 앱
 
-- **총 아이콘 수**: 5,196개
-- **스타일**: Regular (2,598개), Filled (2,598개)
-- **크기**: 16px, 20px, 24px, 28px, 32px, 48px
-- **카테고리**: 433개 아이콘 세트
+이 라이브러리에는 완전한 예제 앱이 포함되어 있습니다:
 
-## 🛠️ 빌드
+1. **메인 화면**: 기본 아이콘 사용 예제
+2. **아이콘 목록**: 모든 아이콘을 검색하고 필터링할 수 있는 화면
+3. **실시간 검색**: 이름으로 아이콘 검색
+4. **스타일/크기 필터링**: Regular/Filled 스타일과 다양한 크기로 필터링
 
-### 로컬 빌드
-
-```bash
-# 아이콘 추출
-python scripts/figma_icon_extractor.py --token YOUR_TOKEN --file-key YOUR_FILE_KEY
-
-# Android 빌드
-python scripts/build_android.py
-
-# 또는 모든 플랫폼 빌드
-python scripts/build_all.py
-```
-
-### 라이브러리 빌드
+예제 앱을 실행하려면:
 
 ```bash
 cd android
-./gradlew assembleRelease
+./gradlew installDebug
 ```
 
-## 📝 라이선스
+## 색상 커스터마이징
 
-MIT License - 자세한 내용은 [LICENSE](../LICENSE) 파일을 참조하세요.
+아이콘의 색상을 변경하려면 `android:tint` 속성을 사용하세요:
 
-## 🤝 기여
+```xml
+<ImageView
+    android:layout_width="24dp"
+    android:layout_height="24dp"
+    android:src="@drawable/ic_refineui_add_24_filled"
+    android:tint="@color/your_color" />
+```
 
-버그 리포트나 기능 요청은 GitHub Issues를 이용해주세요.
+또는 코드에서:
 
-## 📞 지원
+```kotlin
+imageView.setColorFilter(ContextCompat.getColor(context, R.color.your_color))
+```
 
-- GitHub: [https://github.com/pelagornis/refineui-system-icons](https://github.com/pelagornis/refineui-system-icons)
-- Issues: [https://github.com/pelagornis/refineui-system-icons/issues](https://github.com/pelagornis/refineui-system-icons/issues)
+## 라이센스
+
+이 프로젝트는 MIT 라이센스 하에 배포됩니다.
+
+## 기여하기
+
+버그 리포트나 기능 요청은 GitHub Issues를 통해 제출해 주세요.

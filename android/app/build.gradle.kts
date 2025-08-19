@@ -36,6 +36,8 @@ android {
 }
 
 dependencies {
+    // RefineUI Icons Library
+    implementation(project(":library"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
