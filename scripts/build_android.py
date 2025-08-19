@@ -125,27 +125,77 @@ class AndroidPlatformBuilder:
         # Create Android resource files
         self.create_android_resources(icons_data, android_output)
         
-        # Copy resources to app
-        self.copy_resources_to_app(android_output)
         print("✅ Android package completed")
 
     def convert_svg_to_vector_drawable(self, svg_path: str, output_path: str):
         """Convert SVG to Android Vector Drawable"""
+        import re
+        
         with open(svg_path, 'r', encoding='utf-8') as f:
             svg_content = f.read()
         
-        # Simple conversion (more sophisticated parsing needed in practice)
+        # Extract viewBox from SVG
+        viewbox_match = re.search(r'viewBox="([^"]*)"', svg_content)
+        if viewbox_match:
+            viewbox = viewbox_match.group(1)
+            # Parse viewBox (e.g., "0 0 16 16")
+            parts = viewbox.split()
+            if len(parts) >= 4:
+                width = int(float(parts[2]))
+                height = int(float(parts[3]))
+            else:
+                width = height = 24
+        else:
+            width = height = 24
+        
+        # Extract path data from SVG
+        paths = []
+        path_matches = re.findall(r'<path[^>]*d="([^"]*)"[^>]*/>', svg_content)
+        for path_data in path_matches:
+            # Clean up path data for Android
+            cleaned_path = path_data.replace('\n', ' ').replace('\t', ' ')
+            cleaned_path = re.sub(r'\s+', ' ', cleaned_path).strip()
+            paths.append(cleaned_path)
+        
+        # If no paths found, try to extract from any path element
+        if not paths:
+            path_matches = re.findall(r'<path[^>]*/>', svg_content)
+            for path_match in path_matches:
+                d_match = re.search(r'd="([^"]*)"', path_match)
+                if d_match:
+                    path_data = d_match.group(1)
+                    cleaned_path = path_data.replace('\n', ' ').replace('\t', ' ')
+                    cleaned_path = re.sub(r'\s+', ' ', cleaned_path).strip()
+                    paths.append(cleaned_path)
+        
+        # Generate Android Vector Drawable
         vector_drawable = f'''<?xml version="1.0" encoding="utf-8"?>
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="24dp"
-    android:height="24dp"
-    android:viewportWidth="24"
-    android:viewportHeight="24">
-    
-    <!-- Convert SVG content here -->
-    <path android:fillColor="#000000" android:pathData="M12,2C6.48,2 2,6.48 2,12s4.48,10 10,10 10,-4.48 10,-10S17.52,2 12,2z"/>
-    
-</vector>'''
+    android:width="{width}dp"
+    android:height="{height}dp"
+    android:viewportWidth="{width}"
+    android:viewportHeight="{height}">
+'''
+        
+        # Add path elements
+        for path_data in paths:
+            # Use different colors based on size
+            if width == 16:
+                vector_drawable += f'    <path android:pathData="{path_data}" android:fillColor="@color/refineui_default_tint"/>\n'
+            elif width == 20:
+                vector_drawable += f'    <path android:pathData="{path_data}" android:fillColor="@color/refineui_default_tint"/>\n'
+            elif width == 24:
+                vector_drawable += f'    <path android:pathData="{path_data}" android:fillColor="@color/refineui_default_tint"/>\n'
+            elif width == 28:
+                vector_drawable += f'    <path android:pathData="{path_data}" android:fillColor="@color/refineui_default_tint"/>\n'
+            elif width == 32:
+                vector_drawable += f'    <path android:pathData="{path_data}" android:fillColor="@color/refineui_default_tint"/>\n'
+            elif width == 48:
+                vector_drawable += f'    <path android:pathData="{path_data}" android:fillColor="@color/refineui_default_tint"/>\n'
+            else:
+                vector_drawable += f'    <path android:pathData="{path_data}" android:fillColor="@color/refineui_default_tint"/>\n'
+        
+        vector_drawable += '</vector>'
         
         with open(output_path, 'w', encoding='utf-8') as f:
             f.write(vector_drawable)
@@ -169,44 +219,7 @@ class AndroidPlatformBuilder:
         with open(strings_file, 'w', encoding='utf-8') as f:
             f.write(strings_content)
 
-    def copy_resources_to_app(self, library_output: str):
-        """Copy resources to Android app"""
-        print("📱 Copying resources to Android app...")
-        
-        app_output = "android/app/src/main/res"
-        os.makedirs(app_output, exist_ok=True)
-        
-        # Copy drawable resources
-        library_drawable = os.path.join(library_output, "drawable")
-        app_drawable = os.path.join(app_output, "drawable")
-        if os.path.exists(library_drawable):
-            os.makedirs(app_drawable, exist_ok=True)
-            for file in os.listdir(library_drawable):
-                source = os.path.join(library_drawable, file)
-                dest = os.path.join(app_drawable, file)
-                shutil.copy2(source, dest)
-        
-        # Copy values resources
-        library_values = os.path.join(library_output, "values")
-        app_values = os.path.join(app_output, "values")
-        if os.path.exists(library_values):
-            os.makedirs(app_values, exist_ok=True)
-            for file in os.listdir(library_values):
-                source = os.path.join(library_values, file)
-                dest = os.path.join(app_values, file)
-                shutil.copy2(source, dest)
-        
-        # Copy raw resources
-        library_raw = os.path.join(library_output, "raw")
-        app_raw = os.path.join(app_output, "raw")
-        if os.path.exists(library_raw):
-            os.makedirs(app_raw, exist_ok=True)
-            for file in os.listdir(library_raw):
-                source = os.path.join(library_raw, file)
-                dest = os.path.join(app_raw, file)
-                shutil.copy2(source, dest)
-        
-        print("✅ Resources copied to Android app")
+
 
     def build_android_platform(self):
         """Build Android platform packages"""
