@@ -1,0 +1,43 @@
+{
+  "name": "@refineui/icon-cdn",
+  "version": "1.0.0",
+  "description": "RefineUI System Icons CDN Package",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc && node dist/build.js",
+    "build:types": "tsc --declaration --emitDeclarationOnly",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
+  "keywords": [
+    "refineui",
+    "icons",
+    "cdn",
+    "svg",
+    "system-icons"
+  ],
+  "author": "Pelagornis",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pelagornis/refineui-system-icons.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pelagornis/refineui-system-icons/issues"
+  },
+  "homepage": "https://github.com/pelagornis/refineui-system-icons#readme",
+  "files": [
+    "icons/**/*.svg",
+    "dist/**/*.js",
+    "dist/**/*.d.ts",
+    "README.md"
+  ],
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^20.10.0",
+    "fs-extra": "^11.1.1",
+    "typescript": "^5.3.0"
+  }
+}

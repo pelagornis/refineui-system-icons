@@ -1,8 +1,7 @@
 import typescript from "rollup-plugin-typescript2";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
-import { terser } from "@rollup/plugin-terser";
-import copy from "rollup-plugin-copy";
+import terser from "@rollup/plugin-terser";
 
 export default {
   input: "src/index.ts",
@@ -25,12 +24,6 @@ export default {
     typescript({
       tsconfig: "./tsconfig.json",
       useTsconfigDeclarationDir: true,
-    }),
-    copy({
-      targets: [
-        { src: "src/styles.css", dest: "dist" },
-        { src: "assets/fonts/*", dest: "dist/fonts" },
-      ],
     }),
     terser(),
   ],
