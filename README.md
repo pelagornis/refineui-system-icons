@@ -1,373 +1,179 @@
-# Refine UI System Icons
+# @refineui/icon-cdn
 
-Refine UI System Icons are a collection of modern icons from Pelagornis.
+RefineUI System Icons를 CDN을 통해 사용할 수 있는 npm 패키지입니다.
 
-![Official](https://img.shields.io/badge/project-official-green.svg?colorA=303033&colorB=226af6&label=Pelagornis)
-[![License](https://img.shields.io/github/license/pelagornis/refineui-system-icons)](https://github.com/pelagornis/refineui-system-icons/blob/main/LICENSE)
-
-## 🚀 Figma Icon Automatic Extraction System
-
-An extensible icon extraction system designed with reference to Microsoft Fluent UI System Icons structure.
-
-### ✨ Key Features
-
-- **Figma API Automatic Extraction**: Automatic search and extraction of System Icons from Figma files
-- **Multi-platform Support**: Web, iOS, Android, Flutter
-- **Size-based Classification**: 16x16, 20x20, 24x24, 32x32, 48x48
-- **Platform-specific Naming**: Web(kebab-case), iOS(camelCase), Android(snake_case)
-- **Metadata Management**: JSON-based icon metadata storage
-- **Automation Scripts**: Python-based build automation
-
-### 📁 Project Structure
-
-```
-refineui-system-icons/
-├── scripts/
-│   ├── figma_icon_extractor.py  # Figma icon extractor
-│   ├── build_all.py             # All platform build
-│   ├── build_web.py             # Web build (React + React Native + Web)
-│   ├── build_ios.py             # iOS build
-│   └── build_android.py         # Android build
-├── assets/                      # Extracted icon files
-│   ├── web/{size}/              # Web SVG
-
-│   ├── ios/{size}/              # iOS SVG
-│   ├── android/res/drawable-{dpi}/ # Android Vector Drawable
-│   └── flutter/{size}/          # Flutter SVG
-├── metadata/                    # Icon metadata
-│   ├── icons.json              # Complete metadata
-│   ├── icons_web.json          # Web metadata
-│   ├── icons_ios.json          # iOS metadata
-│   └── icons_android.json      # Android metadata
-└── packages/                    # Platform-specific packages
-    ├── react-icons/             # @refineui/react-icons (React web)
-    ├── react-native-icons/      # @refineui/react-native-icons (React Native)
-    └── icons-web/               # @refineui/icons-web (URL accessible web version)
-```
-
-### 🛠️ Installation and Usage
-
-#### 1. Install Dependencies
+## 🚀 설치
 
 ```bash
-pip install -r requirements.txt
+npm install @refineui/icon-cdn
 ```
 
-#### 2. Figma API Token Setup
+## 📦 CDN 사용법
 
-**🔑 Required Setup**: Personal Access Token is required to use Figma API.
+### 기본 사용법
 
-1. Generate Personal Access Token from [Figma Settings](https://www.figma.com/settings)
-2. Set token as environment variable or pass it when running the script
+```html
+<!-- 기본 사용 -->
+<img src="https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/24/add-filled.svg" alt="Add" />
 
-**📖 Detailed Setup Guide**: [docs/FIGMA_SETUP.md](docs/FIGMA_SETUP.md)
+<!-- 크기 지정 -->
+<img height="32" width="32" src="https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/32/home-regular.svg" />
 
-#### 3. Icon Extraction
-
-```bash
-# Method 1: Pass directly as arguments
-python scripts/figma_icon_extractor.py \
-  --token YOUR_FIGMA_TOKEN \
-  --file-key YOUR_FIGMA_FILE_KEY
-
-# Method 2: Use environment variables
-export FIGMA_TOKEN="your_token_here"
-export FIGMA_FILE_KEY="your_file_key_here"
-python scripts/figma_icon_extractor.py
-
-# Method 3: Use .env file
-cp env.example .env
-# Edit .env file to enter actual token and file key
-python scripts/figma_icon_extractor.py
-
-# Extract from specific page
-python scripts/figma_icon_extractor.py \
-  --token YOUR_FIGMA_TOKEN \
-  --file-key YOUR_FIGMA_FILE_KEY \
-  --page "System Icons"
+<!-- CSS 배경 이미지로 사용 -->
+<div style="background-image: url('https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/16/settings-filled.svg');"></div>
 ```
 
-#### 4. Platform-specific Build
+### URL 형식
 
-```bash
-# Build all platforms
-python scripts/build_all.py
-
-# Individual platform build
-python scripts/build_web.py      # React + React Native + Web version
-python scripts/build_ios.py      # iOS Asset Catalog
-python scripts/build_android.py  # Android Vector Drawable
-
-# Package build
-npm run build:packages           # Build all packages
-npm run build --workspace=@refineui/react-icons
-npm run build --workspace=@refineui/react-native-icons
-npm run build --workspace=@refineui/icons-web
+```
+https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/{size}/{icon-name}-{style}.svg
 ```
 
-### 📦 Package Structure
+### 매개변수
 
-| Package                          | Description                  | Usage                                                             | Size Support         |
-| -------------------------------- | ---------------------------- | ----------------------------------------------------------------- | -------------------- |
-| **@refineui/react-icons**        | React web icon components    | `import { AccessTime24Icon } from '@refineui/react-icons'`        | 16, 20, 24, 32, 48px |
-| **@refineui/react-native-icons** | React Native icon components | `import { AccessTime24Icon } from '@refineui/react-native-icons'` | 16, 20, 24, 32, 48dp |
-| **@refineui/icons-web**          | URL accessible web version   | `https://your-domain.com/icons/24/access-time.svg`                | 16, 20, 24, 32, 48px |
-| **Font**                         | Web font version             | `<i class="ri ri-access-time"></i>`                               | All sizes supported  |
+- **size**: 16, 20, 24, 28, 32, 48
+- **icon-name**: 아이콘 이름 (snake_case)
+- **style**: regular, filled
 
-### 📋 Supported Platforms
+## 🎯 지원하는 아이콘
 
-| Platform            | Naming Convention | Output Format    | Size Support                       |
-| ------------------- | ----------------- | ---------------- | ---------------------------------- |
-| **React Web**       | camelCase         | React Components | 16, 20, 24, 32, 48px               |
-| **React Native**    | camelCase         | React Native SVG | 16, 20, 24, 32, 48dp               |
-| **Web URL**         | kebab-case        | SVG Files        | 16, 20, 24, 32, 48px               |
-| **Font**            | kebab-case        | Web Fonts        | All sizes supported                |
-| **iOS**             | camelCase         | Asset Catalog    | 16, 20, 24, 32, 48pt               |
-| **Android**         | snake_case        | Vector Drawable  | mdpi, hdpi, xhdpi, xxhdpi, xxxhdpi |
-| **Android Library** | snake_case        | Android Library  | mdpi, hdpi, xhdpi, xxhdpi, xxxhdpi |
+### 기본 아이콘
+- add, home, settings, search, heart, star, checkmark, close
+- edit, eye, file, folder, lock, mail, menu, play, plus
+- share, trash, user, calendar, camera, chat, download
+- gear, globe, image, link, more, notification, pause
+- save, upload, video, alert, bookmark, add_circle, add_square
 
-### 🔧 Configuration Options
+### 전체 아이콘 목록
+- access_time, accessibility, airplane, album, alert, alert_badge, alert_off
+- align_bottom, align_center_horizontal, align_center_vertical, align_left, align_right, align_top
+- android, app_folder, app_recent, app_title, appstore, autosum, backpack
+- backspace, badge, balloon, bar_chart_horizontal, bar_chart_horizontal_descending
+- bar_chart_vertical, bar_chart_vertical_descending, barcode_scanner
+- battery_0, battery_10, battery_100, battery_20, battery_30, battery_40, battery_50
+- battery_60, battery_70, battery_80, battery_90, block, bluetooth, blur, board
+- book, bookmark, bug, calculator, calendar, camera, cart, carton_box, chart
+- chat, chat_add, chat_empty, checkmark, chess, chevron_down, chevron_left
+- chevron_right, chevron_up, circle, clipboard, clock, clock_alarm, cloud, clover
+- code, code_block, comma, comment, cone, contrast, control_button, cookie, copy
+- couch, cpu, crop, crown, css, cube, cursor, cut, dart, database, delete
+- delete_off, dentist, desk, desktop, desktop_mac, dialpad, diamond, dismiss
+- dismiss_circle, dismiss_square, doctor, document, document_border, door, drag
+- drawer, drop, dual_screen, dumbbell, dust, earth, edit, edit_off, elevator
+- emoji, emoji_angry, emoji_cool, emoji_grimacing, emoji_laugh, emoji_meh
+- emoji_sad, emoji_surprise, engine, equal, equal_circle, equal_off, error_circle
+- eye, eye_off, eyedropper, eyedropper_off, fast_forward, filmstrip, filmstrip_off
+- filter, fire, flag, flag_off, flash, flash_off, flashlight, flashlight_off
+- flip_horizontal, flip_vertcial, folder, folder_open, frame, full_screen_maximize
+- full_screen_minimize, games, gantt_chart, gas, gas_station, gavel, gif, gift
+- gift_card, git, glasses, global, grid, guest, guitar, hammer
 
-#### Icon Size Mapping
+## 💻 JavaScript 사용법
 
-```python
-supported_sizes = [16, 20, 24, 32, 48]
-dpi_mapping = {
-    16: "mdpi",
-    20: "hdpi",
-    24: "xhdpi",
-    32: "xxhdpi",
-    48: "xxxhdpi"
+### 패키지로 사용
+
+```javascript
+const { getIconInfo, generateCDNUrl } = require('@refineui/icon-cdn');
+
+// 아이콘 정보 가져오기
+const icon = getIconInfo('add', 24, 'filled');
+console.log(icon.url); // https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/24/add-filled.svg
+
+// CDN URL 직접 생성
+const url = generateCDNUrl('home', 32, 'regular');
+console.log(url); // https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/32/home-regular.svg
+```
+
+### 동적 생성
+
+```javascript
+// 동적으로 아이콘 URL 생성
+function createIconUrl(iconName, size = 24, style = 'regular') {
+  return `https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/${size}/${iconName}-${style}.svg`;
 }
+
+const iconUrl = createIconUrl('settings', 16, 'filled');
+const img = document.createElement('img');
+img.src = iconUrl;
+img.alt = 'Settings';
 ```
 
-#### Platform-specific Naming Rules
+## 🎨 React 컴포넌트 예시
 
-```python
-naming_rules = {
-    "web": "kebab-case",      # icon-name.svg
-    "ios": "camelCase",       # iconName.svg
-    "android": "snake_case",  # icon_name.svg
-    "flutter": "snake_case"   # icon_name.svg
-}
+```jsx
+import React from 'react';
+
+const RefineUIIcon = ({ name, size = 24, style = 'regular', ...props }) => {
+  const iconUrl = `https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/${size}/${name}-${style}.svg`;
+  
+  return (
+    <img 
+      src={iconUrl} 
+      alt={name}
+      width={size}
+      height={size}
+      {...props}
+    />
+  );
+};
+
+// 사용법
+<RefineUIIcon name="add" size={32} style="filled" />
+<RefineUIIcon name="home" size={24} style="regular" />
 ```
 
-### 📊 Metadata Structure
+## 🛠️ 개발
+
+### 빌드
+
+```bash
+npm run build
+```
+
+### CLI 사용
+
+```bash
+# 아이콘 URL 생성
+node index.js add 24 filled
+
+# 사용법 보기
+node index.js
+```
+
+## 📊 메타데이터
+
+패키지에는 `icons/metadata.json` 파일이 포함되어 있어 사용 가능한 모든 아이콘 정보를 확인할 수 있습니다.
 
 ```json
 {
-  "web": [
+  "version": "1.0.0",
+  "totalIcons": 432,
+  "sizes": [16, 20, 24, 28, 32, 48],
+  "styles": ["regular", "filled"],
+  "icons": [
     {
-      "name": "Access Time",
-      "slug": "access-time",
+      "name": "add",
+      "style": "filled",
       "size": 24,
-      "node_id": "1:2",
-      "file_path": "assets/web/24/access-time.svg"
-    }
-  ],
-  "ios": [
-    {
-      "name": "Access Time",
-      "slug": "accessTime",
-      "size": 24,
-      "node_id": "1:2",
-      "file_path": "assets/ios/24/accessTime.svg"
+      "fileName": "add-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/24/add-filled.svg"
     }
   ]
 }
 ```
 
-### 🤖 CI/CD Support
+## 🌐 CDN 제공업체
 
-Automation support through GitHub Actions:
+이 패키지는 [jsDelivr](https://www.jsdelivr.com/) CDN을 통해 제공됩니다.
 
-```yaml
-name: Build Icons
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
-  workflow_dispatch:
-    inputs:
-      figma_token:
-        description: "Figma API Token"
-        required: true
-        type: string
-      figma_file_key:
-        description: "Figma File Key"
-        required: true
-        type: string
-      page_name:
-        description: "Page name containing icons"
-        required: false
-        type: string
-        default: "System Icons"
+- **빠른 로딩**: 전 세계 CDN 네트워크
+- **안정성**: 99.9% 가동률 보장
+- **무료**: 완전 무료 서비스
 
-jobs:
-  extract-and-build:
-    runs-on: ubuntu-latest
+## 📝 라이선스
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+MIT License - 자세한 내용은 [LICENSE](../../LICENSE) 파일을 참조하세요.
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "18"
-          cache: "npm"
+## 🤝 기여하기
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.9"
-
-      - name: Install Python dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
-      - name: Install Node.js dependencies
-        run: npm install
-
-      - name: Extract icons from Figma
-        run: |
-          python scripts/figma_icon_extractor.py \
-            --token ${{ github.event.inputs.figma_token || secrets.FIGMA_TOKEN }} \
-            --file-key ${{ github.event.inputs.figma_file_key || secrets.FIGMA_FILE_KEY }} \
-            --page "${{ github.event.inputs.page_name || 'System Icons' }}"
-        env:
-          FIGMA_TOKEN: ${{ github.event.inputs.figma_token || secrets.FIGMA_TOKEN }}
-
-      - name: Build all platforms
-        run: python scripts/build_all.py
-
-      - name: Build packages
-        run: npm run build:packages
-
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: built-icons
-          path: |
-            assets/
-            metadata/
-            packages/
-            ios/RefineIcons/
-          retention-days: 30
-
-      - name: Commit changes
-        if: github.ref == 'refs/heads/main'
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add -A
-          git diff --quiet && git diff --staged --quiet || git commit -m "Auto-build icons from Figma"
-          git push
-```
-
-### 📦 패키지 사용법
-
-#### React Web (`@refineui/react-icons`)
-
-```bash
-npm install @refineui/react-icons
-```
-
-```jsx
-import { AccessTime24Icon } from "@refineui/react-icons";
-
-function App() {
-  return (
-    <div>
-      <AccessTime24Icon />
-      <AccessTime24Icon size={32} />
-      <AccessTime24Icon color="#007bff" />
-    </div>
-  );
-}
-```
-
-#### React Native (`@refineui/react-native-icons`)
-
-```bash
-npm install @refineui/react-native-icons
-```
-
-```jsx
-import { AccessTime24Icon } from "@refineui/react-native-icons";
-
-function App() {
-  return (
-    <View>
-      <AccessTime24Icon />
-      <AccessTime24Icon size={32} />
-      <AccessTime24Icon color="#007bff" />
-    </View>
-  );
-}
-```
-
-#### Web URL (`@refineui/icons-web`)
-
-```html
-<!-- 직접 SVG 사용 -->
-<img src="https://your-domain.com/icons/24/access-time.svg" alt="Access Time" />
-
-<!-- 또는 CSS로 배경 이미지 사용 -->
-<div
-  style="background-image: url('https://your-domain.com/icons/24/access-time.svg')"
-></div>
-```
-
-#### Android Library
-
-```gradle
-// app/build.gradle
-dependencies {
-    implementation project(':refineui-icons')
-}
-```
-
-```xml
-<!-- XML에서 사용 -->
-<ImageView
-    android:layout_width="24dp"
-    android:layout_height="24dp"
-    android:src="@drawable/ic_refineui_access_time_24_regular" />
-```
-
-```kotlin
-// Kotlin에서 사용
-val iconDrawable = ContextCompat.getDrawable(context, R.drawable.ic_refineui_access_time_24_regular)
-imageView.setImageDrawable(iconDrawable)
-```
-
-#### Font (웹폰트)
-
-```html
-<!-- CSS 파일 포함 -->
-<link rel="stylesheet" href="./fonts/refineui-system-icons.css" />
-
-<!-- 아이콘 사용 -->
-<i class="ri ri-access-time"></i>
-<i class="ri ri-access-time" style="font-size: 24px; color: #007bff;"></i>
-```
-
-**폰트 사용의 장점:**
-
-- 🚀 **빠른 로딩**: 하나의 폰트 파일로 모든 아이콘 로드
-- 🎨 **쉬운 스타일링**: CSS로 크기, 색상, 애니메이션 제어
-- 📱 **반응형**: 모든 디바이스에서 일관된 렌더링
-- 🔧 **간단한 사용**: HTML 클래스만으로 아이콘 표시
-
-### 🔗 참고 자료
-
-- [Microsoft Fluent UI System Icons](https://github.com/microsoft/fluentui-system-icons)
-- [Figma API Documentation](https://www.figma.com/developers/api)
-- [React Icons](https://react-icons.github.io/react-icons/)
-
-### 📝 라이선스
-
-MIT License - 자세한 내용은 [LICENSE](LICENSE) 파일을 참조하세요.
+버그 리포트나 기능 요청은 [GitHub Issues](https://github.com/pelagornis/refineui-system-icons/issues)를 통해 제출해 주세요.
