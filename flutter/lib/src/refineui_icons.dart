@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 class RefineUIIcons {
 	RefineUIIcons._();
 
-	static const String? _kFontPkg = null;
+	static const String? _kFontPkg = 'refineui_system_icons';
 	static const String _regularFamily = 'RefineUI-System-Icons-Regular';
 	static const String _filledFamily = 'RefineUI-System-Icons-Filled';
 

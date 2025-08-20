@@ -1,0 +1,725 @@
+import 'package:flutter/widgets.dart';
+import 'package:refineui_system_icons/refineui_system_icons.dart';
+
+class SampleIcon {
+  final String name;
+  final IconData iconData;
+  final int size;
+  final String style;
+  final String displayName;
+
+  SampleIcon({
+    required this.name,
+    required this.iconData,
+    required this.size,
+    required this.style,
+    required this.displayName,
+  });
+}
+
+class SampleIcons {
+  static List<SampleIcon> getAllIcons() {
+    return [
+      // Access Time
+      SampleIcon(
+        name: 'access_time',
+        iconData: RefineUIIcons.access_time_16_regular,
+        size: 16,
+        style: 'regular',
+        displayName: 'Access Time',
+      ),
+      SampleIcon(
+        name: 'access_time',
+        iconData: RefineUIIcons.access_time_16_filled,
+        size: 16,
+        style: 'filled',
+        displayName: 'Access Time',
+      ),
+      SampleIcon(
+        name: 'access_time',
+        iconData: RefineUIIcons.access_time_20_regular,
+        size: 20,
+        style: 'regular',
+        displayName: 'Access Time',
+      ),
+      SampleIcon(
+        name: 'access_time',
+        iconData: RefineUIIcons.access_time_20_filled,
+        size: 20,
+        style: 'filled',
+        displayName: 'Access Time',
+      ),
+      SampleIcon(
+        name: 'access_time',
+        iconData: RefineUIIcons.access_time_24_regular,
+        size: 24,
+        style: 'regular',
+        displayName: 'Access Time',
+      ),
+      SampleIcon(
+        name: 'access_time',
+        iconData: RefineUIIcons.access_time_24_filled,
+        size: 24,
+        style: 'filled',
+        displayName: 'Access Time',
+      ),
+      SampleIcon(
+        name: 'access_time',
+        iconData: RefineUIIcons.access_time_28_regular,
+        size: 28,
+        style: 'regular',
+        displayName: 'Access Time',
+      ),
+      SampleIcon(
+        name: 'access_time',
+        iconData: RefineUIIcons.access_time_28_filled,
+        size: 28,
+        style: 'filled',
+        displayName: 'Access Time',
+      ),
+      SampleIcon(
+        name: 'access_time',
+        iconData: RefineUIIcons.access_time_32_regular,
+        size: 32,
+        style: 'regular',
+        displayName: 'Access Time',
+      ),
+      SampleIcon(
+        name: 'access_time',
+        iconData: RefineUIIcons.access_time_32_filled,
+        size: 32,
+        style: 'filled',
+        displayName: 'Access Time',
+      ),
+      SampleIcon(
+        name: 'access_time',
+        iconData: RefineUIIcons.access_time_48_regular,
+        size: 48,
+        style: 'regular',
+        displayName: 'Access Time',
+      ),
+      SampleIcon(
+        name: 'access_time',
+        iconData: RefineUIIcons.access_time_48_filled,
+        size: 48,
+        style: 'filled',
+        displayName: 'Access Time',
+      ),
+
+      // Accessibility
+      SampleIcon(
+        name: 'accessibility',
+        iconData: RefineUIIcons.accessibility_16_regular,
+        size: 16,
+        style: 'regular',
+        displayName: 'Accessibility',
+      ),
+      SampleIcon(
+        name: 'accessibility',
+        iconData: RefineUIIcons.accessibility_16_filled,
+        size: 16,
+        style: 'filled',
+        displayName: 'Accessibility',
+      ),
+      SampleIcon(
+        name: 'accessibility',
+        iconData: RefineUIIcons.accessibility_20_regular,
+        size: 20,
+        style: 'regular',
+        displayName: 'Accessibility',
+      ),
+      SampleIcon(
+        name: 'accessibility',
+        iconData: RefineUIIcons.accessibility_20_filled,
+        size: 20,
+        style: 'filled',
+        displayName: 'Accessibility',
+      ),
+      SampleIcon(
+        name: 'accessibility',
+        iconData: RefineUIIcons.accessibility_24_regular,
+        size: 24,
+        style: 'regular',
+        displayName: 'Accessibility',
+      ),
+      SampleIcon(
+        name: 'accessibility',
+        iconData: RefineUIIcons.accessibility_24_filled,
+        size: 24,
+        style: 'filled',
+        displayName: 'Accessibility',
+      ),
+      SampleIcon(
+        name: 'accessibility',
+        iconData: RefineUIIcons.accessibility_28_regular,
+        size: 28,
+        style: 'regular',
+        displayName: 'Accessibility',
+      ),
+      SampleIcon(
+        name: 'accessibility',
+        iconData: RefineUIIcons.accessibility_28_filled,
+        size: 28,
+        style: 'filled',
+        displayName: 'Accessibility',
+      ),
+      SampleIcon(
+        name: 'accessibility',
+        iconData: RefineUIIcons.accessibility_32_regular,
+        size: 32,
+        style: 'regular',
+        displayName: 'Accessibility',
+      ),
+      SampleIcon(
+        name: 'accessibility',
+        iconData: RefineUIIcons.accessibility_32_filled,
+        size: 32,
+        style: 'filled',
+        displayName: 'Accessibility',
+      ),
+      SampleIcon(
+        name: 'accessibility',
+        iconData: RefineUIIcons.accessibility_48_regular,
+        size: 48,
+        style: 'regular',
+        displayName: 'Accessibility',
+      ),
+      SampleIcon(
+        name: 'accessibility',
+        iconData: RefineUIIcons.accessibility_48_filled,
+        size: 48,
+        style: 'filled',
+        displayName: 'Accessibility',
+      ),
+
+      // Add
+      SampleIcon(
+        name: 'add',
+        iconData: RefineUIIcons.add_16_regular,
+        size: 16,
+        style: 'regular',
+        displayName: 'Add',
+      ),
+      SampleIcon(
+        name: 'add',
+        iconData: RefineUIIcons.add_16_filled,
+        size: 16,
+        style: 'filled',
+        displayName: 'Add',
+      ),
+      SampleIcon(
+        name: 'add',
+        iconData: RefineUIIcons.add_20_regular,
+        size: 20,
+        style: 'regular',
+        displayName: 'Add',
+      ),
+      SampleIcon(
+        name: 'add',
+        iconData: RefineUIIcons.add_20_filled,
+        size: 20,
+        style: 'filled',
+        displayName: 'Add',
+      ),
+      SampleIcon(
+        name: 'add',
+        iconData: RefineUIIcons.add_24_regular,
+        size: 24,
+        style: 'regular',
+        displayName: 'Add',
+      ),
+      SampleIcon(
+        name: 'add',
+        iconData: RefineUIIcons.add_24_filled,
+        size: 24,
+        style: 'filled',
+        displayName: 'Add',
+      ),
+      SampleIcon(
+        name: 'add',
+        iconData: RefineUIIcons.add_28_regular,
+        size: 28,
+        style: 'regular',
+        displayName: 'Add',
+      ),
+      SampleIcon(
+        name: 'add',
+        iconData: RefineUIIcons.add_28_filled,
+        size: 28,
+        style: 'filled',
+        displayName: 'Add',
+      ),
+      SampleIcon(
+        name: 'add',
+        iconData: RefineUIIcons.add_32_regular,
+        size: 32,
+        style: 'regular',
+        displayName: 'Add',
+      ),
+      SampleIcon(
+        name: 'add',
+        iconData: RefineUIIcons.add_32_filled,
+        size: 32,
+        style: 'filled',
+        displayName: 'Add',
+      ),
+      SampleIcon(
+        name: 'add',
+        iconData: RefineUIIcons.add_48_regular,
+        size: 48,
+        style: 'regular',
+        displayName: 'Add',
+      ),
+      SampleIcon(
+        name: 'add',
+        iconData: RefineUIIcons.add_48_filled,
+        size: 48,
+        style: 'filled',
+        displayName: 'Add',
+      ),
+
+      // Add Circle
+      SampleIcon(
+        name: 'add_circle',
+        iconData: RefineUIIcons.add_circle_16_regular,
+        size: 16,
+        style: 'regular',
+        displayName: 'Add Circle',
+      ),
+      SampleIcon(
+        name: 'add_circle',
+        iconData: RefineUIIcons.add_circle_16_filled,
+        size: 16,
+        style: 'filled',
+        displayName: 'Add Circle',
+      ),
+      SampleIcon(
+        name: 'add_circle',
+        iconData: RefineUIIcons.add_circle_20_regular,
+        size: 20,
+        style: 'regular',
+        displayName: 'Add Circle',
+      ),
+      SampleIcon(
+        name: 'add_circle',
+        iconData: RefineUIIcons.add_circle_20_filled,
+        size: 20,
+        style: 'filled',
+        displayName: 'Add Circle',
+      ),
+      SampleIcon(
+        name: 'add_circle',
+        iconData: RefineUIIcons.add_circle_24_regular,
+        size: 24,
+        style: 'regular',
+        displayName: 'Add Circle',
+      ),
+      SampleIcon(
+        name: 'add_circle',
+        iconData: RefineUIIcons.add_circle_24_filled,
+        size: 24,
+        style: 'filled',
+        displayName: 'Add Circle',
+      ),
+      SampleIcon(
+        name: 'add_circle',
+        iconData: RefineUIIcons.add_circle_28_regular,
+        size: 28,
+        style: 'regular',
+        displayName: 'Add Circle',
+      ),
+      SampleIcon(
+        name: 'add_circle',
+        iconData: RefineUIIcons.add_circle_28_filled,
+        size: 28,
+        style: 'filled',
+        displayName: 'Add Circle',
+      ),
+      SampleIcon(
+        name: 'add_circle',
+        iconData: RefineUIIcons.add_circle_32_regular,
+        size: 32,
+        style: 'regular',
+        displayName: 'Add Circle',
+      ),
+      SampleIcon(
+        name: 'add_circle',
+        iconData: RefineUIIcons.add_circle_32_filled,
+        size: 32,
+        style: 'filled',
+        displayName: 'Add Circle',
+      ),
+      SampleIcon(
+        name: 'add_circle',
+        iconData: RefineUIIcons.add_circle_48_regular,
+        size: 48,
+        style: 'regular',
+        displayName: 'Add Circle',
+      ),
+      SampleIcon(
+        name: 'add_circle',
+        iconData: RefineUIIcons.add_circle_48_filled,
+        size: 48,
+        style: 'filled',
+        displayName: 'Add Circle',
+      ),
+
+      // Add Square
+      SampleIcon(
+        name: 'add_square',
+        iconData: RefineUIIcons.add_square_16_regular,
+        size: 16,
+        style: 'regular',
+        displayName: 'Add Square',
+      ),
+      SampleIcon(
+        name: 'add_square',
+        iconData: RefineUIIcons.add_square_16_filled,
+        size: 16,
+        style: 'filled',
+        displayName: 'Add Square',
+      ),
+      SampleIcon(
+        name: 'add_square',
+        iconData: RefineUIIcons.add_square_20_regular,
+        size: 20,
+        style: 'regular',
+        displayName: 'Add Square',
+      ),
+      SampleIcon(
+        name: 'add_square',
+        iconData: RefineUIIcons.add_square_20_filled,
+        size: 20,
+        style: 'filled',
+        displayName: 'Add Square',
+      ),
+      SampleIcon(
+        name: 'add_square',
+        iconData: RefineUIIcons.add_square_24_regular,
+        size: 24,
+        style: 'regular',
+        displayName: 'Add Square',
+      ),
+      SampleIcon(
+        name: 'add_square',
+        iconData: RefineUIIcons.add_square_24_filled,
+        size: 24,
+        style: 'filled',
+        displayName: 'Add Square',
+      ),
+      SampleIcon(
+        name: 'add_square',
+        iconData: RefineUIIcons.add_square_28_regular,
+        size: 28,
+        style: 'regular',
+        displayName: 'Add Square',
+      ),
+      SampleIcon(
+        name: 'add_square',
+        iconData: RefineUIIcons.add_square_28_filled,
+        size: 28,
+        style: 'filled',
+        displayName: 'Add Square',
+      ),
+      SampleIcon(
+        name: 'add_square',
+        iconData: RefineUIIcons.add_square_32_regular,
+        size: 32,
+        style: 'regular',
+        displayName: 'Add Square',
+      ),
+      SampleIcon(
+        name: 'add_square',
+        iconData: RefineUIIcons.add_square_32_filled,
+        size: 32,
+        style: 'filled',
+        displayName: 'Add Square',
+      ),
+      SampleIcon(
+        name: 'add_square',
+        iconData: RefineUIIcons.add_square_48_regular,
+        size: 48,
+        style: 'regular',
+        displayName: 'Add Square',
+      ),
+      SampleIcon(
+        name: 'add_square',
+        iconData: RefineUIIcons.add_square_48_filled,
+        size: 48,
+        style: 'filled',
+        displayName: 'Add Square',
+      ),
+
+      // Airplane
+      SampleIcon(
+        name: 'airplane',
+        iconData: RefineUIIcons.airplane_16_regular,
+        size: 16,
+        style: 'regular',
+        displayName: 'Airplane',
+      ),
+      SampleIcon(
+        name: 'airplane',
+        iconData: RefineUIIcons.airplane_16_filled,
+        size: 16,
+        style: 'filled',
+        displayName: 'Airplane',
+      ),
+      SampleIcon(
+        name: 'airplane',
+        iconData: RefineUIIcons.airplane_20_regular,
+        size: 20,
+        style: 'regular',
+        displayName: 'Airplane',
+      ),
+      SampleIcon(
+        name: 'airplane',
+        iconData: RefineUIIcons.airplane_20_filled,
+        size: 20,
+        style: 'filled',
+        displayName: 'Airplane',
+      ),
+      SampleIcon(
+        name: 'airplane',
+        iconData: RefineUIIcons.airplane_24_regular,
+        size: 24,
+        style: 'regular',
+        displayName: 'Airplane',
+      ),
+      SampleIcon(
+        name: 'airplane',
+        iconData: RefineUIIcons.airplane_24_filled,
+        size: 24,
+        style: 'filled',
+        displayName: 'Airplane',
+      ),
+      SampleIcon(
+        name: 'airplane',
+        iconData: RefineUIIcons.airplane_28_regular,
+        size: 28,
+        style: 'regular',
+        displayName: 'Airplane',
+      ),
+      SampleIcon(
+        name: 'airplane',
+        iconData: RefineUIIcons.airplane_28_filled,
+        size: 28,
+        style: 'filled',
+        displayName: 'Airplane',
+      ),
+      SampleIcon(
+        name: 'airplane',
+        iconData: RefineUIIcons.airplane_32_regular,
+        size: 32,
+        style: 'regular',
+        displayName: 'Airplane',
+      ),
+      SampleIcon(
+        name: 'airplane',
+        iconData: RefineUIIcons.airplane_32_filled,
+        size: 32,
+        style: 'filled',
+        displayName: 'Airplane',
+      ),
+      SampleIcon(
+        name: 'airplane',
+        iconData: RefineUIIcons.airplane_48_regular,
+        size: 48,
+        style: 'regular',
+        displayName: 'Airplane',
+      ),
+      SampleIcon(
+        name: 'airplane',
+        iconData: RefineUIIcons.airplane_48_filled,
+        size: 48,
+        style: 'filled',
+        displayName: 'Airplane',
+      ),
+
+      // Album
+      SampleIcon(
+        name: 'album',
+        iconData: RefineUIIcons.album_16_regular,
+        size: 16,
+        style: 'regular',
+        displayName: 'Album',
+      ),
+      SampleIcon(
+        name: 'album',
+        iconData: RefineUIIcons.album_16_filled,
+        size: 16,
+        style: 'filled',
+        displayName: 'Album',
+      ),
+      SampleIcon(
+        name: 'album',
+        iconData: RefineUIIcons.album_20_regular,
+        size: 20,
+        style: 'regular',
+        displayName: 'Album',
+      ),
+      SampleIcon(
+        name: 'album',
+        iconData: RefineUIIcons.album_20_filled,
+        size: 20,
+        style: 'filled',
+        displayName: 'Album',
+      ),
+      SampleIcon(
+        name: 'album',
+        iconData: RefineUIIcons.album_24_regular,
+        size: 24,
+        style: 'regular',
+        displayName: 'Album',
+      ),
+      SampleIcon(
+        name: 'album',
+        iconData: RefineUIIcons.album_24_filled,
+        size: 24,
+        style: 'filled',
+        displayName: 'Album',
+      ),
+      SampleIcon(
+        name: 'album',
+        iconData: RefineUIIcons.album_28_regular,
+        size: 28,
+        style: 'regular',
+        displayName: 'Album',
+      ),
+      SampleIcon(
+        name: 'album',
+        iconData: RefineUIIcons.album_28_filled,
+        size: 28,
+        style: 'filled',
+        displayName: 'Album',
+      ),
+      SampleIcon(
+        name: 'album',
+        iconData: RefineUIIcons.album_32_regular,
+        size: 32,
+        style: 'regular',
+        displayName: 'Album',
+      ),
+      SampleIcon(
+        name: 'album',
+        iconData: RefineUIIcons.album_32_filled,
+        size: 32,
+        style: 'filled',
+        displayName: 'Album',
+      ),
+      SampleIcon(
+        name: 'album',
+        iconData: RefineUIIcons.album_48_regular,
+        size: 48,
+        style: 'regular',
+        displayName: 'Album',
+      ),
+      SampleIcon(
+        name: 'album',
+        iconData: RefineUIIcons.album_48_filled,
+        size: 48,
+        style: 'filled',
+        displayName: 'Album',
+      ),
+
+      // Alert
+      SampleIcon(
+        name: 'alert',
+        iconData: RefineUIIcons.alert_16_regular,
+        size: 16,
+        style: 'regular',
+        displayName: 'Alert',
+      ),
+      SampleIcon(
+        name: 'alert',
+        iconData: RefineUIIcons.alert_16_filled,
+        size: 16,
+        style: 'filled',
+        displayName: 'Alert',
+      ),
+      SampleIcon(
+        name: 'alert',
+        iconData: RefineUIIcons.alert_20_regular,
+        size: 20,
+        style: 'regular',
+        displayName: 'Alert',
+      ),
+      SampleIcon(
+        name: 'alert',
+        iconData: RefineUIIcons.alert_20_filled,
+        size: 20,
+        style: 'filled',
+        displayName: 'Alert',
+      ),
+      SampleIcon(
+        name: 'alert',
+        iconData: RefineUIIcons.alert_24_regular,
+        size: 24,
+        style: 'regular',
+        displayName: 'Alert',
+      ),
+      SampleIcon(
+        name: 'alert',
+        iconData: RefineUIIcons.alert_24_filled,
+        size: 24,
+        style: 'filled',
+        displayName: 'Alert',
+      ),
+      SampleIcon(
+        name: 'alert',
+        iconData: RefineUIIcons.alert_28_regular,
+        size: 28,
+        style: 'regular',
+        displayName: 'Alert',
+      ),
+      SampleIcon(
+        name: 'alert',
+        iconData: RefineUIIcons.alert_28_filled,
+        size: 28,
+        style: 'filled',
+        displayName: 'Alert',
+      ),
+      SampleIcon(
+        name: 'alert',
+        iconData: RefineUIIcons.alert_32_regular,
+        size: 32,
+        style: 'regular',
+        displayName: 'Alert',
+      ),
+      SampleIcon(
+        name: 'alert',
+        iconData: RefineUIIcons.alert_32_filled,
+        size: 32,
+        style: 'filled',
+        displayName: 'Alert',
+      ),
+      SampleIcon(
+        name: 'alert',
+        iconData: RefineUIIcons.alert_48_regular,
+        size: 48,
+        style: 'regular',
+        displayName: 'Alert',
+      ),
+      SampleIcon(
+        name: 'alert',
+        iconData: RefineUIIcons.alert_48_filled,
+        size: 48,
+        style: 'filled',
+        displayName: 'Alert',
+      ),
+    ];
+  }
+
+  static List<SampleIcon> getIconsByStyleAndSize(String style, String size) {
+    return getAllIcons().where((icon) {
+      return icon.style == style && icon.size.toString() == size;
+    }).toList();
+  }
+
+  static List<SampleIcon> searchIcons(String query) {
+    return getAllIcons().where((icon) {
+      return icon.name.toLowerCase().contains(query.toLowerCase()) ||
+             icon.displayName.toLowerCase().contains(query.toLowerCase());
+    }).toList();
+  }
+}

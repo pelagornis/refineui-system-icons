@@ -21,24 +21,17 @@
   <meta name="description" content="A new Flutter project.">
 
   <!-- iOS meta tags & icons -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="refineui_system_icons_example">
+  <meta name="apple-mobile-web-app-title" content="example">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <title>RefineUI System Icons</title>
+  <title>example</title>
   <link rel="manifest" href="manifest.json">
 
-  <script>
-    // The value below is injected by flutter build, do not touch.
-    var serviceWorkerVersion = '{{flutter_service_worker_version}}';
-  </script>
-  <!-- This script adds the flutter initialization JS code -->
-  <script src="flutter.js" defer></script>
-  
   <!-- 웹용 폰트 로딩 -->
   <style>
     @font-face {
@@ -48,7 +41,7 @@
       font-style: normal;
       font-display: swap;
     }
-    
+
     @font-face {
       font-family: 'RefineUI-System-Icons-Filled';
       src: url('assets/fonts/refineui-system-icons-filled.ttf') format('truetype');
@@ -57,19 +50,8 @@
       font-display: swap;
     }
   </style>
-  
-
 </head>
 <body>
-  <script>
-    window.addEventListener('load', function(ev) {
-      // Download main.dart.js
-      _flutter.loader.load({
-        serviceWorker: {
-          serviceWorkerVersion: serviceWorkerVersion,
-        }
-      });
-    });
-  </script>
+  <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>
