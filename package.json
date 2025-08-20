@@ -1,46 +1,51 @@
 {
-  "name": "refineui-system-icons",
+  "name": "@refineui/react-native-icons",
   "version": "1.0.0",
-  "description": "Refine UI System Icons - Microsoft Fluent UI System Icons 구조를 참고한 아이콘 시스템",
-  "private": true,
-  "workspaces": [
-    "packages/*"
+  "description": "RefineUI System Icons React Native Package - TypeScript-first React Native icon components",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
   ],
   "scripts": {
-    "extract": "python scripts/figma_icon_extractor.py",
-    "build": "python scripts/build_all.py",
-    "build:web": "python scripts/build_web.py",
-    "build:ios": "python scripts/build_ios.py",
-    "build:android": "python scripts/build_android.py",
-    "dev:web": "cd packages/icons-web && npm run serve",
-    "install:all": "npm install && npm run install:packages",
-    "install:packages": "npm install --workspace=@refineui/react-icons && npm install --workspace=@refineui/react-native-icons && npm install --workspace=@refineui/icons-web",
-    "build:packages": "npm run build --workspace=@refineui/react-icons && npm run build --workspace=@refineui/react-native-icons && npm run build --workspace=@refineui/icons-web && npm run build:font",
-    "publish:packages": "npm publish --workspace=@refineui/react-icons && npm publish --workspace=@refineui/react-native-icons && npm publish --workspace=@refineui/icons-web",
-    "build:font": "python scripts/build_font.py"
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "clean": "rimraf dist",
+    "prepublishOnly": "npm run clean && npm run build",
+    "type-check": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-native": ">=0.60.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.0",
     "@rollup/plugin-node-resolve": "^15.0.0",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@types/react": "^18.2.0",
+    "@types/react-native": "^0.72.0",
+    "rimraf": "^3.0.2",
     "rollup": "^3.0.0",
     "rollup-plugin-typescript2": "^0.34.0",
-    "typescript": "^4.9.0"
+    "typescript": "^5.3.0"
   },
   "keywords": [
-    "icons",
     "refineui",
-    "system-icons",
-    "react",
     "react-native",
-    "web",
-    "figma",
-    "svg"
+    "icons",
+    "typescript",
+    "system-icons",
+    "components",
+    "mobile"
   ],
   "author": "Pelagornis",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pelagornis/refineui-system-icons.git"
+    "url": "https://github.com/pelagornis/refineui-system-icons.git",
+    "directory": "packages/react-native-icons"
   },
   "bugs": {
     "url": "https://github.com/pelagornis/refineui-system-icons/issues"
