@@ -1,5 +1,5 @@
 {
-  "total_icons": 434,
+  "total_icons": 433,
   "supported_sizes": [
     16,
     20,
@@ -32029,26 +32029,6 @@
         }
       ]
     },
-    "48-filled": {
-      "name": "48, filled",
-      "slug": "48-filled",
-      "size": [
-        48
-      ],
-      "style": [
-        "filled"
-      ],
-      "keyword": "refineui-icon",
-      "description": "Used in 48, filled scenarios.",
-      "files": [
-        {
-          "filename": "ic_refineui_48-filled_48_filled.svg",
-          "size": 48,
-          "style": "filled",
-          "path": "assets/48, filled/svg/ic_refineui_48-filled_48_filled.svg"
-        }
-      ]
-    },
     "text": {
       "name": "Text",
       "slug": "text",
@@ -34551,6 +34531,12 @@
       "keyword": "refineui-icon",
       "description": "Used in math symbols scenarios.",
       "files": [
+        {
+          "filename": "ic_refineui_math-symbols_48_filled.svg",
+          "size": 48,
+          "style": "filled",
+          "path": "assets/Math symbols/svg/ic_refineui_math-symbols_48_filled.svg"
+        },
         {
           "filename": "ic_refineui_math-symbols_20_regular.svg",
           "size": 20,

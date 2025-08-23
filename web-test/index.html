@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pelagornis System Icons - Web Test</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @font-face {
+            font-family: 'RefineUI-System-Icons-Regular';
+            src: url('../fonts/refineui-system-icons-regular.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'RefineUI-System-Icons-Filled';
+            src: url('../fonts/refineui-system-icons-filled.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 헤더 -->
+        <header class="header">
+            <h1>Web Test</h1>
+            <p>자동 생성된 매핑으로 테스트하는 웹 환경</p>
+        </header>
+
+        <!-- 폰트 로딩 상태 -->
+        <div id="fontLoadingStatus" class="font-loading-status">
+            <span class="loading"></span> 폰트 로딩 중...
+        </div>
+
+        <!-- 컨트롤 패널 -->
+        <div class="control-panel">
+            <div class="control-group">
+                <label for="iconColor">색상:</label>
+                <input type="color" id="iconColor" value="#0064ff">
+            </div>
+            <div class="control-group">
+                <label for="iconSize">크기:</label>
+                <input type="range" id="iconSize" min="16" max="64" value="24">
+                <span id="sizeValue">24px</span>
+            </div>
+        </div>
+
+        <!-- 테스트 섹션들 -->
+        <div class="test-sections">
+            <!-- CDN Package Test -->
+            <section class="test-section">
+                <h2>📦 CDN Package</h2>
+                <div class="test-controls">
+                    <select id="cdnIconSelect">
+                        <option value="">아이콘 선택</option>
+                        <optgroup label="기본 아이콘">
+                            <option value="add-regular">➕ Add (Regular)</option>
+                            <option value="add-filled">➕ Add (Filled)</option>
+                            <option value="checkmark-regular">✅ Checkmark (Regular)</option>
+                            <option value="checkmark-filled">✅ Checkmark (Filled)</option>
+                        </optgroup>
+                        <optgroup label="네비게이션">
+                            <option value="home-regular">🏠 Home (Regular)</option>
+                            <option value="home-filled">🏠 Home (Filled)</option>
+                            <option value="search-regular">🔍 Search (Regular)</option>
+                            <option value="search-filled">🔍 Search (Filled)</option>
+                            <option value="settings-regular">⚙️ Settings (Regular)</option>
+                            <option value="settings-filled">⚙️ Settings (Filled)</option>
+                        </optgroup>
+                    </select>
+                        </optgroup>
+                        <optgroup label="파일 & 데이터">
+                            <option value="ic_refineui_edit_24_regular">✏️ Edit (Regular)</option>
+                            <option value="ic_refineui_edit_24_filled">✏️ Edit (Filled)</option>
+                            <option value="ic_refineui_delete_24_regular">🗑️ Delete (Regular)</option>
+                            <option value="ic_refineui_delete_24_filled">🗑️ Delete (Filled)</option>
+                        </optgroup>
+                        <optgroup label="보안">
+                            <option value="ic_refineui_eye_24_regular">👁️ Eye (Regular)</option>
+                            <option value="ic_refineui_eye_24_filled">👁️ Eye (Filled)</option>
+                        </optgroup>
+                        <optgroup label="시간 & 위치">
+                            <option value="ic_refineui_calendar_24_regular">📅 Calendar (Regular)</option>
+                            <option value="ic_refineui_calendar_24_filled">📅 Calendar (Filled)</option>
+                            <option value="ic_refineui_clock_24_regular">🕐 Clock (Regular)</option>
+                            <option value="ic_refineui_clock_24_filled">🕐 Clock (Filled)</option>
+                            <option value="ic_refineui_location_24_regular">📍 Location (Regular)</option>
+                            <option value="ic_refineui_location_24_filled">📍 Location (Filled)</option>
+                        </optgroup>
+                        <optgroup label="기술">
+                            <option value="ic_refineui_bluetooth_24_regular">🔵 Bluetooth (Regular)</option>
+                            <option value="ic_refineui_bluetooth_24_filled">🔵 Bluetooth (Filled)</option>
+                        </optgroup>
+                        <optgroup label="방향">
+                            <option value="ic_refineui_chevron_left_24_regular">⬅️ Chevron Left (Regular)</option>
+                            <option value="ic_refineui_chevron_left_24_filled">⬅️ Chevron Left (Filled)</option>
+                            <option value="ic_refineui_chevron_right_24_regular">➡️ Chevron Right (Regular)</option>
+                            <option value="ic_refineui_chevron_right_24_filled">➡️ Chevron Right (Filled)</option>
+                            <option value="ic_refineui_chevron_up_24_regular">⬆️ Chevron Up (Regular)</option>
+                            <option value="ic_refineui_chevron_up_24_filled">⬆️ Chevron Up (Filled)</option>
+                            <option value="ic_refineui_chevron_down_24_regular">⬇️ Chevron Down (Regular)</option>
+                            <option value="ic_refineui_chevron_down_24_filled">⬇️ Chevron Down (Filled)</option>
+                        </optgroup>
+                        <optgroup label="기타">
+                            <option value="ic_refineui_flag_24_regular">🚩 Flag (Regular)</option>
+                            <option value="ic_refineui_flag_24_filled">🚩 Flag (Filled)</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="icon-display">
+                    <div id="cdnIcon" class="icon-preview"></div>
+                </div>
+            </section>
+
+            <!-- React Package Test -->
+            <section class="test-section">
+                <h2>⚛️ React Package</h2>
+                <div class="test-controls">
+                    <select id="reactIconSelect">
+                        <option value="">아이콘 선택</option>
+                        <optgroup label="기본 아이콘">
+                            <option value="add-regular">➕ Add (Regular)</option>
+                            <option value="add-filled">➕ Add (Filled)</option>
+                            <option value="checkmark-regular">✅ Checkmark (Regular)</option>
+                            <option value="checkmark-filled">✅ Checkmark (Filled)</option>
+                        </optgroup>
+                        <optgroup label="네비게이션">
+                            <option value="home-regular">🏠 Home (Regular)</option>
+                            <option value="home-filled">🏠 Home (Filled)</option>
+                            <option value="search-regular">🔍 Search (Regular)</option>
+                            <option value="search-filled">🔍 Search (Filled)</option>
+                            <option value="settings-regular">⚙️ Settings (Regular)</option>
+                            <option value="settings-filled">⚙️ Settings (Filled)</option>
+                        </optgroup>
+                    </select>
+                    </select>
+                </div>
+                <div class="icon-display">
+                    <div id="reactIcon" class="icon-preview"></div>
+                </div>
+            </section>
+
+            <!-- React Native Package Test -->
+            <section class="test-section">
+                <h2>📱 React Native Package</h2>
+                <div class="test-controls">
+                    <select id="reactNativeIconSelect">
+                        <option value="">아이콘 선택</option>
+                        <optgroup label="기본 아이콘">
+                            <option value="add-regular">➕ Add (Regular)</option>
+                            <option value="add-filled">➕ Add (Filled)</option>
+                            <option value="checkmark-regular">✅ Checkmark (Regular)</option>
+                            <option value="checkmark-filled">✅ Checkmark (Filled)</option>
+                        </optgroup>
+                        <optgroup label="네비게이션">
+                            <option value="home-regular">🏠 Home (Regular)</option>
+                            <option value="home-filled">🏠 Home (Filled)</option>
+                            <option value="search-regular">🔍 Search (Regular)</option>
+                            <option value="search-filled">🔍 Search (Filled)</option>
+                            <option value="settings-regular">⚙️ Settings (Regular)</option>
+                            <option value="settings-filled">⚙️ Settings (Filled)</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="icon-display">
+                    <div id="reactNativeIcon" class="icon-preview"></div>
+                </div>
+            </section>
+        </div>
+
+        <!-- 디버깅 정보 -->
+        <div class="debug-info">
+            <h3>🔧 디버깅 정보</h3>
+            <p>개발자 도구 콘솔에서 <code>logAllIcons()</code>를 실행하여 모든 아이콘 정보를 확인하세요.</p>
+            <p>총 <strong id="totalIcons">0</strong>개의 아이콘이 로드되었습니다.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // 크기 표시 업데이트
+        document.getElementById('iconSize').addEventListener('input', function() {
+            document.getElementById('sizeValue').textContent = this.value + 'px';
+        });
+        
+        // 총 아이콘 수 표시
+        document.getElementById('totalIcons').textContent = window.IconUtils ? window.IconUtils.getAvailableIcons().length : 0;
+    </script>
+</body>
+</html>

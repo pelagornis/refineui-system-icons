@@ -1,54 +1,38 @@
 {
-  "name": "@refineui/react-native-icons",
+  "name": "refineui-system-icons",
   "version": "1.0.0",
-  "description": "RefineUI System Icons React Native Package - TypeScript-first React Native icon components",
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist",
-    "README.md"
+  "description": "RefineUI System Icons - Cross-platform icon system",
+  "private": true,
+  "type": "commonjs",
+  "workspaces": [
+    "packages/*"
   ],
   "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w",
-    "clean": "rimraf dist",
-    "prepublishOnly": "npm run clean && npm run build",
-    "type-check": "tsc --noEmit"
-  },
-  "peerDependencies": {
-    "react": ">=16.8.0",
-    "react-native": ">=0.60.0"
+    "build": "npm run build --workspaces",
+    "dev": "npm run dev --workspaces",
+    "generate:metadata": "node scripts/generate-metadata.js",
+    "clean": "npm run clean --workspaces",
+
+    "test": "npm run test --workspaces",
+    "lint": "npm run lint --workspaces"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^25.0.0",
-    "@rollup/plugin-node-resolve": "^15.0.0",
-    "@rollup/plugin-terser": "^0.4.4",
-    "@types/react": "^18.2.0",
-    "@types/react-native": "^0.72.0",
-    "rimraf": "^3.0.2",
-    "rollup": "^3.0.0",
-    "rollup-plugin-typescript2": "^0.34.0",
-    "typescript": "^5.3.0"
+    "@types/node": "^18.0.0",
+    "typescript": "^4.5.0"
   },
   "keywords": [
-    "refineui",
-    "react-native",
     "icons",
-    "typescript",
+    "refineui",
     "system-icons",
-    "components",
-    "mobile"
+    "ui",
+    "react",
+    "react-native",
+    "web"
   ],
-  "author": "Pelagornis",
+  "author": "RefineUI Team",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pelagornis/refineui-system-icons.git",
-    "directory": "packages/react-native-icons"
-  },
-  "bugs": {
-    "url": "https://github.com/pelagornis/refineui-system-icons/issues"
-  },
-  "homepage": "https://github.com/pelagornis/refineui-system-icons#readme"
+    "url": "https://github.com/refineui/system-icons.git"
+  }
 }

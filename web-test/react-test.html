@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Icon Test</title>
+    
+    <!-- React CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <!-- 폰트 로드 -->
+    <link rel="stylesheet" href="../fonts/refineui-system-icons.css">
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 20px;
+        }
+        
+        .icon-item {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background: #fafafa;
+        }
+        
+        .icon-display {
+            font-size: 24px;
+            margin-right: 12px;
+            width: 40px;
+            text-align: center;
+        }
+        
+        .icon-info {
+            flex: 1;
+        }
+        
+        .icon-name {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .icon-unicode {
+            font-size: 12px;
+            color: #666;
+            font-family: monospace;
+        }
+        
+        .controls {
+            margin-bottom: 20px;
+            padding: 16px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        select, input {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-right: 12px;
+        }
+        
+        button {
+            padding: 8px 16px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    
+    <script type="text/babel">
+        // 핵심 10개 아이콘만 매핑
+        const ICON_MAPPING = {
+            ic_refineui_add_24_regular: {
+                unicode: 984591,
+                fontFamily: "RefineUI-System-Icons-Regular",
+            },
+            ic_refineui_add_24_filled: {
+                unicode: 984592,
+                fontFamily: "RefineUI-System-Icons-Filled",
+            },
+            ic_refineui_home_24_regular: {
+                unicode: 983155,
+                fontFamily: "RefineUI-System-Icons-Regular",
+            },
+            ic_refineui_home_24_filled: {
+                unicode: 983158,
+                fontFamily: "RefineUI-System-Icons-Filled",
+            },
+            ic_refineui_search_24_regular: {
+                unicode: 984386,
+                fontFamily: "RefineUI-System-Icons-Regular",
+            },
+            ic_refineui_search_24_filled: {
+                unicode: 984384,
+                fontFamily: "RefineUI-System-Icons-Filled",
+            },
+            ic_refineui_settings_24_regular: {
+                unicode: 983152,
+                fontFamily: "RefineUI-System-Icons-Regular",
+            },
+            ic_refineui_settings_24_filled: {
+                unicode: 983148,
+                fontFamily: "RefineUI-System-Icons-Filled",
+            },
+            ic_refineui_checkmark_24_regular: {
+                unicode: 983450,
+                fontFamily: "RefineUI-System-Icons-Regular",
+            },
+            ic_refineui_checkmark_24_filled: {
+                unicode: 983452,
+                fontFamily: "RefineUI-System-Icons-Filled",
+            },
+        };
+
+        // 아이콘 컴포넌트
+        function Icon({ iconName, size = 24, color = "#000" }) {
+            const iconData = ICON_MAPPING[iconName];
+            
+            if (!iconData) {
+                return <span>❌ 아이콘을 찾을 수 없습니다</span>;
+            }
+            
+            const iconChar = String.fromCodePoint(iconData.unicode);
+            
+            return (
+                <span 
+                    style={{
+                        fontFamily: iconData.fontFamily,
+                        fontSize: `${size}px`,
+                        color: color,
+                        lineHeight: 1
+                    }}
+                >
+                    {iconChar}
+                </span>
+            );
+        }
+
+        // 메인 앱 컴포넌트
+        function App() {
+            const [selectedIcon, setSelectedIcon] = React.useState('ic_refineui_add_24_regular');
+            const [iconSize, setIconSize] = React.useState(24);
+            const [iconColor, setIconColor] = React.useState('#000');
+            const [showAllIcons, setShowAllIcons] = React.useState(false);
+
+            return (
+                <div className="container">
+                    <h1>⚛️ React Icon Test</h1>
+                    
+                    <div className="controls">
+                        <select 
+                            value={selectedIcon} 
+                            onChange={(e) => setSelectedIcon(e.target.value)}
+                        >
+                            {Object.keys(ICON_MAPPING).map(iconName => (
+                                <option key={iconName} value={iconName}>
+                                    {iconName.replace('ic_refineui_', '').replace('_24_', ' ')}
+                                </option>
+                            ))}
+                        </select>
+                        
+                        <input 
+                            type="number" 
+                            value={iconSize} 
+                            onChange={(e) => setIconSize(Number(e.target.value))}
+                            placeholder="크기"
+                            min="12"
+                            max="100"
+                        />
+                        
+                        <input 
+                            type="color" 
+                            value={iconColor} 
+                            onChange={(e) => setIconColor(e.target.value)}
+                        />
+                        
+                        <button onClick={() => setShowAllIcons(!showAllIcons)}>
+                            {showAllIcons ? '선택된 아이콘만 보기' : '모든 아이콘 보기'}
+                        </button>
+                    </div>
+
+                    {!showAllIcons && (
+                        <div style={{ textAlign: 'center', padding: '40px' }}>
+                            <h2>선택된 아이콘</h2>
+                            <Icon 
+                                iconName={selectedIcon} 
+                                size={iconSize} 
+                                color={iconColor} 
+                            />
+                            <p>{selectedIcon}</p>
+                            <p>유니코드: {ICON_MAPPING[selectedIcon]?.unicode}</p>
+                        </div>
+                    )}
+
+                    {showAllIcons && (
+                        <div>
+                            <h2>모든 아이콘</h2>
+                            <div className="icon-grid">
+                                {Object.entries(ICON_MAPPING).map(([iconName, iconData]) => (
+                                    <div key={iconName} className="icon-item">
+                                        <div className="icon-display">
+                                            <Icon iconName={iconName} size={24} />
+                                        </div>
+                                        <div className="icon-info">
+                                            <div className="icon-name">
+                                                {iconName.replace('ic_refineui_', '').replace('_24_', ' ')}
+                                            </div>
+                                            <div className="icon-unicode">
+                                                U+{iconData.unicode.toString(16).toUpperCase()}
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+                </div>
+            );
+        }
+
+        // React 앱 렌더링
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>

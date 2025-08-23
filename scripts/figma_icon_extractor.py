@@ -8,6 +8,7 @@ import os
 import json
 import requests
 import re
+import hashlib
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 from dataclasses import dataclass
@@ -50,6 +51,14 @@ class FigmaIconExtractor:
         
         # Common assets structure
         self.assets_dir = "assets"
+        
+        # 캐시 파일 경로
+        self.cache_file = "figma_cache.json"
+        self.last_sync_file = "last_sync.json"
+        
+        # 캐시 파일 경로
+        self.cache_file = "figma_cache.json"
+        self.last_sync_file = "last_sync.json"
 
     def slugify(self, name: str) -> str:
         """Convert icon name to slug"""
@@ -65,8 +74,6 @@ class FigmaIconExtractor:
         words = name.split('-')
         title_case = ' '.join(word.capitalize() for word in words)
         return title_case
-    
-
     
     def get_icon_style(self, name: str) -> str:
         """Extract style from icon name (regular/filled)"""
@@ -86,6 +93,91 @@ class FigmaIconExtractor:
         # ic_refineui_iconname_size_style.svg
         return f"ic_refineui_{slug}_{size}_{style}.svg"
 
+    def get_file_hash(self, file_path: str) -> str:
+        """파일의 해시값 계산"""
+        if not os.path.exists(file_path):
+            return ""
+        
+        with open(file_path, 'rb') as f:
+            return hashlib.md5(f.read()).hexdigest()
+
+    def generate_existing_cache(self) -> Dict:
+        """기존 아이콘 파일들의 해시를 계산하여 캐시 생성"""
+        cache = {}
+        
+        if not os.path.exists(self.assets_dir):
+            logger.info("assets 폴더가 없습니다. 새로 생성합니다.")
+            return cache
+        
+        logger.info("기존 아이콘 파일들의 해시를 계산 중...")
+        
+        # assets 폴더를 재귀적으로 탐색
+        for root, dirs, files in os.walk(self.assets_dir):
+            for file in files:
+                if file.endswith('.svg'):
+                    file_path = os.path.join(root, file)
+                    
+                    # 파일명에서 아이콘 정보 추출
+                    # ic_refineui_iconname_size_style.svg
+                    match = re.match(r'ic_refineui_(.+)_(\d+)_(regular|filled)\.svg', file)
+                    if match:
+                        icon_name = match.group(1).replace('-', ' ')
+                        size = int(match.group(2))
+                        style = match.group(3)
+                        
+                        # 캐시 키 생성
+                        cache_key = f"{icon_name}_{size}_{style}"
+                        
+                        # 파일 해시 계산
+                        file_hash = self.get_file_hash(file_path)
+                        
+                        cache[cache_key] = {
+                            "last_modified": "",  # 기존 파일이므로 빈 문자열
+                            "file_hash": file_hash,
+                            "node_id": "",  # 기존 파일이므로 빈 문자열
+                            "file_path": file_path
+                        }
+        
+        logger.info(f"총 {len(cache)}개의 기존 아이콘 파일 해시를 계산했습니다.")
+        return cache
+
+    def load_cache(self) -> Dict:
+        """캐시 파일 로드"""
+        if os.path.exists(self.cache_file):
+            try:
+                with open(self.cache_file, 'r', encoding='utf-8') as f:
+                    return json.load(f)
+            except Exception as e:
+                logger.warning(f"캐시 파일 로드 실패: {e}")
+        return {}
+
+    def save_cache(self, cache_data: Dict):
+        """캐시 파일 저장"""
+        try:
+            with open(self.cache_file, 'w', encoding='utf-8') as f:
+                json.dump(cache_data, f, indent=2, ensure_ascii=False)
+        except Exception as e:
+            logger.error(f"캐시 파일 저장 실패: {e}")
+
+    def get_last_sync_time(self) -> Optional[str]:
+        """마지막 동기화 시간 가져오기"""
+        if os.path.exists(self.last_sync_file):
+            try:
+                with open(self.last_sync_file, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                    return data.get('last_sync')
+            except Exception as e:
+                logger.warning(f"마지막 동기화 시간 로드 실패: {e}")
+        return None
+
+    def save_sync_time(self, sync_time: str):
+        """동기화 시간 저장"""
+        try:
+            with open(self.last_sync_file, 'w', encoding='utf-8') as f:
+                json.dump({'last_sync': sync_time}, f, indent=2)
+        except Exception as e:
+            logger.error(f"동기화 시간 저장 실패: {e}")
+
     def get_figma_file(self) -> Dict:
         """Figma 파일 정보 가져오기"""
         url = f"{self.base_url}/files/{self.file_key}"
@@ -95,6 +187,58 @@ class FigmaIconExtractor:
         response.raise_for_status()
         
         return response.json()
+
+    def check_for_updates(self, icons: List[Dict]) -> Tuple[List[Dict], List[Dict]]:
+        """업데이트가 필요한 아이콘 확인"""
+        cache = self.load_cache()
+        last_sync = self.get_last_sync_time()
+        
+        # 캐시가 비어있고 기존 아이콘 파일들이 있다면 캐시 생성
+        if not cache and os.path.exists(self.assets_dir):
+            logger.info("기존 아이콘 파일들의 캐시를 생성합니다...")
+            cache = self.generate_existing_cache()
+            self.save_cache(cache)
+        
+        updated_icons = []
+        new_icons = []
+        
+        for icon in icons:
+            icon_name = icon["name"]
+            size = icon["size"]
+            style = icon["style"]
+            node_id = icon["node_id"]
+            last_modified = icon.get("last_modified", "")
+            
+            # 파일 경로 생성
+            folder_name = self.to_title_case(icon_name)
+            filename = self.generate_filename(icon_name, size, style)
+            file_path = os.path.join(self.assets_dir, folder_name, "svg", filename)
+            
+            # 캐시 키 생성
+            cache_key = f"{icon_name}_{size}_{style}"
+            
+            # 기존 파일이 있는지 확인
+            if os.path.exists(file_path):
+                # 캐시에서 마지막 수정 시간 확인
+                cached_info = cache.get(cache_key, {})
+                cached_modified = cached_info.get("last_modified", "")
+                cached_hash = cached_info.get("file_hash", "")
+                
+                # 현재 파일 해시 계산
+                current_hash = self.get_file_hash(file_path)
+                
+                # 수정 시간이 변경되었거나 해시가 다른 경우 업데이트
+                if (last_modified != cached_modified or 
+                    current_hash != cached_hash or
+                    not last_sync or last_modified > last_sync):
+                    updated_icons.append(icon)
+                    logger.info(f"📝 업데이트 필요: {filename}")
+            else:
+                # 새 파일
+                new_icons.append(icon)
+                logger.info(f"🆕 새 아이콘: {filename}")
+        
+        return updated_icons, new_icons
 
     def find_icon_page(self, document: Dict) -> Optional[Dict]:
         """지정된 페이지에서 아이콘 찾기"""
@@ -148,7 +292,8 @@ class FigmaIconExtractor:
                         "name": icon_name,
                         "node_id": node.get("id"),
                         "size": size,
-                        "style": style
+                        "style": style,
+                        "last_modified": node.get("lastModified", "")
                     })
             
             # 자식 노드들도 탐색 (현재 노드 이름을 부모 이름으로 전달)
@@ -295,9 +440,93 @@ class FigmaIconExtractor:
         with open(metadata_file, 'w', encoding='utf-8') as f:
             json.dump(metadata, f, indent=2, ensure_ascii=False)
 
-    def extract_icons(self) -> List[IconMetadata]:
+    def check_for_updates(self, icons: List[Dict]) -> Tuple[List[Dict], List[Dict]]:
+        """업데이트가 필요한 아이콘 확인"""
+        cache = self.load_cache()
+        last_sync = self.get_last_sync_time()
+        
+        updated_icons = []
+        new_icons = []
+        
+        for icon in icons:
+            icon_name = icon["name"]
+            size = icon["size"]
+            style = icon["style"]
+            node_id = icon["node_id"]
+            last_modified = icon.get("last_modified", "")
+            
+            # 파일 경로 생성
+            folder_name = self.to_title_case(icon_name)
+            filename = self.generate_filename(icon_name, size, style)
+            file_path = os.path.join(self.assets_dir, folder_name, "svg", filename)
+            
+            # 캐시 키 생성
+            cache_key = f"{icon_name}_{size}_{style}"
+            
+            # 기존 파일이 있는지 확인
+            if os.path.exists(file_path):
+                # 캐시에서 마지막 수정 시간 확인
+                cached_info = cache.get(cache_key, {})
+                cached_modified = cached_info.get("last_modified", "")
+                cached_hash = cached_info.get("file_hash", "")
+                
+                # 현재 파일 해시 계산
+                current_hash = self.get_file_hash(file_path)
+                
+                # 수정 시간이 변경되었거나 해시가 다른 경우 업데이트
+                if (last_modified != cached_modified or 
+                    current_hash != cached_hash or
+                    not last_sync or last_modified > last_sync):
+                    updated_icons.append(icon)
+                    logger.info(f"📝 업데이트 필요: {filename}")
+            else:
+                # 새 파일
+                new_icons.append(icon)
+                logger.info(f"🆕 새 아이콘: {filename}")
+        
+        return updated_icons, new_icons
+
+    def extract_icons(self, incremental: bool = True) -> List[IconMetadata]:
         """메인 추출 프로세스"""
         logger.info("Figma 파일에서 아이콘 추출 시작...")
+        
+        # Figma 파일 정보 가져오기
+        file_data = self.get_figma_file()
+        
+        # 파일의 마지막 수정 시간 저장
+        file_last_modified = file_data.get("lastModified", "")
+        self.save_sync_time(file_last_modified)
+        
+        # 아이콘 페이지 찾기
+        icon_page = self.find_icon_page(file_data)
+        if not icon_page:
+            raise ValueError(f"'{self.page_name}' 페이지를 찾을 수 없습니다.")
+        
+        # 아이콘 컴포넌트 추출
+        icons = self.extract_icons_from_page(icon_page)
+        logger.info(f"{len(icons)}개의 아이콘을 찾았습니다.")
+        
+        if len(icons) == 0:
+            logger.warning("아이콘을 찾을 수 없습니다. 페이지 이름과 컴포넌트 설정을 확인해주세요.")
+            return []
+        
+        # 증분 업데이트 모드
+        if incremental:
+            updated_icons, new_icons = self.check_for_updates(icons)
+            icons_to_process = updated_icons + new_icons
+            
+            logger.info(f"📊 업데이트 분석:")
+            logger.info(f"   - 전체 아이콘: {len(icons)}개")
+            logger.info(f"   - 업데이트 필요: {len(updated_icons)}개")
+            logger.info(f"   - 새 아이콘: {len(new_icons)}개")
+            logger.info(f"   - 처리할 아이콘: {len(icons_to_process)}개")
+            
+            if len(icons_to_process) == 0:
+                logger.info("✅ 모든 아이콘이 최신 상태입니다!")
+                return []
+        else:
+            icons_to_process = icons
+            logger.info("🔄 전체 동기화 모드: 모든 아이콘을 다시 다운로드합니다.")
         
         # 진행 상황 파일 경로
         progress_file = "extraction_progress.json"
@@ -313,33 +542,17 @@ class FigmaIconExtractor:
             except Exception as e:
                 logger.warning(f"진행 상황 파일 읽기 실패: {e}")
         
-        # Figma 파일 정보 가져오기
-        file_data = self.get_figma_file()
-        
-        # 아이콘 페이지 찾기
-        icon_page = self.find_icon_page(file_data)
-        if not icon_page:
-            raise ValueError(f"'{self.page_name}' 페이지를 찾을 수 없습니다.")
-        
-        # 아이콘 컴포넌트 추출
-        icons = self.extract_icons_from_page(icon_page)
-        logger.info(f"{len(icons)}개의 아이콘을 찾았습니다.")
-        
-        if len(icons) == 0:
-            logger.warning("아이콘을 찾을 수 없습니다. 페이지 이름과 컴포넌트 설정을 확인해주세요.")
-            return []
-        
         # 배치 크기 설정 (환경변수로 제어)
         batch_size = int(os.getenv('FIGMA_BATCH_SIZE', '50'))  # 기본 50개씩
         max_icons = int(os.getenv('FIGMA_MAX_ICONS', '0'))  # 0이면 전체
         
         # 처리할 아이콘 범위 설정
-        end_index = len(icons)
+        end_index = len(icons_to_process)
         if max_icons > 0:
-            end_index = min(start_index + max_icons, len(icons))
+            end_index = min(start_index + max_icons, len(icons_to_process))
         
         # 처리할 아이콘 슬라이싱
-        icons_to_process = icons[start_index:end_index]
+        icons_to_process = icons_to_process[start_index:end_index]
         
         logger.info(f"처리 범위: {start_index} ~ {end_index-1} ({len(icons_to_process)}개 아이콘)")
         logger.info(f"배치 크기: {batch_size}개씩")
@@ -358,6 +571,9 @@ class FigmaIconExtractor:
         # 공용 assets 디렉토리 구조 생성
         self.create_assets_structure()
         
+        # 캐시 로드
+        cache = self.load_cache()
+        
         # 실시간으로 각 아이콘 처리
         all_metadata = []
         processed_count = 0
@@ -368,6 +584,7 @@ class FigmaIconExtractor:
             node_id = icon["node_id"]
             size = icon["size"]
             style = icon["style"]
+            last_modified = icon.get("last_modified", "")
             
             # 중복 조합 확인
             combination = f"{icon_name}_{size}_{style}"
@@ -399,6 +616,14 @@ class FigmaIconExtractor:
                 processed_count += 1
                 logger.info(f"✓ {processed_count:4d} - {filename} 다운로드 완료")
                 
+                # 캐시 업데이트
+                cache_key = f"{icon_name}_{size}_{style}"
+                cache[cache_key] = {
+                    "last_modified": last_modified,
+                    "file_hash": self.get_file_hash(full_path),
+                    "node_id": node_id
+                }
+                
                 all_metadata.append(IconMetadata(
                     name=icon_name,
                     slug=self.slugify(icon_name),
@@ -409,6 +634,9 @@ class FigmaIconExtractor:
                 ))
             else:
                 logger.error(f"✗ {filename} 다운로드 실패")
+        
+        # 캐시 저장
+        self.save_cache(cache)
         
         logger.info(f"총 {processed_count}개의 아이콘 파일이 생성되었습니다.")
         
@@ -524,6 +752,7 @@ def main():
     parser.add_argument("--token", help="Figma API 토큰 (환경변수 FIGMA_TOKEN에서도 읽어옴)")
     parser.add_argument("--file-key", help="Figma 파일 키 (환경변수 FIGMA_FILE_KEY에서도 읽어옴)")
     parser.add_argument("--page", default="System Icons", help="아이콘이 있는 페이지 이름")
+    parser.add_argument("--full-sync", action="store_true", help="전체 동기화 (기본값: 증분 업데이트)")
     
     args = parser.parse_args()
     
@@ -556,11 +785,21 @@ def main():
             page_name=args.page
         )
         
-        metadata = extractor.extract_icons()
-        print(f"\n✅ 추출 완료! {len(metadata)}개의 아이콘이 생성되었습니다.")
+        # 증분 업데이트 모드 (기본값)
+        incremental = not args.full_sync
+        
+        metadata = extractor.extract_icons(incremental=incremental)
+        
+        if incremental:
+            print(f"\n✅ 증분 업데이트 완료! {len(metadata)}개의 아이콘이 업데이트되었습니다.")
+        else:
+            print(f"\n✅ 전체 동기화 완료! {len(metadata)}개의 아이콘이 생성되었습니다.")
+            
         print("📁 생성된 파일들:")
         print("  - assets/ (공용 아이콘 파일)")
         print("  - metadata/icons.json (전체 메타데이터)")
+        print("  - figma_cache.json (캐시 파일)")
+        print("  - last_sync.json (마지막 동기화 시간)")
         
     except Exception as e:
         logger.error(f"추출 실패: {e}")

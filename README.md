@@ -1,128 +1,225 @@
-# @refineui/icon-cdn
+# RefineUI System Icons 🎨
 
-RefineUI System Icons를 CDN을 통해 사용할 수 있는 npm 패키지입니다.
+Microsoft FluentUI System Icons를 참고하여 만든 전문적인 아이콘 시스템입니다. React, React Native, Web 환경에서 사용할 수 있는 통합 아이콘 패키지입니다.
 
-## 🚀 설치
+## 📦 패키지 구조
+
+```
+packages/
+├── react-icons/          # React용 아이콘 패키지
+├── react-native-icons/   # React Native용 아이콘 패키지
+└── web-icons/           # Web용 아이콘 패키지
+```
+
+## 🚀 설치 및 사용법
+
+### React
 
 ```bash
-npm install @refineui/icon-cdn
+npm install @refineui/react-icons
 ```
 
-## 📦 CDN 사용법
+```tsx
+import {
+  AccessibilityRegular,
+  Add16Filled,
+  Home32Regular,
+  SearchFilled,
+} from "@refineui/react-icons";
 
-### 기본 사용법
+// === FLUENTUI 스타일 방식 ===
+// Unsized 방식 (기본 24px)
+const accessibilityIcon = <AccessibilityRegular style={{ color: "blue" }} />;
+const addIconFilled = <AddFilled style={{ fontSize: "20px" }} />;
 
-```html
-<!-- 기본 사용 -->
-<img src="https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/24/add-filled.svg" alt="Add" />
-
-<!-- 크기 지정 -->
-<img height="32" width="32" src="https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/32/home-regular.svg" />
-
-<!-- CSS 배경 이미지로 사용 -->
-<div style="background-image: url('https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/16/settings-filled.svg');"></div>
+// Sized 방식
+const addIcon16 = <Add16Filled style={{ color: "red" }} />;
+const homeIcon32 = <Home32Regular style={{ marginRight: "8px" }} />;
 ```
 
-### URL 형식
+### React Native
 
+```bash
+npm install @refineui/react-native-icons
 ```
-https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/{size}/{icon-name}-{style}.svg
+
+```tsx
+import {
+  AccessibilityRegular,
+  Add16Filled,
+  Home32Regular,
+  SearchFilled,
+} from "@refineui/react-native-icons";
+
+// React Native에서는 Text 컴포넌트로 렌더링됩니다
+
+// === FLUENTUI 스타일 방식 ===
+// Unsized 방식
+const accessibilityIcon = <AccessibilityRegular style={{ color: "blue" }} />;
+const addIconFilled = <AddFilled style={{ fontSize: 20 }} />;
+
+// Sized 방식
+const addIcon16 = <Add16Filled style={{ color: "red" }} />;
+const homeIcon32 = <Home32Regular style={{ marginRight: 8 }} />;
 ```
 
-### 매개변수
+### Web
 
-- **size**: 16, 20, 24, 28, 32, 48
-- **icon-name**: 아이콘 이름 (snake_case)
-- **style**: regular, filled
-
-## 🎯 지원하는 아이콘
-
-### 기본 아이콘
-- add, home, settings, search, heart, star, checkmark, close
-- edit, eye, file, folder, lock, mail, menu, play, plus
-- share, trash, user, calendar, camera, chat, download
-- gear, globe, image, link, more, notification, pause
-- save, upload, video, alert, bookmark, add_circle, add_square
-
-### 전체 아이콘 목록
-- access_time, accessibility, airplane, album, alert, alert_badge, alert_off
-- align_bottom, align_center_horizontal, align_center_vertical, align_left, align_right, align_top
-- android, app_folder, app_recent, app_title, appstore, autosum, backpack
-- backspace, badge, balloon, bar_chart_horizontal, bar_chart_horizontal_descending
-- bar_chart_vertical, bar_chart_vertical_descending, barcode_scanner
-- battery_0, battery_10, battery_100, battery_20, battery_30, battery_40, battery_50
-- battery_60, battery_70, battery_80, battery_90, block, bluetooth, blur, board
-- book, bookmark, bug, calculator, calendar, camera, cart, carton_box, chart
-- chat, chat_add, chat_empty, checkmark, chess, chevron_down, chevron_left
-- chevron_right, chevron_up, circle, clipboard, clock, clock_alarm, cloud, clover
-- code, code_block, comma, comment, cone, contrast, control_button, cookie, copy
-- couch, cpu, crop, crown, css, cube, cursor, cut, dart, database, delete
-- delete_off, dentist, desk, desktop, desktop_mac, dialpad, diamond, dismiss
-- dismiss_circle, dismiss_square, doctor, document, document_border, door, drag
-- drawer, drop, dual_screen, dumbbell, dust, earth, edit, edit_off, elevator
-- emoji, emoji_angry, emoji_cool, emoji_grimacing, emoji_laugh, emoji_meh
-- emoji_sad, emoji_surprise, engine, equal, equal_circle, equal_off, error_circle
-- eye, eye_off, eyedropper, eyedropper_off, fast_forward, filmstrip, filmstrip_off
-- filter, fire, flag, flag_off, flash, flash_off, flashlight, flashlight_off
-- flip_horizontal, flip_vertcial, folder, folder_open, frame, full_screen_maximize
-- full_screen_minimize, games, gantt_chart, gas, gas_station, gavel, gif, gift
-- gift_card, git, glasses, global, grid, guest, guitar, hammer
-
-## 💻 JavaScript 사용법
-
-### 패키지로 사용
+```bash
+npm install @refineui/web-icons
+```
 
 ```javascript
-const { getIconInfo, generateCDNUrl } = require('@refineui/icon-cdn');
+import {
+  AccessibilityRegular,
+  Add16Filled,
+  Home32Regular,
+  SearchFilled,
+} from "@refineui/web-icons";
 
-// 아이콘 정보 가져오기
-const icon = getIconInfo('add', 24, 'filled');
-console.log(icon.url); // https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/24/add-filled.svg
+// 문자열로 아이콘 반환
+const accessibilityIcon = AccessibilityRegular(); // 문자열 반환
+const addIconFilled = AddFilled(); // 문자열 반환
 
-// CDN URL 직접 생성
-const url = generateCDNUrl('home', 32, 'regular');
-console.log(url); // https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/32/home-regular.svg
+// Sized 방식
+const addIcon16 = Add16Filled(); // 문자열 반환
+const homeIcon32 = Home32Regular(); // 문자열 반환
+
+// DOM 요소에 적용
+const iconElement = document.createElement("span");
+iconElement.textContent = addIcon16;
+iconElement.style.fontFamily = "RefineUI-System-Icons-Filled";
 ```
 
-### 동적 생성
+## 🎯 주요 기능
+
+### 1. 중앙 집중식 메타데이터
+
+- 모든 아이콘 정보가 `metadata.json`에 저장
+- 자동 매핑 시스템으로 유지보수 용이
+
+### 2. 플랫폼별 최적화
+
+- **React**: React 컴포넌트로 렌더링
+- **React Native**: Text 컴포넌트로 렌더링
+- **Web**: 문자열로 반환하여 DOM에 직접 적용
+
+### 3. 다양한 크기 지원
+
+- 16px, 20px, 24px, 28px, 32px, 48px
+- 각 크기별 최적화된 아이콘 제공
+
+### 4. 스타일 지원
+
+- **Regular**: 기본 스타일
+- **Filled**: 채워진 스타일
+
+### 5. TypeScript 지원
+
+- 완전한 TypeScript 타입 정의
+- IntelliSense 지원으로 개발 경험 향상
+
+### 6. FluentUI 스타일 API
+
+#### Unsized 방식 (기본 24px)
+
+```tsx
+// AccessibilityRegular, AccessibilityFilled
+<AccessibilityRegular style={{ color: "blue" }} />
+<AddFilled style={{ fontSize: "20px" }} />
+```
+
+#### Sized 방식
+
+```tsx
+// Accessibility16Regular, Accessibility24Filled
+<Add16Filled style={{ color: "red" }} />
+<Home32Regular style={{ marginRight: "8px" }} />
+```
+
+### 7. 유틸리티 함수
 
 ```javascript
-// 동적으로 아이콘 URL 생성
-function createIconUrl(iconName, size = 24, style = 'regular') {
-  return `https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/${size}/${iconName}-${style}.svg`;
-}
+import IconUtils from "@refineui/react-icons";
 
-const iconUrl = createIconUrl('settings', 16, 'filled');
-const img = document.createElement('img');
-img.src = iconUrl;
-img.alt = 'Settings';
+// 사용 가능한 아이콘 목록
+const icons = IconUtils.getAvailableIcons();
+
+// 폰트 패밀리 정보
+const fontFamilies = IconUtils.getFontFamilies();
+
+// 사용 가능한 크기
+const sizes = IconUtils.getAvailableSizes();
+
+// 아이콘 정보 조회
+const iconInfo = IconUtils.getIconInfo("Accessibility");
+
+// 아이콘 검색
+const searchResults = IconUtils.searchIcons("add");
 ```
 
-## 🎨 React 컴포넌트 예시
+### 8. 동적 아이콘 생성
 
-```jsx
-import React from 'react';
+모든 아이콘은 동적으로 생성되므로 필요에 따라 `createIcon` 함수를 사용할 수 있습니다:
 
-const RefineUIIcon = ({ name, size = 24, style = 'regular', ...props }) => {
-  const iconUrl = `https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/${size}/${name}-${style}.svg`;
-  
-  return (
-    <img 
-      src={iconUrl} 
-      alt={name}
-      width={size}
-      height={size}
-      {...props}
-    />
-  );
-};
+```typescript
+import { createIcon } from "@refineui/react-icons";
 
-// 사용법
-<RefineUIIcon name="add" size={32} style="filled" />
-<RefineUIIcon name="home" size={24} style="regular" />
+// 동적으로 아이콘 생성
+const icon = createIcon("AccessibilityRegular", { style: { color: "red" } });
 ```
 
-## 🛠️ 개발
+### 9. 메타데이터 시스템
+
+모든 아이콘 정보는 중앙 집중식 메타데이터 시스템으로 관리됩니다:
+
+```javascript
+// 메타데이터에서 아이콘 정보 확인
+const iconInfo = IconUtils.getIconInfo("Accessibility");
+console.log(iconInfo);
+// {
+//   name: "Accessibility",
+//   slug: "accessibility",
+//   size: [16, 20, 24, 28, 32, 48],
+//   style: ["filled", "regular"],
+//   description: "Used in accessibility scenarios.",
+//   unicodeMapping: { ... }
+// }
+```
+
+## 🔧 개발
+
+### Figma에서 아이콘 추출
+
+Figma에서 아이콘을 추출하려면 먼저 API 설정이 필요합니다:
+
+1. **Figma Personal Access Token 생성**
+
+   - Figma → Settings → Personal access tokens → Create new token
+   - 자세한 내용은 [docs/FIGMA_SETUP.md](docs/FIGMA_SETUP.md) 참조
+
+2. **환경 설정**
+
+   ```bash
+   cp .env.example .env
+   # .env 파일에 FIGMA_TOKEN과 FIGMA_FILE_KEY 설정
+   ```
+
+3. **아이콘 추출**
+
+   ```bash
+   # 증분 업데이트 (수정된 것만)
+   python scripts/figma_icon_extractor.py
+
+   # 전체 동기화
+   python scripts/figma_icon_extractor.py --full-sync
+   ```
+
+### 메타데이터 생성
+
+```bash
+npm run generate:metadata
+```
 
 ### 빌드
 
@@ -130,50 +227,49 @@ const RefineUIIcon = ({ name, size = 24, style = 'regular', ...props }) => {
 npm run build
 ```
 
-### CLI 사용
+### 개발 모드
 
 ```bash
-# 아이콘 URL 생성
-node index.js add 24 filled
-
-# 사용법 보기
-node index.js
+npm run dev
 ```
 
-## 📊 메타데이터
+## 📋 지원하는 아이콘
 
-패키지에는 `icons/metadata.json` 파일이 포함되어 있어 사용 가능한 모든 아이콘 정보를 확인할 수 있습니다.
+현재 **434개의 고유 아이콘**이 지원됩니다!
 
-```json
-{
-  "version": "1.0.0",
-  "totalIcons": 432,
-  "sizes": [16, 20, 24, 28, 32, 48],
-  "styles": ["regular", "filled"],
-  "icons": [
-    {
-      "name": "add",
-      "style": "filled",
-      "size": 24,
-      "fileName": "add-filled.svg",
-      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/24/add-filled.svg"
-    }
-  ]
-}
+### 주요 아이콘 카테고리:
+
+- **UI/UX**: Accessibility, Add, Search, Settings, Checkmark, Home
+- **기술**: Android, Ios, Windows, Macos, Git, Javascript, Typescript
+- **미디어**: Camera, Video, Music, Image, Movie
+- **비즈니스**: Calendar, Chart, Document, Mail, Payment
+- **개발**: Code, Database, Server, Api, Terminal
+- **기타**: Heart, Star, Fire, Cloud, Weather 등
+
+### 지원 형식:
+
+- **Regular & Filled 스타일**: 각 아이콘마다 두 가지 스타일
+- **6가지 크기**: 16px, 20px, 24px, 28px, 32px, 48px
+- **총 5,208개의 메서드**: 모든 조합을 지원
+
+### 사용 예시:
+
+```tsx
+// Unsized 방식 (기본 24px)
+<AccessibilityRegular />
+<AddFilled />
+<HomeRegular />
+
+// Sized 방식
+<Add16Filled />
+<Search32Regular />
+<Settings48Filled />
 ```
 
-## 🌐 CDN 제공업체
+## 🤝 참고
 
-이 패키지는 [jsDelivr](https://www.jsdelivr.com/) CDN을 통해 제공됩니다.
+이 프로젝트는 [Microsoft FluentUI System Icons](https://github.com/microsoft/fluentui-system-icons)의 구조와 API 설계를 참고하여 제작되었습니다.
 
-- **빠른 로딩**: 전 세계 CDN 네트워크
-- **안정성**: 99.9% 가동률 보장
-- **무료**: 완전 무료 서비스
+## 📄 라이선스
 
-## 📝 라이선스
-
-MIT License - 자세한 내용은 [LICENSE](../../LICENSE) 파일을 참조하세요.
-
-## 🤝 기여하기
-
-버그 리포트나 기능 요청은 [GitHub Issues](https://github.com/pelagornis/refineui-system-icons/issues)를 통해 제출해 주세요.
+MIT License

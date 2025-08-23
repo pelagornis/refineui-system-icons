@@ -118,8 +118,7 @@ class FontBuilder:
         font_family = f"{self.font_family}-{style.title()}"
         font_name = f"{self.font_name} {style.title()}"
         
-        script_content = f"""
-#!/usr/bin/env fontforge
+        script_content = f"""#!/usr/bin/env fontforge
 
 # RefineUI System Icons Font Generator - {style.title()}
 import fontforge
@@ -135,10 +134,11 @@ font.fullname = "{font_name}"
 font.version = "{self.font_version}"
 font.copyright = "RefineUI System Icons"
 
-# 폰트 메트릭 설정
+# 폰트 메트릭 설정 (웹 최적화)
 font.ascent = 1000
-font.descent = 200
-font.em = 1200
+font.descent = 0
+font.em = 1000
+font.encoding = 'UnicodeFull'
 
 # 유니코드 시작점
 unicode_start = {self.unicode_start}
@@ -168,8 +168,10 @@ unicode_start = {self.unicode_start}
 # Add {glyph_name} icon
 glyph = font.createChar(unicode_start + {unicode_counter}, "{glyph_name}")
 glyph.importOutlines("{svg_path}")
-glyph.width = 1200
-glyph.vwidth = 1200
+glyph.width = 1000
+glyph.vwidth = 1000
+glyph.left_side_bearing = 0
+glyph.right_side_bearing = 0
 """
                         
                         icon_mapping[glyph_name] = {

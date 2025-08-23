@@ -1,148 +1,218 @@
-# Figma API Setup Guide
+# Figma API 설정 가이드 🔑
 
-## 🔑 Generate Figma Personal Access Token
+이 가이드는 RefineUI System Icons를 Figma에서 추출하기 위한 설정 방법을 설명합니다.
 
-### 1. Login to Figma Account
+## 📋 필요한 정보
 
-- Login to [Figma](https://www.figma.com).
+1. **Figma Personal Access Token**
+2. **Figma File Key**
 
-### 2. Access Settings Page
+## 🔑 1. Figma Personal Access Token 생성
 
-- Click the profile icon in the top right
-- Select **Settings**
+### 단계별 가이드
 
-### 3. Personal Access Tokens Section
+1. **Figma 웹사이트 접속**
 
-- Click **Personal Access Tokens** in the left menu
-- Or access directly: https://www.figma.com/settings
+   - https://www.figma.com 에 접속
+   - 계정으로 로그인
 
-### 4. Create New Token
+2. **계정 설정으로 이동**
 
-- Click **Create new token** button
-- Enter token name (e.g., "RefineUI Icons Extractor")
-- Click **Create token**
+   - 우측 상단 프로필 아이콘 클릭
+   - "Settings" 선택
 
-### 5. Copy and Save Token
+3. **Personal access tokens 섹션 찾기**
 
-- Copy the generated token to a safe place
-- **⚠️ Warning**: Token is shown only once, so make sure to copy it!
+   - "Account" 탭에서 "Personal access tokens" 섹션 찾기
+   - "Create new token" 버튼 클릭
 
-## 📁 Figma File Key Verification
+4. **토큰 생성**
 
-### 1. Extract from Figma File URL
+   - 토큰 이름 입력 (예: "RefineUI Icons")
+   - "Create token" 클릭
 
-```
-https://www.figma.com/file/XXXXXXXXXXXXXXX/File-Name
-                    ↑
-                File key (32 characters)
-```
+5. **토큰 복사 및 저장**
+   - 생성된 토큰을 복사
+   - ⚠️ **중요**: 이 토큰은 한 번만 표시되므로 안전한 곳에 저장!
 
-### 2. File Sharing Settings
+### 토큰 권한 확인
 
-- Click **Share** button in Figma file
-- Select **Anyone with the link**
-- Set **Can view** permission
+토큰에 다음 권한이 있는지 확인하세요:
 
-## 🚀 Usage Methods
+- ✅ **Read files**: 파일 읽기 권한
+- ✅ **Read team files**: 팀 파일 읽기 권한 (팀 파일인 경우)
 
-### Set as Environment Variables (Recommended)
+## 📄 2. Figma File Key 찾기
+
+### 단계별 가이드
+
+1. **Figma에서 아이콘 파일 열기**
+
+   - 아이콘이 포함된 Figma 파일 열기
+
+2. **브라우저 주소창 확인**
+
+   - 주소창의 URL을 확인:
+
+   ```
+   https://www.figma.com/file/XXXXXXXXXXXXXXX/System-Icons
+   ```
+
+3. **파일 키 추출**
+   - `/file/` 다음에 오는 긴 문자열이 파일 키
+   - 예시: `XXXXXXXXXXXXXXX` 부분
+
+### 파일 접근 권한 확인
+
+파일이 다음 중 하나의 조건을 만족해야 합니다:
+
+- ✅ **공개 파일**: 누구나 접근 가능
+- ✅ **팀 파일**: 토큰 소유자가 팀 멤버
+- ✅ **개인 파일**: 토큰 소유자의 파일
+
+## 🛠️ 3. 환경 설정
+
+### 방법 1: .env 파일 사용 (권장)
+
+1. **프로젝트 루트에 .env 파일 생성**
+
+   ```bash
+   cp .env.example .env
+   ```
+
+2. **.env 파일 편집**
+
+   ```env
+   # Figma API 설정
+   FIGMA_TOKEN=your_figma_personal_access_token_here
+   FIGMA_FILE_KEY=your_figma_file_key_here
+
+   # 선택적 설정
+   FIGMA_BATCH_SIZE=50
+   FIGMA_MAX_ICONS=0
+   FIGMA_TEST_LIMIT=10
+   ```
+
+3. **실제 값으로 교체**
+   - `your_figma_personal_access_token_here` → 실제 토큰
+   - `your_figma_file_key_here` → 실제 파일 키
+
+### 방법 2: 환경변수 직접 설정
+
+#### macOS/Linux
 
 ```bash
-# macOS/Linux
-export FIGMA_TOKEN="your_figma_token_here"
-export FIGMA_FILE_KEY="your_file_key_here"
-
-# Windows
-set FIGMA_TOKEN=your_figma_token_here
-set FIGMA_FILE_KEY=your_file_key_here
+export FIGMA_TOKEN="your_figma_personal_access_token_here"
+export FIGMA_FILE_KEY="your_figma_file_key_here"
 ```
 
-### Pass Directly When Running Script
+#### Windows (Command Prompt)
+
+```cmd
+set FIGMA_TOKEN=your_figma_personal_access_token_here
+set FIGMA_FILE_KEY=your_figma_file_key_here
+```
+
+#### Windows (PowerShell)
+
+```powershell
+$env:FIGMA_TOKEN="your_figma_personal_access_token_here"
+$env:FIGMA_FILE_KEY="your_figma_file_key_here"
+```
+
+### 방법 3: 명령줄 인수 사용
 
 ```bash
 python scripts/figma_icon_extractor.py \
-  --token "your_figma_token_here" \
-  --file-key "your_file_key_here" \
-  --page "System Icons"
+  --token "your_figma_personal_access_token_here" \
+  --file-key "your_figma_file_key_here"
 ```
 
-### Use .env File
+## 🚀 4. 테스트 및 실행
+
+### 1. 설정 확인
 
 ```bash
-# Create .env file
-echo "FIGMA_TOKEN=your_figma_token_here" > .env
-echo "FIGMA_FILE_KEY=your_file_key_here" >> .env
+# 테스트 모드로 실행 (10개 아이콘만)
+FIGMA_TEST_LIMIT=10 python scripts/figma_icon_extractor.py
 ```
 
-## 🔒 Security Considerations
+### 2. 전체 실행
 
-### Token Security
+```bash
+# 증분 업데이트 (기본값)
+python scripts/figma_icon_extractor.py
 
-- **Never** hardcode tokens in code
-- **Never** commit tokens to Git
-- Regenerate token immediately if exposed
-
-### .gitignore Configuration
-
-```gitignore
-# Add to .gitignore
-.env
-*.env
-secrets/
+# 전체 동기화
+python scripts/figma_icon_extractor.py --full-sync
 ```
 
-### GitHub Secrets Configuration
+## 🔧 5. 고급 설정
 
-When using with GitHub Actions:
+### 환경변수 옵션
 
-1. Repository Settings → Secrets and variables → Actions
-2. Click **New repository secret**
-3. Add `FIGMA_TOKEN` and `FIGMA_FILE_KEY`
+| 변수명             | 기본값 | 설명                         |
+| ------------------ | ------ | ---------------------------- |
+| `FIGMA_TOKEN`      | -      | Figma Personal Access Token  |
+| `FIGMA_FILE_KEY`   | -      | Figma 파일 키                |
+| `FIGMA_BATCH_SIZE` | 50     | 배치 처리 크기               |
+| `FIGMA_MAX_ICONS`  | 0      | 최대 처리 아이콘 수 (0=전체) |
+| `FIGMA_TEST_LIMIT` | -      | 테스트용 아이콘 수 제한      |
 
-## 🛠️ Troubleshooting
+### 예시 설정
 
-### Token Permission Error
+```env
+# 기본 설정
+FIGMA_TOKEN=figd_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+FIGMA_FILE_KEY=xxxxxxxxxxxxxxxxxxxxxxxx
 
-```
-Error: 403 Forbidden
-```
-
-- Verify token is correct
-- Check file access permissions
-- Verify token hasn't expired
-
-### File Access Error
-
-```
-Error: 404 Not Found
-```
-
-- Verify file key is correct
-- Check if file is shared
-- Verify file hasn't been deleted
-
-### Page Not Found Error
-
-```
-Error: Page 'System Icons' not found
+# 고급 설정
+FIGMA_BATCH_SIZE=100
+FIGMA_MAX_ICONS=50
+FIGMA_TEST_LIMIT=5
 ```
 
-- 페이지 이름이 정확한지 확인
-- 페이지가 존재하는지 확인
-- 대소문자 구분 확인
+## ❗ 6. 문제 해결
 
-## 📋 체크리스트
+### 일반적인 오류
 
-- [ ] Figma Personal Access Token 생성
-- [ ] 토큰 안전하게 저장
-- [ ] Figma 파일 키 확인
-- [ ] 파일 공유 설정
-- [ ] 환경변수 또는 .env 파일 설정
-- [ ] .gitignore에 민감한 파일 추가
-- [ ] GitHub Secrets 설정 (선택사항)
+#### 1. "Figma API 토큰이 필요합니다"
 
-## 🔗 관련 링크
+- ✅ `.env` 파일이 올바르게 설정되었는지 확인
+- ✅ 환경변수가 올바르게 설정되었는지 확인
 
-- [Figma API Documentation](https://www.figma.com/developers/api)
-- [Figma Personal Access Tokens](https://www.figma.com/settings)
-- [Figma File Sharing](https://help.figma.com/hc/en-us/articles/360040531773-Share-files-and-prototypes)
+#### 2. "Figma 파일 키가 필요합니다"
+
+- ✅ 파일 키가 올바르게 추출되었는지 확인
+- ✅ 파일에 접근 권한이 있는지 확인
+
+#### 3. "페이지를 찾을 수 없습니다"
+
+- ✅ 페이지 이름이 "System Icons"인지 확인
+- ✅ `--page` 인수로 다른 페이지 이름 지정
+
+#### 4. "Rate limit 도달"
+
+- ✅ API 호출 제한에 도달
+- ✅ 잠시 후 다시 시도하거나 배치 크기 줄이기
+
+### 디버깅
+
+```bash
+# 상세 로그로 실행
+python -u scripts/figma_icon_extractor.py 2>&1 | tee figma_extract.log
+```
+
+## 📚 7. 추가 리소스
+
+- [Figma API 문서](https://www.figma.com/developers/api)
+- [Personal Access Tokens](https://www.figma.com/developers/api#access-tokens)
+- [File API](https://www.figma.com/developers/api#files)
+
+## 🔒 8. 보안 주의사항
+
+- ⚠️ **토큰을 절대 공개 저장소에 커밋하지 마세요**
+- ⚠️ **토큰을 다른 사람과 공유하지 마세요**
+- ⚠️ **토큰이 노출되면 즉시 재생성하세요**
+- ✅ **.env 파일을 .gitignore에 추가하세요**
+- ✅ **토큰을 안전한 곳에 백업하세요**
