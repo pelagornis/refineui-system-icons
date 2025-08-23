@@ -1,51 +1,44 @@
 {
   "name": "@refineui/react-native-icons",
   "version": "1.0.0",
-  "description": "Refine UI System Icons for React Native",
+  "description": "RefineUI System Icons for React Native",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist",
-    "assets"
+    "src/metadata.json"
   ],
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "clean": "rimraf dist",
-    "generate:icons": "ts-node scripts/generate-icons.ts",
-    "prepublishOnly": "npm run clean && npm run generate:icons && npm run build"
+    "clean": "rimraf dist"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-native": ">=0.60.0"
   },
   "devDependencies": {
-    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-commonjs": "^21.0.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^13.0.0",
     "@types/react": "^18.0.0",
-    "@types/react-native": "^0.70.0",
     "rimraf": "^3.0.2",
-    "rollup": "^3.0.0",
-    "rollup-plugin-typescript2": "^0.34.1",
-    "ts-node": "^10.9.0",
-    "typescript": "^4.9.0"
+    "rollup": "^2.60.0",
+    "rollup-plugin-typescript2": "^0.31.0",
+    "typescript": "^4.5.0"
   },
   "keywords": [
     "react-native",
     "icons",
     "refineui",
     "system-icons",
-    "svg"
+    "ui"
   ],
-  "author": "Pelagornis",
+  "author": "RefineUI Team",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pelagornis/refineui-system-icons.git",
-    "directory": "packages/react-native-icons"
-  },
-  "dependencies": {
-    "@rollup/plugin-commonjs": "^28.0.6",
-    "@rollup/plugin-node-resolve": "^16.0.1"
+    "url": "https://github.com/refineui/system-icons.git"
   }
 }
