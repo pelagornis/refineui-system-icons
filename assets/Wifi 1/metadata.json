@@ -1,0 +1,17 @@
+{
+  "name": "Wifi 1",
+  "size": [
+    16,
+    20,
+    24,
+    28,
+    32,
+    48
+  ],
+  "style": [
+    "filled",
+    "regular"
+  ],
+  "keyword": "refineui-icon",
+  "description": "Used in wifi 1 scenarios."
+}

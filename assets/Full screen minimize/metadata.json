@@ -1,0 +1,17 @@
+{
+  "name": "Full screen minimize",
+  "size": [
+    16,
+    20,
+    24,
+    28,
+    32,
+    48
+  ],
+  "style": [
+    "filled",
+    "regular"
+  ],
+  "keyword": "refineui-icon",
+  "description": "Used in full screen minimize scenarios."
+}

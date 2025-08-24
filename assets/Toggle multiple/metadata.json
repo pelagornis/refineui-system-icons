@@ -1,0 +1,17 @@
+{
+  "name": "Toggle multiple",
+  "size": [
+    16,
+    20,
+    24,
+    28,
+    32,
+    48
+  ],
+  "style": [
+    "filled",
+    "regular"
+  ],
+  "keyword": "refineui-icon",
+  "description": "Used in toggle multiple scenarios."
+}
