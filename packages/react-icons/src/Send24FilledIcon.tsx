@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Send24FilledIcon: React.FC<IconProps> = ({ 
+  size = 24, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M19.7125 11.5349C20.0958 11.7265 20.0958 12.2735 19.7125 12.4651L4.75268 19.9444C4.40687 20.1173 4 19.8659 4 19.4793V13.4717C4 13.2214 4.17825 13.0067 4.42424 12.9606L9.00236 12.1022C9.11549 12.081 9.11549 11.919 9.00236 11.8978L4.42424 11.0394C4.17826 10.9933 4 10.7786 4 10.5283L4 4.52072C4 4.13412 4.40687 3.88268 4.75268 4.05557L19.7125 11.5349Z" fill="black"/>
+    </svg>
+  );
+};

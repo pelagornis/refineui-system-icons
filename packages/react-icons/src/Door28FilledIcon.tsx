@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Door28FilledIcon: React.FC<IconProps> = ({ 
+  size = 28, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 28 28"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M9.33333 5C8.04467 5 7 6.04467 7 7.33333V21.3333C7 22.622 8.04467 23.6667 9.33333 23.6667H18.6667C19.9553 23.6667 21 22.622 21 21.3333V7.33333C21 6.04467 19.9553 5 18.6667 5H9.33333ZM11.6667 14.3333C11.6667 14.9777 11.1443 15.5 10.5 15.5C9.85567 15.5 9.33333 14.9777 9.33333 14.3333C9.33333 13.689 9.85567 13.1667 10.5 13.1667C11.1443 13.1667 11.6667 13.689 11.6667 14.3333Z" fill="black"/>
+    </svg>
+  );
+};

@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Phone48FilledIcon: React.FC<IconProps> = ({ 
+  size = 48, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 48 48"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M18 8C15.7909 8 14 9.79086 14 12V36C14 38.2091 15.7909 40 18 40H30C32.2091 40 34 38.2091 34 36V12C34 9.79086 32.2091 8 30 8H18ZM25.5 12H22.5C21.6716 12 21 12.6716 21 13.5C21 14.3284 21.6716 15 22.5 15H25.5C26.3284 15 27 14.3284 27 13.5C27 12.6716 26.3284 12 25.5 12Z" fill="black"/>
+    </svg>
+  );
+};

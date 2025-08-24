@@ -1,0 +1,22 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Autosum28RegularIcon: React.FC<IconProps> = ({ 
+  size = 28, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 28 28"
+      fill="none"
+      {{...props}}
+    >
+      width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5.17609 5.99214C4.79714 5.62329 5.07024 5 5.6108 5H22.8742C23.3119 5 23.6667 5.33948 23.6667 5.75824C23.6667 6.17701 23.3119 6.51648 22.8742 6.51648H8.66424C8.39396 6.51648 8.25741 6.82813 8.44688 7.01255L15.548 13.9245C15.7811 14.1514 15.7811 14.5153 15.548 14.7422L8.44688 21.6541C8.25741 21.8385 8.39396 22.1502 8.66424 22.1502H22.8742C23.3119 22.1502 23.6667 22.4897 23.6667 22.9084C23.6667 23.3272 23.3119 23.6667 22.8742 23.6667H5.6108C5.07024 23.6667 4.79714 23.0434 5.17609 22.6745L13.5356 14.5378C13.6521 14.4243 13.6521 14.2424 13.5356 14.1289L5.17609 5.99214Z" fill="black"/>
+    </Svg>
+  );
+};

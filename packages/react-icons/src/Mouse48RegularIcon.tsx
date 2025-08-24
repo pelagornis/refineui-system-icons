@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Mouse48RegularIcon: React.FC<IconProps> = ({ 
+  size = 48, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 48 48"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12 16C12 11.5817 15.5817 8 20 8H28C32.4183 8 36 11.5817 36 16V28C36 34.6274 30.6274 40 24 40C17.3726 40 12 34.6274 12 28V16ZM25.3 11.1C25.3 10.8239 25.5239 10.6 25.8 10.6H28C30.9823 10.6 33.4 13.0177 33.4 16V28C33.4 33.1915 29.1915 37.4 24 37.4C18.8085 37.4 14.6 33.1915 14.6 28V16C14.6 13.0177 17.0177 10.6 20 10.6H22.2C22.4761 10.6 22.7 10.8239 22.7 11.1V20C22.7 20.718 23.282 21.3 24 21.3C24.718 21.3 25.3 20.718 25.3 20V11.1Z" fill="black"/>
+    </svg>
+  );
+};

@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Hourglass20FilledIcon: React.FC<IconProps> = ({ 
+  size = 20, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5.31785 3H14.3488C15.4081 3 16.033 4.12878 15.4329 4.95816L12.5384 8.95851C12.2297 9.38507 12.2297 9.94826 12.5384 10.3748L15.4329 14.3752C16.033 15.2046 15.4081 16.3333 14.3488 16.3333H5.31785C4.25856 16.3333 3.63364 15.2045 4.23375 14.3752L7.12829 10.3748C7.43694 9.94826 7.43694 9.38507 7.12829 8.95851L4.23375 4.95816C3.63364 4.12878 4.25856 3 5.31785 3Z" fill="black"/>
+    </svg>
+  );
+};

@@ -1,0 +1,22 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Subtract20RegularIcon: React.FC<IconProps> = ({ 
+  size = 20, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 20 20"
+      fill="none"
+      {{...props}}
+    >
+      width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M3 9.54167C3 9.24251 3.22429 9 3.50096 9H15.8324C16.109 9 16.3333 9.24251 16.3333 9.54167C16.3333 9.84082 16.109 10.0833 15.8324 10.0833H3.50096C3.22429 10.0833 3 9.84082 3 9.54167Z" fill="black"/>
+    </Svg>
+  );
+};

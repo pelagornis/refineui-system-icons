@@ -3,7 +3,7 @@ description: RefineUI System Icons for Flutter - A comprehensive icon library
 version: 1.0.0
 
 environment:
-  sdk: ">=3.0.0 <4.0.0"
+  sdk: '>=3.0.0 <4.0.0'
   flutter: ">=3.0.0"
 
 dependencies:
@@ -19,7 +19,7 @@ flutter:
   fonts:
     - family: RefineUI-System-Icons-Regular
       fonts:
-        - asset: ../fonts/refineui-system-icons-regular.ttf
+        - asset: lib/fonts/refineui-system-icons-regular.ttf
     - family: RefineUI-System-Icons-Filled
       fonts:
-        - asset: ../fonts/refineui-system-icons-filled.ttf
+        - asset: lib/fonts/refineui-system-icons-filled.ttf

@@ -1,0 +1,24 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Barchartvertical28FilledIcon: React.FC<IconProps> = ({ 
+  size = 28, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 28 28"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M5 21.3333C5 22.622 6.04467 23.6667 7.33333 23.6667C8.622 23.6667 9.66667 22.622 9.66667 21.3333V15.5C9.66667 14.2113 8.622 13.1667 7.33333 13.1667C6.04467 13.1667 5 14.2113 5 15.5L5 21.3333Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12 21.3333C12 22.622 13.0447 23.6667 14.3333 23.6667C15.622 23.6667 16.6667 22.622 16.6667 21.3333V12C16.6667 10.7113 15.622 9.66667 14.3333 9.66667C13.0447 9.66667 12 10.7113 12 12V21.3333Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M21.3333 23.6667C20.0447 23.6667 19 22.622 19 21.3333V7.33333C19 6.04467 20.0447 5 21.3333 5C22.622 5 23.6667 6.04467 23.6667 7.33333V21.3333C23.6667 22.622 22.622 23.6667 21.3333 23.6667Z" fill="black"/>
+    </svg>
+  );
+};

@@ -1,0 +1,24 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Aligntop28FilledIcon: React.FC<IconProps> = ({ 
+  size = 28, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 28 28"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 5.75821C5 6.17696 5.33946 6.51643 5.75821 6.51643L22.9085 6.51643C23.3272 6.51643 23.6667 6.17696 23.6667 5.75821C23.6667 5.33946 23.3272 5 22.9085 5L5.75821 5C5.33946 5 5 5.33946 5 5.75821Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M6.98322 9.94347C6.98322 8.65501 8.02773 7.61051 9.31619 7.61051H11.3878C12.6763 7.61051 13.7208 8.65501 13.7208 9.94347V21.3311C13.7208 22.6195 12.6763 23.664 11.3878 23.664H9.31619C8.02772 23.664 6.98322 22.6195 6.98322 21.3311L6.98322 9.94347Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M17.2788 7.61051C15.9903 7.61051 14.9458 8.65501 14.9458 9.94347V17.6264C14.9458 18.9149 15.9903 19.9594 17.2788 19.9594H19.3505C20.6389 19.9594 21.6834 18.9149 21.6834 17.6264V9.94347C21.6834 8.65501 20.6389 7.61051 19.3505 7.61051H17.2788Z" fill="black"/>
+    </svg>
+  );
+};

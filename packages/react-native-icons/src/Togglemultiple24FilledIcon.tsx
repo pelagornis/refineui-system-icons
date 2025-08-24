@@ -1,0 +1,23 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Togglemultiple24FilledIcon: React.FC<IconProps> = ({ 
+  size = 24, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 24 24"
+      fill="none"
+      {{...props}}
+    >
+      width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.75 4C5.67893 4 4 5.67893 4 7.75C4 9.82107 5.67893 11.5 7.75 11.5H16.25C18.3211 11.5 20 9.82107 20 7.75C20 5.67893 18.3211 4 16.25 4H7.75ZM16 9.75C17.1046 9.75 18 8.85457 18 7.75C18 6.64543 17.1046 5.75 16 5.75C14.8954 5.75 14 6.64543 14 7.75C14 8.85457 14.8954 9.75 16 9.75Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.75 12.5C5.67893 12.5 4 14.1789 4 16.25C4 18.3211 5.67893 20 7.75 20H16.25C18.3211 20 20 18.3211 20 16.25C20 14.1789 18.3211 12.5 16.25 12.5H7.75ZM10 16.25C10 17.3546 9.10457 18.25 8 18.25C6.89543 18.25 6 17.3546 6 16.25C6 15.1454 6.89543 14.25 8 14.25C9.10457 14.25 10 15.1454 10 16.25Z" fill="black"/>
+    </Svg>
+  );
+};

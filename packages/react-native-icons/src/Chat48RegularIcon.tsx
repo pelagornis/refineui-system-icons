@@ -1,0 +1,24 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Chat48RegularIcon: React.FC<IconProps> = ({ 
+  size = 48, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 48 48"
+      fill="none"
+      {{...props}}
+    >
+      width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M14.7 22C14.7 21.282 15.282 20.7 16 20.7H32C32.718 20.7 33.3 21.282 33.3 22C33.3 22.718 32.718 23.3 32 23.3H16C15.282 23.3 14.7 22.718 14.7 22Z" fill="black"/>
+<path d="M16 26.7C15.282 26.7 14.7 27.282 14.7 28C14.7 28.718 15.282 29.3 16 29.3H24C24.718 29.3 25.3 28.718 25.3 28C25.3 27.282 24.718 26.7 24 26.7H16Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M24 40C32.8366 40 40 32.8366 40 24C40 15.1634 32.8366 8 24 8C15.1634 8 8 15.1634 8 24L8.00001 38.0029C8.00001 39.1074 8.89404 40 9.9986 40H24ZM24 37.4C31.4006 37.4 37.4 31.4006 37.4 24C37.4 16.5994 31.4006 10.6 24 10.6C16.5994 10.6 10.6 16.5994 10.6 24L10.6 37.4H24Z" fill="black"/>
+    </Svg>
+  );
+};

@@ -1,0 +1,22 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Dart48FilledIcon: React.FC<IconProps> = ({ 
+  size = 48, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 48 48"
+      fill="none"
+      {{...props}}
+    >
+      width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M25.2866 8.10201C25.9556 7.89219 26.6871 8.00978 27.2554 8.42037L27.5269 8.65083L39.3476 20.4671L39.4961 20.6292C39.8205 21.025 40 21.5249 40 22.0413V32.3927C40 33.6218 39.0017 34.6189 37.7734 34.6192H34.6151V37.7754C34.6151 39.0046 33.6168 39.9997 32.3884 40H22.0307C21.4412 39.9998 20.8755 39.7662 20.4583 39.3496L8.65132 27.549C7.95623 26.8542 7.80039 25.7855 8.26654 24.9201L14.2218 13.8637L14.4171 13.5023L24.9565 8.23482L25.2866 8.10201ZM16.3723 31.59L22.1869 37.4004H32.0154V33.838L16.6106 17.6702L16.3723 31.59ZM20.8744 13.1801H28.3805L25.8784 10.6781L20.8744 13.1801Z" fill="black"/>
+    </Svg>
+  );
+};

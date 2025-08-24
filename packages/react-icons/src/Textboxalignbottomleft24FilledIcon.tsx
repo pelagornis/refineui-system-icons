@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Textboxalignbottomleft24FilledIcon: React.FC<IconProps> = ({ 
+  size = 24, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M4 6C4 4.89543 4.89543 4 6 4H18C19.1046 4 20 4.89543 20 6V18C20 19.1046 19.1046 20 18 20H6C4.89543 20 4 19.1046 4 18V6ZM6.85 12C6.85 11.641 7.14101 11.35 7.5 11.35H16C16.359 11.35 16.65 11.641 16.65 12C16.65 12.359 16.359 12.65 16 12.65H7.5C7.14101 12.65 6.85 12.359 6.85 12ZM7.5 14.85C7.14101 14.85 6.85 15.141 6.85 15.5C6.85 15.859 7.14101 16.15 7.5 16.15H13.5C13.859 16.15 14.15 15.859 14.15 15.5C14.15 15.141 13.859 14.85 13.5 14.85H7.5Z" fill="black"/>
+    </svg>
+  );
+};

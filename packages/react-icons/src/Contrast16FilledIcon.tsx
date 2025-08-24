@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Contrast16FilledIcon: React.FC<IconProps> = ({ 
+  size = 16, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M8.33333 13.67C5.39199 13.67 3.00677 11.2882 3.00001 8.34752C3 8.34335 3 8.33917 3 8.335C3 8.33082 3 8.32665 3.00001 8.32247C3.00336 6.8644 3.59145 5.54373 4.54214 4.58266C4.54877 4.57595 4.55542 4.56926 4.5621 4.56258C4.56877 4.55591 4.57546 4.54925 4.58217 4.54262C5.54293 3.59164 6.86319 3.00337 8.32081 3.00001C8.32499 3 8.32916 3 8.33333 3C11.2789 3 13.6667 5.38856 13.6667 8.335C13.6667 11.2814 11.2789 13.67 8.33333 13.67ZM8.33333 12.8031V3.86694C10.8002 3.86694 12.8 5.86736 12.8 8.335C12.8 10.8026 10.8002 12.8031 8.33333 12.8031Z" fill="black"/>
+    </svg>
+  );
+};

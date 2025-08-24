@@ -1,0 +1,23 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Equal28FilledIcon: React.FC<IconProps> = ({ 
+  size = 28, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 28 28"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6.16657 9C5.52229 9 5 9.52217 5 10.1663C5 10.8104 5.52229 11.3326 6.16657 11.3326H22.5001C23.1444 11.3326 23.6667 10.8104 23.6667 10.1663C23.6667 9.52217 23.1444 9 22.5001 9H6.16657Z" fill="black"/>
+<path d="M6.16657 16.0007C5.52229 16.0007 5 16.5229 5 17.167C5 17.8112 5.52229 18.3333 6.16657 18.3333H22.5001C23.1444 18.3333 23.6667 17.8112 23.6667 17.167C23.6667 16.5229 23.1444 16.0007 22.5001 16.0007H6.16657Z" fill="black"/>
+    </svg>
+  );
+};

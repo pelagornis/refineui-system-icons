@@ -1,0 +1,22 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Heart20FilledIcon: React.FC<IconProps> = ({ 
+  size = 20, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 20 20"
+      fill="none"
+      {{...props}}
+    >
+      width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M15.4753 5.22128C14.0992 3.59764 11.6552 3.59206 10.2722 5.20967L9.66662 5.91792L9.0611 5.20969C7.67808 3.59208 5.23404 3.59767 3.85792 5.22135C2.66279 6.63149 2.72274 8.75659 3.99761 10.0922L9.07727 15.4138C9.39905 15.7509 9.93422 15.7509 10.256 15.4138L15.3357 10.0923C16.6106 8.75663 16.6705 6.63144 15.4753 5.22128Z" fill="black"/>
+    </Svg>
+  );
+};

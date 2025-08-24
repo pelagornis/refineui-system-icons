@@ -1,0 +1,23 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Battery2032RegularIcon: React.FC<IconProps> = ({ 
+  size = 32, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 32 32"
+      fill="none"
+      {{...props}}
+    >
+      width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 11.6667C8.26362 11.6667 7.66667 12.2636 7.66667 13V18.3333C7.66667 19.0697 8.26362 19.6667 9 19.6667H9.8C10.5364 19.6667 11.1333 19.0697 11.1333 18.3333V13C11.1333 12.2636 10.5364 11.6667 9.8 11.6667H9Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.66667 9C6.19391 9 5 10.1939 5 11.6667V19.6667C5 21.1394 6.19391 22.3333 7.66667 22.3333H21.6936C23.1664 22.3333 24.3603 21.1394 24.3603 19.6667V18.419C25.45 18.419 26.3333 17.5356 26.3333 16.4459V14.8874C26.3333 13.7977 25.45 12.9144 24.3603 12.9144V11.6667C24.3603 10.1939 23.1664 9 21.6936 9H7.66667ZM6.60308 11.9235C6.60308 11.1872 7.20004 10.5902 7.93642 10.5902H21.4239C22.1603 10.5902 22.7572 11.1872 22.7572 11.9235V19.4098C22.7572 20.1462 22.1603 20.7431 21.4239 20.7431H7.93642C7.20004 20.7431 6.60308 20.1462 6.60308 19.4098V11.9235Z" fill="black"/>
+    </Svg>
+  );
+};

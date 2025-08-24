@@ -1,0 +1,22 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Textboxaligncenter28FilledIcon: React.FC<IconProps> = ({ 
+  size = 28, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 28 28"
+      fill="none"
+      {{...props}}
+    >
+      width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.33333 5C6.04467 5 5 6.04467 5 7.33333V21.3333C5 22.622 6.04467 23.6667 7.33333 23.6667H21.3333C22.622 23.6667 23.6667 22.622 23.6667 21.3333V7.33333C23.6667 6.04467 22.622 5 21.3333 5H7.33333ZM9.375 11.5333C8.95618 11.5333 8.61667 11.8729 8.61667 12.2917C8.61667 12.7105 8.95618 13.05 9.375 13.05H19.2917C19.7105 13.05 20.05 12.7105 20.05 12.2917C20.05 11.8729 19.7105 11.5333 19.2917 11.5333H9.375ZM10.8333 15.6167C10.4145 15.6167 10.075 15.9562 10.075 16.375C10.075 16.7938 10.4145 17.1333 10.8333 17.1333H17.8333C18.2521 17.1333 18.5917 16.7938 18.5917 16.375C18.5917 15.9562 18.2521 15.6167 17.8333 15.6167H10.8333Z" fill="black"/>
+    </Svg>
+  );
+};

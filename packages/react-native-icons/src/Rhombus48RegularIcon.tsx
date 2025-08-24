@@ -1,0 +1,22 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Rhombus48RegularIcon: React.FC<IconProps> = ({ 
+  size = 48, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 48 48"
+      fill="none"
+      {{...props}}
+    >
+      width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.4174 22.6909C11.8609 23.4667 11.8609 24.5333 12.4174 25.3091L22.3304 39.1273C23.1652 40.2909 24.8348 40.2909 25.6696 39.1273L35.5826 25.3091C36.1391 24.5333 36.1391 23.4667 35.5826 22.6909L25.6696 8.87273C24.8348 7.70909 23.1652 7.70909 22.3304 8.87273L12.4174 22.6909ZM15.0963 23.4171C14.8463 23.7655 14.8463 24.2345 15.0963 24.5829L23.1875 35.8615C23.5864 36.4176 24.4136 36.4176 24.8125 35.8615L32.9037 24.5829C33.1537 24.2345 33.1537 23.7655 32.9037 23.4171L24.8125 12.1385C24.4136 11.5824 23.5864 11.5824 23.1875 12.1385L15.0963 23.4171Z" fill="black"/>
+    </Svg>
+  );
+};

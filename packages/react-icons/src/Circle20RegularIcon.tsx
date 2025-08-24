@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Circle20RegularIcon: React.FC<IconProps> = ({ 
+  size = 20, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M9.665 16.33C13.346 16.33 16.33 13.346 16.33 9.665C16.33 5.98402 13.346 3 9.665 3C5.98402 3 3 5.98402 3 9.665C3 13.346 5.98402 16.33 9.665 16.33ZM9.665 15.2469C12.7478 15.2469 15.2469 12.7478 15.2469 9.665C15.2469 6.58218 12.7478 4.08306 9.665 4.08306C6.58218 4.08306 4.08306 6.58218 4.08306 9.665C4.08306 12.7478 6.58218 15.2469 9.665 15.2469Z" fill="black"/>
+    </svg>
+  );
+};

@@ -1,0 +1,24 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Alignbottom16FilledIcon: React.FC<IconProps> = ({ 
+  size = 16, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 16 16"
+      fill="none"
+      {{...props}}
+    >
+      width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M3 13.2354C3 12.996 3.19407 12.802 3.43346 12.802H13.2332C13.4726 12.802 13.6667 12.996 13.6667 13.2354C13.6667 13.4748 13.4726 13.6689 13.2332 13.6689H3.43346C3.19407 13.6689 3 13.4748 3 13.2354Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M10.0171 12.1766C9.28046 12.1766 8.68333 11.5795 8.68333 10.8429V6.45142C8.68333 5.71482 9.28046 5.11768 10.0171 5.11768H11.1995C11.9361 5.11768 12.5332 5.71482 12.5332 6.45142V10.8429C12.5332 11.5795 11.9361 12.1766 11.1995 12.1766H10.0171Z" fill="black"/>
+<path d="M5.46719 12.1766C4.73059 12.1766 4.13346 11.5795 4.13346 10.8429L4.13345 4.33374C4.13345 3.59714 4.73059 3 5.46719 3L6.64962 3C7.38622 3 7.98335 3.59713 7.98335 4.33374L7.98335 10.8429C7.98335 11.5795 7.38622 12.1766 6.64961 12.1766H5.46719Z" fill="black"/>
+    </Svg>
+  );
+};

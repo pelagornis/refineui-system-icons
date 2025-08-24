@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "totalIcons": 5196,
+  "totalIcons": 5208,
   "sizes": [
     16,
     20,
@@ -3107,6 +3107,20 @@
       "size": 16,
       "fileName": "link-regular.svg",
       "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/16/link-regular.svg"
+    },
+    {
+      "name": "local_language",
+      "style": "filled",
+      "size": 16,
+      "fileName": "local_language-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/16/local_language-filled.svg"
+    },
+    {
+      "name": "local_language",
+      "style": "regular",
+      "size": 16,
+      "fileName": "local_language-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/16/local_language-regular.svg"
     },
     {
       "name": "location",
@@ -9171,6 +9185,20 @@
       "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/20/link-regular.svg"
     },
     {
+      "name": "local_language",
+      "style": "filled",
+      "size": 20,
+      "fileName": "local_language-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/20/local_language-filled.svg"
+    },
+    {
+      "name": "local_language",
+      "style": "regular",
+      "size": 20,
+      "fileName": "local_language-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/20/local_language-regular.svg"
+    },
+    {
       "name": "location",
       "style": "filled",
       "size": 20,
@@ -15231,6 +15259,20 @@
       "size": 24,
       "fileName": "link-regular.svg",
       "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/24/link-regular.svg"
+    },
+    {
+      "name": "local_language",
+      "style": "filled",
+      "size": 24,
+      "fileName": "local_language-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/24/local_language-filled.svg"
+    },
+    {
+      "name": "local_language",
+      "style": "regular",
+      "size": 24,
+      "fileName": "local_language-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/24/local_language-regular.svg"
     },
     {
       "name": "location",
@@ -21295,6 +21337,20 @@
       "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/28/link-regular.svg"
     },
     {
+      "name": "local_language",
+      "style": "filled",
+      "size": 28,
+      "fileName": "local_language-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/28/local_language-filled.svg"
+    },
+    {
+      "name": "local_language",
+      "style": "regular",
+      "size": 28,
+      "fileName": "local_language-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/28/local_language-regular.svg"
+    },
+    {
       "name": "location",
       "style": "filled",
       "size": 28,
@@ -27357,6 +27413,20 @@
       "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/32/link-regular.svg"
     },
     {
+      "name": "local_language",
+      "style": "filled",
+      "size": 32,
+      "fileName": "local_language-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/32/local_language-filled.svg"
+    },
+    {
+      "name": "local_language",
+      "style": "regular",
+      "size": 32,
+      "fileName": "local_language-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/32/local_language-regular.svg"
+    },
+    {
       "name": "location",
       "style": "filled",
       "size": 32,
@@ -33417,6 +33487,20 @@
       "size": 48,
       "fileName": "link-regular.svg",
       "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/48/link-regular.svg"
+    },
+    {
+      "name": "local_language",
+      "style": "filled",
+      "size": 48,
+      "fileName": "local_language-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/48/local_language-filled.svg"
+    },
+    {
+      "name": "local_language",
+      "style": "regular",
+      "size": 48,
+      "fileName": "local_language-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/48/local_language-regular.svg"
     },
     {
       "name": "location",

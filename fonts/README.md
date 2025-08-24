@@ -1392,6 +1392,12 @@ You can use RefineUI System Icons as fonts. Regular and Filled styles are separa
 - `ic_refineui_link_28_regular` - Link_28_regular (28px)
 - `ic_refineui_link_32_regular` - Link_32_regular (32px)
 - `ic_refineui_link_48_regular` - Link_48_regular (48px)
+- `ic_refineui_local_language_16_regular` - Local language_16_regular (16px)
+- `ic_refineui_local_language_20_regular` - Local language_20_regular (20px)
+- `ic_refineui_local_language_24_regular` - Local language_24_regular (24px)
+- `ic_refineui_local_language_28_regular` - Local language_28_regular (28px)
+- `ic_refineui_local_language_32_regular` - Local language_32_regular (32px)
+- `ic_refineui_local_language_48_regular` - Local language_48_regular (48px)
 - `ic_refineui_location_arrow_16_regular` - Location arrow_16_regular (16px)
 - `ic_refineui_location_arrow_20_regular` - Location arrow_20_regular (20px)
 - `ic_refineui_location_arrow_24_regular` - Location arrow_24_regular (24px)
@@ -3993,6 +3999,12 @@ You can use RefineUI System Icons as fonts. Regular and Filled styles are separa
 - `ic_refineui_link_28_filled` - Link_28_filled (28px)
 - `ic_refineui_link_32_filled` - Link_32_filled (32px)
 - `ic_refineui_link_48_filled` - Link_48_filled (48px)
+- `ic_refineui_local_language_16_filled` - Local language_16_filled (16px)
+- `ic_refineui_local_language_20_filled` - Local language_20_filled (20px)
+- `ic_refineui_local_language_24_filled` - Local language_24_filled (24px)
+- `ic_refineui_local_language_28_filled` - Local language_28_filled (28px)
+- `ic_refineui_local_language_32_filled` - Local language_32_filled (32px)
+- `ic_refineui_local_language_48_filled` - Local language_48_filled (48px)
 - `ic_refineui_location_arrow_16_filled` - Location arrow_16_filled (16px)
 - `ic_refineui_location_arrow_20_filled` - Location arrow_20_filled (20px)
 - `ic_refineui_location_arrow_24_filled` - Location arrow_24_filled (24px)
@@ -4107,7 +4119,6 @@ You can use RefineUI System Icons as fonts. Regular and Filled styles are separa
 - `ic_refineui_mouse_28_filled` - Mouse_28_filled (28px)
 - `ic_refineui_mouse_32_filled` - Mouse_32_filled (32px)
 - `ic_refineui_mouse_48_filled` - Mouse_48_filled (48px)
-- `ic_refineui_movie_16_filled` - Movie_16_filled (16px)
 - `ic_refineui_movie_20_filled` - Movie_20_filled (20px)
 - `ic_refineui_movie_24_filled` - Movie_24_filled (24px)
 - `ic_refineui_movie_28_filled` - Movie_28_filled (28px)
@@ -5282,9 +5293,9 @@ You can use RefineUI System Icons as fonts. Regular and Filled styles are separa
 
 ## Statistics
 
-- **Regular**: 2598 icons
-- **Filled**: 2598 icons
-- **Total**: 5196 icons
+- **Regular**: 2604 icons
+- **Filled**: 2603 icons
+- **Total**: 5207 icons
 
 ## Icon Mapping
 

@@ -1,0 +1,22 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Zoomin24FilledIcon: React.FC<IconProps> = ({ 
+  size = 24, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 24 24"
+      fill="none"
+      {{...props}}
+    >
+      width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M13.0155 13.9887L13.0005 14C12.1647 14.6279 11.1258 15 10 15C7.23858 15 5 12.7614 5 10C5 7.23858 7.23858 5 10 5C12.7614 5 15 7.23858 15 10C15 11.1326 14.6234 12.1772 13.9887 13.0155L17.3795 16.4063C17.7039 16.7307 18.2554 17.4768 17.8661 17.8661C17.4768 18.2554 16.7307 17.7039 16.4063 17.3795L13.0155 13.9887ZM10.25 8.25C10.25 8.11193 10.1381 8 10 8C9.86193 8 9.75 8.11193 9.75 8.25V9.75H8.25C8.11193 9.75 8 9.86193 8 10C8 10.1381 8.11193 10.25 8.25 10.25H9.75V11.75C9.75 11.8881 9.86193 12 10 12C10.1381 12 10.25 11.8881 10.25 11.75V10.25H11.75C11.8881 10.25 12 10.1381 12 10C12 9.86193 11.8881 9.75 11.75 9.75H10.25V8.25Z" fill="black"/>
+    </Svg>
+  );
+};

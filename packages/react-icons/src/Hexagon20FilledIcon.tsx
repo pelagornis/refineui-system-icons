@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Hexagon20FilledIcon: React.FC<IconProps> = ({ 
+  size = 20, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M5.83398 4.63637C6.08644 4.23999 6.52384 4 6.99379 4H12.3395C12.8095 4 13.2469 4.23999 13.4994 4.63637L16.1181 8.74776C16.3884 9.17221 16.4053 9.71045 16.1621 10.151L13.5088 14.9577C13.2668 15.396 12.8056 15.6682 12.3049 15.6682H7.02841C6.52769 15.6682 6.06655 15.396 5.82456 14.9577L3.17124 10.151C2.92804 9.71045 2.94493 9.17221 3.21528 8.74776L5.83398 4.63637Z" fill="black"/>
+    </svg>
+  );
+};

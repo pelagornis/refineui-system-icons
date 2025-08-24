@@ -1,0 +1,24 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Thinking48FilledIcon: React.FC<IconProps> = ({ 
+  size = 48, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 48 48"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M10 12C10 9.79086 11.7909 8 14 8H36C38.2091 8 40 9.79086 40 12V23C40 25.2091 38.2091 27 36 27H14C11.7909 27 10 25.2091 10 23V12Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M16 36C18.2091 36 20 34.2091 20 32C20 29.7909 18.2091 28 16 28C13.7909 28 12 29.7909 12 32C12 34.2091 13.7909 36 16 36Z" fill="black"/>
+<path d="M12.5 37.75C12.5 38.9926 11.4926 40 10.25 40C9.00736 40 8 38.9926 8 37.75C8 36.5074 9.00736 35.5 10.25 35.5C11.4926 35.5 12.5 36.5074 12.5 37.75Z" fill="black"/>
+    </svg>
+  );
+};

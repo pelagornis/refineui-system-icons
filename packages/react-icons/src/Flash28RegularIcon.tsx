@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Flash28RegularIcon: React.FC<IconProps> = ({ 
+  size = 28, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 28 28"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M9.38454 5.63599C9.55009 5.25013 9.92958 5 10.3494 5H17.4411C18.1579 5 18.6639 5.70236 18.4371 6.3823L17.124 10.3172H21.2813C22.217 10.3172 22.6853 11.4487 22.0233 12.11L10.7683 23.353C10.0381 24.0824 8.8039 23.4309 8.9943 22.4165L10.4262 14.7878H7.05109C6.29714 14.7878 5.78892 14.0168 6.08619 13.3239L9.38454 5.63599ZM10.657 6.51661L7.75908 13.2712H10.9886C11.6461 13.2712 12.1418 13.8687 12.0205 14.5149L10.763 21.2146L20.1538 11.8338H16.4764C15.7596 11.8338 15.2535 11.1315 15.4804 10.4515L16.7934 6.51661H10.657Z" fill="black"/>
+    </svg>
+  );
+};

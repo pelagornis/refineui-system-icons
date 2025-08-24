@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Ioschevronltr24FilledIcon: React.FC<IconProps> = ({ 
+  size = 24, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.85252 8.20023C10.2942 8.53174 10.3836 9.15856 10.0521 9.60029L8.4755 11.7011C8.34205 11.879 8.34205 12.1236 8.4755 12.3014L10.0521 14.4022C10.3836 14.844 10.2942 15.4708 9.85252 15.8023C9.41079 16.1338 8.78396 16.0444 8.45246 15.6027L6.20018 12.6015C5.93327 12.2459 5.93327 11.7567 6.20018 11.401L8.45246 8.39982C8.78396 7.95809 9.41079 7.86873 9.85252 8.20023Z" fill="black"/>
+    </svg>
+  );
+};

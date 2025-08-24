@@ -1,0 +1,22 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Dismisssquare28FilledIcon: React.FC<IconProps> = ({ 
+  size = 28, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 28 28"
+      fill="none"
+      {{...props}}
+    >
+      width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.33333 5C6.04467 5 5 6.04467 5 7.33333V21.3333C5 22.622 6.04467 23.6667 7.33333 23.6667H21.3333C22.622 23.6667 23.6667 22.622 23.6667 21.3333V7.33333C23.6667 6.04467 22.622 5 21.3333 5H7.33333ZM10.2971 10.2971C10.5932 10.001 11.0734 10.001 11.3695 10.2971L14.3333 13.2609L17.2971 10.2971C17.5932 10.001 18.0734 10.001 18.3695 10.2971C18.6657 10.5933 18.6657 11.0734 18.3695 11.3696L15.4057 14.3333L18.3695 17.2971C18.6657 17.5933 18.6657 18.0734 18.3695 18.3696C18.0734 18.6657 17.5932 18.6657 17.2971 18.3696L14.3333 15.4058L11.3695 18.3696C11.0734 18.6657 10.5932 18.6657 10.2971 18.3696C10.0009 18.0734 10.0009 17.5933 10.2971 17.2971L13.2609 14.3333L10.2971 11.3696C10.0009 11.0734 10.0009 10.5933 10.2971 10.2971Z" fill="black"/>
+    </Svg>
+  );
+};

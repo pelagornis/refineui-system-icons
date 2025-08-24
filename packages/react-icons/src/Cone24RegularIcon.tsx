@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Cone24RegularIcon: React.FC<IconProps> = ({ 
+  size = 24, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M11.809 4.45267C12.0709 3.84911 12.9291 3.84911 13.191 4.45267L18.9414 17.7058C19.0979 18.0665 18.9262 18.4607 18.602 18.6164C14.7599 20.4612 10.2401 20.4612 6.39799 18.6164C6.07375 18.4607 5.90213 18.0665 6.05861 17.7058L11.809 4.45267ZM12.276 6.57062C12.3613 6.37414 12.6387 6.37414 12.724 6.57062L17.4517 17.4668C17.5059 17.5917 17.4483 17.7374 17.3224 17.7884C14.2402 19.0358 10.7598 19.0358 7.67757 17.7884C7.55165 17.7374 7.49406 17.5917 7.54829 17.4668L12.276 6.57062Z" fill="black"/>
+    </svg>
+  );
+};

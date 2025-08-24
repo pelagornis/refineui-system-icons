@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Checkmark16RegularIcon: React.FC<IconProps> = ({ 
+  size = 16, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.91196 3.0881C10.0293 3.20556 10.0293 3.396 9.91196 3.51346L5.15224 8.27637C4.85427 8.57454 4.37116 8.57454 4.07319 8.27637L2.08804 6.28989C1.97065 6.17243 1.97065 5.98198 2.08804 5.86452C2.20542 5.74706 2.39574 5.74706 2.51312 5.86452L4.49827 7.85101C4.56148 7.91425 4.66396 7.91425 4.72716 7.851L9.48688 3.0881C9.60426 2.97063 9.79458 2.97063 9.91196 3.0881Z" fill="black"/>
+    </svg>
+  );
+};

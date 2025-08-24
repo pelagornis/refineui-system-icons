@@ -1,0 +1,22 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Book32FilledIcon: React.FC<IconProps> = ({ 
+  size = 32, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 32 32"
+      fill="none"
+      {{...props}}
+    >
+      width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M22.2667 23.2H10.4333C10.0467 23.2 9.73333 23.5134 9.73333 23.9C9.73333 24.2866 10.0467 24.6 10.4333 24.6H23.1333C23.612 24.6 24 24.988 24 25.4667C24 25.9453 23.612 26.3333 23.1333 26.3333H9.33333C8.59695 26.3333 8 25.7364 8 25V6.33333C8 5.59695 8.59695 5 9.33333 5H22.6667C23.403 5 24 5.59695 24 6.33333V21.4667C24 22.424 23.224 23.2 22.2667 23.2ZM10.6667 10.3333C10.6667 8.86057 11.8606 7.66667 13.3333 7.66667H18.6667C20.1394 7.66667 21.3333 8.86057 21.3333 10.3333C21.3333 11.8061 20.1394 13 18.6667 13H13.3333C11.8606 13 10.6667 11.8061 10.6667 10.3333Z" fill="black"/>
+    </Svg>
+  );
+};

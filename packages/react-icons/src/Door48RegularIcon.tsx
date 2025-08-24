@@ -1,0 +1,23 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Door48RegularIcon: React.FC<IconProps> = ({ 
+  size = 48, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 48 48"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M20 24C20 25.1046 19.1046 26 18 26C16.8954 26 16 25.1046 16 24C16 22.8954 16.8954 22 18 22C19.1046 22 20 22.8954 20 24Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12 12C12 9.79086 13.7909 8 16 8H32C34.2091 8 36 9.79086 36 12V36C36 38.2091 34.2091 40 32 40H16C13.7909 40 12 38.2091 12 36V12ZM16 10.6H32C32.7732 10.6 33.4 11.2268 33.4 12V36C33.4 36.7732 32.7732 37.4 32 37.4H16C15.2268 37.4 14.6 36.7732 14.6 36V12C14.6 11.2268 15.2268 10.6 16 10.6Z" fill="black"/>
+    </svg>
+  );
+};

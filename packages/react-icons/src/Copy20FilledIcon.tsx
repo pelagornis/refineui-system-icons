@@ -1,0 +1,23 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Copy20FilledIcon: React.FC<IconProps> = ({ 
+  size = 20, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.33333 3C6.41286 3 5.66667 3.74619 5.66667 4.66667V13C5.66667 13.9205 6.41286 14.6667 7.33333 14.6667H14C14.9205 14.6667 15.6667 13.9205 15.6667 13V4.66667C15.6667 3.74619 14.9205 3 14 3H7.33333Z" fill="black"/>
+<path d="M13.4612 16.3319C13.7603 16.3319 14.0029 16.0894 14.0029 15.7902C14.0029 15.4911 13.7603 15.2485 13.4612 15.2485L6.20833 15.2485C5.58701 15.2485 5.08333 14.7449 5.08333 14.1235L5.08333 5.20833C5.08333 4.90918 4.84082 4.66667 4.54167 4.66667C4.24251 4.66667 4 4.90918 4 5.20833V14.1235C4 15.3432 4.9887 16.3319 6.20833 16.3319H13.4612Z" fill="black"/>
+    </svg>
+  );
+};

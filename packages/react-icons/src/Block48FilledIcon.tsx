@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Block48FilledIcon: React.FC<IconProps> = ({ 
+  size = 48, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 48 48"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M35.8183 33.9665C36.0249 34.1731 36.3645 34.1597 36.546 33.9307C38.7086 31.2023 40 27.7519 40 24C40 15.1634 32.8366 8 24 8C20.2481 8 16.7977 9.29142 14.0693 11.454C13.8403 11.6355 13.8269 11.9751 14.0335 12.1817L35.8183 33.9665ZM33.9665 35.8183C34.1731 36.0249 34.1597 36.3645 33.9307 36.546C31.2023 38.7086 27.7519 40 24 40C15.1634 40 8 32.8366 8 24C8 20.2481 9.29142 16.7977 11.454 14.0693C11.6355 13.8403 11.9751 13.8269 12.1817 14.0335L33.9665 35.8183Z" fill="black"/>
+    </svg>
+  );
+};

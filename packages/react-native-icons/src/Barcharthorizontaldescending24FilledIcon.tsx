@@ -1,0 +1,24 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Barcharthorizontaldescending24FilledIcon: React.FC<IconProps> = ({ 
+  size = 24, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 24 24"
+      fill="none"
+      {{...props}}
+    >
+      width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M6 20C4.89543 20 4 19.1046 4 18C4 16.8954 4.89543 16 6 16H11C12.1046 16 13 16.8954 13 18C13 19.1046 12.1046 20 11 20H6Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M6 14C4.89543 14 4 13.1046 4 12C4 10.8954 4.89543 10 6 10L14 10C15.1046 10 16 10.8954 16 12C16 13.1046 15.1046 14 14 14L6 14Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M4 6C4 7.10457 4.89543 8 6 8L18 8C19.1046 8 20 7.10457 20 6C20 4.89543 19.1046 4 18 4L6 4C4.89543 4 4 4.89543 4 6Z" fill="black"/>
+    </Svg>
+  );
+};

@@ -1,0 +1,23 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Documentborder28RegularIcon: React.FC<IconProps> = ({ 
+  size = 28, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 28 28"
+      fill="none"
+      {{...props}}
+    >
+      width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M9.33333 8.5C9.33333 7.85567 9.85567 7.33333 10.5 7.33333H17.5C18.1443 7.33333 18.6667 7.85567 18.6667 8.5V20.1667C18.6667 20.811 18.1443 21.3333 17.5 21.3333H10.5C9.85567 21.3333 9.33333 20.811 9.33333 20.1667V8.5ZM11.4333 19.8167C11.1112 19.8167 10.85 19.5555 10.85 19.2333V9.43333C10.85 9.11117 11.1112 8.85 11.4333 8.85H16.5667C16.8888 8.85 17.15 9.11117 17.15 9.43333V19.2333C17.15 19.5555 16.8888 19.8167 16.5667 19.8167H11.4333Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7 7.33333C7 6.04467 8.04467 5 9.33333 5H18.6667C19.9553 5 21 6.04467 21 7.33333V21.3333C21 22.622 19.9553 23.6667 18.6667 23.6667H9.33333C8.04467 23.6667 7 22.622 7 21.3333V7.33333ZM9.33333 6.51667H18.6667C19.1177 6.51667 19.4833 6.8823 19.4833 7.33333V21.3333C19.4833 21.7844 19.1177 22.15 18.6667 22.15H9.33333C8.8823 22.15 8.51667 21.7844 8.51667 21.3333V7.33333C8.51667 6.8823 8.8823 6.51667 9.33333 6.51667Z" fill="black"/>
+    </Svg>
+  );
+};

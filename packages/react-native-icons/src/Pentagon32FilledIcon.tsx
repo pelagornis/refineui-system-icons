@@ -1,0 +1,22 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Pentagon32FilledIcon: React.FC<IconProps> = ({ 
+  size = 32, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 32 32"
+      fill="none"
+      {{...props}}
+    >
+      width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M14.8399 6.27857L5.53527 13.359C5.07721 13.7075 4.88903 14.3056 5.06541 14.8523L8.35862 25.0585C8.53966 25.6195 9.06361 26 9.65522 26H21.6781C22.2697 26 22.7937 25.6195 22.9747 25.0585L26.2679 14.8523C26.4443 14.3056 26.2561 13.7075 25.7981 13.359L16.4934 6.27857C16.0053 5.90714 15.328 5.90714 14.8399 6.27857Z" fill="black"/>
+    </Svg>
+  );
+};

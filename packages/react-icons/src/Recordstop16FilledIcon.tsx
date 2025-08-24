@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Recordstop16FilledIcon: React.FC<IconProps> = ({ 
+  size = 16, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M8.33333 13.6667C11.2789 13.6667 13.6667 11.2789 13.6667 8.33333C13.6667 5.38781 11.2789 3 8.33333 3C5.38781 3 3 5.38781 3 8.33333C3 11.2789 5.38781 13.6667 8.33333 13.6667ZM6.83333 6.33333C6.55719 6.33333 6.33333 6.55719 6.33333 6.83333V9.83333C6.33333 10.1095 6.55719 10.3333 6.83333 10.3333H9.83333C10.1095 10.3333 10.3333 10.1095 10.3333 9.83333V6.83333C10.3333 6.55719 10.1095 6.33333 9.83333 6.33333H6.83333Z" fill="black"/>
+    </svg>
+  );
+};

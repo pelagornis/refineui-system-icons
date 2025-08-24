@@ -1,0 +1,22 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Portmicrousb20RegularIcon: React.FC<IconProps> = ({ 
+  size = 20, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 20 20"
+      fill="none"
+      {{...props}}
+    >
+      width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M6.1956 8.29875C6.36268 8.11043 6.60277 8 6.85798 8H12.8087C13.0639 8 13.304 8.11043 13.4711 8.29875L15.2584 10.3131C16.16 11.3292 15.4803 13.0017 14.0815 13.0017H5.58521C4.18637 13.0017 3.5067 11.3292 4.40829 10.3131L6.1956 8.29875ZM7.3223 9.08319C7.08404 9.08319 6.85718 9.18519 6.69905 9.36341L5.21853 11.032C4.90188 11.3889 5.17301 11.9185 5.58521 11.9185H14.0815C14.4937 11.9185 14.7648 11.3889 14.4481 11.032L12.9676 9.36341C12.8095 9.18519 12.5826 9.08319 12.3444 9.08319H7.3223Z" fill="black"/>
+    </Svg>
+  );
+};

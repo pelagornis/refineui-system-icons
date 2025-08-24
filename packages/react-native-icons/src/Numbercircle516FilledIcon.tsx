@@ -1,0 +1,22 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Numbercircle516FilledIcon: React.FC<IconProps> = ({ 
+  size = 16, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 16 16"
+      fill="none"
+      {{...props}}
+    >
+      width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M8.33333 13.6667C11.2789 13.6667 13.6667 11.2789 13.6667 8.33333C13.6667 5.38781 11.2789 3 8.33333 3C5.38781 3 3 5.38781 3 8.33333C3 11.2789 5.38781 13.6667 8.33333 13.6667ZM7.73333 5.9C7.35043 5.9 6.9 6.17263 6.9 6.66667V7.66667C6.9 8.16071 7.35043 8.43333 7.73333 8.43333H8.9V9.9H7.33333C7.09401 9.9 6.9 10.094 6.9 10.3333C6.9 10.5727 7.09401 10.7667 7.33333 10.7667H8.93333C9.31624 10.7667 9.76667 10.494 9.76667 10V8.33333C9.76667 7.83929 9.31624 7.56667 8.93333 7.56667H7.76667V6.76667H9.33333C9.57266 6.76667 9.76667 6.57266 9.76667 6.33333C9.76667 6.09401 9.57266 5.9 9.33333 5.9H7.73333Z" fill="black"/>
+    </Svg>
+  );
+};

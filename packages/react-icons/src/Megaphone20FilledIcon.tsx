@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Megaphone20FilledIcon: React.FC<IconProps> = ({ 
+  size = 20, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M16.3295 5.50431C16.3295 4.42262 15.223 3.72215 14.2387 4.10636L3.60987 8.25524C3.2421 8.39879 3 8.75319 3 9.14799V10.5644C3 10.9592 3.2421 11.3136 3.60987 11.4572L5.16702 12.065C4.96643 12.4617 4.85375 12.9086 4.85375 13.3996C4.85375 15.1119 6.22445 16.5 7.9153 16.5C9.30287 16.5 10.4748 15.5652 10.8506 14.2835L14.2387 15.6061C15.223 15.9903 16.3295 15.2898 16.3295 14.2081V5.50431ZM9.82433 13.9314L6.17476 12.4771C6.01988 12.7514 5.93711 13.0587 5.93711 13.3996C5.93711 14.5265 6.83562 15.4166 7.9153 15.4166C8.81813 15.4166 9.59429 14.7942 9.82433 13.9314Z" fill="black"/>
+    </svg>
+  );
+};

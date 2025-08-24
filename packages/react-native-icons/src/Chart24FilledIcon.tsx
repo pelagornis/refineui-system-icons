@@ -1,0 +1,23 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Chart24FilledIcon: React.FC<IconProps> = ({ 
+  size = 24, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 24 24"
+      fill="none"
+      {{...props}}
+    >
+      width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5.3 4.65C5.3 4.29101 5.00899 4 4.65 4C4.29101 4 4 4.29101 4 4.65V18.3506C4 19.2619 4.73873 20.0006 5.65 20.0006H19.3506C19.7096 20.0006 20.0006 19.7096 20.0006 19.3506C20.0006 18.9917 19.7096 18.7006 19.3506 18.7006H5.65C5.4567 18.7006 5.3 18.5439 5.3 18.3506V4.65Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M19.3531 6.55711C19.3531 5.53257 18.1143 5.01948 17.3899 5.74393L12.8966 10.2372L11.3097 8.6503C10.9366 8.27716 10.3574 8.20586 9.90485 8.47735L6.61139 10.4534C6.26501 10.6613 6.05306 11.0356 6.05306 11.4395V17.1C6.05306 17.5971 6.45601 18 6.95306 18H18.4531C18.9501 18 19.3531 17.5971 19.3531 17.1V6.55711Z" fill="black"/>
+    </Svg>
+  );
+};

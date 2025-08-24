@@ -1,0 +1,22 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Comment32FilledIcon: React.FC<IconProps> = ({ 
+  size = 32, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 32 32"
+      fill="none"
+      {{...props}}
+    >
+      width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M9 25.3072C9 25.887 9.64662 26.2094 10.0831 25.8472L15.6301 21.244C15.6538 21.2244 15.6832 21.2137 15.7134 21.2137H23.6667C25.1394 21.2137 26.3333 19.9753 26.3333 18.4476V8.76613C26.3333 7.23844 25.1394 6 23.6667 6H7.66667C6.19391 6 5 7.23844 5 8.76613V18.4476C5 19.9753 6.19391 21.2137 7.66667 21.2137H8.86667C8.94031 21.2137 9 21.2756 9 21.352V25.3072Z" fill="black"/>
+    </Svg>
+  );
+};

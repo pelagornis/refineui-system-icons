@@ -1,0 +1,22 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Mouse48FilledIcon: React.FC<IconProps> = ({ 
+  size = 48, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 48 48"
+      fill="none"
+      {{...props}}
+    >
+      width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M22.7 20V9C22.7 8.44772 22.2523 8 21.7 8H20C15.5817 8 12 11.5817 12 16V28C12 34.6274 17.3726 40 24 40C30.6274 40 36 34.6274 36 28V16C36 11.5817 32.4183 8 28 8H26.3C25.7477 8 25.3 8.44772 25.3 9V20C25.3 20.718 24.718 21.3 24 21.3C23.282 21.3 22.7 20.718 22.7 20Z" fill="black"/>
+    </Svg>
+  );
+};

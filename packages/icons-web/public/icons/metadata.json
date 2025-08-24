@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "totalIcons": 2724,
+  "totalIcons": 2723,
   "sizes": [
     16,
     20,
@@ -12589,14 +12589,6 @@
       "style": "regular",
       "fileName": "mouse-regular.svg",
       "url": "/icons/48/mouse-regular.svg"
-    },
-    {
-      "name": "Movie",
-      "slug": "movie",
-      "size": 16,
-      "style": "filled",
-      "fileName": "movie-filled.svg",
-      "url": "/icons/16/movie-filled.svg"
     },
     {
       "name": "Movie",

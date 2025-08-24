@@ -25,10 +25,7 @@
             android:exported="true"
             android:label="Icon List" />
             
-        <activity
-            android:name="com.pelagornis.refineui.mobile.icons.example.TestActivity"
-            android:exported="true"
-            android:label="Icon Test" />
+
     </application>
 
 </manifest>

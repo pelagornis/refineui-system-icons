@@ -1,0 +1,23 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Joystick48FilledIcon: React.FC<IconProps> = ({ 
+  size = 48, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 48 48"
+      fill="none"
+      {{...props}}
+    >
+      width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M25.3 20.8588C27.9887 20.2649 30 17.8673 30 15C30 11.6863 27.3137 9 24 9C20.6863 9 18 11.6863 18 15C18 17.8673 20.0113 20.2649 22.7 20.8588V26H21.4468C19.5432 26 18 27.2088 18 28.7V29.846H30V28.7C30 27.2088 28.4568 26 26.5532 26H25.3V20.8588Z" fill="black"/>
+<path d="M14 31C12.8954 31 12 31.8954 12 33V37C12 38.1046 12.8954 39 14 39H34C35.1046 39 36 38.1046 36 37V33C36 31.8954 35.1046 31 34 31H14Z" fill="black"/>
+    </Svg>
+  );
+};

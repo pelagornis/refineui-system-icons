@@ -1,0 +1,23 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Alert48FilledIcon: React.FC<IconProps> = ({ 
+  size = 48, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 48 48"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M24 8C30.3342 8 35.469 13.3726 35.469 20V24.5881C35.469 25.2522 35.627 25.9059 35.9289 26.4902L37.7674 30.049C38.4558 31.3815 37.5335 33 36.0858 33H11.9142C10.4665 33 9.54423 31.3815 10.2326 30.049L12.0711 26.4902C12.373 25.9059 12.531 25.2522 12.531 24.5881V20C12.531 13.3726 17.6659 8 24 8Z" fill="black"/>
+<path d="M28.0549 38.2426C29.1304 37.1174 29.7345 35.5913 29.7345 34H18.2655C18.2655 35.5913 18.8697 37.1174 19.9451 38.2426C21.0205 39.3679 22.4791 40 24 40C25.5209 40 26.9795 39.3679 28.0549 38.2426Z" fill="black"/>
+    </svg>
+  );
+};

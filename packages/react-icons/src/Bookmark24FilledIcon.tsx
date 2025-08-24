@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Bookmark24FilledIcon: React.FC<IconProps> = ({ 
+  size = 24, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6 6.07342C6 4.9283 6.89543 4 8 4H16C17.1046 4 18 4.9283 18 6.07342V19.4807C18 19.9201 17.5056 20.1602 17.1799 19.8789L12.3201 15.6803C12.1347 15.5202 11.8653 15.5202 11.6799 15.6803L6.82009 19.8789C6.49443 20.1602 6 19.9201 6 19.4807V6.07342Z" fill="black"/>
+    </svg>
+  );
+};

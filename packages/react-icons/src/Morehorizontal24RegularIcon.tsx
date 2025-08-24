@@ -1,0 +1,24 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Morehorizontal24RegularIcon: React.FC<IconProps> = ({ 
+  size = 24, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5.75 10C6.71647 10 7.49995 10.7835 7.5 11.75C7.5 12.7165 6.7165 13.5 5.75 13.5C4.7835 13.5 4 12.7165 4 11.75C4.00005 10.7835 4.78353 10 5.75 10Z" fill="black"/>
+<path d="M11.75 10C12.7165 10 13.5 10.7835 13.5 11.75C13.5 12.7165 12.7165 13.5 11.75 13.5C10.7835 13.5 10 12.7165 10 11.75C10 10.7835 10.7835 10 11.75 10Z" fill="black"/>
+<path d="M17.75 10C18.7165 10 19.5 10.7835 19.5 11.75C19.5 12.7165 18.7165 13.5 17.75 13.5C16.7835 13.5 16 12.7165 16 11.75C16 10.7835 16.7835 10 17.75 10Z" fill="black"/>
+    </svg>
+  );
+};

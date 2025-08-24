@@ -1,0 +1,24 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Pipeline28FilledIcon: React.FC<IconProps> = ({ 
+  size = 28, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 28 28"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.33333 7C6.04467 7 5 8.04467 5 9.33333V18.6667C5 19.9553 6.04467 21 7.33333 21C8.622 21 9.66667 19.9553 9.66667 18.6667V9.33333C9.66667 8.04467 8.622 7 7.33333 7Z" fill="black"/>
+<path d="M11.475 9.74167C11.3139 9.74167 11.1833 9.87225 11.1833 10.0333V17.9667C11.1833 18.1277 11.3139 18.2583 11.475 18.2583H17.1917C17.3527 18.2583 17.4833 18.1277 17.4833 17.9667V10.0333C17.4833 9.87225 17.3527 9.74167 17.1917 9.74167H11.475Z" fill="black"/>
+<path d="M19 9.33333V18.6667C19 19.9553 20.0447 21 21.3333 21C22.622 21 23.6667 19.9553 23.6667 18.6667V9.33333C23.6667 8.04467 22.622 7 21.3333 7C20.0447 7 19 8.04467 19 9.33333Z" fill="black"/>
+    </svg>
+  );
+};

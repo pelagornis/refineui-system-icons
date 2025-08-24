@@ -1,0 +1,23 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Numbercircle424RegularIcon: React.FC<IconProps> = ({ 
+  size = 24, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 24 24"
+      fill="none"
+      {{...props}}
+    >
+      width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12 8.35C11.7615 8.35 11.5421 8.48067 11.4285 8.69042L9.42846 12.3827C9.37697 12.4778 9.35 12.5842 9.35 12.6923V13.1538C9.35 13.5128 9.64102 13.8038 10 13.8038H12.15V15C12.15 15.359 12.441 15.65 12.8 15.65C13.159 15.65 13.45 15.359 13.45 15V13.8038H14C14.359 13.8038 14.65 13.5128 14.65 13.1538C14.65 12.7949 14.359 12.5038 14 12.5038H13.45V9C13.45 8.64102 13.159 8.35 12.8 8.35H12ZM12.15 10.0878V12.5038H10.8413L12.15 10.0878Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M20 12C20 16.4183 16.4183 20 12 20C7.58172 20 4 16.4183 4 12C4 7.58172 7.58172 4 12 4C16.4183 4 20 7.58172 20 12ZM18.7 12C18.7 15.7003 15.7003 18.7 12 18.7C8.29969 18.7 5.3 15.7003 5.3 12C5.3 8.29969 8.29969 5.3 12 5.3C15.7003 5.3 18.7 8.29969 18.7 12Z" fill="black"/>
+    </Svg>
+  );
+};

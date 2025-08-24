@@ -1,0 +1,22 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Pulse24RegularIcon: React.FC<IconProps> = ({ 
+  size = 24, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 24 24"
+      fill="none"
+      {{...props}}
+    >
+      width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.98423 9.55428L8.80705 12.2468C8.62398 12.6655 8.21035 12.9361 7.75336 12.9361H4.65C4.29101 12.9361 4 12.6451 4 12.2861C4 11.9271 4.29101 11.6361 4.65 11.6361H7.65523L8.94357 8.68934C9.35969 7.73757 10.7245 7.78158 11.0784 8.75818L13.4962 15.4292L14.7019 12.365C14.8749 11.9252 15.2994 11.6361 15.772 11.6361H19.3519C19.7109 11.6361 20.0019 11.9271 20.0019 12.2861C20.0019 12.6451 19.7109 12.9361 19.3519 12.9361H15.8742L14.5605 16.2746C14.1725 17.2607 12.7703 17.2416 12.4092 16.2453L9.98423 9.55428Z" fill="black"/>
+    </Svg>
+  );
+};

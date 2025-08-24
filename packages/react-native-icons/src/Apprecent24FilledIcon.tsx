@@ -1,0 +1,24 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Apprecent24FilledIcon: React.FC<IconProps> = ({ 
+  size = 24, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 24 24"
+      fill="none"
+      {{...props}}
+    >
+      width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M14.5 4C15.6046 4 16.5 4.89543 16.5 6V18C16.5 19.1046 15.6046 20 14.5 20H9.5C8.39543 20 7.5 19.1046 7.5 18V6C7.5 4.89543 8.39543 4 9.5 4H14.5Z" fill="black"/>
+<path d="M4 8C4 6.89543 4.89543 6 6 6H6.75V18H6C4.89543 18 4 17.1046 4 16V8Z" fill="black"/>
+<path d="M18 18C19.1046 18 20 17.1046 20 16V8C20 6.89543 19.1046 6 18 6H17.25V18H18Z" fill="black"/>
+    </Svg>
+  );
+};

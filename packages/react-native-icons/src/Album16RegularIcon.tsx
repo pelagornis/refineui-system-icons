@@ -1,0 +1,23 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Album16RegularIcon: React.FC<IconProps> = ({ 
+  size = 16, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 16 16"
+      fill="none"
+      {{...props}}
+    >
+      width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M6.70058 8.335C6.70058 7.43233 7.43233 6.70058 8.335 6.70058C9.23767 6.70058 9.96942 7.43233 9.96942 8.335C9.96942 9.23767 9.23767 9.96942 8.335 9.96942C7.43233 9.96942 6.70058 9.23767 6.70058 8.335ZM8.335 7.50237C7.87515 7.50237 7.50237 7.87515 7.50237 8.335C7.50237 8.79485 7.87515 9.16763 8.335 9.16763C8.79485 9.16763 9.16763 8.79485 9.16763 8.335C9.16763 7.87515 8.79485 7.50237 8.335 7.50237Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M3 8.335C3 5.38856 5.38856 3 8.335 3C11.2814 3 13.67 5.38856 13.67 8.335C13.67 11.2814 11.2814 13.67 8.335 13.67C5.38856 13.67 3 11.2814 3 8.335ZM8.335 3.80179C5.83138 3.80179 3.80179 5.83138 3.80179 8.335C3.80179 10.8386 5.83138 12.8682 8.335 12.8682C10.8386 12.8682 12.8682 10.8386 12.8682 8.335C12.8682 5.83138 10.8386 3.80179 8.335 3.80179Z" fill="black"/>
+    </Svg>
+  );
+};

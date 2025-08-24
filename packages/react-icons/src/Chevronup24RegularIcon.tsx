@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Chevronup24RegularIcon: React.FC<IconProps> = ({ 
+  size = 24, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5.0204 16.7842C4.7722 16.9566 4.42838 16.9373 4.20106 16.7207C3.94142 16.473 3.93217 16.0614 4.17958 15.8016L11.3495 8.27883C11.6819 7.9304 12.2243 7.90845 12.5829 8.21339L12.6522 8.27883L19.8222 15.8016L19.9032 15.9051C20.0636 16.1614 20.027 16.5039 19.7997 16.7207C19.5724 16.9369 19.2294 16.9564 18.9813 16.7842L18.8807 16.6982L12.0009 9.4802L5.12001 16.6982L5.0204 16.7842Z" fill="black"/>
+    </svg>
+  );
+};

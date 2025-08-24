@@ -1,0 +1,24 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Textalignjustify48RegularIcon: React.FC<IconProps> = ({ 
+  size = 48, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 48 48"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 15.3002C9 14.5821 9.58205 14 10.3 14H37.7C38.4179 14 39 14.5821 39 15.3002C39 16.0183 38.4179 16.6004 37.7 16.6004H10.3C9.58205 16.6004 9 16.0183 9 15.3002Z" fill="black"/>
+<path d="M9 24C9 23.2819 9.58205 22.6998 10.3 22.6998H37.7C38.418 22.6998 39 23.2819 39 24C39 24.7181 38.418 25.3002 37.7 25.3002H10.3C9.58205 25.3002 9 24.7181 9 24Z" fill="black"/>
+<path d="M10.3 31.3996C9.58205 31.3996 9 31.9817 9 32.6998C9 33.4179 9.58205 34 10.3 34H37.7C38.4179 34 39 33.4179 39 32.6998C39 31.9817 38.4179 31.3996 37.7 31.3996H10.3Z" fill="black"/>
+    </svg>
+  );
+};

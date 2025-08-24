@@ -1,0 +1,23 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Hatgraduation48FilledIcon: React.FC<IconProps> = ({ 
+  size = 48, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 48 48"
+      fill="none"
+      {{...props}}
+    >
+      width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M25.6023 10.2942C24.9031 9.90194 24.0503 9.90194 23.3513 10.2942L8 18.907V29.2474C8 29.9653 8.58202 30.5473 9.30003 30.5473C10.018 30.5473 10.6001 29.9653 10.6001 29.2474V22.0258L23.249 30.0097C23.999 30.4831 24.9543 30.4831 25.7043 30.0097L38.9278 21.6634C40.4014 20.7332 40.3455 18.5658 38.8255 17.7131L25.6023 10.2942Z" fill="black"/>
+<path d="M25.6335 32.0112L34.8119 26.218V32.1224C34.8119 32.5864 34.672 33.0886 34.3314 33.5115C32.9579 35.2163 29.4723 37.9996 24.406 37.9996C19.3394 37.9996 15.8541 35.2163 14.4806 33.5115C14.1398 33.0886 13.9999 32.5864 13.9999 32.1224V26.218L23.1782 32.0112C23.9282 32.4846 24.8835 32.4846 25.6335 32.0112Z" fill="black"/>
+    </Svg>
+  );
+};

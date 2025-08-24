@@ -1,0 +1,22 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Mailread28RegularIcon: React.FC<IconProps> = ({ 
+  size = 28, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 28 28"
+      fill="none"
+      {{...props}}
+    >
+      width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M13.6682 5.17693C14.0807 4.94112 14.5871 4.94102 14.9996 5.17666L23.0801 9.79238C23.4436 10.0001 23.668 10.3867 23.668 10.8054V22.3251C23.668 23.066 23.0674 23.6667 22.3264 23.6667H6.3416C5.60065 23.6667 5 23.066 5 22.3251V10.8099C5 10.3913 5.22421 10.0048 5.58756 9.7971L13.6682 5.17693ZM14.4789 6.62582C14.3892 6.5746 14.2792 6.57462 14.1895 6.62588L7.55562 10.4188C7.3711 10.5243 7.35778 10.7854 7.53061 10.9092L14.1629 15.6572C14.2645 15.7298 14.401 15.7298 14.5025 15.6571L21.1372 10.9052C21.31 10.7814 21.2966 10.5202 21.1121 10.4148L14.4789 6.62582ZM22.1514 12.0442L15.114 17.0847C14.647 17.4191 14.0189 17.4192 13.5518 17.0848L6.51659 12.0484V22.1501H22.1514V12.0442Z" fill="black"/>
+    </Svg>
+  );
+};

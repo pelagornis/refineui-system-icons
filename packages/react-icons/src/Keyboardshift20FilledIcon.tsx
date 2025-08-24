@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Keyboardshift20FilledIcon: React.FC<IconProps> = ({ 
+  size = 20, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M10.3818 3.31588C9.99934 2.89471 9.334 2.89471 8.95155 3.31588L3.35954 9.47409C2.54734 10.3685 3.20606 11.7633 4.38866 11.7633H6.17562V14.9583C6.17562 15.7231 6.80272 16.33 7.55999 16.33H11.7733C12.5306 16.33 13.1577 15.7231 13.1577 14.9583V11.7633H14.9447C16.1273 11.7633 16.786 10.3685 15.9738 9.47409L10.3818 3.31588Z" fill="black"/>
+    </svg>
+  );
+};

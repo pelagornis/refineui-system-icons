@@ -1,0 +1,23 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Laptop24RegularIcon: React.FC<IconProps> = ({ 
+  size = 24, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M6 7C6 6.44772 6.44772 6 7 6H17C17.5523 6 18 6.44772 18 7V14C18 14.5523 17.5523 15 17 15H7C6.44772 15 6 14.5523 6 14V7ZM7.55 13.7C7.41193 13.7 7.3 13.5881 7.3 13.45V7.55C7.3 7.41193 7.41193 7.3 7.55 7.3H16.45C16.5881 7.3 16.7 7.41193 16.7 7.55V13.45C16.7 13.5881 16.5881 13.7 16.45 13.7H7.55Z" fill="black"/>
+<path d="M4.65 16C4.29101 16 4 16.291 4 16.65C4 17.009 4.29101 17.3 4.65 17.3H19.35C19.709 17.3 20 17.009 20 16.65C20 16.291 19.709 16 19.35 16H4.65Z" fill="black"/>
+    </svg>
+  );
+};

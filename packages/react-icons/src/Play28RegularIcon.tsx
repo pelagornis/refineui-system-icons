@@ -1,0 +1,22 @@
+import React from 'react';
+import { IconProps } from './types';
+
+export const Play28RegularIcon: React.FC<IconProps> = ({ 
+  size = 28, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 28 28"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {{...props}}
+    >
+      width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M22.9678 15.464C23.8996 14.9981 23.8996 13.6685 22.9678 13.2027L6.82977 5.13509C5.98911 4.71483 5 5.32603 5 6.26575V22.4009C5 23.3406 5.98911 23.9518 6.82977 23.5316L22.9678 15.464ZM20.7939 14.8551C21.2239 14.6401 21.2239 14.0265 20.7939 13.8116L7.36084 7.0962C6.97298 6.90231 6.51667 7.18434 6.51667 7.61797L6.51667 21.0487C6.51667 21.4823 6.97298 21.7644 7.36084 21.5705L20.7939 14.8551Z" fill="black"/>
+    </svg>
+  );
+};

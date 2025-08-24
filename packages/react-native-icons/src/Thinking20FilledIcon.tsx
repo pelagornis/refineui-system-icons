@@ -1,0 +1,24 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Thinking20FilledIcon: React.FC<IconProps> = ({ 
+  size = 20, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 20 20"
+      fill="none"
+      {{...props}}
+    >
+      width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M3.83333 4.66667C3.83333 3.74619 4.57953 3 5.5 3H14.6667C15.5871 3 16.3333 3.74619 16.3333 4.66667V9.25C16.3333 10.1705 15.5871 10.9167 14.6667 10.9167H5.5C4.57953 10.9167 3.83333 10.1705 3.83333 9.25V4.66667Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M6.33333 14.6667C7.25381 14.6667 8 13.9205 8 13C8 12.0795 7.25381 11.3333 6.33333 11.3333C5.41286 11.3333 4.66667 12.0795 4.66667 13C4.66667 13.9205 5.41286 14.6667 6.33333 14.6667Z" fill="black"/>
+<path d="M4.875 15.3958C4.875 15.9136 4.45527 16.3333 3.9375 16.3333C3.41973 16.3333 3 15.9136 3 15.3958C3 14.8781 3.41973 14.4583 3.9375 14.4583C4.45527 14.4583 4.875 14.8781 4.875 15.3958Z" fill="black"/>
+    </Svg>
+  );
+};

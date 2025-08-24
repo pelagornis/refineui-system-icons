@@ -1,0 +1,22 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Phone32FilledIcon: React.FC<IconProps> = ({ 
+  size = 32, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 32 32"
+      fill="none"
+      {{...props}}
+    >
+      width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M11.6667 5C10.1939 5 9 6.19391 9 7.66667V23.6667C9 25.1394 10.1939 26.3333 11.6667 26.3333H19.6667C21.1394 26.3333 22.3333 25.1394 22.3333 23.6667V7.66667C22.3333 6.19391 21.1394 5 19.6667 5H11.6667ZM16.6667 7.66667H14.6667C14.1144 7.66667 13.6667 8.11438 13.6667 8.66667C13.6667 9.21895 14.1144 9.66667 14.6667 9.66667H16.6667C17.219 9.66667 17.6667 9.21895 17.6667 8.66667C17.6667 8.11438 17.219 7.66667 16.6667 7.66667Z" fill="black"/>
+    </Svg>
+  );
+};

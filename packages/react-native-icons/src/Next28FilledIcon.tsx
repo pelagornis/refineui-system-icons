@@ -1,0 +1,23 @@
+import React from 'react';
+import Svg, { Path, Circle, Rect, Line, Polyline, Polygon } from 'react-native-svg';
+import { IconProps } from './types';
+
+export const Next28FilledIcon: React.FC<IconProps> = ({ 
+  size = 28, 
+  color = 'currentColor', 
+  ...props 
+}) => {
+  return (
+    <Svg
+      width="{{size}}"
+      height="{{size}}"
+      viewBox="0 0 28 28"
+      fill="none"
+      {{...props}}
+    >
+      width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M19.9785 13.2918C20.7012 13.7372 20.7012 14.7499 19.9785 15.1952L6.8184 23.3055C6.03297 23.7895 5 23.2489 5 22.3537V6.13325C5 5.23812 6.03297 4.6975 6.8184 5.18154L19.9785 13.2918Z" fill="black"/>
+<path d="M23.6667 6.15544C23.6667 5.73661 23.3271 5.39708 22.9083 5.39708C22.4895 5.39708 22.1499 5.73661 22.1499 6.15544V22.9093C22.1499 23.3281 22.4895 23.6676 22.9083 23.6676C23.3271 23.6676 23.6667 23.3281 23.6667 22.9093V6.15544Z" fill="black"/>
+    </Svg>
+  );
+};
