@@ -9,7 +9,7 @@ export interface IconProps {
 }
 
 // Icon Components
-export const GavelRegularIcon: React.FC<IconProps> = ({
+export const GavelFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -19,16 +19,16 @@ export const GavelRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰀂
+      󰀀
     </span>
   );
 };
-export const DiamondRegularIcon: React.FC<IconProps> = ({
+export const DiamondFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -38,7 +38,7 @@ export const DiamondRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -47,7 +47,7 @@ export const DiamondRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const FilmstripRegularIcon: React.FC<IconProps> = ({
+export const FilmstripFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -57,16 +57,16 @@ export const FilmstripRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰀍
+      󰀏
     </span>
   );
 };
-export const OrganizationRegularIcon: React.FC<IconProps> = ({
+export const OrganizationFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -76,16 +76,16 @@ export const OrganizationRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰀕
+      󰀒
     </span>
   );
 };
-export const CodeBlockRegularIcon: React.FC<IconProps> = ({
+export const CodeBlockFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -95,16 +95,16 @@ export const CodeBlockRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰀚
+      󰀛
     </span>
   );
 };
-export const FullScreenMinimizeRegularIcon: React.FC<IconProps> = ({
+export const FullScreenMinimizeFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -114,7 +114,7 @@ export const FullScreenMinimizeRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -123,7 +123,7 @@ export const FullScreenMinimizeRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const ShellScriptRegularIcon: React.FC<IconProps> = ({
+export const ShellScriptFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -133,16 +133,16 @@ export const ShellScriptRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰀨
+      󰀧
     </span>
   );
 };
-export const PauseRegularIcon: React.FC<IconProps> = ({
+export const PauseFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -152,7 +152,7 @@ export const PauseRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -161,7 +161,7 @@ export const PauseRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const PortUsbCRegularIcon: React.FC<IconProps> = ({
+export const PortUsbCFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -171,16 +171,16 @@ export const PortUsbCRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰀱
+      󰀰
     </span>
   );
 };
-export const KeyboardShiftUppercaseRegularIcon: React.FC<IconProps> = ({
+export const KeyboardShiftUppercaseFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -190,16 +190,16 @@ export const KeyboardShiftUppercaseRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰀺
+      󰀹
     </span>
   );
 };
-export const LineHorizontal1RegularIcon: React.FC<IconProps> = ({
+export const LineHorizontal1FilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -209,16 +209,16 @@ export const LineHorizontal1RegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰀿
+      󰁁
     </span>
   );
 };
-export const VoteRegularIcon: React.FC<IconProps> = ({
+export const VoteFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -228,16 +228,16 @@ export const VoteRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰁆
+      󰁇
     </span>
   );
 };
-export const PowerRegularIcon: React.FC<IconProps> = ({
+export const PowerFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -247,16 +247,16 @@ export const PowerRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰁉
+      󰁊
     </span>
   );
 };
-export const PreviewLinkRegularIcon: React.FC<IconProps> = ({
+export const PreviewLinkFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -266,16 +266,16 @@ export const PreviewLinkRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰁏
+      󰁓
     </span>
   );
 };
-export const CrownRegularIcon: React.FC<IconProps> = ({
+export const CrownFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -285,16 +285,16 @@ export const CrownRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰁗
+      󰁖
     </span>
   );
 };
-export const ShieldRegularIcon: React.FC<IconProps> = ({
+export const ShieldFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -304,16 +304,16 @@ export const ShieldRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰁛
+      󰁝
     </span>
   );
 };
-export const NoteRegularIcon: React.FC<IconProps> = ({
+export const NoteFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -323,16 +323,16 @@ export const NoteRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰁢
+      󰁠
     </span>
   );
 };
-export const OrientationRegularIcon: React.FC<IconProps> = ({
+export const OrientationFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -342,16 +342,16 @@ export const OrientationRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰁩
+      󰁦
     </span>
   );
 };
-export const SettingsRegularIcon: React.FC<IconProps> = ({
+export const SettingsFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -361,16 +361,16 @@ export const SettingsRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰁮
+      󰁱
     </span>
   );
 };
-export const HomeRegularIcon: React.FC<IconProps> = ({
+export const HomeFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -380,16 +380,16 @@ export const HomeRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰁵
+      󰁲
     </span>
   );
 };
-export const DatabaseRegularIcon: React.FC<IconProps> = ({
+export const DatabaseFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -399,16 +399,16 @@ export const DatabaseRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰁽
+      󰁺
     </span>
   );
 };
-export const OptionsRegularIcon: React.FC<IconProps> = ({
+export const OptionsFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -418,16 +418,16 @@ export const OptionsRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰂁
+      󰂀
     </span>
   );
 };
-export const DustRegularIcon: React.FC<IconProps> = ({
+export const DustFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -437,16 +437,16 @@ export const DustRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰂈
+      󰂆
     </span>
   );
 };
-export const LuggageRegularIcon: React.FC<IconProps> = ({
+export const LuggageFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -456,16 +456,16 @@ export const LuggageRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰂍
+      󰂏
     </span>
   );
 };
-export const FlipVerticialRegularIcon: React.FC<IconProps> = ({
+export const FlipVerticialFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -475,16 +475,16 @@ export const FlipVerticialRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰂑
+      󰂒
     </span>
   );
 };
-export const AutosumRegularIcon: React.FC<IconProps> = ({
+export const AutosumFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -494,7 +494,7 @@ export const AutosumRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -503,7 +503,7 @@ export const AutosumRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const PipelineRegularIcon: React.FC<IconProps> = ({
+export const PipelineFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -513,16 +513,16 @@ export const PipelineRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰂞
+      󰂜
     </span>
   );
 };
-export const DrawerRegularIcon: React.FC<IconProps> = ({
+export const DrawerFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -532,7 +532,7 @@ export const DrawerRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -541,7 +541,7 @@ export const DrawerRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const NextRegularIcon: React.FC<IconProps> = ({
+export const NextFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -551,16 +551,16 @@ export const NextRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰂭
+      󰂫
     </span>
   );
 };
-export const MoreVerticialRegularIcon: React.FC<IconProps> = ({
+export const MoreVerticialFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -570,16 +570,16 @@ export const MoreVerticialRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰂱
+      󰂰
     </span>
   );
 };
-export const TabletRegularIcon: React.FC<IconProps> = ({
+export const TabletFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -589,16 +589,16 @@ export const TabletRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰂷
+      󰂶
     </span>
   );
 };
-export const PianoRegularIcon: React.FC<IconProps> = ({
+export const PianoFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -608,16 +608,16 @@ export const PianoRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰂾
+      󰂽
     </span>
   );
 };
-export const AppFolderRegularIcon: React.FC<IconProps> = ({
+export const AppFolderFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -627,16 +627,16 @@ export const AppFolderRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰃁
+      󰃃
     </span>
   );
 };
-export const LockClosedRegularIcon: React.FC<IconProps> = ({
+export const LockClosedFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -646,7 +646,7 @@ export const LockClosedRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -655,7 +655,7 @@ export const LockClosedRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const FlagRegularIcon: React.FC<IconProps> = ({
+export const FlagFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -665,16 +665,16 @@ export const FlagRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰃐
+      󰃎
     </span>
   );
 };
-export const NumberSymbolRegularIcon: React.FC<IconProps> = ({
+export const NumberSymbolFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -684,7 +684,7 @@ export const NumberSymbolRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -693,7 +693,7 @@ export const NumberSymbolRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const VideoRegularIcon: React.FC<IconProps> = ({
+export const VideoFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -703,16 +703,16 @@ export const VideoRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰃜
+      󰃚
     </span>
   );
 };
-export const EditOffRegularIcon: React.FC<IconProps> = ({
+export const EditOffFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -722,16 +722,16 @@ export const EditOffRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰃟
+      󰃞
     </span>
   );
 };
-export const BalloonRegularIcon: React.FC<IconProps> = ({
+export const BalloonFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -741,16 +741,16 @@ export const BalloonRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰃤
+      󰃩
     </span>
   );
 };
-export const MovieRegularIcon: React.FC<IconProps> = ({
+export const MovieFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -760,16 +760,16 @@ export const MovieRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰃭
+      󰃮
     </span>
   );
 };
-export const HammerRegularIcon: React.FC<IconProps> = ({
+export const HammerFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -779,16 +779,16 @@ export const HammerRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰃴
+      󰃲
     </span>
   );
 };
-export const MoreCircleRegularIcon: React.FC<IconProps> = ({
+export const MoreCircleFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -798,7 +798,7 @@ export const MoreCircleRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -807,7 +807,7 @@ export const MoreCircleRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const GasRegularIcon: React.FC<IconProps> = ({
+export const GasFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -817,16 +817,16 @@ export const GasRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰄀
+      󰃾
     </span>
   );
 };
-export const PasswordRegularIcon: React.FC<IconProps> = ({
+export const PasswordFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -836,7 +836,7 @@ export const PasswordRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -845,7 +845,7 @@ export const PasswordRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const ChevronLeftRegularIcon: React.FC<IconProps> = ({
+export const ChevronLeftFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -855,16 +855,16 @@ export const ChevronLeftRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰄋
+      󰄌
     </span>
   );
 };
-export const OpenOffRegularIcon: React.FC<IconProps> = ({
+export const OpenOffFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -874,16 +874,16 @@ export const OpenOffRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰄑
+      󰄒
     </span>
   );
 };
-export const PinRegularIcon: React.FC<IconProps> = ({
+export const PinFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -893,16 +893,16 @@ export const PinRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰄖
+      󰄘
     </span>
   );
 };
-export const SerialPortRegularIcon: React.FC<IconProps> = ({
+export const SerialPortFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -912,16 +912,16 @@ export const SerialPortRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰄝
+      󰄜
     </span>
   );
 };
-export const EyeRegularIcon: React.FC<IconProps> = ({
+export const EyeFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -931,16 +931,16 @@ export const EyeRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰄣
+      󰄤
     </span>
   );
 };
-export const ZoomOutRegularIcon: React.FC<IconProps> = ({
+export const ZoomOutFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -950,16 +950,16 @@ export const ZoomOutRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰄩
+      󰄪
     </span>
   );
 };
-export const MacosRegularIcon: React.FC<IconProps> = ({
+export const MacosFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -969,16 +969,16 @@ export const MacosRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰄰
+      󰄮
     </span>
   );
 };
-export const Battery80RegularIcon: React.FC<IconProps> = ({
+export const Battery80FilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -988,16 +988,16 @@ export const Battery80RegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰄵
+      󰄳
     </span>
   );
 };
-export const CalendarRegularIcon: React.FC<IconProps> = ({
+export const CalendarFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1007,16 +1007,16 @@ export const CalendarRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰄼
+      󰄷
     </span>
   );
 };
-export const FastForwardRegularIcon: React.FC<IconProps> = ({
+export const FastForwardFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1026,16 +1026,16 @@ export const FastForwardRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰄿
+      󰅂
     </span>
   );
 };
-export const BookmarkRegularIcon: React.FC<IconProps> = ({
+export const BookmarkFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1045,16 +1045,16 @@ export const BookmarkRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰅇
+      󰅈
     </span>
   );
 };
-export const AddSquareRegularIcon: React.FC<IconProps> = ({
+export const AddSquareFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1064,16 +1064,16 @@ export const AddSquareRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰅍
+      󰅌
     </span>
   );
 };
-export const Battery20RegularIcon: React.FC<IconProps> = ({
+export const Battery20FilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1083,16 +1083,16 @@ export const Battery20RegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰅒
+      󰅏
     </span>
   );
 };
-export const CalculatorRegularIcon: React.FC<IconProps> = ({
+export const CalculatorFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1102,16 +1102,16 @@ export const CalculatorRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰅚
+      󰅕
     </span>
   );
 };
-export const TextboxAlignBottomLeftRegularIcon: React.FC<IconProps> = ({
+export const TextboxAlignBottomLeftFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1121,16 +1121,16 @@ export const TextboxAlignBottomLeftRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰅟
+      󰅝
     </span>
   );
 };
-export const RecordRegularIcon: React.FC<IconProps> = ({
+export const RecordFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1140,7 +1140,7 @@ export const RecordRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -1149,7 +1149,7 @@ export const RecordRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const DeskRegularIcon: React.FC<IconProps> = ({
+export const DeskFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1159,16 +1159,16 @@ export const DeskRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰅩
+      󰅬
     </span>
   );
 };
-export const WeatherSnowRegularIcon: React.FC<IconProps> = ({
+export const WeatherSnowFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1178,7 +1178,7 @@ export const WeatherSnowRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -1187,7 +1187,7 @@ export const WeatherSnowRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const ToggleMultipleRegularIcon: React.FC<IconProps> = ({
+export const ToggleMultipleFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1197,16 +1197,16 @@ export const ToggleMultipleRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰅶
+      󰅸
     </span>
   );
 };
-export const PulseSquareRegularIcon: React.FC<IconProps> = ({
+export const PulseSquareFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1216,16 +1216,16 @@ export const PulseSquareRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰅽
+      󰅼
     </span>
   );
 };
-export const HourglassRegularIcon: React.FC<IconProps> = ({
+export const HourglassFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1235,16 +1235,16 @@ export const HourglassRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰆂
+      󰆄
     </span>
   );
 };
-export const PreviousRegularIcon: React.FC<IconProps> = ({
+export const PreviousFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1254,16 +1254,16 @@ export const PreviousRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰆉
+      󰆈
     </span>
   );
 };
-export const CloverRegularIcon: React.FC<IconProps> = ({
+export const CloverFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1273,16 +1273,16 @@ export const CloverRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰆏
+      󰆐
     </span>
   );
 };
-export const RefineuiRegularIcon: React.FC<IconProps> = ({
+export const RefineuiFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1292,16 +1292,16 @@ export const RefineuiRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰆖
+      󰆔
     </span>
   );
 };
-export const CheckmarkRegularIcon: React.FC<IconProps> = ({
+export const CheckmarkFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1311,16 +1311,16 @@ export const CheckmarkRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰆜
+      󰆙
     </span>
   );
 };
-export const SlideLayoutRegularIcon: React.FC<IconProps> = ({
+export const SlideLayoutFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1330,16 +1330,16 @@ export const SlideLayoutRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰆡
+      󰆝
     </span>
   );
 };
-export const VideoPlayPauseRegularIcon: React.FC<IconProps> = ({
+export const VideoPlayPauseFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1349,16 +1349,16 @@ export const VideoPlayPauseRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰆦
+      󰆨
     </span>
   );
 };
-export const TextboxAlignBottomRegularIcon: React.FC<IconProps> = ({
+export const TextboxAlignBottomFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1368,16 +1368,16 @@ export const TextboxAlignBottomRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰆭
+      󰆬
     </span>
   );
 };
-export const ChatRegularIcon: React.FC<IconProps> = ({
+export const ChatFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1387,7 +1387,7 @@ export const ChatRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -1396,7 +1396,7 @@ export const ChatRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const UsbCableRegularIcon: React.FC<IconProps> = ({
+export const UsbCableFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1406,7 +1406,7 @@ export const UsbCableRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -1415,7 +1415,7 @@ export const UsbCableRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const SmartwatchRegularIcon: React.FC<IconProps> = ({
+export const SmartwatchFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1425,16 +1425,16 @@ export const SmartwatchRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰆿
+      󰆽
     </span>
   );
 };
-export const WaterRegularIcon: React.FC<IconProps> = ({
+export const WaterFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1444,16 +1444,16 @@ export const WaterRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰇅
+      󰇆
     </span>
   );
 };
-export const HdRegularIcon: React.FC<IconProps> = ({
+export const HdFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1463,16 +1463,16 @@ export const HdRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰇊
+      󰇌
     </span>
   );
 };
-export const DeleteRegularIcon: React.FC<IconProps> = ({
+export const DeleteFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1482,16 +1482,16 @@ export const DeleteRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰇑
+      󰇏
     </span>
   );
 };
-export const BoardRegularIcon: React.FC<IconProps> = ({
+export const BoardFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1501,7 +1501,7 @@ export const BoardRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -1510,7 +1510,7 @@ export const BoardRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const Battery10RegularIcon: React.FC<IconProps> = ({
+export const Battery10FilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1520,16 +1520,16 @@ export const Battery10RegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰇜
+      󰇛
     </span>
   );
 };
-export const SubtractRegularIcon: React.FC<IconProps> = ({
+export const SubtractFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1539,16 +1539,16 @@ export const SubtractRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰇣
+      󰇡
     </span>
   );
 };
-export const LocationArrowRegularIcon: React.FC<IconProps> = ({
+export const LocationArrowFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1558,7 +1558,7 @@ export const LocationArrowRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -1567,7 +1567,7 @@ export const LocationArrowRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const EmojiSadRegularIcon: React.FC<IconProps> = ({
+export const EmojiSadFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1577,7 +1577,7 @@ export const EmojiSadRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -1586,7 +1586,7 @@ export const EmojiSadRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const FullScreenMaximizeRegularIcon: React.FC<IconProps> = ({
+export const FullScreenMaximizeFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1596,7 +1596,7 @@ export const FullScreenMaximizeRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -1605,7 +1605,7 @@ export const FullScreenMaximizeRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const PythonRegularIcon: React.FC<IconProps> = ({
+export const PythonFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1615,16 +1615,16 @@ export const PythonRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰇺
+      󰇹
     </span>
   );
 };
-export const VerifiedRegularIcon: React.FC<IconProps> = ({
+export const VerifiedFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1634,16 +1634,16 @@ export const VerifiedRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰈀
+      󰇿
     </span>
   );
 };
-export const CssRegularIcon: React.FC<IconProps> = ({
+export const CssFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1653,16 +1653,16 @@ export const CssRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰈇
+      󰈈
     </span>
   );
 };
-export const SportBasketballRegularIcon: React.FC<IconProps> = ({
+export const SportBasketballFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1672,16 +1672,16 @@ export const SportBasketballRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰈌
+      󰈉
     </span>
   );
 };
-export const CursorRegularIcon: React.FC<IconProps> = ({
+export const CursorFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1691,16 +1691,16 @@ export const CursorRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰈐
+      󰈒
     </span>
   );
 };
-export const RecordStopRegularIcon: React.FC<IconProps> = ({
+export const RecordStopFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1710,16 +1710,16 @@ export const RecordStopRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰈗
+      󰈚
     </span>
   );
 };
-export const CouchRegularIcon: React.FC<IconProps> = ({
+export const CouchFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1729,16 +1729,16 @@ export const CouchRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰈟
+      󰈠
     </span>
   );
 };
-export const CpuRegularIcon: React.FC<IconProps> = ({
+export const CpuFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1748,16 +1748,16 @@ export const CpuRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰈥
+      󰈣
     </span>
   );
 };
-export const AppstoreRegularIcon: React.FC<IconProps> = ({
+export const AppstoreFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1767,16 +1767,16 @@ export const AppstoreRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰈫
+      󰈬
     </span>
   );
 };
-export const HeartRegularIcon: React.FC<IconProps> = ({
+export const HeartFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1786,16 +1786,16 @@ export const HeartRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰈱
+      󰈰
     </span>
   );
 };
-export const EmojiAngryRegularIcon: React.FC<IconProps> = ({
+export const EmojiAngryFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1805,16 +1805,16 @@ export const EmojiAngryRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰈵
+      󰈳
     </span>
   );
 };
-export const WrenchRegularIcon: React.FC<IconProps> = ({
+export const WrenchFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1824,16 +1824,16 @@ export const WrenchRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰈼
+      󰈾
     </span>
   );
 };
-export const HighlightRegularIcon: React.FC<IconProps> = ({
+export const HighlightFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1843,7 +1843,7 @@ export const HighlightRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -1852,7 +1852,7 @@ export const HighlightRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const WasherRegularIcon: React.FC<IconProps> = ({
+export const WasherFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1862,16 +1862,16 @@ export const WasherRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰉉
+      󰉇
     </span>
   );
 };
-export const GanttChartRegularIcon: React.FC<IconProps> = ({
+export const GanttChartFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1881,16 +1881,16 @@ export const GanttChartRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰉌
+      󰉎
     </span>
   );
 };
-export const PersonRegularIcon: React.FC<IconProps> = ({
+export const PersonFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1900,7 +1900,7 @@ export const PersonRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -1909,7 +1909,7 @@ export const PersonRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const DartRegularIcon: React.FC<IconProps> = ({
+export const DartFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1919,16 +1919,16 @@ export const DartRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰉜
+      󰉗
     </span>
   );
 };
-export const HighwayRegularIcon: React.FC<IconProps> = ({
+export const HighwayFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1938,7 +1938,7 @@ export const HighwayRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -1947,7 +1947,7 @@ export const HighwayRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const CommentRegularIcon: React.FC<IconProps> = ({
+export const CommentFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1957,16 +1957,16 @@ export const CommentRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰉥
+      󰉨
     </span>
   );
 };
-export const MailRegularIcon: React.FC<IconProps> = ({
+export const MailFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1976,16 +1976,16 @@ export const MailRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰉬
+      󰉩
     </span>
   );
 };
-export const AlertRegularIcon: React.FC<IconProps> = ({
+export const AlertFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -1995,16 +1995,16 @@ export const AlertRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰉲
+      󰉱
     </span>
   );
 };
-export const FlipHorizontalRegularIcon: React.FC<IconProps> = ({
+export const FlipHorizontalFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2014,16 +2014,16 @@ export const FlipHorizontalRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰉺
+      󰉸
     </span>
   );
 };
-export const HdrOffRegularIcon: React.FC<IconProps> = ({
+export const HdrOffFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2033,16 +2033,16 @@ export const HdrOffRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰉽
+      󰉾
     </span>
   );
 };
-export const HeadphonesMicRegularIcon: React.FC<IconProps> = ({
+export const HeadphonesMicFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2052,7 +2052,7 @@ export const HeadphonesMicRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -2061,7 +2061,7 @@ export const HeadphonesMicRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const WebRegularIcon: React.FC<IconProps> = ({
+export const WebFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2071,16 +2071,16 @@ export const WebRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰊊
+      󰊇
     </span>
   );
 };
-export const TargetRegularIcon: React.FC<IconProps> = ({
+export const TargetFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2090,16 +2090,16 @@ export const TargetRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰊑
+      󰊒
     </span>
   );
 };
-export const AlignRightRegularIcon: React.FC<IconProps> = ({
+export const AlignRightFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2109,16 +2109,16 @@ export const AlignRightRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰊖
+      󰊓
     </span>
   );
 };
-export const MailboxRegularIcon: React.FC<IconProps> = ({
+export const MailboxFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2128,16 +2128,16 @@ export const MailboxRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰊝
+      󰊛
     </span>
   );
 };
-export const MarkdownRegularIcon: React.FC<IconProps> = ({
+export const MarkdownFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2147,7 +2147,7 @@ export const MarkdownRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -2156,7 +2156,7 @@ export const MarkdownRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const NumberCircle9RegularIcon: React.FC<IconProps> = ({
+export const NumberCircle9FilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2166,7 +2166,7 @@ export const NumberCircle9RegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -2175,7 +2175,7 @@ export const NumberCircle9RegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const CameraRegularIcon: React.FC<IconProps> = ({
+export const CameraFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2185,16 +2185,16 @@ export const CameraRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰊭
+      󰊮
     </span>
   );
 };
-export const NumberCircle0RegularIcon: React.FC<IconProps> = ({
+export const NumberCircle0FilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2204,16 +2204,16 @@ export const NumberCircle0RegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰊵
+      󰊱
     </span>
   );
 };
-export const LocationRegularIcon: React.FC<IconProps> = ({
+export const LocationFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2223,16 +2223,16 @@ export const LocationRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰊺
+      󰊹
     </span>
   );
 };
-export const BarcodeScannerRegularIcon: React.FC<IconProps> = ({
+export const BarcodeScannerFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2242,16 +2242,16 @@ export const BarcodeScannerRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰋀
+      󰊿
     </span>
   );
 };
-export const LocalLanguageRegularIcon: React.FC<IconProps> = ({
+export const LocalLanguageFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2261,16 +2261,16 @@ export const LocalLanguageRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰋅
+      󰋃
     </span>
   );
 };
-export const PaymentRegularIcon: React.FC<IconProps> = ({
+export const PaymentFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2280,16 +2280,16 @@ export const PaymentRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰋌
+      󰋋
     </span>
   );
 };
-export const SlideEraserRegularIcon: React.FC<IconProps> = ({
+export const SlideEraserFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2299,16 +2299,16 @@ export const SlideEraserRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰋐
+      󰋒
     </span>
   );
 };
-export const ShapeUnionRegularIcon: React.FC<IconProps> = ({
+export const ShapeUnionFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2318,7 +2318,7 @@ export const ShapeUnionRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -2327,7 +2327,7 @@ export const ShapeUnionRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const NumberCircle7RegularIcon: React.FC<IconProps> = ({
+export const NumberCircle7FilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2337,16 +2337,16 @@ export const NumberCircle7RegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰋟
+      󰋛
     </span>
   );
 };
-export const Battery50RegularIcon: React.FC<IconProps> = ({
+export const Battery50FilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2356,16 +2356,16 @@ export const Battery50RegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰋥
+      󰋡
     </span>
   );
 };
-export const TrophyRegularIcon: React.FC<IconProps> = ({
+export const TrophyFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2375,16 +2375,16 @@ export const TrophyRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰋫
+      󰋩
     </span>
   );
 };
-export const IosChevronLtrRegularIcon: React.FC<IconProps> = ({
+export const IosChevronLtrFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2394,16 +2394,16 @@ export const IosChevronLtrRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰋱
+      󰋲
     </span>
   );
 };
-export const SquareRegularIcon: React.FC<IconProps> = ({
+export const SquareFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2413,16 +2413,16 @@ export const SquareRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰋷
+      󰋸
     </span>
   );
 };
-export const HdrRegularIcon: React.FC<IconProps> = ({
+export const HdrFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2432,16 +2432,16 @@ export const HdrRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰋽
+      󰋹
     </span>
   );
 };
-export const TypescriptRegularIcon: React.FC<IconProps> = ({
+export const TypescriptFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2451,16 +2451,16 @@ export const TypescriptRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰌂
+      󰌄
     </span>
   );
 };
-export const BarChartHorizontalDescendingRegularIcon: React.FC<IconProps> = ({
+export const BarChartHorizontalDescendingFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2470,16 +2470,16 @@ export const BarChartHorizontalDescendingRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰌉
+      󰌊
     </span>
   );
 };
-export const CubeRegularIcon: React.FC<IconProps> = ({
+export const CubeFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2489,16 +2489,16 @@ export const CubeRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰌎
+      󰌋
     </span>
   );
 };
-export const EmojiLaughRegularIcon: React.FC<IconProps> = ({
+export const EmojiLaughFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2508,16 +2508,16 @@ export const EmojiLaughRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰌕
+      󰌑
     </span>
   );
 };
-export const EmojiGrimacingRegularIcon: React.FC<IconProps> = ({
+export const EmojiGrimacingFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2527,16 +2527,16 @@ export const EmojiGrimacingRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰌙
+      󰌜
     </span>
   );
 };
-export const DismissCircleRegularIcon: React.FC<IconProps> = ({
+export const DismissCircleFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2546,16 +2546,16 @@ export const DismissCircleRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰌡
+      󰌢
     </span>
   );
 };
-export const MoonRegularIcon: React.FC<IconProps> = ({
+export const MoonFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2565,16 +2565,16 @@ export const MoonRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰌧
+      󰌦
     </span>
   );
 };
-export const SlideAddRegularIcon: React.FC<IconProps> = ({
+export const SlideAddFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2584,16 +2584,16 @@ export const SlideAddRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰌬
+      󰌫
     </span>
   );
 };
-export const FolderRegularIcon: React.FC<IconProps> = ({
+export const FolderFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2603,16 +2603,16 @@ export const FolderRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰌱
+      󰌯
     </span>
   );
 };
-export const ChartRegularIcon: React.FC<IconProps> = ({
+export const ChartFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2622,16 +2622,16 @@ export const ChartRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰌹
+      󰌸
     </span>
   );
 };
-export const SquareMultipleRegularIcon: React.FC<IconProps> = ({
+export const SquareMultipleFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2641,7 +2641,26 @@ export const SquareMultipleRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
+        ...props.style
+      }
+      {...props}
+    >
+      󰌾
+    </span>
+  );
+};
+export const ChatAddFilledIcon: React.FC<IconProps> = ({
+  size = 24,
+  color = 'currentColor',
+  ...props
+}) => {
+  return (
+    <span
+      style={
+        fontSize: size,
+        color: color,
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -2650,7 +2669,7 @@ export const SquareMultipleRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const ChatAddRegularIcon: React.FC<IconProps> = ({
+export const DoctorFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2660,16 +2679,16 @@ export const ChatAddRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰍄
+      󰍉
     </span>
   );
 };
-export const DoctorRegularIcon: React.FC<IconProps> = ({
+export const NumberSymbolCircleFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2679,16 +2698,16 @@ export const DoctorRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰍊
+      󰍐
     </span>
   );
 };
-export const NumberSymbolCircleRegularIcon: React.FC<IconProps> = ({
+export const MoreHorizontalFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2698,16 +2717,16 @@ export const NumberSymbolCircleRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰍒
+      󰍓
     </span>
   );
 };
-export const MoreHorizontalRegularIcon: React.FC<IconProps> = ({
+export const NumberCircle6FilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2717,16 +2736,16 @@ export const MoreHorizontalRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰍕
+      󰍞
     </span>
   );
 };
-export const NumberCircle6RegularIcon: React.FC<IconProps> = ({
+export const ChevronUpFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2736,16 +2755,16 @@ export const NumberCircle6RegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰍝
+      󰍟
     </span>
   );
 };
-export const ChevronUpRegularIcon: React.FC<IconProps> = ({
+export const TimerFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2755,16 +2774,16 @@ export const ChevronUpRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰍣
+      󰍪
     </span>
   );
 };
-export const TimerRegularIcon: React.FC<IconProps> = ({
+export const NumberCircle1FilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2774,16 +2793,16 @@ export const TimerRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰍩
+      󰍰
     </span>
   );
 };
-export const NumberCircle1RegularIcon: React.FC<IconProps> = ({
+export const RssFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2793,26 +2812,7 @@ export const NumberCircle1RegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
-        ...props.style
-      }
-      {...props}
-    >
-      󰍯
-    </span>
-  );
-};
-export const RssRegularIcon: React.FC<IconProps> = ({
-  size = 24,
-  color = 'currentColor',
-  ...props
-}) => {
-  return (
-    <span
-      style={
-        fontSize: size,
-        color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -2821,7 +2821,7 @@ export const RssRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const LineHorizontal1DashesRegularIcon: React.FC<IconProps> = ({
+export const LineHorizontal1DashesFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2831,16 +2831,16 @@ export const LineHorizontal1DashesRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰍺
+      󰍷
     </span>
   );
 };
-export const AccessTimeRegularIcon: React.FC<IconProps> = ({
+export const AccessTimeFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2850,16 +2850,16 @@ export const AccessTimeRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰎀
+      󰎂
     </span>
   );
 };
-export const TextboxAlignTopRightRegularIcon: React.FC<IconProps> = ({
+export const TextboxAlignTopRightFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2869,16 +2869,16 @@ export const TextboxAlignTopRightRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰎇
+      󰎅
     </span>
   );
 };
-export const Battery60RegularIcon: React.FC<IconProps> = ({
+export const Battery60FilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2888,7 +2888,7 @@ export const Battery60RegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -2897,7 +2897,7 @@ export const Battery60RegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const RoadRegularIcon: React.FC<IconProps> = ({
+export const RoadFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2907,16 +2907,16 @@ export const RoadRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰎕
+      󰎔
     </span>
   );
 };
-export const NumberCircle8RegularIcon: React.FC<IconProps> = ({
+export const NumberCircle8FilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2926,16 +2926,16 @@ export const NumberCircle8RegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰎙
+      󰎘
     </span>
   );
 };
-export const CropRegularIcon: React.FC<IconProps> = ({
+export const CropFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2945,16 +2945,16 @@ export const CropRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰎟
+      󰎝
     </span>
   );
 };
-export const EyeOffRegularIcon: React.FC<IconProps> = ({
+export const EyeOffFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2964,16 +2964,16 @@ export const EyeOffRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰎥
+      󰎤
     </span>
   );
 };
-export const SportSoccerRegularIcon: React.FC<IconProps> = ({
+export const SportSoccerFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -2983,7 +2983,26 @@ export const SportSoccerRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
+        ...props.style
+      }
+      {...props}
+    >
+      󰎧
+    </span>
+  );
+};
+export const KeyboardTabFilledIcon: React.FC<IconProps> = ({
+  size = 24,
+  color = 'currentColor',
+  ...props
+}) => {
+  return (
+    <span
+      style={
+        fontSize: size,
+        color: color,
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -2992,7 +3011,7 @@ export const SportSoccerRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const KeyboardTabRegularIcon: React.FC<IconProps> = ({
+export const OrganizationHorizontalFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3002,16 +3021,16 @@ export const KeyboardTabRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰎯
+      󰎵
     </span>
   );
 };
-export const OrganizationHorizontalRegularIcon: React.FC<IconProps> = ({
+export const PulseFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3021,16 +3040,16 @@ export const OrganizationHorizontalRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰎷
+      󰎹
     </span>
   );
 };
-export const PulseRegularIcon: React.FC<IconProps> = ({
+export const DocumentBorderFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3040,16 +3059,16 @@ export const PulseRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰎼
+      󰏄
     </span>
   );
 };
-export const DocumentBorderRegularIcon: React.FC<IconProps> = ({
+export const TextboxAlignMiddleRightFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3059,16 +3078,16 @@ export const DocumentBorderRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰏃
+      󰏇
     </span>
   );
 };
-export const TextboxAlignMiddleRightRegularIcon: React.FC<IconProps> = ({
+export const OvenFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3078,26 +3097,7 @@ export const TextboxAlignMiddleRightRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
-        ...props.style
-      }
-      {...props}
-    >
-      󰏉
-    </span>
-  );
-};
-export const OvenRegularIcon: React.FC<IconProps> = ({
-  size = 24,
-  color = 'currentColor',
-  ...props
-}) => {
-  return (
-    <span
-      style={
-        fontSize: size,
-        color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -3106,7 +3106,7 @@ export const OvenRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const KeyboardLockRegularIcon: React.FC<IconProps> = ({
+export const KeyboardLockFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3116,16 +3116,16 @@ export const KeyboardLockRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰏔
+      󰏓
     </span>
   );
 };
-export const CodeRegularIcon: React.FC<IconProps> = ({
+export const CodeFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3135,16 +3135,16 @@ export const CodeRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰏛
+      󰏗
     </span>
   );
 };
-export const ChatEmptyRegularIcon: React.FC<IconProps> = ({
+export const ChatEmptyFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3154,16 +3154,16 @@ export const ChatEmptyRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰏟
+      󰏝
     </span>
   );
 };
-export const EmojiRegularIcon: React.FC<IconProps> = ({
+export const EmojiFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3173,16 +3173,16 @@ export const EmojiRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰏧
+      󰏨
     </span>
   );
 };
-export const GuitarRegularIcon: React.FC<IconProps> = ({
+export const GuitarFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3192,16 +3192,16 @@ export const GuitarRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰏭
+      󰏩
     </span>
   );
 };
-export const PentagonRegularIcon: React.FC<IconProps> = ({
+export const PentagonFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3211,16 +3211,16 @@ export const PentagonRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰏲
+      󰏯
     </span>
   );
 };
-export const Wifi1RegularIcon: React.FC<IconProps> = ({
+export const Wifi1FilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3230,16 +3230,16 @@ export const Wifi1RegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰏷
+      󰏺
     </span>
   );
 };
-export const ImportantRegularIcon: React.FC<IconProps> = ({
+export const ImportantFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3249,16 +3249,16 @@ export const ImportantRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰐁
+      󰐀
     </span>
   );
 };
-export const MicRegularIcon: React.FC<IconProps> = ({
+export const MicFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3268,16 +3268,16 @@ export const MicRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰐆
+      󰐄
     </span>
   );
 };
-export const KeyboardOptionRegularIcon: React.FC<IconProps> = ({
+export const KeyboardOptionFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3287,16 +3287,16 @@ export const KeyboardOptionRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰐋
+      󰐌
     </span>
   );
 };
-export const HeadphonesRegularIcon: React.FC<IconProps> = ({
+export const HeadphonesFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3306,16 +3306,16 @@ export const HeadphonesRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰐏
+      󰐍
     </span>
   );
 };
-export const EmojiMehRegularIcon: React.FC<IconProps> = ({
+export const EmojiMehFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3325,16 +3325,16 @@ export const EmojiMehRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰐖
+      󰐓
     </span>
   );
 };
-export const StopRegularIcon: React.FC<IconProps> = ({
+export const StopFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3344,16 +3344,16 @@ export const StopRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰐝
+      󰐙
     </span>
   );
 };
-export const DeleteOffRegularIcon: React.FC<IconProps> = ({
+export const DeleteOffFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3363,16 +3363,16 @@ export const DeleteOffRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰐣
+      󰐢
     </span>
   );
 };
-export const ConeRegularIcon: React.FC<IconProps> = ({
+export const ConeFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3382,16 +3382,16 @@ export const ConeRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰐨
+      󰐧
     </span>
   );
 };
-export const DesktopRegularIcon: React.FC<IconProps> = ({
+export const DesktopFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3401,16 +3401,16 @@ export const DesktopRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰐯
+      󰐭
     </span>
   );
 };
-export const ServerRegularIcon: React.FC<IconProps> = ({
+export const ServerFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3420,16 +3420,16 @@ export const ServerRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰐳
+      󰐱
     </span>
   );
 };
-export const ShapesRegularIcon: React.FC<IconProps> = ({
+export const ShapesFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3439,16 +3439,16 @@ export const ShapesRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰐹
+      󰐺
     </span>
   );
 };
-export const SquareHintRegularIcon: React.FC<IconProps> = ({
+export const SquareHintFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3458,16 +3458,16 @@ export const SquareHintRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰑁
+      󰑀
     </span>
   );
 };
-export const FrameRegularIcon: React.FC<IconProps> = ({
+export const FrameFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3477,16 +3477,16 @@ export const FrameRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰑆
+      󰑅
     </span>
   );
 };
-export const CommaRegularIcon: React.FC<IconProps> = ({
+export const CommaFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3496,7 +3496,7 @@ export const CommaRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -3505,7 +3505,7 @@ export const CommaRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const HtmlRegularIcon: React.FC<IconProps> = ({
+export const HtmlFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3515,16 +3515,16 @@ export const HtmlRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰑑
+      󰑏
     </span>
   );
 };
-export const KotlinRegularIcon: React.FC<IconProps> = ({
+export const KotlinFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3534,16 +3534,16 @@ export const KotlinRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰑘
+      󰑚
     </span>
   );
 };
-export const BarChartVerticalDescendingRegularIcon: React.FC<IconProps> = ({
+export const BarChartVerticalDescendingFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3553,16 +3553,16 @@ export const BarChartVerticalDescendingRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰑡
+      󰑠
     </span>
   );
 };
-export const TextAlignJustifyRegularIcon: React.FC<IconProps> = ({
+export const TextAlignJustifyFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3572,16 +3572,16 @@ export const TextAlignJustifyRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰑤
+      󰑣
     </span>
   );
 };
-export const RewindRegularIcon: React.FC<IconProps> = ({
+export const RewindFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3591,16 +3591,16 @@ export const RewindRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰑨
+      󰑧
     </span>
   );
 };
-export const DualScreenRegularIcon: React.FC<IconProps> = ({
+export const DualScreenFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3610,16 +3610,16 @@ export const DualScreenRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰑲
+      󰑰
     </span>
   );
 };
-export const KeyRegularIcon: React.FC<IconProps> = ({
+export const KeyFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3629,16 +3629,16 @@ export const KeyRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰑷
+      󰑳
     </span>
   );
 };
-export const SpacebarRegularIcon: React.FC<IconProps> = ({
+export const SpacebarFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3648,16 +3648,16 @@ export const SpacebarRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰑼
+      󰑻
     </span>
   );
 };
-export const HexagonRegularIcon: React.FC<IconProps> = ({
+export const HexagonFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3667,16 +3667,16 @@ export const HexagonRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰒁
+      󰑿
     </span>
   );
 };
-export const BugRegularIcon: React.FC<IconProps> = ({
+export const BugFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3686,7 +3686,7 @@ export const BugRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -3695,7 +3695,7 @@ export const BugRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const HourglassHalfRegularIcon: React.FC<IconProps> = ({
+export const HourglassHalfFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3705,16 +3705,16 @@ export const HourglassHalfRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰒑
+      󰒋
     </span>
   );
 };
-export const DocumentRegularIcon: React.FC<IconProps> = ({
+export const DocumentFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3724,7 +3724,7 @@ export const DocumentRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -3733,7 +3733,7 @@ export const DocumentRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const EmojiSurpriseRegularIcon: React.FC<IconProps> = ({
+export const EmojiSurpriseFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3743,16 +3743,16 @@ export const EmojiSurpriseRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰒝
+      󰒗
     </span>
   );
 };
-export const TabRegularIcon: React.FC<IconProps> = ({
+export const TabFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3762,16 +3762,16 @@ export const TabRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰒟
+      󰒢
     </span>
   );
 };
-export const KeyboardReturnRegularIcon: React.FC<IconProps> = ({
+export const KeyboardReturnFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3781,7 +3781,7 @@ export const KeyboardReturnRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -3790,7 +3790,7 @@ export const KeyboardReturnRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const TextAlignCenterRegularIcon: React.FC<IconProps> = ({
+export const TextAlignCenterFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3800,7 +3800,7 @@ export const TextAlignCenterRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -3809,7 +3809,7 @@ export const TextAlignCenterRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const IosChevronRtlRegularIcon: React.FC<IconProps> = ({
+export const IosChevronRtlFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3819,16 +3819,16 @@ export const IosChevronRtlRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰒰
+      󰒴
     </span>
   );
 };
-export const AlignTopRegularIcon: React.FC<IconProps> = ({
+export const AlignTopFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3838,16 +3838,16 @@ export const AlignTopRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰒸
+      󰒺
     </span>
   );
 };
-export const TvRegularIcon: React.FC<IconProps> = ({
+export const TvFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3857,16 +3857,16 @@ export const TvRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰓀
+      󰒻
     </span>
   );
 };
-export const GlassesRegularIcon: React.FC<IconProps> = ({
+export const GlassesFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3876,7 +3876,7 @@ export const GlassesRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -3885,7 +3885,7 @@ export const GlassesRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const AlignLeftRegularIcon: React.FC<IconProps> = ({
+export const AlignLeftFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3895,16 +3895,16 @@ export const AlignLeftRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰓊
+      󰓌
     </span>
   );
 };
-export const DragRegularIcon: React.FC<IconProps> = ({
+export const DragFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3914,16 +3914,16 @@ export const DragRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰓒
+      󰓏
     </span>
   );
 };
-export const ZoomInRegularIcon: React.FC<IconProps> = ({
+export const ZoomInFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3933,16 +3933,16 @@ export const ZoomInRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰓙
+      󰓕
     </span>
   );
 };
-export const MegaphoneRegularIcon: React.FC<IconProps> = ({
+export const MegaphoneFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3952,16 +3952,16 @@ export const MegaphoneRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰓚
+      󰓞
     </span>
   );
 };
-export const PrintRegularIcon: React.FC<IconProps> = ({
+export const PrintFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3971,16 +3971,16 @@ export const PrintRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰓢
+      󰓤
     </span>
   );
 };
-export const TextboxAlignBottomRightRegularIcon: React.FC<IconProps> = ({
+export const TextboxAlignBottomRightFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -3990,16 +3990,16 @@ export const TextboxAlignBottomRightRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰓩
+      󰓨
     </span>
   );
 };
-export const GiftCardRegularIcon: React.FC<IconProps> = ({
+export const GiftCardFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4009,16 +4009,16 @@ export const GiftCardRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰓬
+      󰓮
     </span>
   );
 };
-export const IosRegularIcon: React.FC<IconProps> = ({
+export const IosFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4028,16 +4028,16 @@ export const IosRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰓴
+      󰓶
     </span>
   );
 };
-export const Battery0RegularIcon: React.FC<IconProps> = ({
+export const Battery0FilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4047,16 +4047,16 @@ export const Battery0RegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰓺
+      󰓼
     </span>
   );
 };
-export const ScriptRegularIcon: React.FC<IconProps> = ({
+export const ScriptFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4066,7 +4066,7 @@ export const ScriptRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -4075,7 +4075,7 @@ export const ScriptRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const ImageRegularIcon: React.FC<IconProps> = ({
+export const ImageFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4085,7 +4085,7 @@ export const ImageRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -4094,7 +4094,7 @@ export const ImageRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const DentistRegularIcon: React.FC<IconProps> = ({
+export const DentistFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4104,16 +4104,16 @@ export const DentistRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰔍
+      󰔎
     </span>
   );
 };
-export const QrCodeRegularIcon: React.FC<IconProps> = ({
+export const QrCodeFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4123,16 +4123,16 @@ export const QrCodeRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰔒
+      󰔔
     </span>
   );
 };
-export const IotRegularIcon: React.FC<IconProps> = ({
+export const IotFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4142,16 +4142,16 @@ export const IotRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰔘
+      󰔚
     </span>
   );
 };
-export const ScalesRegularIcon: React.FC<IconProps> = ({
+export const ScalesFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4161,16 +4161,16 @@ export const ScalesRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰔠
+      󰔝
     </span>
   );
 };
-export const DismissRegularIcon: React.FC<IconProps> = ({
+export const DismissFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4180,16 +4180,16 @@ export const DismissRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰔧
+      󰔦
     </span>
   );
 };
-export const TentRegularIcon: React.FC<IconProps> = ({
+export const TentFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4199,16 +4199,16 @@ export const TentRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰔪
+      󰔩
     </span>
   );
 };
-export const RectangleRegularIcon: React.FC<IconProps> = ({
+export const RectangleFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4218,16 +4218,16 @@ export const RectangleRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰔱
+      󰔭
     </span>
   );
 };
-export const GiftRegularIcon: React.FC<IconProps> = ({
+export const GiftFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4237,16 +4237,16 @@ export const GiftRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰔶
+      󰔳
     </span>
   );
 };
-export const QuestionRegularIcon: React.FC<IconProps> = ({
+export const QuestionFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4256,16 +4256,16 @@ export const QuestionRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰔾
+      󰔻
     </span>
   );
 };
-export const PortHdmiRegularIcon: React.FC<IconProps> = ({
+export const PortHdmiFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4275,16 +4275,16 @@ export const PortHdmiRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰕂
+      󰔿
     </span>
   );
 };
-export const SearchRegularIcon: React.FC<IconProps> = ({
+export const SearchFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4294,16 +4294,16 @@ export const SearchRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰕉
+      󰕊
     </span>
   );
 };
-export const AlignCenterVerticalRegularIcon: React.FC<IconProps> = ({
+export const AlignCenterVerticalFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4313,16 +4313,16 @@ export const AlignCenterVerticalRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰕎
+      󰕋
     </span>
   );
 };
-export const DesktopMacRegularIcon: React.FC<IconProps> = ({
+export const DesktopMacFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4332,7 +4332,7 @@ export const DesktopMacRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -4341,7 +4341,7 @@ export const DesktopMacRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const MouseRegularIcon: React.FC<IconProps> = ({
+export const MouseFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4351,7 +4351,7 @@ export const MouseRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -4360,7 +4360,7 @@ export const MouseRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const RibbonRegularIcon: React.FC<IconProps> = ({
+export const RibbonFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4370,16 +4370,16 @@ export const RibbonRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰕠
+      󰕟
     </span>
   );
 };
-export const PenRegularIcon: React.FC<IconProps> = ({
+export const PenFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4389,16 +4389,16 @@ export const PenRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰕩
+      󰕦
     </span>
   );
 };
-export const FolderOpenRegularIcon: React.FC<IconProps> = ({
+export const FolderOpenFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4408,7 +4408,7 @@ export const FolderOpenRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -4417,7 +4417,7 @@ export const FolderOpenRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const WeatherSunnyRegularIcon: React.FC<IconProps> = ({
+export const WeatherSunnyFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4427,16 +4427,16 @@ export const WeatherSunnyRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰕳
+      󰕲
     </span>
   );
 };
-export const InfoRegularIcon: React.FC<IconProps> = ({
+export const InfoFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4446,16 +4446,16 @@ export const InfoRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰕸
+      󰕵
     </span>
   );
 };
-export const AlertOffRegularIcon: React.FC<IconProps> = ({
+export const AlertOffFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4465,16 +4465,16 @@ export const AlertOffRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰖁
+      󰕻
     </span>
   );
 };
-export const VideoClipRegularIcon: React.FC<IconProps> = ({
+export const VideoClipFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4484,16 +4484,16 @@ export const VideoClipRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰖃
+      󰖄
     </span>
   );
 };
-export const ChevronRightRegularIcon: React.FC<IconProps> = ({
+export const ChevronRightFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4503,16 +4503,16 @@ export const ChevronRightRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰖈
+      󰖊
     </span>
   );
 };
-export const OvalRegularIcon: React.FC<IconProps> = ({
+export const OvalFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4522,16 +4522,16 @@ export const OvalRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰖐
+      󰖏
     </span>
   );
 };
-export const UsbRegularIcon: React.FC<IconProps> = ({
+export const UsbFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4541,16 +4541,16 @@ export const UsbRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰖗
+      󰖕
     </span>
   );
 };
-export const EditRegularIcon: React.FC<IconProps> = ({
+export const EditFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4560,16 +4560,16 @@ export const EditRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰖜
+      󰖛
     </span>
   );
 };
-export const EqualOffRegularIcon: React.FC<IconProps> = ({
+export const EqualOffFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4579,16 +4579,16 @@ export const EqualOffRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰖢
+      󰖡
     </span>
   );
 };
-export const AlignCenterHorizontalRegularIcon: React.FC<IconProps> = ({
+export const AlignCenterHorizontalFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4598,16 +4598,16 @@ export const AlignCenterHorizontalRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰖪
+      󰖨
     </span>
   );
 };
-export const WarningRegularIcon: React.FC<IconProps> = ({
+export const WarningFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4617,16 +4617,16 @@ export const WarningRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰖰
+      󰖭
     </span>
   );
 };
-export const StarRegularIcon: React.FC<IconProps> = ({
+export const StarFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4636,16 +4636,16 @@ export const StarRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰖴
+      󰖶
     </span>
   );
 };
-export const TextboxAlignMiddleLeftRegularIcon: React.FC<IconProps> = ({
+export const TextboxAlignMiddleLeftFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4655,16 +4655,16 @@ export const TextboxAlignMiddleLeftRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰖻
+      󰖺
     </span>
   );
 };
-export const TextboxAlignCenterRegularIcon: React.FC<IconProps> = ({
+export const TextboxAlignCenterFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4674,16 +4674,16 @@ export const TextboxAlignCenterRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰗁
+      󰗀
     </span>
   );
 };
-export const FlashRegularIcon: React.FC<IconProps> = ({
+export const FlashFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4693,16 +4693,16 @@ export const FlashRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰗅
+      󰗈
     </span>
   );
 };
-export const KeyboardBackspaceRegularIcon: React.FC<IconProps> = ({
+export const KeyboardBackspaceFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4712,16 +4712,16 @@ export const KeyboardBackspaceRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰗌
+      󰗎
     </span>
   );
 };
-export const WeatherThunderstormRegularIcon: React.FC<IconProps> = ({
+export const WeatherThunderstormFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4731,16 +4731,16 @@ export const WeatherThunderstormRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰗒
+      󰗏
     </span>
   );
 };
-export const TextAlignLeftRegularIcon: React.FC<IconProps> = ({
+export const TextAlignLeftFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4750,16 +4750,16 @@ export const TextAlignLeftRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰗙
+      󰗘
     </span>
   );
 };
-export const DropRegularIcon: React.FC<IconProps> = ({
+export const DropFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4769,7 +4769,7 @@ export const DropRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -4778,7 +4778,7 @@ export const DropRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const MapRegularIcon: React.FC<IconProps> = ({
+export const MapFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4788,16 +4788,16 @@ export const MapRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰗥
+      󰗣
     </span>
   );
 };
-export const JsonRegularIcon: React.FC<IconProps> = ({
+export const JsonFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4807,16 +4807,16 @@ export const JsonRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰗪
+      󰗧
     </span>
   );
 };
-export const ImageCircleRegularIcon: React.FC<IconProps> = ({
+export const ImageCircleFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4826,16 +4826,16 @@ export const ImageCircleRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰗱
+      󰗰
     </span>
   );
 };
-export const GasStationRegularIcon: React.FC<IconProps> = ({
+export const GasStationFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4845,16 +4845,16 @@ export const GasStationRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰗷
+      󰗸
     </span>
   );
 };
-export const LayerRegularIcon: React.FC<IconProps> = ({
+export const LayerFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4864,16 +4864,16 @@ export const LayerRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰗾
+      󰗹
     </span>
   );
 };
-export const IosArrowLtrRegularIcon: React.FC<IconProps> = ({
+export const IosArrowLtrFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4883,16 +4883,16 @@ export const IosArrowLtrRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰘂
+      󰘁
     </span>
   );
 };
-export const ServerPlayRegularIcon: React.FC<IconProps> = ({
+export const ServerPlayFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4902,16 +4902,16 @@ export const ServerPlayRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰘉
+      󰘇
     </span>
   );
 };
-export const FireRegularIcon: React.FC<IconProps> = ({
+export const FireFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4921,16 +4921,16 @@ export const FireRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰘐
+      󰘎
     </span>
   );
 };
-export const AddRegularIcon: React.FC<IconProps> = ({
+export const AddFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4940,7 +4940,7 @@ export const AddRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -4949,7 +4949,7 @@ export const AddRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const PortUsbARegularIcon: React.FC<IconProps> = ({
+export const PortUsbAFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4959,7 +4959,7 @@ export const PortUsbARegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -4968,7 +4968,7 @@ export const PortUsbARegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const HourglassOneQuarterRegularIcon: React.FC<IconProps> = ({
+export const HourglassOneQuarterFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4978,16 +4978,16 @@ export const HourglassOneQuarterRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰘠
+      󰘢
     </span>
   );
 };
-export const ShareAndroidRegularIcon: React.FC<IconProps> = ({
+export const ShareAndroidFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -4997,7 +4997,7 @@ export const ShareAndroidRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -5006,7 +5006,7 @@ export const ShareAndroidRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const ThinkingRegularIcon: React.FC<IconProps> = ({
+export const ThinkingFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5016,16 +5016,16 @@ export const ThinkingRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰘬
+      󰘮
     </span>
   );
 };
-export const IncognitoRegularIcon: React.FC<IconProps> = ({
+export const IncognitoFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5035,16 +5035,16 @@ export const IncognitoRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰘲
+      󰘱
     </span>
   );
 };
-export const LinkRegularIcon: React.FC<IconProps> = ({
+export const LinkFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5054,7 +5054,7 @@ export const LinkRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -5063,7 +5063,7 @@ export const LinkRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const KeyMultipleRegularIcon: React.FC<IconProps> = ({
+export const KeyMultipleFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5073,16 +5073,16 @@ export const KeyMultipleRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰙀
+      󰘽
     </span>
   );
 };
-export const CartonBoxRegularIcon: React.FC<IconProps> = ({
+export const CartonBoxFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5092,16 +5092,16 @@ export const CartonBoxRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰙅
+      󰙆
     </span>
   );
 };
-export const NewsRegularIcon: React.FC<IconProps> = ({
+export const NewsFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5111,16 +5111,16 @@ export const NewsRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰙌
+      󰙊
     </span>
   );
 };
-export const ServiceBellRegularIcon: React.FC<IconProps> = ({
+export const ServiceBellFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5130,16 +5130,16 @@ export const ServiceBellRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰙏
+      󰙒
     </span>
   );
 };
-export const AlertBadgeRegularIcon: React.FC<IconProps> = ({
+export const AlertBadgeFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5149,16 +5149,16 @@ export const AlertBadgeRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰙘
+      󰙖
     </span>
   );
 };
-export const AppTitleRegularIcon: React.FC<IconProps> = ({
+export const AppTitleFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5168,16 +5168,16 @@ export const AppTitleRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰙜
+      󰙛
     </span>
   );
 };
-export const PlayCircleRegularIcon: React.FC<IconProps> = ({
+export const PlayCircleFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5187,16 +5187,16 @@ export const PlayCircleRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰙢
+      󰙟
     </span>
   );
 };
-export const OpacityRegularIcon: React.FC<IconProps> = ({
+export const OpacityFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5206,7 +5206,7 @@ export const OpacityRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -5215,7 +5215,7 @@ export const OpacityRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const ErrorCircleRegularIcon: React.FC<IconProps> = ({
+export const ErrorCircleFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5225,16 +5225,16 @@ export const ErrorCircleRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰙰
+      󰙭
     </span>
   );
 };
-export const LineRegularIcon: React.FC<IconProps> = ({
+export const LineFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5244,16 +5244,16 @@ export const LineRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰙵
+      󰙱
     </span>
   );
 };
-export const SlideGridRegularIcon: React.FC<IconProps> = ({
+export const SlideGridFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5263,16 +5263,16 @@ export const SlideGridRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰙻
+      󰙹
     </span>
   );
 };
-export const RhombusRegularIcon: React.FC<IconProps> = ({
+export const RhombusFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5282,16 +5282,16 @@ export const RhombusRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰚀
+      󰚂
     </span>
   );
 };
-export const LockOpenRegularIcon: React.FC<IconProps> = ({
+export const LockOpenFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5301,16 +5301,16 @@ export const LockOpenRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰚇
+      󰚃
     </span>
   );
 };
-export const RulerRegularIcon: React.FC<IconProps> = ({
+export const RulerFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5320,16 +5320,16 @@ export const RulerRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰚌
+      󰚉
     </span>
   );
 };
-export const ClockAlarmRegularIcon: React.FC<IconProps> = ({
+export const ClockAlarmFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5339,16 +5339,16 @@ export const ClockAlarmRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰚒
+      󰚑
     </span>
   );
 };
-export const SwiftRegularIcon: React.FC<IconProps> = ({
+export const SwiftFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5358,7 +5358,7 @@ export const SwiftRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -5367,7 +5367,7 @@ export const SwiftRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const SlideContentRegularIcon: React.FC<IconProps> = ({
+export const SlideContentFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5377,16 +5377,16 @@ export const SlideContentRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰚟
+      󰚞
     </span>
   );
 };
-export const EarthRegularIcon: React.FC<IconProps> = ({
+export const EarthFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5396,16 +5396,16 @@ export const EarthRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰚤
+      󰚣
     </span>
   );
 };
-export const PaymentWirelessRegularIcon: React.FC<IconProps> = ({
+export const PaymentWirelessFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5415,16 +5415,16 @@ export const PaymentWirelessRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰚫
+      󰚬
     </span>
   );
 };
-export const PaintBucketRegularIcon: React.FC<IconProps> = ({
+export const PaintBucketFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5434,16 +5434,16 @@ export const PaintBucketRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰚳
+      󰚰
     </span>
   );
 };
-export const PersonVoiceRegularIcon: React.FC<IconProps> = ({
+export const PersonVoiceFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5453,16 +5453,16 @@ export const PersonVoiceRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰚷
+      󰚵
     </span>
   );
 };
-export const BlurRegularIcon: React.FC<IconProps> = ({
+export const BlurFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5472,16 +5472,16 @@ export const BlurRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰚽
+      󰚼
     </span>
   );
 };
-export const SportBaseballRegularIcon: React.FC<IconProps> = ({
+export const SportBaseballFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5491,16 +5491,16 @@ export const SportBaseballRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰛅
+      󰛁
     </span>
   );
 };
-export const RadioButtonRegularIcon: React.FC<IconProps> = ({
+export const RadioButtonFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5510,16 +5510,16 @@ export const RadioButtonRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰛈
+      󰛇
     </span>
   );
 };
-export const BluetoothRegularIcon: React.FC<IconProps> = ({
+export const BluetoothFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5529,16 +5529,16 @@ export const BluetoothRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰛏
+      󰛋
     </span>
   );
 };
-export const PauseCircleRegularIcon: React.FC<IconProps> = ({
+export const PauseCircleFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5548,16 +5548,16 @@ export const PauseCircleRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰛔
+      󰛖
     </span>
   );
 };
-export const AndroidRegularIcon: React.FC<IconProps> = ({
+export const AndroidFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5567,16 +5567,16 @@ export const AndroidRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰛛
+      󰛜
     </span>
   );
 };
-export const TextAlignRightRegularIcon: React.FC<IconProps> = ({
+export const TextAlignRightFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5586,7 +5586,7 @@ export const TextAlignRightRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -5595,7 +5595,7 @@ export const TextAlignRightRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const AirplaneRegularIcon: React.FC<IconProps> = ({
+export const AirplaneFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5605,16 +5605,16 @@ export const AirplaneRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰛦
+      󰛥
     </span>
   );
 };
-export const ToolboxRegularIcon: React.FC<IconProps> = ({
+export const ToolboxFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5624,16 +5624,16 @@ export const ToolboxRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰛯
+      󰛫
     </span>
   );
 };
-export const GuestRegularIcon: React.FC<IconProps> = ({
+export const GuestFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5643,16 +5643,16 @@ export const GuestRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰛱
+      󰛲
     </span>
   );
 };
-export const HatGraduationRegularIcon: React.FC<IconProps> = ({
+export const HatGraduationFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5662,7 +5662,7 @@ export const HatGraduationRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -5671,7 +5671,7 @@ export const HatGraduationRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const TextboxAlignTopRegularIcon: React.FC<IconProps> = ({
+export const TextboxAlignTopFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5681,16 +5681,16 @@ export const TextboxAlignTopRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰛿
+      󰜀
     </span>
   );
 };
-export const WeatherBlowingSnowRegularIcon: React.FC<IconProps> = ({
+export const WeatherBlowingSnowFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5700,16 +5700,16 @@ export const WeatherBlowingSnowRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰜃
+      󰜆
     </span>
   );
 };
-export const CloudRegularIcon: React.FC<IconProps> = ({
+export const CloudFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5719,16 +5719,16 @@ export const CloudRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰜉
+      󰜇
     </span>
   );
 };
-export const BarChartVerticalRegularIcon: React.FC<IconProps> = ({
+export const BarChartVerticalFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5738,7 +5738,7 @@ export const BarChartVerticalRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -5747,7 +5747,7 @@ export const BarChartVerticalRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const Battery70RegularIcon: React.FC<IconProps> = ({
+export const Battery70FilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5757,16 +5757,16 @@ export const Battery70RegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰜘
+      󰜕
     </span>
   );
 };
-export const CutRegularIcon: React.FC<IconProps> = ({
+export const CutFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5776,16 +5776,16 @@ export const CutRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰜝
+      󰜞
     </span>
   );
 };
-export const ShoppingBagRegularIcon: React.FC<IconProps> = ({
+export const ShoppingBagFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5795,16 +5795,16 @@ export const ShoppingBagRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰜡
+      󰜤
     </span>
   );
 };
-export const FlashlightOffRegularIcon: React.FC<IconProps> = ({
+export const FlashlightOffFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5814,16 +5814,16 @@ export const FlashlightOffRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰜨
+      󰜥
     </span>
   );
 };
-export const BookRegularIcon: React.FC<IconProps> = ({
+export const BookFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5833,16 +5833,16 @@ export const BookRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰜮
+      󰜭
     </span>
   );
 };
-export const ShapeIntersectRegularIcon: React.FC<IconProps> = ({
+export const ShapeIntersectFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5852,16 +5852,16 @@ export const ShapeIntersectRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰜵
+      󰜱
     </span>
   );
 };
-export const Battery100RegularIcon: React.FC<IconProps> = ({
+export const Battery100FilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5871,16 +5871,16 @@ export const Battery100RegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰜺
+      󰜼
     </span>
   );
 };
-export const HourglassThreeQuarterRegularIcon: React.FC<IconProps> = ({
+export const HourglassThreeQuarterFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5890,16 +5890,16 @@ export const HourglassThreeQuarterRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰝀
+      󰝂
     </span>
   );
 };
-export const RoadConeRegularIcon: React.FC<IconProps> = ({
+export const RoadConeFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5909,16 +5909,16 @@ export const RoadConeRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰝆
+      󰝈
     </span>
   );
 };
-export const UmbrellaRegularIcon: React.FC<IconProps> = ({
+export const UmbrellaFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5928,7 +5928,7 @@ export const UmbrellaRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -5937,7 +5937,7 @@ export const UmbrellaRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const WalletRegularIcon: React.FC<IconProps> = ({
+export const WalletFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5947,16 +5947,16 @@ export const WalletRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰝔
+      󰝏
     </span>
   );
 };
-export const CartRegularIcon: React.FC<IconProps> = ({
+export const CartFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5966,16 +5966,16 @@ export const CartRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰝛
+      󰝚
     </span>
   );
 };
-export const PhoneRegularIcon: React.FC<IconProps> = ({
+export const PhoneFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -5985,7 +5985,7 @@ export const PhoneRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -5994,7 +5994,7 @@ export const PhoneRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const PaddingRegularIcon: React.FC<IconProps> = ({
+export const PaddingFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6004,16 +6004,16 @@ export const PaddingRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰝤
+      󰝦
     </span>
   );
 };
-export const ZoomRegularIcon: React.FC<IconProps> = ({
+export const ZoomFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6023,16 +6023,16 @@ export const ZoomRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰝪
+      󰝩
     </span>
   );
 };
-export const SoundSourceRegularIcon: React.FC<IconProps> = ({
+export const SoundSourceFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6042,16 +6042,16 @@ export const SoundSourceRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰝱
+      󰝯
     </span>
   );
 };
-export const TicketRegularIcon: React.FC<IconProps> = ({
+export const TicketFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6061,16 +6061,16 @@ export const TicketRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰝷
+      󰝸
     </span>
   );
 };
-export const EqualRegularIcon: React.FC<IconProps> = ({
+export const EqualFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6080,7 +6080,7 @@ export const EqualRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -6089,7 +6089,7 @@ export const EqualRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const BackspaceRegularIcon: React.FC<IconProps> = ({
+export const BackspaceFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6099,16 +6099,16 @@ export const BackspaceRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰞄
+      󰞁
     </span>
   );
 };
-export const ChessRegularIcon: React.FC<IconProps> = ({
+export const ChessFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6118,16 +6118,16 @@ export const ChessRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰞈
+      󰞅
     </span>
   );
 };
-export const AddCircleRegularIcon: React.FC<IconProps> = ({
+export const AddCircleFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6137,16 +6137,16 @@ export const AddCircleRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰞍
+      󰞐
     </span>
   );
 };
-export const AppRecentRegularIcon: React.FC<IconProps> = ({
+export const AppRecentFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6156,16 +6156,16 @@ export const AppRecentRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰞕
+      󰞖
     </span>
   );
 };
-export const ShapeSubtractRegularIcon: React.FC<IconProps> = ({
+export const ShapeSubtractFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6175,16 +6175,16 @@ export const ShapeSubtractRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰞘
+      󰞚
     </span>
   );
 };
-export const ChevronDownRegularIcon: React.FC<IconProps> = ({
+export const ChevronDownFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6194,7 +6194,7 @@ export const ChevronDownRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -6203,7 +6203,7 @@ export const ChevronDownRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const FlashlightRegularIcon: React.FC<IconProps> = ({
+export const FlashlightFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6213,16 +6213,16 @@ export const FlashlightRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰞧
+      󰞨
     </span>
   );
 };
-export const PulseCircleRegularIcon: React.FC<IconProps> = ({
+export const PulseCircleFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6232,16 +6232,16 @@ export const PulseCircleRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰞫
+      󰞮
     </span>
   );
 };
-export const AlignBottomRegularIcon: React.FC<IconProps> = ({
+export const AlignBottomFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6251,16 +6251,16 @@ export const AlignBottomRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰞴
+      󰞯
     </span>
   );
 };
-export const Battery40RegularIcon: React.FC<IconProps> = ({
+export const Battery40FilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6270,16 +6270,16 @@ export const Battery40RegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰞸
+      󰞵
     </span>
   );
 };
-export const IosArrowRtlRegularIcon: React.FC<IconProps> = ({
+export const IosArrowRtlFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6289,16 +6289,16 @@ export const IosArrowRtlRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰞿
+      󰞽
     </span>
   );
 };
-export const MailReadRegularIcon: React.FC<IconProps> = ({
+export const MailReadFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6308,16 +6308,16 @@ export const MailReadRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰟅
+      󰟄
     </span>
   );
 };
-export const KioskRegularIcon: React.FC<IconProps> = ({
+export const KioskFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6327,16 +6327,16 @@ export const KioskRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰟊
+      󰟇
     </span>
   );
 };
-export const KeyboardCommandRegularIcon: React.FC<IconProps> = ({
+export const KeyboardCommandFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6346,16 +6346,16 @@ export const KeyboardCommandRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰟒
+      󰟐
     </span>
   );
 };
-export const CopyRegularIcon: React.FC<IconProps> = ({
+export const CopyFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6365,16 +6365,16 @@ export const CopyRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰟗
+      󰟖
     </span>
   );
 };
-export const CircleRegularIcon: React.FC<IconProps> = ({
+export const CircleFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6384,16 +6384,16 @@ export const CircleRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰟝
+      󰟜
     </span>
   );
 };
-export const WeatherSnowflakeRegularIcon: React.FC<IconProps> = ({
+export const WeatherSnowflakeFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6403,16 +6403,16 @@ export const WeatherSnowflakeRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰟥
+      󰟢
     </span>
   );
 };
-export const DialpadRegularIcon: React.FC<IconProps> = ({
+export const DialpadFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6422,7 +6422,7 @@ export const DialpadRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -6431,7 +6431,7 @@ export const DialpadRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const FlagOffRegularIcon: React.FC<IconProps> = ({
+export const FlagOffFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6441,16 +6441,16 @@ export const FlagOffRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰟰
+      󰟫
     </span>
   );
 };
-export const VoicemailRegularIcon: React.FC<IconProps> = ({
+export const VoicemailFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6460,16 +6460,16 @@ export const VoicemailRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰟵
+      󰟴
     </span>
   );
 };
-export const ContrastRegularIcon: React.FC<IconProps> = ({
+export const ContrastFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6479,16 +6479,16 @@ export const ContrastRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰟼
+      󰟷
     </span>
   );
 };
-export const CookieRegularIcon: React.FC<IconProps> = ({
+export const CookieFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6498,16 +6498,16 @@ export const CookieRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰠁
+      󰟽
     </span>
   );
 };
-export const WeatherRainRegularIcon: React.FC<IconProps> = ({
+export const WeatherRainFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6517,16 +6517,16 @@ export const WeatherRainRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰠆
+      󰠃
     </span>
   );
 };
-export const DismissSquareRegularIcon: React.FC<IconProps> = ({
+export const DismissSquareFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6536,16 +6536,16 @@ export const DismissSquareRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰠍
+      󰠌
     </span>
   );
 };
-export const NumberCircle4RegularIcon: React.FC<IconProps> = ({
+export const NumberCircle4FilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6555,16 +6555,16 @@ export const NumberCircle4RegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰠒
+      󰠏
     </span>
   );
 };
-export const NumberCircle3RegularIcon: React.FC<IconProps> = ({
+export const NumberCircle3FilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6574,16 +6574,16 @@ export const NumberCircle3RegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰠘
+      󰠕
     </span>
   );
 };
-export const LightbulbRegularIcon: React.FC<IconProps> = ({
+export const LightbulbFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6593,16 +6593,16 @@ export const LightbulbRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰠠
+      󰠛
     </span>
   );
 };
-export const RocketRegularIcon: React.FC<IconProps> = ({
+export const RocketFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6612,7 +6612,7 @@ export const RocketRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -6621,7 +6621,7 @@ export const RocketRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const NumberSymbolSquareRegularIcon: React.FC<IconProps> = ({
+export const NumberSymbolSquareFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6631,7 +6631,7 @@ export const NumberSymbolSquareRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -6640,7 +6640,7 @@ export const NumberSymbolSquareRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const TextRegularIcon: React.FC<IconProps> = ({
+export const TextFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6650,16 +6650,16 @@ export const TextRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰠰
+      󰠲
     </span>
   );
 };
-export const ControlButtonRegularIcon: React.FC<IconProps> = ({
+export const ControlButtonFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6669,16 +6669,16 @@ export const ControlButtonRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰠷
+      󰠵
     </span>
   );
 };
-export const EyedropperOffRegularIcon: React.FC<IconProps> = ({
+export const EyedropperOffFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6688,16 +6688,16 @@ export const EyedropperOffRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰠼
+      󰠻
     </span>
   );
 };
-export const JoystickRegularIcon: React.FC<IconProps> = ({
+export const JoystickFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6707,16 +6707,16 @@ export const JoystickRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰡃
+      󰡄
     </span>
   );
 };
-export const SprayCanRegularIcon: React.FC<IconProps> = ({
+export const SprayCanFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6726,16 +6726,16 @@ export const SprayCanRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰡊
+      󰡇
     </span>
   );
 };
-export const TextboxAlignMiddleRegularIcon: React.FC<IconProps> = ({
+export const TextboxAlignMiddleFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6745,16 +6745,16 @@ export const TextboxAlignMiddleRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰡏
+      󰡋
     </span>
   );
 };
-export const FlashOffRegularIcon: React.FC<IconProps> = ({
+export const FlashOffFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6764,16 +6764,16 @@ export const FlashOffRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰡕
+      󰡓
     </span>
   );
 };
-export const TextboxAlignBottomCenterRegularIcon: React.FC<IconProps> = ({
+export const TextboxAlignBottomCenterFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6783,16 +6783,16 @@ export const TextboxAlignBottomCenterRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰡝
+      󰡜
     </span>
   );
 };
-export const BackpackRegularIcon: React.FC<IconProps> = ({
+export const BackpackFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6802,7 +6802,7 @@ export const BackpackRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -6811,7 +6811,7 @@ export const BackpackRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const HardDriveRegularIcon: React.FC<IconProps> = ({
+export const HardDriveFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6821,16 +6821,16 @@ export const HardDriveRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰡥
+      󰡨
     </span>
   );
 };
-export const PageFitRegularIcon: React.FC<IconProps> = ({
+export const PageFitFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6840,7 +6840,7 @@ export const PageFitRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -6849,7 +6849,7 @@ export const PageFitRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const ShapeExcludeRegularIcon: React.FC<IconProps> = ({
+export const ShapeExcludeFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6859,16 +6859,16 @@ export const ShapeExcludeRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰡲
+      󰡴
     </span>
   );
 };
-export const NotebookRegularIcon: React.FC<IconProps> = ({
+export const NotebookFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6878,16 +6878,16 @@ export const NotebookRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰡸
+      󰡺
     </span>
   );
 };
-export const JavascriptRegularIcon: React.FC<IconProps> = ({
+export const JavascriptFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6897,16 +6897,16 @@ export const JavascriptRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰡿
+      󰡻
     </span>
   );
 };
-export const NumberCircle2RegularIcon: React.FC<IconProps> = ({
+export const NumberCircle2FilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6916,16 +6916,16 @@ export const NumberCircle2RegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰢂
+      󰢆
     </span>
   );
 };
-export const FilterRegularIcon: React.FC<IconProps> = ({
+export const FilterFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6935,16 +6935,16 @@ export const FilterRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰢋
+      󰢊
     </span>
   );
 };
-export const WeatherCloudyRegularIcon: React.FC<IconProps> = ({
+export const WeatherCloudyFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6954,7 +6954,7 @@ export const WeatherCloudyRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -6963,7 +6963,7 @@ export const WeatherCloudyRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const RunRegularIcon: React.FC<IconProps> = ({
+export const RunFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6973,16 +6973,16 @@ export const RunRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰢖
+      󰢘
     </span>
   );
 };
-export const HeadsetVrRegularIcon: React.FC<IconProps> = ({
+export const HeadsetVrFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -6992,16 +6992,16 @@ export const HeadsetVrRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰢝
+      󰢛
     </span>
   );
 };
-export const NumberCircle5RegularIcon: React.FC<IconProps> = ({
+export const NumberCircle5FilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7011,16 +7011,16 @@ export const NumberCircle5RegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰢠
+      󰢤
     </span>
   );
 };
-export const LaptopRegularIcon: React.FC<IconProps> = ({
+export const LaptopFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7030,7 +7030,7 @@ export const LaptopRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -7039,7 +7039,7 @@ export const LaptopRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const HeartBrokenRegularIcon: React.FC<IconProps> = ({
+export const HeartBrokenFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7049,16 +7049,16 @@ export const HeartBrokenRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰢭
+      󰢫
     </span>
   );
 };
-export const WindowsRegularIcon: React.FC<IconProps> = ({
+export const WindowsFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7068,16 +7068,16 @@ export const WindowsRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰢵
+      󰢱
     </span>
   );
 };
-export const Battery90RegularIcon: React.FC<IconProps> = ({
+export const Battery90FilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7087,16 +7087,16 @@ export const Battery90RegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰢸
+      󰢹
     </span>
   );
 };
-export const ServerLinkRegularIcon: React.FC<IconProps> = ({
+export const ServerLinkFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7106,16 +7106,16 @@ export const ServerLinkRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰣁
+      󰢿
     </span>
   );
 };
-export const EyedropperRegularIcon: React.FC<IconProps> = ({
+export const EyedropperFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7125,16 +7125,16 @@ export const EyedropperRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰣇
+      󰣅
     </span>
   );
 };
-export const PlayRegularIcon: React.FC<IconProps> = ({
+export const PlayFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7144,16 +7144,16 @@ export const PlayRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰣍
+      󰣋
     </span>
   );
 };
-export const MathSymbolsRegularIcon: React.FC<IconProps> = ({
+export const MathSymbolsFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7163,16 +7163,16 @@ export const MathSymbolsRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰣓
+      󰣏
     </span>
   );
 };
-export const RotationRegularIcon: React.FC<IconProps> = ({
+export const RotationFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7182,7 +7182,7 @@ export const RotationRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -7191,7 +7191,7 @@ export const RotationRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const ParallelogramRegularIcon: React.FC<IconProps> = ({
+export const ParallelogramFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7201,16 +7201,16 @@ export const ParallelogramRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰣟
+      󰣞
     </span>
   );
 };
-export const Battery30RegularIcon: React.FC<IconProps> = ({
+export const Battery30FilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7220,7 +7220,26 @@ export const Battery30RegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
+        ...props.style
+      }
+      {...props}
+    >
+      󰣡
+    </span>
+  );
+};
+export const TemperatureFilledIcon: React.FC<IconProps> = ({
+  size = 24,
+  color = 'currentColor',
+  ...props
+}) => {
+  return (
+    <span
+      style={
+        fontSize: size,
+        color: color,
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -7229,7 +7248,7 @@ export const Battery30RegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const TemperatureRegularIcon: React.FC<IconProps> = ({
+export const SimFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7239,16 +7258,16 @@ export const TemperatureRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰣩
+      󰣯
     </span>
   );
 };
-export const SimRegularIcon: React.FC<IconProps> = ({
+export const AccessibilityFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7258,16 +7277,16 @@ export const SimRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰣱
+      󰣵
     </span>
   );
 };
-export const AccessibilityRegularIcon: React.FC<IconProps> = ({
+export const SaveFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7277,16 +7296,16 @@ export const AccessibilityRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰣸
+      󰣼
     </span>
   );
 };
-export const SaveRegularIcon: React.FC<IconProps> = ({
+export const PlaystoreFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7296,16 +7315,16 @@ export const SaveRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰣻
+      󰤄
     </span>
   );
 };
-export const PlaystoreRegularIcon: React.FC<IconProps> = ({
+export const SlideHideFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7315,16 +7334,16 @@ export const PlaystoreRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰤂
+      󰤈
     </span>
   );
 };
-export const SlideHideRegularIcon: React.FC<IconProps> = ({
+export const ElevatorFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7334,16 +7353,16 @@ export const SlideHideRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰤉
+      󰤋
     </span>
   );
 };
-export const ElevatorRegularIcon: React.FC<IconProps> = ({
+export const SendFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7353,16 +7372,16 @@ export const ElevatorRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰤍
+      󰤓
     </span>
   );
 };
-export const SendRegularIcon: React.FC<IconProps> = ({
+export const PenOffFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7372,26 +7391,7 @@ export const SendRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
-        ...props.style
-      }
-      {...props}
-    >
-      󰤕
-    </span>
-  );
-};
-export const PenOffRegularIcon: React.FC<IconProps> = ({
-  size = 24,
-  color = 'currentColor',
-  ...props
-}) => {
-  return (
-    <span
-      style={
-        fontSize: size,
-        color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -7400,7 +7400,7 @@ export const PenOffRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const AlbumRegularIcon: React.FC<IconProps> = ({
+export const AlbumFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7410,16 +7410,16 @@ export const AlbumRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰤟
+      󰤢
     </span>
   );
 };
-export const EngineRegularIcon: React.FC<IconProps> = ({
+export const EngineFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7429,16 +7429,16 @@ export const EngineRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰤦
+      󰤥
     </span>
   );
 };
-export const GamesRegularIcon: React.FC<IconProps> = ({
+export const GamesFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7448,16 +7448,16 @@ export const GamesRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰤮
+      󰤩
     </span>
   );
 };
-export const FilmstripOffRegularIcon: React.FC<IconProps> = ({
+export const FilmstripOffFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7467,16 +7467,16 @@ export const FilmstripOffRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰤲
+      󰤯
     </span>
   );
 };
-export const ShareIosRegularIcon: React.FC<IconProps> = ({
+export const ShareIosFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7486,16 +7486,16 @@ export const ShareIosRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰤺
+      󰤵
     </span>
   );
 };
-export const LineDashesRegularIcon: React.FC<IconProps> = ({
+export const LineDashesFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7505,16 +7505,16 @@ export const LineDashesRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰤼
+      󰤽
     </span>
   );
 };
-export const PortMicroUsbRegularIcon: React.FC<IconProps> = ({
+export const PortMicroUsbFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7524,16 +7524,16 @@ export const PortMicroUsbRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰥅
+      󰥆
     </span>
   );
 };
-export const TextboxRegularIcon: React.FC<IconProps> = ({
+export const TextboxFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7543,16 +7543,16 @@ export const TextboxRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰥋
+      󰥌
     </span>
   );
 };
-export const KeyboardOffRegularIcon: React.FC<IconProps> = ({
+export const KeyboardOffFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7562,16 +7562,16 @@ export const KeyboardOffRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰥑
+      󰥏
     </span>
   );
 };
-export const TagRegularIcon: React.FC<IconProps> = ({
+export const TagFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7581,16 +7581,16 @@ export const TagRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰥖
+      󰥓
     </span>
   );
 };
-export const GlobalRegularIcon: React.FC<IconProps> = ({
+export const GlobalFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7600,7 +7600,7 @@ export const GlobalRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -7609,7 +7609,7 @@ export const GlobalRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const ToggleRightRegularIcon: React.FC<IconProps> = ({
+export const ToggleRightFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7619,16 +7619,16 @@ export const ToggleRightRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰥣
+      󰥤
     </span>
   );
 };
-export const Wifi2RegularIcon: React.FC<IconProps> = ({
+export const Wifi2FilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7638,16 +7638,16 @@ export const Wifi2RegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰥨
+      󰥪
     </span>
   );
 };
-export const BarChartHorizontalRegularIcon: React.FC<IconProps> = ({
+export const BarChartHorizontalFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7657,16 +7657,16 @@ export const BarChartHorizontalRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰥮
+      󰥰
     </span>
   );
 };
-export const WandRegularIcon: React.FC<IconProps> = ({
+export const WandFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7676,16 +7676,16 @@ export const WandRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰥴
+      󰥶
     </span>
   );
 };
-export const EqualCircleRegularIcon: React.FC<IconProps> = ({
+export const EqualCircleFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7695,16 +7695,16 @@ export const EqualCircleRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰥼
+      󰥹
     </span>
   );
 };
-export const NotepadRegularIcon: React.FC<IconProps> = ({
+export const NotepadFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7714,16 +7714,16 @@ export const NotepadRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰦀
+      󰦂
     </span>
   );
 };
-export const OpenRegularIcon: React.FC<IconProps> = ({
+export const OpenFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7733,16 +7733,16 @@ export const OpenRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰦇
+      󰦆
     </span>
   );
 };
-export const GitRegularIcon: React.FC<IconProps> = ({
+export const GitFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7752,7 +7752,7 @@ export const GitRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -7761,7 +7761,7 @@ export const GitRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const HomeCheckmarkRegularIcon: React.FC<IconProps> = ({
+export const HomeCheckmarkFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7771,16 +7771,16 @@ export const HomeCheckmarkRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰦒
+      󰦏
     </span>
   );
 };
-export const XrayRegularIcon: React.FC<IconProps> = ({
+export const XrayFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7790,16 +7790,16 @@ export const XrayRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰦗
+      󰦕
     </span>
   );
 };
-export const KeyboardRegularIcon: React.FC<IconProps> = ({
+export const KeyboardFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7809,16 +7809,16 @@ export const KeyboardRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰦞
+      󰦝
     </span>
   );
 };
-export const PaintBrushRegularIcon: React.FC<IconProps> = ({
+export const PaintBrushFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7828,16 +7828,16 @@ export const PaintBrushRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰦥
+      󰦤
     </span>
   );
 };
-export const ClockRegularIcon: React.FC<IconProps> = ({
+export const ClockFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7847,16 +7847,16 @@ export const ClockRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰦫
+      󰦧
     </span>
   );
 };
-export const TextboxAlignTopCenterRegularIcon: React.FC<IconProps> = ({
+export const TextboxAlignTopCenterFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7866,16 +7866,16 @@ export const TextboxAlignTopCenterRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰦰
+      󰦭
     </span>
   );
 };
-export const RamRegularIcon: React.FC<IconProps> = ({
+export const RamFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7885,16 +7885,16 @@ export const RamRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰦸
+      󰦳
     </span>
   );
 };
-export const KeyboardShiftRegularIcon: React.FC<IconProps> = ({
+export const KeyboardShiftFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7904,7 +7904,7 @@ export const KeyboardShiftRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -7913,7 +7913,7 @@ export const KeyboardShiftRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const TextboxAlignTopLeftRegularIcon: React.FC<IconProps> = ({
+export const TextboxAlignTopLeftFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7923,7 +7923,7 @@ export const TextboxAlignTopLeftRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -7932,7 +7932,7 @@ export const TextboxAlignTopLeftRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const WalkieTalkieRegularIcon: React.FC<IconProps> = ({
+export const WalkieTalkieFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7942,16 +7942,16 @@ export const WalkieTalkieRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰧈
+      󰧇
     </span>
   );
 };
-export const Wifi4RegularIcon: React.FC<IconProps> = ({
+export const Wifi4FilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7961,16 +7961,16 @@ export const Wifi4RegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰧐
+      󰧋
     </span>
   );
 };
-export const DoorRegularIcon: React.FC<IconProps> = ({
+export const DoorFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7980,16 +7980,16 @@ export const DoorRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰧖
+      󰧓
     </span>
   );
 };
-export const EmojiCoolRegularIcon: React.FC<IconProps> = ({
+export const EmojiCoolFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -7999,16 +7999,16 @@ export const EmojiCoolRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰧙
+      󰧜
     </span>
   );
 };
-export const BlockRegularIcon: React.FC<IconProps> = ({
+export const BlockFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -8018,16 +8018,16 @@ export const BlockRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰧟
+      󰧝
     </span>
   );
 };
-export const JsonFileRegularIcon: React.FC<IconProps> = ({
+export const JsonFileFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -8037,16 +8037,16 @@ export const JsonFileRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰧧
+      󰧥
     </span>
   );
 };
-export const Wifi3RegularIcon: React.FC<IconProps> = ({
+export const Wifi3FilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -8056,16 +8056,16 @@ export const Wifi3RegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰧮
+      󰧩
     </span>
   );
 };
-export const ShareRegularIcon: React.FC<IconProps> = ({
+export const ShareFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -8075,16 +8075,16 @@ export const ShareRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰧳
+      󰧯
     </span>
   );
 };
-export const GifRegularIcon: React.FC<IconProps> = ({
+export const GifFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -8094,16 +8094,16 @@ export const GifRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰧷
+      󰧸
     </span>
   );
 };
-export const GridRegularIcon: React.FC<IconProps> = ({
+export const GridFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -8113,7 +8113,26 @@ export const GridRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
+        ...props.style
+      }
+      {...props}
+    >
+      󰧾
+    </span>
+  );
+};
+export const BadgeFilledIcon: React.FC<IconProps> = ({
+  size = 24,
+  color = 'currentColor',
+  ...props
+}) => {
+  return (
+    <span
+      style={
+        fontSize: size,
+        color: color,
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -8122,7 +8141,7 @@ export const GridRegularIcon: React.FC<IconProps> = ({
     </span>
   );
 };
-export const BadgeRegularIcon: React.FC<IconProps> = ({
+export const ToggleLeftFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -8132,16 +8151,16 @@ export const BadgeRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰨄
+      󰨌
     </span>
   );
 };
-export const ToggleLeftRegularIcon: React.FC<IconProps> = ({
+export const NetworkCheckFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -8151,16 +8170,16 @@ export const ToggleLeftRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰨋
+      󰨏
     </span>
   );
 };
-export const NetworkCheckRegularIcon: React.FC<IconProps> = ({
+export const QuestionCircleFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -8170,16 +8189,16 @@ export const NetworkCheckRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰨑
+      󰨖
     </span>
   );
 };
-export const QuestionCircleRegularIcon: React.FC<IconProps> = ({
+export const ClipboardFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -8189,16 +8208,16 @@ export const QuestionCircleRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰨕
+      󰨙
     </span>
   );
 };
-export const ClipboardRegularIcon: React.FC<IconProps> = ({
+export const RouterFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -8208,16 +8227,16 @@ export const ClipboardRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
     >
-      󰨞
+      󰨡
     </span>
   );
 };
-export const RouterRegularIcon: React.FC<IconProps> = ({
+export const DumbbellFilledIcon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   ...props
@@ -8227,26 +8246,7 @@ export const RouterRegularIcon: React.FC<IconProps> = ({
       style={
         fontSize: size,
         color: color,
-        fontFamily: 'refineui-system-icons-regular',
-        ...props.style
-      }
-      {...props}
-    >
-      󰨣
-    </span>
-  );
-};
-export const DumbbellRegularIcon: React.FC<IconProps> = ({
-  size = 24,
-  color = 'currentColor',
-  ...props
-}) => {
-  return (
-    <span
-      style={
-        fontSize: size,
-        color: color,
-        fontFamily: 'refineui-system-icons-regular',
+        fontFamily: 'refineui-system-icons-filled',
         ...props.style
       }
       {...props}
@@ -8257,437 +8257,437 @@ export const DumbbellRegularIcon: React.FC<IconProps> = ({
 };
 
 // Exports
-export { GavelRegularIcon };
-export { DiamondRegularIcon };
-export { FilmstripRegularIcon };
-export { OrganizationRegularIcon };
-export { CodeBlockRegularIcon };
-export { FullScreenMinimizeRegularIcon };
-export { ShellScriptRegularIcon };
-export { PauseRegularIcon };
-export { PortUsbCRegularIcon };
-export { KeyboardShiftUppercaseRegularIcon };
-export { LineHorizontal1RegularIcon };
-export { VoteRegularIcon };
-export { PowerRegularIcon };
-export { PreviewLinkRegularIcon };
-export { CrownRegularIcon };
-export { ShieldRegularIcon };
-export { NoteRegularIcon };
-export { OrientationRegularIcon };
-export { SettingsRegularIcon };
-export { HomeRegularIcon };
-export { DatabaseRegularIcon };
-export { OptionsRegularIcon };
-export { DustRegularIcon };
-export { LuggageRegularIcon };
-export { FlipVerticialRegularIcon };
-export { AutosumRegularIcon };
-export { PipelineRegularIcon };
-export { DrawerRegularIcon };
-export { NextRegularIcon };
-export { MoreVerticialRegularIcon };
-export { TabletRegularIcon };
-export { PianoRegularIcon };
-export { AppFolderRegularIcon };
-export { LockClosedRegularIcon };
-export { FlagRegularIcon };
-export { NumberSymbolRegularIcon };
-export { VideoRegularIcon };
-export { EditOffRegularIcon };
-export { BalloonRegularIcon };
-export { MovieRegularIcon };
-export { HammerRegularIcon };
-export { MoreCircleRegularIcon };
-export { GasRegularIcon };
-export { PasswordRegularIcon };
-export { ChevronLeftRegularIcon };
-export { OpenOffRegularIcon };
-export { PinRegularIcon };
-export { SerialPortRegularIcon };
-export { EyeRegularIcon };
-export { ZoomOutRegularIcon };
-export { MacosRegularIcon };
-export { Battery80RegularIcon };
-export { CalendarRegularIcon };
-export { FastForwardRegularIcon };
-export { BookmarkRegularIcon };
-export { AddSquareRegularIcon };
-export { Battery20RegularIcon };
-export { CalculatorRegularIcon };
-export { TextboxAlignBottomLeftRegularIcon };
-export { RecordRegularIcon };
-export { DeskRegularIcon };
-export { WeatherSnowRegularIcon };
-export { ToggleMultipleRegularIcon };
-export { PulseSquareRegularIcon };
-export { HourglassRegularIcon };
-export { PreviousRegularIcon };
-export { CloverRegularIcon };
-export { RefineuiRegularIcon };
-export { CheckmarkRegularIcon };
-export { SlideLayoutRegularIcon };
-export { VideoPlayPauseRegularIcon };
-export { TextboxAlignBottomRegularIcon };
-export { ChatRegularIcon };
-export { UsbCableRegularIcon };
-export { SmartwatchRegularIcon };
-export { WaterRegularIcon };
-export { HdRegularIcon };
-export { DeleteRegularIcon };
-export { BoardRegularIcon };
-export { Battery10RegularIcon };
-export { SubtractRegularIcon };
-export { LocationArrowRegularIcon };
-export { EmojiSadRegularIcon };
-export { FullScreenMaximizeRegularIcon };
-export { PythonRegularIcon };
-export { VerifiedRegularIcon };
-export { CssRegularIcon };
-export { SportBasketballRegularIcon };
-export { CursorRegularIcon };
-export { RecordStopRegularIcon };
-export { CouchRegularIcon };
-export { CpuRegularIcon };
-export { AppstoreRegularIcon };
-export { HeartRegularIcon };
-export { EmojiAngryRegularIcon };
-export { WrenchRegularIcon };
-export { HighlightRegularIcon };
-export { WasherRegularIcon };
-export { GanttChartRegularIcon };
-export { PersonRegularIcon };
-export { DartRegularIcon };
-export { HighwayRegularIcon };
-export { CommentRegularIcon };
-export { MailRegularIcon };
-export { AlertRegularIcon };
-export { FlipHorizontalRegularIcon };
-export { HdrOffRegularIcon };
-export { HeadphonesMicRegularIcon };
-export { WebRegularIcon };
-export { TargetRegularIcon };
-export { AlignRightRegularIcon };
-export { MailboxRegularIcon };
-export { MarkdownRegularIcon };
-export { NumberCircle9RegularIcon };
-export { CameraRegularIcon };
-export { NumberCircle0RegularIcon };
-export { LocationRegularIcon };
-export { BarcodeScannerRegularIcon };
-export { LocalLanguageRegularIcon };
-export { PaymentRegularIcon };
-export { SlideEraserRegularIcon };
-export { ShapeUnionRegularIcon };
-export { NumberCircle7RegularIcon };
-export { Battery50RegularIcon };
-export { TrophyRegularIcon };
-export { IosChevronLtrRegularIcon };
-export { SquareRegularIcon };
-export { HdrRegularIcon };
-export { TypescriptRegularIcon };
-export { BarChartHorizontalDescendingRegularIcon };
-export { CubeRegularIcon };
-export { EmojiLaughRegularIcon };
-export { EmojiGrimacingRegularIcon };
-export { DismissCircleRegularIcon };
-export { MoonRegularIcon };
-export { SlideAddRegularIcon };
-export { FolderRegularIcon };
-export { ChartRegularIcon };
-export { SquareMultipleRegularIcon };
-export { ChatAddRegularIcon };
-export { DoctorRegularIcon };
-export { NumberSymbolCircleRegularIcon };
-export { MoreHorizontalRegularIcon };
-export { NumberCircle6RegularIcon };
-export { ChevronUpRegularIcon };
-export { TimerRegularIcon };
-export { NumberCircle1RegularIcon };
-export { RssRegularIcon };
-export { LineHorizontal1DashesRegularIcon };
-export { AccessTimeRegularIcon };
-export { TextboxAlignTopRightRegularIcon };
-export { Battery60RegularIcon };
-export { RoadRegularIcon };
-export { NumberCircle8RegularIcon };
-export { CropRegularIcon };
-export { EyeOffRegularIcon };
-export { SportSoccerRegularIcon };
-export { KeyboardTabRegularIcon };
-export { OrganizationHorizontalRegularIcon };
-export { PulseRegularIcon };
-export { DocumentBorderRegularIcon };
-export { TextboxAlignMiddleRightRegularIcon };
-export { OvenRegularIcon };
-export { KeyboardLockRegularIcon };
-export { CodeRegularIcon };
-export { ChatEmptyRegularIcon };
-export { EmojiRegularIcon };
-export { GuitarRegularIcon };
-export { PentagonRegularIcon };
-export { Wifi1RegularIcon };
-export { ImportantRegularIcon };
-export { MicRegularIcon };
-export { KeyboardOptionRegularIcon };
-export { HeadphonesRegularIcon };
-export { EmojiMehRegularIcon };
-export { StopRegularIcon };
-export { DeleteOffRegularIcon };
-export { ConeRegularIcon };
-export { DesktopRegularIcon };
-export { ServerRegularIcon };
-export { ShapesRegularIcon };
-export { SquareHintRegularIcon };
-export { FrameRegularIcon };
-export { CommaRegularIcon };
-export { HtmlRegularIcon };
-export { KotlinRegularIcon };
-export { BarChartVerticalDescendingRegularIcon };
-export { TextAlignJustifyRegularIcon };
-export { RewindRegularIcon };
-export { DualScreenRegularIcon };
-export { KeyRegularIcon };
-export { SpacebarRegularIcon };
-export { HexagonRegularIcon };
-export { BugRegularIcon };
-export { HourglassHalfRegularIcon };
-export { DocumentRegularIcon };
-export { EmojiSurpriseRegularIcon };
-export { TabRegularIcon };
-export { KeyboardReturnRegularIcon };
-export { TextAlignCenterRegularIcon };
-export { IosChevronRtlRegularIcon };
-export { AlignTopRegularIcon };
-export { TvRegularIcon };
-export { GlassesRegularIcon };
-export { AlignLeftRegularIcon };
-export { DragRegularIcon };
-export { ZoomInRegularIcon };
-export { MegaphoneRegularIcon };
-export { PrintRegularIcon };
-export { TextboxAlignBottomRightRegularIcon };
-export { GiftCardRegularIcon };
-export { IosRegularIcon };
-export { Battery0RegularIcon };
-export { ScriptRegularIcon };
-export { ImageRegularIcon };
-export { DentistRegularIcon };
-export { QrCodeRegularIcon };
-export { IotRegularIcon };
-export { ScalesRegularIcon };
-export { DismissRegularIcon };
-export { TentRegularIcon };
-export { RectangleRegularIcon };
-export { GiftRegularIcon };
-export { QuestionRegularIcon };
-export { PortHdmiRegularIcon };
-export { SearchRegularIcon };
-export { AlignCenterVerticalRegularIcon };
-export { DesktopMacRegularIcon };
-export { MouseRegularIcon };
-export { RibbonRegularIcon };
-export { PenRegularIcon };
-export { FolderOpenRegularIcon };
-export { WeatherSunnyRegularIcon };
-export { InfoRegularIcon };
-export { AlertOffRegularIcon };
-export { VideoClipRegularIcon };
-export { ChevronRightRegularIcon };
-export { OvalRegularIcon };
-export { UsbRegularIcon };
-export { EditRegularIcon };
-export { EqualOffRegularIcon };
-export { AlignCenterHorizontalRegularIcon };
-export { WarningRegularIcon };
-export { StarRegularIcon };
-export { TextboxAlignMiddleLeftRegularIcon };
-export { TextboxAlignCenterRegularIcon };
-export { FlashRegularIcon };
-export { KeyboardBackspaceRegularIcon };
-export { WeatherThunderstormRegularIcon };
-export { TextAlignLeftRegularIcon };
-export { DropRegularIcon };
-export { MapRegularIcon };
-export { JsonRegularIcon };
-export { ImageCircleRegularIcon };
-export { GasStationRegularIcon };
-export { LayerRegularIcon };
-export { IosArrowLtrRegularIcon };
-export { ServerPlayRegularIcon };
-export { FireRegularIcon };
-export { AddRegularIcon };
-export { PortUsbARegularIcon };
-export { HourglassOneQuarterRegularIcon };
-export { ShareAndroidRegularIcon };
-export { ThinkingRegularIcon };
-export { IncognitoRegularIcon };
-export { LinkRegularIcon };
-export { KeyMultipleRegularIcon };
-export { CartonBoxRegularIcon };
-export { NewsRegularIcon };
-export { ServiceBellRegularIcon };
-export { AlertBadgeRegularIcon };
-export { AppTitleRegularIcon };
-export { PlayCircleRegularIcon };
-export { OpacityRegularIcon };
-export { ErrorCircleRegularIcon };
-export { LineRegularIcon };
-export { SlideGridRegularIcon };
-export { RhombusRegularIcon };
-export { LockOpenRegularIcon };
-export { RulerRegularIcon };
-export { ClockAlarmRegularIcon };
-export { SwiftRegularIcon };
-export { SlideContentRegularIcon };
-export { EarthRegularIcon };
-export { PaymentWirelessRegularIcon };
-export { PaintBucketRegularIcon };
-export { PersonVoiceRegularIcon };
-export { BlurRegularIcon };
-export { SportBaseballRegularIcon };
-export { RadioButtonRegularIcon };
-export { BluetoothRegularIcon };
-export { PauseCircleRegularIcon };
-export { AndroidRegularIcon };
-export { TextAlignRightRegularIcon };
-export { AirplaneRegularIcon };
-export { ToolboxRegularIcon };
-export { GuestRegularIcon };
-export { HatGraduationRegularIcon };
-export { TextboxAlignTopRegularIcon };
-export { WeatherBlowingSnowRegularIcon };
-export { CloudRegularIcon };
-export { BarChartVerticalRegularIcon };
-export { Battery70RegularIcon };
-export { CutRegularIcon };
-export { ShoppingBagRegularIcon };
-export { FlashlightOffRegularIcon };
-export { BookRegularIcon };
-export { ShapeIntersectRegularIcon };
-export { Battery100RegularIcon };
-export { HourglassThreeQuarterRegularIcon };
-export { RoadConeRegularIcon };
-export { UmbrellaRegularIcon };
-export { WalletRegularIcon };
-export { CartRegularIcon };
-export { PhoneRegularIcon };
-export { PaddingRegularIcon };
-export { ZoomRegularIcon };
-export { SoundSourceRegularIcon };
-export { TicketRegularIcon };
-export { EqualRegularIcon };
-export { BackspaceRegularIcon };
-export { ChessRegularIcon };
-export { AddCircleRegularIcon };
-export { AppRecentRegularIcon };
-export { ShapeSubtractRegularIcon };
-export { ChevronDownRegularIcon };
-export { FlashlightRegularIcon };
-export { PulseCircleRegularIcon };
-export { AlignBottomRegularIcon };
-export { Battery40RegularIcon };
-export { IosArrowRtlRegularIcon };
-export { MailReadRegularIcon };
-export { KioskRegularIcon };
-export { KeyboardCommandRegularIcon };
-export { CopyRegularIcon };
-export { CircleRegularIcon };
-export { WeatherSnowflakeRegularIcon };
-export { DialpadRegularIcon };
-export { FlagOffRegularIcon };
-export { VoicemailRegularIcon };
-export { ContrastRegularIcon };
-export { CookieRegularIcon };
-export { WeatherRainRegularIcon };
-export { DismissSquareRegularIcon };
-export { NumberCircle4RegularIcon };
-export { NumberCircle3RegularIcon };
-export { LightbulbRegularIcon };
-export { RocketRegularIcon };
-export { NumberSymbolSquareRegularIcon };
-export { TextRegularIcon };
-export { ControlButtonRegularIcon };
-export { EyedropperOffRegularIcon };
-export { JoystickRegularIcon };
-export { SprayCanRegularIcon };
-export { TextboxAlignMiddleRegularIcon };
-export { FlashOffRegularIcon };
-export { TextboxAlignBottomCenterRegularIcon };
-export { BackpackRegularIcon };
-export { HardDriveRegularIcon };
-export { PageFitRegularIcon };
-export { ShapeExcludeRegularIcon };
-export { NotebookRegularIcon };
-export { JavascriptRegularIcon };
-export { NumberCircle2RegularIcon };
-export { FilterRegularIcon };
-export { WeatherCloudyRegularIcon };
-export { RunRegularIcon };
-export { HeadsetVrRegularIcon };
-export { NumberCircle5RegularIcon };
-export { LaptopRegularIcon };
-export { HeartBrokenRegularIcon };
-export { WindowsRegularIcon };
-export { Battery90RegularIcon };
-export { ServerLinkRegularIcon };
-export { EyedropperRegularIcon };
-export { PlayRegularIcon };
-export { MathSymbolsRegularIcon };
-export { RotationRegularIcon };
-export { ParallelogramRegularIcon };
-export { Battery30RegularIcon };
-export { TemperatureRegularIcon };
-export { SimRegularIcon };
-export { AccessibilityRegularIcon };
-export { SaveRegularIcon };
-export { PlaystoreRegularIcon };
-export { SlideHideRegularIcon };
-export { ElevatorRegularIcon };
-export { SendRegularIcon };
-export { PenOffRegularIcon };
-export { AlbumRegularIcon };
-export { EngineRegularIcon };
-export { GamesRegularIcon };
-export { FilmstripOffRegularIcon };
-export { ShareIosRegularIcon };
-export { LineDashesRegularIcon };
-export { PortMicroUsbRegularIcon };
-export { TextboxRegularIcon };
-export { KeyboardOffRegularIcon };
-export { TagRegularIcon };
-export { GlobalRegularIcon };
-export { ToggleRightRegularIcon };
-export { Wifi2RegularIcon };
-export { BarChartHorizontalRegularIcon };
-export { WandRegularIcon };
-export { EqualCircleRegularIcon };
-export { NotepadRegularIcon };
-export { OpenRegularIcon };
-export { GitRegularIcon };
-export { HomeCheckmarkRegularIcon };
-export { XrayRegularIcon };
-export { KeyboardRegularIcon };
-export { PaintBrushRegularIcon };
-export { ClockRegularIcon };
-export { TextboxAlignTopCenterRegularIcon };
-export { RamRegularIcon };
-export { KeyboardShiftRegularIcon };
-export { TextboxAlignTopLeftRegularIcon };
-export { WalkieTalkieRegularIcon };
-export { Wifi4RegularIcon };
-export { DoorRegularIcon };
-export { EmojiCoolRegularIcon };
-export { BlockRegularIcon };
-export { JsonFileRegularIcon };
-export { Wifi3RegularIcon };
-export { ShareRegularIcon };
-export { GifRegularIcon };
-export { GridRegularIcon };
-export { BadgeRegularIcon };
-export { ToggleLeftRegularIcon };
-export { NetworkCheckRegularIcon };
-export { QuestionCircleRegularIcon };
-export { ClipboardRegularIcon };
-export { RouterRegularIcon };
-export { DumbbellRegularIcon };
+export { GavelFilledIcon };
+export { DiamondFilledIcon };
+export { FilmstripFilledIcon };
+export { OrganizationFilledIcon };
+export { CodeBlockFilledIcon };
+export { FullScreenMinimizeFilledIcon };
+export { ShellScriptFilledIcon };
+export { PauseFilledIcon };
+export { PortUsbCFilledIcon };
+export { KeyboardShiftUppercaseFilledIcon };
+export { LineHorizontal1FilledIcon };
+export { VoteFilledIcon };
+export { PowerFilledIcon };
+export { PreviewLinkFilledIcon };
+export { CrownFilledIcon };
+export { ShieldFilledIcon };
+export { NoteFilledIcon };
+export { OrientationFilledIcon };
+export { SettingsFilledIcon };
+export { HomeFilledIcon };
+export { DatabaseFilledIcon };
+export { OptionsFilledIcon };
+export { DustFilledIcon };
+export { LuggageFilledIcon };
+export { FlipVerticialFilledIcon };
+export { AutosumFilledIcon };
+export { PipelineFilledIcon };
+export { DrawerFilledIcon };
+export { NextFilledIcon };
+export { MoreVerticialFilledIcon };
+export { TabletFilledIcon };
+export { PianoFilledIcon };
+export { AppFolderFilledIcon };
+export { LockClosedFilledIcon };
+export { FlagFilledIcon };
+export { NumberSymbolFilledIcon };
+export { VideoFilledIcon };
+export { EditOffFilledIcon };
+export { BalloonFilledIcon };
+export { MovieFilledIcon };
+export { HammerFilledIcon };
+export { MoreCircleFilledIcon };
+export { GasFilledIcon };
+export { PasswordFilledIcon };
+export { ChevronLeftFilledIcon };
+export { OpenOffFilledIcon };
+export { PinFilledIcon };
+export { SerialPortFilledIcon };
+export { EyeFilledIcon };
+export { ZoomOutFilledIcon };
+export { MacosFilledIcon };
+export { Battery80FilledIcon };
+export { CalendarFilledIcon };
+export { FastForwardFilledIcon };
+export { BookmarkFilledIcon };
+export { AddSquareFilledIcon };
+export { Battery20FilledIcon };
+export { CalculatorFilledIcon };
+export { TextboxAlignBottomLeftFilledIcon };
+export { RecordFilledIcon };
+export { DeskFilledIcon };
+export { WeatherSnowFilledIcon };
+export { ToggleMultipleFilledIcon };
+export { PulseSquareFilledIcon };
+export { HourglassFilledIcon };
+export { PreviousFilledIcon };
+export { CloverFilledIcon };
+export { RefineuiFilledIcon };
+export { CheckmarkFilledIcon };
+export { SlideLayoutFilledIcon };
+export { VideoPlayPauseFilledIcon };
+export { TextboxAlignBottomFilledIcon };
+export { ChatFilledIcon };
+export { UsbCableFilledIcon };
+export { SmartwatchFilledIcon };
+export { WaterFilledIcon };
+export { HdFilledIcon };
+export { DeleteFilledIcon };
+export { BoardFilledIcon };
+export { Battery10FilledIcon };
+export { SubtractFilledIcon };
+export { LocationArrowFilledIcon };
+export { EmojiSadFilledIcon };
+export { FullScreenMaximizeFilledIcon };
+export { PythonFilledIcon };
+export { VerifiedFilledIcon };
+export { CssFilledIcon };
+export { SportBasketballFilledIcon };
+export { CursorFilledIcon };
+export { RecordStopFilledIcon };
+export { CouchFilledIcon };
+export { CpuFilledIcon };
+export { AppstoreFilledIcon };
+export { HeartFilledIcon };
+export { EmojiAngryFilledIcon };
+export { WrenchFilledIcon };
+export { HighlightFilledIcon };
+export { WasherFilledIcon };
+export { GanttChartFilledIcon };
+export { PersonFilledIcon };
+export { DartFilledIcon };
+export { HighwayFilledIcon };
+export { CommentFilledIcon };
+export { MailFilledIcon };
+export { AlertFilledIcon };
+export { FlipHorizontalFilledIcon };
+export { HdrOffFilledIcon };
+export { HeadphonesMicFilledIcon };
+export { WebFilledIcon };
+export { TargetFilledIcon };
+export { AlignRightFilledIcon };
+export { MailboxFilledIcon };
+export { MarkdownFilledIcon };
+export { NumberCircle9FilledIcon };
+export { CameraFilledIcon };
+export { NumberCircle0FilledIcon };
+export { LocationFilledIcon };
+export { BarcodeScannerFilledIcon };
+export { LocalLanguageFilledIcon };
+export { PaymentFilledIcon };
+export { SlideEraserFilledIcon };
+export { ShapeUnionFilledIcon };
+export { NumberCircle7FilledIcon };
+export { Battery50FilledIcon };
+export { TrophyFilledIcon };
+export { IosChevronLtrFilledIcon };
+export { SquareFilledIcon };
+export { HdrFilledIcon };
+export { TypescriptFilledIcon };
+export { BarChartHorizontalDescendingFilledIcon };
+export { CubeFilledIcon };
+export { EmojiLaughFilledIcon };
+export { EmojiGrimacingFilledIcon };
+export { DismissCircleFilledIcon };
+export { MoonFilledIcon };
+export { SlideAddFilledIcon };
+export { FolderFilledIcon };
+export { ChartFilledIcon };
+export { SquareMultipleFilledIcon };
+export { ChatAddFilledIcon };
+export { DoctorFilledIcon };
+export { NumberSymbolCircleFilledIcon };
+export { MoreHorizontalFilledIcon };
+export { NumberCircle6FilledIcon };
+export { ChevronUpFilledIcon };
+export { TimerFilledIcon };
+export { NumberCircle1FilledIcon };
+export { RssFilledIcon };
+export { LineHorizontal1DashesFilledIcon };
+export { AccessTimeFilledIcon };
+export { TextboxAlignTopRightFilledIcon };
+export { Battery60FilledIcon };
+export { RoadFilledIcon };
+export { NumberCircle8FilledIcon };
+export { CropFilledIcon };
+export { EyeOffFilledIcon };
+export { SportSoccerFilledIcon };
+export { KeyboardTabFilledIcon };
+export { OrganizationHorizontalFilledIcon };
+export { PulseFilledIcon };
+export { DocumentBorderFilledIcon };
+export { TextboxAlignMiddleRightFilledIcon };
+export { OvenFilledIcon };
+export { KeyboardLockFilledIcon };
+export { CodeFilledIcon };
+export { ChatEmptyFilledIcon };
+export { EmojiFilledIcon };
+export { GuitarFilledIcon };
+export { PentagonFilledIcon };
+export { Wifi1FilledIcon };
+export { ImportantFilledIcon };
+export { MicFilledIcon };
+export { KeyboardOptionFilledIcon };
+export { HeadphonesFilledIcon };
+export { EmojiMehFilledIcon };
+export { StopFilledIcon };
+export { DeleteOffFilledIcon };
+export { ConeFilledIcon };
+export { DesktopFilledIcon };
+export { ServerFilledIcon };
+export { ShapesFilledIcon };
+export { SquareHintFilledIcon };
+export { FrameFilledIcon };
+export { CommaFilledIcon };
+export { HtmlFilledIcon };
+export { KotlinFilledIcon };
+export { BarChartVerticalDescendingFilledIcon };
+export { TextAlignJustifyFilledIcon };
+export { RewindFilledIcon };
+export { DualScreenFilledIcon };
+export { KeyFilledIcon };
+export { SpacebarFilledIcon };
+export { HexagonFilledIcon };
+export { BugFilledIcon };
+export { HourglassHalfFilledIcon };
+export { DocumentFilledIcon };
+export { EmojiSurpriseFilledIcon };
+export { TabFilledIcon };
+export { KeyboardReturnFilledIcon };
+export { TextAlignCenterFilledIcon };
+export { IosChevronRtlFilledIcon };
+export { AlignTopFilledIcon };
+export { TvFilledIcon };
+export { GlassesFilledIcon };
+export { AlignLeftFilledIcon };
+export { DragFilledIcon };
+export { ZoomInFilledIcon };
+export { MegaphoneFilledIcon };
+export { PrintFilledIcon };
+export { TextboxAlignBottomRightFilledIcon };
+export { GiftCardFilledIcon };
+export { IosFilledIcon };
+export { Battery0FilledIcon };
+export { ScriptFilledIcon };
+export { ImageFilledIcon };
+export { DentistFilledIcon };
+export { QrCodeFilledIcon };
+export { IotFilledIcon };
+export { ScalesFilledIcon };
+export { DismissFilledIcon };
+export { TentFilledIcon };
+export { RectangleFilledIcon };
+export { GiftFilledIcon };
+export { QuestionFilledIcon };
+export { PortHdmiFilledIcon };
+export { SearchFilledIcon };
+export { AlignCenterVerticalFilledIcon };
+export { DesktopMacFilledIcon };
+export { MouseFilledIcon };
+export { RibbonFilledIcon };
+export { PenFilledIcon };
+export { FolderOpenFilledIcon };
+export { WeatherSunnyFilledIcon };
+export { InfoFilledIcon };
+export { AlertOffFilledIcon };
+export { VideoClipFilledIcon };
+export { ChevronRightFilledIcon };
+export { OvalFilledIcon };
+export { UsbFilledIcon };
+export { EditFilledIcon };
+export { EqualOffFilledIcon };
+export { AlignCenterHorizontalFilledIcon };
+export { WarningFilledIcon };
+export { StarFilledIcon };
+export { TextboxAlignMiddleLeftFilledIcon };
+export { TextboxAlignCenterFilledIcon };
+export { FlashFilledIcon };
+export { KeyboardBackspaceFilledIcon };
+export { WeatherThunderstormFilledIcon };
+export { TextAlignLeftFilledIcon };
+export { DropFilledIcon };
+export { MapFilledIcon };
+export { JsonFilledIcon };
+export { ImageCircleFilledIcon };
+export { GasStationFilledIcon };
+export { LayerFilledIcon };
+export { IosArrowLtrFilledIcon };
+export { ServerPlayFilledIcon };
+export { FireFilledIcon };
+export { AddFilledIcon };
+export { PortUsbAFilledIcon };
+export { HourglassOneQuarterFilledIcon };
+export { ShareAndroidFilledIcon };
+export { ThinkingFilledIcon };
+export { IncognitoFilledIcon };
+export { LinkFilledIcon };
+export { KeyMultipleFilledIcon };
+export { CartonBoxFilledIcon };
+export { NewsFilledIcon };
+export { ServiceBellFilledIcon };
+export { AlertBadgeFilledIcon };
+export { AppTitleFilledIcon };
+export { PlayCircleFilledIcon };
+export { OpacityFilledIcon };
+export { ErrorCircleFilledIcon };
+export { LineFilledIcon };
+export { SlideGridFilledIcon };
+export { RhombusFilledIcon };
+export { LockOpenFilledIcon };
+export { RulerFilledIcon };
+export { ClockAlarmFilledIcon };
+export { SwiftFilledIcon };
+export { SlideContentFilledIcon };
+export { EarthFilledIcon };
+export { PaymentWirelessFilledIcon };
+export { PaintBucketFilledIcon };
+export { PersonVoiceFilledIcon };
+export { BlurFilledIcon };
+export { SportBaseballFilledIcon };
+export { RadioButtonFilledIcon };
+export { BluetoothFilledIcon };
+export { PauseCircleFilledIcon };
+export { AndroidFilledIcon };
+export { TextAlignRightFilledIcon };
+export { AirplaneFilledIcon };
+export { ToolboxFilledIcon };
+export { GuestFilledIcon };
+export { HatGraduationFilledIcon };
+export { TextboxAlignTopFilledIcon };
+export { WeatherBlowingSnowFilledIcon };
+export { CloudFilledIcon };
+export { BarChartVerticalFilledIcon };
+export { Battery70FilledIcon };
+export { CutFilledIcon };
+export { ShoppingBagFilledIcon };
+export { FlashlightOffFilledIcon };
+export { BookFilledIcon };
+export { ShapeIntersectFilledIcon };
+export { Battery100FilledIcon };
+export { HourglassThreeQuarterFilledIcon };
+export { RoadConeFilledIcon };
+export { UmbrellaFilledIcon };
+export { WalletFilledIcon };
+export { CartFilledIcon };
+export { PhoneFilledIcon };
+export { PaddingFilledIcon };
+export { ZoomFilledIcon };
+export { SoundSourceFilledIcon };
+export { TicketFilledIcon };
+export { EqualFilledIcon };
+export { BackspaceFilledIcon };
+export { ChessFilledIcon };
+export { AddCircleFilledIcon };
+export { AppRecentFilledIcon };
+export { ShapeSubtractFilledIcon };
+export { ChevronDownFilledIcon };
+export { FlashlightFilledIcon };
+export { PulseCircleFilledIcon };
+export { AlignBottomFilledIcon };
+export { Battery40FilledIcon };
+export { IosArrowRtlFilledIcon };
+export { MailReadFilledIcon };
+export { KioskFilledIcon };
+export { KeyboardCommandFilledIcon };
+export { CopyFilledIcon };
+export { CircleFilledIcon };
+export { WeatherSnowflakeFilledIcon };
+export { DialpadFilledIcon };
+export { FlagOffFilledIcon };
+export { VoicemailFilledIcon };
+export { ContrastFilledIcon };
+export { CookieFilledIcon };
+export { WeatherRainFilledIcon };
+export { DismissSquareFilledIcon };
+export { NumberCircle4FilledIcon };
+export { NumberCircle3FilledIcon };
+export { LightbulbFilledIcon };
+export { RocketFilledIcon };
+export { NumberSymbolSquareFilledIcon };
+export { TextFilledIcon };
+export { ControlButtonFilledIcon };
+export { EyedropperOffFilledIcon };
+export { JoystickFilledIcon };
+export { SprayCanFilledIcon };
+export { TextboxAlignMiddleFilledIcon };
+export { FlashOffFilledIcon };
+export { TextboxAlignBottomCenterFilledIcon };
+export { BackpackFilledIcon };
+export { HardDriveFilledIcon };
+export { PageFitFilledIcon };
+export { ShapeExcludeFilledIcon };
+export { NotebookFilledIcon };
+export { JavascriptFilledIcon };
+export { NumberCircle2FilledIcon };
+export { FilterFilledIcon };
+export { WeatherCloudyFilledIcon };
+export { RunFilledIcon };
+export { HeadsetVrFilledIcon };
+export { NumberCircle5FilledIcon };
+export { LaptopFilledIcon };
+export { HeartBrokenFilledIcon };
+export { WindowsFilledIcon };
+export { Battery90FilledIcon };
+export { ServerLinkFilledIcon };
+export { EyedropperFilledIcon };
+export { PlayFilledIcon };
+export { MathSymbolsFilledIcon };
+export { RotationFilledIcon };
+export { ParallelogramFilledIcon };
+export { Battery30FilledIcon };
+export { TemperatureFilledIcon };
+export { SimFilledIcon };
+export { AccessibilityFilledIcon };
+export { SaveFilledIcon };
+export { PlaystoreFilledIcon };
+export { SlideHideFilledIcon };
+export { ElevatorFilledIcon };
+export { SendFilledIcon };
+export { PenOffFilledIcon };
+export { AlbumFilledIcon };
+export { EngineFilledIcon };
+export { GamesFilledIcon };
+export { FilmstripOffFilledIcon };
+export { ShareIosFilledIcon };
+export { LineDashesFilledIcon };
+export { PortMicroUsbFilledIcon };
+export { TextboxFilledIcon };
+export { KeyboardOffFilledIcon };
+export { TagFilledIcon };
+export { GlobalFilledIcon };
+export { ToggleRightFilledIcon };
+export { Wifi2FilledIcon };
+export { BarChartHorizontalFilledIcon };
+export { WandFilledIcon };
+export { EqualCircleFilledIcon };
+export { NotepadFilledIcon };
+export { OpenFilledIcon };
+export { GitFilledIcon };
+export { HomeCheckmarkFilledIcon };
+export { XrayFilledIcon };
+export { KeyboardFilledIcon };
+export { PaintBrushFilledIcon };
+export { ClockFilledIcon };
+export { TextboxAlignTopCenterFilledIcon };
+export { RamFilledIcon };
+export { KeyboardShiftFilledIcon };
+export { TextboxAlignTopLeftFilledIcon };
+export { WalkieTalkieFilledIcon };
+export { Wifi4FilledIcon };
+export { DoorFilledIcon };
+export { EmojiCoolFilledIcon };
+export { BlockFilledIcon };
+export { JsonFileFilledIcon };
+export { Wifi3FilledIcon };
+export { ShareFilledIcon };
+export { GifFilledIcon };
+export { GridFilledIcon };
+export { BadgeFilledIcon };
+export { ToggleLeftFilledIcon };
+export { NetworkCheckFilledIcon };
+export { QuestionCircleFilledIcon };
+export { ClipboardFilledIcon };
+export { RouterFilledIcon };
+export { DumbbellFilledIcon };
