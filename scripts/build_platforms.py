@@ -88,145 +88,19 @@ class PlatformBuilder:
         return icons_data
 
     def build_web_package(self, icons_data: Dict):
-        """Build Web package"""
-        print("🌐 Building Web package...")
-        
-        web_output = "packages/react-icons/src"
-        os.makedirs(web_output, exist_ok=True)
-        
-        for icon_folder, icon_info in icons_data.items():
-            icon_name = icon_info["name"]
-            svg_dir = os.path.join(self.assets_dir, icon_folder, "svg")
-            
-            if not os.path.exists(svg_dir):
-                continue
-                
-            # SVG 파일들 스캔
-            for svg_file in os.listdir(svg_dir):
-                if not svg_file.endswith('.svg'):
-                    continue
-                
-                # 파일명에서 크기와 스타일 추출 (ic_refineui_math-symbols_48_regular.svg)
-                parts = svg_file.replace('.svg', '').split('_')
-                if len(parts) >= 4:
-                    size = int(parts[-2])  # 48
-                    style = parts[-1]      # regular
-                else:
-                    continue
-                
-                source_path = os.path.join(svg_dir, svg_file)
-                
-                if not os.path.exists(source_path):
-                    continue
-                
-                # React 컴포넌트 생성
-                component_name = self.slugify(icon_name, "ios").replace('-', '').title()
-                component_name = f"{component_name}{size}{style.title()}"
-                
-                # SVG 내용 읽기
-                with open(source_path, 'r', encoding='utf-8') as f:
-                    svg_content = f.read()
-                
-                # React 컴포넌트 템플릿
-                component_code = f'''import React from 'react';
-import {{ IconProps }} from './types';
-
-export const {component_name}Icon: React.FC<IconProps> = ({{ 
-  size = {size}, 
-  color = 'currentColor', 
-  ...props 
-}}) => {{
-  return (
-    <svg
-      width="{{{{size}}}}"
-      height="{{{{size}}}}"
-      viewBox="0 0 {size} {size}"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      {{{{...props}}}}
-    >
-      {svg_content.replace('<svg', '').replace('</svg>', '').strip()}
-    </svg>
-  );
-}};
-'''
-                
-                # 컴포넌트 파일 저장
-                component_file = os.path.join(web_output, f"{component_name}Icon.tsx")
-                with open(component_file, 'w', encoding='utf-8') as f:
-                    f.write(component_code)
-        
-        # Create Web index file
-        self.create_web_index(icons_data, web_output)
-        print("✅ Web package completed")
+        """Build Web package - DEPRECATED: Now using font-based generation"""
+        print("🌐 Web package generation is now handled by generate_react_icons_from_font.py")
+        print("   Skipping individual file generation...")
+        # Note: React icons are now generated using font-based approach
+        # See: scripts/generate_react_icons_from_font.py
 
     def build_react_native_package(self, icons_data: Dict):
-        """Build React Native package"""
-        print("📱 Building React Native package...")
-        
-        rn_output = "packages/react-native-icons/src"
-        os.makedirs(rn_output, exist_ok=True)
-        
-        for icon_folder, icon_info in icons_data.items():
-            icon_name = icon_info["name"]
-            svg_dir = os.path.join(self.assets_dir, icon_folder, "svg")
-            
-            if not os.path.exists(svg_dir):
-                continue
-                
-            # SVG 파일들 스캔
-            for svg_file in os.listdir(svg_dir):
-                if not svg_file.endswith('.svg'):
-                    continue
-                
-                # 파일명에서 크기와 스타일 추출
-                parts = svg_file.replace('.svg', '').split('_')
-                if len(parts) >= 4:
-                    size = int(parts[-2])
-                    style = parts[-1]
-                else:
-                    continue
-                
-                source_path = os.path.join(svg_dir, svg_file)
-                
-                if not os.path.exists(source_path):
-                    continue
-                
-                # React Native 컴포넌트 생성
-                component_name = self.slugify(icon_name, "ios").replace('-', '').title()
-                component_name = f"{component_name}{size}{style.title()}"
-                
-                # React Native 컴포넌트 템플릿
-                component_code = f'''import React from 'react';
-import {{ Svg, Path }} from 'react-native-svg';
-import {{ IconProps }} from './types';
-
-export const {component_name}Icon: React.FC<IconProps> = ({{ 
-  size = {size}, 
-  color = '#000000', 
-  ...props 
-}}) => {{
-  return (
-    <Svg
-      width="{{{{size}}}}"
-      height="{{{{size}}}}"
-      viewBox="0 0 {size} {size}"
-      {{{{...props}}}}
-    >
-      <Path d="M12,2C6.48,2 2,6.48 2,12s4.48,10 10,10 10,-4.48 10,-10S17.52,2 12,2z" fill="{{{{color}}}}" />
-    </Svg>
-  );
-}};
-'''
-                
-                # 컴포넌트 파일 저장
-                component_file = os.path.join(rn_output, f"{component_name}Icon.tsx")
-                with open(component_file, 'w', encoding='utf-8') as f:
-                    f.write(component_code)
-        
-        # Create React Native index file
-        self.create_react_native_index(icons_data, rn_output)
-        print("✅ React Native package completed")
+        """Build React Native package - DEPRECATED: Now using font-based generation"""
+        print("📱 React Native package generation is now handled by generate_react_native_icons_from_font.py")
+        print("   Skipping individual file generation...")
+        # Note: React Native icons are now generated using font-based approach
+        # See: scripts/generate_react_native_icons_from_font.py
+        print("✅ React Native package generation skipped (using font-based approach)")
 
     def build_ios_package(self, icons_data: Dict):
         """Build iOS package"""
@@ -255,27 +129,7 @@ export const {component_name}Icon: React.FC<IconProps> = ({{
                 else:
                     continue
                 
-                source_path = os.path.join(svg_dir, svg_file)
-                
-                if not os.path.exists(source_path):
-                    continue
-                
-                # iOS용 파일명 (camelCase)
-                ios_filename = f"{self.slugify(icon_name, 'ios')}{size}{style.title()}.svg"
-                imageset_name = f"{self.slugify(icon_name, 'ios')}{size}{style.title()}.imageset"
-                imageset_path = os.path.join(ios_output, imageset_name)
-                
-                # imageset 디렉토리 생성
-                os.makedirs(imageset_path, exist_ok=True)
-                
-                # SVG 파일 복사
-                dest_path = os.path.join(imageset_path, ios_filename)
-                shutil.copy2(source_path, dest_path)
-                
-                # Contents.json 생성
-                self.create_ios_contents_json(imageset_path, ios_filename)
-        
-        print("✅ iOS package completed")
+        print("✅ React Native package generation skipped (using font-based approach)")
 
     def build_android_package(self, icons_data: Dict):
         """Build Android package"""

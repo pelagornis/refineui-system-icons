@@ -38,7 +38,8 @@ def build_all_platforms():
     
     # Platform-specific builds
     platforms = [
-        ("build_web.py", "Web (React + React Native)"),
+        ("generate_react_icons_from_font.py", "React Icons (Font-based)"),
+        ("generate_react_native_icons_from_font.py", "React Native Icons (Font-based)"),
         ("build_ios.py", "iOS"), 
         ("build_android.py", "Android"),
         ("build_flutter.py", "Flutter"),
