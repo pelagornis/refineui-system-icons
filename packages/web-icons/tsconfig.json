@@ -3,6 +3,7 @@
     "target": "ES2018",
     "module": "ESNext",
     "lib": ["ES2018", "DOM"],
+    "jsx": "react-jsx",
     "declaration": true,
     "declarationDir": "./dist",
     "outDir": "./dist",

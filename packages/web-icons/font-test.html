@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폰트 테스트</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test { font-size: 32px; padding: 10px; border: 2px solid blue; margin: 10px 0; text-align: center; }
+        .debug { background: #f0f0f0; padding: 10px; margin: 10px 0; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>🔤 폰트 테스트</h1>
+    
+    <div class="debug" id="debug-info"></div>
+    
+    <div class="debug">
+        <h3>1. CSS 클래스로 테스트:</h3>
+        <div class="test">
+            <span class="ic_refineui_gavel_24_regular"></span>
+            <br><small>CSS 클래스: ic_refineui_gavel_24_regular</small>
+        </div>
+    </div>
+    
+    <div class="debug">
+        <h3>2. 직접 unicode 문자 테스트:</h3>
+        <div class="test" id="unicode-test"></div>
+    </div>
+    
+    <div class="debug">
+        <h3>3. JavaScript로 생성한 문자 테스트:</h3>
+        <div class="test" id="js-test"></div>
+    </div>
+
+    <!-- 폰트 파일 로드 -->
+    <link rel="stylesheet" href="dist/refineui-system-icons-regular.css">
+    <link rel="stylesheet" href="dist/refineui-system-icons-filled.css">
+    
+    <script>
+        function log(message) {
+            const debugDiv = document.getElementById('debug-info');
+            debugDiv.innerHTML += `<div>${message}</div>`;
+            console.log(message);
+        }
+        
+        // 페이지 로드 후 실행
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                log('=== 폰트 테스트 시작 ===');
+                
+                // 1. 직접 unicode 문자 테스트
+                const unicodeTest = document.getElementById('unicode-test');
+                unicodeTest.textContent = '\uF0003'; // Gavel 24px regular
+                unicodeTest.style.fontFamily = 'RefineUI-System-Icons-Regular';
+                log('Unicode 문자: \\uF0003 (983043)');
+                
+                // 2. JavaScript로 생성한 문자 테스트
+                const jsTest = document.getElementById('js-test');
+                const char = String.fromCodePoint(983043); // Gavel 24px regular
+                jsTest.textContent = char;
+                jsTest.style.fontFamily = 'RefineUI-System-Icons-Regular';
+                log(`JavaScript 생성 문자: "${char}" (코드포인트: 983043)`);
+                
+                // 3. 폰트 로드 확인
+                if (document.fonts && document.fonts.ready) {
+                    document.fonts.ready.then(() => {
+                        log('✅ 폰트 로드 완료');
+                        
+                        // 특정 폰트 확인
+                        if (document.fonts.check("1em 'RefineUI-System-Icons-Regular'")) {
+                            log('✅ RefineUI-System-Icons-Regular 폰트 사용 가능');
+                        } else {
+                            log('❌ RefineUI-System-Icons-Regular 폰트 사용 불가');
+                        }
+                    });
+                } else {
+                    log('⚠️ 폰트 로드 상태 확인 불가');
+                }
+                
+                // 4. 폰트 파일 로드 확인
+                const fontFace = document.querySelector('link[href*="refineui-system-icons-regular.css"]');
+                if (fontFace) {
+                    log('✅ Regular CSS 파일 로드됨');
+                } else {
+                    log('❌ Regular CSS 파일 로드 안됨');
+                }
+                
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

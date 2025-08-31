@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아이콘 디버그</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .debug { background: #f0f0f0; padding: 10px; margin: 10px 0; border-radius: 5px; }
+        .icon-test { font-size: 32px; padding: 10px; border: 2px solid blue; margin: 10px 0; text-align: center; }
+    </style>
+</head>
+<body>
+    <h1>🔍 아이콘 디버그</h1>
+    
+    <div class="debug" id="debug-info"></div>
+    
+    <div class="debug">
+        <h3>아이콘 테스트:</h3>
+        <div class="icon-test" id="icon-display"></div>
+    </div>
+
+    <!-- 폰트 파일 로드 -->
+    <link rel="stylesheet" href="dist/refineui-system-icons-regular.css">
+    <link rel="stylesheet" href="dist/refineui-system-icons-filled.css">
+    
+    <!-- UMD 패키지 로드 -->
+    <script src="dist/index.umd.js"></script>
+    
+    <script>
+        function log(message) {
+            const debugDiv = document.getElementById('debug-info');
+            debugDiv.innerHTML += `<div>${message}</div>`;
+            console.log(message);
+        }
+        
+        // 페이지 로드 후 실행
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                log('=== 디버그 시작 ===');
+                
+                // 1. 전역 함수 확인
+                if (typeof window.icon === 'function') {
+                    log('✅ icon 함수 존재');
+                } else {
+                    log('❌ icon 함수 없음');
+                }
+                
+                if (typeof window.iconFont === 'function') {
+                    log('✅ iconFont 함수 존재');
+                } else {
+                    log('❌ iconFont 함수 없음');
+                }
+                
+                // 2. 아이콘 문자 가져오기
+                try {
+                    const gavelIcon = icon('Gavel', 'regular', 24);
+                    log(`아이콘 문자: "${gavelIcon}"`);
+                    log(`문자 길이: ${gavelIcon ? gavelIcon.length : 0}`);
+                    log(`문자 코드: ${gavelIcon ? gavelIcon.charCodeAt(0) : 'N/A'}`);
+                } catch (error) {
+                    log(`❌ 아이콘 가져오기 오류: ${error.message}`);
+                }
+                
+                // 3. 폰트 패밀리 가져오기
+                try {
+                    const fontFamily = iconFont('regular');
+                    log(`폰트 패밀리: "${fontFamily}"`);
+                } catch (error) {
+                    log(`❌ 폰트 가져오기 오류: ${error.message}`);
+                }
+                
+                // 4. 아이콘 표시 테스트
+                try {
+                    const gavelIcon = icon('Gavel', 'regular', 24);
+                    const fontFamily = iconFont('regular');
+                    
+                    const displayDiv = document.getElementById('icon-display');
+                    displayDiv.textContent = gavelIcon;
+                    displayDiv.style.fontFamily = fontFamily;
+                    displayDiv.style.fontSize = '32px';
+                    
+                    log('아이콘 표시 시도 완료');
+                } catch (error) {
+                    log(`❌ 아이콘 표시 오류: ${error.message}`);
+                }
+                
+                // 5. 폰트 로드 확인
+                if (document.fonts && document.fonts.ready) {
+                    document.fonts.ready.then(() => {
+                        log('✅ 폰트 로드 완료');
+                        
+                        // 특정 폰트 확인
+                        if (document.fonts.check("1em 'RefineUI-System-Icons-Regular'")) {
+                            log('✅ RefineUI-System-Icons-Regular 폰트 사용 가능');
+                        } else {
+                            log('❌ RefineUI-System-Icons-Regular 폰트 사용 불가');
+                        }
+                    });
+                } else {
+                    log('⚠️ 폰트 로드 상태 확인 불가');
+                }
+                
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

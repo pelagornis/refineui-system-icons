@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 클래스 방식 테스트</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test { font-size: 32px; padding: 10px; border: 2px solid blue; margin: 10px 0; text-align: center; }
+        .debug { background: #f0f0f0; padding: 10px; margin: 10px 0; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>🎨 CSS 클래스 방식 테스트</h1>
+    
+    <div class="debug" id="debug-info"></div>
+    
+    <div class="debug">
+        <h3>1. 직접 CSS 클래스 사용:</h3>
+        <div class="test">
+            <span class="ic_refineui_gavel_24_regular"></span>
+            <br><small>CSS 클래스: ic_refineui_gavel_24_regular</small>
+        </div>
+    </div>
+    
+    <div class="debug">
+        <h3>2. JavaScript로 CSS 클래스 생성:</h3>
+        <div class="test" id="css-class-test"></div>
+    </div>
+    
+    <div class="debug">
+        <h3>3. iconClassHTML 함수 사용:</h3>
+        <div class="test" id="icon-class-html-test"></div>
+    </div>
+
+    <!-- 폰트 파일 로드 -->
+    <link rel="stylesheet" href="dist/refineui-system-icons-regular.css">
+    <link rel="stylesheet" href="dist/refineui-system-icons-filled.css">
+    
+    <!-- UMD 패키지 로드 -->
+    <script src="dist/index.umd.js"></script>
+    
+    <script>
+        function log(message) {
+            const debugDiv = document.getElementById('debug-info');
+            debugDiv.innerHTML += `<div>${message}</div>`;
+            console.log(message);
+        }
+        
+        // 페이지 로드 후 실행
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                log('=== CSS 클래스 방식 테스트 시작 ===');
+                
+                // 1. JavaScript로 CSS 클래스 생성
+                const cssClassTest = document.getElementById('css-class-test');
+                const span = document.createElement('span');
+                span.className = 'ic_refineui_gavel_24_regular';
+                span.style.fontSize = '32px';
+                cssClassTest.appendChild(span);
+                cssClassTest.innerHTML += '<br><small>JavaScript로 생성한 CSS 클래스</small>';
+                log('CSS 클래스 방식으로 아이콘 생성 완료');
+                
+                // 2. iconClassHTML 함수 사용
+                if (typeof window.iconClassHTML === 'function') {
+                    const iconClassHtmlTest = document.getElementById('icon-class-html-test');
+                    const html = iconClassHTML('Gavel', 'regular', 32, 'red');
+                    iconClassHtmlTest.innerHTML = html + '<br><small>iconClassHTML 함수 사용</small>';
+                    log('iconClassHTML 함수로 아이콘 생성 완료');
+                } else {
+                    log('❌ iconClassHTML 함수 없음');
+                }
+                
+                // 3. 폰트 로드 확인
+                if (document.fonts && document.fonts.ready) {
+                    document.fonts.ready.then(() => {
+                        log('✅ 폰트 로드 완료');
+                        
+                        // 특정 폰트 확인
+                        if (document.fonts.check("1em 'RefineUI-System-Icons-Regular'")) {
+                            log('✅ RefineUI-System-Icons-Regular 폰트 사용 가능');
+                        } else {
+                            log('❌ RefineUI-System-Icons-Regular 폰트 사용 불가');
+                        }
+                    });
+                } else {
+                    log('⚠️ 폰트 로드 상태 확인 불가');
+                }
+                
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

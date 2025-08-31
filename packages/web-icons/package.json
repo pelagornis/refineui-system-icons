@@ -10,9 +10,10 @@
     "src/metadata.json"
   ],
   "scripts": {
-    "build": "rollup -c",
+    "build": "rollup -c && npm run copy-assets",
     "dev": "rollup -c -w",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist",
+    "copy-assets": "mkdir -p dist && cp ../../fonts/*.css dist/ && cp ../../fonts/*.woff2 dist/ && cp ../../fonts/*.otf dist/ && cp ../../fonts/*.ttf dist/"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^21.0.0",
@@ -28,7 +29,8 @@
     "icons",
     "refineui",
     "system-icons",
-    "ui"
+    "ui",
+    "flutter-style"
   ],
   "author": "RefineUI Team",
   "license": "MIT",

@@ -5,8 +5,9 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc && node dist/build.js",
+    "build": "tsc && node dist/build.js && npm run build:umd",
     "build:types": "tsc --declaration --emitDeclarationOnly",
+    "build:umd": "rollup -c",
     "dev": "tsc --watch",
     "clean": "rm -rf dist",
     "prepublishOnly": "npm run clean && npm run build"
@@ -35,9 +36,14 @@
     "README.md"
   ],
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^21.1.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^13.3.0",
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^20.10.0",
     "fs-extra": "^11.1.1",
+    "rollup": "^2.79.2",
+    "rollup-plugin-typescript2": "^0.31.2",
     "typescript": "^5.3.0"
   }
 }

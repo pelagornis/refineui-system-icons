@@ -89,7 +89,7 @@ class IconUtils {
     const searchTerm = query.toLowerCase();
     return Object.keys(this.metadata.icons).filter(iconName => 
       iconName.toLowerCase().includes(searchTerm) ||
-      this.metadata.icons[iconName].description.toLowerCase().includes(searchTerm)
+      (this.metadata.icons[iconName]?.description || '').toLowerCase().includes(searchTerm)
     );
   }
 

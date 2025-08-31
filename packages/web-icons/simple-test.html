@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RefineUI Icons - 간단한 사용법</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section h2 {
+            color: #555;
+            border-bottom: 2px solid #007acc;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .example {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .code {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 14px;
+            line-height: 1.4;
+            margin: 10px 0;
+        }
+        
+        .result {
+            background: #e8f5e8;
+            border: 1px solid #4caf50;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        
+        .icon-display {
+            font-size: 24px;
+            margin: 10px 0;
+            padding: 10px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 RefineUI Icons - 간단한 사용법</h1>
+        
+        <div class="section">
+            <h2>1️⃣ 가장 간단한 방법</h2>
+            <div class="example">
+                <h3>JavaScript에서:</h3>
+                <div class="code">// 아이콘 문자 가져오기
+const gavelIcon = icon('Gavel', 'regular', 24);
+const fontFamily = iconFont('regular');</div>
+                
+                <h3>결과:</h3>
+                <div class="result" id="simple-result"></div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>2️⃣ 한 줄로 HTML 생성</h2>
+            <div class="example">
+                <h3>JavaScript에서:</h3>
+                <div class="code">// HTML 문자열 자동 생성
+const html = iconHTML('Gavel', 'regular', 24, 'red');</div>
+                
+                <h3>결과:</h3>
+                <div class="result" id="html-result"></div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>2️⃣ CSS 클래스 방식</h2>
+            <div class="example">
+                <h3>JavaScript에서:</h3>
+                <div class="code">// CSS 클래스 방식으로 아이콘 표시
+const cssClass = RefineUIIcons.getIconClass('Gavel', 'regular', 24);
+const html = `&lt;span class="${cssClass}"&gt;&lt;/span&gt;`;</div>
+                
+                <h3>결과:</h3>
+                <div class="result" id="css-class-result"></div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>3️⃣ 직접 함수 사용</h2>
+            <div class="example">
+                <h3>JavaScript에서:</h3>
+                <div class="code">// 직접 함수 호출
+const gavel = Gavel(24);
+const addFilled = AddFilled(32);</div>
+                
+                <h3>결과:</h3>
+                <div class="result">
+                    <div class="icon-display" id="direct-gavel"></div>
+                    <div class="icon-display" id="direct-add"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>4️⃣ 다양한 아이콘들</h2>
+            <div class="example">
+                <h3>JavaScript에서:</h3>
+                <div class="code">// 여러 아이콘 한번에
+const icons = [
+    icon('Home', 'regular', 20),
+    icon('Search', 'filled', 24),
+    icon('Settings', 'regular', 28),
+    icon('User', 'filled', 32)
+];</div>
+                
+                <h3>결과:</h3>
+                <div class="result" id="multiple-icons"></div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>5️⃣ 실제 사용 예시</h2>
+            <div class="example">
+                <h3>버튼에 아이콘 추가:</h3>
+                <div class="code">// 버튼 생성
+const button = document.createElement('button');
+button.innerHTML = iconHTML('Add', 'filled', 16, 'white') + ' 새로 만들기';
+button.style.cssText = 'background: #007acc; color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer;';</div>
+                
+                <h3>결과:</h3>
+                <div class="result" id="button-example"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 폰트 파일 로드 -->
+    <link rel="stylesheet" href="dist/refineui-system-icons-regular.css">
+    <link rel="stylesheet" href="dist/refineui-system-icons-filled.css">
+    
+    <!-- UMD 패키지 로드 -->
+    <script src="dist/index.umd.js"></script>
+    
+    <script>
+        // 페이지 로드 후 실행
+        window.addEventListener('load', () => {
+            // UMD 번들이 완전히 로드될 때까지 기다림
+            setTimeout(() => {
+                // 1. 가장 간단한 방법 (CSS 클래스 방식)
+                const gavelIcon = icon('Gavel', 'regular', 24);
+                const fontFamily = iconFont('regular');
+                const gavelCssClass = RefineUIIcons.getIconClass('Gavel', 'regular', 24);
+                document.getElementById('simple-result').innerHTML = `
+                    아이콘: "${gavelIcon}"<br>
+                    폰트: "${fontFamily}"<br>
+                    CSS 클래스: "${gavelCssClass}"
+                `;
+            
+                // 2. 한 줄로 HTML 생성
+                const html = iconHTML('Gavel', 'regular', 24, 'red');
+                document.getElementById('html-result').innerHTML = html;
+                
+                // 2. CSS 클래스 방식
+                const gavelCssClass2 = RefineUIIcons.getIconClass('Gavel', 'regular', 24);
+                const cssClassHtml = `<span class="${gavelCssClass2}" style="font-size: 24px; color: red;"></span>`;
+                document.getElementById('css-class-result').innerHTML = cssClassHtml;
+                
+                // 3. 직접 함수 사용
+                const gavel = Gavel(24);
+                const addFilled = AddFilled(32);
+                
+                const gavelElement = document.getElementById('direct-gavel');
+                gavelElement.textContent = gavel;
+                gavelElement.style.fontFamily = iconFont('regular');
+                gavelElement.style.fontSize = '24px';
+                
+                const addElement = document.getElementById('direct-add');
+                addElement.textContent = addFilled;
+                addElement.style.fontFamily = iconFont('filled');
+                addElement.style.fontSize = '32px';
+                
+                // 4. 다양한 아이콘들
+                const icons = [
+                    icon('Home', 'regular', 20),
+                    icon('Search', 'filled', 24),
+                    icon('Settings', 'regular', 28),
+                    icon('User', 'filled', 32)
+                ];
+                
+                const multipleContainer = document.getElementById('multiple-icons');
+                icons.forEach((iconChar, index) => {
+                    const iconDiv = document.createElement('div');
+                    iconDiv.className = 'icon-display';
+                    iconDiv.textContent = iconChar;
+                    iconDiv.style.fontFamily = index % 2 === 0 ? iconFont('regular') : iconFont('filled');
+                    iconDiv.style.fontSize = `${20 + index * 4}px`;
+                    multipleContainer.appendChild(iconDiv);
+                });
+                
+                // 5. 실제 사용 예시
+                const button = document.createElement('button');
+                button.innerHTML = iconHTML('Add', 'filled', 16, 'white') + ' 새로 만들기';
+                button.style.cssText = 'background: #007acc; color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer; margin: 5px;';
+                document.getElementById('button-example').appendChild(button);
+                
+                // 추가 버튼들
+                const button2 = document.createElement('button');
+                button2.innerHTML = iconHTML('Search', 'regular', 16, 'white') + ' 검색';
+                button2.style.cssText = 'background: #28a745; color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer; margin: 5px;';
+                document.getElementById('button-example').appendChild(button2);
+                
+                const button3 = document.createElement('button');
+                button3.innerHTML = iconHTML('Settings', 'filled', 16, 'white') + ' 설정';
+                button3.style.cssText = 'background: #6c757d; color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer; margin: 5px;';
+                document.getElementById('button-example').appendChild(button3);
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

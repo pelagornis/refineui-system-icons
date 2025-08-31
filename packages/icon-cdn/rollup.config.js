@@ -19,17 +19,16 @@ export default {
     {
       file: "dist/index.umd.js",
       format: "umd",
-      name: "RefineUIIcons",
+      name: "IconCDN",
       sourcemap: true,
     },
   ],
-  external: [],
   plugins: [
     json(),
     nodeResolve(),
     commonjs(),
     typescript({
-      tsconfig: "./tsconfig.json",
+      tsconfig: "./tsconfig.rollup.json",
       useTsconfigDeclarationDir: true,
     }),
   ],
