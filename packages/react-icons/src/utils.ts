@@ -10,7 +10,7 @@ export interface IconProps {
   [key: string]: any;
 }
 
-// === 아이콘 컴포넌트 생성 메서드 ===
+// === Icon component creation method ===
 export const createIconComponent = (iconName: string, style: 'regular' | 'filled') => {
   return (props: IconProps) => {
     const iconChar = IconUtils.getIconChar(iconName, style, props.size || 24);
@@ -39,7 +39,7 @@ export const createIconComponent = (iconName: string, style: 'regular' | 'filled
   };
 };
 
-// === 유틸리티 함수들 ===
+// === Utility functions ===
 export { default as IconUtils } from './IconUtils';
 
 export const getIconChar = (iconName: string, style: 'regular' | 'filled' = 'regular', size: number = 24) => {

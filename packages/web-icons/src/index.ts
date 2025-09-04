@@ -1,13 +1,12 @@
-// === Web Icons Package ===
-// 이 파일은 자동 생성됩니다. 수정하지 마세요.
+// This file is auto-generated. Do not modify.
 
 import { createIconHTML } from './utils';
 
-// === 모든 아이콘들을 import 및 export ===
+// === Import and export all icons ===
 export * from './regular-icons';
 export * from './filled-icons';
 
-// === 유틸리티 함수들 import 및 export ===
+// === Import and export utility functions ===
 export { 
   getIconChar,
   getIconClass,
@@ -18,5 +17,5 @@ export {
 // === IconUtils export ===
 export { default as IconUtils } from './IconUtils';
 
-// === 타입 export ===
+// === Type exports ===
 export type { IconData } from './IconUtils';

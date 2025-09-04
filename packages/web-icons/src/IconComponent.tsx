@@ -12,9 +12,9 @@ export interface FlutterIconProps {
 }
 
 /**
- * Flutter 스타일의 아이콘 컴포넌트
+ * Flutter-style icon component
  * 
- * 사용법:
+ * Usage:
  * <FlutterIcon name="Gavel" size={24} color="red" />
  * <FlutterIcon name="Add" style="filled" size={32} />
  */
@@ -55,7 +55,7 @@ export const FlutterIcon: React.FC<FlutterIconProps> = ({
 };
 
 /**
- * 아이콘 컴포넌트 (별칭)
+ * Icon component (alias)
  */
 export const Icon = FlutterIcon;
 

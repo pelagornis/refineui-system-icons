@@ -1,9 +1,9 @@
 import IconUtils from './IconUtils';
 
-// CDN 기본 URL
+// CDN base URL
 const CDN_BASE_URL = 'https://jihoonahn.github.io/refineui-system-icons/cdn';
 
-// === 아이콘 HTML 생성 메서드 ===
+// === Icon HTML generation method ===
 export const createIconHTML = (iconName: string, style: 'regular' | 'filled') => {
   return (size: number = 24, color: string = 'currentColor', className: string = '') => {
     const iconChar = IconUtils.getIconChar(iconName, style, size);
@@ -15,7 +15,7 @@ export const createIconHTML = (iconName: string, style: 'regular' | 'filled') =>
   };
 };
 
-// === CDN 유틸리티 함수들 ===
+// === CDN utility functions ===
 export const getCSSUrl = () => `${CDN_BASE_URL}/fonts/refineui-system-icons.css`;
 export const getFontUrl = (style: 'regular' | 'filled' = 'regular') => {
   const fontFamily = IconUtils.getFontFamily(style);
@@ -23,9 +23,9 @@ export const getFontUrl = (style: 'regular' | 'filled' = 'regular') => {
 };
 export const getCDNBaseUrl = () => CDN_BASE_URL;
 
-// === build.ts에서 필요한 함수들 ===
+// === Functions needed in build.ts ===
 export const mapIconName = (iconDir: string): string => {
-  // 폴더 이름을 아이콘 이름으로 변환
+  // Convert folder name to icon name
   return iconDir.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
 };
 
@@ -36,7 +36,7 @@ export const generateSampleSVG = (iconName: string, size: number, style: string)
 </svg>`;
 };
 
-// === cdn.ts에서 필요한 함수들 ===
+// === Functions needed in cdn.ts ===
 export const isValidIconSize = (size: number): boolean => {
   return [16, 20, 24, 28, 32, 48].includes(size);
 };
@@ -49,7 +49,7 @@ export const generateIconFileName = (iconName: string, style: string): string =>
   return `${iconName}-${style}.svg`;
 };
 
-// === 유틸리티 함수들 ===
+// === Utility functions ===
 export { default as IconUtils } from './IconUtils';
 
 export const getIconChar = (iconName: string, style: 'regular' | 'filled' = 'regular', size: number = 24) => {

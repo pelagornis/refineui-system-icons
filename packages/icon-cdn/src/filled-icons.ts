@@ -1,5 +1,5 @@
-// === Filled 스타일 아이콘들 ===
-// 이 파일은 자동 생성됩니다. 수정하지 마세요.
+// === Filled style icons ===
+// This file is auto-generated. Do not modify.
 
 import { createIconHTML } from './utils';
 

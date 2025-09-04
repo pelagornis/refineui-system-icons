@@ -1,45 +1,42 @@
-# RefineUI System Icons - Web Package
+# Web Icons Package
 
-폰트 기반 아이콘 유틸리티 패키지입니다. 434개의 아이콘을 지원하며, unicode 값을 사용하여 폰트에서 아이콘을 쉽게 가져올 수 있습니다.
+Font-based icon utility package. Supports 434 icons and allows easy access to icons from fonts using unicode values.
 
-## 설치
+## Installation
 
 ```bash
 npm install @refineui/web-icons
 ```
 
-## 사용법
+## Usage
 
-### 1. 유틸리티 함수 사용
+### 1. Using utility functions
 
 ```javascript
 import { getIconChar, getIconClass, getFontFamily } from "@refineui/web-icons";
 
-// unicode 문자 가져오기
-const iconChar = getIconChar("Gavel", "regular", 24);
-const fontFamily = getFontFamily("regular");
+// Get unicode character
+const gavelChar = getIconChar("gavel", "regular");
+const gavelClass = getIconClass("gavel", 24, "regular");
 
-// HTML에서 사용
-const html = `<span style="font-family: '${fontFamily}'; font-size: 24px;">${iconChar}</span>`;
+// Use in HTML
+<span class="ic_refineui_gavel_24_regular">${gavelChar}</span>;
 ```
 
-### 2. 편의 함수 사용 (모든 434개 아이콘 지원)
+### 2. Using convenience functions (supports all 434 icons)
 
 ```javascript
-import { Gavel, AddFilled, Home } from "@refineui/web-icons";
+import { Gavel, Home, AddFilled } from "@refineui/web-icons";
 
-// Regular 스타일
-const gavelIcon = Gavel(24); // 24px 크기
-const homeIcon = Home(32); // 32px 크기
+// Regular style
+const gavelIcon = Gavel(24); // 24px size
+const homeIcon = Home(32); // 32px size
 
-// Filled 스타일
-const addIcon = AddFilled(48); // 48px 크기
-
-// HTML에서 사용
-const html = `<span style="font-family: 'RefineUI-System-Icons-Regular'; font-size: 24px;">${gavelIcon}</span>`;
+// Filled style
+const addIcon = AddFilled(48); // 48px size
 ```
 
-### 3. 아이콘 검색 및 정보
+### 3. Icon search and information
 
 ```javascript
 import {
@@ -48,50 +45,50 @@ import {
   getIconInfo,
 } from "@refineui/web-icons";
 
-// 모든 아이콘 목록
+// All icon list
 const allIcons = getAvailableIcons();
 
-// 아이콘 검색
+// Icon search
 const searchResults = searchIcons("add");
 
-// 아이콘 정보
+// Icon information
 const iconInfo = getIconInfo("Gavel");
 ```
 
 ## API
 
-### 유틸리티 함수들
+### Utility functions
 
-| 함수                                 | 설명                              |
-| ------------------------------------ | --------------------------------- |
-| `getIconChar(name, style, size)`     | 아이콘의 unicode 문자 반환        |
-| `getIconClass(name, style, size)`    | 아이콘의 CSS 클래스명 반환        |
-| `getFontFamily(style)`               | 폰트 패밀리명 반환                |
-| `getAvailableIcons()`                | 사용 가능한 모든 아이콘 이름 반환 |
-| `searchIcons(query)`                 | 아이콘 검색                       |
-| `isIconSupported(name, style, size)` | 아이콘 지원 여부 확인             |
+| Function                             | Description                               |
+| ------------------------------------ | ----------------------------------------- |
+| `getIconChar(name, style, size)`     | Returns the unicode character of the icon |
+| `getIconClass(name, style, size)`    | Returns the CSS class name of the icon    |
+| `getFontFamily(style)`               | Returns the font family name              |
+| `getAvailableIcons()`                | Returns all available icon names          |
+| `searchIcons(query)`                 | Icon search                               |
+| `isIconSupported(name, style, size)` | Check if icon is supported                |
 
-### 편의 함수들
+### Convenience functions
 
-모든 434개 아이콘에 대해 다음 두 가지 함수가 자동으로 생성됩니다:
+Two functions are automatically generated for all 434 icons:
 
-- `IconName(size)` - Regular 스타일
-- `IconNameFilled(size)` - Filled 스타일
+- `IconName(size)` - Regular style
+- `IconNameFilled(size)` - Filled style
 
-예시:
+Example:
 
 ```javascript
-Gavel(24); // Regular 스타일, 24px
-GavelFilled(32); // Filled 스타일, 32px
-Add(20); // Regular 스타일, 20px
-AddFilled(48); // Filled 스타일, 48px
+Gavel(24); // Regular style, 24px
+GavelFilled(32); // Filled style, 32px
+Add(20); // Regular style, 20px
+AddFilled(48); // Filled style, 48px
 ```
 
-## 지원되는 아이콘
+## Supported Icons
 
-**434개의 모든 아이콘이 지원됩니다!**
+**All 434 icons are supported!**
 
-### 주요 아이콘들:
+### Key icons:
 
 - Accessibility
 - Add
@@ -133,9 +130,9 @@ AddFilled(48); // Filled 스타일, 48px
 - Warning
 - Zoom
 
-## Font 파일 포함
+## Font file inclusion
 
-CSS 파일을 import하여 font를 로드해야 합니다:
+You need to import the CSS file to load the font:
 
 ```html
 <link
@@ -148,6 +145,6 @@ CSS 파일을 import하여 font를 로드해야 합니다:
 />
 ```
 
-## 라이센스
+## License
 
 MIT License

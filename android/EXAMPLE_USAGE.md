@@ -1,26 +1,26 @@
-# RefineUI System Icons - 사용 예제
+# RefineUI System Icons - Usage Examples
 
-이 문서는 RefineUI System Icons를 안드로이드 앱에서 사용하는 다양한 방법을 보여줍니다.
+This document shows various ways to use RefineUI System Icons in Android apps.
 
-## 1. 기본 사용법
+## 1. Basic Usage
 
-### XML에서 직접 사용
+### Using in XML directly
 
 ```xml
-<!-- 기본 아이콘 -->
+<!-- Basic icon -->
 <ImageView
     android:layout_width="24dp"
     android:layout_height="24dp"
     android:src="@drawable/ic_refineui_add_24_filled" />
 
-<!-- 색상 변경 -->
+<!-- Change color -->
 <ImageView
     android:layout_width="24dp"
     android:layout_height="24dp"
     android:src="@drawable/ic_refineui_home_24_regular"
     android:tint="@color/primary" />
 
-<!-- 크기 조정 -->
+<!-- Adjust size -->
 <ImageView
     android:layout_width="48dp"
     android:layout_height="48dp"
@@ -28,25 +28,25 @@
     android:scaleType="centerInside" />
 ```
 
-### Kotlin에서 사용
+### Using in Kotlin
 
 ```kotlin
-// 기본 설정
+// Basic setup
 imageView.setImageResource(R.drawable.ic_refineui_add_24_filled)
 
-// 색상 변경
+// Change color
 imageView.setColorFilter(ContextCompat.getColor(context, R.color.primary))
 
-// 크기 변경
+// Change size
 imageView.layoutParams = imageView.layoutParams.apply {
     width = 48.dpToPx()
     height = 48.dpToPx()
 }
 ```
 
-## 2. 동적 아이콘 로딩
+## 2. Dynamic Icon Loading
 
-### 리소스 이름으로 접근
+### Access by resource name
 
 ```kotlin
 fun loadIcon(imageView: ImageView, iconName: String, size: Int, style: String) {
@@ -56,17 +56,17 @@ fun loadIcon(imageView: ImageView, iconName: String, size: Int, style: String) {
     if (resourceId != 0) {
         imageView.setImageResource(resourceId)
     } else {
-        // 기본 아이콘으로 폴백
+        // Fallback to default icon
         imageView.setImageResource(R.drawable.ic_default)
     }
 }
 
-// 사용 예제
+// Usage example
 loadIcon(imageView, "add", 24, "filled")
 loadIcon(imageView, "home", 20, "regular")
 ```
 
-### IconSelector 사용
+### Using IconSelector
 
 ```kotlin
 class IconManager(private val context: Context) {
@@ -88,7 +88,7 @@ class IconManager(private val context: Context) {
 }
 ```
 
-## 3. RecyclerView에서 아이콘 목록 표시
+## 3. Display Icon List in RecyclerView
 
 ```kotlin
 class IconAdapter(private val icons: List<IconInfo>) :
@@ -103,15 +103,15 @@ class IconAdapter(private val icons: List<IconInfo>) :
     override fun onBindViewHolder(holder: IconViewHolder, position: Int) {
         val icon = icons[position]
 
-        // 아이콘 설정
+        // Set icon
         val drawable = iconSelector.getIconDrawable(icon)
         holder.imageView.setImageDrawable(drawable)
 
-        // 텍스트 설정
+        // Set text
         holder.nameText.text = icon.displayName
         holder.sizeText.text = "${icon.size}px ${icon.style}"
 
-        // 클릭 이벤트
+        // Click event
         holder.itemView.setOnClickListener {
             onIconSelected?.invoke(icon)
         }
@@ -121,7 +121,7 @@ class IconAdapter(private val icons: List<IconInfo>) :
 }
 ```
 
-## 4. 아이콘 선택기 구현
+## 4. Icon Picker Implementation
 
 ```kotlin
 class IconPickerDialog : DialogFragment() {
@@ -159,7 +159,7 @@ class IconPickerDialog : DialogFragment() {
     }
 
     private fun setupFilters() {
-        // 스타일 필터
+        // Style filter
         styleSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 when (position) {
@@ -171,7 +171,7 @@ class IconPickerDialog : DialogFragment() {
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
 
-        // 크기 필터
+        // Size filter
         sizeSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 val sizes = listOf(0, 16, 20, 24, 28, 32, 48)
@@ -202,21 +202,21 @@ class IconPickerDialog : DialogFragment() {
 }
 ```
 
-## 5. 버튼에 아이콘 추가
+## 5. Adding Icons to Buttons
 
 ```kotlin
-// MaterialButton에 아이콘 추가
+// Add icon to MaterialButton
 val button = findViewById<MaterialButton>(R.id.addButton)
 button.icon = ContextCompat.getDrawable(this, R.drawable.ic_refineui_add_24_filled)
 
-// 또는 코드에서 설정
+// Or set from code
 button.setIconResource(R.drawable.ic_refineui_add_24_filled)
 
-// 아이콘 색상 변경
+// Change icon color
 button.iconTint = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.white))
 ```
 
-## 6. 메뉴 아이템에 아이콘 추가
+## 6. Adding Icons to Menu Items
 
 ```xml
 <!-- menu_main.xml -->
@@ -237,7 +237,7 @@ button.iconTint = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.wh
 </menu>
 ```
 
-## 7. 탭 레이아웃에 아이콘 추가
+## 7. Adding Icons to Tab Layout
 
 ```xml
 <com.google.android.material.tabs.TabLayout
@@ -265,30 +265,30 @@ button.iconTint = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.wh
 </com.google.android.material.tabs.TabLayout>
 ```
 
-## 8. 색상 테마 적용
+## 8. Applying Color Themes
 
 ```kotlin
-// 다크 테마에서 아이콘 색상 자동 조정
+// Auto-adjust icon colors in dark theme
 imageView.imageTintList = ColorStateList.valueOf(
     ContextCompat.getColor(context, R.color.onSurface)
 )
 
-// 또는 테마 색상 사용
+// Or use theme colors
 imageView.imageTintList = ColorStateList.valueOf(
     ContextCompat.getColor(context, R.attr.colorOnSurface)
 )
 ```
 
-## 9. 애니메이션과 함께 사용
+## 9. Using with Animations
 
 ```kotlin
-// 아이콘 회전 애니메이션
+// Icon rotation animation
 val rotateAnimation = ObjectAnimator.ofFloat(imageView, View.ROTATION, 0f, 360f)
 rotateAnimation.duration = 1000
 rotateAnimation.repeatCount = ObjectAnimator.INFINITE
 rotateAnimation.start()
 
-// 아이콘 페이드 인 애니메이션
+// Icon fade in animation
 imageView.alpha = 0f
 imageView.animate()
     .alpha(1f)
@@ -296,14 +296,14 @@ imageView.animate()
     .start()
 ```
 
-## 10. 접근성 지원
+## 10. Accessibility Support
 
 ```kotlin
-// 아이콘에 접근성 설명 추가
+// Add accessibility description to icon
 imageView.contentDescription = "Add new item"
 imageView.isImportantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_YES
 
-// 또는 XML에서
+// Or in XML
 <ImageView
     android:layout_width="24dp"
     android:layout_height="24dp"
@@ -312,4 +312,4 @@ imageView.isImportantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_YES
     android:importantForAccessibility="yes" />
 ```
 
-이러한 예제들을 참고하여 RefineUI System Icons를 효과적으로 활용하세요!
+Refer to these examples to effectively utilize RefineUI System Icons!

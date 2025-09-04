@@ -50,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void _loadIcons() {
     print('Loading all icons from SampleIcons...');
     
-    // SampleIcons에서 모든 아이콘 가져오기
+    // Get all icons from SampleIcons
     allIcons = SampleIcons.getAllIcons();
     
     print('Loaded ${allIcons.length} icons');
@@ -82,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
         actions: [
-          // 스타일 선택
+          // Style selection
           DropdownButton<String>(
             value: selectedStyle,
             items: ['regular', 'filled'].map((style) {
@@ -99,7 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
             },
           ),
           const SizedBox(width: 16),
-          // 크기 선택
+          // Size selection
           DropdownButton<String>(
             value: selectedSize,
             items: ['16', '20', '24', '28', '32', '48'].map((size) {
@@ -119,7 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Column(
         children: [
-          // 검색 바
+          // Search bar
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: TextField(
@@ -137,7 +137,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
           
-          // 통계 정보
+          // Statistics information
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Row(
@@ -157,7 +157,7 @@ class _MyHomePageState extends State<MyHomePage> {
           
           const SizedBox(height: 16),
           
-          // 아이콘 그리드
+          // Icon grid
           Expanded(
             child: isLoading
                 ? const Center(child: CircularProgressIndicator())
@@ -172,7 +172,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         padding: const EdgeInsets.all(16.0),
                         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 6,
-                          childAspectRatio: 0.8, // 카드를 더 넓게 만들어 높이 부족 문제 해결
+                          childAspectRatio: 0.8, // Make cards wider to solve height shortage problem
                           crossAxisSpacing: 8,
                           mainAxisSpacing: 8,
                         ),
@@ -201,15 +201,15 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
             children: [
-              // 아이콘
+              // Icon
               Icon(
                 icon.iconData,
-                size: double.parse(selectedSize) * 0.8, // 아이콘 크기를 약간 줄임
+                size: double.parse(selectedSize) * 0.8, // Slightly reduce icon size
                 color: Theme.of(context).primaryColor,
               ),
               const SizedBox(height: 4),
               
-              // 아이콘 이름
+              // Icon name
               Flexible(
                 child: Text(
                   icon.displayName,
@@ -220,7 +220,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               
-              // 추가 정보
+              // Additional information
               Flexible(
                 child: Text(
                   '${icon.size}px ${icon.style}',
@@ -245,7 +245,7 @@ class _MyHomePageState extends State<MyHomePage> {
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            // 큰 아이콘
+            // Large icon
             Icon(
               icon.iconData,
               size: 64,
@@ -253,7 +253,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             const SizedBox(height: 16),
             
-            // 정보 테이블
+            // Information table
             Table(
               columnWidths: const {
                 0: FlexColumnWidth(1),
@@ -291,7 +291,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           ElevatedButton(
             onPressed: () {
-              // 코드 복사 기능 (실제로는 클립보드에 복사)
+              // Code copy function (actually copies to clipboard)
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: Text('Icon code copied: ${icon.name}_${icon.size}_${icon.style}'),

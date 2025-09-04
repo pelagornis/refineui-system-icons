@@ -1,6 +1,6 @@
 import IconUtils from './IconUtils';
 
-// === 아이콘 HTML 생성 메서드 ===
+// === Icon HTML generation method ===
 export const createIconHTML = (iconName: string, style: 'regular' | 'filled') => {
   return (size: number = 24, color: string = 'currentColor', className: string = '') => {
     const iconChar = IconUtils.getIconChar(iconName, style, size);
@@ -12,7 +12,7 @@ export const createIconHTML = (iconName: string, style: 'regular' | 'filled') =>
   };
 };
 
-// === 유틸리티 함수들 ===
+// === Utility functions ===
 export { default as IconUtils } from './IconUtils';
 
 export const getIconChar = (iconName: string, style: 'regular' | 'filled' = 'regular', size: number = 24) => {

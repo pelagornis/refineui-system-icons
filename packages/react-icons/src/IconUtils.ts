@@ -36,17 +36,17 @@ class ReactIconUtils {
     this.fontFamilies = metadata.fontFamilies;
   }
 
-  // === FLUENTUI 스타일 방식 ===
-  // 동적 아이콘 생성 메서드
+  // === FLUENTUI style method ===
+  // Dynamic icon creation method
   createIconMethod(iconName: string, props: IconProps = {}): React.ReactElement | null {
-    // Unsized 방식: AccessibilityRegular, AccessibilityFilled
+    // Unsized method: AccessibilityRegular, AccessibilityFilled
     const unsizedMatch = iconName.match(/^([A-Za-z]+)(Regular|Filled)$/);
     if (unsizedMatch) {
       const [, iconNamePart, style] = unsizedMatch;
       return this.createUnsizedIcon(iconNamePart, style.toLowerCase() as 'regular' | 'filled', props);
     }
 
-    // Sized 방식: Accessibility16Regular, Accessibility24Filled
+    // Sized method: Accessibility16Regular, Accessibility24Filled
     const sizedMatch = iconName.match(/^([A-Za-z]+)(\d+)(Regular|Filled)$/);
     if (sizedMatch) {
       const [, iconNamePart, sizeStr, style] = sizedMatch;
@@ -57,7 +57,7 @@ class ReactIconUtils {
     return null;
   }
 
-  // Unsized 아이콘 생성 (기본 24px)
+  // Generate unsized icons (default 24px)
   private createUnsizedIcon(iconName: string, style: 'regular' | 'filled', props: IconProps = {}): React.ReactElement | null {
     const iconData = this.metadata.icons[iconName];
     if (!iconData) return null;
@@ -80,7 +80,7 @@ class ReactIconUtils {
     });
   }
 
-  // Sized 아이콘 생성
+  // Generate sized icons
   private createSizedIcon(iconName: string, size: number, style: 'regular' | 'filled', props: IconProps = {}): React.ReactElement | null {
     const iconData = this.metadata.icons[iconName];
     if (!iconData) return null;
@@ -102,7 +102,7 @@ class ReactIconUtils {
     });
   }
 
-  // 유틸리티 메서드들
+  // Utility methods
   getIconChar(iconName: string, style: 'regular' | 'filled' = 'regular', size: number = 24): string | null {
     const iconData = this.metadata.icons[iconName];
     if (!iconData) return null;
@@ -152,7 +152,7 @@ class ReactIconUtils {
   }
 }
 
-// 싱글톤 인스턴스 생성
+// Singleton instance creation
 const reactIconUtils = new ReactIconUtils();
 
 export default reactIconUtils;

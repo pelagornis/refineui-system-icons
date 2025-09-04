@@ -16,7 +16,7 @@ function generateIconConstants(mappingData: any): string {
   const regularIcons: { [key: string]: string } = {};
   const filledIcons: { [key: string]: string } = {};
   
-  // 아이콘들을 스타일별로 분류
+  // Classify icons by style
   for (const [cssClass, iconData] of Object.entries(mappingData.icons)) {
     const iconName = iconData.name.replace(/\s+/g, '_').toUpperCase();
     const unicodeChar = String.fromCharCode(iconData.unicode);
@@ -28,12 +28,12 @@ function generateIconConstants(mappingData: any): string {
     }
   }
   
-  // Regular 아이콘들 생성
+  // Generate Regular icons
   const regularIconEntries = Object.entries(regularIcons)
     .map(([name, unicode]) => `  ${name}_REGULAR: '${unicode}',`)
     .join('\n');
   
-  // Filled 아이콘들 생성
+  // Generate Filled icons
   const filledIconEntries = Object.entries(filledIcons)
     .map(([name, unicode]) => `  ${name}_FILLED: '${unicode}',`)
     .join('\n');
@@ -54,14 +54,14 @@ export function getIconUnicode(name: IconName): string {
 
 async function main() {
   try {
-    // 아이콘 매핑 JSON 파일 읽기
+    // Read icon mapping JSON file
     const mappingPath = path.join(__dirname, '../../../fonts/icon-mapping.json');
     const mappingData = JSON.parse(fs.readFileSync(mappingPath, 'utf8'));
     
-    // 아이콘 상수 생성
+    // Generate icon constants
     const iconConstants = generateIconConstants(mappingData);
     
-    // index.ts 파일 업데이트
+    // Update index.ts file
     const indexPath = path.join(__dirname, '../src/index.ts');
     const indexContent = `// Direct font-based icon system (FluentUI style)
 export { Icon } from './Icon';

@@ -62,9 +62,9 @@ class RefineUIIconSelector(private val context: Context) {
     private fun getDrawableResourceNames(): List<String> {
         val drawableNames = mutableListOf<String>()
         
-        // 라이브러리에서 모든 ic_refineui_로 시작하는 리소스를 자동으로 찾기
+        // Automatically find all resources starting with ic_refineui_ in the library
         try {
-            // 라이브러리 패키지의 리소스에서 모든 drawable 필드를 가져오기
+            // Get all drawable fields from the library package's resources
             val libraryPackageName = "com.refineui.icons"
             val libraryClass = Class.forName("$libraryPackageName.R\$drawable")
             val fields = libraryClass.fields
@@ -86,7 +86,7 @@ class RefineUIIconSelector(private val context: Context) {
         } catch (e: Exception) {
             Log.w(TAG, "Failed to access library R class: ${e.message}")
             
-            // 폴백: 수동으로 몇 개의 아이콘만 추가
+            // Fallback: manually add only a few icons
             val fallbackIcons = listOf(
                 "ic_refineui_add_24_filled",
                 "ic_refineui_home_24_regular",
@@ -139,13 +139,13 @@ class RefineUIIconSelector(private val context: Context) {
      */
     fun getIconDrawable(resourceName: String): Drawable? {
         return try {
-            // 먼저 라이브러리에서 찾아보기
+            // First try to find in the library
             val libraryResourceId = resources.getIdentifier(resourceName, "drawable", "com.refineui.icons")
             if (libraryResourceId != 0) {
                 return resources.getDrawable(libraryResourceId, null)
             }
             
-            // 라이브러리에서 찾지 못했으면 앱 패키지에서 찾아보기
+            // If not found in library, try to find in app package
             val appResourceId = resources.getIdentifier(resourceName, "drawable", packageName)
             if (appResourceId != 0) {
                 return resources.getDrawable(appResourceId, null)

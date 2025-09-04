@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
     
     private fun setupRecyclerView() {
         recyclerView = findViewById(R.id.recyclerView)
-        recyclerView.layoutManager = GridLayoutManager(this, 6) // 6열로 표시
+        recyclerView.layoutManager = GridLayoutManager(this, 6) // Display in 6 columns
         adapter = IconAdapter(iconSelector)
         recyclerView.adapter = adapter
     }
@@ -54,9 +54,9 @@ class MainActivity : AppCompatActivity() {
         val icons = iconSelector.getAllIcons()
         adapter.updateIcons(icons)
         
-        // 상태 텍스트 업데이트
+        // Update status text
         val statusText = findViewById<TextView>(R.id.statusText)
-        statusText.text = "총 ${icons.size}개의 아이콘"
+        statusText.text = "Total ${icons.size} icons"
         
         Log.d("MainActivity", "Loaded ${icons.size} icons")
     }
@@ -114,7 +114,7 @@ class MainActivity : AppCompatActivity() {
     
     private fun setIconFromLibrary(imageView: ImageView, resourceName: String) {
         try {
-            // 먼저 라이브러리에서 리소스 ID를 찾아보기
+            // First try to find resource ID in the library
             val libraryResourceId = resources.getIdentifier(resourceName, "drawable", "com.refineui.icons")
             if (libraryResourceId != 0) {
                 imageView.setImageResource(libraryResourceId)
@@ -122,7 +122,7 @@ class MainActivity : AppCompatActivity() {
                 return
             }
             
-            // 라이브러리에서 찾지 못했으면 앱 패키지에서 찾아보기
+            // If not found in library, try to find in app package
             val appResourceId = resources.getIdentifier(resourceName, "drawable", packageName)
             if (appResourceId != 0) {
                 imageView.setImageResource(appResourceId)
@@ -130,7 +130,7 @@ class MainActivity : AppCompatActivity() {
                 return
             }
             
-            // 아무것도 찾지 못하면 폴백 아이콘 사용
+            // If nothing is found, use fallback icon
             imageView.setImageResource(android.R.drawable.ic_menu_help)
             Log.w("MainActivity", "Icon not found: $resourceName")
             

@@ -29,7 +29,7 @@ class IconUtils {
   }
 
   /**
-   * 아이콘의 unicode 문자 반환
+   * Get the unicode character of the icon
    */
   getIconChar(iconName: string, style: 'regular' | 'filled' = 'regular', size: number = 24): string | null {
     const iconData = this.metadata.icons[iconName];
@@ -42,7 +42,7 @@ class IconUtils {
   }
 
   /**
-   * 아이콘의 CSS 클래스명 반환
+   * Get the CSS class name of the icon
    */
   getIconClass(iconName: string, style: 'regular' | 'filled' = 'regular', size: number = 24): string | null {
     const iconData = this.metadata.icons[iconName];
@@ -55,35 +55,35 @@ class IconUtils {
   }
 
   /**
-   * 아이콘의 폰트 패밀리 반환
+   * Get the font family of the icon
    */
   getFontFamily(style: 'regular' | 'filled' = 'regular'): string {
     return this.fontFamilies[style].font_family;
   }
 
   /**
-   * 사용 가능한 모든 아이콘 이름 반환
+   * Get all available icon names
    */
-  getAvailableIcons(): string[] {
+  getAllIconNames(): string[] {
     return Object.keys(this.metadata.icons);
   }
 
   /**
-   * 지원되는 크기들 반환
+   * Get supported sizes
    */
-  getAvailableSizes(): number[] {
+  getSupportedSizes(): number[] {
     return this.metadata.supportedSizes;
   }
 
   /**
-   * 아이콘 정보 반환
+   * Get icon info
    */
   getIconInfo(iconName: string): IconData | null {
     return this.metadata.icons[iconName] || null;
   }
 
   /**
-   * 아이콘 검색
+   * Search icons
    */
   searchIcons(query: string): string[] {
     const searchTerm = query.toLowerCase();
@@ -94,7 +94,7 @@ class IconUtils {
   }
 
   /**
-   * 아이콘이 특정 크기와 스타일을 지원하는지 확인
+   * Check if an icon is supported for a specific size and style
    */
   isIconSupported(iconName: string, style: 'regular' | 'filled' = 'regular', size: number = 24): boolean {
     const iconData = this.metadata.icons[iconName];
@@ -104,7 +104,7 @@ class IconUtils {
   }
 }
 
-// 싱글톤 인스턴스 생성
+// Singleton instance creation
 const iconUtils = new IconUtils();
 
 export default iconUtils;

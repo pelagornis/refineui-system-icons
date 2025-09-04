@@ -58,19 +58,19 @@ ${exports.join('\n')}
 
 async function main() {
   try {
-    // 아이콘 매핑 JSON 파일 읽기
+    // Read icon mapping JSON file
     const mappingPath = path.join(__dirname, '../../../fonts/icon-mapping.json');
     const mappingData = JSON.parse(fs.readFileSync(mappingPath, 'utf8'));
     
     const icons: FontIconMapping = {};
     const outputDir = path.join(__dirname, '../src/font-icons');
     
-    // 출력 디렉토리 생성
+    // Create output directory
     if (!fs.existsSync(outputDir)) {
       fs.mkdirSync(outputDir, { recursive: true });
     }
     
-    // 각 아이콘에 대해 컴포넌트 파일 생성
+    // Generate component file for each icon
     for (const [cssClass, iconData] of Object.entries(mappingData.icons)) {
       const iconName = iconData.name.toLowerCase().replace(/\s+/g, '_');
       const key = `${iconName}_${iconData.size}_${iconData.style}`;
@@ -96,7 +96,7 @@ async function main() {
       console.log(`Generated: ${componentName}.tsx`);
     }
     
-    // index 파일 생성
+    // Create index file
     const indexCode = generateIndexFile(icons);
     const indexPath = path.join(outputDir, 'index.ts');
     fs.writeFileSync(indexPath, indexCode);

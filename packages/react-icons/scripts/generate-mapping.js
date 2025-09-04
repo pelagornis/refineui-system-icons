@@ -2,26 +2,26 @@
 
 /**
  * React Icons Package - Icon Mapping Generator
- * 
+ *
  * This script reads the fonts/icon-mapping.json file and generates
  * TypeScript mapping files for the React package.
  */
 
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
-// 경로 설정
-const rootDir = path.resolve(__dirname, '../../../');
-const mappingFile = path.join(rootDir, 'fonts/icon-mapping.json');
-const outputFile = path.join(__dirname, '../src/generated-mapping.ts');
+// Path configuration
+const rootDir = path.resolve(__dirname, "../../../");
+const mappingFile = path.join(rootDir, "fonts/icon-mapping.json");
+const outputFile = path.join(__dirname, "../src/generated-mapping.ts");
 
-console.log('🔧 Generating React Icons mapping...');
+console.log("🔧 Generating React Icons mapping...");
 
 try {
-  // icon-mapping.json 읽기
-  const mappingData = JSON.parse(fs.readFileSync(mappingFile, 'utf8'));
-  
-  // TypeScript 매핑 파일 생성
+  // Read icon-mapping.json
+  const mappingData = JSON.parse(fs.readFileSync(mappingFile, "utf8"));
+
+  // Generate TypeScript mapping file
   let tsContent = `/**
  * Auto-generated icon mapping for React Icons package
  * Generated from fonts/icon-mapping.json
@@ -41,11 +41,15 @@ export interface IconMapping {
 export const ICON_MAPPING: Record<string, IconMapping> = {
 `;
 
-  // 모든 아이콘을 매핑에 추가
+  // Add all icons to mapping
   Object.entries(mappingData.icons).forEach(([key, icon]) => {
     tsContent += `  "${key}": {
     unicode: ${icon.unicode},
-    fontFamily: "${icon.style === 'regular' ? 'RefineUI-System-Icons-Regular' : 'RefineUI-System-Icons-Filled'}",
+    fontFamily: "${
+      icon.style === "regular"
+        ? "RefineUI-System-Icons-Regular"
+        : "RefineUI-System-Icons-Filled"
+    }",
     name: "${icon.name}",
     size: "${icon.size}",
     style: "${icon.style}"
@@ -55,7 +59,9 @@ export const ICON_MAPPING: Record<string, IconMapping> = {
   tsContent += `};
 
 export const ICON_NAMES = [
-${Object.keys(mappingData.icons).map(key => `  "${key}"`).join(',\n')}
+${Object.keys(mappingData.icons)
+  .map((key) => `  "${key}"`)
+  .join(",\n")}
 ];
 
 export function getIconUnicode(iconName: string): number | null {
@@ -67,13 +73,12 @@ export function getIconFontFamily(iconName: string): string | null {
 }
 `;
 
-  // 파일 작성
+  // Write file
   fs.writeFileSync(outputFile, tsContent);
-  
+
   console.log(`✅ Generated mapping file: ${outputFile}`);
   console.log(`📊 Total icons: ${Object.keys(mappingData.icons).length}`);
-  
 } catch (error) {
-  console.error('❌ Error generating mapping:', error);
+  console.error("❌ Error generating mapping:", error);
   process.exit(1);
 }

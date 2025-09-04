@@ -1,11 +1,11 @@
 import React from 'react';
 import { Text, TextProps } from 'react-native';
 
-// === 모든 아이콘들을 import 및 export ===
+// === Import and export all icons ===
 export * from './regular-icons';
 export * from './filled-icons';
 
-// === 유틸리티 함수들 import 및 export ===
+// === Import and export utility functions ===
 export { 
   createIconComponent, 
   getIconChar, 
@@ -16,7 +16,7 @@ export {
 // === IconUtils export ===
 export { default as IconUtils } from './IconUtils';
 
-// === 타입 export ===
+// === Type export ===
 export type { IconData } from './IconUtils';
 
 // === IconProps interface export ===
