@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-/// RefineUI System Icons (constant style, FluentUI-like)
+/// RefineUI System Icons (constant style)
 class RefineUIIcons {
 	RefineUIIcons._();
 

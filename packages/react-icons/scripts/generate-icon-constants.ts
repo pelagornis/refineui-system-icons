@@ -63,7 +63,7 @@ async function main() {
     
     // Update index.ts file
     const indexPath = path.join(__dirname, '../src/index.ts');
-    const indexContent = `// Direct font-based icon system (FluentUI style)
+    const indexContent = `// Direct font-based icon system
 export { Icon } from './Icon';
 export type { IconProps } from './Icon';
 

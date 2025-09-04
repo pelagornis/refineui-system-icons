@@ -1,6 +1,6 @@
 # RefineUI System Icons 🎨
 
-A professional icon system. It's an integrated icon package that can be used across multiple platforms including React, React Native, Web, iOS, Android, and Flutter.
+A professional icon system designed for modern applications. It's an integrated icon package that can be used across multiple platforms including React, React Native, Web, iOS, Android, and Flutter.
 
 ## 📦 Package Structure
 
@@ -363,7 +363,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - Built with modern web technologies
 - Community-driven development
-
+- Designed for cross-platform consistency
 
 ---
 

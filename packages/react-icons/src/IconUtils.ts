@@ -36,7 +36,7 @@ class ReactIconUtils {
     this.fontFamilies = metadata.fontFamilies;
   }
 
-  // === FLUENTUI style method ===
+  // === Icon style method ===
   // Dynamic icon creation method
   createIconMethod(iconName: string, props: IconProps = {}): React.ReactElement | null {
     // Unsized method: AccessibilityRegular, AccessibilityFilled
