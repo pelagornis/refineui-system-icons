@@ -23,6 +23,6 @@ export type { IconData } from './IconUtils';
 export interface IconProps extends TextProps {
   size?: number;
   color?: string;
-  style?: 'regular' | 'filled';
+  iconStyle?: 'regular' | 'filled';
   [key: string]: any;
 }

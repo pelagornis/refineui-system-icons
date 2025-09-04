@@ -5,7 +5,7 @@ import IconUtils from './IconUtils';
 export interface IconProps extends TextProps {
   size?: number;
   color?: string;
-  style?: 'regular' | 'filled';
+  iconStyle?: 'regular' | 'filled';
   [key: string]: any;
 }
 
@@ -24,7 +24,7 @@ export const createIconComponent = (iconName: string, style: 'regular' | 'filled
       lineHeight: 1,
     };
 
-    return React.createElement(Text, {
+    return React.createElement(Text as any, {
       ref,
       style: [styleObj, props.style],
       ...props,
