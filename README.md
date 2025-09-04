@@ -1,6 +1,6 @@
 # RefineUI System Icons 🎨
 
-A professional icon system created with reference to Microsoft FluentUI System Icons. It's an integrated icon package that can be used across multiple platforms including React, React Native, Web, iOS, Android, and Flutter.
+A professional icon system. It's an integrated icon package that can be used across multiple platforms including React, React Native, Web, iOS, Android, and Flutter.
 
 ## 📦 Package Structure
 
@@ -42,7 +42,6 @@ import {
   SearchFilled,
 } from "@refineui/react-icons";
 
-// === FLUENTUI Style Method ===
 // Unsized method (default 24px)
 const accessibilityIcon = <AccessibilityRegular style={{ color: "blue" }} />;
 const addIconFilled = <AddFilled style={{ fontSize: "20px" }} />;
@@ -362,16 +361,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🌟 Acknowledgments
 
-- Inspired by Microsoft FluentUI System Icons
 - Built with modern web technologies
 - Community-driven development
 
-## 📞 Support
-
-- 📧 Email: support@refineui.com
-- 🐛 Issues: [GitHub Issues](https://github.com/refineui/system-icons/issues)
-- 📖 Documentation: [docs.refineui.com](https://docs.refineui.com)
-- 💬 Community: [Discord](https://discord.gg/refineui)
 
 ---
 
