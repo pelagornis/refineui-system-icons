@@ -1,4 +1,4 @@
 <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-  <rect width="20" height="20" fill="#3498db" stroke="#3498db" stroke-width="1"/>
-  <text x="10" y="10" text-anchor="middle" dy=".3em" font-size="6.666666666666667" fill="white">B</text>
+  <rect width="20" height="20" fill="#000" stroke="#000" stroke-width="1"/>
+  <text x="10" y="14" text-anchor="middle" font-family="Arial" font-size="6.666666666666667" fill="#000">backspace</text>
 </svg>

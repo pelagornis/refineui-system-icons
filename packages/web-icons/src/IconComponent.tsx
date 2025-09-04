@@ -1,6 +1,5 @@
 import React from 'react';
 import IconUtils from './IconUtils';
-import type { IconProps } from './IconUtils';
 
 export interface FlutterIconProps {
   name: string;
@@ -28,21 +27,13 @@ export const FlutterIcon: React.FC<FlutterIconProps> = ({
   onClick,
   ...restProps
 }) => {
-  const iconData = IconUtils.getIconInfo(name);
-  if (!iconData) {
-    console.warn(`Icon "${name}" not found`);
+  const iconChar = IconUtils.getIconChar(name, style, size);
+  if (!iconChar) {
+    console.warn(`Icon "${name}" with size ${size} and style "${style}" not found`);
     return null;
   }
 
-  // unicode 값 가져오기
-  const unicodeInfo = iconData.unicodeMapping[size]?.[style];
-  if (!unicodeInfo) {
-    console.warn(`Icon "${name}" with size ${size} and style "${style}" not supported`);
-    return null;
-  }
-
-  const fontFamily = IconUtils.getFontFamilies()[style].font_family;
-  const unicodeChar = String.fromCodePoint(unicodeInfo.unicode);
+  const fontFamily = IconUtils.getFontFamily(style);
 
   return (
     <span
@@ -58,7 +49,7 @@ export const FlutterIcon: React.FC<FlutterIconProps> = ({
       onClick={onClick}
       {...restProps}
     >
-      {unicodeChar}
+      {iconChar}
     </span>
   );
 };

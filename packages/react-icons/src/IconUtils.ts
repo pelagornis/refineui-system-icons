@@ -103,6 +103,30 @@ class ReactIconUtils {
   }
 
   // 유틸리티 메서드들
+  getIconChar(iconName: string, style: 'regular' | 'filled' = 'regular', size: number = 24): string | null {
+    const iconData = this.metadata.icons[iconName];
+    if (!iconData) return null;
+
+    const unicodeInfo = iconData.unicodeMapping[size]?.[style];
+    if (!unicodeInfo) return null;
+
+    return String.fromCodePoint(unicodeInfo.unicode);
+  }
+
+  getIconClass(iconName: string, style: 'regular' | 'filled' = 'regular', size: number = 24): string | null {
+    const iconData = this.metadata.icons[iconName];
+    if (!iconData) return null;
+
+    const unicodeInfo = iconData.unicodeMapping[size]?.[style];
+    if (!unicodeInfo) return null;
+
+    return unicodeInfo.cssClass;
+  }
+
+  getFontFamily(style: 'regular' | 'filled' = 'regular'): string {
+    return this.fontFamilies[style].font_family;
+  }
+
   getAvailableIcons(): string[] {
     return Object.keys(this.metadata.icons);
   }

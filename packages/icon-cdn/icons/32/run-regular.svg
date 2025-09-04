@@ -1,4 +1,4 @@
 <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-  <rect width="32" height="32" fill="none" stroke="#3498db" stroke-width="1"/>
-  <text x="16" y="16" text-anchor="middle" dy=".3em" font-size="10.666666666666666" fill="#3498db">R</text>
+  <rect width="32" height="32" fill="none" stroke="#000" stroke-width="1"/>
+  <text x="16" y="20" text-anchor="middle" font-family="Arial" font-size="10.666666666666666" fill="#000">run</text>
 </svg>

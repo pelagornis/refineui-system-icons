@@ -10,10 +10,10 @@
     "src/metadata.json"
   ],
   "scripts": {
-    "build": "rollup -c && npm run copy-assets",
+    "build": "rollup -c && npm run copy-fonts",
+    "copy-fonts": "mkdir -p dist/fonts && cp fonts/*.woff2 dist/fonts/ && cp fonts/*.css dist/fonts/",
     "dev": "rollup -c -w",
-    "clean": "rimraf dist",
-    "copy-assets": "mkdir -p dist && cp ../../fonts/*.css dist/ && cp ../../fonts/*.woff2 dist/ && cp ../../fonts/*.otf dist/ && cp ../../fonts/*.ttf dist/"
+    "clean": "rimraf dist"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^21.0.0",

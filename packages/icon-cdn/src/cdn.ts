@@ -21,7 +21,7 @@ import { isValidIconSize, isValidIconStyle, generateIconFileName } from './utils
  * @returns The complete CDN URL
  * @throws {Error} If the style is invalid
  */
-export function generateCDNUrl(iconName: string, size: number, style: string): string {
+export function generateCDNUrl(iconName: string, size: number, style: 'regular' | 'filled'): string {
   if (!isValidIconStyle(style)) {
     throw new Error(`Invalid icon style: ${style}. Must be 'regular' or 'filled'`);
   }
@@ -65,7 +65,7 @@ export function generateAllCDNUrls(): IconInfo[] {
 export function getIconInfo(
   iconName: string, 
   size: number = 24, 
-  style: string = 'regular'
+  style: 'regular' | 'filled' = 'regular'
 ): IconInfo {
   if (!ICON_METADATA.icons.includes(iconName as any)) {
     throw new Error(`Icon '${iconName}' not found. Available icons: ${ICON_METADATA.icons.slice(0, 10).join(', ')}...`);

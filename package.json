@@ -11,14 +11,24 @@
     "build": "npm run build --workspaces",
     "dev": "npm run dev --workspaces",
     "generate:metadata": "node scripts/generate-metadata.js",
+    "generate:web-icons": "python3 scripts/generate_web_icons.py",
+    "generate:platforms": "python3 scripts/generate_platforms.py",
+    "generate:android": "python3 scripts/generate_android_xml.py",
+    "generate:ios": "python3 scripts/generate_ios_swift.py",
+    "generate:flutter": "python3 scripts/generate_flutter_dart.py",
+    "generate:fonts": "python3 scripts/generate_font_css.py",
+    "build:fonts": "python3 scripts/build_fonts.py",
+    "build:platforms": "python3 scripts/build_platforms.py",
+    "build:all": "python3 scripts/build_all.py",
+    "extract:figma": "python3 scripts/figma_icon_extractor.py",
     "clean": "npm run clean --workspaces",
-
     "test": "npm run test --workspaces",
     "lint": "npm run lint --workspaces"
   },
   "devDependencies": {
     "@types/node": "^18.0.0",
-    "typescript": "^4.5.0"
+    "typescript": "^4.5.0",
+    "fs-extra": "^11.0.0"
   },
   "keywords": [
     "icons",
@@ -27,7 +37,10 @@
     "ui",
     "react",
     "react-native",
-    "web"
+    "web",
+    "flutter",
+    "ios",
+    "android"
   ],
   "author": "RefineUI Team",
   "license": "MIT",

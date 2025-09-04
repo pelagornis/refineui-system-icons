@@ -4,7 +4,7 @@ import commonjs from "@rollup/plugin-commonjs";
 import json from "@rollup/plugin-json";
 
 export default {
-  input: "src/index.ts",
+  input: "src/index.tsx",
   output: [
     {
       file: "dist/index.js",
@@ -14,6 +14,16 @@ export default {
     {
       file: "dist/index.esm.js",
       format: "esm",
+      sourcemap: true,
+    },
+    {
+      file: "dist/index.umd.js",
+      format: "umd",
+      name: "RefineUIIcons",
+      globals: {
+        react: "React",
+        "react-dom": "ReactDOM"
+      },
       sourcemap: true,
     },
   ],

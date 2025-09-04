@@ -1,111 +1,182 @@
-const fs = require("fs");
+#!/usr/bin/env node
+/**
+ * RefineUI System Icons - Metadata Generator
+ * assets 폴더에서 아이콘 정보를 추출하여 metadata.json을 생성합니다.
+ */
+
+const fs = require("fs-extra");
 const path = require("path");
 
-// 메타데이터 파일들 읽기
-const iconsMetadataPath = path.join(__dirname, "../metadata/icons.json");
-const iconMappingPath = path.join(__dirname, "../fonts/icon-mapping.json");
-
-const iconsMetadata = JSON.parse(fs.readFileSync(iconsMetadataPath, "utf8"));
-const iconMapping = JSON.parse(fs.readFileSync(iconMappingPath, "utf8"));
-
-// 아이콘 이름 정규화 함수
-function normalizeIconName(iconKey) {
-  // ic_refineui_gavel_28_regular -> Gavel
-  const match = iconKey.match(/ic_refineui_([a-z]+)_\d+_(regular|filled)/);
-  if (!match) return null;
-
-  const [, name, style] = match;
-  // 첫 글자를 대문자로 변환
-  const normalizedName = name.charAt(0).toUpperCase() + name.slice(1);
-  return { name: normalizedName, style };
-}
-
-// metadata/icons.json에서 모든 아이콘 이름 추출
-const uniqueIcons = new Set();
-Object.keys(iconsMetadata.icons).forEach((iconKey) => {
-  const iconInfo = iconsMetadata.icons[iconKey];
-  if (iconInfo && iconInfo.name) {
-    uniqueIcons.add(iconInfo.name);
+class MetadataGenerator {
+  constructor() {
+    this.projectRoot = path.resolve(__dirname, "..");
+    this.assetsDir = path.join(this.projectRoot, "assets");
+    this.metadataFile = path.join(
+      this.projectRoot,
+      "metadata",
+      "metadata.json"
+    );
+    this.fontsDir = path.join(this.projectRoot, "fonts");
   }
-});
 
-// 메타데이터 생성 함수
-function generateMetadata() {
-  const metadata = {
-    totalIcons: uniqueIcons.size,
-    supportedSizes: iconsMetadata.supported_sizes,
-    supportedStyles: iconsMetadata.supported_styles,
-    fontFamilies: iconMapping.styles,
-    icons: {},
-  };
+  async generateMetadata() {
+    console.log("📋 메타데이터 생성 시작...");
 
-  // 각 아이콘에 대한 정보 생성
-  Array.from(uniqueIcons).forEach((iconName) => {
-    const iconKey = iconName.toLowerCase();
-    const iconInfo = iconsMetadata.icons[iconKey];
+    try {
+      // 1. assets 폴더에서 아이콘 정보 추출
+      const iconAssets = await this.extractIconAssets();
+      console.log(`📁 ${iconAssets.length}개의 아이콘 assets 발견`);
 
-    if (iconInfo) {
-      metadata.icons[iconName] = {
-        name: iconName,
-        slug: iconKey,
-        size: iconInfo.size,
-        style: iconInfo.style,
-        keyword: iconInfo.keyword,
-        description: iconInfo.description,
-        files: iconInfo.files,
-        unicodeMapping: {},
+      // 2. 폰트에서 아이콘 정보 추출
+      const fontIcons = await this.extractFontIcons();
+      console.log(`🔤 ${fontIcons.length}개의 폰트 아이콘 발견`);
+
+      // 3. 메타데이터 생성
+      const metadata = {
+        version: "1.0.0",
+        generatedAt: new Date().toISOString(),
+        totalIcons: iconAssets.length + fontIcons.length,
+        assets: {
+          count: iconAssets.length,
+          icons: iconAssets,
+        },
+        fonts: {
+          count: fontIcons.length,
+          icons: fontIcons,
+        },
+        platforms: {
+          react: true,
+          "react-native": true,
+          web: true,
+          flutter: true,
+          ios: true,
+          android: true,
+        },
       };
 
-      // 유니코드 매핑 추가
-      Object.keys(iconMapping.icons).forEach((mappingKey) => {
-        const mappingResult = normalizeIconName(mappingKey);
-        if (mappingResult && mappingResult.name === iconName) {
-          const mappingInfo = iconMapping.icons[mappingKey];
-          const size = mappingInfo.size;
-          const style = mappingInfo.style;
+      // 4. 메타데이터 파일 저장
+      await fs.ensureDir(path.dirname(this.metadataFile));
+      await fs.writeJson(this.metadataFile, metadata, { spaces: 2 });
 
-          if (!metadata.icons[iconName].unicodeMapping[size]) {
-            metadata.icons[iconName].unicodeMapping[size] = {};
-          }
+      console.log("✅ 메타데이터 생성 완료!");
+      console.log(`📊 총 ${metadata.totalIcons}개 아이콘`);
+      console.log(`📁 Assets: ${metadata.assets.count}개`);
+      console.log(`🔤 Fonts: ${metadata.fonts.count}개`);
 
-          metadata.icons[iconName].unicodeMapping[size][style] = {
-            unicode: mappingInfo.unicode,
-            unicodeHex: mappingInfo.unicode_hex,
-            cssClass: mappingInfo.css_class,
-          };
-        }
-      });
+      return metadata;
+    } catch (error) {
+      console.error("❌ 메타데이터 생성 실패:", error);
+      throw error;
     }
-  });
-
-  return metadata;
-}
-
-// 메타데이터 생성
-const metadata = generateMetadata();
-
-// 각 패키지에 메타데이터 저장
-const packages = ["react-icons", "react-native-icons", "web-icons"];
-
-packages.forEach((packageName) => {
-  const metadataPath = path.join(
-    __dirname,
-    `../packages/${packageName}/src/metadata.json`
-  );
-
-  // 디렉토리가 없으면 생성
-  const dir = path.dirname(metadataPath);
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir, { recursive: true });
   }
 
-  // 메타데이터 파일 저장
-  fs.writeFileSync(metadataPath, JSON.stringify(metadata, null, 2));
-  console.log(`✅ ${packageName} 메타데이터 생성 완료: ${metadataPath}`);
-});
+  async extractIconAssets() {
+    const icons = [];
 
-console.log(
-  `\n🎉 총 ${metadata.totalIcons}개의 아이콘에 대한 메타데이터가 생성되었습니다!`
-);
-console.log(`📦 지원 크기: ${metadata.supportedSizes.join(", ")}px`);
-console.log(`🎨 지원 스타일: ${metadata.supportedStyles.join(", ")}`);
+    try {
+      if (await fs.pathExists(this.assetsDir)) {
+        const iconDirs = await fs.readdir(this.assetsDir);
+
+        for (const iconDir of iconDirs) {
+          const iconPath = path.join(this.assetsDir, iconDir);
+          const stats = await fs.stat(iconPath);
+
+          if (stats.isDirectory()) {
+            const iconInfo = await this.getIconInfo(iconPath, iconDir);
+            if (iconInfo) {
+              icons.push(iconInfo);
+            }
+          }
+        }
+      }
+    } catch (error) {
+      console.warn("⚠️  Assets 폴더 읽기 실패:", error.message);
+    }
+
+    return icons;
+  }
+
+  async extractFontIcons() {
+    const icons = [];
+
+    try {
+      if (await fs.pathExists(this.fontsDir)) {
+        const fontFiles = await fs.readdir(this.fontsDir);
+
+        for (const fontFile of fontFiles) {
+          if (fontFile.endsWith(".css")) {
+            const cssPath = path.join(this.fontsDir, fontFile);
+            const cssContent = await fs.readFile(cssPath, "utf8");
+
+            // CSS에서 아이콘 클래스 추출
+            const iconClasses = this.extractIconClassesFromCSS(cssContent);
+            icons.push(...iconClasses);
+          }
+        }
+      }
+    } catch (error) {
+      console.warn("⚠️  Fonts 폴더 읽기 실패:", error.message);
+    }
+
+    return icons;
+  }
+
+  async getIconInfo(iconPath, iconName) {
+    try {
+      const files = await fs.readdir(iconPath);
+      const svgFiles = files.filter((file) => file.endsWith(".svg"));
+      const pngFiles = files.filter((file) => file.endsWith(".png"));
+
+      return {
+        name: iconName,
+        path: path.relative(this.projectRoot, iconPath),
+        files: {
+          svg: svgFiles.length,
+          png: pngFiles.length,
+          total: files.length,
+        },
+        formats: svgFiles.length > 0 ? ["svg"] : [],
+      };
+    } catch (error) {
+      console.warn(`⚠️  아이콘 정보 추출 실패 (${iconName}):`, error.message);
+      return null;
+    }
+  }
+
+  extractIconClassesFromCSS(cssContent) {
+    const icons = [];
+    const iconClassRegex = /\.ic_refineui_([^_]+)_\d+_(regular|filled):before/g;
+    let match;
+
+    while ((match = iconClassRegex.exec(cssContent)) !== null) {
+      const iconName = match[1];
+      const style = match[2];
+
+      icons.push({
+        name: iconName,
+        style: style,
+        type: "font",
+        class: match[0],
+      });
+    }
+
+    return icons;
+  }
+}
+
+// 메인 실행
+async function main() {
+  try {
+    const generator = new MetadataGenerator();
+    await generator.generateMetadata();
+  } catch (error) {
+    console.error("❌ 메타데이터 생성 실패:", error);
+    process.exit(1);
+  }
+}
+
+if (require.main === module) {
+  main();
+}
+
+module.exports = MetadataGenerator;

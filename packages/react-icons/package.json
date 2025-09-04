@@ -10,7 +10,8 @@
     "src/metadata.json"
   ],
   "scripts": {
-    "build": "rollup -c",
+    "build": "rollup -c && npm run copy-fonts",
+    "copy-fonts": "mkdir -p dist/fonts && cp fonts/*.woff2 dist/fonts/ && cp fonts/*.css dist/fonts/",
     "dev": "rollup -c -w",
     "clean": "rimraf dist"
   },
