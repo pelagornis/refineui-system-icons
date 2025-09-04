@@ -1,17 +1,17 @@
 # RefineUI System Icons 🎨
 
-Microsoft FluentUI System Icons를 참고하여 만든 전문적인 아이콘 시스템입니다. React, React Native, Web 환경에서 사용할 수 있는 통합 아이콘 패키지입니다.
+A professional icon system created with reference to Microsoft FluentUI System Icons. It's an integrated icon package that can be used in React, React Native, and Web environments.
 
-## 📦 패키지 구조
+## 📦 Package Structure
 
 ```
 packages/
-├── react-icons/          # React용 아이콘 패키지
-├── react-native-icons/   # React Native용 아이콘 패키지
-└── web-icons/           # Web용 아이콘 패키지
+├── react-icons/          # React icon package
+├── react-native-icons/   # React Native icon package
+└── web-icons/           # Web icon package
 ```
 
-## 🚀 설치 및 사용법
+## 🚀 Installation and Usage
 
 ### React
 
@@ -27,12 +27,12 @@ import {
   SearchFilled,
 } from "@refineui/react-icons";
 
-// === FLUENTUI 스타일 방식 ===
-// Unsized 방식 (기본 24px)
+// === FLUENTUI Style Method ===
+// Unsized method (default 24px)
 const accessibilityIcon = <AccessibilityRegular style={{ color: "blue" }} />;
 const addIconFilled = <AddFilled style={{ fontSize: "20px" }} />;
 
-// Sized 방식
+// Sized method
 const addIcon16 = <Add16Filled style={{ color: "red" }} />;
 const homeIcon32 = <Home32Regular style={{ marginRight: "8px" }} />;
 ```
@@ -51,14 +51,14 @@ import {
   SearchFilled,
 } from "@refineui/react-native-icons";
 
-// React Native에서는 Text 컴포넌트로 렌더링됩니다
+// In React Native, icons are rendered as Text components
 
-// === FLUENTUI 스타일 방식 ===
-// Unsized 방식
+// === FLUENTUI Style Method ===
+// Unsized method
 const accessibilityIcon = <AccessibilityRegular style={{ color: "blue" }} />;
 const addIconFilled = <AddFilled style={{ fontSize: 20 }} />;
 
-// Sized 방식
+// Sized method
 const addIcon16 = <Add16Filled style={{ color: "red" }} />;
 const homeIcon32 = <Home32Regular style={{ marginRight: 8 }} />;
 ```
@@ -77,51 +77,51 @@ import {
   SearchFilled,
 } from "@refineui/web-icons";
 
-// 문자열로 아이콘 반환
-const accessibilityIcon = AccessibilityRegular(); // 문자열 반환
-const addIconFilled = AddFilled(); // 문자열 반환
+// Returns icon as string
+const accessibilityIcon = AccessibilityRegular(); // Returns string
+const addIconFilled = AddFilled(); // Returns string
 
-// Sized 방식
-const addIcon16 = Add16Filled(); // 문자열 반환
-const homeIcon32 = Home32Regular(); // 문자열 반환
+// Sized method
+const addIcon16 = Add16Filled(); // Returns string
+const homeIcon32 = Home32Regular(); // Returns string
 
-// DOM 요소에 적용
+// Apply to DOM element
 const iconElement = document.createElement("span");
 iconElement.textContent = addIcon16;
 iconElement.style.fontFamily = "RefineUI-System-Icons-Filled";
 ```
 
-## 🎯 주요 기능
+## 🎯 Key Features
 
-### 1. 중앙 집중식 메타데이터
+### 1. Centralized Metadata
 
-- 모든 아이콘 정보가 `metadata.json`에 저장
-- 자동 매핑 시스템으로 유지보수 용이
+- All icon information stored in `metadata.json`
+- Easy maintenance with automatic mapping system
 
-### 2. 플랫폼별 최적화
+### 2. Platform-Specific Optimization
 
-- **React**: React 컴포넌트로 렌더링
-- **React Native**: Text 컴포넌트로 렌더링
-- **Web**: 문자열로 반환하여 DOM에 직접 적용
+- **React**: Renders as React components
+- **React Native**: Renders as Text components
+- **Web**: Returns strings for direct DOM application
 
-### 3. 다양한 크기 지원
+### 3. Multiple Size Support
 
 - 16px, 20px, 24px, 28px, 32px, 48px
-- 각 크기별 최적화된 아이콘 제공
+- Optimized icons for each size
 
-### 4. 스타일 지원
+### 4. Style Support
 
-- **Regular**: 기본 스타일
-- **Filled**: 채워진 스타일
+- **Regular**: Default style
+- **Filled**: Filled style
 
-### 5. TypeScript 지원
+### 5. TypeScript Support
 
-- 완전한 TypeScript 타입 정의
-- IntelliSense 지원으로 개발 경험 향상
+- Complete TypeScript type definitions
+- Enhanced development experience with IntelliSense support
 
-### 6. FluentUI 스타일 API
+### 6. FluentUI Style API
 
-#### Unsized 방식 (기본 24px)
+#### Unsized Method (default 24px)
 
 ```tsx
 // AccessibilityRegular, AccessibilityFilled
@@ -129,7 +129,7 @@ iconElement.style.fontFamily = "RefineUI-System-Icons-Filled";
 <AddFilled style={{ fontSize: "20px" }} />
 ```
 
-#### Sized 방식
+#### Sized Method
 
 ```tsx
 // Accessibility16Regular, Accessibility24Filled
@@ -137,44 +137,44 @@ iconElement.style.fontFamily = "RefineUI-System-Icons-Filled";
 <Home32Regular style={{ marginRight: "8px" }} />
 ```
 
-### 7. 유틸리티 함수
+### 7. Utility Functions
 
 ```javascript
 import IconUtils from "@refineui/react-icons";
 
-// 사용 가능한 아이콘 목록
+// Available icon list
 const icons = IconUtils.getAvailableIcons();
 
-// 폰트 패밀리 정보
+// Font family information
 const fontFamilies = IconUtils.getFontFamilies();
 
-// 사용 가능한 크기
+// Available sizes
 const sizes = IconUtils.getAvailableSizes();
 
-// 아이콘 정보 조회
+// Icon information lookup
 const iconInfo = IconUtils.getIconInfo("Accessibility");
 
-// 아이콘 검색
+// Icon search
 const searchResults = IconUtils.searchIcons("add");
 ```
 
-### 8. 동적 아이콘 생성
+### 8. Dynamic Icon Generation
 
-모든 아이콘은 동적으로 생성되므로 필요에 따라 `createIcon` 함수를 사용할 수 있습니다:
+All icons are generated dynamically, so you can use the `createIcon` function as needed:
 
 ```typescript
 import { createIcon } from "@refineui/react-icons";
 
-// 동적으로 아이콘 생성
+// Generate icon dynamically
 const icon = createIcon("AccessibilityRegular", { style: { color: "red" } });
 ```
 
-### 9. 메타데이터 시스템
+### 9. Metadata System
 
-모든 아이콘 정보는 중앙 집중식 메타데이터 시스템으로 관리됩니다:
+All icon information is managed through a centralized metadata system:
 
 ```javascript
-// 메타데이터에서 아이콘 정보 확인
+// Check icon information from metadata
 const iconInfo = IconUtils.getIconInfo("Accessibility");
 console.log(iconInfo);
 // {
@@ -187,89 +187,89 @@ console.log(iconInfo);
 // }
 ```
 
-## 🔧 개발
+## 🔧 Development
 
-### Figma에서 아이콘 추출
+### Extract Icons from Figma
 
-Figma에서 아이콘을 추출하려면 먼저 API 설정이 필요합니다:
+To extract icons from Figma, you first need to set up the API:
 
-1. **Figma Personal Access Token 생성**
+1. **Create Figma Personal Access Token**
 
    - Figma → Settings → Personal access tokens → Create new token
-   - 자세한 내용은 [docs/FIGMA_SETUP.md](docs/FIGMA_SETUP.md) 참조
+   - For detailed information, see [docs/FIGMA_SETUP.md](docs/FIGMA_SETUP.md)
 
-2. **환경 설정**
+2. **Environment Setup**
 
    ```bash
    cp .env.example .env
-   # .env 파일에 FIGMA_TOKEN과 FIGMA_FILE_KEY 설정
+   # Set FIGMA_TOKEN and FIGMA_FILE_KEY in .env file
    ```
 
-3. **아이콘 추출**
+3. **Extract Icons**
 
    ```bash
-   # 증분 업데이트 (수정된 것만)
+   # Incremental update (modified only)
    python scripts/figma_icon_extractor.py
 
-   # 전체 동기화
+   # Full synchronization
    python scripts/figma_icon_extractor.py --full-sync
    ```
 
-### 메타데이터 생성
+### Generate Metadata
 
 ```bash
 npm run generate:metadata
 ```
 
-### 빌드
+### Build
 
 ```bash
 npm run build
 ```
 
-### 개발 모드
+### Development Mode
 
 ```bash
 npm run dev
 ```
 
-## 📋 지원하는 아이콘
+## 📋 Supported Icons
 
-현재 **434개의 고유 아이콘**이 지원됩니다!
+Currently **434 unique icons** are supported!
 
-### 주요 아이콘 카테고리:
+### Main Icon Categories:
 
 - **UI/UX**: Accessibility, Add, Search, Settings, Checkmark, Home
-- **기술**: Android, Ios, Windows, Macos, Git, Javascript, Typescript
-- **미디어**: Camera, Video, Music, Image, Movie
-- **비즈니스**: Calendar, Chart, Document, Mail, Payment
-- **개발**: Code, Database, Server, Api, Terminal
-- **기타**: Heart, Star, Fire, Cloud, Weather 등
+- **Technology**: Android, Ios, Windows, Macos, Git, Javascript, Typescript
+- **Media**: Camera, Video, Music, Image, Movie
+- **Business**: Calendar, Chart, Document, Mail, Payment
+- **Development**: Code, Database, Server, Api, Terminal
+- **Others**: Heart, Star, Fire, Cloud, Weather, etc.
 
-### 지원 형식:
+### Supported Formats:
 
-- **Regular & Filled 스타일**: 각 아이콘마다 두 가지 스타일
-- **6가지 크기**: 16px, 20px, 24px, 28px, 32px, 48px
-- **총 5,208개의 메서드**: 모든 조합을 지원
+- **Regular & Filled Styles**: Two styles for each icon
+- **6 Sizes**: 16px, 20px, 24px, 28px, 32px, 48px
+- **Total 5,208 Methods**: Supports all combinations
 
-### 사용 예시:
+### Usage Examples:
 
 ```tsx
-// Unsized 방식 (기본 24px)
+// Unsized method (default 24px)
 <AccessibilityRegular />
 <AddFilled />
 <HomeRegular />
 
-// Sized 방식
+// Sized method
 <Add16Filled />
 <Search32Regular />
 <Settings48Filled />
 ```
 
-## 🤝 참고
+## 🤝 References
 
-이 프로젝트는 [Microsoft FluentUI System Icons](https://github.com/microsoft/fluentui-system-icons)의 구조와 API 설계를 참고하여 제작되었습니다.
+This project was created with reference to the structure and API design of [Microsoft FluentUI System Icons](https://github.com/microsoft/fluentui-system-icons).
 
-## 📄 라이선스
+## 📄 License
 
 MIT License
