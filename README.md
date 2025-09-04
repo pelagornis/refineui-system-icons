@@ -98,6 +98,59 @@ iconElement.style.fontFamily = "RefineUI-System-Icons-Filled";
 - All icon information stored in `metadata.json`
 - Easy maintenance with automatic mapping system
 
+## 🚀 Release Process
+
+### Automated Release
+
+모든 플랫폼을 위한 자동화된 릴리즈 프로세스를 제공합니다.
+
+#### Quick Release
+
+```bash
+# 패치 릴리즈 (1.0.0 -> 1.0.1)
+./scripts/release.sh patch
+
+# 마이너 릴리즈 (1.0.0 -> 1.1.0)
+./scripts/release.sh minor
+
+# 메이저 릴리즈 (1.0.0 -> 2.0.0)
+./scripts/release.sh major
+```
+
+#### Manual Release
+
+```bash
+# 1. 버전 업데이트
+npm run version:bump patch  # 또는 minor, major
+
+# 2. 모든 플랫폼 빌드
+npm run release:all
+
+# 3. Git 태그 푸시 (GitHub Actions 자동 실행)
+git push origin main --tags
+```
+
+### GitHub Actions
+
+GitHub에 태그를 푸시하면 자동으로 다음 작업이 실행됩니다:
+
+1. **Multi-Platform Build**: Python 3.9-3.11, Node.js 18-20에서 빌드
+2. **Platform Packages**: 각 플랫폼별 ZIP 패키지 생성
+3. **Release Assets**: GitHub 릴리즈에 자동 업로드
+4. **Verification**: 릴리즈 파일 구조 검증
+
+### Release Structure
+
+```
+release/
+├── refineui-icons-web.zip      # 웹용 아이콘 및 CSS
+├── refineui-icons-android.zip  # Android XML 드로어블
+├── refineui-icons-ios.zip      # iOS Swift 코드
+├── refineui-icons-flutter.zip  # Flutter Dart 코드
+├── refineui-icons-all.zip      # 모든 플랫폼 통합
+└── release-manifest.json       # 릴리즈 정보
+```
+
 ### 2. Platform-Specific Optimization
 
 - **React**: Renders as React components

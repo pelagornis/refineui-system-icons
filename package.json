@@ -21,6 +21,8 @@
     "build:platforms": "python3 scripts/build_platforms.py",
     "build:all": "python3 scripts/build_all.py",
     "extract:figma": "python3 scripts/figma_icon_extractor.py",
+    "release:all": "python3 scripts/release_all_platforms.py",
+    "version:bump": "python3 scripts/version_bump.py",
     "clean": "npm run clean --workspaces",
     "test": "npm run test --workspaces",
     "lint": "npm run lint --workspaces"

@@ -1,0 +1,162 @@
+name: Release All Platforms
+
+on:
+  push:
+    tags:
+      - "v*" # v1.0.0, v1.1.0 등의 태그로 릴리즈 트리거
+  workflow_dispatch: # 수동 실행 가능
+    inputs:
+      version:
+        description: "릴리즈 버전 (예: 1.0.0)"
+        required: true
+        default: "1.0.0"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.10", "3.11"]
+        node-version: ["18", "20"]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # 전체 히스토리 가져오기
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Install Node.js dependencies
+        run: npm ci
+
+      - name: Run release script
+        run: |
+          python3 scripts/release_all_platforms.py
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+
+      - name: Upload release artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: refineui-icons-release-${{ matrix.python-version }}-${{ matrix.node-version }}
+          path: release/
+          retention-days: 30
+
+      - name: Create Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            release/*.zip
+            release/release-manifest.json
+          body: |
+            ## 🎉 RefineUI System Icons 릴리즈
+
+            ### 📦 포함된 플랫폼
+            - 🌐 **Web**: SVG 아이콘 및 CSS
+            - 🤖 **Android**: XML 드로어블
+            - 🍎 **iOS**: Swift 코드
+            - 🦋 **Flutter**: Dart 코드
+
+            ### 🔧 빌드 정보
+            - Python: ${{ matrix.python-version }}
+            - Node.js: ${{ matrix.node-version }}
+            - 빌드 시간: ${{ github.event.head_commit.timestamp }}
+
+            ### 📁 다운로드
+            각 플랫폼별 ZIP 파일을 다운로드하여 사용하세요.
+
+            자세한 내용은 [README.md](https://github.com/${{ github.repository }}/blob/main/README.md)를 참조하세요.
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  # 릴리즈 검증 작업
+  verify-release:
+    needs: release
+    runs-on: ubuntu-latest
+    if: always()
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: refineui-icons-release-3.11-20 # 최신 버전 사용
+
+      - name: Verify release structure
+        run: |
+          echo "📋 릴리즈 파일 구조 확인 중..."
+
+          # 릴리즈 디렉토리 확인
+          ls -la release/
+
+          # ZIP 파일 확인
+          find release/ -name "*.zip" -exec unzip -l {} \;
+
+          # 매니페스트 파일 확인
+          if [ -f "release/release-manifest.json" ]; then
+            echo "✅ 릴리즈 매니페스트 파일 존재"
+            cat release/release-manifest.json
+          else
+            echo "❌ 릴리즈 매니페스트 파일 없음"
+            exit 1
+          fi
+
+          echo "✅ 릴리즈 검증 완료"
+
+      - name: Comment on PR
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+
+            try {
+              const manifestPath = path.join('release', 'release-manifest.json');
+              if (fs.existsSync(manifestPath)) {
+                const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+                
+                const comment = `## 🎉 릴리즈 검증 완료
+                
+                ### 📊 릴리즈 정보
+                - **버전**: ${manifest.version}
+                - **릴리즈 날짜**: ${manifest.release_date}
+                - **지원 플랫폼**: ${Object.keys(manifest.platforms).join(', ')}
+                
+                ### 🔧 빌드 정보
+                - Node.js: ${manifest.build_info.node_version}
+                - Python: ${manifest.build_info.python_version}
+                - npm: ${manifest.build_info.npm_version}
+                
+                모든 플랫폼이 성공적으로 빌드되었습니다! 🚀`;
+                
+                github.rest.issues.createComment({
+                  issue_number: context.issue.number,
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  body: comment
+                });
+              }
+            } catch (error) {
+              console.error('릴리즈 검증 실패:', error);
+            }
