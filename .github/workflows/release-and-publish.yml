@@ -1,4 +1,4 @@
-name: Release All Platforms
+name: Release and Publish All Platforms
 
 on:
   push:
@@ -16,8 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.9", "3.10", "3.11"]
-        node-version: ["18", "20"]
+        python-version: ["3.11"]
+        node-version: ["20"]
 
     steps:
       - name: Checkout code
@@ -44,7 +44,39 @@ jobs:
       - name: Install Node.js dependencies
         run: npm ci
 
-      - name: Run release script
+      - name: Extract version from tag
+        id: extract_version
+        run: |
+          if [[ $GITHUB_REF == refs/tags/* ]]; then
+            VERSION=${GITHUB_REF#refs/tags/v}
+          else
+            VERSION=${{ github.event.inputs.version }}
+          fi
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Extracted version: $VERSION"
+
+      - name: Update package.json version
+        run: |
+          npm version ${{ steps.extract_version.outputs.version }} --no-git-tag-version
+          echo "Updated package.json to version ${{ steps.extract_version.outputs.version }}"
+
+      - name: Update iOS Podspec version
+        run: |
+          sed -i "s/s\.version.*=.*'.*'/s.version = '${{ steps.extract_version.outputs.version }}'/" RefineIcons.podspec
+          echo "Updated RefineIcons.podspec to version ${{ steps.extract_version.outputs.version }}"
+
+      - name: Update Flutter pubspec.yaml version
+        run: |
+          sed -i "s/version:.*/version: ${{ steps.extract_version.outputs.version }}/" flutter/pubspec.yaml
+          echo "Updated Flutter pubspec.yaml to version ${{ steps.extract_version.outputs.version }}"
+
+      - name: Update Android version
+        run: |
+          # Update Android library version
+          sed -i "s/versionName = \".*\"/versionName = \"${{ steps.extract_version.outputs.version }}\"/" android/library/build.gradle.kts
+          echo "Updated Android build.gradle.kts to version ${{ steps.extract_version.outputs.version }}"
+
+      - name: Build all platforms
         run: |
           python3 scripts/release_all_platforms.py
         env:
@@ -57,6 +89,13 @@ jobs:
           path: release/
           retention-days: 30
 
+      - name: Publish to npm
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_RELEASE_TOKEN }}" > .npmrc
+          npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}
+
       - name: Create Release
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
@@ -65,7 +104,7 @@ jobs:
             release/*.zip
             release/release-manifest.json
           body: |
-            ## 🎉 RefineUI System Icons Release
+            ## 🎉 RefineUI System Icons Release ${{ steps.extract_version.outputs.version }}
 
             ### 📦 Included Platforms
             - 🌐 **Web**: SVG icons and CSS
@@ -80,6 +119,9 @@ jobs:
 
             ### 📁 Download
             Download ZIP files for each platform and use them.
+
+            ### 📦 NPM Package
+            The package is also available on npm: `npm install @refineui/react-icons @refineui/react-native-icons @refineui/web-icons`
 
             For more details, see [README.md](https://github.com/${{ github.repository }}/blob/main/README.md).
           draft: false
