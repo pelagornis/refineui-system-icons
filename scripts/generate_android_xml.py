@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 RefineUI System Icons - Android XML Generator
-Android용 XML drawable 파일들을 생성합니다.
+Generates Android XML drawable files.
 """
 
 import os
@@ -9,17 +9,17 @@ import sys
 from pathlib import Path
 
 def generate_android_xml():
-    """Android용 XML drawable 파일들을 생성합니다."""
-    print("🤖 Android XML 생성 시작...")
+    """Generates Android XML drawable files."""
+    print("🤖 Android XML generation started...")
     
     project_root = Path(__file__).parent.parent
     android_dir = project_root / "android"
     
     if not android_dir.exists():
-        print(f"❌ Android 디렉토리를 찾을 수 없습니다: {android_dir}")
+        print(f"❌ Android directory not found: {android_dir}")
         return False
     
-    # 270개 아이콘 이름
+    # 270 icon names
     ICON_NAMES = [
         'access', 'accessibility', 'add', 'airplane', 'album', 'alert', 'align', 'android', 'app', 'appstore',
         'autosum', 'backpack', 'backspace', 'badge', 'balloon', 'bar', 'barcode', 'battery', 'block', 'bluetooth',
@@ -50,17 +50,17 @@ def generate_android_xml():
         'warning', 'washer', 'water', 'weather', 'web', 'wifi', 'windows', 'wrench', 'xray', 'zoom'
     ]
     
-    # 아이콘 크기들
+    # Icon sizes
     ICON_SIZES = [16, 20, 24, 28, 32, 48]
     
-    # 스타일들
+    # Styles
     ICON_STYLES = ['regular', 'filled']
     
-    # drawable 디렉토리 생성
+    # Create drawable directory
     drawable_dir = android_dir / "app" / "src" / "main" / "res" / "drawable"
     drawable_dir.mkdir(parents=True, exist_ok=True)
     
-    # 각 아이콘에 대해 XML 파일 생성
+    # Generate XML files for each icon
     total_files = 0
     for icon_name in ICON_NAMES:
         for size in ICON_SIZES:
@@ -74,13 +74,13 @@ def generate_android_xml():
                 
                 total_files += 1
     
-    print(f"✅ Android XML 생성 완료: {total_files}개 파일")
+    print(f"✅ Android XML generation completed: {total_files} files")
     return True
 
 def generate_xml_content(icon_name: str, size: int, style: str) -> str:
-    """XML drawable 내용을 생성합니다."""
+    """Generates XML drawable content."""
     
-    # 아이콘 유니코드 (실제로는 폰트에서 가져와야 함)
+    # Icon unicode (should be fetched from font in practice)
     unicode = f"\\uF{size:04d}"
     
     xml_content = f"""<?xml version="1.0" encoding="utf-8"?>

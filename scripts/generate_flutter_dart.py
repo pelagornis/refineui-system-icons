@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 RefineUI System Icons - Flutter Dart Generator
-Flutter용 Dart 파일들을 생성합니다.
+Generates Flutter Dart files.
 """
 
 import os
@@ -9,17 +9,17 @@ import sys
 from pathlib import Path
 
 def generate_flutter_dart():
-    """Flutter용 Dart 파일들을 생성합니다."""
-    print("🦋 Flutter Dart 생성 시작...")
+    """Generates Flutter Dart files."""
+    print("🦋 Flutter Dart generation started...")
     
     project_root = Path(__file__).parent.parent
     flutter_dir = project_root / "flutter"
     
     if not flutter_dir.exists():
-        print(f"❌ Flutter 디렉토리를 찾을 수 없습니다: {flutter_dir}")
+        print(f"❌ Flutter directory not found: {flutter_dir}")
         return False
     
-    # 270개 아이콘 이름
+    # 270 icon names
     ICON_NAMES = [
         'access', 'accessibility', 'add', 'airplane', 'album', 'alert', 'align', 'android', 'app', 'appstore',
         'autosum', 'backpack', 'backspace', 'badge', 'balloon', 'bar', 'barcode', 'battery', 'block', 'bluetooth',
@@ -50,24 +50,24 @@ def generate_flutter_dart():
         'warning', 'washer', 'water', 'weather', 'web', 'wifi', 'windows', 'wrench', 'xray', 'zoom'
     ]
     
-    # lib 디렉토리 생성
+    # Create lib directory
     lib_dir = flutter_dir / "lib"
     lib_dir.mkdir(parents=True, exist_ok=True)
     
-    # 1. refineui_system_icons.dart 파일 생성
+    # 1. Generate refineui_system_icons.dart file
     generate_main_dart(lib_dir, ICON_NAMES)
     
-    # 2. refineui_system_icons_base.dart 파일 생성
+    # 2. Generate refineui_system_icons_base.dart file
     generate_base_dart(lib_dir, ICON_NAMES)
     
-    # 3. pubspec.yaml 업데이트
+    # 3. Update pubspec.yaml
     update_pubspec_yaml(flutter_dir)
     
-    print("✅ Flutter Dart 생성 완료!")
+    print("✅ Flutter Dart generation completed!")
     return True
 
 def generate_main_dart(lib_dir: Path, icon_names: list):
-    """refineui_system_icons.dart 파일을 생성합니다."""
+    """Generates refineui_system_icons.dart file."""
     
     dart_content = """library refineui_system_icons;
 
@@ -125,15 +125,15 @@ export 'src/refineui_system_icons.dart';
 /// ```
 """
     
-    # 파일 저장
+    # Save file
     main_file = lib_dir / "refineui_system_icons.dart"
     with open(main_file, 'w', encoding='utf-8') as f:
         f.write(dart_content)
     
-    print(f"✅ {main_file.name} 생성 완료")
+    print(f"✅ {main_file.name} generation completed")
 
 def generate_base_dart(lib_dir: Path, icon_names: list):
-    """refineui_system_icons_base.dart 파일을 생성합니다."""
+    """Generates refineui_system_icons_base.dart file."""
     
     dart_content = """import 'package:flutter/widgets.dart';
 
@@ -161,7 +161,7 @@ abstract class RefineUIIconData extends IconData {
 class RefineIcons {
 """
     
-    # 각 아이콘에 대해 static const 추가
+    # Add static const for each icon
     for icon_name in icon_names:
         icon_name_camel = ''.join(word.capitalize() for word in icon_name.split('_'))
         dart_content += f"  static const {icon_name_camel} = RefineUIIconDataRegular(0x{0xF0000 + icon_names.index(icon_name):05X});\n"
@@ -172,7 +172,7 @@ class RefineIcons {
 class RefineIconsFilled {
 """
     
-    # Filled 아이콘들 추가
+    # Add Filled icons
     for icon_name in icon_names:
         icon_name_camel = ''.join(word.capitalize() for word in icon_name.split('_'))
         dart_content += f"  static const {icon_name_camel} = RefineUIIconDataFilled(0x{0xF0000 + icon_names.index(icon_name):05X});\n"
@@ -265,43 +265,43 @@ extension TextRefineUIExtension on Text {
 }
 """
     
-    # 파일 저장
+    # Save file
     base_file = lib_dir / "src" / "refineui_system_icons_base.dart"
     base_file.parent.mkdir(parents=True, exist_ok=True)
     
     with open(base_file, 'w', encoding='utf-8') as f:
         f.write(dart_content)
     
-    print(f"✅ {base_file.name} 생성 완료")
+    print(f"✅ {base_file.name} generation completed")
 
 def update_pubspec_yaml(flutter_dir: Path):
-    """pubspec.yaml 파일을 업데이트합니다."""
+    """Updates pubspec.yaml file."""
     
     pubspec_file = flutter_dir / "pubspec.yaml"
     
     if pubspec_file.exists():
-        # 기존 pubspec.yaml 읽기
+        # Read existing pubspec.yaml
         with open(pubspec_file, 'r', encoding='utf-8') as f:
             content = f.read()
         
-        # 버전 업데이트
+        # Update version
         if 'version: 1.0.0' in content:
             content = content.replace('version: 1.0.0', 'version: 1.0.1')
         
-        # 설명 업데이트
+        # Update description
         if 'description:' in content:
             content = content.replace(
                 'description: A comprehensive Flutter icon library providing RefineUI system icons.',
                 'description: A comprehensive Flutter icon library providing RefineUI system icons with 270+ icons in regular and filled variants.'
             )
         
-        # 파일 저장
+        # Save file
         with open(pubspec_file, 'w', encoding='utf-8') as f:
             f.write(content)
         
-        print(f"✅ {pubspec_file.name} 업데이트 완료")
+        print(f"✅ {pubspec_file.name} update completed")
     else:
-        print(f"⚠️  {pubspec_file.name} 파일을 찾을 수 없습니다.")
+        print(f"⚠️  {pubspec_file.name} file not found.")
 
 if __name__ == "__main__":
     success = generate_flutter_dart()

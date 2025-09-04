@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * RefineUI System Icons - Metadata Generator
- * assets 폴더에서 아이콘 정보를 추출하여 metadata.json을 생성합니다.
+ * Extracts icon information from assets folder to generate metadata.json.
  */
 
 const fs = require("fs-extra");
@@ -20,18 +20,18 @@ class MetadataGenerator {
   }
 
   async generateMetadata() {
-    console.log("📋 메타데이터 생성 시작...");
+    console.log("📋 Metadata generation started...");
 
     try {
-      // 1. assets 폴더에서 아이콘 정보 추출
+      // 1. Extract icon information from assets folder
       const iconAssets = await this.extractIconAssets();
-      console.log(`📁 ${iconAssets.length}개의 아이콘 assets 발견`);
+      console.log(`📁 Found ${iconAssets.length} icon assets`);
 
-      // 2. 폰트에서 아이콘 정보 추출
+      // 2. Extract icon information from fonts
       const fontIcons = await this.extractFontIcons();
-      console.log(`🔤 ${fontIcons.length}개의 폰트 아이콘 발견`);
+      console.log(`🔤 Found ${fontIcons.length} font icons`);
 
-      // 3. 메타데이터 생성
+      // 3. Generate metadata
       const metadata = {
         version: "1.0.0",
         generatedAt: new Date().toISOString(),
@@ -54,18 +54,18 @@ class MetadataGenerator {
         },
       };
 
-      // 4. 메타데이터 파일 저장
+      // 4. Save metadata file
       await fs.ensureDir(path.dirname(this.metadataFile));
       await fs.writeJson(this.metadataFile, metadata, { spaces: 2 });
 
-      console.log("✅ 메타데이터 생성 완료!");
-      console.log(`📊 총 ${metadata.totalIcons}개 아이콘`);
-      console.log(`📁 Assets: ${metadata.assets.count}개`);
-      console.log(`🔤 Fonts: ${metadata.fonts.count}개`);
+      console.log("✅ Metadata generation completed!");
+      console.log(`📊 Total ${metadata.totalIcons} icons`);
+      console.log(`📁 Assets: ${metadata.assets.count}`);
+      console.log(`🔤 Fonts: ${metadata.fonts.count}`);
 
       return metadata;
     } catch (error) {
-      console.error("❌ 메타데이터 생성 실패:", error);
+      console.error("❌ Metadata generation failed:", error);
       throw error;
     }
   }
@@ -90,7 +90,7 @@ class MetadataGenerator {
         }
       }
     } catch (error) {
-      console.warn("⚠️  Assets 폴더 읽기 실패:", error.message);
+      console.warn("⚠️  Failed to read Assets folder:", error.message);
     }
 
     return icons;
@@ -108,14 +108,14 @@ class MetadataGenerator {
             const cssPath = path.join(this.fontsDir, fontFile);
             const cssContent = await fs.readFile(cssPath, "utf8");
 
-            // CSS에서 아이콘 클래스 추출
+            // Extract icon classes from CSS
             const iconClasses = this.extractIconClassesFromCSS(cssContent);
             icons.push(...iconClasses);
           }
         }
       }
     } catch (error) {
-      console.warn("⚠️  Fonts 폴더 읽기 실패:", error.message);
+      console.warn("⚠️  Failed to read Fonts folder:", error.message);
     }
 
     return icons;
@@ -138,7 +138,10 @@ class MetadataGenerator {
         formats: svgFiles.length > 0 ? ["svg"] : [],
       };
     } catch (error) {
-      console.warn(`⚠️  아이콘 정보 추출 실패 (${iconName}):`, error.message);
+      console.warn(
+        `⚠️  Failed to extract icon info (${iconName}):`,
+        error.message
+      );
       return null;
     }
   }
@@ -164,13 +167,13 @@ class MetadataGenerator {
   }
 }
 
-// 메인 실행
+// Main execution
 async function main() {
   try {
     const generator = new MetadataGenerator();
     await generator.generateMetadata();
   } catch (error) {
-    console.error("❌ 메타데이터 생성 실패:", error);
+    console.error("❌ Metadata generation failed:", error);
     process.exit(1);
   }
 }

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 RefineUI System Icons - Font CSS Generator
-폰트 파일을 기반으로 CSS 파일을 생성합니다.
+Generates CSS files based on font files.
 """
 
 import os
@@ -9,38 +9,38 @@ import sys
 from pathlib import Path
 
 def generate_font_css():
-    """폰트 CSS를 생성합니다."""
-    print("🎨 폰트 CSS 생성 시작...")
+    """Generates font CSS."""
+    print("🎨 Font CSS generation started...")
     
     project_root = Path(__file__).parent.parent
     fonts_dir = project_root / "fonts"
     
     if not fonts_dir.exists():
-        print(f"❌ 폰트 디렉토리를 찾을 수 없습니다: {fonts_dir}")
+        print(f"❌ Font directory not found: {fonts_dir}")
         return False
     
-    # 폰트 파일들 찾기
+    # Find font files
     ttf_files = list(fonts_dir.glob("*.ttf"))
     woff2_files = list(fonts_dir.glob("*.woff2"))
     woff_files = list(fonts_dir.glob("*.woff"))
     
     if not ttf_files and not woff2_files and not woff_files:
-        print("❌ 폰트 파일을 찾을 수 없습니다.")
+        print("❌ Font files not found.")
         return False
     
-    # CSS 파일 생성
+    # Generate CSS files
     for font_file in ttf_files + woff2_files + woff_files:
         generate_css_for_font(font_file)
     
-    print("🎉 폰트 CSS 생성 완료!")
+    print("🎉 Font CSS generation completed!")
     return True
 
 def generate_css_for_font(font_file: Path):
-    """특정 폰트 파일에 대한 CSS를 생성합니다."""
+    """Generates CSS for a specific font file."""
     font_name = font_file.stem
     font_family = font_name.replace('-', ' ').title()
     
-    # 폰트 타입 결정
+    # Determine font type
     if font_file.suffix == '.ttf':
         font_type = 'truetype'
     elif font_file.suffix == '.woff2':
@@ -50,10 +50,10 @@ def generate_css_for_font(font_file: Path):
     else:
         return
     
-    # CSS 파일명
+    # CSS filename
     css_file = font_file.with_suffix('.css')
     
-    # CSS 내용 생성
+    # Generate CSS content
     css_content = f"""/* RefineUI System Icons Font CSS - {font_family} */
 @font-face {{
     font-family: '{font_family}';
@@ -66,11 +66,11 @@ def generate_css_for_font(font_file: Path):
 /* Individual icon classes */
 """
     
-    # 아이콘 클래스들 생성 (예시 - 실제로는 더 정교한 로직 필요)
+    # Generate icon classes (example - actual logic needs to be more sophisticated)
     icon_sizes = [16, 20, 24, 28, 32, 48]
     icon_styles = ['regular', 'filled']
     
-    # 270개 아이콘 이름 (generate_270_icons.py에서 가져온 것)
+    # 270 icon names (from generate_270_icons.py)
     icon_names = [
         'access', 'accessibility', 'add', 'airplane', 'album', 'alert', 'align', 'android', 'app', 'appstore',
         'autosum', 'backpack', 'backspace', 'badge', 'balloon', 'bar', 'barcode', 'battery', 'block', 'bluetooth',
@@ -101,7 +101,7 @@ def generate_css_for_font(font_file: Path):
         'warning', 'washer', 'water', 'weather', 'web', 'wifi', 'windows', 'wrench', 'xray', 'zoom'
     ]
     
-    # 각 아이콘에 대해 CSS 클래스 생성
+    # Generate CSS classes for each icon
     for icon_name in icon_names:
         for size in icon_sizes:
             for style in icon_styles:
@@ -114,11 +114,11 @@ def generate_css_for_font(font_file: Path):
 
 """
     
-    # CSS 파일 저장
+    # Save CSS file
     with open(css_file, 'w', encoding='utf-8') as f:
         f.write(css_content)
     
-    print(f"✅ {css_file.name} 생성 완료")
+    print(f"✅ {css_file.name} generation completed")
 
 if __name__ == "__main__":
     success = generate_font_css()
