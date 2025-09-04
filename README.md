@@ -1,6 +1,6 @@
 # RefineUI System Icons 🎨
 
-A professional icon system created with reference to Microsoft FluentUI System Icons. It's an integrated icon package that can be used in React, React Native, and Web environments.
+A professional icon system created with reference to Microsoft FluentUI System Icons. It's an integrated icon package that can be used across multiple platforms including React, React Native, Web, iOS, Android, and Flutter.
 
 ## 📦 Package Structure
 
@@ -8,12 +8,27 @@ A professional icon system created with reference to Microsoft FluentUI System I
 packages/
 ├── react-icons/          # React icon package
 ├── react-native-icons/   # React Native icon package
-└── web-icons/           # Web icon package
+├── web-icons/            # Web icon package
+└── icon-cdn/             # CDN package for direct access
 ```
 
-## 🚀 Installation and Usage
+## 🚀 Quick Installation
 
-### React
+### All Platforms (Recommended)
+
+```bash
+# Install all platform packages
+npm install @refineui/react-icons @refineui/react-native-icons @refineui/web-icons
+
+# Or install individually based on your needs
+npm install @refineui/react-icons        # For React web apps
+npm install @refineui/react-native-icons # For React Native apps
+npm install @refineui/web-icons          # For vanilla web projects
+```
+
+## 🎯 Platform-Specific Usage
+
+### 🌐 React (Web)
 
 ```bash
 npm install @refineui/react-icons
@@ -37,7 +52,16 @@ const addIcon16 = <Add16Filled style={{ color: "red" }} />;
 const homeIcon32 = <Home32Regular style={{ marginRight: "8px" }} />;
 ```
 
-### React Native
+**Features:**
+
+- 🎯 TypeScript-first with full type safety
+- ⚛️ React-optimized components
+- 📦 Tree-shakable imports
+- 🎨 Multiple sizes (16, 20, 24, 28, 32, 48px)
+- 🎭 Two styles (Regular and Filled)
+- ♿ Built-in accessibility support
+
+### 📱 React Native
 
 ```bash
 npm install @refineui/react-native-icons
@@ -51,19 +75,22 @@ import {
   SearchFilled,
 } from "@refineui/react-native-icons";
 
-// In React Native, icons are rendered as Text components
-
-// === FLUENTUI Style Method ===
-// Unsized method
+// In React Native, icons are rendered as optimized images
 const accessibilityIcon = <AccessibilityRegular style={{ color: "blue" }} />;
 const addIconFilled = <AddFilled style={{ fontSize: 20 }} />;
-
-// Sized method
 const addIcon16 = <Add16Filled style={{ color: "red" }} />;
 const homeIcon32 = <Home32Regular style={{ marginRight: 8 }} />;
 ```
 
-### Web
+**Features:**
+
+- 📱 React Native optimized
+- 🎨 Flexible styling with tint colors and backgrounds
+- ♿ Accessibility labels and hints
+- 🚀 Performance optimized for mobile
+- 🎯 Touch interaction support
+
+### 🌍 Web (Vanilla JavaScript)
 
 ```bash
 npm install @refineui/web-icons
@@ -91,238 +118,261 @@ iconElement.textContent = addIcon16;
 iconElement.style.fontFamily = "RefineUI-System-Icons-Filled";
 ```
 
+**Features:**
+
+- 🔤 Font-based icon system
+- 📦 434+ icons supported
+- 🎨 Multiple sizes and styles
+- 🚀 Lightweight and fast
+- 🔍 Built-in search and filtering
+
+### 🤖 Android
+
+```xml
+<!-- Use generated XML drawables -->
+<ImageView
+    android:layout_width="24dp"
+    android:layout_height="24dp"
+    android:src="@drawable/ic_add_24_regular" />
+
+<!-- Or use vector drawables -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Icon path data -->
+</vector>
+```
+
+**Features:**
+
+- 🎨 Vector drawables for all screen densities
+- 📱 Multiple sizes (16, 20, 24, 28, 32, 48dp)
+- 🎭 Regular and filled variants
+- 🚀 Optimized for Android performance
+
+### 🍎 iOS
+
+```swift
+import RefineUIIcons
+
+// Use generated Swift code
+let addIcon = RefineUIIcons.Add24Regular()
+let heartIcon = RefineUIIcons.Heart32Filled()
+
+// Customize appearance
+addIcon.tintColor = .systemBlue
+heartIcon.tintColor = .systemRed
+```
+
+**Features:**
+
+- 🍎 Native iOS integration
+- 🎨 SF Symbols compatible
+- 📱 Multiple sizes and styles
+- 🚀 SwiftUI and UIKit support
+
+### 🦋 Flutter
+
+```dart
+import 'package:refineui_icons/refineui_icons.dart';
+
+// Use generated Dart code
+Icon(RefineUIIcons.add24Regular)
+Icon(RefineUIIcons.heart32Filled)
+
+// Customize
+Icon(
+  RefineUIIcons.settings24Regular,
+  color: Colors.blue,
+  size: 24.0,
+)
+```
+
+**Features:**
+
+- 🦋 Flutter-optimized
+- 🎨 Material Design compatible
+- 📱 Cross-platform consistency
+- 🚀 High-performance rendering
+
 ## 🎯 Key Features
 
 ### 1. Centralized Metadata
 
 - All icon information stored in `metadata.json`
 - Easy maintenance with automatic mapping system
+- Consistent naming across all platforms
+
+### 2. Platform-Specific Optimization
+
+- **React**: Optimized components with TypeScript support
+- **React Native**: Mobile-optimized with touch interactions
+- **Web**: Font-based system for lightweight usage
+- **Android**: Vector drawables for crisp rendering
+- **iOS**: Native integration with SF Symbols
+- **Flutter**: Cross-platform consistency
+
+### 3. Icon Collection
+
+**433+ Icons covering:**
+
+- 🧭 **Navigation**: home, search, arrow, chevron, location, map
+- ⚡ **Actions**: add, edit, delete, save, close, checkmark
+- 💬 **Communication**: mail, chat, phone, share, notification
+- 🎬 **Media**: play, pause, stop, video, audio, camera
+- 👥 **Social**: person, user, group, heart, star
+- 💻 **Technology**: computer, laptop, phone, tablet, wifi
+- 🌤️ **Weather**: sun, moon, cloud, rain, snow
+- 🔧 **Tools**: settings, gear, tool, wrench, hammer
+
+### 4. Consistent Design System
+
+- **Sizes**: 16, 20, 24, 28, 32, 48px variants
+- **Styles**: Regular and filled variants
+- **Naming**: Consistent snake_case format
+- **Colors**: Customizable tint colors
+- **Accessibility**: Built-in alt text and ARIA support
 
 ## 🚀 Release Process
 
 ### Automated Release
 
-모든 플랫폼을 위한 자동화된 릴리즈 프로세스를 제공합니다.
+All platforms are automatically released using our streamlined process.
 
 #### Quick Release
 
 ```bash
-# 패치 릴리즈 (1.0.0 -> 1.0.1)
+# Patch release (1.0.0 -> 1.0.1)
 ./scripts/release.sh patch
 
-# 마이너 릴리즈 (1.0.0 -> 1.1.0)
+# Minor release (1.0.0 -> 1.1.0)
 ./scripts/release.sh minor
 
-# 메이저 릴리즈 (1.0.0 -> 2.0.0)
+# Major release (1.0.0 -> 2.0.0)
 ./scripts/release.sh major
 ```
 
 #### Manual Release
 
 ```bash
-# 1. 버전 업데이트
-npm run version:bump patch  # 또는 minor, major
+# 1. Update version
+npm run version:bump patch  # or minor, major
 
-# 2. 모든 플랫폼 빌드
+# 2. Build all platforms
 npm run release:all
 
-# 3. Git 태그 푸시 (GitHub Actions 자동 실행)
+# 3. Push Git tags (GitHub Actions auto-executes)
 git push origin main --tags
 ```
 
 ### GitHub Actions
 
-GitHub에 태그를 푸시하면 자동으로 다음 작업이 실행됩니다:
+When you push a tag to GitHub, the following actions automatically execute:
 
-1. **Multi-Platform Build**: Python 3.9-3.11, Node.js 18-20에서 빌드
-2. **Platform Packages**: 각 플랫폼별 ZIP 패키지 생성
-3. **Release Assets**: GitHub 릴리즈에 자동 업로드
-4. **Verification**: 릴리즈 파일 구조 검증
+1. **Multi-Platform Build**: Python 3.9-3.11, Node.js 18-20 builds
+2. **Platform Packages**: Individual ZIP packages for each platform
+3. **Release Assets**: Automatic upload to GitHub releases
+4. **Verification**: Release file structure validation
 
 ### Release Structure
 
 ```
 release/
-├── refineui-icons-web.zip      # 웹용 아이콘 및 CSS
-├── refineui-icons-android.zip  # Android XML 드로어블
-├── refineui-icons-ios.zip      # iOS Swift 코드
-├── refineui-icons-flutter.zip  # Flutter Dart 코드
-├── refineui-icons-all.zip      # 모든 플랫폼 통합
-└── release-manifest.json       # 릴리즈 정보
-```
-
-### 2. Platform-Specific Optimization
-
-- **React**: Renders as React components
-- **React Native**: Renders as Text components
-- **Web**: Returns strings for direct DOM application
-
-### 3. Multiple Size Support
-
-- 16px, 20px, 24px, 28px, 32px, 48px
-- Optimized icons for each size
-
-### 4. Style Support
-
-- **Regular**: Default style
-- **Filled**: Filled style
-
-### 5. TypeScript Support
-
-- Complete TypeScript type definitions
-- Enhanced development experience with IntelliSense support
-
-### 6. FluentUI Style API
-
-#### Unsized Method (default 24px)
-
-```tsx
-// AccessibilityRegular, AccessibilityFilled
-<AccessibilityRegular style={{ color: "blue" }} />
-<AddFilled style={{ fontSize: "20px" }} />
-```
-
-#### Sized Method
-
-```tsx
-// Accessibility16Regular, Accessibility24Filled
-<Add16Filled style={{ color: "red" }} />
-<Home32Regular style={{ marginRight: "8px" }} />
-```
-
-### 7. Utility Functions
-
-```javascript
-import IconUtils from "@refineui/react-icons";
-
-// Available icon list
-const icons = IconUtils.getAvailableIcons();
-
-// Font family information
-const fontFamilies = IconUtils.getFontFamilies();
-
-// Available sizes
-const sizes = IconUtils.getAvailableSizes();
-
-// Icon information lookup
-const iconInfo = IconUtils.getIconInfo("Accessibility");
-
-// Icon search
-const searchResults = IconUtils.searchIcons("add");
-```
-
-### 8. Dynamic Icon Generation
-
-All icons are generated dynamically, so you can use the `createIcon` function as needed:
-
-```typescript
-import { createIcon } from "@refineui/react-icons";
-
-// Generate icon dynamically
-const icon = createIcon("AccessibilityRegular", { style: { color: "red" } });
-```
-
-### 9. Metadata System
-
-All icon information is managed through a centralized metadata system:
-
-```javascript
-// Check icon information from metadata
-const iconInfo = IconUtils.getIconInfo("Accessibility");
-console.log(iconInfo);
-// {
-//   name: "Accessibility",
-//   slug: "accessibility",
-//   size: [16, 20, 24, 28, 32, 48],
-//   style: ["filled", "regular"],
-//   description: "Used in accessibility scenarios.",
-//   unicodeMapping: { ... }
-// }
+├── refineui-icons-web.zip      # Web icons and CSS
+├── refineui-icons-android.zip  # Android XML drawables
+├── refineui-icons-ios.zip      # iOS Swift code
+├── refineui-icons-flutter.zip  # Flutter Dart code
+├── refineui-icons-all.zip      # All platforms combined
+└── release-manifest.json       # Release information
 ```
 
 ## 🔧 Development
 
-### Extract Icons from Figma
+### Prerequisites
 
-To extract icons from Figma, you first need to set up the API:
+- Node.js 18+
+- Python 3.9+
+- npm or yarn
 
-1. **Create Figma Personal Access Token**
-
-   - Figma → Settings → Personal access tokens → Create new token
-   - For detailed information, see [docs/FIGMA_SETUP.md](docs/FIGMA_SETUP.md)
-
-2. **Environment Setup**
-
-   ```bash
-   cp .env.example .env
-   # Set FIGMA_TOKEN and FIGMA_FILE_KEY in .env file
-   ```
-
-3. **Extract Icons**
-
-   ```bash
-   # Incremental update (modified only)
-   python scripts/figma_icon_extractor.py
-
-   # Full synchronization
-   python scripts/figma_icon_extractor.py --full-sync
-   ```
-
-### Generate Metadata
+### Setup
 
 ```bash
-npm run generate:metadata
+# Clone repository
+git clone https://github.com/refineui/system-icons.git
+cd system-icons
+
+# Install dependencies
+npm install
+pip install -r requirements.txt
+
+# Build all platforms
+npm run build:all
 ```
 
-### Build
+### Available Scripts
 
 ```bash
-npm run build
+# Build commands
+npm run build:all          # Build all platforms
+npm run build:platforms    # Build platform-specific files
+npm run build:fonts        # Build font files
+
+# Generation commands
+npm run generate:metadata  # Generate icon metadata
+npm run generate:web-icons # Generate web icons
+npm run generate:android   # Generate Android XML
+npm run generate:ios       # Generate iOS Swift
+npm run generate:flutter   # Generate Flutter Dart
+npm run generate:fonts     # Generate font CSS
+
+# Release commands
+npm run release:all        # Release all platforms
+npm run version:bump       # Bump version
+
+# Utility commands
+npm run clean              # Clean build files
+npm run test               # Run tests
+npm run lint               # Lint code
 ```
 
-### Development Mode
+## 📚 Documentation
 
-```bash
-npm run dev
-```
+- [React Icons Documentation](packages/react-icons/README.md)
+- [React Native Icons Documentation](packages/react-native-icons/README.md)
+- [Web Icons Documentation](packages/web-icons/README.md)
+- [Icon CDN Documentation](packages/icon-cdn/README.md)
 
-## 📋 Supported Icons
+## 🤝 Contributing
 
-Currently **434 unique icons** are supported!
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
 
-### Main Icon Categories:
+### Development Workflow
 
-- **UI/UX**: Accessibility, Add, Search, Settings, Checkmark, Home
-- **Technology**: Android, Ios, Windows, Macos, Git, Javascript, Typescript
-- **Media**: Camera, Video, Music, Image, Movie
-- **Business**: Calendar, Chart, Document, Mail, Payment
-- **Development**: Code, Database, Server, Api, Terminal
-- **Others**: Heart, Star, Fire, Cloud, Weather, etc.
-
-### Supported Formats:
-
-- **Regular & Filled Styles**: Two styles for each icon
-- **6 Sizes**: 16px, 20px, 24px, 28px, 32px, 48px
-- **Total 5,208 Methods**: Supports all combinations
-
-### Usage Examples:
-
-```tsx
-// Unsized method (default 24px)
-<AccessibilityRegular />
-<AddFilled />
-<HomeRegular />
-
-// Sized method
-<Add16Filled />
-<Search32Regular />
-<Settings48Filled />
-```
-
-## 🤝 References
-
-This project was created with reference to the structure and API design of [Microsoft FluentUI System Icons](https://github.com/microsoft/fluentui-system-icons).
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests if applicable
+5. Submit a pull request
 
 ## 📄 License
 
-MIT License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🌟 Acknowledgments
+
+- Inspired by Microsoft FluentUI System Icons
+- Built with modern web technologies
+- Community-driven development
+
+## 📞 Support
+
+- 📧 Email: support@refineui.com
+- 🐛 Issues: [GitHub Issues](https://github.com/refineui/system-icons/issues)
+- 📖 Documentation: [docs.refineui.com](https://docs.refineui.com)
+- 💬 Community: [Discord](https://discord.gg/refineui)
+
+---
+
+**RefineUI System Icons** - Professional icons for every platform 🚀

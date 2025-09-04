@@ -2,7 +2,7 @@
 
 A TypeScript-first React icon library providing type-safe access to RefineUI System Icons for React applications.
 
-## Features
+## 🚀 Features
 
 - 🎯 **TypeScript-first**: Full type safety and IntelliSense support
 - ⚛️ **React-optimized**: Built specifically for React applications
@@ -13,13 +13,15 @@ A TypeScript-first React icon library providing type-safe access to RefineUI Sys
 - ♿ **Accessible**: Proper alt text and ARIA support
 - 🚀 **Performance**: Lazy loading and optimized rendering
 
-## Installation
+## 📦 Installation
 
 ```bash
 npm install @refineui/react-icons
+# or
+yarn add @refineui/react-icons
 ```
 
-## Quick Start
+## 🎯 Quick Start
 
 ### Basic Usage
 
@@ -94,7 +96,7 @@ function IconGallery() {
 }
 ```
 
-## API Reference
+## 📚 API Reference
 
 ### Icon Component Props
 
@@ -114,16 +116,16 @@ function IconGallery() {
 
 ### Available Icons
 
-The package includes 433+ icons covering various use cases:
+The package includes **433+ icons** covering various use cases:
 
-- **Navigation**: home, search, arrow, chevron, location, map
-- **Actions**: add, edit, delete, save, close, checkmark
-- **Communication**: mail, chat, phone, share, notification
-- **Media**: play, pause, stop, video, audio, camera
-- **Social**: person, user, group, heart, star
-- **Technology**: computer, laptop, phone, tablet, wifi
-- **Weather**: sun, moon, cloud, rain, snow
-- **Tools**: settings, gear, tool, wrench, hammer
+- 🧭 **Navigation**: home, search, arrow, chevron, location, map
+- ⚡ **Actions**: add, edit, delete, save, close, checkmark
+- 💬 **Communication**: mail, chat, phone, share, notification
+- 🎬 **Media**: play, pause, stop, video, audio, camera
+- 👥 **Social**: person, user, group, heart, star
+- 💻 **Technology**: computer, laptop, phone, tablet, wifi
+- 🌤️ **Weather**: sun, moon, cloud, rain, snow
+- 🔧 **Tools**: settings, gear, tool, wrench, hammer
 
 ### Icon Naming Convention
 
@@ -135,7 +137,7 @@ Icons follow a consistent naming pattern:
   - `heart-filled`
   - `settings-regular`
 
-## Utility Functions
+## 🛠️ Utility Functions
 
 ### Icon Management
 
@@ -176,7 +178,7 @@ const fileName = generateIconFileName("heart", "filled");
 // Returns: "heart-filled.svg"
 ```
 
-## Styling
+## 🎨 Styling
 
 ### CSS Classes
 
@@ -209,7 +211,7 @@ You can style icons using CSS classes:
 />
 ```
 
-## Accessibility
+## ♿ Accessibility
 
 The Icon component automatically generates appropriate alt text and title attributes:
 
@@ -226,7 +228,7 @@ The Icon component automatically generates appropriate alt text and title attrib
 />
 ```
 
-## Performance
+## 🚀 Performance
 
 ### Lazy Loading
 
@@ -254,7 +256,7 @@ Handle loading errors gracefully:
 />
 ```
 
-## Development
+## 🔧 Development
 
 ### Building
 
@@ -274,7 +276,7 @@ npm run dev
 npm run type-check
 ```
 
-## Examples
+## 📱 Examples
 
 ### Icon Button
 
@@ -347,12 +349,23 @@ function IconGrid({ icons, onIconClick }) {
 }
 ```
 
-## License
+## 📄 License
 
 MIT License - see [LICENSE](../../LICENSE) for details.
 
-## Related Packages
+## 🔗 Related Packages
 
-- [`@refineui/icons-web`](../icons-web) - Web icon library for non-React projects
-- [`@refineui/icon-cdn`](../icon-cdn) - CDN package for direct URL access
 - [`@refineui/react-native-icons`](../react-native-icons) - React Native icon components
+- [`@refineui/web-icons`](../web-icons) - Web icon library for non-React projects
+- [`@refineui/icon-cdn`](../icon-cdn) - CDN package for direct URL access
+
+## 🆘 Support
+
+- 📧 Email: support@refineui.com
+- 🐛 Issues: [GitHub Issues](https://github.com/refineui/system-icons/issues)
+- 📖 Documentation: [docs.refineui.com](https://docs.refineui.com)
+- 💬 Community: [Discord](https://discord.gg/refineui)
+
+---
+
+**@refineui/react-icons** - Professional icons for React 🚀
