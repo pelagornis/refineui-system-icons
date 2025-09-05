@@ -50,9 +50,6 @@ jobs:
           sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" packages/web-icons/package.json
           sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" packages/icon-cdn/package.json
 
-          # Update iOS Podspec
-          sed -i "s/s\.version.*=.*'.*'/s.version = '$VERSION'/" RefineIcons.podspec
-
           # Update iOS Package.swift
           sed -i "s/version:.*/version: \"$VERSION\"/" Package.swift
 
@@ -89,7 +86,7 @@ jobs:
 
             ### 🍎 iOS
             ```ruby
-            pod 'RefineIcons', '${{ steps.get_version.outputs.version }}'
+            .package(url: "https://github.com/pelagornis/refineui-system-icons.git", from: "${{ steps.get_version.outputs.version }}")
             ```
 
             ### 🤖 Android
