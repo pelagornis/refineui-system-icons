@@ -32,16 +32,18 @@ jobs:
 
       - name: Update iOS versions
         run: |
+          VERSION="${{ steps.get_version.outputs.version }}"
+
           # Update root package.json
-          npm version ${{ steps.get_version.outputs.version }} --no-git-tag-version
+          sed -i '' "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" package.json
 
           # Update iOS Podspec version
-          sed -i '' "s/s\.version.*=.*'.*'/s.version = '${{ steps.get_version.outputs.version }}'/" RefineIcons.podspec
+          sed -i '' "s/s\.version.*=.*'.*'/s.version = '$VERSION'/" RefineIcons.podspec
 
           # Update iOS Package.swift version
-          sed -i '' "s/version:.*/version: \"${{ steps.get_version.outputs.version }}\"/" Package.swift
+          sed -i '' "s/version:.*/version: \"$VERSION\"/" Package.swift
 
-          echo "Updated iOS versions to ${{ steps.get_version.outputs.version }}"
+          echo "Updated iOS versions to $VERSION"
 
       - name: Build iOS platform
         run: |

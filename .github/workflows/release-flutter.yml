@@ -38,13 +38,15 @@ jobs:
 
       - name: Update Flutter version
         run: |
+          VERSION="${{ steps.get_version.outputs.version }}"
+
           # Update root package.json
-          npm version ${{ steps.get_version.outputs.version }} --no-git-tag-version
+          sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" package.json
 
           # Update Flutter pubspec.yaml version
-          sed -i "s/version:.*/version: ${{ steps.get_version.outputs.version }}/" flutter/pubspec.yaml
+          sed -i "s/version:.*/version: $VERSION/" flutter/pubspec.yaml
 
-          echo "Updated Flutter version to ${{ steps.get_version.outputs.version }}"
+          echo "Updated Flutter version to $VERSION"
 
       - name: Build Flutter platform
         run: |

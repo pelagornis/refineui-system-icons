@@ -31,15 +31,16 @@ jobs:
 
       - name: Update package versions
         run: |
+          VERSION="${{ steps.get_version.outputs.version }}"
+
           # Update root package.json
-          npm version ${{ steps.get_version.outputs.version }} --no-git-tag-version
+          sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" package.json
 
           # Update web package versions
-          cd packages/react-icons && npm version ${{ steps.get_version.outputs.version }} --no-git-tag-version
-          cd ../web-icons && npm version ${{ steps.get_version.outputs.version }} --no-git-tag-version
-          cd ../..
+          sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" packages/react-icons/package.json
+          sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" packages/web-icons/package.json
 
-          echo "Updated all web package versions to ${{ steps.get_version.outputs.version }}"
+          echo "Updated all web package versions to $VERSION"
 
       - name: Build web platform
         run: |

@@ -38,29 +38,30 @@ jobs:
 
       - name: Update all platform versions
         run: |
+          VERSION="${{ steps.get_version.outputs.version }}"
+
           # Update root package.json
-          npm version ${{ steps.get_version.outputs.version }} --no-git-tag-version
+          sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" package.json
 
           # Update individual package versions
-          cd packages/react-icons && npm version ${{ steps.get_version.outputs.version }} --no-git-tag-version
-          cd ../react-native-icons && npm version ${{ steps.get_version.outputs.version }} --no-git-tag-version
-          cd ../web-icons && npm version ${{ steps.get_version.outputs.version }} --no-git-tag-version
-          cd ../icon-cdn && npm version ${{ steps.get_version.outputs.version }} --no-git-tag-version
-          cd ../..
+          sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" packages/react-icons/package.json
+          sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" packages/react-native-icons/package.json
+          sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" packages/web-icons/package.json
+          sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" packages/icon-cdn/package.json
 
           # Update iOS Podspec
-          sed -i "s/s\.version.*=.*'.*'/s.version = '${{ steps.get_version.outputs.version }}'/" RefineIcons.podspec
+          sed -i "s/s\.version.*=.*'.*'/s.version = '$VERSION'/" RefineIcons.podspec
 
           # Update iOS Package.swift
-          sed -i "s/version:.*/version: \"${{ steps.get_version.outputs.version }}\"/" Package.swift
+          sed -i "s/version:.*/version: \"$VERSION\"/" Package.swift
 
           # Update Flutter pubspec.yaml
-          sed -i "s/version:.*/version: ${{ steps.get_version.outputs.version }}/" flutter/pubspec.yaml
+          sed -i "s/version:.*/version: $VERSION/" flutter/pubspec.yaml
 
           # Update Android build.gradle.kts
-          sed -i "s/versionName = \".*\"/versionName = \"${{ steps.get_version.outputs.version }}\"/" android/library/build.gradle.kts
+          sed -i "s/versionName = \".*\"/versionName = \"$VERSION\"/" android/library/build.gradle.kts
 
-          echo "All platform versions updated to ${{ steps.get_version.outputs.version }}"
+          echo "All platform versions updated to $VERSION"
 
       - name: Build all platforms
         run: |

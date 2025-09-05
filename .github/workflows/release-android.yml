@@ -38,13 +38,15 @@ jobs:
 
       - name: Update Android version
         run: |
+          VERSION="${{ steps.get_version.outputs.version }}"
+
           # Update root package.json
-          npm version ${{ steps.get_version.outputs.version }} --no-git-tag-version
+          sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" package.json
 
           # Update Android build.gradle.kts version
-          sed -i "s/versionName = \".*\"/versionName = \"${{ steps.get_version.outputs.version }}\"/" android/library/build.gradle.kts
+          sed -i "s/versionName = \".*\"/versionName = \"$VERSION\"/" android/library/build.gradle.kts
 
-          echo "Updated Android version to ${{ steps.get_version.outputs.version }}"
+          echo "Updated Android version to $VERSION"
 
       - name: Build Android platform
         run: |

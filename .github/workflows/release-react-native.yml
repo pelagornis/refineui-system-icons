@@ -31,14 +31,15 @@ jobs:
 
       - name: Update package versions
         run: |
+          VERSION="${{ steps.get_version.outputs.version }}"
+
           # Update root package.json
-          npm version ${{ steps.get_version.outputs.version }} --no-git-tag-version
+          sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" package.json
 
           # Update React Native package version
-          cd packages/react-native-icons && npm version ${{ steps.get_version.outputs.version }} --no-git-tag-version
-          cd ../..
+          sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" packages/react-native-icons/package.json
 
-          echo "Updated React Native package version to ${{ steps.get_version.outputs.version }}"
+          echo "Updated React Native package version to $VERSION"
 
       - name: Build React Native platform
         run: |
