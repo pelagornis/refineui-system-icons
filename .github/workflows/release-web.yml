@@ -40,6 +40,7 @@ jobs:
           # Update web package versions
           sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" packages/react-icons/package.json
           sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" packages/web-icons/package.json
+          sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" packages/icon-cdn/package.json
 
           echo "Updated all web package versions to $VERSION"
 
@@ -49,6 +50,11 @@ jobs:
           npm run generate:web-icons
           npm run generate:fonts
           npm run build:fonts
+
+      - name: Build icon-cdn
+        run: |
+          cd packages/icon-cdn
+          npm run build
 
       - name: Publish React Icons to npm
         run: |
@@ -60,6 +66,13 @@ jobs:
       - name: Publish Web Icons to npm
         run: |
           cd packages/web-icons
+          npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}
+
+      - name: Publish Icon CDN to npm
+        run: |
+          cd packages/icon-cdn
           npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}
@@ -79,6 +92,7 @@ jobs:
             ```bash
             npm install @refineui/react-icons@${{ steps.get_version.outputs.version }}
             npm install @refineui/web-icons@${{ steps.get_version.outputs.version }}
+            npm install @refineui/icon-cdn@${{ steps.get_version.outputs.version }}
             ```
 
             ### 🌐 Features
