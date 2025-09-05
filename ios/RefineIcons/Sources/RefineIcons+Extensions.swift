@@ -1,6 +1,4 @@
 import SwiftUI
-import UIKit
-
 // MARK: - SwiftUI Extensions
 extension Image {
     /// Create an image from RefineUI icon
