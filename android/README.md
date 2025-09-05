@@ -1,149 +1,553 @@
 # RefineUI System Icons - Android
 
-Android library for RefineUI System Icons. Provides over 5,196 vector icons.
+Native Android integration for RefineUI System Icons with XML drawables and vector graphics.
 
-## Features
-
-- **5,196+ Icons**: Icons from various categories
-- **6 Sizes**: 16px, 20px, 24px, 28px, 32px, 48px
-- **2 Styles**: Regular, Filled
-- **Vector Drawable**: Sharp display at any size
-- **Android Native**: Optimized for Android apps
-
-## Installation
+## 📦 Installation
 
 ### Gradle
 
+Add to your `build.gradle` (Module: app):
+
 ```gradle
 dependencies {
-    implementation 'com.pelagornis:refineui-system-icons:1.0.0'
+    implementation 'com.pelagornis:library:latest.release'
 }
 ```
 
-## Usage
+### Manual Integration
 
-### 1. Basic Usage
+1. Copy the `android/library` folder to your project
+2. Add to your `settings.gradle`:
 
-```kotlin
-// Use directly in XML
+```gradle
+include ':library'
+project(':library').projectDir = new File('path/to/android/library')
+```
+
+3. Add to your app's `build.gradle`:
+
+```gradle
+dependencies {
+    implementation project(':library')
+}
+```
+
+## 🚀 Quick Start
+
+### XML Usage
+
+```xml
+<!-- In your layout XML -->
 <ImageView
     android:layout_width="24dp"
     android:layout_height="24dp"
-    android:src="@drawable/ic_refineui_add_24_filled" />
-
-// Use in Kotlin
-imageView.setImageResource(R.drawable.ic_refineui_home_24_regular)
+    android:src="@drawable/refineui_icon_home"
+    android:contentDescription="Home icon"
+    android:tint="@color/primary_color" />
 ```
 
-### 2. Dynamic Resource Access
+### Programmatic Usage
 
 ```kotlin
-// Dynamic access by resource name
-val resourceId = resources.getIdentifier("ic_refineui_settings_24_filled", "drawable", packageName)
-if (resourceId != 0) {
-    imageView.setImageResource(resourceId)
-}
-```
+import com.pelagornis.refineui.icons.RefineUIIcons
 
-### 3. Using IconSelector
-
-```kotlin
 class MainActivity : AppCompatActivity() {
-    private lateinit var iconSelector: RefineUIIconSelector
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
 
-        // Initialize IconSelector
-        iconSelector = RefineUIIconSelector.create(this)
+        // Set icon programmatically
+        val iconView = findViewById<ImageView>(R.id.icon_view)
+        iconView.setImageResource(RefineUIIcons.HOME)
 
-        // Get all icons
-        val allIcons = iconSelector.getAllIcons()
-
-        // Filter by style
-        val filledIcons = iconSelector.getIconsByStyle("filled")
-        val regularIcons = iconSelector.getIconsByStyle("regular")
-
-        // Filter by size
-        val size24Icons = iconSelector.getIconsBySize(24)
-
-        // Search
-        val searchResults = iconSelector.searchIcons("add")
-
-        // Get icon Drawable
-        val drawable = iconSelector.getIconDrawable("ic_refineui_add_24_filled")
-        imageView.setImageDrawable(drawable)
+        // With custom tint
+        iconView.setColorFilter(ContextCompat.getColor(this, R.color.primary_color))
     }
 }
 ```
 
-## Icon Naming Convention
+### Java Usage
 
-Icon resource names follow this format:
+```java
+import com.pelagornis.refineui.icons.RefineUIIcons;
 
+public class MainActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        // Set icon programmatically
+        ImageView iconView = findViewById(R.id.icon_view);
+        iconView.setImageResource(RefineUIIcons.HOME);
+
+        // With custom tint
+        iconView.setColorFilter(ContextCompat.getColor(this, R.color.primary_color));
+    }
+}
 ```
-ic_refineui_{iconName}_{size}_{style}
-```
 
-Examples:
+## 🎨 Available Icons
 
-- `ic_refineui_add_24_filled` - 24px size filled style add icon
-- `ic_refineui_home_20_regular` - 20px size regular style home icon
-- `ic_refineui_settings_32_filled` - 32px size filled style settings icon
+### Icon Categories
 
-## Icon Information
+- **Navigation**: `home`, `search`, `menu`, `back`, `forward`, `up`, `down`, `left`, `right`
+- **Actions**: `add`, `edit`, `delete`, `save`, `cancel`, `refresh`, `download`, `upload`
+- **Communication**: `mail`, `phone`, `chat`, `notification`, `bell`, `message`
+- **Media**: `play`, `pause`, `stop`, `volume`, `mute`, `camera`, `image`, `video`
+- **System**: `settings`, `gear`, `user`, `lock`, `unlock`, `key`, `shield`
+- **Files**: `folder`, `file`, `document`, `image`, `pdf`, `zip`, `download`
+- **And many more...** (434+ icons total)
 
-### IconInfo Class
+### Icon Sizes
+
+- **16dp**: `@drawable/refineui_icon_*_16`
+- **20dp**: `@drawable/refineui_icon_*_20`
+- **24dp**: `@drawable/refineui_icon_*_24` (default)
+- **32dp**: `@drawable/refineui_icon_*_32`
+- **48dp**: `@drawable/refineui_icon_*_48`
+
+## 🔧 Advanced Usage
+
+### Custom Icon Component
 
 ```kotlin
-data class IconInfo(
-    val name: String,           // Icon name (e.g., "add", "home")
-    val displayName: String,    // Display name (e.g., "Add", "Home")
-    val resourceName: String,   // Resource name (e.g., "ic_refineui_add_24_filled")
-    val resourceId: Int,        // Resource ID
-    val size: Int,              // Icon size (16, 20, 24, 28, 32, 48)
-    val style: String           // Icon style ("regular" or "filled")
-)
+import com.pelagornis.refineui.icons.RefineUIIcons
+
+class CustomIconView @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
+) : ImageView(context, attrs, defStyleAttr) {
+
+    private var iconName: String? = null
+    private var iconSize: Int = 24
+
+    fun setIcon(name: String, size: Int = 24) {
+        iconName = name
+        iconSize = size
+        updateIcon()
+    }
+
+    private fun updateIcon() {
+        iconName?.let { name ->
+            val resourceId = getIconResource(name, iconSize)
+            setImageResource(resourceId)
+        }
+    }
+
+    private fun getIconResource(name: String, size: Int): Int {
+        return when (name) {
+            "home" -> when (size) {
+                16 -> RefineUIIcons.HOME_16
+                20 -> RefineUIIcons.HOME_20
+                24 -> RefineUIIcons.HOME_24
+                32 -> RefineUIIcons.HOME_32
+                48 -> RefineUIIcons.HOME_48
+                else -> RefineUIIcons.HOME_24
+            }
+            "search" -> when (size) {
+                16 -> RefineUIIcons.SEARCH_16
+                20 -> RefineUIIcons.SEARCH_20
+                24 -> RefineUIIcons.SEARCH_24
+                32 -> RefineUIIcons.SEARCH_32
+                48 -> RefineUIIcons.SEARCH_48
+                else -> RefineUIIcons.SEARCH_24
+            }
+            // Add more icons as needed
+            else -> RefineUIIcons.HOME_24
+        }
+    }
+}
 ```
 
-## Sample App
+### Icon with Animation
 
-This library includes a complete sample app:
+```kotlin
+import com.pelagornis.refineui.icons.RefineUIIcons
 
-1. **Main Screen**: Basic icon usage examples
-2. **Icon List**: Screen to search and filter all icons
-3. **Real-time Search**: Search icons by name
-4. **Style/Size Filtering**: Filter by Regular/Filled styles and various sizes
+class AnimatedIconView : ImageView {
+    private var isPressed = false
 
-To run the sample app:
+    init {
+        setImageResource(RefineUIIcons.HEART_24)
+        setOnClickListener {
+            animateIcon()
+        }
+    }
 
-```bash
-cd android
-./gradlew installDebug
+    private fun animateIcon() {
+        isPressed = !isPressed
+
+        animate()
+            .scaleX(if (isPressed) 1.2f else 1.0f)
+            .scaleY(if (isPressed) 1.2f else 1.0f)
+            .setDuration(100)
+            .start()
+
+        setColorFilter(if (isPressed) Color.RED else Color.GRAY)
+    }
+}
 ```
 
-## Color Customization
+### Dynamic Icon Selection
 
-To change icon colors, use the `android:tint` attribute:
+```kotlin
+import com.pelagornis.refineui.icons.RefineUIIcons
+
+enum class IconType(val iconName: String, val color: Int) {
+    HOME("home", Color.BLUE),
+    SEARCH("search", Color.GREEN),
+    SETTINGS("settings", Color.ORANGE),
+    USER("user", Color.PURPLE)
+}
+
+class DynamicIconView : ImageView {
+    fun setIconType(type: IconType) {
+        val resourceId = getIconResource(type.iconName)
+        setImageResource(resourceId)
+        setColorFilter(type.color)
+    }
+
+    private fun getIconResource(name: String): Int {
+        return when (name) {
+            "home" -> RefineUIIcons.HOME_24
+            "search" -> RefineUIIcons.SEARCH_24
+            "settings" -> RefineUIIcons.SETTINGS_24
+            "user" -> RefineUIIcons.USER_24
+            else -> RefineUIIcons.HOME_24
+        }
+    }
+}
+```
+
+## 🎯 Best Practices
+
+### 1. **Performance Optimization**
+
+- Use vector drawables for better performance
+- Cache icon views when possible
+- Use appropriate icon sizes for different screen densities
+
+```kotlin
+class OptimizedIconView : ImageView {
+    private var cachedIcon: String? = null
+
+    fun setIcon(name: String) {
+        if (cachedIcon != name) {
+            cachedIcon = name
+            updateIcon(name)
+        }
+    }
+
+    private fun updateIcon(name: String) {
+        val resourceId = getIconResource(name)
+        setImageResource(resourceId)
+    }
+}
+```
+
+### 2. **Accessibility**
 
 ```xml
 <ImageView
     android:layout_width="24dp"
     android:layout_height="24dp"
-    android:src="@drawable/ic_refineui_add_24_filled"
-    android:tint="@color/your_color" />
+    android:src="@drawable/refineui_icon_search"
+    android:contentDescription="Search"
+    android:focusable="true"
+    android:clickable="true"
+    android:background="?attr/selectableItemBackgroundBorderless" />
 ```
 
-Or in code:
+### 3. **Theme Integration**
+
+```xml
+<!-- In your theme -->
+<style name="AppTheme" parent="Theme.Material3.DayNight">
+    <item name="colorPrimary">@color/primary_color</item>
+    <item name="colorOnPrimary">@color/on_primary_color</item>
+</style>
+
+<!-- In your layout -->
+<ImageView
+    android:layout_width="24dp"
+    android:layout_height="24dp"
+    android:src="@drawable/refineui_icon_settings"
+    android:tint="?attr/colorPrimary" />
+```
+
+### 4. **Responsive Design**
 
 ```kotlin
-imageView.setColorFilter(ContextCompat.getColor(context, R.color.your_color))
+class ResponsiveIconView : ImageView {
+    override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
+        super.onSizeChanged(w, h, oldw, oldh)
+
+        val size = minOf(w, h)
+        val iconSize = when {
+            size <= 16 -> 16
+            size <= 20 -> 20
+            size <= 24 -> 24
+            size <= 32 -> 32
+            else -> 48
+        }
+
+        updateIconSize(iconSize)
+    }
+
+    private fun updateIconSize(size: Int) {
+        // Update icon based on size
+    }
+}
 ```
 
-## License
+## 📱 Platform-Specific Features
 
-This project is distributed under the MIT License.
+### Material Design Integration
 
-## Contributing
+```xml
+<com.google.android.material.button.MaterialButton
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Download"
+    app:icon="@drawable/refineui_icon_download"
+    app:iconGravity="textStart"
+    app:iconPadding="8dp" />
+```
 
-Please submit bug reports or feature requests through GitHub Issues.
+### Android 12+ Features
+
+```kotlin
+import com.pelagornis.refineui.icons.RefineUIIcons
+
+class ModernIconView : ImageView {
+    init {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            // Use dynamic colors for Android 12+
+            setImageResource(RefineUIIcons.SETTINGS_24)
+            setColorFilter(getContext().getColor(android.R.color.system_accent1_600))
+        } else {
+            setImageResource(RefineUIIcons.SETTINGS_24)
+            setColorFilter(ContextCompat.getColor(context, R.color.primary_color))
+        }
+    }
+}
+```
+
+## 🎨 Styling Examples
+
+### Navigation Bar Icons
+
+```xml
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:padding="16dp"
+    android:background="@color/background_color">
+
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/refineui_icon_menu"
+        android:padding="8dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_weight="1" />
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/refineui_icon_search"
+        android:padding="8dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true" />
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/refineui_icon_notification"
+        android:padding="8dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true" />
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/refineui_icon_user"
+        android:padding="8dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true" />
+</LinearLayout>
+```
+
+### Button with Icon
+
+```xml
+<com.google.android.material.button.MaterialButton
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Download"
+    app:icon="@drawable/refineui_icon_download"
+    app:iconGravity="textStart"
+    app:iconPadding="8dp"
+    app:iconSize="16dp" />
+```
+
+### Icon Grid
+
+```xml
+<androidx.recyclerview.widget.RecyclerView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+    app:spanCount="3" />
+```
+
+```kotlin
+class IconAdapter : RecyclerView.Adapter<IconAdapter.IconViewHolder>() {
+    private val icons = listOf(
+        "home" to "Home",
+        "search" to "Search",
+        "settings" to "Settings",
+        "user" to "User",
+        "mail" to "Mail",
+        "phone" to "Phone"
+    )
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IconViewHolder {
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_icon, parent, false)
+        return IconViewHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: IconViewHolder, position: Int) {
+        val (iconName, iconLabel) = icons[position]
+        holder.bind(iconName, iconLabel)
+    }
+
+    override fun getItemCount() = icons.size
+
+    class IconViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val iconView: ImageView = itemView.findViewById(R.id.icon_view)
+        private val labelView: TextView = itemView.findViewById(R.id.label_view)
+
+        fun bind(iconName: String, label: String) {
+            val resourceId = getIconResource(iconName)
+            iconView.setImageResource(resourceId)
+            labelView.text = label
+        }
+
+        private fun getIconResource(name: String): Int {
+            return when (name) {
+                "home" -> RefineUIIcons.HOME_24
+                "search" -> RefineUIIcons.SEARCH_24
+                "settings" -> RefineUIIcons.SETTINGS_24
+                "user" -> RefineUIIcons.USER_24
+                "mail" -> RefineUIIcons.MAIL_24
+                "phone" -> RefineUIIcons.PHONE_24
+                else -> RefineUIIcons.HOME_24
+            }
+        }
+    }
+}
+```
+
+## 🔍 Icon Search and Discovery
+
+### Finding Icons by Category
+
+```kotlin
+object IconCategories {
+    val navigation = listOf("home", "search", "menu", "back", "forward")
+    val actions = listOf("add", "edit", "delete", "save", "cancel")
+    val communication = listOf("mail", "phone", "chat", "notification")
+    val media = listOf("play", "pause", "stop", "volume", "camera")
+    val system = listOf("settings", "gear", "user", "lock", "unlock")
+    val files = listOf("folder", "file", "document", "image", "pdf")
+}
+```
+
+### Icon Search Function
+
+```kotlin
+fun searchIcons(query: String): List<String> {
+    val allIcons = IconCategories.navigation +
+                   IconCategories.actions +
+                   IconCategories.communication +
+                   IconCategories.media +
+                   IconCategories.system +
+                   IconCategories.files
+
+    return allIcons.filter { icon ->
+        icon.contains(query, ignoreCase = true)
+    }
+}
+
+// Usage
+val searchResults = searchIcons("home")
+// Returns: ["home"]
+```
+
+## 🛠️ Development
+
+### Building from Source
+
+```bash
+# Clone the repository
+git clone https://github.com/refineui/system-icons.git
+cd system-icons
+
+# Install dependencies
+npm install
+
+# Build Android icons
+npm run generate:android
+npm run build:android
+```
+
+### Adding New Icons
+
+1. Add SVG files to `src/icons/`
+2. Run `npm run generate:metadata`
+3. Run `npm run generate:android`
+4. Test your changes in Android app
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+1. **Icon not displaying**
+
+   - Check if the icon name is correct
+   - Verify the library is properly integrated
+   - Check Android Studio logs
+
+2. **Build issues**
+
+   - Clean and rebuild project
+   - Check Gradle sync
+   - Verify dependencies
+
+3. **Vector drawable issues**
+   - Ensure minSdk is 21+ for vector drawables
+   - Check for conflicting drawable names
+   - Verify XML syntax
+
+### Getting Help
+
+- 📧 Email: support@refineui.com
+- 🐛 Issues: [GitHub Issues](https://github.com/refineui/system-icons/issues)
+- 📖 Documentation: [docs.refineui.com](https://docs.refineui.com)
+- 💬 Community: [Discord](https://discord.gg/refineui)
+
+## 📄 License
+
+MIT License - see [LICENSE](LICENSE) file for details.

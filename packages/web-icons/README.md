@@ -1,17 +1,6 @@
 # @refineui/web-icons
 
-A font-based icon utility package for vanilla web projects. Supports 434+ icons and provides easy access to icons using unicode values and utility functions.
-
-## 🚀 Features
-
-- 🔤 **Font-based system**: Lightweight and fast rendering
-- 📦 **434+ icons**: Comprehensive icon collection
-- 🎨 **Multiple sizes**: 16, 20, 24, 28, 32, 48px variants
-- 🎭 **Two styles**: Regular and filled variants
-- 🔍 **Built-in search**: Icon search and filtering capabilities
-- 🚀 **Performance**: Optimized for web performance
-- ♿ **Accessibility**: Proper alt text and ARIA support
-- 🌐 **Framework agnostic**: Works with any web framework
+CSS/Font-based icon system for RefineUI System Icons.
 
 ## 📦 Installation
 
@@ -19,351 +8,364 @@ A font-based icon utility package for vanilla web projects. Supports 434+ icons 
 npm install @refineui/web-icons
 # or
 yarn add @refineui/web-icons
+# or
+pnpm add @refineui/web-icons
 ```
 
-## 🎯 Quick Start
+## 🚀 Quick Start
 
-### 1. Using Utility Functions
+### HTML Usage
 
-```javascript
-import { getIconChar, getIconClass, getFontFamily } from "@refineui/web-icons";
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="node_modules/@refineui/web-icons/dist/refineui-icons.css"
+    />
+  </head>
+  <body>
+    <!-- Basic usage -->
+    <i class="refineui-icon refineui-icon-home"></i>
 
-// Get unicode character
-const gavelChar = getIconChar("gavel", "regular");
-const gavelClass = getIconClass("gavel", 24, "regular");
+    <!-- With size -->
+    <i class="refineui-icon refineui-icon-search refineui-icon--size-20"></i>
 
-// Use in HTML
-<span class="ic_refineui_gavel_24_regular">${gavelChar}</span>;
+    <!-- With custom color -->
+    <i class="refineui-icon refineui-icon-settings" style="color: #0078d4;"></i>
+  </body>
+</html>
 ```
 
-### 2. Using Convenience Functions
+### CSS Import
 
-```javascript
-import { Gavel, Home, AddFilled } from "@refineui/web-icons";
-
-// Regular style
-const gavelIcon = Gavel(24); // 24px size
-const homeIcon = Home(32); // 32px size
-
-// Filled style
-const addIcon = AddFilled(48); // 48px size
+```css
+@import "@refineui/web-icons/dist/refineui-icons.css";
 ```
 
-### 3. Icon Search and Information
+### JavaScript Import
 
 ```javascript
-import {
-  getAvailableIcons,
-  searchIcons,
-  getIconInfo,
-} from "@refineui/web-icons";
-
-// All icon list
-const allIcons = getAvailableIcons();
-
-// Icon search
-const searchResults = searchIcons("add");
-
-// Icon information
-const iconInfo = getIconInfo("Gavel");
-```
-
-## 📚 API Reference
-
-### Utility Functions
-
-| Function                             | Description                               |
-| ------------------------------------ | ----------------------------------------- |
-| `getIconChar(name, style, size)`     | Returns the unicode character of the icon |
-| `getIconClass(name, style, size)`    | Returns the CSS class name of the icon    |
-| `getFontFamily(style)`               | Returns the font family name              |
-| `getAvailableIcons()`                | Returns all available icon names          |
-| `searchIcons(query)`                 | Icon search functionality                 |
-| `isIconSupported(name, style, size)` | Check if icon is supported                |
-
-### Convenience Functions
-
-Two functions are automatically generated for all 434+ icons:
-
-- `IconName(size)` - Regular style
-- `IconNameFilled(size)` - Filled style
-
-**Examples:**
-
-```javascript
-Gavel(24); // Regular style, 24px
-GavelFilled(32); // Filled style, 32px
-Add(20); // Regular style, 20px
-AddFilled(48); // Filled style, 48px
+import "@refineui/web-icons/dist/refineui-icons.css";
 ```
 
 ## 🎨 Available Icons
 
-**All 434+ icons are supported!**
+### Icon Categories
 
-### Key Icon Categories:
+- **Navigation**: `home`, `search`, `menu`, `back`, `forward`, `up`, `down`, `left`, `right`
+- **Actions**: `add`, `edit`, `delete`, `save`, `cancel`, `refresh`, `download`, `upload`
+- **Communication**: `mail`, `phone`, `chat`, `notification`, `bell`, `message`
+- **Media**: `play`, `pause`, `stop`, `volume`, `mute`, `camera`, `image`, `video`
+- **System**: `settings`, `gear`, `user`, `lock`, `unlock`, `key`, `shield`
+- **Files**: `folder`, `file`, `document`, `image`, `pdf`, `zip`, `download`
+- **And many more...** (434+ icons total)
 
-- 🧭 **Navigation**: Accessibility, Home, Search, Settings
-- ⚡ **Actions**: Add, Edit, Delete, Save, Close, Checkmark
-- 💬 **Communication**: Mail, Chat, Phone, Share, Notification
-- 🎬 **Media**: Camera, Video, Play, Pause, Stop
-- 👥 **Social**: Person, User, Group, Heart, Star
-- 💻 **Technology**: Computer, Laptop, Phone, Tablet, Wifi
-- 🌤️ **Weather**: Sun, Moon, Cloud, Rain, Snow
-- 🔧 **Tools**: Gavel, Settings, Gear, Tool, Wrench, Hammer
+### Icon Sizes
 
-### Complete Icon List
+- **16px**: `refineui-icon--size-16`
+- **20px**: `refineui-icon--size-20`
+- **24px**: `refineui-icon--size-24` (default)
+- **32px**: `refineui-icon--size-32`
+- **48px**: `refineui-icon--size-48`
 
-The package includes icons for every use case:
-
-- **UI Elements**: Button, Input, Form, Modal, Tab
-- **Business**: Calendar, Chart, Document, Invoice, Payment
-- **Development**: Code, Database, Server, API, Terminal
-- **Design**: Color, Palette, Brush, Crop, Filter
-- **Communication**: Email, Message, Call, Video Call, Conference
-- **File Management**: File, Folder, Document, Image, Archive
-- **Security**: Lock, Shield, Key, Certificate, Privacy
-- **And many more...**
-
-## 🔤 Font File Inclusion
-
-You need to import the CSS files to load the fonts:
-
-### CDN (Recommended)
-
-```html
-<!-- Regular style -->
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@refineui/system-icons/fonts/refineui-system-icons-regular.css"
-/>
-
-<!-- Filled style -->
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@refineui/system-icons/fonts/refineui-system-icons-filled.css"
-/>
-```
-
-### Local Installation
-
-```javascript
-// Import CSS in your JavaScript
-import "@refineui/web-icons/dist/fonts/refineui-system-icons-regular.css";
-import "@refineui/web-icons/dist/fonts/refineui-system-icons-filled.css";
-```
-
-## 🎨 Styling
-
-### CSS Classes
-
-Each icon has a specific CSS class that you can style:
-
-```css
-.ic_refineui_add_24_regular {
-  font-size: 24px;
-  color: #007aff;
-  transition: color 0.2s ease;
-}
-
-.ic_refineui_add_24_regular:hover {
-  color: #0056cc;
-}
-```
+## 🔧 Advanced Usage
 
 ### Custom Styling
 
-```javascript
-// Apply custom styles to icon elements
-const iconElement = document.createElement("span");
-iconElement.textContent = getIconChar("heart", "filled");
-iconElement.style.fontSize = "32px";
-iconElement.style.color = "#FF0000";
-iconElement.style.fontFamily = getFontFamily("filled");
-```
-
-## 📱 Examples
-
-### Icon Button
-
-```javascript
-function createIconButton(iconName, size = 24, style = "regular") {
-  const button = document.createElement("button");
-  const icon = document.createElement("span");
-
-  icon.textContent = getIconChar(iconName, style);
-  icon.className = getIconClass(iconName, size, style);
-
-  button.appendChild(icon);
-  button.style.cssText = `
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    background: #007AFF;
-    color: white;
-  `;
-
-  return button;
+```css
+.my-custom-icon {
+  --refineui-icon-color: #0078d4;
+  --refineui-icon-size: 24px;
+  --refineui-icon-stroke-width: 1.5;
 }
 
-// Usage
-const addButton = createIconButton("add", 16, "filled");
-addButton.textContent += " Add Item";
-document.body.appendChild(addButton);
+.my-custom-icon:hover {
+  --refineui-icon-color: #106ebe;
+  transform: scale(1.1);
+  transition: all 0.2s ease;
+}
+```
+
+### CSS Custom Properties
+
+```css
+:root {
+  --refineui-icon-primary: #0078d4;
+  --refineui-icon-secondary: #605e5c;
+  --refineui-icon-success: #107c10;
+  --refineui-icon-warning: #ff8c00;
+  --refineui-icon-error: #d83b01;
+}
+
+.icon-primary {
+  --refineui-icon-color: var(--refineui-icon-primary);
+}
+
+.icon-secondary {
+  --refineui-icon-color: var(--refineui-icon-secondary);
+}
+```
+
+### Responsive Icons
+
+```css
+.responsive-icon {
+  font-size: 16px;
+}
+
+@media (min-width: 768px) {
+  .responsive-icon {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-icon {
+    font-size: 24px;
+  }
+}
+```
+
+## 🎯 Best Practices
+
+### 1. **Performance**
+
+- Use CSS icons for static content
+- Consider using React icons for interactive elements
+- Optimize font loading with `font-display: swap`
+
+### 2. **Accessibility**
+
+```html
+<i
+  class="refineui-icon refineui-icon-search"
+  aria-label="Search"
+  role="button"
+  tabindex="0"
+></i>
+```
+
+### 3. **Semantic HTML**
+
+```html
+<button class="icon-button">
+  <i class="refineui-icon refineui-icon-download"></i>
+  <span>Download</span>
+</button>
+```
+
+### 4. **Consistent Sizing**
+
+```css
+.icon-button .refineui-icon {
+  font-size: 16px;
+  margin-right: 8px;
+}
+
+.navigation .refineui-icon {
+  font-size: 20px;
+}
+
+.header .refineui-icon {
+  font-size: 24px;
+}
+```
+
+## 📚 Examples
+
+### Navigation Bar
+
+```html
+<nav class="navbar">
+  <i class="refineui-icon refineui-icon-menu nav-icon"></i>
+  <i class="refineui-icon refineui-icon-search nav-icon"></i>
+  <i class="refineui-icon refineui-icon-notification nav-icon"></i>
+  <i class="refineui-icon refineui-icon-user nav-icon"></i>
+</nav>
+```
+
+```css
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 16px;
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.nav-icon {
+  font-size: 20px;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.nav-icon:hover {
+  color: #0078d4;
+}
+```
+
+### Button with Icon
+
+```html
+<button class="icon-button">
+  <i class="refineui-icon refineui-icon-download"></i>
+  <span>Download</span>
+</button>
+```
+
+```css
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: #0078d4;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.icon-button .refineui-icon {
+  font-size: 16px;
+}
+
+.icon-button:hover {
+  background: #106ebe;
+}
 ```
 
 ### Icon Grid
 
-```javascript
-function createIconGrid(icons, onIconClick) {
-  const grid = document.createElement("div");
-  grid.style.cssText = `
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-    gap: 16px;
-    padding: 16px;
-  `;
+```html
+<div class="icon-grid">
+  <div class="icon-item">
+    <i class="refineui-icon refineui-icon-home"></i>
+    <span>Home</span>
+  </div>
+  <div class="icon-item">
+    <i class="refineui-icon refineui-icon-search"></i>
+    <span>Search</span>
+  </div>
+  <div class="icon-item">
+    <i class="refineui-icon refineui-icon-settings"></i>
+    <span>Settings</span>
+  </div>
+</div>
+```
 
-  icons.forEach((icon) => {
-    const iconElement = document.createElement("div");
-    iconElement.style.cssText = `
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 8px;
-      border: 1px solid #eee;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background-color 0.2s;
-    `;
+```css
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 16px;
+  padding: 16px;
+}
 
-    const iconSpan = document.createElement("span");
-    iconSpan.textContent = getIconChar(icon.name, "regular");
-    iconSpan.className = getIconClass(icon.name, 24, "regular");
+.icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  background: #f5f5f5;
+  border-radius: 8px;
+  text-align: center;
+}
 
-    const label = document.createElement("span");
-    label.textContent = icon.name;
-    label.style.cssText = `
-      font-size: 12px;
-      margin-top: 4px;
-    `;
+.icon-item .refineui-icon {
+  font-size: 24px;
+  color: #333;
+}
 
-    iconElement.appendChild(iconSpan);
-    iconElement.appendChild(label);
-    iconElement.addEventListener("click", () => onIconClick(icon));
-
-    grid.appendChild(iconElement);
-  });
-
-  return grid;
+.icon-item span {
+  font-size: 12px;
+  color: #666;
 }
 ```
 
-### Dynamic Icon Loading
+## 🔍 Icon Search
+
+### Finding Icons by Name
 
 ```javascript
-function loadIcon(iconName, size = 24, style = "regular") {
-  if (!isIconSupported(iconName, style, size)) {
-    console.warn(`Icon ${iconName} not supported`);
-    return null;
-  }
+// Search for icons containing "home"
+const homeIcons = ["home", "home-filled", "home-outline"];
 
-  const iconElement = document.createElement("span");
-  iconElement.textContent = getIconChar(iconName, style);
-  iconElement.className = getIconClass(iconName, size, style);
-
-  return iconElement;
-}
-
-// Usage
-const heartIcon = loadIcon("heart", 32, "filled");
-if (heartIcon) {
-  document.body.appendChild(heartIcon);
-}
+// Search for icons containing "arrow"
+const arrowIcons = ["arrow-up", "arrow-down", "arrow-left", "arrow-right"];
 ```
 
-## 🚀 Performance
-
-### Font Loading Optimization
+### Icon Categories
 
 ```javascript
-// Preload fonts for better performance
-const fontLinks = [
-  "https://cdn.jsdelivr.net/npm/@refineui/system-icons/fonts/refineui-system-icons-regular.css",
-  "https://cdn.jsdelivr.net/npm/@refineui/system-icons/fonts/refineui-system-icons-filled.css",
-];
-
-fontLinks.forEach((href) => {
-  const link = document.createElement("link");
-  link.rel = "preload";
-  link.as = "style";
-  link.href = href;
-  document.head.appendChild(link);
-});
+const iconCategories = {
+  navigation: ["home", "search", "menu", "back", "forward"],
+  actions: ["add", "edit", "delete", "save", "cancel"],
+  communication: ["mail", "phone", "chat", "notification"],
+  media: ["play", "pause", "stop", "volume", "camera"],
+  system: ["settings", "gear", "user", "lock", "unlock"],
+  files: ["folder", "file", "document", "image", "pdf"],
+};
 ```
 
-### Lazy Icon Loading
+## 🛠️ Development
 
-```javascript
-// Load icons only when needed
-function lazyLoadIcon(iconName, container) {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const icon = loadIcon(iconName);
-        if (icon) {
-          entry.target.appendChild(icon);
-        }
-        observer.unobserve(entry.target);
-      }
-    });
-  });
-
-  observer.observe(container);
-}
-```
-
-## 🔧 Development
-
-### Building
+### Building from Source
 
 ```bash
-npm run build
+# Clone the repository
+git clone https://github.com/refineui/system-icons.git
+cd system-icons
+
+# Install dependencies
+npm install
+
+# Build web icons
+npm run generate:web-icons
+npm run build:fonts
 ```
 
-### Development Mode
+### Adding New Icons
 
-```bash
-npm run dev
-```
+1. Add SVG files to `src/icons/`
+2. Run `npm run generate:metadata`
+3. Run `npm run generate:web-icons`
+4. Test your changes
 
-### Type Checking
+## 🐛 Troubleshooting
 
-```bash
-npm run type-check
-```
+### Common Issues
 
-## 📄 License
+1. **Icon not displaying**
 
-MIT License - see [LICENSE](../../LICENSE) for details.
+   - Check if the icon name is correct
+   - Verify the CSS file is loaded
+   - Check browser console for errors
 
-## 🔗 Related Packages
+2. **Styling issues**
 
-- [`@refineui/react-icons`](../react-icons) - React icon components
-- [`@refineui/react-native-icons`](../react-native-icons) - React Native icon components
-- [`@refineui/icon-cdn`](../icon-cdn) - CDN package for direct URL access
+   - Ensure CSS is properly loaded
+   - Check for conflicting styles
+   - Verify CSS custom properties
 
-## 🆘 Support
+3. **Font loading issues**
+   - Check network tab for font requests
+   - Verify font file paths
+   - Consider using `font-display: swap`
+
+### Getting Help
 
 - 📧 Email: support@refineui.com
 - 🐛 Issues: [GitHub Issues](https://github.com/refineui/system-icons/issues)
 - 📖 Documentation: [docs.refineui.com](https://docs.refineui.com)
 - 💬 Community: [Discord](https://discord.gg/refineui)
 
----
+## 📄 License
 
-**@refineui/web-icons** - Professional icons for the web 🚀
+MIT License - see [LICENSE](LICENSE) file for details.

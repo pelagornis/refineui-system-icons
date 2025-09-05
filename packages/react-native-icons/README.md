@@ -1,18 +1,6 @@
 # @refineui/react-native-icons
 
-A TypeScript-first React Native icon library providing type-safe access to RefineUI System Icons for React Native applications.
-
-## 🚀 Features
-
-- 🎯 **TypeScript-first**: Full type safety and IntelliSense support
-- 📱 **React Native optimized**: Built specifically for React Native applications
-- 📦 **Tree-shakable**: Only import what you need
-- 🎨 **Multiple sizes**: 16, 20, 24, 28, 32, 48px variants
-- 🎭 **Two styles**: Regular and filled variants
-- 🔍 **Search & filter**: Built-in search and filtering capabilities
-- ♿ **Accessible**: Proper accessibility labels and hints
-- 🚀 **Performance**: Optimized for mobile rendering
-- 🎨 **Styling**: Flexible styling with tint colors and backgrounds
+React Native components for RefineUI System Icons with TypeScript support.
 
 ## 📦 Installation
 
@@ -20,379 +8,460 @@ A TypeScript-first React Native icon library providing type-safe access to Refin
 npm install @refineui/react-native-icons
 # or
 yarn add @refineui/react-native-icons
+# or
+pnpm add @refineui/react-native-icons
 ```
 
-## 🎯 Quick Start
+## 🚀 Quick Start
 
 ### Basic Usage
 
 ```tsx
+import React from "react";
+import { View, Text } from "react-native";
 import { Icon } from "@refineui/react-native-icons";
 
 function App() {
   return (
-    <View>
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       {/* Basic usage */}
-      <Icon name="add" />
+      <Icon name="home" size={24} />
 
-      {/* With size and style */}
-      <Icon name="heart" size={32} style="filled" />
+      {/* With custom color */}
+      <Icon name="search" size={20} color="#0078d4" />
 
-      {/* With custom styling */}
+      {/* With custom style */}
+      <Icon name="settings" size={16} style={{ marginTop: 10 }} />
+
+      {/* With onPress handler */}
       <Icon
-        name="settings"
+        name="heart"
         size={24}
-        color="#007AFF"
-        onPress={() => console.log("pressed")}
+        onPress={() => console.log("Heart pressed!")}
+        style={{ marginTop: 10 }}
       />
     </View>
   );
 }
+
+export default App;
 ```
 
-### Advanced Usage
+### Touchable Icon
 
 ```tsx
-import { Icon, IconSize, IconStyle } from "@refineui/react-native-icons";
+import { Icon } from "@refineui/react-native-icons";
 
-function IconGallery() {
-  const [selectedSize, setSelectedSize] = useState<IconSize>(24);
-  const [selectedStyle, setSelectedStyle] = useState<IconStyle>("regular");
-
-  return (
-    <View>
-      {/* Size selector */}
-      <Picker
-        selectedValue={selectedSize}
-        onValueChange={(value) => setSelectedSize(value as IconSize)}
-      >
-        <Picker.Item label="16px" value={16} />
-        <Picker.Item label="20px" value={20} />
-        <Picker.Item label="24px" value={24} />
-        <Picker.Item label="28px" value={28} />
-        <Picker.Item label="32px" value={32} />
-        <Picker.Item label="48px" value={48} />
-      </Picker>
-
-      {/* Style selector */}
-      <Picker
-        selectedValue={selectedStyle}
-        onValueChange={(value) => setSelectedStyle(value as IconStyle)}
-      >
-        <Picker.Item label="Regular" value="regular" />
-        <Picker.Item label="Filled" value="filled" />
-      </Picker>
-
-      {/* Icon display */}
-      <Icon
-        name="add"
-        size={selectedSize}
-        style={selectedStyle}
-        accessibilityLabel="Add icon"
-        accessibilityHint="Double tap to add item"
-        onPress={() => console.log("Add pressed")}
-      />
-    </View>
-  );
-}
-```
-
-## 📚 API Reference
-
-### Icon Component Props
-
-| Prop                 | Type                               | Default        | Description                    |
-| -------------------- | ---------------------------------- | -------------- | ------------------------------ |
-| `name`               | `string`                           | **required**   | Icon name in snake_case format |
-| `size`               | `16 \| 20 \| 24 \| 28 \| 32 \| 48` | `24`           | Icon size in pixels            |
-| `style`              | `'regular' \| 'filled'`            | `'regular'`    | Icon style variant             |
-| `containerStyle`     | `ViewStyle`                        | -              | Container styles               |
-| `iconStyle`          | `TextStyle`                        | -              | Icon image styles              |
-| `onPress`            | `() => void`                       | -              | Press handler                  |
-| `accessibilityLabel` | `string`                           | Auto-generated | Accessibility label            |
-| `accessibilityHint`  | `string`                           | -              | Accessibility hint             |
-| `accessible`         | `boolean`                          | `true`         | Whether icon is accessible     |
-| `testID`             | `string`                           | -              | Test ID for testing            |
-| `color`              | `string`                           | -              | Tint color of the icon         |
-| `backgroundColor`    | `string`                           | -              | Background color               |
-| `borderRadius`       | `number`                           | -              | Border radius                  |
-| `padding`            | `number`                           | -              | Padding around icon            |
-| `margin`             | `number`                           | -              | Margin around icon             |
-
-### Available Icons
-
-The package includes **433+ icons** covering various use cases:
-
-- 🧭 **Navigation**: home, search, arrow, chevron, location, map
-- ⚡ **Actions**: add, edit, delete, save, close, checkmark
-- 💬 **Communication**: mail, chat, phone, share, notification
-- 🎬 **Media**: play, pause, stop, video, audio, camera
-- 👥 **Social**: person, user, group, heart, star
-- 💻 **Technology**: computer, laptop, phone, tablet, wifi
-- 🌤️ **Weather**: sun, moon, cloud, rain, snow
-- 🔧 **Tools**: settings, gear, tool, wrench, hammer
-
-### Icon Naming Convention
-
-Icons follow a consistent naming pattern:
-
-- **Format**: `icon-name-style`
-- **Examples**:
-  - `add-regular`
-  - `heart-filled`
-  - `settings-regular`
-
-## 🛠️ Utility Functions
-
-### Icon Management
-
-```tsx
-import {
-  createIconInfo,
-  searchIcons,
-  filterIconsBySize,
-  filterIconsByStyle,
-  sortIconsByName,
-} from "@refineui/react-native-icons";
-
-// Create icon information
-const iconInfo = createIconInfo("add", 24, "regular");
-
-// Search icons
-const searchResults = searchIcons(allIcons, "heart");
-
-// Filter icons
-const size24Icons = filterIconsBySize(allIcons, 24);
-const filledIcons = filterIconsByStyle(allIcons, "filled");
-
-// Sort icons
-const sortedIcons = sortIconsByName(allIcons);
-```
-
-### URL Generation
-
-```tsx
-import {
-  generateIconUrl,
-  generateIconFileName,
-} from "@refineui/react-native-icons";
-
-// Generate icon URL
-const iconUrl = generateIconUrl("add", 24, "regular");
-// Returns: "https://cdn.jsdelivr.net/npm/@refineui/icons-web@latest/public/icons/24/add-regular.svg"
-
-// Generate filename
-const fileName = generateIconFileName("heart", "filled");
-// Returns: "heart-filled.svg"
-```
-
-## 🎨 Styling
-
-### Container Styles
-
-You can style the icon container using `containerStyle`:
-
-```tsx
-<Icon
-  name="settings"
-  containerStyle={{
-    backgroundColor: "#f0f0f0",
-    borderRadius: 8,
-    padding: 8,
-    margin: 4,
-  }}
-/>
-```
-
-### Icon Styles
-
-You can style the icon image using `iconStyle`:
-
-```tsx
-<Icon
-  name="heart"
-  iconStyle={{
-    tintColor: "#ff0000",
-    opacity: 0.8,
-  }}
-/>
-```
-
-### Color Properties
-
-For convenience, you can use the `color` prop for tinting:
-
-```tsx
-<Icon name="star" color="#FFD700" backgroundColor="#f8f8f8" borderRadius={12} />
-```
-
-## ♿ Accessibility
-
-The Icon component automatically generates appropriate accessibility labels:
-
-```tsx
-// Auto-generated accessibilityLabel: "Add"
-<Icon name="add" />
-
-// Custom accessibility
-<Icon
-  name="heart"
-  accessibilityLabel="Like this post"
-  accessibilityHint="Double tap to like"
-  accessible={true}
-/>
-```
-
-## 🚀 Performance
-
-### TouchableOpacity vs View
-
-The component automatically renders as `TouchableOpacity` when `onPress` is provided:
-
-```tsx
-// Renders as TouchableOpacity
-<Icon name="add" onPress={() => console.log('pressed')} />
-
-// Renders as View
-<Icon name="add" />
-```
-
-### Image Optimization
-
-Icons are rendered as optimized images with proper resize modes:
-
-```tsx
-<Icon
-  name="settings"
-  size={24}
-  // Automatically uses resizeMode="contain"
-/>
-```
-
-## 🔧 Development
-
-### Building
-
-```bash
-npm run build
-```
-
-### Development Mode
-
-```bash
-npm run dev
-```
-
-### Type Checking
-
-```bash
-npm run type-check
-```
-
-## 📱 Examples
-
-### Icon Button
-
-```tsx
-function IconButton({ icon, onPress, children, ...props }) {
+function TouchableIcon() {
   return (
     <Icon
-      name={icon}
-      size={16}
-      color="#007AFF"
-      backgroundColor="#f0f0f0"
-      borderRadius={8}
-      padding={8}
-      onPress={onPress}
-      accessibilityLabel={`${children} button`}
-      {...props}
+      name="star"
+      size={24}
+      onPress={() => console.log("Star pressed!")}
+      style={{
+        padding: 8,
+        borderRadius: 4,
+        backgroundColor: "#f0f0f0",
+      }}
     />
   );
 }
+```
 
-// Usage
-<IconButton
-  icon="add"
-  onPress={() => console.log("Add pressed")}
-  accessibilityLabel="Add item button"
->
-  Add Item
-</IconButton>;
+## 🎨 Available Icons
+
+### Icon Categories
+
+- **Navigation**: `home`, `search`, `menu`, `back`, `forward`, `up`, `down`, `left`, `right`
+- **Actions**: `add`, `edit`, `delete`, `save`, `cancel`, `refresh`, `download`, `upload`
+- **Communication**: `mail`, `phone`, `chat`, `notification`, `bell`, `message`
+- **Media**: `play`, `pause`, `stop`, `volume`, `mute`, `camera`, `image`, `video`
+- **System**: `settings`, `gear`, `user`, `lock`, `unlock`, `key`, `shield`
+- **Files**: `folder`, `file`, `document`, `image`, `pdf`, `zip`, `download`
+- **And many more...** (434+ icons total)
+
+### Icon Sizes
+
+- **16px**: `size={16}`
+- **20px**: `size={20}`
+- **24px**: `size={24}` (default)
+- **32px**: `size={32}`
+- **48px**: `size={48}`
+
+## 🔧 Advanced Usage
+
+### TypeScript Support
+
+```tsx
+import { Icon, IconProps } from "@refineui/react-native-icons";
+
+interface MyComponentProps {
+  iconName: IconProps["name"];
+  iconSize?: IconProps["size"];
+  iconColor?: IconProps["color"];
+}
+
+function MyComponent({ iconName, iconSize = 24, iconColor }: MyComponentProps) {
+  return <Icon name={iconName} size={iconSize} color={iconColor} />;
+}
+```
+
+### Custom Styling
+
+```tsx
+import { Icon } from "@refineui/react-native-icons";
+
+function CustomIcon() {
+  return (
+    <Icon
+      name="star"
+      size={24}
+      color="#ffd700"
+      style={{
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+      }}
+    />
+  );
+}
+```
+
+### Dynamic Icon Selection
+
+```tsx
+import { Icon } from "@refineui/react-native-icons";
+
+function DynamicIcon({
+  iconType,
+}: {
+  iconType: "home" | "search" | "settings";
+}) {
+  const iconConfig = {
+    home: { name: "home", color: "#0078d4" },
+    search: { name: "search", color: "#107c10" },
+    settings: { name: "settings", color: "#d83b01" },
+  };
+
+  const config = iconConfig[iconType];
+
+  return <Icon name={config.name} size={24} color={config.color} />;
+}
+```
+
+## 🎯 Best Practices
+
+### 1. **Performance Optimization**
+
+- Use consistent icon sizes throughout your app
+- Avoid unnecessary re-renders by memoizing icon components
+- Consider using `useMemo` for dynamic icon selection
+
+```tsx
+import React, { useMemo } from "react";
+import { Icon } from "@refineui/react-native-icons";
+
+function OptimizedIcon({ iconName, size = 24 }) {
+  const iconProps = useMemo(
+    () => ({
+      name: iconName,
+      size,
+      color: "#0078d4",
+    }),
+    [iconName, size]
+  );
+
+  return <Icon {...iconProps} />;
+}
+```
+
+### 2. **Accessibility**
+
+```tsx
+import { Icon } from "@refineui/react-native-icons";
+
+function AccessibleIcon() {
+  return (
+    <Icon
+      name="search"
+      size={24}
+      accessible={true}
+      accessibilityLabel="Search"
+      accessibilityRole="button"
+      accessibilityHint="Double tap to search"
+    />
+  );
+}
+```
+
+### 3. **Responsive Design**
+
+```tsx
+import { Icon } from "@refineui/react-native-icons";
+import { Dimensions } from "react-native";
+
+function ResponsiveIcon() {
+  const { width } = Dimensions.get("window");
+  const iconSize = width < 768 ? 20 : 24;
+
+  return <Icon name="menu" size={iconSize} />;
+}
+```
+
+### 4. **Theme Integration**
+
+```tsx
+import { Icon } from "@refineui/react-native-icons";
+import { useTheme } from "@react-navigation/native";
+
+function ThemedIcon({ name, size = 24 }) {
+  const theme = useTheme();
+
+  return <Icon name={name} size={size} color={theme.colors.primary} />;
+}
+```
+
+## 📱 Platform-Specific Features
+
+### iOS Specific
+
+```tsx
+import { Icon } from "@refineui/react-native-icons";
+import { Platform } from "react-native";
+
+function PlatformIcon() {
+  return (
+    <Icon
+      name="settings"
+      size={24}
+      color={Platform.OS === "ios" ? "#007AFF" : "#0078d4"}
+    />
+  );
+}
+```
+
+### Android Specific
+
+```tsx
+import { Icon } from "@refineui/react-native-icons";
+import { Platform } from "react-native";
+
+function AndroidIcon() {
+  return (
+    <Icon
+      name="menu"
+      size={24}
+      color={Platform.OS === "android" ? "#6200EA" : "#0078d4"}
+    />
+  );
+}
+```
+
+## 🎨 Styling Examples
+
+### Navigation Bar Icons
+
+```tsx
+import { Icon } from "@refineui/react-native-icons";
+import { View, StyleSheet } from "react-native";
+
+function NavigationBar() {
+  return (
+    <View style={styles.navBar}>
+      <Icon name="menu" size={24} style={styles.navIcon} />
+      <Icon name="search" size={20} style={styles.navIcon} />
+      <Icon name="notification" size={20} style={styles.navIcon} />
+      <Icon name="user" size={20} style={styles.navIcon} />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  navBar: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center",
+    paddingVertical: 10,
+    backgroundColor: "#fff",
+    borderBottomWidth: 1,
+    borderBottomColor: "#e0e0e0",
+  },
+  navIcon: {
+    padding: 8,
+  },
+});
+```
+
+### Button with Icon
+
+```tsx
+import { Icon } from "@refineui/react-native-icons";
+import { TouchableOpacity, Text, StyleSheet } from "react-native";
+
+function IconButton({ iconName, title, onPress }) {
+  return (
+    <TouchableOpacity style={styles.button} onPress={onPress}>
+      <Icon name={iconName} size={16} color="#fff" />
+      <Text style={styles.buttonText}>{title}</Text>
+    </TouchableOpacity>
+  );
+}
+
+const styles = StyleSheet.create({
+  button: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#0078d4",
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    borderRadius: 4,
+  },
+  buttonText: {
+    color: "#fff",
+    marginLeft: 8,
+    fontSize: 16,
+  },
+});
 ```
 
 ### Icon Grid
 
 ```tsx
-function IconGrid({ icons, onIconPress }) {
+import { Icon } from "@refineui/react-native-icons";
+import { View, Text, StyleSheet, FlatList } from "react-native";
+
+function IconGrid() {
+  const icons = [
+    { name: "home", label: "Home" },
+    { name: "search", label: "Search" },
+    { name: "settings", label: "Settings" },
+    { name: "user", label: "User" },
+    { name: "mail", label: "Mail" },
+    { name: "phone", label: "Phone" },
+  ];
+
+  const renderIcon = ({ item }) => (
+    <View style={styles.iconItem}>
+      <Icon name={item.name} size={24} />
+      <Text style={styles.iconLabel}>{item.label}</Text>
+    </View>
+  );
+
   return (
     <FlatList
       data={icons}
-      numColumns={4}
+      renderItem={renderIcon}
       keyExtractor={(item) => item.name}
-      renderItem={({ item }) => (
-        <TouchableOpacity
-          onPress={() => onIconPress(item)}
-          style={{
-            flex: 1,
-            aspectRatio: 1,
-            justifyContent: "center",
-            alignItems: "center",
-            margin: 4,
-            backgroundColor: "#f8f8f8",
-            borderRadius: 8,
-          }}
-        >
-          <Icon name={item.name} size={24} />
-        </TouchableOpacity>
-      )}
+      numColumns={3}
+      contentContainerStyle={styles.grid}
     />
   );
 }
+
+const styles = StyleSheet.create({
+  grid: {
+    padding: 16,
+  },
+  iconItem: {
+    flex: 1,
+    alignItems: "center",
+    padding: 16,
+    margin: 4,
+    backgroundColor: "#f5f5f5",
+    borderRadius: 8,
+  },
+  iconLabel: {
+    marginTop: 8,
+    fontSize: 12,
+    textAlign: "center",
+  },
+});
 ```
 
-### Custom Icon Component
+## 🔍 Icon Search and Discovery
+
+### Finding Icons by Category
 
 ```tsx
-function CustomIcon({ name, size = 24, color = "#000", ...props }) {
-  return (
-    <Icon
-      name={name}
-      size={size}
-      color={color}
-      containerStyle={{
-        backgroundColor: "transparent",
-        borderRadius: size / 2,
-        padding: size / 4,
-      }}
-      {...props}
-    />
-  );
-}
+const iconCategories = {
+  navigation: ["home", "search", "menu", "back", "forward"],
+  actions: ["add", "edit", "delete", "save", "cancel"],
+  communication: ["mail", "phone", "chat", "notification"],
+  media: ["play", "pause", "stop", "volume", "camera"],
+  system: ["settings", "gear", "user", "lock", "unlock"],
+  files: ["folder", "file", "document", "image", "pdf"],
+};
 ```
 
-## 📱 Platform Support
+### Icon Search Function
 
-- **iOS**: 12.0+
-- **Android**: API level 21+
-- **React Native**: 0.60.0+
+```tsx
+function searchIcons(query: string) {
+  const allIcons = Object.values(iconCategories).flat();
+  return allIcons.filter((icon) =>
+    icon.toLowerCase().includes(query.toLowerCase())
+  );
+}
 
-## 📄 License
+// Usage
+const searchResults = searchIcons("home");
+// Returns: ['home']
+```
 
-MIT License - see [LICENSE](../../LICENSE) for details.
+## 🛠️ Development
 
-## 🔗 Related Packages
+### Building from Source
 
-- [`@refineui/react-icons`](../react-icons) - React icon components for web
-- [`@refineui/web-icons`](../web-icons) - Web icon library for non-React projects
-- [`@refineui/icon-cdn`](../icon-cdn) - CDN package for direct URL access
+```bash
+# Clone the repository
+git clone https://github.com/refineui/system-icons.git
+cd system-icons
 
-## 🆘 Support
+# Install dependencies
+npm install
+
+# Build React Native icons
+npm run generate:react-native
+npm run build:react-native
+```
+
+### Adding New Icons
+
+1. Add SVG files to `src/icons/`
+2. Run `npm run generate:metadata`
+3. Run `npm run generate:react-native`
+4. Test your changes in React Native app
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+1. **Icon not displaying**
+
+   - Check if the icon name is correct
+   - Verify the package is installed
+   - Check Metro bundler logs
+
+2. **Performance issues**
+
+   - Use `useMemo` for dynamic icon selection
+   - Avoid unnecessary re-renders
+   - Consider using `React.memo` for icon components
+
+3. **Styling issues**
+   - Check for conflicting styles
+   - Verify style properties are supported
+   - Use `StyleSheet.create` for better performance
+
+### Getting Help
 
 - 📧 Email: support@refineui.com
 - 🐛 Issues: [GitHub Issues](https://github.com/refineui/system-icons/issues)
 - 📖 Documentation: [docs.refineui.com](https://docs.refineui.com)
 - 💬 Community: [Discord](https://discord.gg/refineui)
 
----
+## 📄 License
 
-**@refineui/react-native-icons** - Professional icons for React Native 🚀
+MIT License - see [LICENSE](LICENSE) file for details.
