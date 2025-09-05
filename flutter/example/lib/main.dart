@@ -45,14 +45,9 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  void _loadIcons() {
-    print('Loading all icons from SampleIcons...');
-    
-    // Get all icons from SampleIcons
+  void _loadIcons() {    
     allIcons = SampleIcons.getAllIcons();
-    
-    print('Loaded ${allIcons.length} icons');
-    
+
     setState(() {
       isLoading = false;
       _filterIcons();

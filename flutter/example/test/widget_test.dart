@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:refineui_system_icons/refineui_system_icons.dart';
-
 import '../lib/main.dart';
 
 void main() {
