@@ -11,7 +11,7 @@ linter:
     - cancel_subscriptions
     # - constant_identifier_names  # Disabled for generated icon constants
     - control_flow_in_finally
-    - directives_ordering
+    # - directives_ordering  # Disabled for flexibility
     - empty_catches
     - empty_constructor_bodies
     - empty_statements

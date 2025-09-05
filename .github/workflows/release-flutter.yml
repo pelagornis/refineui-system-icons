@@ -61,7 +61,7 @@ jobs:
         run: |
           cd flutter
           flutter pub get
-          # Only run analysis, skip tests and ignore lint warnings
+          # Only run analysis, no tests
           flutter analyze --no-fatal-infos --no-fatal-warnings
 
       - name: Publish Flutter package to pub.dev
