@@ -113,6 +113,121 @@ push_release() {
     log_success "Git 태그 푸시 완료"
 }
 
+# GitHub API로 릴리즈 생성
+create_github_release() {
+    local version=$1
+    local github_token=$2
+    
+    if [ -z "$github_token" ]; then
+        log_warning "GitHub 토큰이 설정되지 않았습니다. 수동으로 릴리즈를 생성해주세요."
+        return 0
+    fi
+    
+    log_info "GitHub 릴리즈 생성 중... (v$version)"
+    
+    # 릴리즈 노트 생성
+    local release_notes=$(generate_release_notes "$version")
+    
+    # 릴리즈 생성
+    local release_response=$(curl -s -X POST \
+        -H "Authorization: token $github_token" \
+        -H "Accept: application/vnd.github.v3+json" \
+        "https://api.github.com/repos/$(git config --get remote.origin.url | sed 's/.*github.com[:/]\([^.]*\).*/\1/')/releases" \
+        -d "{
+            \"tag_name\": \"v$version\",
+            \"target_commitish\": \"main\",
+            \"name\": \"RefineUI System Icons v$version\",
+            \"body\": \"$release_notes\",
+            \"draft\": false,
+            \"prerelease\": false
+        }")
+    
+    # 릴리즈 생성 결과 확인
+    if echo "$release_response" | grep -q '"id"'; then
+        local release_id=$(echo "$release_response" | grep '"id"' | head -1 | sed 's/.*"id": \([0-9]*\).*/\1/')
+        log_success "GitHub 릴리즈 생성 완료 (ID: $release_id)"
+        
+        # 릴리즈 파일 업로드
+        upload_release_assets "$release_id" "$github_token"
+    else
+        log_error "GitHub 릴리즈 생성 실패"
+        echo "Response: $release_response"
+        return 1
+    fi
+}
+
+# 릴리즈 노트 생성
+generate_release_notes() {
+    local version=$1
+    
+    cat << EOF
+## 🎉 RefineUI System Icons v$version
+
+### 📦 NPM Packages
+\`\`\`bash
+npm install @refineui/react-icons@$version
+npm install @refineui/react-native-icons@$version
+npm install @refineui/web-icons@$version
+\`\`\`
+
+### 🍎 iOS
+\`\`\`ruby
+pod 'RefineIcons', '$version'
+\`\`\`
+
+### 🤖 Android
+\`\`\`gradle
+implementation 'com.pelagornis:library:$version'
+\`\`\`
+
+### 🦋 Flutter
+\`\`\`yaml
+dependencies:
+  refineui_system_icons: ^$version
+\`\`\`
+
+### 🌟 Features
+- **434+ icons** with multiple sizes and styles
+- **Cross-platform consistency** across all platforms
+- **TypeScript support** for web platforms
+- **Native integration** for mobile platforms
+- **Optimized performance** for each platform
+
+### 📁 Files
+Complete source code and distribution files for all platforms are attached below.
+EOF
+}
+
+# 릴리즈 파일 업로드
+upload_release_assets() {
+    local release_id=$1
+    local github_token=$2
+    
+    log_info "릴리즈 파일 업로드 중..."
+    
+    # 릴리즈 디렉토리의 ZIP 파일들을 업로드
+    if [ -d "release" ]; then
+        for zip_file in release/*.zip; do
+            if [ -f "$zip_file" ]; then
+                local filename=$(basename "$zip_file")
+                log_info "업로드 중: $filename"
+                
+                local upload_response=$(curl -s -X POST \
+                    -H "Authorization: token $github_token" \
+                    -H "Content-Type: application/zip" \
+                    --data-binary @"$zip_file" \
+                    "https://uploads.github.com/repos/$(git config --get remote.origin.url | sed 's/.*github.com[:/]\([^.]*\).*/\1/')/releases/$release_id/assets?name=$filename")
+                
+                if echo "$upload_response" | grep -q '"id"'; then
+                    log_success "업로드 완료: $filename"
+                else
+                    log_warning "업로드 실패: $filename"
+                fi
+            fi
+        done
+    fi
+}
+
 # 릴리즈 요약
 show_release_summary() {
     local version=$1
@@ -122,12 +237,19 @@ show_release_summary() {
     echo "=================="
     echo "📌 버전: v$version"
     echo "📁 릴리즈 파일: release/"
-    echo "🚀 GitHub Actions가 자동으로 실행됩니다"
+    
+    if [ -n "$GITHUB_TOKEN" ]; then
+        echo "✅ GitHub 릴리즈가 자동으로 생성되었습니다"
+        echo "🔗 https://github.com/$(git config --get remote.origin.url | sed 's/.*github.com[:/]\([^.]*\).*/\1/')/releases/tag/v$version"
+    else
+        echo "⚠️  GitHub 토큰이 없어 수동으로 릴리즈를 생성해주세요"
+        echo "🔗 https://github.com/$(git config --get remote.origin.url | sed 's/.*github.com[:/]\([^.]*\).*/\1/')/releases/new"
+    fi
+    
     echo
     echo "📋 다음 단계:"
     echo "1. GitHub에서 릴리즈 확인"
-    echo "2. 릴리즈 노트 작성"
-    echo "3. 각 플랫폼별 패키지 배포"
+    echo "2. 각 플랫폼별 패키지 배포 (npm publish 등)"
     echo
 }
 
@@ -145,9 +267,12 @@ main() {
         echo "  minor  - 새로운 기능 (1.0.0 -> 1.1.0)"
         echo "  major  - 주요 변경사항 (1.0.0 -> 2.0.0)"
         echo
+        echo "환경변수:"
+        echo "  GITHUB_TOKEN  - GitHub API 토큰 (자동 릴리즈 생성용)"
+        echo
         echo "예시:"
         echo "  $0 patch"
-        echo "  $0 minor"
+        echo "  GITHUB_TOKEN=your_token $0 minor"
         echo "  $0 major"
         exit 1
     fi
@@ -182,6 +307,14 @@ main() {
     
     # Git 푸시
     push_release "$new_version"
+    
+    # GitHub 릴리즈 생성 (토큰이 있는 경우)
+    if [ -n "$GITHUB_TOKEN" ]; then
+        create_github_release "$new_version" "$GITHUB_TOKEN"
+    else
+        log_warning "GITHUB_TOKEN 환경변수가 설정되지 않았습니다."
+        log_info "GitHub 토큰을 설정하려면: export GITHUB_TOKEN=your_token"
+    fi
     
     # 릴리즈 요약 표시
     show_release_summary "$new_version"
