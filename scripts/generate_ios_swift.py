@@ -118,7 +118,7 @@ extension Image {
     /// - Parameter icon: The icon to display
     /// - Returns: SwiftUI Image
     public init(refineIcon icon: RefineIcons) {
-        self.init(icon.resourceString, bundle: Bundle.module)
+        self.init(icon.resourceString)
     }
 }
 
@@ -131,7 +131,7 @@ extension UIImage {
     /// - Parameter icon: The icon to display
     /// - Returns: UIImage
     public convenience init?(refineIcon icon: RefineIcons) {
-        self.init(named: icon.resourceString, in: Bundle.module, compatibleWith: nil)
+        self.init(named: icon.resourceString)
     }
 }
 #endif
