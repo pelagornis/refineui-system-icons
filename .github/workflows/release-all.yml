@@ -3,7 +3,7 @@ name: Release All Platforms
 on:
   push:
     tags:
-      - "v*"
+      - "*"
 
 jobs:
   release-all:
@@ -32,7 +32,7 @@ jobs:
       - name: Get version
         id: get_version
         run: |
-          VERSION=${GITHUB_REF#refs/tags/v}
+          VERSION=${GITHUB_REF#refs/tags/}
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "Version: $VERSION"
 
