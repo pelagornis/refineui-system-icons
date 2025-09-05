@@ -40,15 +40,18 @@ jobs:
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "Version: $VERSION"
 
-      - name: Update iOS Podspec version
+      - name: Update iOS versions
         run: |
-          sed -i '' "s/s\.version.*=.*'.*'/s.version = '${{ steps.get_version.outputs.version }}'/" RefineIcons.podspec
-          echo "Updated RefineIcons.podspec to version ${{ steps.get_version.outputs.version }}"
+          # Update root package.json
+          npm version ${{ steps.get_version.outputs.version }} --no-git-tag-version
 
-      - name: Update Package.swift version
-        run: |
+          # Update iOS Podspec version
+          sed -i '' "s/s\.version.*=.*'.*'/s.version = '${{ steps.get_version.outputs.version }}'/" RefineIcons.podspec
+
+          # Update iOS Package.swift version
           sed -i '' "s/version:.*/version: \"${{ steps.get_version.outputs.version }}\"/" Package.swift
-          echo "Updated Package.swift to version ${{ steps.get_version.outputs.version }}"
+
+          echo "Updated iOS versions to ${{ steps.get_version.outputs.version }}"
 
       - name: Build iOS platform
         run: |

@@ -39,10 +39,17 @@ jobs:
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "Version: $VERSION"
 
-      - name: Update package.json version
+      - name: Update package versions
         run: |
+          # Update root package.json
           npm version ${{ steps.get_version.outputs.version }} --no-git-tag-version
-          echo "Updated package.json to version ${{ steps.get_version.outputs.version }}"
+
+          # Update web package versions
+          cd packages/react-icons && npm version ${{ steps.get_version.outputs.version }} --no-git-tag-version
+          cd ../web-icons && npm version ${{ steps.get_version.outputs.version }} --no-git-tag-version
+          cd ../..
+
+          echo "Updated all web package versions to ${{ steps.get_version.outputs.version }}"
 
       - name: Build web platform
         run: |

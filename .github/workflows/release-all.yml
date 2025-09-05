@@ -48,11 +48,21 @@ jobs:
 
       - name: Update all platform versions
         run: |
-          # Update package.json
+          # Update root package.json
           npm version ${{ steps.get_version.outputs.version }} --no-git-tag-version
+
+          # Update individual package versions
+          cd packages/react-icons && npm version ${{ steps.get_version.outputs.version }} --no-git-tag-version
+          cd ../react-native-icons && npm version ${{ steps.get_version.outputs.version }} --no-git-tag-version
+          cd ../web-icons && npm version ${{ steps.get_version.outputs.version }} --no-git-tag-version
+          cd ../icon-cdn && npm version ${{ steps.get_version.outputs.version }} --no-git-tag-version
+          cd ../..
 
           # Update iOS Podspec
           sed -i "s/s\.version.*=.*'.*'/s.version = '${{ steps.get_version.outputs.version }}'/" RefineIcons.podspec
+
+          # Update iOS Package.swift
+          sed -i "s/version:.*/version: \"${{ steps.get_version.outputs.version }}\"/" Package.swift
 
           # Update Flutter pubspec.yaml
           sed -i "s/version:.*/version: ${{ steps.get_version.outputs.version }}/" flutter/pubspec.yaml

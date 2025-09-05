@@ -46,10 +46,15 @@ jobs:
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "Version: $VERSION"
 
-      - name: Update Flutter pubspec.yaml version
+      - name: Update Flutter version
         run: |
+          # Update root package.json
+          npm version ${{ steps.get_version.outputs.version }} --no-git-tag-version
+
+          # Update Flutter pubspec.yaml version
           sed -i "s/version:.*/version: ${{ steps.get_version.outputs.version }}/" flutter/pubspec.yaml
-          echo "Updated Flutter pubspec.yaml to version ${{ steps.get_version.outputs.version }}"
+
+          echo "Updated Flutter version to ${{ steps.get_version.outputs.version }}"
 
       - name: Build Flutter platform
         run: |
