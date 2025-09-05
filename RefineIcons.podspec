@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
     s.license          = { :type => 'Pelagornis', :file => 'LICENSE' }
     s.author           = { 'Pelagornis, Inc.' => 'official@pelagornis.com' }
     s.source           = { :git => 'https://github.com/pelagornis/refineui-system-icons.git', :tag => s.version.to_s }
-    s.swift_version = "5.9"
+    s.swift_version = "5.10"
 
     s.ios.deployment_target = '13.0'
     s.osx.deployment_target  = '12'
