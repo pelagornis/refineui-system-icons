@@ -77,11 +77,6 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.get_version.outputs.version }}
-          files: |
-            flutter/lib/refineui_system_icons.dart
-            flutter/lib/src/**
-            flutter/lib/fonts/**
-            flutter/pubspec.yaml
           body: |
             ## 🎉 Flutter Platform Release ${{ steps.get_version.outputs.version }}
 

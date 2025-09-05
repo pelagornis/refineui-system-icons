@@ -67,13 +67,23 @@ jobs:
 
       - name: Create comprehensive release
         if: startsWith(github.ref, 'refs/tags/')
+        run: |
+          mkdir -p fonts_archive
+          cp fonts/*.ttf fonts_archive/ 2>/dev/null || true
+          cp fonts/*.otf fonts_archive/ 2>/dev/null || true
+          cp fonts/*.woff2 fonts_archive/ 2>/dev/null || true
+          cp fonts/*.css fonts_archive/ 2>/dev/null || true
+          cp fonts/icon-mapping.json fonts_archive/ 2>/dev/null || true
+          zip -r refineui-system-icons-fonts.zip fonts_archive/
+          echo "Font archive created: refineui-system-icons-fonts.zip"
+
+      - name: Create Complete Release
+        if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.get_version.outputs.version }}
           files: |
-            fonts/*.woff2
-            fonts/*.css
-            fonts/icon-mapping.json
+            refineui-system-icons-fonts.zip
           body: |
             ## 🎉 Complete Platform Release ${{ steps.get_version.outputs.version }}
 

@@ -61,12 +61,6 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.get_version.outputs.version }}
-          files: |
-            ios/RefineIcons/Sources/RefineIcons.swift
-            ios/RefineIcons/Sources/RefineIcons+Extensions.swift
-            ios/RefineIcons/Package.swift
-            ios/RefineIcons/README.md
-            Package.swift
           body: |
             ## 🎉 iOS Platform Release ${{ steps.get_version.outputs.version }}
 
