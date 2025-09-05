@@ -69,8 +69,11 @@ jobs:
         with:
           tag_name: ${{ steps.get_version.outputs.version }}
           files: |
-            android/library/**
-            android/app/**
+            android/library/build.gradle
+            android/library/build.gradle.kts
+            android/library/src/main/java/**
+            android/library/README.md
+            android/app/build.gradle.kts
           body: |
             ## 🎉 Android Platform Release ${{ steps.get_version.outputs.version }}
 

@@ -65,19 +65,21 @@ jobs:
         with:
           tag_name: ${{ steps.get_version.outputs.version }}
           files: |
-            ios/RefineIcons/**
+            ios/RefineIcons/Sources/RefineIcons.swift
+            ios/RefineIcons/Sources/RefineIcons+Extensions.swift
+            ios/RefineIcons/Package.swift
+            ios/RefineIcons/README.md
             RefineIcons.podspec
             Package.swift
           body: |
             ## 🎉 iOS Platform Release ${{ steps.get_version.outputs.version }}
 
             ### 📦 Installation
-            ```ruby
-            # CocoaPods
-            pod 'RefineIcons', '${{ steps.get_version.outputs.version }}'
 
-            # Swift Package Manager
-            .package(url: "https://github.com/refineui/system-icons.git", from: "${{ steps.get_version.outputs.version }}")
+            #### Swift Package Manager
+            ```swift
+            // Package.swift
+            .package(url: "https://github.com/pelagornis/refineui-system-icons.git", from: "${{ steps.get_version.outputs.version }}")
             ```
 
             ### 🍎 Features
@@ -88,6 +90,10 @@ jobs:
             - Optimized for iOS performance
 
             ### 📁 Files
-            iOS source code, Podspec, and Package.swift files are attached below.
+            iOS source code and Package.swift files are attached below.
+
+            ### 🚀 Publishing Status
+            - ✅ Swift Package Manager: Available
+            - ✅ GitHub Release: Created
         env:
           GITHUB_TOKEN: ${{ secrets.PELAGORNIS }}
