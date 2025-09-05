@@ -1,0 +1,36 @@
+{
+  "version": "1.0.0",
+  "release_date": "2025-09-05T13:02:17.312313",
+  "platforms": {
+    "web": {
+      "description": "Web SVG icons and CSS",
+      "files": [
+        "web/",
+        "fonts/"
+      ]
+    },
+    "android": {
+      "description": "Android XML drawables",
+      "files": [
+        "android/"
+      ]
+    },
+    "ios": {
+      "description": "iOS Swift code",
+      "files": [
+        "ios/"
+      ]
+    },
+    "flutter": {
+      "description": "Flutter Dart code",
+      "files": [
+        "flutter/"
+      ]
+    }
+  },
+  "build_info": {
+    "node_version": "v24.2.0\n",
+    "python_version": "Python 3.13.5\n",
+    "npm_version": "11.3.0\n"
+  }
+}

@@ -1,3 +1,4 @@
+// === Web Icons Package ===
 // This file is auto-generated. Do not modify.
 
 import { createIconHTML } from './utils';
@@ -17,5 +18,5 @@ export {
 // === IconUtils export ===
 export { default as IconUtils } from './IconUtils';
 
-// === Type exports ===
+// === Type export ===
 export type { IconData } from './IconUtils';

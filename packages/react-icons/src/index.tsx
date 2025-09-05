@@ -15,7 +15,7 @@ export {
 // === IconUtils export ===
 export { default as IconUtils } from './IconUtils';
 
-// === Type exports ===
+// === Type export ===
 export type { IconData } from './IconUtils';
 
 // === IconProps interface export ===

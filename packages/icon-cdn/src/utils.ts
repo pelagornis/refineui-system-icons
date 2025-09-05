@@ -23,7 +23,7 @@ export const getFontUrl = (style: 'regular' | 'filled' = 'regular') => {
 };
 export const getCDNBaseUrl = () => CDN_BASE_URL;
 
-// === Functions needed in build.ts ===
+// === Functions needed for build.ts ===
 export const mapIconName = (iconDir: string): string => {
   // Convert folder name to icon name
   return iconDir.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
@@ -36,7 +36,7 @@ export const generateSampleSVG = (iconName: string, size: number, style: string)
 </svg>`;
 };
 
-// === Functions needed in cdn.ts ===
+// === Functions needed for cdn.ts ===
 export const isValidIconSize = (size: number): boolean => {
   return [16, 20, 24, 28, 32, 48].includes(size);
 };
