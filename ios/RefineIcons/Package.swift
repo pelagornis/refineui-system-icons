@@ -1,11 +1,11 @@
-// swift-tools-version: 5.9
+// swift-tools-version: 5.7
 import PackageDescription
 
 let package = Package(
     name: "RefineIcons",
     platforms: [
         .iOS(.v13),
-        .macOS(.v12)
+        .macOS(.v10_15)
     ],
     products: [
         .library(
@@ -16,6 +16,7 @@ let package = Package(
     targets: [
         .target(
             name: "RefineIcons",
+            path: "Sources",
             resources: [
                 .process("Resources")
             ]
