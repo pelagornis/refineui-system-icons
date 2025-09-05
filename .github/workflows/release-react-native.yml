@@ -4,12 +4,6 @@ on:
   push:
     tags:
       - "v*"
-  workflow_dispatch:
-    inputs:
-      version:
-        description: "Release version"
-        required: true
-        default: "1.0.0"
 
 jobs:
   release-react-native:
@@ -31,11 +25,7 @@ jobs:
       - name: Get version
         id: get_version
         run: |
-          if [[ $GITHUB_REF == refs/tags/* ]]; then
-            VERSION=${GITHUB_REF#refs/tags/v}
-          else
-            VERSION=${{ github.event.inputs.version }}
-          fi
+          VERSION=${GITHUB_REF#refs/tags/v}
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "Version: $VERSION"
 
