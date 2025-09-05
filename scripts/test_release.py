@@ -82,14 +82,22 @@ def test_npm_scripts():
 def test_github_workflow():
     """GitHub Actions 워크플로우 파일이 존재하는지 테스트합니다."""
     workflow_paths = [
-        Path(".github/workflows/release-all-platforms.yml"),
-        Path(".github/workflows/release-and-publish.yml")
+        Path(".github/workflows/release-web.yml"),
+        Path(".github/workflows/release-react-native.yml"),
+        Path(".github/workflows/release-ios.yml"),
+        Path(".github/workflows/release-android.yml"),
+        Path(".github/workflows/release-flutter.yml"),
+        Path(".github/workflows/release-all.yml")
     ]
     
+    found_workflows = []
     for workflow_path in workflow_paths:
         if workflow_path.exists():
-            print(f"✅ GitHub Actions 워크플로우 존재: {workflow_path.name}")
-            return True
+            found_workflows.append(workflow_path.name)
+    
+    if found_workflows:
+        print(f"✅ GitHub Actions 워크플로우 존재: {', '.join(found_workflows)}")
+        return True
     
     print("❌ GitHub Actions 워크플로우 없음")
     return False

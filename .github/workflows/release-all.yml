@@ -1,0 +1,118 @@
+name: Release All Platforms
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Release version"
+        required: true
+        default: "1.0.0"
+
+jobs:
+  release-all:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          npm ci
+          pip install -r requirements.txt
+
+      - name: Get version
+        id: get_version
+        run: |
+          if [[ $GITHUB_REF == refs/tags/* ]]; then
+            VERSION=${GITHUB_REF#refs/tags/v}
+          else
+            VERSION=${{ github.event.inputs.version }}
+          fi
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Version: $VERSION"
+
+      - name: Update all platform versions
+        run: |
+          # Update package.json
+          npm version ${{ steps.get_version.outputs.version }} --no-git-tag-version
+
+          # Update iOS Podspec
+          sed -i "s/s\.version.*=.*'.*'/s.version = '${{ steps.get_version.outputs.version }}'/" RefineIcons.podspec
+
+          # Update Flutter pubspec.yaml
+          sed -i "s/version:.*/version: ${{ steps.get_version.outputs.version }}/" flutter/pubspec.yaml
+
+          # Update Android build.gradle.kts
+          sed -i "s/versionName = \".*\"/versionName = \"${{ steps.get_version.outputs.version }}\"/" android/library/build.gradle.kts
+
+          echo "All platform versions updated to ${{ steps.get_version.outputs.version }}"
+
+      - name: Build all platforms
+        run: |
+          python3 scripts/release_all_platforms.py
+
+      - name: Create comprehensive release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            release/**
+            packages/*/dist/**
+            ios/RefineIcons/**
+            android/library/**
+            flutter/lib/**
+            RefineIcons.podspec
+            Package.swift
+            flutter/pubspec.yaml
+          body: |
+            ## 🎉 Complete Platform Release ${{ steps.get_version.outputs.version }}
+
+            ### 📦 NPM Packages
+            ```bash
+            npm install @refineui/react-icons
+            npm install @refineui/react-native-icons
+            npm install @refineui/web-icons
+            ```
+
+            ### 🍎 iOS
+            ```ruby
+            pod 'RefineIcons'
+            ```
+
+            ### 🤖 Android
+            ```gradle
+            implementation 'com.pelagornis:library:latest.release'
+            ```
+
+            ### 🦋 Flutter
+            ```yaml
+            dependencies:
+              refineui_system_icons: ^${{ steps.get_version.outputs.version }}
+            ```
+
+            ### 🌟 Features
+            - **434+ icons** with multiple sizes and styles
+            - **Cross-platform consistency** across all platforms
+            - **TypeScript support** for web platforms
+            - **Native integration** for mobile platforms
+            - **Optimized performance** for each platform
+
+            ### 📁 Files
+            Complete source code and distribution files for all platforms are attached below.
+        env:
+          GITHUB_TOKEN: ${{ secrets.PELAGORNIS }}

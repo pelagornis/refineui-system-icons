@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 RefineUI System Icons - All Platforms Release Script
-모든 플랫폼의 아이콘을 빌드하고 릴리즈하는 스크립트
+Build and release icons for all platforms
 """
 
 import os
@@ -12,13 +12,13 @@ import shutil
 from datetime import datetime
 from pathlib import Path
 
-# 프로젝트 루트 디렉토리
+# Project root directory
 ROOT_DIR = Path(__file__).parent.parent
 BUILD_DIR = ROOT_DIR / "build"
 RELEASE_DIR = ROOT_DIR / "release"
 
 def run_command(command, cwd=None):
-    """명령어를 실행하고 결과를 반환합니다."""
+    """Execute command and return result."""
     try:
         result = subprocess.run(
             command,
@@ -31,74 +31,74 @@ def run_command(command, cwd=None):
         print(f"✅ {command}")
         return result.stdout
     except subprocess.CalledProcessError as e:
-        print(f"❌ {command} 실패: {e}")
-        print(f"에러 출력: {e.stderr}")
+        print(f"❌ {command} failed: {e}")
+        print(f"Error output: {e.stderr}")
         return None
 
 def clean_directories():
-    """빌드 및 릴리즈 디렉토리를 정리합니다."""
-    print("🧹 빌드 및 릴리즈 디렉토리 정리 중...")
+    """Clean build and release directories."""
+    print("🧹 Cleaning build and release directories...")
     
     for dir_path in [BUILD_DIR, RELEASE_DIR]:
         if dir_path.exists():
             shutil.rmtree(dir_path)
         dir_path.mkdir(exist_ok=True)
-        print(f"✅ {dir_path} 정리 완료")
+        print(f"✅ {dir_path} cleaned")
 
 def install_dependencies():
-    """필요한 의존성을 설치합니다."""
-    print("📦 의존성 설치 중...")
+    """Install required dependencies."""
+    print("📦 Installing dependencies...")
     
-    # Python 의존성 설치
+    # Install Python dependencies
     if Path("requirements.txt").exists():
         run_command("pip install -r requirements.txt")
     
-    # Node.js 의존성 설치
+    # Install Node.js dependencies
     if Path("package.json").exists():
         run_command("npm install")
     
-    print("✅ 의존성 설치 완료")
+    print("✅ Dependencies installed")
 
 def build_all_platforms():
-    """모든 플랫폼의 아이콘을 빌드합니다."""
-    print("🔨 모든 플랫폼 빌드 중...")
+    """Build icons for all platforms."""
+    print("🔨 Building all platforms...")
     
-    # 메타데이터 생성
-    print("📋 메타데이터 생성 중...")
+    # Generate metadata
+    print("📋 Generating metadata...")
     run_command("npm run generate:metadata")
     
-    # 웹 아이콘 생성
-    print("🌐 웹 아이콘 생성 중...")
+    # Generate web icons
+    print("🌐 Generating web icons...")
     run_command("npm run generate:web-icons")
     
-    # Android XML 생성
-    print("🤖 Android XML 생성 중...")
+    # Generate Android XML
+    print("🤖 Generating Android XML...")
     run_command("npm run generate:android")
     
-    # iOS Swift 생성
-    print("🍎 iOS Swift 생성 중...")
+    # Generate iOS Swift
+    print("🍎 Generating iOS Swift...")
     run_command("npm run generate:ios")
     
-    # Flutter Dart 생성
-    print("🦋 Flutter Dart 생성 중...")
+    # Generate Flutter Dart
+    print("🦋 Generating Flutter Dart...")
     run_command("npm run generate:flutter")
     
-    # 폰트 생성
-    print("🔤 폰트 생성 중...")
+    # Generate fonts
+    print("🔤 Generating fonts...")
     run_command("npm run generate:fonts")
     run_command("npm run build:fonts")
     
-    # 모든 플랫폼 빌드
-    print("🚀 모든 플랫폼 빌드 중...")
+    # Build all platforms
+    print("🚀 Building all platforms...")
     run_command("npm run build:all")
     
-    print("✅ 모든 플랫폼 빌드 완료")
+    print("✅ All platforms built successfully")
 
 def create_release_packages():
-    """릴리즈 패키지를 생성합니다."""
-    print("📦 릴리즈 패키지 생성 중...")
+    """Create release packages."""
+    print("📦 Creating release packages...")
     
-    # 빌드된 파일들을 릴리즈 디렉토리로 복사
+    # Copy built files to release directory
     if BUILD_DIR.exists():
         for item in BUILD_DIR.iterdir():
             if item.is_dir():
@@ -106,7 +106,7 @@ def create_release_packages():
             else:
                 shutil.copy2(item, RELEASE_DIR)
     
-    # 플랫폼별 패키지 생성
+    # Create platform-specific packages
     platforms = {
         "web": ["web", "fonts"],
         "android": ["android"],
@@ -124,50 +124,50 @@ def create_release_packages():
             if source_dir.exists():
                 shutil.copytree(source_dir, platform_dir / dir_name)
         
-        # README 파일 생성
+        # Create README file
         readme_content = f"""# RefineUI System Icons - {platform.upper()}
 
-이 패키지는 RefineUI System Icons의 {platform} 플랫폼용 파일들을 포함합니다.
+This package contains RefineUI System Icons files for {platform} platform.
 
-## 포함된 파일들
+## Included Files
 {chr(10).join(f"- {dir_name}/" for dir_name in dirs)}
 
-## 설치 및 사용법
-자세한 내용은 메인 README.md를 참조하세요.
+## Installation and Usage
+For detailed information, see the main README.md.
 
-## 라이선스
+## License
 MIT License
 """
         
         with open(platform_dir / "README.md", "w", encoding="utf-8") as f:
             f.write(readme_content)
         
-        # ZIP 파일 생성
+        # Create ZIP file
         shutil.make_archive(str(platform_dir), 'zip', platform_dir.parent, platform_dir.name)
-        print(f"✅ {platform} 패키지 생성 완료")
+        print(f"✅ {platform} package created")
 
 def create_release_manifest():
-    """릴리즈 매니페스트 파일을 생성합니다."""
-    print("📝 릴리즈 매니페스트 생성 중...")
+    """Create release manifest file."""
+    print("📝 Creating release manifest...")
     
     manifest = {
         "version": "1.0.0",
         "release_date": datetime.now().isoformat(),
         "platforms": {
             "web": {
-                "description": "웹용 SVG 아이콘 및 CSS",
+                "description": "Web SVG icons and CSS",
                 "files": ["web/", "fonts/"]
             },
             "android": {
-                "description": "Android XML 드로어블",
+                "description": "Android XML drawables",
                 "files": ["android/"]
             },
             "ios": {
-                "description": "iOS Swift 코드",
+                "description": "iOS Swift code",
                 "files": ["ios/"]
             },
             "flutter": {
-                "description": "Flutter Dart 코드",
+                "description": "Flutter Dart code",
                 "files": ["flutter/"]
             }
         },
@@ -182,35 +182,35 @@ def create_release_manifest():
     with open(manifest_path, "w", encoding="utf-8") as f:
         json.dump(manifest, f, indent=2, ensure_ascii=False)
     
-    print("✅ 릴리즈 매니페스트 생성 완료")
+    print("✅ Release manifest created")
 
 def main():
-    """메인 실행 함수"""
-    print("🚀 RefineUI System Icons - 전체 플랫폼 릴리즈 시작")
+    """Main execution function"""
+    print("🚀 RefineUI System Icons - All Platforms Release Started")
     print("=" * 60)
     
     try:
-        # 1. 디렉토리 정리
+        # 1. Clean directories
         clean_directories()
         
-        # 2. 의존성 설치
+        # 2. Install dependencies
         install_dependencies()
         
-        # 3. 모든 플랫폼 빌드
+        # 3. Build all platforms
         build_all_platforms()
         
-        # 4. 릴리즈 패키지 생성
+        # 4. Create release packages
         create_release_packages()
         
-        # 5. 릴리즈 매니페스트 생성
+        # 5. Create release manifest
         create_release_manifest()
         
         print("=" * 60)
-        print("🎉 모든 플랫폼 릴리즈 완료!")
-        print(f"📁 릴리즈 파일 위치: {RELEASE_DIR}")
+        print("🎉 All platforms release completed!")
+        print(f"📁 Release files location: {RELEASE_DIR}")
         
-        # 생성된 파일들 목록 출력
-        print("\n📋 생성된 릴리즈 파일들:")
+        # List generated files
+        print("\n📋 Generated release files:")
         for item in RELEASE_DIR.iterdir():
             if item.is_file():
                 size = item.stat().st_size / 1024  # KB
@@ -219,7 +219,7 @@ def main():
                 print(f"  📁 {item.name}/")
         
     except Exception as e:
-        print(f"❌ 릴리즈 실패: {e}")
+        print(f"❌ Release failed: {e}")
         sys.exit(1)
 
 if __name__ == "__main__":
