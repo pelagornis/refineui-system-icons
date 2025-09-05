@@ -205,27 +205,44 @@ upload_release_assets() {
     
     log_info "릴리즈 파일 업로드 중..."
     
-    # 릴리즈 디렉토리의 ZIP 파일들을 업로드
-    if [ -d "release" ]; then
-        for zip_file in release/*.zip; do
-            if [ -f "$zip_file" ]; then
-                local filename=$(basename "$zip_file")
-                log_info "업로드 중: $filename"
-                
-                local upload_response=$(curl -s -X POST \
-                    -H "Authorization: token $github_token" \
-                    -H "Content-Type: application/zip" \
-                    --data-binary @"$zip_file" \
-                    "https://uploads.github.com/repos/$(git config --get remote.origin.url | sed 's/.*github.com[:/]\([^.]*\).*/\1/')/releases/$release_id/assets?name=$filename")
-                
-                if echo "$upload_response" | grep -q '"id"'; then
-                    log_success "업로드 완료: $filename"
-                else
-                    log_warning "업로드 실패: $filename"
-                fi
+    # 빌드된 파일들을 업로드
+    local files_to_upload=(
+        "packages/react-icons/dist"
+        "packages/react-native-icons/dist"
+        "packages/web-icons/dist"
+        "ios/RefineIcons"
+        "android/library"
+        "flutter/lib"
+        "RefineIcons.podspec"
+        "Package.swift"
+        "flutter/pubspec.yaml"
+    )
+    
+    for file_path in "${files_to_upload[@]}"; do
+        if [ -e "$file_path" ]; then
+            local filename=$(basename "$file_path")
+            log_info "업로드 중: $filename"
+            
+            # 파일을 tar.gz로 압축
+            local archive_name="${filename}.tar.gz"
+            tar -czf "$archive_name" "$file_path" 2>/dev/null || continue
+            
+            local upload_response=$(curl -s -X POST \
+                -H "Authorization: token $github_token" \
+                -H "Content-Type: application/gzip" \
+                --data-binary @"$archive_name" \
+                "https://uploads.github.com/repos/$(git config --get remote.origin.url | sed 's/.*github.com[:/]\([^.]*\).*/\1/')/releases/$release_id/assets?name=$archive_name")
+            
+            if echo "$upload_response" | grep -q '"id"'; then
+                log_success "업로드 완료: $archive_name"
+            else
+                log_warning "업로드 실패: $archive_name"
             fi
-        done
-    fi
+            
+            # 임시 파일 삭제
+            rm -f "$archive_name"
+        fi
+    done
 }
 
 # 릴리즈 요약
@@ -236,7 +253,7 @@ show_release_summary() {
     echo "🎉 릴리즈 완료!"
     echo "=================="
     echo "📌 버전: v$version"
-    echo "📁 릴리즈 파일: release/"
+    echo "📁 빌드된 파일들이 GitHub 릴리즈에 업로드됩니다"
     
     if [ -n "$GITHUB_TOKEN" ]; then
         echo "✅ GitHub 릴리즈가 자동으로 생성되었습니다"

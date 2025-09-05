@@ -158,52 +158,23 @@ def create_release_packages():
             else:
                 shutil.copy2(item, RELEASE_DIR)
     
-    # Create platform-specific packages
-    platforms = {
-        "web": ["web", "fonts"],
-        "android": ["android"],
-        "ios": ["ios"],
-        "flutter": ["flutter"],
-        "all": ["web", "fonts", "android", "ios", "flutter"]
-    }
-    
-    for platform, dirs in platforms.items():
-        platform_dir = RELEASE_DIR / f"refineui-icons-{platform}"
-        platform_dir.mkdir(exist_ok=True)
-        
-        for dir_name in dirs:
-            source_dir = RELEASE_DIR / dir_name
-            if source_dir.exists():
-                shutil.copytree(source_dir, platform_dir / dir_name)
-        
-        # Create README file
-        readme_content = f"""# RefineUI System Icons - {platform.upper()}
-
-This package contains RefineUI System Icons files for {platform} platform.
-
-## Included Files
-{chr(10).join(f"- {dir_name}/" for dir_name in dirs)}
-
-## Installation and Usage
-For detailed information, see the main README.md.
-
-## License
-MIT License
-"""
-        
-        with open(platform_dir / "README.md", "w", encoding="utf-8") as f:
-            f.write(readme_content)
-        
-        # Create ZIP file
-        shutil.make_archive(str(platform_dir), 'zip', platform_dir.parent, platform_dir.name)
-        print(f"✅ {platform} package created")
+    print("✅ Release packages created")
 
 def create_release_manifest():
     """Create release manifest file."""
     print("📝 Creating release manifest...")
     
+    # Get current version from package.json
+    package_json_path = ROOT_DIR / "package.json"
+    if package_json_path.exists():
+        with open(package_json_path, "r", encoding="utf-8") as f:
+            package_data = json.load(f)
+            current_version = package_data.get("version", "0.1.2")
+    else:
+        current_version = "0.1.2"
+    
     manifest = {
-        "version": "1.0.0",
+        "version": current_version,
         "release_date": datetime.now().isoformat(),
         "platforms": {
             "web": {
