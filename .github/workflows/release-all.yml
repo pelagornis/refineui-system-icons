@@ -71,6 +71,7 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
         with:
+          tag_name: ${{ steps.get_version.outputs.version }}
           files: |
             packages/*/dist/**
             ios/RefineIcons/**
@@ -84,19 +85,19 @@ jobs:
 
             ### 📦 NPM Packages
             ```bash
-            npm install @refineui/react-icons
-            npm install @refineui/react-native-icons
-            npm install @refineui/web-icons
+            npm install @refineui/react-icons@${{ steps.get_version.outputs.version }}
+            npm install @refineui/react-native-icons@${{ steps.get_version.outputs.version }}
+            npm install @refineui/web-icons@${{ steps.get_version.outputs.version }}
             ```
 
             ### 🍎 iOS
             ```ruby
-            pod 'RefineIcons'
+            pod 'RefineIcons', '${{ steps.get_version.outputs.version }}'
             ```
 
             ### 🤖 Android
             ```gradle
-            implementation 'com.pelagornis:library:latest.release'
+            implementation 'com.pelagornis:library:${{ steps.get_version.outputs.version }}'
             ```
 
             ### 🦋 Flutter
