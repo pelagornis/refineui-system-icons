@@ -205,14 +205,9 @@ upload_release_assets() {
     
     log_info "릴리즈 파일 업로드 중..."
     
-    # 빌드된 파일들을 업로드
+    # 폰트 파일들과 설정 파일들을 업로드
     local files_to_upload=(
-        "packages/react-icons/dist"
-        "packages/react-native-icons/dist"
-        "packages/web-icons/dist"
-        "ios/RefineIcons"
-        "android/library"
-        "flutter/lib"
+        "fonts"
         "RefineIcons.podspec"
         "Package.swift"
         "flutter/pubspec.yaml"

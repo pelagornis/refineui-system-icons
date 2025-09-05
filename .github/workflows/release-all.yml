@@ -73,10 +73,9 @@ jobs:
         with:
           tag_name: ${{ steps.get_version.outputs.version }}
           files: |
-            packages/*/dist/**
-            ios/RefineIcons/**
-            android/library/**
-            flutter/lib/**
+            fonts/*.woff2
+            fonts/*.css
+            fonts/icon-mapping.json
             RefineIcons.podspec
             Package.swift
             flutter/pubspec.yaml
@@ -114,6 +113,19 @@ jobs:
             - **Optimized performance** for each platform
 
             ### 📁 Files
-            Complete source code and distribution files for all platforms are attached below.
+            - **Font files** (`.woff2`, `.css`) - Direct font usage
+            - **Icon mapping** (`icon-mapping.json`) - Complete icon metadata
+            - **Platform packages** - iOS, Flutter configuration files
+
+            ### 🔤 Direct Font Usage
+            ```html
+            <link rel="stylesheet" href="refineui-system-icons-regular.css">
+            <link rel="stylesheet" href="refineui-system-icons-filled.css">
+            ```
+
+            ```css
+            .icon-regular::before { font-family: 'RefineUI-System-Icons-Regular'; }
+            .icon-filled::before { font-family: 'RefineUI-System-Icons-Filled'; }
+            ```
         env:
           GITHUB_TOKEN: ${{ secrets.PELAGORNIS }}
