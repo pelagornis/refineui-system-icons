@@ -111,7 +111,6 @@ def generate_extensions_swift(sources_dir: Path):
     """Generates RefineIcons+Extensions.swift file."""
     
     swift_content = """import SwiftUI
-import UIKit
 
 // MARK: - SwiftUI Extensions
 extension Image {
