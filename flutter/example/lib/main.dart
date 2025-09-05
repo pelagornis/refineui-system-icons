@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/foundation.dart';
-import 'package:refineui_system_icons/refineui_system_icons.dart';
 import 'sample_icons.dart';
 
 void main() {

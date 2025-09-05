@@ -1,30 +1,39 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:refineui_system_icons/refineui_system_icons.dart';
 
-import 'package:example/main.dart';
+import '../lib/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+  testWidgets('RefineUI Icons app smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(const MyApp());
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    // Verify that the app title is displayed
+    expect(find.text('RefineUI System Icons Example'), findsOneWidget);
+    
+    // Verify that search field is present
+    expect(find.byType(TextField), findsOneWidget);
+    
+    // Verify that icons are displayed (should show some icons)
+    expect(find.byType(Icon), findsWidgets);
+  });
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
+  testWidgets('RefineUI Icons basic functionality test', (WidgetTester tester) async {
+    // Build our app and trigger a frame.
+    await tester.pumpWidget(const MyApp());
+
+    // Wait for icons to load
+    await tester.pumpAndSettle();
+
+    // Verify that we have some icons displayed
+    expect(find.byType(Icon), findsWidgets);
+    
+    // Test search functionality
+    await tester.enterText(find.byType(TextField), 'home');
     await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    
+    // Should still have icons after search
+    expect(find.byType(Icon), findsWidgets);
   });
 }

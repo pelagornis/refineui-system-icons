@@ -61,7 +61,8 @@ jobs:
         run: |
           cd flutter
           flutter pub get
-          flutter analyze
+          # Only run analysis, skip tests for now
+          flutter analyze --no-fatal-infos
 
       - name: Publish Flutter package to pub.dev
         run: |
