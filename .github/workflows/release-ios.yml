@@ -51,8 +51,13 @@ jobs:
 
       - name: Validate iOS package
         run: |
+          ulimit -n 65536
+          echo "File descriptor limit increased to $(ulimit -n)"
+
           cd ios/RefineIcons
-          xcodebuild -scheme RefineIcons -destination 'platform=iOS Simulator,name=iPhone 16' build
+
+          swift package resolve
+          swift build
 
       - name: Create iOS Release
         if: startsWith(github.ref, 'refs/tags/')
