@@ -75,6 +75,7 @@ interface MyComponentProps {
   iconName: IconProps["name"];
   iconSize?: IconProps["size"];
   iconColor?: IconProps["color"];
+  iconStyle?: IconProps["iconStyle"];
 }
 
 function MyComponent({ iconName, iconSize = 24, iconColor }: MyComponentProps) {

@@ -9,6 +9,7 @@ import sys
 import json
 import subprocess
 import shutil
+import re
 from datetime import datetime
 from pathlib import Path
 
@@ -44,6 +45,57 @@ def clean_directories():
             shutil.rmtree(dir_path)
         dir_path.mkdir(exist_ok=True)
         print(f"✅ {dir_path} cleaned")
+
+def update_versions(version):
+    """Update version numbers across all platform files."""
+    print(f"📝 Updating versions to {version}...")
+    
+    # Update root package.json
+    if (ROOT_DIR / "package.json").exists():
+        run_command(f"npm version {version} --no-git-tag-version")
+    
+    # Update individual package versions
+    package_dirs = [
+        "packages/react-icons",
+        "packages/react-native-icons", 
+        "packages/web-icons",
+        "packages/icon-cdn"
+    ]
+    
+    for package_dir in package_dirs:
+        package_path = ROOT_DIR / package_dir
+        if (package_path / "package.json").exists():
+            run_command(f"npm version {version} --no-git-tag-version", cwd=package_path)
+    
+    # Update iOS Podspec
+    podspec_path = ROOT_DIR / "RefineIcons.podspec"
+    if podspec_path.exists():
+        content = podspec_path.read_text()
+        content = re.sub(r"s\.version\s*=\s*['\"][^'\"]*['\"]", f's.version = \'{version}\'', content)
+        podspec_path.write_text(content)
+    
+    # Update iOS Package.swift
+    package_swift_path = ROOT_DIR / "Package.swift"
+    if package_swift_path.exists():
+        content = package_swift_path.read_text()
+        content = re.sub(r'version:\s*["\'][^"\']*["\']', f'version: "{version}"', content)
+        package_swift_path.write_text(content)
+    
+    # Update Flutter pubspec.yaml
+    pubspec_path = ROOT_DIR / "flutter" / "pubspec.yaml"
+    if pubspec_path.exists():
+        content = pubspec_path.read_text()
+        content = re.sub(r'version:\s*[^\n]*', f'version: {version}', content)
+        pubspec_path.write_text(content)
+    
+    # Update Android build.gradle.kts
+    gradle_path = ROOT_DIR / "android" / "library" / "build.gradle.kts"
+    if gradle_path.exists():
+        content = gradle_path.read_text()
+        content = re.sub(r'versionName\s*=\s*["\'][^"\']*["\']', f'versionName = "{version}"', content)
+        gradle_path.write_text(content)
+    
+    print(f"✅ All versions updated to {version}")
 
 def install_dependencies():
     """Install required dependencies."""
@@ -189,20 +241,28 @@ def main():
     print("🚀 RefineUI System Icons - All Platforms Release Started")
     print("=" * 60)
     
+    # Get version from command line argument or default
+    version = "1.0.0"
+    if len(sys.argv) > 1:
+        version = sys.argv[1]
+    
     try:
         # 1. Clean directories
         clean_directories()
         
-        # 2. Install dependencies
+        # 2. Update versions
+        update_versions(version)
+        
+        # 3. Install dependencies
         install_dependencies()
         
-        # 3. Build all platforms
+        # 4. Build all platforms
         build_all_platforms()
         
-        # 4. Create release packages
+        # 5. Create release packages
         create_release_packages()
         
-        # 5. Create release manifest
+        # 6. Create release manifest
         create_release_manifest()
         
         print("=" * 60)

@@ -88,9 +88,10 @@ bump_version() {
 
 # 릴리즈 빌드
 build_release() {
-    log_info "릴리즈 빌드 시작..."
+    local version=$1
+    log_info "릴리즈 빌드 시작... (버전: $version)"
     
-    if ! npm run release:all; then
+    if ! python3 scripts/release_all_platforms.py "$version"; then
         log_error "릴리즈 빌드 실패"
         exit 1
     fi
@@ -172,10 +173,12 @@ main() {
     check_git_status
     check_dependencies
     bump_version "$version_type"
-    build_release
     
     # 새 버전 가져오기
     local new_version=$(node -p "require('./package.json').version")
+    
+    # 릴리즈 빌드 (버전 전달)
+    build_release "$new_version"
     
     # Git 푸시
     push_release "$new_version"

@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "release_date": "2025-09-05T13:02:17.312313",
+  "release_date": "2025-09-05T13:14:07.366924",
   "platforms": {
     "web": {
       "description": "Web SVG icons and CSS",
@@ -30,7 +30,7 @@
   },
   "build_info": {
     "node_version": "v24.2.0\n",
-    "python_version": "Python 3.13.5\n",
+    "python_version": "Python 3.9.6\n",
     "npm_version": "11.3.0\n"
   }
 }

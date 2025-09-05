@@ -42,16 +42,16 @@ class ReactNativeIconUtils {
     // Unsized method: AccessibilityRegular, AccessibilityFilled
     const unsizedMatch = iconName.match(/^([A-Za-z]+)(Regular|Filled)$/);
     if (unsizedMatch) {
-      const [, iconNamePart, style] = unsizedMatch;
-      return this.createUnsizedIcon(iconNamePart, style.toLowerCase() as 'regular' | 'filled', props);
+      const [, iconNamePart, iconStyle] = unsizedMatch;
+      return this.createUnsizedIcon(iconNamePart, iconStyle.toLowerCase() as 'regular' | 'filled', props);
     }
 
     // Sized method: Accessibility16Regular, Accessibility24Filled
     const sizedMatch = iconName.match(/^([A-Za-z]+)(\d+)(Regular|Filled)$/);
     if (sizedMatch) {
-      const [, iconNamePart, sizeStr, style] = sizedMatch;
+      const [, iconNamePart, sizeStr, iconStyle] = sizedMatch;
       const size = parseInt(sizeStr, 10);
-      return this.createSizedIcon(iconNamePart, size, style.toLowerCase() as 'regular' | 'filled', props);
+      return this.createSizedIcon(iconNamePart, size, iconStyle.toLowerCase() as 'regular' | 'filled', props);
     }
 
     return null;

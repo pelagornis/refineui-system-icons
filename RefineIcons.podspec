@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'RefineIcons'
-    s.version = "1.0.1"
+    s.version = '1.2.0'
     s.summary          = 'RefineIcons'
   
     s.description      = <<-DESC

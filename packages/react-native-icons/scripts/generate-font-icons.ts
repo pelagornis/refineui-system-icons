@@ -72,24 +72,25 @@ async function main() {
     
     // Generate component file for each icon
     for (const [cssClass, iconData] of Object.entries(mappingData.icons)) {
-      const iconName = iconData.name.toLowerCase().replace(/\s+/g, '_');
-      const key = `${iconName}_${iconData.size}_${iconData.style}`;
+      const icon = iconData as IconMapping[string];
+      const iconName = icon.name.toLowerCase().replace(/\s+/g, '_');
+      const key = `${iconName}_${icon.size}_${icon.style}`;
       
       icons[key] = {
-        unicode: iconData.unicode,
-        name: iconData.name,
-        size: iconData.size,
-        style: iconData.style,
+        unicode: icon.unicode,
+        name: icon.name,
+        size: icon.size,
+        style: icon.style,
       };
       
       const componentCode = generateFontIconComponent(
         iconName,
-        iconData.unicode,
-        iconData.size,
-        iconData.style
+        icon.unicode,
+        icon.size,
+        icon.style
       );
       
-      const componentName = `${iconName.charAt(0).toUpperCase() + iconName.slice(1)}${iconData.size}${iconData.style.charAt(0).toUpperCase() + iconData.style.slice(1)}Icon`;
+      const componentName = `${iconName.charAt(0).toUpperCase() + iconName.slice(1)}${icon.size}${icon.style.charAt(0).toUpperCase() + icon.style.slice(1)}Icon`;
       const componentPath = path.join(outputDir, `${componentName}.tsx`);
       
       fs.writeFileSync(componentPath, componentCode);

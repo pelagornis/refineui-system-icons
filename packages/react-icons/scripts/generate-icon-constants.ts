@@ -18,12 +18,13 @@ function generateIconConstants(mappingData: any): string {
   
   // Classify icons by style
   for (const [cssClass, iconData] of Object.entries(mappingData.icons)) {
-    const iconName = iconData.name.replace(/\s+/g, '_').toUpperCase();
-    const unicodeChar = String.fromCharCode(iconData.unicode);
+    const icon = iconData as IconMapping[string];
+    const iconName = icon.name.replace(/\s+/g, '_').toUpperCase();
+    const unicodeChar = String.fromCharCode(icon.unicode);
     
-    if (iconData.style === 'regular') {
+    if (icon.style === 'regular') {
       regularIcons[iconName] = unicodeChar;
-    } else if (iconData.style === 'filled') {
+    } else if (icon.style === 'filled') {
       filledIcons[iconName] = unicodeChar;
     }
   }
@@ -61,18 +62,19 @@ async function main() {
     // Generate icon constants
     const iconConstants = generateIconConstants(mappingData);
     
-    // Update index.ts file
-    const indexPath = path.join(__dirname, '../src/index.ts');
-    const indexContent = `// Direct font-based icon system
-export { Icon } from './Icon';
-export type { IconProps } from './Icon';
-
-// Icon constants for direct usage
-${iconConstants}
-`;
+    // Update index.tsx file (preserve existing IconProps interface)
+    const indexPath = path.join(__dirname, '../src/index.tsx');
+    const existingContent = fs.readFileSync(indexPath, 'utf8');
     
-    fs.writeFileSync(indexPath, indexContent);
-    console.log('Generated: icon constants in index.ts');
+    // Only update the icon constants part, preserve the IconProps interface
+    const updatedContent = existingContent.replace(
+      /\/\/ Icon constants for direct usage[\s\S]*$/,
+      `// Icon constants for direct usage
+${iconConstants}`
+    );
+    
+    fs.writeFileSync(indexPath, updatedContent);
+    console.log('Generated: icon constants in index.tsx');
     
     console.log(`Total icons generated: ${Object.keys(mappingData.icons).length}`);
     
