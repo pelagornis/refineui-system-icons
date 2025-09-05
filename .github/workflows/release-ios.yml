@@ -52,7 +52,7 @@ jobs:
       - name: Validate iOS package
         run: |
           cd ios/RefineIcons
-          xcodebuild -scheme RefineIcons -destination 'platform=iOS Simulator,name=iPhone 14' build
+          xcodebuild -scheme RefineIcons -destination 'platform=iOS Simulator,name=iPhone 16' build
 
       - name: Create iOS Release
         if: startsWith(github.ref, 'refs/tags/')

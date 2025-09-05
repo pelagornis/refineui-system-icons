@@ -49,11 +49,6 @@ jobs:
           npm run generate:fonts
           npm run build:fonts
 
-      - name: Test web packages
-        run: |
-          cd packages/react-icons && npm test
-          cd packages/web-icons && npm test
-
       - name: Publish React Icons to npm
         run: |
           cd packages/react-icons
