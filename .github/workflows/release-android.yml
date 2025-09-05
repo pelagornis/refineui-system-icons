@@ -71,9 +71,12 @@ jobs:
           files: |
             android/library/build.gradle
             android/library/build.gradle.kts
-            android/library/src/main/java/**
-            android/library/README.md
+            android/library/src/main/AndroidManifest.xml
+            android/library/src/main/res/color/**
+            android/library/consumer-rules.pro
+            android/library/proguard-rules.pro
             android/app/build.gradle.kts
+            android/README.md
           body: |
             ## 🎉 Android Platform Release ${{ steps.get_version.outputs.version }}
 
