@@ -96,7 +96,7 @@ extension RefineIcons {
     # Add unicode value for each icon
     for i, icon_name in enumerate(icon_names):
         icon_name_camel = ''.join(word.capitalize() for word in icon_name.split('_'))
-        unicode_value = f"\\uF{i:04d}"
+        unicode_value = f"\\u{{F{i:04d}}}"
         swift_content += f'        case .{icon_name_camel}: return "{unicode_value}"\n'
     
     swift_content += """        }
@@ -158,7 +158,7 @@ extension RefineIconsFilled {
     # Add unicode values for Filled icons
     for i, icon_name in enumerate(icon_names):
         icon_name_camel = ''.join(word.capitalize() for word in icon_name.split('_'))
-        unicode_value = f"\\uF{i:04d}"
+        unicode_value = f"\\u{{F{i:04d}}}"
         swift_content += f'        case .{icon_name_camel}Filled: return "{unicode_value}"\n'
     
     swift_content += """        }

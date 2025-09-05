@@ -24,6 +24,11 @@ jobs:
           flutter-version: "3.19.0"
           channel: "stable"
 
+      - name: Configure Flutter
+        run: |
+          flutter config --no-analytics
+          flutter config --no-cli-animations
+
       - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip

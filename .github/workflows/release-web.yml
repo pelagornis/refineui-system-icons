@@ -18,6 +18,7 @@ jobs:
         with:
           node-version: "20"
           cache: "npm"
+          registry-url: "https://registry.npmjs.org"
 
       - name: Install dependencies
         run: npm ci
@@ -52,7 +53,6 @@ jobs:
       - name: Publish React Icons to npm
         run: |
           cd packages/react-icons
-          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_RELEASE_TOKEN }}" > .npmrc
           npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}
@@ -60,7 +60,6 @@ jobs:
       - name: Publish Web Icons to npm
         run: |
           cd packages/web-icons
-          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_RELEASE_TOKEN }}" > .npmrc
           npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}

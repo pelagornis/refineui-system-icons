@@ -18,6 +18,7 @@ jobs:
         with:
           node-version: "20"
           cache: "npm"
+          registry-url: "https://registry.npmjs.org"
 
       - name: Install dependencies
         run: npm ci
@@ -49,7 +50,6 @@ jobs:
       - name: Publish React Native Icons to npm
         run: |
           cd packages/react-native-icons
-          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_RELEASE_TOKEN }}" > .npmrc
           npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}
