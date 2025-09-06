@@ -1,3 +1,10 @@
+## 0.1.18
+
+- Fixed Flutter export path issues
+- Updated package validation process
+- Improved icon generation and asset management
+- Enhanced package structure and documentation
+
 ## 0.1.16
 
 - Fixed URI export path issue
