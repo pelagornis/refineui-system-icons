@@ -5,6 +5,10 @@ on:
     tags:
       - "*"
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   release-react-native:
     runs-on: ubuntu-latest
@@ -61,13 +65,18 @@ jobs:
         run: |
           echo "Pushing changes to main branch..."
           git pull origin main --rebase
-          git push origin HEAD:main
+          git push origin HEAD:main --force-with-lease
           echo "✅ Successfully pushed version changes"
 
       - name: Build React Native platform
         run: |
           npm run generate:metadata
           echo "React Native icons generation completed"
+
+      - name: Build React Native Icons
+        run: |
+          cd packages/react-native-icons
+          npm run build
 
       - name: Publish React Native Icons to npm
         run: |

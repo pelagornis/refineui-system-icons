@@ -5,6 +5,10 @@ on:
     tags:
       - "*"
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   build-flutter:
     runs-on: ubuntu-latest
@@ -72,7 +76,7 @@ jobs:
         run: |
           echo "Pushing changes to main branch..."
           git pull origin main --rebase
-          git push origin HEAD:main
+          git push origin HEAD:main --force-with-lease
           echo "✅ Successfully pushed version changes"
 
       - name: Build Flutter platform
