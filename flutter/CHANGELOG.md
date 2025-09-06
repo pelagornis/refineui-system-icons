@@ -5,6 +5,12 @@
 - Improved icon generation and asset management
 - Enhanced package structure and documentation
 
+## 0.1.17
+
+- Added publisher: pelagornis.com
+- Updated package ownership to pelagornis.com domain
+- Improved package metadata and branding
+
 ## 0.1.16
 
 - Fixed URI export path issue

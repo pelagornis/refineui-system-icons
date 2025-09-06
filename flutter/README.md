@@ -1,6 +1,6 @@
 # RefineUI System Icons - Flutter
 
-Flutter package for RefineUI System Icons with Material Design compatibility.
+A comprehensive Flutter icon library providing RefineUI system icons with font-based rendering for optimal performance.
 
 ## 📦 Installation
 
@@ -8,7 +8,7 @@ Add to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  refineui_system_icons: ^1.0.0
+  refineui_system_icons: ^0.1.16
 ```
 
 Then run:
@@ -16,6 +16,15 @@ Then run:
 ```bash
 flutter pub get
 ```
+
+## 🎯 Features
+
+- **434+ Icons**: Comprehensive collection of system icons
+- **Two Styles**: Regular and Filled variants
+- **Multiple Sizes**: 16px, 20px, 24px, 28px, 32px, 48px
+- **Font-based**: Lightweight and scalable
+- **Material Design Compatible**: Seamless integration with Flutter
+- **Type-safe**: Full IDE support with autocomplete
 
 ## 🚀 Quick Start
 
@@ -49,33 +58,33 @@ class MyHomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Basic usage
-            RefineUIIcon(RefineUIIcons.home, size: 24),
+            // Using Icon widget with RefineIcons
+            Icon(RefineIcons.accessTime16Regular, size: 24),
 
             SizedBox(height: 20),
 
-            // With custom color
-            RefineUIIcon(RefineUIIcons.search, size: 20, color: Colors.blue),
+            // Using Icon widget with RefineIconsFilled
+            Icon(RefineIconsFilled.accessTime16Filled, size: 24, color: Colors.blue),
 
             SizedBox(height: 20),
 
-            // With custom style
-            RefineUIIcon(
-              RefineUIIcons.settings,
-              size: 16,
-              color: Colors.red,
+            // Using Text widget with font family
+            Text(
+              String.fromCharCode(RefineIcons.accessTime16Regular.codePoint),
+              style: TextStyle(
+                fontFamily: RefineIcons.accessTime16Regular.fontFamily,
+                fontSize: 24,
+                color: Colors.red,
+              ),
             ),
 
             SizedBox(height: 20),
 
-            // With onTap
-            GestureDetector(
-              onTap: () => print('Heart tapped!'),
-              child: RefineUIIcon(
-                RefineUIIcons.heart,
-                size: 24,
-                color: Colors.pink,
-              ),
+            // Using in a button
+            ElevatedButton.icon(
+              onPressed: () => print('Button pressed!'),
+              icon: Icon(RefineIcons.accessTime16Regular, size: 16),
+              label: Text('Access Time'),
             ),
           ],
         ),
@@ -89,21 +98,32 @@ class MyHomePage extends StatelessWidget {
 
 ### Icon Categories
 
-- **Navigation**: `home`, `search`, `menu`, `back`, `forward`, `up`, `down`, `left`, `right`
-- **Actions**: `add`, `edit`, `delete`, `save`, `cancel`, `refresh`, `download`, `upload`
-- **Communication**: `mail`, `phone`, `chat`, `notification`, `bell`, `message`
-- **Media**: `play`, `pause`, `stop`, `volume`, `mute`, `camera`, `image`, `video`
-- **System**: `settings`, `gear`, `user`, `lock`, `unlock`, `key`, `shield`
-- **Files**: `folder`, `file`, `document`, `image`, `pdf`, `zip`, `download`
+- **Access**: `accessTime16Regular`, `accessTime16Filled`, `accessTime20Regular`, etc.
+- **Add**: `add16Regular`, `add16Filled`, `add20Regular`, etc.
+- **Alert**: `alertBadge16Regular`, `alertBadge16Filled`, `alertBadge20Regular`, etc.
+- **Arrow**: `arrowDown16Regular`, `arrowDown16Filled`, `arrowLeft16Regular`, etc.
+- **Calendar**: `calendar16Regular`, `calendar16Filled`, `calendar20Regular`, etc.
+- **Checkmark**: `checkmark16Regular`, `checkmark16Filled`, `checkmark20Regular`, etc.
+- **Delete**: `delete16Regular`, `delete16Filled`, `delete20Regular`, etc.
+- **Edit**: `edit16Regular`, `edit16Filled`, `edit20Regular`, etc.
+- **Home**: `home16Regular`, `home16Filled`, `home20Regular`, etc.
+- **Search**: `search16Regular`, `search16Filled`, `search20Regular`, etc.
+- **Settings**: `settings16Regular`, `settings16Filled`, `settings20Regular`, etc.
 - **And many more...** (434+ icons total)
 
 ### Icon Sizes
 
-- **16px**: `size: 16`
-- **20px**: `size: 20`
-- **24px**: `size: 24` (default)
-- **32px**: `size: 32`
-- **48px**: `size: 48`
+- **16px**: `accessTime16Regular`, `accessTime16Filled`
+- **20px**: `accessTime20Regular`, `accessTime20Filled`
+- **24px**: `accessTime24Regular`, `accessTime24Filled`
+- **28px**: `accessTime28Regular`, `accessTime28Filled`
+- **32px**: `accessTime32Regular`, `accessTime32Filled`
+- **48px**: `accessTime48Regular`, `accessTime48Filled`
+
+### Two Icon Styles
+
+- **Regular**: `RefineIcons.accessTime16Regular`
+- **Filled**: `RefineIconsFilled.accessTime16Filled`
 
 ## 🔧 Advanced Usage
 
@@ -113,13 +133,13 @@ class MyHomePage extends StatelessWidget {
 import 'package:flutter/material.dart';
 import 'package:refineui_system_icons/refineui_system_icons.dart';
 
-class CustomIcon extends StatelessWidget {
+class RefineUIIcon extends StatelessWidget {
   final IconData icon;
   final double size;
   final Color? color;
   final VoidCallback? onTap;
 
-  const CustomIcon({
+  const RefineUIIcon({
     Key? key,
     required this.icon,
     this.size = 24,
@@ -131,7 +151,7 @@ class CustomIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: RefineUIIcon(
+      child: Icon(
         icon,
         size: size,
         color: color ?? Theme.of(context).iconTheme.color,
@@ -147,12 +167,12 @@ class CustomIcon extends StatelessWidget {
 import 'package:flutter/material.dart';
 import 'package:refineui_system_icons/refineui_system_icons.dart';
 
-class AnimatedIcon extends StatefulWidget {
+class AnimatedRefineUIIcon extends StatefulWidget {
   final IconData icon;
   final double size;
   final Color? color;
 
-  const AnimatedIcon({
+  const AnimatedRefineUIIcon({
     Key? key,
     required this.icon,
     this.size = 24,
@@ -160,10 +180,10 @@ class AnimatedIcon extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _AnimatedIconState createState() => _AnimatedIconState();
+  _AnimatedRefineUIIconState createState() => _AnimatedRefineUIIconState();
 }
 
-class _AnimatedIconState extends State<AnimatedIcon>
+class _AnimatedRefineUIIconState extends State<AnimatedRefineUIIcon>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _scaleAnimation;
@@ -210,7 +230,7 @@ class _AnimatedIconState extends State<AnimatedIcon>
         builder: (context, child) {
           return Transform.scale(
             scale: _scaleAnimation.value,
-            child: RefineUIIcon(
+            child: Icon(
               widget.icon,
               size: widget.size,
               color: _isPressed ? Colors.red : widget.color,
@@ -262,11 +282,11 @@ class AccessibleIcon extends StatelessWidget {
 import 'package:flutter/material.dart';
 import 'package:refineui_system_icons/refineui_system_icons.dart';
 
-class ThemedIcon extends StatelessWidget {
+class ThemedRefineUIIcon extends StatelessWidget {
   final IconData icon;
   final double size;
 
-  const ThemedIcon({
+  const ThemedRefineUIIcon({
     Key? key,
     required this.icon,
     this.size = 24,
@@ -274,7 +294,7 @@ class ThemedIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RefineUIIcon(
+    return Icon(
       icon,
       size: size,
       color: Theme.of(context).iconTheme.color,
@@ -291,30 +311,30 @@ class ThemedIcon extends StatelessWidget {
 import 'package:flutter/material.dart';
 import 'package:refineui_system_icons/refineui_system_icons.dart';
 
-class NavigationBar extends StatelessWidget {
+class RefineUINavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
       items: [
         BottomNavigationBarItem(
-          icon: RefineUIIcon(RefineUIIcons.home, size: 24),
-          activeIcon: RefineUIIcon(RefineUIIcons.home, size: 24, color: Colors.blue),
+          icon: Icon(RefineIcons.home16Regular, size: 24),
+          activeIcon: Icon(RefineIconsFilled.home16Filled, size: 24, color: Colors.blue),
           label: 'Home',
         ),
         BottomNavigationBarItem(
-          icon: RefineUIIcon(RefineUIIcons.search, size: 24),
-          activeIcon: RefineUIIcon(RefineUIIcons.search, size: 24, color: Colors.blue),
+          icon: Icon(RefineIcons.search16Regular, size: 24),
+          activeIcon: Icon(RefineIconsFilled.search16Filled, size: 24, color: Colors.blue),
           label: 'Search',
         ),
         BottomNavigationBarItem(
-          icon: RefineUIIcon(RefineUIIcons.settings, size: 24),
-          activeIcon: RefineUIIcon(RefineUIIcons.settings, size: 24, color: Colors.blue),
+          icon: Icon(RefineIcons.settings16Regular, size: 24),
+          activeIcon: Icon(RefineIconsFilled.settings16Filled, size: 24, color: Colors.blue),
           label: 'Settings',
         ),
         BottomNavigationBarItem(
-          icon: RefineUIIcon(RefineUIIcons.user, size: 24),
-          activeIcon: RefineUIIcon(RefineUIIcons.user, size: 24, color: Colors.blue),
+          icon: Icon(RefineIcons.person16Regular, size: 24),
+          activeIcon: Icon(RefineIconsFilled.person16Filled, size: 24, color: Colors.blue),
           label: 'Profile',
         ),
       ],
@@ -329,12 +349,12 @@ class NavigationBar extends StatelessWidget {
 import 'package:flutter/material.dart';
 import 'package:refineui_system_icons/refineui_system_icons.dart';
 
-class IconButton extends StatelessWidget {
+class RefineUIButton extends StatelessWidget {
   final IconData icon;
   final String text;
   final VoidCallback? onPressed;
 
-  const IconButton({
+  const RefineUIButton({
     Key? key,
     required this.icon,
     required this.text,
@@ -345,7 +365,7 @@ class IconButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton.icon(
       onPressed: onPressed,
-      icon: RefineUIIcon(icon, size: 16, color: Colors.white),
+      icon: Icon(icon, size: 16, color: Colors.white),
       label: Text(text),
     );
   }
@@ -358,23 +378,21 @@ class IconButton extends StatelessWidget {
 
 ```bash
 # Clone the repository
-git clone https://github.com/refineui/system-icons.git
-cd system-icons
+git clone https://github.com/pelagornis/refineui-system-icons.git
+cd refineui-system-icons
 
 # Install dependencies
 npm install
 
 # Build Flutter icons
-npm run generate:flutter
-npm run build:flutter
+python3 scripts/generate_flutter_dart.py
 ```
 
 ### Adding New Icons
 
-1. Add SVG files to `src/icons/`
-2. Run `npm run generate:metadata`
-3. Run `npm run generate:flutter`
-4. Test your changes in Flutter app
+1. Add SVG files to `assets/` directory
+2. Run `python3 scripts/generate_flutter_dart.py`
+3. Test your changes in Flutter app
 
 ## 🐛 Troubleshooting
 
@@ -382,8 +400,8 @@ npm run build:flutter
 
 1. **Icon not displaying**
 
-   - Check if the icon name is correct
-   - Verify the package is installed
+   - Check if the icon name is correct (e.g., `RefineIcons.accessTime16Regular`)
+   - Verify the package is installed: `flutter pub get`
    - Check Flutter console for errors
 
 2. **Performance issues**
@@ -399,10 +417,10 @@ npm run build:flutter
 
 ### Getting Help
 
-- 📧 Email: support@refineui.com
-- 🐛 Issues: [GitHub Issues](https://github.com/refineui/system-icons/issues)
-- 📖 Documentation: [docs.refineui.com](https://docs.refineui.com)
-- 💬 Community: [Discord](https://discord.gg/refineui)
+- 📧 Email: support@pelagornis.com
+- 🐛 Issues: [GitHub Issues](https://github.com/pelagornis/refineui-system-icons/issues)
+- 📖 Documentation: [opensource.pelagornis.com](https://opensource.pelagornis.com)
+- 💬 Community: [Discord](https://pelagornis.slack.com/)
 
 ## 📄 License
 
