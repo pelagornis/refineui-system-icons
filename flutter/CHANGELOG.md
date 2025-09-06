@@ -1,3 +1,30 @@
+## 0.1.33
+
+- Updated all platform versions to 0.1.33
+- Fixed React Native version synchronization issue
+- Improved GitHub Actions workflow for better version management
+- Enhanced package validation and publishing process
+- Fixed Git push conflicts in release workflows
+- Added concurrency controls to prevent workflow conflicts
+
+## 0.1.32
+
+- Updated all platform versions to 0.1.32
+- Fixed React Native version synchronization issue
+- Improved GitHub Actions workflow for better version management
+- Enhanced package validation and publishing process
+- Fixed Git push conflicts in release workflows
+- Added concurrency controls to prevent workflow conflicts
+
+## 0.1.31
+
+- Updated all platform versions to 0.1.31
+- Fixed React Native version synchronization issue
+- Improved GitHub Actions workflow for better version management
+- Enhanced package validation and publishing process
+- Fixed Git push conflicts in release workflows
+- Added concurrency controls to prevent workflow conflicts
+
 ## 0.1.30
 
 - Updated all platform versions to 0.1.30

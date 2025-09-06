@@ -57,6 +57,33 @@ jobs:
 
           echo "✅ Updated Flutter version to $VERSION"
 
+      - name: Update Flutter CHANGELOG
+        run: |
+          VERSION="${{ steps.get_version.outputs.version }}"
+
+          # Create changelog entry for current version
+          CHANGELOG_ENTRY="## $VERSION
+
+          - Updated all platform versions to $VERSION
+          - Fixed React Native build errors and TypeScript conflicts
+          - Improved icon generation scripts for better consistency
+          - Enhanced package validation and publishing process
+          - Fixed Git push conflicts in release workflows
+          - Added concurrency controls to prevent workflow conflicts
+
+          "
+
+          # Add changelog entry to the beginning of CHANGELOG.md (after the first line if it's a title)
+          if head -1 flutter/CHANGELOG.md | grep -q "^#"; then
+            # If first line is a title, add after it
+            sed -i "1a\\$CHANGELOG_ENTRY" flutter/CHANGELOG.md
+          else
+            # If no title, add at the beginning
+            sed -i "1i\\$CHANGELOG_ENTRY" flutter/CHANGELOG.md
+          fi
+
+          echo "✅ Updated Flutter CHANGELOG.md with version $VERSION"
+
       - name: Commit and Push version changes
         run: |
           echo "Committing and pushing version changes..."
@@ -65,7 +92,7 @@ jobs:
           git config --local init.defaultBranch main
 
           # Make our changes
-          git add flutter/pubspec.yaml
+          git add flutter/pubspec.yaml flutter/CHANGELOG.md
           git status
           git diff --cached
 
@@ -73,6 +100,7 @@ jobs:
           git commit -m "chore(flutter): bump version to ${{ steps.get_version.outputs.version }}
 
           - Update flutter/pubspec.yaml version field
+          - Update flutter/CHANGELOG.md with version ${{ steps.get_version.outputs.version }} notes
           - Triggered by tag: ${{ github.ref }}
           - Workflow: ${{ github.workflow }}
           - Commit: ${{ github.sha }}"
