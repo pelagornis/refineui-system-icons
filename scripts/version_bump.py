@@ -105,6 +105,36 @@ def update_swift_package(version):
         
         print(f"✅ Package.swift 버전 업데이트: {version}")
 
+def update_flutter_pubspec(version):
+    """Flutter pubspec.yaml의 버전을 업데이트합니다."""
+    pubspec_path = Path("flutter/pubspec.yaml")
+    if pubspec_path.exists():
+        with open(pubspec_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        # 버전 업데이트
+        content = re.sub(r'version:\s*[^\n]*', f'version: {version}', content)
+        
+        with open(pubspec_path, 'w', encoding='utf-8') as f:
+            f.write(content)
+        
+        print(f"✅ Flutter pubspec.yaml 버전 업데이트: {version}")
+
+def update_android_gradle(version):
+    """Android build.gradle.kts의 버전을 업데이트합니다."""
+    gradle_path = Path("android/library/build.gradle.kts")
+    if gradle_path.exists():
+        with open(gradle_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        # versionName 업데이트
+        content = re.sub(r'versionName\s*=\s*["\'][^"\']*["\']', f'versionName = "{version}"', content)
+        
+        with open(gradle_path, 'w', encoding='utf-8') as f:
+            f.write(content)
+        
+        print(f"✅ Android build.gradle.kts 버전 업데이트: {version}")
+
 def create_git_tag(version):
     """Git 태그를 생성합니다."""
     # 변경사항 커밋
@@ -149,6 +179,8 @@ def main():
     update_package_json(new_version)
     update_ios_podspec(new_version)
     update_swift_package(new_version)
+    update_flutter_pubspec(new_version)
+    update_android_gradle(new_version)
     
     # Git 태그 생성
     create_git_tag(new_version)

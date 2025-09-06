@@ -30,17 +30,30 @@ jobs:
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "Version: $VERSION"
 
-      - name: Update package versions
+      - name: Verify React Native package versions
         run: |
           VERSION="${{ steps.get_version.outputs.version }}"
 
-          # Update root package.json
-          sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" package.json
+          # Verify versions are already updated by release-all.yml
+          echo "Verifying React Native package versions are $VERSION:"
 
-          # Update React Native package version
-          sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" packages/react-native-icons/package.json
+          # Check root package.json
+          ROOT_VERSION=$(grep '"version"' package.json | sed 's/.*"version": "\([^"]*\)".*/\1/')
+          echo "Root package.json version: $ROOT_VERSION"
 
-          echo "Updated React Native package version to $VERSION"
+          # Check React Native package
+          RN_VERSION=$(grep '"version"' packages/react-native-icons/package.json | sed 's/.*"version": "\([^"]*\)".*/\1/')
+          echo "React Native package version: $RN_VERSION"
+
+          if [ "$ROOT_VERSION" != "$VERSION" ] || [ "$RN_VERSION" != "$VERSION" ]; then
+            echo "❌ Version mismatch! Expected: $VERSION"
+            echo "  Root package.json: $ROOT_VERSION"
+            echo "  React Native package: $RN_VERSION"
+            echo "Please ensure release-all.yml has run first to update versions."
+            exit 1
+          fi
+
+          echo "✅ React Native package versions verified: $VERSION"
 
       - name: Build React Native platform
         run: |

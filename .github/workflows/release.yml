@@ -4,12 +4,6 @@ on:
   push:
     tags:
       - "v*"
-  workflow_dispatch:
-    inputs:
-      version:
-        description: "Release version"
-        required: true
-        default: "1.0.0"
 
 jobs:
   release:
@@ -38,29 +32,40 @@ jobs:
       - name: Get version
         id: get_version
         run: |
-          if [[ $GITHUB_REF == refs/tags/* ]]; then
-            VERSION=${GITHUB_REF#refs/tags/v}
-          else
-            VERSION=${{ github.event.inputs.version }}
-          fi
+          VERSION=${GITHUB_REF#refs/tags/v}
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "Version: $VERSION"
 
-      - name: Update versions
+      - name: Verify all versions
         run: |
-          # Update package.json
-          npm version ${{ steps.get_version.outputs.version }} --no-git-tag-version
+          VERSION="${{ steps.get_version.outputs.version }}"
 
-          # Update iOS Podspec
-          sed -i "s/s\.version.*=.*'.*'/s.version = '${{ steps.get_version.outputs.version }}'/" RefineIcons.podspec
+          # Verify versions are already updated by release-all.yml
+          echo "Verifying all versions are $VERSION:"
 
-          # Update Flutter pubspec.yaml
-          sed -i "s/version:.*/version: ${{ steps.get_version.outputs.version }}/" flutter/pubspec.yaml
+          # Check root package.json
+          ROOT_VERSION=$(grep '"version"' package.json | sed 's/.*"version": "\([^"]*\)".*/\1/')
+          echo "Root package.json version: $ROOT_VERSION"
 
-          # Update Android build.gradle.kts
-          sed -i "s/versionName = \".*\"/versionName = \"${{ steps.get_version.outputs.version }}\"/" android/library/build.gradle.kts
+          # Check Flutter pubspec.yaml
+          FLUTTER_VERSION=$(grep '^version:' flutter/pubspec.yaml | sed 's/version: //')
+          echo "Flutter pubspec.yaml version: $FLUTTER_VERSION"
 
-          echo "All version files updated to ${{ steps.get_version.outputs.version }}"
+          # Check Android build.gradle.kts
+          ANDROID_VERSION=$(grep 'versionName' android/library/build.gradle.kts | sed 's/.*versionName = "\([^"]*\)".*/\1/')
+          echo "Android build.gradle.kts version: $ANDROID_VERSION"
+
+          # Verify all versions match
+          if [ "$ROOT_VERSION" != "$VERSION" ] || [ "$FLUTTER_VERSION" != "$VERSION" ] || [ "$ANDROID_VERSION" != "$VERSION" ]; then
+            echo "❌ Version mismatch! Expected: $VERSION"
+            echo "  Root package.json: $ROOT_VERSION"
+            echo "  Flutter pubspec.yaml: $FLUTTER_VERSION"
+            echo "  Android build.gradle.kts: $ANDROID_VERSION"
+            echo "Please ensure release-all.yml has run first to update versions."
+            exit 1
+          fi
+
+          echo "✅ All versions verified: $VERSION"
 
       - name: Build
         run: |

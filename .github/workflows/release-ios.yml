@@ -30,17 +30,24 @@ jobs:
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "Version: $VERSION"
 
-      - name: Update iOS versions
+      - name: Verify iOS versions
         run: |
           VERSION="${{ steps.get_version.outputs.version }}"
 
-          # Update root package.json
-          sed -i '' "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" package.json
+          # Verify versions are already updated by release-all.yml
+          echo "Verifying iOS versions are $VERSION:"
 
-          # Update iOS Package.swift version
-          sed -i '' "s/version:.*/version: \"$VERSION\"/" Package.swift
+          # Check root package.json
+          ROOT_VERSION=$(grep '"version"' package.json | sed 's/.*"version": "\([^"]*\)".*/\1/')
+          echo "Root package.json version: $ROOT_VERSION"
 
-          echo "Updated iOS versions to $VERSION"
+          if [ "$ROOT_VERSION" != "$VERSION" ]; then
+            echo "❌ Version mismatch in root package.json! Expected: $VERSION, Found: $ROOT_VERSION"
+            echo "Please ensure release-all.yml has run first to update versions."
+            exit 1
+          fi
+
+          echo "✅ iOS versions verified: $VERSION"
 
       - name: Build iOS platform
         run: |
