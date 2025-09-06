@@ -11,7 +11,7 @@ android {
         minSdk = 24
         consumerProguardFiles("consumer-rules.pro")
         versionCode = 1
-        versionName = "0.1.22"
+        versionName = "1.0.0"
     }
 
     buildTypes {

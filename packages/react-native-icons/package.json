@@ -1,6 +1,6 @@
 {
   "name": "@refineui/react-native-icons",
-  "version": "0.1.22",
+  "version": "1.0.0",
   "description": "RefineUI System Icons for React Native",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",

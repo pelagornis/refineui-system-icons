@@ -1,28 +1,8 @@
-## 0.1.18
+## 1.0.0
 
-- Fixed Flutter export path issues
-- Updated package validation process
-- Improved icon generation and asset management
-- Enhanced package structure and documentation
-
-## 0.1.17
-
-- Added publisher: pelagornis.com
-- Updated package ownership to pelagornis.com domain
-- Improved package metadata and branding
-
-## 0.1.16
-
-- Fixed URI export path issue
-- Updated Flutter package with latest RefineUI system icons
-- Improved package validation and publishing process
-
-## 0.1.15
-
-- Updated Flutter package with latest RefineUI system icons
-- Fixed icon generation and asset management
-- Improved package structure and documentation
-
-## 0.0.1
-
-- TODO: Describe initial release.
+- Initial release of RefineUI System Icons for Flutter
+- Complete icon library with 434+ icons
+- Multiple sizes and styles support
+- Cross-platform consistency
+- High-performance rendering
+- Material Design compatible
