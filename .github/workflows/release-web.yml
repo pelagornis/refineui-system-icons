@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PELAGORNIS }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -34,15 +36,19 @@ jobs:
         run: |
           VERSION="${{ steps.get_version.outputs.version }}"
 
-          # Update root package.json
-          sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" package.json
-
           # Update web package versions
           sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" packages/react-icons/package.json
           sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" packages/web-icons/package.json
           sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" packages/icon-cdn/package.json
 
           echo "✅ Updated all web package versions to $VERSION"
+
+      - name: Commit version changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add packages/react-icons/package.json packages/web-icons/package.json packages/icon-cdn/package.json
+          git commit -m "chore: update web package versions to ${{ steps.get_version.outputs.version }}" || echo "No changes to commit"
 
       - name: Build web platform
         run: |

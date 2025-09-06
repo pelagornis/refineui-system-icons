@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PELAGORNIS }}
 
       - name: Setup Python
         uses: actions/setup-python@v4
@@ -34,10 +36,8 @@ jobs:
         run: |
           VERSION="${{ steps.get_version.outputs.version }}"
 
-          # Update root package.json
-          sed -i '' "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" package.json
-
-          echo "✅ Updated iOS versions to $VERSION"
+          # iOS doesn't need specific version files, just build
+          echo "✅ iOS version $VERSION ready for build"
 
       - name: Build iOS platform
         run: |

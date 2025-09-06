@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PELAGORNIS }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -34,13 +36,17 @@ jobs:
         run: |
           VERSION="${{ steps.get_version.outputs.version }}"
 
-          # Update root package.json
-          sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" package.json
-
           # Update React Native package version
           sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" packages/react-native-icons/package.json
 
           echo "✅ Updated React Native package version to $VERSION"
+
+      - name: Commit version changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add packages/react-native-icons/package.json
+          git commit -m "chore: update React Native package version to ${{ steps.get_version.outputs.version }}" || echo "No changes to commit"
 
       - name: Build React Native platform
         run: |

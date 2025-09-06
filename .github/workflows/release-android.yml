@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PELAGORNIS }}
 
       - name: Setup Python
         uses: actions/setup-python@v4
@@ -45,13 +47,17 @@ jobs:
         run: |
           VERSION="${{ steps.get_version.outputs.version }}"
 
-          # Update root package.json
-          sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" package.json
-
           # Update Android build.gradle.kts version
           sed -i "s/versionName = \".*\"/versionName = \"$VERSION\"/" android/library/build.gradle.kts
 
           echo "✅ Updated Android version to $VERSION"
+
+      - name: Commit version changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add android/library/build.gradle.kts
+          git commit -m "chore: update Android version to ${{ steps.get_version.outputs.version }}" || echo "No changes to commit"
 
       - name: Build Android platform
         run: |

@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PELAGORNIS }}
 
       - name: Setup Python
         uses: actions/setup-python@v4
@@ -45,13 +47,17 @@ jobs:
         run: |
           VERSION="${{ steps.get_version.outputs.version }}"
 
-          # Update root package.json
-          sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" package.json
-
           # Update Flutter pubspec.yaml version
           sed -i "s/^version:.*/version: $VERSION/" flutter/pubspec.yaml
 
           echo "✅ Updated Flutter version to $VERSION"
+
+      - name: Commit version changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add flutter/pubspec.yaml
+          git commit -m "chore: update Flutter version to ${{ steps.get_version.outputs.version }}" || echo "No changes to commit"
 
       - name: Build Flutter platform
         run: |
