@@ -35,7 +35,7 @@ export 'src/refineui_icons.dart';
 /// 
 /// ```yaml
 /// dependencies:
-///   refineui_system_icons: ^1.0.0
+///   refineui_system_icons: ^vTag
 /// ```
 /// 
 /// ## Font Setup
