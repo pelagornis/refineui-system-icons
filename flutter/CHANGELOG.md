@@ -1,8 +1,6 @@
-## 1.0.0
+## 0.1.22
 
-- Initial release of RefineUI System Icons for Flutter
-- Complete icon library with 434+ icons
-- Multiple sizes and styles support
-- Cross-platform consistency
-- High-performance rendering
-- Material Design compatible
+- Updated all platform versions to 0.1.22
+- Fixed version synchronization across all platforms
+- Improved GitHub Actions workflow for version management
+- Enhanced package validation and publishing process
