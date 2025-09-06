@@ -92,9 +92,10 @@ jobs:
             Flutter source code and pubspec.yaml are attached below.
         env:
           GITHUB_TOKEN: ${{ secrets.PELAGORNIS }}
-
-  publish-flutter:
+  publish:
     needs: build-flutter
     permissions:
-      id-token: write
+      id-token: write # Required for authentication using OIDC
     uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
+    with:
+      working-directory: flutter
