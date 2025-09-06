@@ -60,6 +60,7 @@ jobs:
       - name: Push version changes
         run: |
           echo "Pushing changes to main branch..."
+          git pull origin main --rebase
           git push origin HEAD:main
           echo "✅ Successfully pushed version changes"
 
