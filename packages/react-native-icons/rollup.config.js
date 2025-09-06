@@ -22,7 +22,8 @@ export default {
       name: "RefineUIIcons",
       globals: {
         react: "React",
-        "react-dom": "ReactDOM"
+        "react-dom": "ReactDOM",
+        "react-native": "ReactNative",
       },
       sourcemap: true,
     },

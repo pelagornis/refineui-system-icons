@@ -606,11 +606,11 @@ def generate_filled_icons_rn(src_dir):
         "",
     ]
     
-    # Regular style icons
+    # Filled style icons
     for icon_name in ICON_NAMES:
         content.append(f"export const {icon_name.capitalize()}Filled = createIconComponent('{icon_name.capitalize()}', 'filled');")
     
-    with open(src_dir / "regular-icons.ts", 'w', encoding='utf-8') as f:
+    with open(src_dir / "filled-icons.ts", 'w', encoding='utf-8') as f:
         f.write('\n'.join(content))
 
 def generate_utils_rn(src_dir):

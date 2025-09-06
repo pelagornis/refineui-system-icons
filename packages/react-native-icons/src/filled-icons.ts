@@ -1,3 +1,6 @@
+// === Filled style icons ===
+// This file is auto-generated. Do not modify.
+
 import { createIconComponent } from './utils';
 
 export const AccessFilled = createIconComponent('Access', 'filled');

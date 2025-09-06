@@ -20,9 +20,9 @@ export { default as IconUtils } from './IconUtils';
 export type { IconData } from './IconUtils';
 
 // === IconProps interface export ===
-export interface IconProps extends TextProps {
+export interface IconProps extends Omit<TextProps, 'style'> {
   size?: number;
   color?: string;
-  style?: 'regular' | 'filled';
+  iconStyle?: 'regular' | 'filled';
   [key: string]: any;
 }
