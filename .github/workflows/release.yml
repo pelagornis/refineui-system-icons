@@ -36,36 +36,20 @@ jobs:
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "Version: $VERSION"
 
-      - name: Verify all versions
+      - name: Update versions
         run: |
           VERSION="${{ steps.get_version.outputs.version }}"
 
-          # Verify versions are already updated by release-all.yml
-          echo "Verifying all versions are $VERSION:"
+          # Update package.json
+          npm version $VERSION --no-git-tag-version
 
-          # Check root package.json
-          ROOT_VERSION=$(grep '"version"' package.json | sed 's/.*"version": "\([^"]*\)".*/\1/')
-          echo "Root package.json version: $ROOT_VERSION"
+          # Update Flutter pubspec.yaml
+          sed -i "s/version:.*/version: $VERSION/" flutter/pubspec.yaml
 
-          # Check Flutter pubspec.yaml
-          FLUTTER_VERSION=$(grep '^version:' flutter/pubspec.yaml | sed 's/version: //')
-          echo "Flutter pubspec.yaml version: $FLUTTER_VERSION"
+          # Update Android build.gradle.kts
+          sed -i "s/versionName = \".*\"/versionName = \"$VERSION\"/" android/library/build.gradle.kts
 
-          # Check Android build.gradle.kts
-          ANDROID_VERSION=$(grep 'versionName' android/library/build.gradle.kts | sed 's/.*versionName = "\([^"]*\)".*/\1/')
-          echo "Android build.gradle.kts version: $ANDROID_VERSION"
-
-          # Verify all versions match
-          if [ "$ROOT_VERSION" != "$VERSION" ] || [ "$FLUTTER_VERSION" != "$VERSION" ] || [ "$ANDROID_VERSION" != "$VERSION" ]; then
-            echo "❌ Version mismatch! Expected: $VERSION"
-            echo "  Root package.json: $ROOT_VERSION"
-            echo "  Flutter pubspec.yaml: $FLUTTER_VERSION"
-            echo "  Android build.gradle.kts: $ANDROID_VERSION"
-            echo "Please ensure release-all.yml has run first to update versions."
-            exit 1
-          fi
-
-          echo "✅ All versions verified: $VERSION"
+          echo "✅ All version files updated to $VERSION"
 
       - name: Build
         run: |

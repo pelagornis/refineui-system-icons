@@ -41,24 +41,17 @@ jobs:
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "Version: $VERSION"
 
-      - name: Verify Flutter version
+      - name: Update Flutter version
         run: |
           VERSION="${{ steps.get_version.outputs.version }}"
 
-          # Verify version is already updated by release-all.yml
-          echo "Verifying Flutter version is $VERSION:"
-          echo "Flutter pubspec.yaml version:"
-          grep '^version:' flutter/pubspec.yaml
+          # Update root package.json
+          sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" package.json
 
-          # Check if version matches expected version
-          CURRENT_VERSION=$(grep '^version:' flutter/pubspec.yaml | sed 's/version: //')
-          if [ "$CURRENT_VERSION" != "$VERSION" ]; then
-            echo "❌ Version mismatch! Expected: $VERSION, Found: $CURRENT_VERSION"
-            echo "Please ensure release-all.yml has run first to update versions."
-            exit 1
-          fi
+          # Update Flutter pubspec.yaml version
+          sed -i "s/^version:.*/version: $VERSION/" flutter/pubspec.yaml
 
-          echo "✅ Flutter version verified: $VERSION"
+          echo "✅ Updated Flutter version to $VERSION"
 
       - name: Build Flutter platform
         run: |

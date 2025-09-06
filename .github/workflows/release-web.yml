@@ -30,32 +30,19 @@ jobs:
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "Version: $VERSION"
 
-      - name: Verify web package versions
+      - name: Update web package versions
         run: |
           VERSION="${{ steps.get_version.outputs.version }}"
 
-          # Verify versions are already updated by release-all.yml
-          echo "Verifying web package versions are $VERSION:"
+          # Update root package.json
+          sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" package.json
 
-          # Check root package.json
-          ROOT_VERSION=$(grep '"version"' package.json | sed 's/.*"version": "\([^"]*\)".*/\1/')
-          echo "Root package.json version: $ROOT_VERSION"
+          # Update web package versions
+          sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" packages/react-icons/package.json
+          sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" packages/web-icons/package.json
+          sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" packages/icon-cdn/package.json
 
-          # Check web packages
-          for package in packages/react-icons packages/web-icons packages/icon-cdn; do
-            if [ -f "$package/package.json" ]; then
-              PKG_VERSION=$(grep '"version"' "$package/package.json" | sed 's/.*"version": "\([^"]*\)".*/\1/')
-              echo "$package version: $PKG_VERSION"
-              
-              if [ "$PKG_VERSION" != "$VERSION" ]; then
-                echo "❌ Version mismatch in $package! Expected: $VERSION, Found: $PKG_VERSION"
-                echo "Please ensure release-all.yml has run first to update versions."
-                exit 1
-              fi
-            fi
-          done
-
-          echo "✅ All web package versions verified: $VERSION"
+          echo "✅ Updated all web package versions to $VERSION"
 
       - name: Build web platform
         run: |

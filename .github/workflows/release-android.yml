@@ -41,30 +41,17 @@ jobs:
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "Version: $VERSION"
 
-      - name: Verify Android version
+      - name: Update Android version
         run: |
           VERSION="${{ steps.get_version.outputs.version }}"
 
-          # Verify versions are already updated by release-all.yml
-          echo "Verifying Android version is $VERSION:"
+          # Update root package.json
+          sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" package.json
 
-          # Check root package.json
-          ROOT_VERSION=$(grep '"version"' package.json | sed 's/.*"version": "\([^"]*\)".*/\1/')
-          echo "Root package.json version: $ROOT_VERSION"
+          # Update Android build.gradle.kts version
+          sed -i "s/versionName = \".*\"/versionName = \"$VERSION\"/" android/library/build.gradle.kts
 
-          # Check Android build.gradle.kts
-          ANDROID_VERSION=$(grep 'versionName' android/library/build.gradle.kts | sed 's/.*versionName = "\([^"]*\)".*/\1/')
-          echo "Android build.gradle.kts version: $ANDROID_VERSION"
-
-          if [ "$ROOT_VERSION" != "$VERSION" ] || [ "$ANDROID_VERSION" != "$VERSION" ]; then
-            echo "❌ Version mismatch! Expected: $VERSION"
-            echo "  Root package.json: $ROOT_VERSION"
-            echo "  Android build.gradle.kts: $ANDROID_VERSION"
-            echo "Please ensure release-all.yml has run first to update versions."
-            exit 1
-          fi
-
-          echo "✅ Android version verified: $VERSION"
+          echo "✅ Updated Android version to $VERSION"
 
       - name: Build Android platform
         run: |
