@@ -60,8 +60,19 @@ jobs:
           git config --local init.defaultBranch main
           git add android/library/build.gradle.kts
           git status
-          git commit -m "chore: update Android version to ${{ steps.get_version.outputs.version }}" || echo "No changes to commit"
-          git push origin HEAD:main || echo "Push failed or no changes"
+          git diff --cached
+          git commit -m "chore(android): bump version to ${{ steps.get_version.outputs.version }}
+
+          - Update android/library/build.gradle.kts versionName field
+          - Triggered by tag: ${{ github.ref }}
+          - Workflow: ${{ github.workflow }}
+          - Commit: ${{ github.sha }}"
+
+      - name: Push version changes
+        run: |
+          echo "Pushing changes to main branch..."
+          git push origin HEAD:main
+          echo "✅ Successfully pushed version changes"
 
       - name: Build Android platform
         run: |

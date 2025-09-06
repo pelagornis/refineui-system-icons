@@ -51,8 +51,21 @@ jobs:
           git config --local init.defaultBranch main
           git add packages/react-icons/package.json packages/web-icons/package.json packages/icon-cdn/package.json
           git status
-          git commit -m "chore: update web package versions to ${{ steps.get_version.outputs.version }}" || echo "No changes to commit"
-          git push origin HEAD:main || echo "Push failed or no changes"
+          git diff --cached
+          git commit -m "chore(web): bump package versions to ${{ steps.get_version.outputs.version }}
+
+          - Update packages/react-icons/package.json version
+          - Update packages/web-icons/package.json version  
+          - Update packages/icon-cdn/package.json version
+          - Triggered by tag: ${{ github.ref }}
+          - Workflow: ${{ github.workflow }}
+          - Commit: ${{ github.sha }}"
+
+      - name: Push version changes
+        run: |
+          echo "Pushing changes to main branch..."
+          git push origin HEAD:main
+          echo "✅ Successfully pushed version changes"
 
       - name: Build web platform
         run: |
