@@ -8,7 +8,7 @@ Add to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  refineui_system_icons: ^0.1.16
+  refineui_system_icons: ^vTag
 ```
 
 Then run:
