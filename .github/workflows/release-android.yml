@@ -57,14 +57,19 @@ jobs:
 
           echo "✅ Updated Android version to $VERSION"
 
-      - name: Commit version changes
+      - name: Commit and Push version changes
         run: |
+          echo "Committing and pushing version changes..."
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git config --local init.defaultBranch main
+
+          # Make our changes
           git add android/library/build.gradle.kts
           git status
           git diff --cached
+
+          # Commit changes
           git commit -m "chore(android): bump version to ${{ steps.get_version.outputs.version }}
 
           - Update android/library/build.gradle.kts versionName field
@@ -72,12 +77,17 @@ jobs:
           - Workflow: ${{ github.workflow }}
           - Commit: ${{ github.sha }}"
 
-      - name: Push version changes
-        run: |
-          echo "Pushing changes to main branch..."
-          git pull origin main --rebase
-          git push origin HEAD:main --force-with-lease
-          echo "✅ Successfully pushed version changes"
+          # Try to push, if fails, pull and retry
+          for i in {1..3}; do
+            if git push origin HEAD:main; then
+              echo "✅ Successfully pushed version changes"
+              break
+            else
+              echo "Push failed, attempt $i/3. Pulling latest changes..."
+              git pull origin main --rebase
+              sleep 2
+            fi
+          done
 
       - name: Build Android platform
         run: |
