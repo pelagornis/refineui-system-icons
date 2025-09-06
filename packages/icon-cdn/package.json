@@ -1,6 +1,6 @@
 {
   "name": "@refineui/icon-cdn",
-  "version": "0.1.30",
+  "version": "0.1.31",
   "description": "RefineUI System Icons CDN Package",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
