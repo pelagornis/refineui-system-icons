@@ -61,8 +61,9 @@ jobs:
         run: |
           VERSION="${{ steps.get_version.outputs.version }}"
 
-          # Create changelog entry for current version
-          CHANGELOG_ENTRY="## $VERSION
+          # Create temporary changelog entry file
+          cat > /tmp/changelog_entry.md << EOF
+          ## $VERSION
 
           - Updated all platform versions to $VERSION
           - Fixed React Native build errors and TypeScript conflicts
@@ -71,16 +72,14 @@ jobs:
           - Fixed Git push conflicts in release workflows
           - Added concurrency controls to prevent workflow conflicts
 
-          "
+          EOF
 
-          # Add changelog entry to the beginning of CHANGELOG.md (after the first line if it's a title)
-          if head -1 flutter/CHANGELOG.md | grep -q "^#"; then
-            # If first line is a title, add after it
-            sed -i "1a\\$CHANGELOG_ENTRY" flutter/CHANGELOG.md
-          else
-            # If no title, add at the beginning
-            sed -i "1i\\$CHANGELOG_ENTRY" flutter/CHANGELOG.md
-          fi
+          # Create new CHANGELOG.md with the new entry at the top
+          cat /tmp/changelog_entry.md flutter/CHANGELOG.md > /tmp/new_changelog.md
+          mv /tmp/new_changelog.md flutter/CHANGELOG.md
+
+          # Clean up
+          rm -f /tmp/changelog_entry.md
 
           echo "✅ Updated Flutter CHANGELOG.md with version $VERSION"
 
