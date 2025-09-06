@@ -6,7 +6,7 @@ on:
       - "*"
 
 jobs:
-  release-flutter:
+  build-flutter:
     runs-on: ubuntu-latest
 
     steps:
@@ -62,11 +62,6 @@ jobs:
           cd flutter
           flutter pub get
 
-      - name: Publish to pub.dev
-        permissions:
-          id-token: write
-        uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
-
       - name: Create Flutter Release
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
@@ -97,3 +92,9 @@ jobs:
             Flutter source code and pubspec.yaml are attached below.
         env:
           GITHUB_TOKEN: ${{ secrets.PELAGORNIS }}
+
+  publish-flutter:
+    needs: build-flutter
+    permissions:
+      id-token: write
+    uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
