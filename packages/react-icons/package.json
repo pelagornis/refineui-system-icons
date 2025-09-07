@@ -1,6 +1,6 @@
 {
   "name": "@refineui/react-icons",
-  "version": "0.1.42",
+  "version": "0.1.43",
   "description": "RefineUI System Icons for React",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
