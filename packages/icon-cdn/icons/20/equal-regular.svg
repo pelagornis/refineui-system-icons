@@ -1,4 +1,4 @@
-<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-  <rect width="20" height="20" fill="none" stroke="#000" stroke-width="1"/>
-  <text x="10" y="14" text-anchor="middle" font-family="Arial" font-size="6.666666666666667" fill="#000">equal</text>
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M3.54183 7C3.24259 7 3 7.24248 3 7.54158C3 7.84069 3.24259 8.08317 3.54183 8.08317H15.7915C16.0907 8.08317 16.3333 7.84069 16.3333 7.54158C16.3333 7.24248 16.0907 7 15.7915 7H3.54183Z" fill="black"/>
+<path d="M3.54183 12.5835C3.24259 12.5835 3 12.826 3 13.1251C3 13.4242 3.24259 13.6667 3.54183 13.6667H15.7915C16.0907 13.6667 16.3333 13.4242 16.3333 13.1251C16.3333 12.826 16.0907 12.5835 15.7915 12.5835H3.54183Z" fill="black"/>
 </svg>

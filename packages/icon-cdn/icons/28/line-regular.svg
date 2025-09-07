@@ -1,4 +1,3 @@
-<svg width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
-  <rect width="28" height="28" fill="none" stroke="#000" stroke-width="1"/>
-  <text x="14" y="18" text-anchor="middle" font-family="Arial" font-size="9.333333333333334" fill="#000">line</text>
+<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M23.4446 5.22208C23.7407 5.5182 23.7407 5.99829 23.4446 6.2944L6.2944 23.4446C5.99829 23.7407 5.5182 23.7407 5.22208 23.4446C4.92597 23.1485 4.92597 22.6684 5.22208 22.3723L22.3723 5.22208C22.6684 4.92597 23.1485 4.92597 23.4446 5.22208Z" fill="black"/>
 </svg>

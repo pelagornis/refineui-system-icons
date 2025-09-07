@@ -1,4 +1,3 @@
-<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-  <rect width="16" height="16" fill="#000" stroke="#000" stroke-width="1"/>
-  <text x="8" y="12" text-anchor="middle" font-family="Arial" font-size="5.333333333333333" fill="#000">pentagon</text>
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.91996 3.13928L3.26763 6.67949C3.0386 6.85377 2.94451 7.15281 3.03271 7.42614L4.67931 12.5292C4.76983 12.8098 5.03181 13 5.32761 13H11.3391C11.6349 13 11.8968 12.8098 11.9874 12.5292L13.634 7.42614C13.7222 7.15281 13.6281 6.85377 13.399 6.67949L8.74671 3.13929C8.50266 2.95357 8.16401 2.95357 7.91996 3.13928Z" fill="black"/>
 </svg>

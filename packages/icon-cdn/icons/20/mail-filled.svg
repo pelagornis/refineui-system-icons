@@ -1,4 +1,3 @@
-<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-  <rect width="20" height="20" fill="#000" stroke="#000" stroke-width="1"/>
-  <text x="10" y="14" text-anchor="middle" font-family="Arial" font-size="6.666666666666667" fill="#000">mail</text>
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M15.6797 14.167C15.6795 14.2682 15.5979 14.3495 15.4971 14.3496H3.83301C3.73219 14.3495 3.65057 14.2682 3.65039 14.167V6.97754L8.4502 10.5781C9.1701 11.1182 10.16 11.1182 10.8799 10.5781L15.6797 6.97656V14.167ZM13.4766 5.65039L9.66504 8.50977L5.85352 5.65039H13.4766Z" fill="black" stroke="black" stroke-width="1.3"/>
 </svg>

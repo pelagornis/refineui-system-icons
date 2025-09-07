@@ -1,4 +1,5 @@
-<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-  <rect width="24" height="24" fill="none" stroke="#000" stroke-width="1"/>
-  <text x="12" y="16" text-anchor="middle" font-family="Arial" font-size="8" fill="#000">chat</text>
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.35 11C7.35 10.641 7.64102 10.35 8 10.35H16C16.359 10.35 16.65 10.641 16.65 11C16.65 11.359 16.359 11.65 16 11.65H8C7.64102 11.65 7.35 11.359 7.35 11Z" fill="black"/>
+<path d="M8 13.35C7.64102 13.35 7.35 13.641 7.35 14C7.35 14.359 7.64102 14.65 8 14.65H12C12.359 14.65 12.65 14.359 12.65 14C12.65 13.641 12.359 13.35 12 13.35H8Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12L4 19.0014C4.00001 19.5537 4.44702 20 4.9993 20H12ZM12 18.7C15.7003 18.7 18.7 15.7003 18.7 12C18.7 8.29969 15.7003 5.3 12 5.3C8.29969 5.3 5.3 8.29969 5.3 12L5.3 18.7H12Z" fill="black"/>
 </svg>

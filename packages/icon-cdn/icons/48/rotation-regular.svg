@@ -1,4 +1,3 @@
-<svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-  <rect width="48" height="48" fill="none" stroke="#000" stroke-width="1"/>
-  <text x="24" y="28" text-anchor="middle" font-family="Arial" font-size="16" fill="#000">rotation</text>
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M9.29984 8C10.0177 8 10.5997 8.58196 10.5997 9.29984V22.6801C13.1541 22.7574 16.415 23.4824 19.2338 25.4593C22.4397 27.7077 24.9454 31.4884 25.2653 37.4003H38.7002C39.418 37.4003 40 37.9823 40 38.7002C40 39.418 39.418 40 38.7002 40H11.2996C9.47728 40 8 38.5227 8 36.7004V9.29984C8 8.58196 8.58196 8 9.29984 8ZM22.6615 37.4003C22.3521 32.3187 20.2264 29.3308 17.7411 27.5877C15.4418 25.9752 12.7298 25.3576 10.5997 25.2809V36.7004C10.5997 37.087 10.913 37.4003 11.2996 37.4003H22.6615Z" fill="black"/>
 </svg>

@@ -1,14 +1,13 @@
 {
   "name": "@refineui/icon-cdn",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "description": "RefineUI System Icons CDN Package",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc && node dist/build.js && npm run build:umd && npm run copy-fonts",
+    "build": "tsc && node dist/build.js && npm run build:umd",
     "build:types": "tsc --declaration --emitDeclarationOnly",
     "build:umd": "rollup -c",
-    "copy-fonts": "mkdir -p dist/fonts && cp fonts/*.woff2 dist/fonts/ && cp fonts/*.css dist/fonts/",
     "dev": "tsc --watch",
     "clean": "rm -rf dist",
     "prepublishOnly": "npm run clean && npm run build"

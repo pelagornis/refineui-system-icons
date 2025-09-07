@@ -1,4 +1,4 @@
-<svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-  <rect width="48" height="48" fill="none" stroke="#000" stroke-width="1"/>
-  <text x="24" y="28" text-anchor="middle" font-family="Arial" font-size="16" fill="#000">tv</text>
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M8 14C8 12.8954 8.89543 12 10 12H38C39.1046 12 40 12.8954 40 14V30C40 31.1046 39.1046 32 38 32H10C8.89543 32 8 31.1046 8 30V14ZM10.6 29.4V14.85C10.6 14.7119 10.7119 14.6 10.85 14.6H37.15C37.2881 14.6 37.4 14.7119 37.4 14.85V29.15C37.4 29.2881 37.2881 29.4 37.15 29.4H10.6Z" fill="black"/>
+<path d="M13.3 34C12.582 34 12 34.582 12 35.3C12 36.018 12.582 36.6 13.3 36.6H34.7C35.418 36.6 36 36.018 36 35.3C36 34.582 35.418 34 34.7 34H13.3Z" fill="black"/>
 </svg>

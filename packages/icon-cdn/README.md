@@ -5,13 +5,15 @@ A CDN package providing direct URL access to RefineUI System Icons. Perfect for 
 ## 🚀 Features
 
 - 🌐 **Direct URL access**: Load icons directly from CDN
-- 📦 **434+ icons**: Complete icon collection
-- 🎨 **Multiple formats**: SVG, PNG, and font files
+- 📦 **5,207+ icons**: Complete icon collection (434 base icons × 2 styles × 6 sizes)
+- 🎨 **SVG format**: High-quality vector icons (SVG only)
 - 🎭 **Two styles**: Regular and filled variants
 - 📱 **Multiple sizes**: 16, 20, 24, 28, 32, 48px variants
-- 🚀 **Fast delivery**: Global CDN distribution
+- 🚀 **Fast delivery**: Global CDN distribution via jsDelivr
 - 💰 **Free to use**: No API keys or authentication required
 - 🔧 **Framework agnostic**: Works with any technology stack
+- ✅ **Real SVG icons**: Actual vector graphics, not placeholders
+- 🎯 **Lightweight**: No font files, pure SVG approach
 
 ## 📦 Installation
 
@@ -28,22 +30,16 @@ yarn add @refineui/icon-cdn
 ```html
 <!-- SVG icons -->
 <img
-  src="https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@latest/icons/24/add-regular.svg"
+  src="https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@0.2.2/icons/24/add-regular.svg"
   alt="Add"
 />
 <img
-  src="https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@latest/icons/32/heart-filled.svg"
+  src="https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@0.2.2/icons/32/heart-filled.svg"
   alt="Heart"
 />
-
-<!-- PNG icons -->
 <img
-  src="https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@latest/icons/24/add-regular.png"
-  alt="Add"
-/>
-<img
-  src="https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@latest/icons/32/heart-filled.png"
-  alt="Heart"
+  src="https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@0.2.2/icons/32/add_square-filled.svg"
+  alt="Add Square"
 />
 ```
 
@@ -51,7 +47,7 @@ yarn add @refineui/icon-cdn
 
 ```css
 .add-icon {
-  background-image: url("https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@latest/icons/24/add-regular.svg");
+  background-image: url("https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@0.2.2/icons/24/add-regular.svg");
   background-size: contain;
   background-repeat: no-repeat;
   width: 24px;
@@ -59,7 +55,7 @@ yarn add @refineui/icon-cdn
 }
 
 .heart-icon {
-  background-image: url("https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@latest/icons/32/heart-filled.svg");
+  background-image: url("https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@0.2.2/icons/32/heart-filled.svg");
   background-size: contain;
   background-repeat: no-repeat;
   width: 32px;
@@ -70,8 +66,8 @@ yarn add @refineui/icon-cdn
 ### JavaScript Dynamic Loading
 
 ```javascript
-function loadIcon(iconName, size = 24, style = "regular", format = "svg") {
-  const url = `https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@latest/icons/${size}/${iconName}-${style}.${format}`;
+function loadIcon(iconName, size = 24, style = "regular") {
+  const url = `https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@0.2.2/icons/${size}/${iconName}-${style}.svg`;
 
   const img = new Image();
   img.src = url;
@@ -81,8 +77,10 @@ function loadIcon(iconName, size = 24, style = "regular", format = "svg") {
 }
 
 // Usage
-const addIcon = loadIcon("add", 24, "regular", "svg");
+const addIcon = loadIcon("add", 24, "regular");
+const heartIcon = loadIcon("heart", 32, "filled");
 document.body.appendChild(addIcon);
+document.body.appendChild(heartIcon);
 ```
 
 ## 📚 API Reference
@@ -90,7 +88,7 @@ document.body.appendChild(addIcon);
 ### URL Structure
 
 ```
-https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@latest/icons/{size}/{iconName}-{style}.{format}
+https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@0.2.2/icons/{size}/{iconName}-{style}.svg
 ```
 
 ### Parameters
@@ -98,14 +96,12 @@ https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@latest/icons/{size}/{iconName}-{
 | Parameter  | Type   | Description             | Examples               |
 | ---------- | ------ | ----------------------- | ---------------------- |
 | `size`     | number | Icon size in pixels     | 16, 20, 24, 28, 32, 48 |
-| `iconName` | string | Icon name in snake_case | add, heart, settings   |
+| `iconName` | string | Icon name in snake_case | add, heart, add_square |
 | `style`    | string | Icon style variant      | regular, filled        |
-| `format`   | string | File format             | svg, png               |
 
 ### Available Formats
 
-- **SVG**: Vector format, scalable, best quality
-- **PNG**: Raster format, fixed size, good for web
+- **SVG**: Vector format, scalable, best quality (SVG only format)
 
 ### Icon Naming Convention
 
@@ -115,11 +111,12 @@ Icons follow a consistent naming pattern:
 - **Examples**:
   - `add-regular`
   - `heart-filled`
-  - `settings-regular`
+  - `add_square-filled`
+  - `access_time-regular`
 
 ## 🎨 Available Icons
 
-**All 434+ icons are supported!**
+**All 5,207+ icons are supported!** (434 base icons × 2 styles × 6 sizes)
 
 ### Key Icon Categories:
 
@@ -150,29 +147,37 @@ The package includes icons for every use case:
 ### URL Generation
 
 ```javascript
-import { generateIconUrl, generateIconFileName } from "@refineui/icon-cdn";
+import {
+  createIconURL,
+  getIconURL,
+  generateIconFileName,
+} from "@refineui/icon-cdn";
 
 // Generate icon URL
-const iconUrl = generateIconUrl("add", 24, "regular", "svg");
-// Returns: "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@latest/icons/24/add-regular.svg"
+const iconUrl = createIconURL("add", 24, "regular");
+// Returns: "https://jihoonahn.github.io/refineui-system-icons/cdn/icons/24/add-regular.svg"
+
+// Alternative function
+const iconUrl2 = getIconURL("heart", 32, "filled");
+// Returns: "https://jihoonahn.github.io/refineui-system-icons/cdn/icons/32/heart-filled.svg"
 
 // Generate filename
-const fileName = generateIconFileName("heart", "filled", "png");
-// Returns: "heart-filled.png"
+const fileName = generateIconFileName("heart", "filled");
+// Returns: "heart-filled.svg"
 ```
 
 ### Icon Validation
 
 ```javascript
-import { isIconSupported, getAvailableIcons } from "@refineui/icon-cdn";
+import { isValidIconSize, isValidIconStyle } from "@refineui/icon-cdn";
 
-// Check if icon is supported
-const isSupported = isIconSupported("add", "regular", 24);
-// Returns: true
+// Validate icon size
+const isValidSize = isValidIconSize(24); // Returns: true
+const isInvalidSize = isValidIconSize(30); // Returns: false
 
-// Get all available icons
-const allIcons = getAvailableIcons();
-// Returns: array of all icon names
+// Validate icon style
+const isValidStyle = isValidIconStyle("regular"); // Returns: true
+const isInvalidStyle = isValidIconStyle("outline"); // Returns: false
 ```
 
 ## 📱 Examples
@@ -203,7 +208,7 @@ function createIconGallery(icons, size = 24, style = "regular") {
     `;
 
     const icon = document.createElement("img");
-    icon.src = generateIconUrl(iconName, size, style, "svg");
+    icon.src = `https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@0.2.2/icons/${size}/${iconName}-${style}.svg`;
     icon.alt = iconName;
     icon.style.width = `${size}px`;
     icon.style.height = `${size}px`;
@@ -239,7 +244,7 @@ document.body.appendChild(gallery);
 ```javascript
 function loadIconAsync(iconName, size = 24, style = "regular") {
   return new Promise((resolve, reject) => {
-    const url = generateIconUrl(iconName, size, style, "svg");
+    const url = `https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@0.2.2/icons/${size}/${iconName}-${style}.svg`;
 
     fetch(url)
       .then((response) => {
@@ -285,7 +290,7 @@ function preloadIcons(iconNames, size = 24, style = "regular") {
       const img = new Image();
       img.onload = () => resolve(iconName);
       img.onerror = () => resolve(iconName); // Continue even if some fail
-      img.src = generateIconUrl(iconName, size, style, "svg");
+      img.src = `https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@0.2.2/icons/${size}/${iconName}-${style}.svg`;
     });
   });
 
@@ -317,7 +322,7 @@ criticalIcons.forEach((iconName) => {
   const link = document.createElement("link");
   link.rel = "preload";
   link.as = "image";
-  link.href = generateIconUrl(iconName, 24, "regular", "svg");
+  link.href = `https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@0.2.2/icons/24/${iconName}-regular.svg`;
   document.head.appendChild(link);
 });
 
@@ -327,7 +332,7 @@ function lazyLoadIcon(iconName, container) {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         const icon = document.createElement("img");
-        icon.src = generateIconUrl(iconName, 24, "regular", "svg");
+        icon.src = `https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@0.2.2/icons/24/${iconName}-regular.svg`;
         icon.alt = iconName;
         entry.target.appendChild(icon);
         observer.unobserve(entry.target);
@@ -368,13 +373,36 @@ MIT License - see [LICENSE](../../LICENSE) for details.
 - [`@refineui/react-icons`](../react-icons) - React icon components
 - [`@refineui/react-native-icons`](../react-native-icons) - React Native icon components
 - [`@refineui/web-icons`](../web-icons) - Web icon library for non-React projects
+- [`refineui_system_icons`](../../flutter) - Flutter icon package
 
 ## 🆘 Support
 
-- 📧 Email: support@refineui.com
-- 🐛 Issues: [GitHub Issues](https://github.com/refineui/system-icons/issues)
-- 📖 Documentation: [docs.refineui.com](https://docs.refineui.com)
-- 💬 Community: [Discord](https://discord.gg/refineui)
+- 🐛 Issues: [GitHub Issues](https://github.com/pelagornis/refineui-system-icons/issues)
+- 📖 Documentation: [GitHub Repository](https://github.com/pelagornis/refineui-system-icons)
+- 💬 Community: [GitHub Discussions](https://github.com/pelagornis/refineui-system-icons/discussions)
+
+## 📝 Changelog
+
+### v0.2.2 (Latest)
+
+- 🎯 **Major Update**: Removed font files for lightweight package
+- 🔧 **API Changes**: Updated utility functions to focus on SVG URLs
+- ✨ **New Functions**: `createIconURL()`, `getIconURL()` for direct URL generation
+- 🗑️ **Removed**: Font-based icon generation functions
+- 📦 **Optimized**: Package size significantly reduced by removing font files
+- 🎨 **SVG Only**: Pure SVG approach for better performance and flexibility
+
+### v0.2.1
+
+- ✅ Fixed: Real SVG icons instead of text placeholders
+- ✅ Updated: All 5,207+ icons now properly generated from source assets
+- ✅ Improved: Build process now copies actual SVG files from assets directory
+
+### v0.2.0
+
+- 🎉 Initial release with CDN functionality
+- 📦 5,207+ icons across 6 sizes and 2 styles
+- 🌐 Global CDN distribution via jsDelivr
 
 ---
 

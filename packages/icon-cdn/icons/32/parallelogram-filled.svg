@@ -1,4 +1,3 @@
-<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-  <rect width="32" height="32" fill="#000" stroke="#000" stroke-width="1"/>
-  <text x="16" y="20" text-anchor="middle" font-family="Arial" font-size="10.666666666666666" fill="#000">parallelogram</text>
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M10.6205 9.22152C10.9557 8.48183 11.7418 8 12.6135 8H24.172C25.7127 8 26.7576 9.44094 26.165 10.7484L20.7128 22.7785C20.3776 23.5182 19.5915 24 18.7199 24H7.1613C5.62064 24 4.57577 22.5591 5.16833 21.2516L10.6205 9.22152Z" fill="black"/>
 </svg>

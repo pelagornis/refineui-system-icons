@@ -1,4 +1,3 @@
-<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-  <rect width="20" height="20" fill="#000" stroke="#000" stroke-width="1"/>
-  <text x="10" y="14" text-anchor="middle" font-family="Arial" font-size="6.666666666666667" fill="#000">play</text>
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M15.8341 10.4743C16.4997 10.1415 16.4997 9.19181 15.8341 8.85905L4.30698 3.09649C3.70651 2.79631 3 3.23288 3 3.90411V15.4292C3 16.1005 3.70651 16.537 4.30698 16.2368L15.8341 10.4743Z" fill="black"/>
 </svg>

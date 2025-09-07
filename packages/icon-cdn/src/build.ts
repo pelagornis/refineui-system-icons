@@ -4,8 +4,8 @@
  * This script copies SVG icons to a structured folder for CDN usage.
  */
 
-import fs from 'fs-extra';
-import path from 'path';
+import * as fs from 'fs-extra';
+import * as path from 'path';
 import { BUILD_CONFIG } from './constants';
 import { IconMetadata } from './types';
 import { mapIconName, generateSampleSVG } from './utils';
@@ -54,6 +54,16 @@ async function copySVGFiles(): Promise<void> {
       // Map icon name
       const iconName = mapIconName(iconDir);
       
+      // Look for SVG files in the icon directory
+      const svgDir = path.join(iconDirPath, 'svg');
+      
+      if (!(await fs.pathExists(svgDir))) {
+        console.log(`⚠️  SVG directory not found for ${iconDir}, skipping...`);
+        continue;
+      }
+      
+      // const svgFiles = await fs.readdir(svgDir);
+      
       // Copy files for each size
       for (const size of BUILD_CONFIG.sizes) {
         const sizeDir = path.join(BUILD_CONFIG.outputDir, size.toString());
@@ -63,11 +73,21 @@ async function copySVGFiles(): Promise<void> {
           const fileName = `${iconName}-${style}.svg`;
           const outputPath = path.join(sizeDir, fileName);
           
-          // Generate sample SVG content
-          const svgContent = generateSampleSVG(iconName, size, style);
-          await fs.writeFile(outputPath, svgContent);
+          // Find the corresponding SVG file
+          const svgFileName = `ic_refineui_${iconName.replace(/_/g, '-')}_${size}_${style}.svg`;
+          const sourceSvgPath = path.join(svgDir, svgFileName);
           
-          copiedFiles++;
+          if (await fs.pathExists(sourceSvgPath)) {
+            // Copy the actual SVG file
+            await fs.copy(sourceSvgPath, outputPath);
+            copiedFiles++;
+          } else {
+            // Generate sample SVG content if file not found
+            console.log(`⚠️  SVG file not found: ${svgFileName}, generating sample...`);
+            const svgContent = generateSampleSVG(iconName, size, style);
+            await fs.writeFile(outputPath, svgContent);
+            copiedFiles++;
+          }
         }
       }
       

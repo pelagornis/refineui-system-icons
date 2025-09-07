@@ -1,4 +1,3 @@
-<svg width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
-  <rect width="28" height="28" fill="#000" stroke="#000" stroke-width="1"/>
-  <text x="14" y="18" text-anchor="middle" font-family="Arial" font-size="9.333333333333334" fill="#000">tablet</text>
+<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M8.33333 5C7.04467 5 6 6.04467 6 7.33333V21.3333C6 22.622 7.04467 23.6667 8.33333 23.6667H20C21.2887 23.6667 22.3333 22.622 22.3333 21.3333V7.33333C22.3333 6.04467 21.2887 5 20 5H8.33333ZM10.6667 19.4083C10.2479 19.4083 9.90833 19.7479 9.90833 20.1667C9.90833 20.5855 10.2479 20.925 10.6667 20.925H17.6667C18.0855 20.925 18.425 20.5855 18.425 20.1667C18.425 19.7479 18.0855 19.4083 17.6667 19.4083H10.6667Z" fill="black"/>
 </svg>

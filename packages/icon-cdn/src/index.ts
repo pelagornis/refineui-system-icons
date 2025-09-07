@@ -7,17 +7,11 @@ export * from './filled-icons';
 
 // === Import and export utility functions ===
 export { 
-  createIconHTML,
-  getIconChar,
-  getIconClass,
-  getFontFamily,
-  getCSSUrl,
-  getFontUrl,
+  createIconURL,
+  getIconURL,
   getCDNBaseUrl,
+  generateIconFileName,
 } from './utils';
 
-// === IconUtils export ===
-export { default as IconUtils } from './IconUtils';
-
-// === Type export ===
-export type { IconData } from './IconUtils';
+// === CDN functions export ===
+export * from './cdn';

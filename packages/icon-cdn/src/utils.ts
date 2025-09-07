@@ -1,32 +1,21 @@
-import IconUtils from './IconUtils';
+// CDN package utilities for SVG icon URLs
 
 // CDN base URL
 const CDN_BASE_URL = 'https://jihoonahn.github.io/refineui-system-icons/cdn';
 
-// === Icon HTML generation method ===
-export const createIconHTML = (iconName: string, style: 'regular' | 'filled') => {
-  return (size: number = 24, color: string = 'currentColor', className: string = '') => {
-    const iconChar = IconUtils.getIconChar(iconName, style, size);
-    const fontFamily = IconUtils.getFontFamily(style);
-
-    if (!iconChar) return '';
-
-    return `<span style="font-family: '${fontFamily}'; font-size: ${size}px; color: ${color}; display: inline-block; line-height: 1; vertical-align: middle;" class="${className}">${iconChar}</span>`;
-  };
+// === SVG URL generation method ===
+export const createIconURL = (iconName: string, size: number = 24, style: 'regular' | 'filled' = 'regular') => {
+  return `${CDN_BASE_URL}/icons/${size}/${iconName}-${style}.svg`;
 };
 
 // === CDN utility functions ===
-export const getCSSUrl = () => `${CDN_BASE_URL}/fonts/refineui-system-icons.css`;
-export const getFontUrl = (style: 'regular' | 'filled' = 'regular') => {
-  const fontFamily = IconUtils.getFontFamily(style);
-  return `${CDN_BASE_URL}/fonts/${fontFamily}.woff2`;
-};
 export const getCDNBaseUrl = () => CDN_BASE_URL;
 
 // === Functions needed for build.ts ===
 export const mapIconName = (iconDir: string): string => {
-  // Convert folder name to icon name
-  return iconDir.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+  // Convert folder name to icon name using the mapping from constants
+  const { ICON_NAME_MAPPING } = require('./constants');
+  return ICON_NAME_MAPPING[iconDir] || iconDir.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
 };
 
 export const generateSampleSVG = (iconName: string, size: number, style: string): string => {
@@ -50,16 +39,6 @@ export const generateIconFileName = (iconName: string, style: string): string =>
 };
 
 // === Utility functions ===
-export { default as IconUtils } from './IconUtils';
-
-export const getIconChar = (iconName: string, style: 'regular' | 'filled' = 'regular', size: number = 24) => {
-  return IconUtils.getIconChar(iconName, style, size);
-};
-
-export const getIconClass = (iconName: string, style: 'regular' | 'filled' = 'regular', size: number = 24) => {
-  return IconUtils.getIconClass(iconName, style, size);
-};
-
-export const getFontFamily = (style: 'regular' | 'filled' = 'regular') => {
-  return IconUtils.getFontFamily(style);
+export const getIconURL = (iconName: string, size: number = 24, style: 'regular' | 'filled' = 'regular') => {
+  return createIconURL(iconName, size, style);
 };
