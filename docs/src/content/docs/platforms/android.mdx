@@ -1,0 +1,106 @@
+---
+title: Android
+description: Android에서 RefineUI System Icons 사용하기
+---
+
+# Android 가이드
+
+Android 네이티브 앱에서 RefineUI System Icons를 사용하는 방법을 안내합니다.
+
+## 설치
+
+### build.gradle에 추가
+
+```gradle
+dependencies {
+    implementation 'com.pelagornis:refineui-system-icons:0.1.22'
+}
+```
+
+## 기본 사용법
+
+### Import
+
+```kotlin
+import com.pelagornis.refineui.icons.RefineIcons
+```
+
+### ImageView에서 사용
+
+```kotlin
+// Filled 스타일 아이콘
+imageView.setImageResource(RefineIcons.Add24Filled)
+
+// Regular 스타일 아이콘
+imageView.setImageResource(RefineIcons.Add24Regular)
+```
+
+## 실제 사용 예제
+
+### Button에서 사용
+
+```kotlin
+import android.os.Bundle
+import android.widget.Button
+import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
+import com.pelagornis.refineui.icons.RefineIcons
+
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        
+        val addButton = findViewById<Button>(R.id.addButton)
+        addButton.setCompoundDrawablesWithIntrinsicBounds(
+            RefineIcons.Add24Filled, 0, 0, 0
+        )
+        addButton.text = "추가"
+        
+        addButton.setOnClickListener {
+            // 버튼 클릭 액션
+        }
+    }
+}
+```
+
+### Toolbar에서 사용
+
+```kotlin
+import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import com.pelagornis.refineui.icons.RefineIcons
+
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
+    }
+    
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+    
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_add -> {
+                // 추가 액션
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+}
+```
+
+## 다음 단계
+
+- [아이콘 참조](/icons/)에서 사용 가능한 모든 아이콘을 확인하세요
+- [고급 사용법](/advanced/)에서 더 많은 기능을 알아보세요

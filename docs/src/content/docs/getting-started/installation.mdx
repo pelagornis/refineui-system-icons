@@ -1,0 +1,125 @@
+---
+title: 설치
+description: RefineUI System Icons를 프로젝트에 설치하는 방법
+---
+
+# 설치 가이드
+
+각 플랫폼별로 RefineUI System Icons를 설치하는 방법을 안내합니다.
+
+## Flutter
+
+### pubspec.yaml에 추가
+
+```yaml
+dependencies:
+  refineui_system_icons: ^0.1.22
+```
+
+### 설치
+
+```bash
+flutter pub get
+```
+
+### 사용법
+
+```dart
+import 'package:refineui_system_icons/refineui_system_icons.dart';
+
+Icon(RefineUIIcons.add_24_filled)
+Icon(RefineUIIcons.add_24_regular)
+```
+
+## React
+
+### npm으로 설치
+
+```bash
+npm install @refineui/react-icons
+```
+
+### 사용법
+
+```jsx
+import { Add24Filled, Add24Regular } from '@refineui/react-icons';
+
+<Add24Filled />
+<Add24Regular />
+```
+
+## React Native
+
+### npm으로 설치
+
+```bash
+npm install @refineui/react-native-icons
+```
+
+### 사용법
+
+```jsx
+import { Add24Filled, Add24Regular } from '@refineui/react-native-icons';
+
+<Add24Filled />
+<Add24Regular />
+```
+
+## iOS
+
+### Swift Package Manager
+
+Xcode에서 File → Add Package Dependencies를 선택하고 다음 URL을 추가하세요:
+
+```
+https://github.com/pelagornis/refineui-system-icons
+```
+
+### 사용법
+
+```swift
+import RefineIcons
+
+UIImage(systemName: "add.24.filled")
+UIImage(systemName: "add.24.regular")
+```
+
+## Android
+
+### build.gradle에 추가
+
+```gradle
+dependencies {
+    implementation 'com.pelagornis:refineui-system-icons:0.1.22'
+}
+```
+
+### 사용법
+
+```kotlin
+import com.pelagornis.refineui.icons.RefineIcons
+
+imageView.setImageResource(RefineIcons.Add24Filled)
+imageView.setImageResource(RefineIcons.Add24Regular)
+```
+
+## Web
+
+### CDN 사용
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@refineui/web-icons@0.1.22/dist/refineui-system-icons.css">
+```
+
+### 사용법
+
+```html
+<i class="refineui-icon refineui-icon-add-24-filled"></i>
+<i class="refineui-icon refineui-icon-add-24-regular"></i>
+```
+
+## 다음 단계
+
+- [Flutter 가이드](/platforms/flutter/)에서 Flutter 사용법을 자세히 알아보세요
+- [React 가이드](/platforms/react/)에서 React 사용법을 자세히 알아보세요
+- [아이콘 참조](/icons/)에서 사용 가능한 모든 아이콘을 확인하세요

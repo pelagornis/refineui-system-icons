@@ -1,0 +1,88 @@
+---
+title: 커스터마이징
+description: RefineUI System Icons를 커스터마이징하는 방법
+---
+
+# 커스터마이징
+
+RefineUI System Icons를 프로젝트에 맞게 커스터마이징하는 방법을 안내합니다.
+
+## 색상 커스터마이징
+
+### Flutter
+```dart
+Icon(
+  RefineUIIcons.add_24_filled,
+  color: Colors.blue,
+)
+```
+
+### React
+```jsx
+<Add24Filled style={{ color: '#0078d4' }} />
+```
+
+### Web
+```css
+.refineui-icon {
+  color: #0078d4;
+}
+```
+
+## 크기 커스터마이징
+
+### Flutter
+```dart
+Icon(
+  RefineUIIcons.add_24_filled,
+  size: 32,
+)
+```
+
+### React
+```jsx
+<Add24Filled style={{ width: 32, height: 32 }} />
+```
+
+### Web
+```css
+.refineui-icon {
+  font-size: 32px;
+}
+```
+
+## 테마 적용
+
+### Flutter
+```dart
+Theme(
+  data: Theme.of(context).copyWith(
+    iconTheme: IconThemeData(
+      color: Colors.blue,
+      size: 24,
+    ),
+  ),
+  child: Icon(RefineUIIcons.add_24_filled),
+)
+```
+
+### React
+```jsx
+const theme = {
+  iconColor: '#0078d4',
+  iconSize: 24,
+};
+
+<Add24Filled 
+  style={{ 
+    color: theme.iconColor, 
+    width: theme.iconSize, 
+    height: theme.iconSize 
+  }} 
+/>
+```
+
+## 다음 단계
+
+- [테마 설정](/advanced/theming/)에서 테마 시스템을 알아보세요
+- [성능 최적화](/advanced/performance/)에서 성능 향상 방법을 확인하세요
