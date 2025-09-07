@@ -162,6 +162,7 @@ jobs:
     permissions:
       id-token: write # Required for authentication using OIDC
     runs-on: ubuntu-latest
+    environment: pub-dev
     steps:
       - uses: actions/checkout@v3
       - uses: dart-lang/setup-dart@v1
@@ -179,4 +180,11 @@ jobs:
       - name: Publish
         run: |
           cd flutter
+          # Use the updated pubspec.yaml version (not the tag version)
+          CURRENT_VERSION=$(grep '^version:' pubspec.yaml | sed 's/version: //')
+
+          echo "Using updated pubspec.yaml version: $CURRENT_VERSION"
+          echo "This version was updated by the workflow, not from the tag"
+
+          # Publish with the updated version
           flutter pub publish --force
