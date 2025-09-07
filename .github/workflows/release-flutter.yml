@@ -146,7 +146,21 @@ jobs:
     permissions:
       id-token: write # Required for authentication using OIDC
       contents: read
-    uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
-    with:
-      package_path: flutter
-      publish_to: pub.dev
+    runs-on: ubuntu-latest
+    environment: pub-dev
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dart-lang/setup-dart@v1
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.19.0"
+          channel: "stable"
+      - name: Install dependencies
+        run: |
+          cd flutter
+          flutter pub get
+      - name: Publish to pub.dev
+        run: |
+          cd flutter
+          flutter pub publish --force
