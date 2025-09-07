@@ -10,6 +10,9 @@ hero:
     - text: 시작하기
       link: /getting-started/introduction/
       icon: right-arrow
+    - text: 아이콘 검색
+      link: /icons/search/
+      icon: search
     - text: GitHub에서 보기
       link: https://github.com/pelagornis/refineui-system-icons
       icon: external
@@ -17,6 +20,11 @@ hero:
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
+import IconSearch from '../../components/IconSearch.astro';
+
+## 아이콘 검색
+
+<IconSearch />
 
 ## 플랫폼 지원
 
@@ -48,3 +56,4 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 - ⚡ **성능 최적화**: 가벼운 번들 크기와 빠른 로딩
 - 🔧 **쉬운 사용**: 간단한 API와 직관적인 네이밍
 - 🌍 **다국어 지원**: 글로벌 애플리케이션을 위한 준비
+- 🔍 **강력한 검색**: 5,000+ 아이콘을 빠르게 찾기

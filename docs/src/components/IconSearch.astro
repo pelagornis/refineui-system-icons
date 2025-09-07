@@ -1,0 +1,430 @@
+---
+// 아이콘 검색 컴포넌트
+---
+
+<div class="icon-search-container">
+  <div class="search-header">
+    <h2>아이콘 검색</h2>
+    <div class="search-controls">
+      <input 
+        type="text" 
+        id="icon-search" 
+        placeholder="아이콘 이름으로 검색..." 
+        class="search-input"
+      />
+      <select id="category-filter" class="category-select">
+        <option value="">모든 카테고리</option>
+        <option value="기본">기본</option>
+        <option value="네비게이션">네비게이션</option>
+        <option value="액션">액션</option>
+        <option value="상태">상태</option>
+        <option value="사용자 인터페이스">사용자 인터페이스</option>
+        <option value="기타">기타</option>
+      </select>
+      <select id="size-filter" class="size-select">
+        <option value="">모든 크기</option>
+        <option value="16">16px</option>
+        <option value="20">20px</option>
+        <option value="24">24px</option>
+        <option value="28">28px</option>
+        <option value="32">32px</option>
+        <option value="48">48px</option>
+      </select>
+      <select id="style-filter" class="style-select">
+        <option value="">모든 스타일</option>
+        <option value="filled">Filled</option>
+        <option value="regular">Regular</option>
+      </select>
+    </div>
+  </div>
+  
+  <div class="search-results" id="search-results">
+    <!-- 검색 결과가 여기에 표시됩니다 -->
+  </div>
+  
+  <div class="pagination" id="pagination">
+    <!-- 페이지네이션이 여기에 표시됩니다 -->
+  </div>
+</div>
+
+<script>
+  // 아이콘 데이터 로드
+  async function loadIconData() {
+    try {
+      const response = await fetch('/src/data/icons.json');
+      return await response.json();
+    } catch (error) {
+      console.error('아이콘 데이터 로드 실패:', error);
+      return null;
+    }
+  }
+
+  // 아이콘 카드 생성
+  function createIconCard(icon) {
+    const card = document.createElement('div');
+    card.className = 'icon-card';
+    card.innerHTML = `
+      <div class="icon-preview">
+        <div class="icon-placeholder" data-icon="${icon.name}">
+          <span class="icon-name">${icon.baseName}</span>
+        </div>
+      </div>
+      <div class="icon-info">
+        <h3>${icon.displayName}</h3>
+        <p class="icon-details">${icon.size}px • ${icon.style}</p>
+        <div class="icon-code">
+          <code>${icon.name}</code>
+        </div>
+        <div class="icon-actions">
+          <button class="copy-btn" data-icon="${icon.name}">복사</button>
+        </div>
+      </div>
+    `;
+    return card;
+  }
+
+  // 검색 및 필터링
+  function filterIcons(icons, searchTerm, category, size, style) {
+    return icons.filter(icon => {
+      const matchesSearch = !searchTerm || 
+        icon.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        icon.displayName.toLowerCase().includes(searchTerm.toLowerCase());
+      
+      const matchesCategory = !category || 
+        getCategoryForIcon(icon.baseName) === category;
+      
+      const matchesSize = !size || icon.size === size;
+      const matchesStyle = !style || icon.style === style;
+      
+      return matchesSearch && matchesCategory && matchesSize && matchesStyle;
+    });
+  }
+
+  // 아이콘의 카테고리 결정
+  function getCategoryForIcon(baseName) {
+    const categoryKeywords = {
+      '기본': ['add', 'remove', 'edit', 'delete', 'save', 'cancel', 'confirm'],
+      '네비게이션': ['home', 'back', 'forward', 'menu', 'close', 'expand', 'chevron'],
+      '액션': ['play', 'pause', 'stop', 'refresh', 'reload', 'download', 'upload', 'share', 'copy', 'paste'],
+      '상태': ['check', 'error', 'warning', 'info', 'success', 'failure', 'loading', 'spinner'],
+      '사용자 인터페이스': ['settings', 'preferences', 'user', 'profile', 'account', 'notification', 'bell', 'help', 'question']
+    };
+    
+    for (const [category, keywords] of Object.entries(categoryKeywords)) {
+      if (keywords.some(keyword => baseName.includes(keyword))) {
+        return category;
+      }
+    }
+    return '기타';
+  }
+
+  // 페이지네이션
+  function paginateItems(items, page, itemsPerPage) {
+    const startIndex = (page - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    return items.slice(startIndex, endIndex);
+  }
+
+  // 페이지네이션 UI 생성
+  function createPagination(totalPages, currentPage) {
+    const pagination = document.getElementById('pagination');
+    if (totalPages <= 1) {
+      pagination.innerHTML = '';
+      return;
+    }
+
+    let html = '<div class="pagination-controls">';
+    
+    // 이전 페이지
+    if (currentPage > 1) {
+      html += `<button class="page-btn" data-page="${currentPage - 1}">이전</button>`;
+    }
+    
+    // 페이지 번호들
+    const startPage = Math.max(1, currentPage - 2);
+    const endPage = Math.min(totalPages, currentPage + 2);
+    
+    for (let i = startPage; i <= endPage; i++) {
+      const activeClass = i === currentPage ? 'active' : '';
+      html += `<button class="page-btn ${activeClass}" data-page="${i}">${i}</button>`;
+    }
+    
+    // 다음 페이지
+    if (currentPage < totalPages) {
+      html += `<button class="page-btn" data-page="${currentPage + 1}">다음</button>`;
+    }
+    
+    html += '</div>';
+    pagination.innerHTML = html;
+  }
+
+  // 검색 결과 표시
+  function displaySearchResults(icons, page = 1) {
+    const resultsContainer = document.getElementById('search-results');
+    const itemsPerPage = 24;
+    const paginatedIcons = paginateItems(icons, page, itemsPerPage);
+    const totalPages = Math.ceil(icons.length / itemsPerPage);
+    
+    if (paginatedIcons.length === 0) {
+      resultsContainer.innerHTML = '<div class="no-results">검색 결과가 없습니다.</div>';
+      createPagination(0, 1);
+      return;
+    }
+    
+    resultsContainer.innerHTML = '';
+    paginatedIcons.forEach(icon => {
+      const card = createIconCard(icon);
+      resultsContainer.appendChild(card);
+    });
+    
+    createPagination(totalPages, page);
+    
+    // 페이지네이션 이벤트 리스너
+    document.querySelectorAll('.page-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const newPage = parseInt(btn.dataset.page);
+        displaySearchResults(icons, newPage);
+      });
+    });
+  }
+
+  // 복사 기능
+  function setupCopyButtons() {
+    document.addEventListener('click', (e) => {
+      if (e.target.classList.contains('copy-btn')) {
+        const iconName = e.target.dataset.icon;
+        navigator.clipboard.writeText(iconName).then(() => {
+          e.target.textContent = '복사됨!';
+          setTimeout(() => {
+            e.target.textContent = '복사';
+          }, 2000);
+        });
+      }
+    });
+  }
+
+  // 메인 초기화
+  async function init() {
+    const iconData = await loadIconData();
+    if (!iconData) return;
+    
+    let currentPage = 1;
+    let filteredIcons = iconData.allIcons;
+    
+    // 초기 결과 표시
+    displaySearchResults(filteredIcons, currentPage);
+    
+    // 검색 입력 이벤트
+    const searchInput = document.getElementById('icon-search');
+    const categoryFilter = document.getElementById('category-filter');
+    const sizeFilter = document.getElementById('size-filter');
+    const styleFilter = document.getElementById('style-filter');
+    
+    function performSearch() {
+      const searchTerm = searchInput.value;
+      const category = categoryFilter.value;
+      const size = sizeFilter.value;
+      const style = styleFilter.value;
+      
+      filteredIcons = filterIcons(iconData.allIcons, searchTerm, category, size, style);
+      currentPage = 1;
+      displaySearchResults(filteredIcons, currentPage);
+    }
+    
+    searchInput.addEventListener('input', performSearch);
+    categoryFilter.addEventListener('change', performSearch);
+    sizeFilter.addEventListener('change', performSearch);
+    styleFilter.addEventListener('change', performSearch);
+    
+    // 복사 버튼 설정
+    setupCopyButtons();
+  }
+
+  // DOM 로드 완료 후 초기화
+  document.addEventListener('DOMContentLoaded', init);
+</script>
+
+<style>
+  .icon-search-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .search-header {
+    margin-bottom: 2rem;
+  }
+
+  .search-header h2 {
+    margin-bottom: 1rem;
+    color: var(--sl-color-text);
+  }
+
+  .search-controls {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+
+  .search-input,
+  .category-select,
+  .size-select,
+  .style-select {
+    padding: 0.5rem;
+    border: 1px solid var(--sl-color-hairline);
+    border-radius: 0.375rem;
+    background: var(--sl-color-bg);
+    color: var(--sl-color-text);
+    font-size: 0.875rem;
+  }
+
+  .search-input {
+    flex: 1;
+    min-width: 200px;
+  }
+
+  .search-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .icon-card {
+    border: 1px solid var(--sl-color-hairline);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    background: var(--sl-color-bg);
+    transition: all 0.2s ease;
+  }
+
+  .icon-card:hover {
+    border-color: var(--sl-color-accent);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .icon-preview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    margin-bottom: 1rem;
+    background: var(--sl-color-bg-nav);
+    border-radius: 0.375rem;
+  }
+
+  .icon-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: var(--sl-color-accent);
+    color: white;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .icon-info h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+    color: var(--sl-color-text);
+  }
+
+  .icon-details {
+    margin: 0 0 0.5rem 0;
+    font-size: 0.875rem;
+    color: var(--sl-color-text-accent);
+  }
+
+  .icon-code {
+    margin-bottom: 1rem;
+  }
+
+  .icon-code code {
+    background: var(--sl-color-bg-nav);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    color: var(--sl-color-text);
+    word-break: break-all;
+  }
+
+  .icon-actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .copy-btn {
+    padding: 0.5rem 1rem;
+    background: var(--sl-color-accent);
+    color: white;
+    border: none;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  .copy-btn:hover {
+    background: var(--sl-color-accent-high);
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+
+  .pagination-controls {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .page-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--sl-color-hairline);
+    background: var(--sl-color-bg);
+    color: var(--sl-color-text);
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .page-btn:hover {
+    background: var(--sl-color-bg-nav);
+  }
+
+  .page-btn.active {
+    background: var(--sl-color-accent);
+    color: white;
+    border-color: var(--sl-color-accent);
+  }
+
+  .no-results {
+    text-align: center;
+    padding: 3rem;
+    color: var(--sl-color-text-accent);
+    font-size: 1.125rem;
+  }
+
+  @media (max-width: 768px) {
+    .search-controls {
+      flex-direction: column;
+    }
+    
+    .search-input,
+    .category-select,
+    .size-select,
+    .style-select {
+      width: 100%;
+    }
+    
+    .search-results {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

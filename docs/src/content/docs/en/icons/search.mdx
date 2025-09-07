@@ -1,0 +1,69 @@
+---
+title: Icon Search
+description: Find the icons you need in RefineUI System Icons
+---
+
+import IconSearch from '../../../components/IconSearch.astro';
+
+# Icon Search
+
+Easily find the icons you need in RefineUI System Icons. Search and filter through 5,000+ icons by name, category, size, and style.
+
+<IconSearch />
+
+## Search Methods
+
+### Search by Name
+Enter the icon name to search.
+
+Examples:
+- `add` - Add related icons
+- `home` - Home related icons
+- `settings` - Settings related icons
+
+### Search by Category
+Find icons by category.
+
+- **Basic**: add, remove, edit, delete, save, cancel, confirm
+- **Navigation**: home, back, forward, menu, close, expand, chevron
+- **Actions**: play, pause, stop, refresh, reload, download, upload, share, copy, paste
+- **Status**: check, error, warning, info, success, failure, loading, spinner
+- **User Interface**: settings, preferences, user, profile, account, notification, bell, help, question
+
+### Search by Size
+Each icon is available in the following sizes:
+- 16px, 20px, 24px, 28px, 32px, 48px
+
+### Search by Style
+Each icon is available in two styles:
+- **Regular**: Default style
+- **Filled**: Filled style
+
+## Usage
+
+### Flutter
+```dart
+import 'package:refineui_system_icons/refineui_system_icons.dart';
+
+Icon(RefineUIIcons.add_24_filled)
+Icon(RefineUIIcons.add_24_regular)
+```
+
+### React
+```jsx
+import { Add24Filled, Add24Regular } from '@refineui/react-icons';
+
+<Add24Filled />
+<Add24Regular />
+```
+
+### Web
+```html
+<i class="refineui-icon refineui-icon-add-24-filled"></i>
+<i class="refineui-icon refineui-icon-add-24-regular"></i>
+```
+
+## Next Steps
+
+- Check out [All Icons](/en/icons/all-icons/) for the complete list
+- Learn more in [Platform Guides](/en/platforms/)

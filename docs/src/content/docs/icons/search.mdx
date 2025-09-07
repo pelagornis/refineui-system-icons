@@ -3,9 +3,13 @@ title: 아이콘 검색
 description: RefineUI System Icons에서 원하는 아이콘을 찾아보세요
 ---
 
+import IconSearch from '../../components/IconSearch.astro';
+
 # 아이콘 검색
 
-RefineUI System Icons에서 원하는 아이콘을 쉽게 찾을 수 있습니다.
+RefineUI System Icons에서 원하는 아이콘을 쉽게 찾을 수 있습니다. 5,000+ 아이콘을 이름, 카테고리, 크기, 스타일로 필터링하여 검색할 수 있습니다.
+
+<IconSearch />
 
 ## 검색 방법
 
@@ -20,46 +24,43 @@ RefineUI System Icons에서 원하는 아이콘을 쉽게 찾을 수 있습니�
 ### 카테고리별 검색
 아이콘을 카테고리별로 분류하여 찾을 수 있습니다.
 
-- **기본**: add, remove, edit, delete
-- **네비게이션**: home, back, forward, menu
-- **액션**: play, pause, stop, refresh
-- **상태**: check, error, warning, info
-- **UI**: settings, user, notification, help
+- **기본**: add, remove, edit, delete, save, cancel, confirm
+- **네비게이션**: home, back, forward, menu, close, expand, chevron
+- **액션**: play, pause, stop, refresh, reload, download, upload, share, copy, paste
+- **상태**: check, error, warning, info, success, failure, loading, spinner
+- **사용자 인터페이스**: settings, preferences, user, profile, account, notification, bell, help, question
 
-## 아이콘 미리보기
+### 크기별 검색
+각 아이콘은 다음 크기로 제공됩니다:
+- 16px, 20px, 24px, 28px, 32px, 48px
 
-각 아이콘의 다양한 크기와 스타일을 미리 볼 수 있습니다:
+### 스타일별 검색
+각 아이콘은 두 가지 스타일로 제공됩니다:
+- **Regular**: 기본 스타일
+- **Filled**: 채워진 스타일
 
-- 16px Regular
-- 16px Filled
-- 20px Regular
-- 20px Filled
-- 24px Regular
-- 24px Filled
-- 28px Regular
-- 28px Filled
-- 32px Regular
-- 32px Filled
-- 48px Regular
-- 48px Filled
-
-## 코드 복사
-
-각 아이콘의 사용법을 복사할 수 있습니다:
+## 사용법
 
 ### Flutter
 ```dart
+import 'package:refineui_system_icons/refineui_system_icons.dart';
+
 Icon(RefineUIIcons.add_24_filled)
+Icon(RefineUIIcons.add_24_regular)
 ```
 
 ### React
 ```jsx
+import { Add24Filled, Add24Regular } from '@refineui/react-icons';
+
 <Add24Filled />
+<Add24Regular />
 ```
 
 ### Web
 ```html
 <i class="refineui-icon refineui-icon-add-24-filled"></i>
+<i class="refineui-icon refineui-icon-add-24-regular"></i>
 ```
 
 ## 다음 단계
