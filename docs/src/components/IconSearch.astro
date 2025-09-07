@@ -4,37 +4,65 @@
 
 <div class="icon-search-container">
   <div class="search-header">
-    <h2>아이콘 검색</h2>
+    <div class="search-title">
+      <h2>Icon Search</h2>
+      <div class="search-stats" id="search-stats">
+        <span class="total-count">5,207 icons</span>
+        <span class="filtered-count" id="filtered-count"></span>
+      </div>
+    </div>
+    
     <div class="search-controls">
-      <input 
-        type="text" 
-        id="icon-search" 
-        placeholder="아이콘 이름으로 검색..." 
-        class="search-input"
-      />
-      <select id="category-filter" class="category-select">
-        <option value="">모든 카테고리</option>
-        <option value="기본">기본</option>
-        <option value="네비게이션">네비게이션</option>
-        <option value="액션">액션</option>
-        <option value="상태">상태</option>
-        <option value="사용자 인터페이스">사용자 인터페이스</option>
-        <option value="기타">기타</option>
-      </select>
-      <select id="size-filter" class="size-select">
-        <option value="">모든 크기</option>
-        <option value="16">16px</option>
-        <option value="20">20px</option>
-        <option value="24">24px</option>
-        <option value="28">28px</option>
-        <option value="32">32px</option>
-        <option value="48">48px</option>
-      </select>
-      <select id="style-filter" class="style-select">
-        <option value="">모든 스타일</option>
-        <option value="filled">Filled</option>
-        <option value="regular">Regular</option>
-      </select>
+      <div class="search-input-group">
+        <input 
+          type="text" 
+          id="icon-search" 
+          placeholder="Search by icon name..." 
+          class="search-input"
+          autocomplete="off"
+        />
+        <button class="clear-search" id="clear-search" style="display: none;">×</button>
+      </div>
+      
+      <div class="filter-group">
+        <select id="category-filter" class="filter-select">
+          <option value="">All Categories</option>
+          <option value="기본">Basic</option>
+          <option value="네비게이션">Navigation</option>
+          <option value="액션">Actions</option>
+          <option value="상태">Status</option>
+          <option value="사용자 인터페이스">User Interface</option>
+          <option value="기타">Others</option>
+        </select>
+        
+        <select id="size-filter" class="filter-select">
+          <option value="">All Sizes</option>
+          <option value="16">16px</option>
+          <option value="20">20px</option>
+          <option value="24">24px</option>
+          <option value="28">28px</option>
+          <option value="32">32px</option>
+          <option value="48">48px</option>
+        </select>
+        
+        <select id="style-filter" class="filter-select">
+          <option value="">All Styles</option>
+          <option value="filled">Filled</option>
+          <option value="regular">Regular</option>
+        </select>
+        
+        <button class="reset-filters" id="reset-filters">Reset</button>
+      </div>
+    </div>
+    
+    <div class="quick-filters" id="quick-filters">
+      <span class="quick-filter-label">Quick filters:</span>
+      <button class="quick-filter-btn" data-filter="add">Add</button>
+      <button class="quick-filter-btn" data-filter="home">Home</button>
+      <button class="quick-filter-btn" data-filter="settings">Settings</button>
+      <button class="quick-filter-btn" data-filter="user">User</button>
+      <button class="quick-filter-btn" data-filter="search">Search</button>
+      <button class="quick-filter-btn" data-filter="edit">Edit</button>
     </div>
   </div>
   
@@ -68,15 +96,35 @@
         <div class="icon-placeholder" data-icon="${icon.name}">
           <span class="icon-name">${icon.baseName}</span>
         </div>
+        <div class="icon-badge ${icon.style}">${icon.style}</div>
       </div>
       <div class="icon-info">
         <h3>${icon.displayName}</h3>
         <p class="icon-details">${icon.size}px • ${icon.style}</p>
         <div class="icon-code">
           <code>${icon.name}</code>
+          <button class="copy-btn" data-icon="${icon.name}" title="Copy icon name">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+          </button>
         </div>
         <div class="icon-actions">
-          <button class="copy-btn" data-icon="${icon.name}">복사</button>
+          <button class="action-btn flutter-btn" data-icon="${icon.name}" data-platform="flutter" title="Flutter code">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M14.314 0L2.3 12 6 15.7 21.684.013h-7.357L14.314 0zm.014 11.072L7.857 17.53l6.47 6.47H21.7l-6.46-6.468 6.46-6.46h-7.37z"/>
+            </svg>
+          </button>
+          <button class="action-btn react-btn" data-icon="${icon.name}" data-platform="react" title="React code">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38-.318-.184-.688-.277-1.092-.278zm-.005 1.09v.006c.225 0 .406.044.558.127.666.382.955 1.835.73 3.704-.054.46-.142.945-.25 1.44a23.476 23.476 0 0 0-2.08-1.7c1.26-1.466 2.567-2.503 3.042-2.577zm-9.77.02c.475.07 1.788 1.11 3.047 2.578a23.492 23.492 0 0 0-2.081 1.694 26.1 26.1 0 0 1-.25-1.44c-.23-1.868.054-3.32.714-3.707.19-.09.4-.125.57-.125zm4.882 3.05c.455.468.91.992 1.36 1.564-.44-.02-.89-.034-1.36-.034-.46 0-.92.014-1.36.034.44-.572.895-1.096 1.36-1.564zM12 8.1c.74 0 1.477.034 2.202.093.406.582.802 1.203 1.183 1.86.372.64.71 1.29 1.018 1.946-.308.655-.646 1.31-1.013 1.95-.38.66-.773 1.288-1.18 1.87-.728.063-1.466.098-2.21.098-.74 0-1.477-.035-2.202-.093a25.75 25.75 0 0 1-1.183-1.86 26.013 26.013 0 0 1-1.018-1.945c.303-.657.646-1.313 1.013-1.954.38-.66.773-1.286 1.18-1.868.728-.064 1.466-.099 2.21-.099zm-3.635.254c-.24.377-.48.763-.704 1.16-.225.39-.435.782-.635 1.174-.265-.656-.49-1.31-.676-1.947.64-.15 1.315-.283 2.015-.387zm7.26 0c.695.104 1.365.232 2.006.387-.18.632-.405 1.282-.66 1.933a25.987 25.987 0 0 0-1.346-2.32zm3.063.675c.484.15.944.317 1.375.498 1.732.74 2.852 1.708 2.852 2.476-.005.768-1.125 1.74-2.857 2.475-.42.18-.88.342-1.355.493a25.952 25.952 0 0 0-1.1-2.98c.37-1.017.67-2.01.885-2.964zm-13.395.004c.21.96.51 1.952.885 2.965a25.952 25.952 0 0 0-1.1 2.98 12.76 12.76 0 0 1-1.356-.494C1.125 15.314 0 14.342 0 13.574c0-.768 1.12-1.742 2.852-2.476.42-.18.88-.342 1.355-.493.37-1.017.67-2.01.885-2.964zm11.678 4.28c.265.657.49 1.312.676 1.948-.64.154-1.316.287-2.016.387-.24-.377-.48-.763-.704-1.16-.225-.39-.435-.783-.635-1.175zm-9.945.02c-.19.39-.405.783-.635 1.175a25.987 25.987 0 0 1-2.006-.388c.18-.632.405-1.282.66-1.933.64.15 1.365.232 2.006.387zm6.954.675c.44.02.89.034 1.36.034.46 0 .92-.014 1.36-.034-.44.572-.895 1.096-1.36 1.564-.455-.468-.91-.992-1.36-1.564zm5.842 2.127c.484-.15.944-.317 1.375-.498 1.732-.74 2.852-1.708 2.852-2.476 0-.768-1.12-1.74-2.852-2.475-.42-.18-.88-.342-1.355-.493a26.1 26.1 0 0 0-.25 1.44c-.23 1.868.054 3.32.714 3.707.19.09.4.125.57.125zm-13.39.004v-.006c.225 0 .406-.044.558-.127.666-.382.955-1.835.73-3.704a26.1 26.1 0 0 0-.25-1.44c-.64-.15-1.315-.283-2.015-.387-.18.632-.405 1.282-.66 1.933.64-.154 1.316-.287 2.006-.387.24.377.48.763.704 1.16.225.39.435.782.635 1.174zm7.26 1.68c.74 0 1.477-.035 2.202-.093.406-.582.802-1.203 1.183-1.86.372-.64.71-1.29 1.018-1.946.308.655.646 1.31 1.013 1.95.38.66.773 1.288 1.18 1.87.728.063 1.466.098 2.21.098.74 0 1.477-.035 2.202-.093a25.75 25.75 0 0 1-1.183-1.86 26.013 26.013 0 0 1-1.018-1.945c-.303.657-.646 1.313-1.013 1.954-.38.66-.773 1.286-1.18 1.868-.728.064-1.466.099-2.21.099zm-3.635-.254c.24-.377.48-.763.704-1.16.225-.39.435-.782.635-1.174.265.656.49 1.31.676 1.947-.64.15-1.315.283-2.015.387zm7.26 0c.695-.104 1.365-.232 2.006-.387.18-.632.405-1.282.66-1.933a25.987 25.987 0 0 0 1.346 2.32z"/>
+            </svg>
+          </button>
+          <button class="action-btn web-btn" data-icon="${icon.name}" data-platform="web" title="Web code">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+          </button>
         </div>
       </div>
     `;
@@ -161,12 +209,27 @@
   // 검색 결과 표시
   function displaySearchResults(icons, page = 1) {
     const resultsContainer = document.getElementById('search-results');
+    const filteredCount = document.getElementById('filtered-count');
     const itemsPerPage = 24;
     const paginatedIcons = paginateItems(icons, page, itemsPerPage);
     const totalPages = Math.ceil(icons.length / itemsPerPage);
     
+    // 필터된 결과 수 업데이트
+    if (icons.length < 5207) {
+      filteredCount.textContent = ` • ${icons.length} filtered`;
+      filteredCount.style.display = 'inline';
+    } else {
+      filteredCount.style.display = 'none';
+    }
+    
     if (paginatedIcons.length === 0) {
-      resultsContainer.innerHTML = '<div class="no-results">검색 결과가 없습니다.</div>';
+      resultsContainer.innerHTML = `
+        <div class="no-results">
+          <div class="no-results-icon">🔍</div>
+          <h3>No icons found</h3>
+          <p>Try adjusting your search terms or filters</p>
+        </div>
+      `;
       createPagination(0, 1);
       return;
     }
@@ -184,22 +247,104 @@
       btn.addEventListener('click', () => {
         const newPage = parseInt(btn.dataset.page);
         displaySearchResults(icons, newPage);
+        // 페이지 상단으로 스크롤
+        resultsContainer.scrollIntoView({ behavior: 'smooth' });
       });
     });
+  }
+
+  // 플랫폼별 코드 생성
+  function generatePlatformCode(iconName, platform) {
+    const parts = iconName.split('_');
+    const baseName = parts[0];
+    const size = parts[1];
+    const style = parts[2];
+    
+    const codeMap = {
+      flutter: `Icon(RefineUIIcons.${iconName})`,
+      react: `<${baseName.charAt(0).toUpperCase() + baseName.slice(1)}${size}${style.charAt(0).toUpperCase() + style.slice(1)} />`,
+      web: `<i class="refineui-icon refineui-icon-${iconName}"></i>`
+    };
+    
+    return codeMap[platform] || iconName;
   }
 
   // 복사 기능
   function setupCopyButtons() {
     document.addEventListener('click', (e) => {
-      if (e.target.classList.contains('copy-btn')) {
-        const iconName = e.target.dataset.icon;
+      if (e.target.closest('.copy-btn')) {
+        const btn = e.target.closest('.copy-btn');
+        const iconName = btn.dataset.icon;
         navigator.clipboard.writeText(iconName).then(() => {
-          e.target.textContent = '복사됨!';
+          const originalContent = btn.innerHTML;
+          btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>';
+          btn.style.color = '#10b981';
           setTimeout(() => {
-            e.target.textContent = '복사';
+            btn.innerHTML = originalContent;
+            btn.style.color = '';
           }, 2000);
         });
       }
+      
+      if (e.target.closest('.action-btn')) {
+        const btn = e.target.closest('.action-btn');
+        const iconName = btn.dataset.icon;
+        const platform = btn.dataset.platform;
+        const code = generatePlatformCode(iconName, platform);
+        
+        navigator.clipboard.writeText(code).then(() => {
+          const originalContent = btn.innerHTML;
+          btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>';
+          btn.style.color = '#10b981';
+          setTimeout(() => {
+            btn.innerHTML = originalContent;
+            btn.style.color = '';
+          }, 2000);
+        });
+      }
+    });
+  }
+
+  // 퀵 필터 기능
+  function setupQuickFilters() {
+    document.addEventListener('click', (e) => {
+      if (e.target.classList.contains('quick-filter-btn')) {
+        const filter = e.target.dataset.filter;
+        const searchInput = document.getElementById('icon-search');
+        searchInput.value = filter;
+        searchInput.dispatchEvent(new Event('input'));
+      }
+    });
+  }
+
+  // 검색 초기화 기능
+  function setupClearSearch() {
+    const searchInput = document.getElementById('icon-search');
+    const clearBtn = document.getElementById('clear-search');
+    
+    searchInput.addEventListener('input', () => {
+      clearBtn.style.display = searchInput.value ? 'block' : 'none';
+    });
+    
+    clearBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      clearBtn.style.display = 'none';
+      searchInput.dispatchEvent(new Event('input'));
+    });
+  }
+
+  // 필터 초기화 기능
+  function setupResetFilters() {
+    document.getElementById('reset-filters').addEventListener('click', () => {
+      document.getElementById('icon-search').value = '';
+      document.getElementById('category-filter').value = '';
+      document.getElementById('size-filter').value = '';
+      document.getElementById('style-filter').value = '';
+      document.getElementById('clear-search').style.display = 'none';
+      
+      // 검색 실행
+      const searchInput = document.getElementById('icon-search');
+      searchInput.dispatchEvent(new Event('input'));
     });
   }
 
@@ -231,13 +376,27 @@
       displaySearchResults(filteredIcons, currentPage);
     }
     
+    // 이벤트 리스너 설정
     searchInput.addEventListener('input', performSearch);
     categoryFilter.addEventListener('change', performSearch);
     sizeFilter.addEventListener('change', performSearch);
     styleFilter.addEventListener('change', performSearch);
     
-    // 복사 버튼 설정
+    // 추가 기능 설정
     setupCopyButtons();
+    setupQuickFilters();
+    setupClearSearch();
+    setupResetFilters();
+    
+    // 키보드 단축키
+    document.addEventListener('keydown', (e) => {
+      if (e.ctrlKey || e.metaKey) {
+        if (e.key === 'k') {
+          e.preventDefault();
+          searchInput.focus();
+        }
+      }
+    });
   }
 
   // DOM 로드 완료 후 초기화
@@ -255,176 +414,460 @@
     margin-bottom: 2rem;
   }
 
-  .search-header h2 {
-    margin-bottom: 1rem;
+  .search-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+
+  .search-title h2 {
+    margin: 0;
     color: var(--sl-color-text);
+    font-size: 1.875rem;
+    font-weight: 700;
+  }
+
+  .search-stats {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--sl-color-text-accent);
+    font-size: 0.875rem;
+  }
+
+  .total-count {
+    font-weight: 600;
+    color: var(--sl-color-accent);
+  }
+
+  .filtered-count {
+    color: var(--sl-color-text-accent);
   }
 
   .search-controls {
     display: flex;
+    flex-direction: column;
     gap: 1rem;
-    flex-wrap: wrap;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   }
 
-  .search-input,
-  .category-select,
-  .size-select,
-  .style-select {
-    padding: 0.5rem;
+  .search-input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    padding-right: 2.5rem;
+    border: 2px solid var(--sl-color-hairline);
+    border-radius: 0.5rem;
+    background: var(--sl-color-bg);
+    color: var(--sl-color-text);
+    font-size: 1rem;
+    transition: all 0.2s ease;
+  }
+
+  .search-input:focus {
+    outline: none;
+    border-color: var(--sl-color-accent);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  }
+
+  .clear-search {
+    position: absolute;
+    right: 0.75rem;
+    background: none;
+    border: none;
+    color: var(--sl-color-text-accent);
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    transition: all 0.2s ease;
+  }
+
+  .clear-search:hover {
+    color: var(--sl-color-text);
+    background: var(--sl-color-bg-nav);
+  }
+
+  .filter-group {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .filter-select {
+    padding: 0.5rem 0.75rem;
     border: 1px solid var(--sl-color-hairline);
     border-radius: 0.375rem;
     background: var(--sl-color-bg);
     color: var(--sl-color-text);
     font-size: 0.875rem;
+    min-width: 120px;
+    transition: all 0.2s ease;
   }
 
-  .search-input {
-    flex: 1;
-    min-width: 200px;
+  .filter-select:focus {
+    outline: none;
+    border-color: var(--sl-color-accent);
+  }
+
+  .reset-filters {
+    padding: 0.5rem 1rem;
+    background: var(--sl-color-bg-nav);
+    color: var(--sl-color-text);
+    border: 1px solid var(--sl-color-hairline);
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .reset-filters:hover {
+    background: var(--sl-color-hairline);
+  }
+
+  .quick-filters {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+
+  .quick-filter-label {
+    color: var(--sl-color-text-accent);
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .quick-filter-btn {
+    padding: 0.25rem 0.75rem;
+    background: var(--sl-color-bg-nav);
+    color: var(--sl-color-text);
+    border: 1px solid var(--sl-color-hairline);
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .quick-filter-btn:hover {
+    background: var(--sl-color-accent);
+    color: white;
+    border-color: var(--sl-color-accent);
   }
 
   .search-results {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1.5rem;
     margin-bottom: 2rem;
   }
 
   .icon-card {
     border: 1px solid var(--sl-color-hairline);
-    border-radius: 0.5rem;
-    padding: 1rem;
+    border-radius: 0.75rem;
+    padding: 1.25rem;
     background: var(--sl-color-bg);
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
   }
 
   .icon-card:hover {
     border-color: var(--sl-color-accent);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
   }
 
   .icon-preview {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80px;
+    height: 100px;
     margin-bottom: 1rem;
-    background: var(--sl-color-bg-nav);
-    border-radius: 0.375rem;
+    background: linear-gradient(135deg, var(--sl-color-bg-nav) 0%, var(--sl-color-bg) 100%);
+    border-radius: 0.5rem;
+    border: 1px solid var(--sl-color-hairline);
   }
 
   .icon-placeholder {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 48px;
-    height: 48px;
-    background: var(--sl-color-accent);
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, var(--sl-color-accent) 0%, var(--sl-color-accent-high) 100%);
     color: white;
-    border-radius: 50%;
+    border-radius: 0.75rem;
     font-size: 0.75rem;
-    font-weight: 600;
+    font-weight: 700;
     text-align: center;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  }
+
+  .icon-badge {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.625rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .icon-badge.filled {
+    background: #10b981;
+    color: white;
+  }
+
+  .icon-badge.regular {
+    background: #6b7280;
+    color: white;
   }
 
   .icon-info h3 {
     margin: 0 0 0.5rem 0;
-    font-size: 1rem;
+    font-size: 1.125rem;
     color: var(--sl-color-text);
+    font-weight: 600;
   }
 
   .icon-details {
-    margin: 0 0 0.5rem 0;
+    margin: 0 0 1rem 0;
     font-size: 0.875rem;
     color: var(--sl-color-text-accent);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
   }
 
   .icon-code {
     margin-bottom: 1rem;
+    position: relative;
   }
 
   .icon-code code {
+    display: block;
     background: var(--sl-color-bg-nav);
-    padding: 0.25rem 0.5rem;
-    border-radius: 0.25rem;
+    padding: 0.75rem;
+    border-radius: 0.375rem;
     font-size: 0.75rem;
     color: var(--sl-color-text);
     word-break: break-all;
+    border: 1px solid var(--sl-color-hairline);
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  }
+
+  .copy-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0.25rem;
+    background: var(--sl-color-bg);
+    color: var(--sl-color-text-accent);
+    border: 1px solid var(--sl-color-hairline);
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .copy-btn:hover {
+    background: var(--sl-color-accent);
+    color: white;
+    border-color: var(--sl-color-accent);
   }
 
   .icon-actions {
     display: flex;
     gap: 0.5rem;
+    justify-content: flex-end;
   }
 
-  .copy-btn {
-    padding: 0.5rem 1rem;
+  .action-btn {
+    padding: 0.5rem;
+    background: var(--sl-color-bg-nav);
+    color: var(--sl-color-text-accent);
+    border: 1px solid var(--sl-color-hairline);
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .action-btn:hover {
     background: var(--sl-color-accent);
     color: white;
-    border: none;
-    border-radius: 0.375rem;
-    font-size: 0.875rem;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
+    border-color: var(--sl-color-accent);
+    transform: translateY(-1px);
   }
 
-  .copy-btn:hover {
-    background: var(--sl-color-accent-high);
+  .flutter-btn:hover {
+    background: #02569b;
+    border-color: #02569b;
+  }
+
+  .react-btn:hover {
+    background: #61dafb;
+    border-color: #61dafb;
+    color: #282c34;
+  }
+
+  .web-btn:hover {
+    background: #f7df1e;
+    border-color: #f7df1e;
+    color: #000;
   }
 
   .pagination {
     display: flex;
     justify-content: center;
-    margin-top: 2rem;
+    margin-top: 3rem;
   }
 
   .pagination-controls {
     display: flex;
     gap: 0.5rem;
+    align-items: center;
   }
 
   .page-btn {
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1rem;
     border: 1px solid var(--sl-color-hairline);
     background: var(--sl-color-bg);
     color: var(--sl-color-text);
-    border-radius: 0.375rem;
+    border-radius: 0.5rem;
     cursor: pointer;
     transition: all 0.2s ease;
+    font-weight: 500;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .page-btn:hover {
     background: var(--sl-color-bg-nav);
+    border-color: var(--sl-color-accent);
   }
 
   .page-btn.active {
     background: var(--sl-color-accent);
     color: white;
     border-color: var(--sl-color-accent);
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
   }
 
   .no-results {
     text-align: center;
-    padding: 3rem;
+    padding: 4rem 2rem;
     color: var(--sl-color-text-accent);
-    font-size: 1.125rem;
+  }
+
+  .no-results-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .no-results h3 {
+    margin: 0 0 0.5rem 0;
+    color: var(--sl-color-text);
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .no-results p {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--sl-color-text-accent);
   }
 
   @media (max-width: 768px) {
-    .search-controls {
+    .icon-search-container {
+      padding: 1rem;
+    }
+
+    .search-title {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .search-title h2 {
+      font-size: 1.5rem;
+    }
+
+    .filter-group {
       flex-direction: column;
     }
     
-    .search-input,
-    .category-select,
-    .size-select,
-    .style-select {
+    .filter-select,
+    .reset-filters {
       width: 100%;
     }
     
     .search-results {
       grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .icon-card {
+      padding: 1rem;
+    }
+
+    .icon-preview {
+      height: 80px;
+    }
+
+    .icon-placeholder {
+      width: 48px;
+      height: 48px;
+    }
+
+    .pagination-controls {
+      flex-wrap: wrap;
+      gap: 0.25rem;
+    }
+
+    .page-btn {
+      padding: 0.5rem 0.75rem;
+      min-width: 40px;
+      font-size: 0.875rem;
+    }
+
+    .quick-filters {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .search-results {
+      grid-template-columns: 1fr;
+    }
+
+    .icon-actions {
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .action-btn {
+      width: 100%;
+      justify-content: center;
     }
   }
 </style>
