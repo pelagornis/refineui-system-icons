@@ -30,15 +30,15 @@ yarn add @refineui/icon-cdn
 ```html
 <!-- SVG icons -->
 <img
-  src="https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@0.2.2/icons/24/add-regular.svg"
+  src="https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@0.3.1/icons/24/add-regular.svg"
   alt="Add"
 />
 <img
-  src="https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@0.2.2/icons/32/heart-filled.svg"
+  src="https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@0.3.1/icons/32/heart-filled.svg"
   alt="Heart"
 />
 <img
-  src="https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@0.2.2/icons/32/add_square-filled.svg"
+  src="https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@0.3.1/icons/32/add_square-filled.svg"
   alt="Add Square"
 />
 ```
@@ -47,7 +47,7 @@ yarn add @refineui/icon-cdn
 
 ```css
 .add-icon {
-  background-image: url("https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@0.2.2/icons/24/add-regular.svg");
+  background-image: url("https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@${tag}/icons/24/add-regular.svg");
   background-size: contain;
   background-repeat: no-repeat;
   width: 24px;
@@ -55,7 +55,7 @@ yarn add @refineui/icon-cdn
 }
 
 .heart-icon {
-  background-image: url("https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@0.2.2/icons/32/heart-filled.svg");
+  background-image: url("https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@${tag}/icons/32/heart-filled.svg");
   background-size: contain;
   background-repeat: no-repeat;
   width: 32px;
@@ -67,7 +67,7 @@ yarn add @refineui/icon-cdn
 
 ```javascript
 function loadIcon(iconName, size = 24, style = "regular") {
-  const url = `https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@0.2.2/icons/${size}/${iconName}-${style}.svg`;
+  const url = `https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@${tag}/icons/${size}/${iconName}-${style}.svg`;
 
   const img = new Image();
   img.src = url;
