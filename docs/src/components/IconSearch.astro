@@ -80,7 +80,29 @@
   async function loadIconData() {
     try {
       const response = await fetch('/src/data/icons.json');
-      return await response.json();
+      const data = await response.json();
+      
+      // 데이터 구조 변환
+      const allIcons = [];
+      Object.entries(data.categories).forEach(([category, icons]) => {
+        icons.forEach(iconName => {
+          const parts = iconName.split('_');
+          const baseName = parts[0];
+          const size = parts[1];
+          const style = parts[2];
+          
+          allIcons.push({
+            name: iconName,
+            baseName: baseName,
+            displayName: baseName.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+            size: parseInt(size),
+            style: style,
+            category: category
+          });
+        });
+      });
+      
+      return { allIcons, categories: data.categories };
     } catch (error) {
       console.error('아이콘 데이터 로드 실패:', error);
       return null;
@@ -136,34 +158,15 @@
     return icons.filter(icon => {
       const matchesSearch = !searchTerm || 
         icon.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        icon.baseName.toLowerCase().includes(searchTerm.toLowerCase()) ||
         icon.displayName.toLowerCase().includes(searchTerm.toLowerCase());
       
-      const matchesCategory = !category || 
-        getCategoryForIcon(icon.baseName) === category;
-      
-      const matchesSize = !size || icon.size === size;
+      const matchesCategory = !category || icon.category === category;
+      const matchesSize = !size || icon.size === parseInt(size);
       const matchesStyle = !style || icon.style === style;
       
       return matchesSearch && matchesCategory && matchesSize && matchesStyle;
     });
-  }
-
-  // 아이콘의 카테고리 결정
-  function getCategoryForIcon(baseName) {
-    const categoryKeywords = {
-      '기본': ['add', 'remove', 'edit', 'delete', 'save', 'cancel', 'confirm'],
-      '네비게이션': ['home', 'back', 'forward', 'menu', 'close', 'expand', 'chevron'],
-      '액션': ['play', 'pause', 'stop', 'refresh', 'reload', 'download', 'upload', 'share', 'copy', 'paste'],
-      '상태': ['check', 'error', 'warning', 'info', 'success', 'failure', 'loading', 'spinner'],
-      '사용자 인터페이스': ['settings', 'preferences', 'user', 'profile', 'account', 'notification', 'bell', 'help', 'question']
-    };
-    
-    for (const [category, keywords] of Object.entries(categoryKeywords)) {
-      if (keywords.some(keyword => baseName.includes(keyword))) {
-        return category;
-      }
-    }
-    return '기타';
   }
 
   // 페이지네이션
@@ -173,7 +176,7 @@
     return items.slice(startIndex, endIndex);
   }
 
-  // 페이지네이션 UI 생성
+  // 페이지네이션 생성
   function createPagination(totalPages, currentPage) {
     const pagination = document.getElementById('pagination');
     if (totalPages <= 1) {
@@ -183,23 +186,37 @@
 
     let html = '<div class="pagination-controls">';
     
-    // 이전 페이지
+    // 이전 버튼
     if (currentPage > 1) {
-      html += `<button class="page-btn" data-page="${currentPage - 1}">이전</button>`;
+      html += `<button class="page-btn" data-page="${currentPage - 1}">‹</button>`;
     }
     
     // 페이지 번호들
     const startPage = Math.max(1, currentPage - 2);
     const endPage = Math.min(totalPages, currentPage + 2);
     
-    for (let i = startPage; i <= endPage; i++) {
-      const activeClass = i === currentPage ? 'active' : '';
-      html += `<button class="page-btn ${activeClass}" data-page="${i}">${i}</button>`;
+    if (startPage > 1) {
+      html += `<button class="page-btn" data-page="1">1</button>`;
+      if (startPage > 2) {
+        html += '<span class="page-ellipsis">...</span>';
+      }
     }
     
-    // 다음 페이지
+    for (let i = startPage; i <= endPage; i++) {
+      const isActive = i === currentPage ? 'active' : '';
+      html += `<button class="page-btn ${isActive}" data-page="${i}">${i}</button>`;
+    }
+    
+    if (endPage < totalPages) {
+      if (endPage < totalPages - 1) {
+        html += '<span class="page-ellipsis">...</span>';
+      }
+      html += `<button class="page-btn" data-page="${totalPages}">${totalPages}</button>`;
+    }
+    
+    // 다음 버튼
     if (currentPage < totalPages) {
-      html += `<button class="page-btn" data-page="${currentPage + 1}">다음</button>`;
+      html += `<button class="page-btn" data-page="${currentPage + 1}">›</button>`;
     }
     
     html += '</div>';
