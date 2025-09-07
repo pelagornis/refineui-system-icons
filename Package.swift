@@ -2,23 +2,24 @@
 import PackageDescription
 
 let package = Package(
-    name: "RefineIcons",
+    name: "RefineUIIcons",
     platforms: [
         .iOS(.v13),
         .macOS(.v10_15)
     ],
     products: [
         .library(
-            name: "RefineIcons",
-            targets: ["RefineIcons"]
+            name: "RefineUIIcons",
+            targets: ["RefineUIIcons"]
         )
     ],
     targets: [
         .target(
-            name: "RefineIcons",
-            path: "ios/RefineIcons/Sources",
+            name: "RefineUIIcons",
+            path: "ios",
+            sources: ["Sources"],
             resources: [
-                .process("ios/RefineIcons/Resources")
+                .process("Resources")
             ]
         )
     ]
