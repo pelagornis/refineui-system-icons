@@ -2,10 +2,10 @@ import React from 'react';
 import { Text, TextProps } from 'react-native';
 import IconUtils from './IconUtils';
 
-export interface IconProps extends Omit<TextProps, 'style'> {
+export interface IconProps extends TextProps {
   size?: number;
   color?: string;
-  iconStyle?: 'regular' | 'filled';
+  style?: 'regular' | 'filled';
   [key: string]: any;
 }
 
@@ -24,12 +24,10 @@ export const createIconComponent = (iconName: string, style: 'regular' | 'filled
       lineHeight: 1,
     };
 
-    const { iconStyle, ...restProps } = props;
-    
-    return React.createElement(Text as any, {
+    return React.createElement(Text, {
       ref,
-      style: [styleObj],
-      ...restProps,
+      style: [styleObj, props.style],
+      ...props,
     }, iconChar);
   });
 };

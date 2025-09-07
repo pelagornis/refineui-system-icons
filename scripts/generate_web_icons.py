@@ -436,13 +436,13 @@ def generate_regular_icons_cdn(src_dir):
         "// === Regular style icons ===",
         "// This file is auto-generated. Do not modify.",
         "",
-        "import { createIconHTML } from './utils';",
+        "import { createIconURL } from './utils';",
         "",
     ]
     
     # Regular style icons
     for icon_name in ICON_NAMES:
-        content.append(f"export const {icon_name.capitalize()}Regular = createIconHTML('{icon_name.capitalize()}', 'regular');")
+        content.append(f"export const {icon_name.capitalize()}Regular = createIconURL('{icon_name.lower()}', 24, 'regular');")
     
     with open(src_dir / "regular-icons.ts", 'w', encoding='utf-8') as f:
         f.write('\n'.join(content))
@@ -454,13 +454,13 @@ def generate_filled_icons_cdn(src_dir):
         "// === Filled style icons ===",
         "// This file is auto-generated. Do not modify.",
         "",
-        "import { createIconHTML } from './utils';",
+        "import { createIconURL } from './utils';",
         "",
     ]
     
     # Filled style icons
     for icon_name in ICON_NAMES:
-        content.append(f"export const {icon_name.capitalize()}Filled = createIconHTML('{icon_name.capitalize()}', 'filled');")
+        content.append(f"export const {icon_name.capitalize()}Filled = createIconURL('{icon_name.lower()}', 24, 'filled');")
     
     with open(src_dir / "filled-icons.ts", 'w', encoding='utf-8') as f:
         f.write('\n'.join(content))
