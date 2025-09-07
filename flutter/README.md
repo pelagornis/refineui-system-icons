@@ -59,20 +59,20 @@ class MyHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // Using Icon widget with RefineIcons
-            Icon(RefineIcons.accessTime16Regular, size: 24),
+            Icon(RefineUIIcons.accessTime16Regular, size: 24),
 
             SizedBox(height: 20),
 
             // Using Icon widget with RefineIconsFilled
-            Icon(RefineIconsFilled.accessTime16Filled, size: 24, color: Colors.blue),
+            Icon(RefineUIIconsFilled.accessTime16Filled, size: 24, color: Colors.blue),
 
             SizedBox(height: 20),
 
             // Using Text widget with font family
             Text(
-              String.fromCharCode(RefineIcons.accessTime16Regular.codePoint),
+              String.fromCharCode(RefineUIIcons.accessTime16Regular.codePoint),
               style: TextStyle(
-                fontFamily: RefineIcons.accessTime16Regular.fontFamily,
+                fontFamily: RefineUIIcons.accessTime16Regular.fontFamily,
                 fontSize: 24,
                 color: Colors.red,
               ),
@@ -83,7 +83,7 @@ class MyHomePage extends StatelessWidget {
             // Using in a button
             ElevatedButton.icon(
               onPressed: () => print('Button pressed!'),
-              icon: Icon(RefineIcons.accessTime16Regular, size: 16),
+              icon: Icon(RefineUIIcons.accessTime16Regular, size: 16),
               label: Text('Access Time'),
             ),
           ],
@@ -122,8 +122,8 @@ class MyHomePage extends StatelessWidget {
 
 ### Two Icon Styles
 
-- **Regular**: `RefineIcons.accessTime16Regular`
-- **Filled**: `RefineIconsFilled.accessTime16Filled`
+- **Regular**: `RefineUIIcons.accessTime16Regular`
+- **Filled**: `RefineUIIconsFilled.accessTime16Filled`
 
 ## 🔧 Advanced Usage
 
@@ -318,23 +318,23 @@ class RefineUINavigationBar extends StatelessWidget {
       type: BottomNavigationBarType.fixed,
       items: [
         BottomNavigationBarItem(
-          icon: Icon(RefineIcons.home16Regular, size: 24),
-          activeIcon: Icon(RefineIconsFilled.home16Filled, size: 24, color: Colors.blue),
+          icon: Icon(RefineUIIcons.home16Regular, size: 24),
+          activeIcon: Icon(RefineUIIconsFilled.home16Filled, size: 24, color: Colors.blue),
           label: 'Home',
         ),
         BottomNavigationBarItem(
-          icon: Icon(RefineIcons.search16Regular, size: 24),
-          activeIcon: Icon(RefineIconsFilled.search16Filled, size: 24, color: Colors.blue),
+          icon: Icon(RefineUIIcons.search16Regular, size: 24),
+          activeIcon: Icon(RefineUIIconsFilled.search16Filled, size: 24, color: Colors.blue),
           label: 'Search',
         ),
         BottomNavigationBarItem(
-          icon: Icon(RefineIcons.settings16Regular, size: 24),
-          activeIcon: Icon(RefineIconsFilled.settings16Filled, size: 24, color: Colors.blue),
+          icon: Icon(RefineUIIcons.settings16Regular, size: 24),
+          activeIcon: Icon(RefineUIIconsFilled.settings16Filled, size: 24, color: Colors.blue),
           label: 'Settings',
         ),
         BottomNavigationBarItem(
-          icon: Icon(RefineIcons.person16Regular, size: 24),
-          activeIcon: Icon(RefineIconsFilled.person16Filled, size: 24, color: Colors.blue),
+          icon: Icon(RefineUIIcons.person16Regular, size: 24),
+          activeIcon: Icon(RefineUIIconsFilled.person16Filled, size: 24, color: Colors.blue),
           label: 'Profile',
         ),
       ],
@@ -400,7 +400,7 @@ python3 scripts/generate_flutter_dart.py
 
 1. **Icon not displaying**
 
-   - Check if the icon name is correct (e.g., `RefineIcons.accessTime16Regular`)
+   - Check if the icon name is correct (e.g., `RefineUIIcons.accessTime16Regular`)
    - Verify the package is installed: `flutter pub get`
    - Check Flutter console for errors
 

@@ -172,7 +172,7 @@ npm install @refineui/web-icons@$version
 
 ### 🍎 iOS
 \`\`\`ruby
-pod 'RefineIcons', '$version'
+pod 'RefineUIIcons', '$version'
 \`\`\`
 
 ### 🤖 Android
@@ -208,7 +208,7 @@ upload_release_assets() {
     # 폰트 파일들과 설정 파일들을 업로드
     local files_to_upload=(
         "fonts"
-        "RefineIcons.podspec"
+        "RefineUIIcons.podspec"
         "Package.swift"
         "flutter/pubspec.yaml"
     )

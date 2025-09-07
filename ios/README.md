@@ -9,7 +9,7 @@ Native iOS integration for RefineUI System Icons with SwiftUI and UIKit support.
 Add to your `Podfile`:
 
 ```ruby
-pod 'RefineIcons'
+pod 'RefineUIIcons'
 ```
 
 Then run:
@@ -40,7 +40,7 @@ Or add via Xcode:
 
 ```swift
 import SwiftUI
-import RefineIcons
+import RefineUIIcons
 
 struct ContentView: View {
     var body: some View {
@@ -69,7 +69,7 @@ struct ContentView: View {
 
 ```swift
 import UIKit
-import RefineIcons
+import RefineUIIcons
 
 class ViewController: UIViewController {
     override func viewDidLoad() {
@@ -125,7 +125,7 @@ class ViewController: UIViewController {
 
 ```swift
 import SwiftUI
-import RefineIcons
+import RefineUIIcons
 
 struct CustomIcon: View {
     let name: String
@@ -159,7 +159,7 @@ CustomIcon(name: "star", size: 32, color: .yellow) {
 
 ```swift
 import SwiftUI
-import RefineIcons
+import RefineUIIcons
 
 struct AnimatedIcon: View {
     @State private var isPressed = false
@@ -180,7 +180,7 @@ struct AnimatedIcon: View {
 
 ```swift
 import SwiftUI
-import RefineIcons
+import RefineUIIcons
 
 struct DynamicIcon: View {
     let iconType: IconType
@@ -239,7 +239,7 @@ struct OptimizedIconView: View {
 
 ```swift
 import SwiftUI
-import RefineIcons
+import RefineUIIcons
 
 struct AccessibleIcon: View {
     var body: some View {
@@ -255,7 +255,7 @@ struct AccessibleIcon: View {
 
 ```swift
 import SwiftUI
-import RefineIcons
+import RefineUIIcons
 
 struct ThemedIcon: View {
     @Environment(\.colorScheme) var colorScheme
@@ -271,7 +271,7 @@ struct ThemedIcon: View {
 
 ```swift
 import SwiftUI
-import RefineIcons
+import RefineUIIcons
 
 struct ResponsiveIcon: View {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
@@ -290,7 +290,7 @@ struct ResponsiveIcon: View {
 
 ```swift
 import SwiftUI
-import RefineIcons
+import RefineUIIcons
 
 struct SFSymbolsIcon: View {
     var body: some View {
@@ -308,7 +308,7 @@ struct SFSymbolsIcon: View {
 
 ```swift
 import SwiftUI
-import RefineIcons
+import RefineUIIcons
 
 struct ModernIcon: View {
     var body: some View {
@@ -329,7 +329,7 @@ struct ModernIcon: View {
 
 ```swift
 import SwiftUI
-import RefineIcons
+import RefineUIIcons
 
 struct NavigationBar: View {
     var body: some View {
@@ -360,7 +360,7 @@ struct NavigationBar: View {
 
 ```swift
 import SwiftUI
-import RefineIcons
+import RefineUIIcons
 
 struct IconButton: View {
     let iconName: String
@@ -393,7 +393,7 @@ IconButton(iconName: "download", title: "Download") {
 
 ```swift
 import SwiftUI
-import RefineIcons
+import RefineUIIcons
 
 struct IconGrid: View {
     let icons = [

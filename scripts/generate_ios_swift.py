@@ -21,7 +21,7 @@ def generate_ios_swift():
         return False
     
     # Get all available icon assets
-    assets_dir = ios_dir / "RefineIcons" / "Resources" / "Assets.xcassets"
+    assets_dir = ios_dir / "RefineUIIcons" / "Resources" / "Assets.xcassets"
     if not assets_dir.exists():
         print(f"❌ Assets directory not found: {assets_dir}")
         return False
@@ -36,8 +36,8 @@ def generate_ios_swift():
     # Sort icon cases
     icon_cases.sort()
     
-    # Create RefineIcons directory
-    refine_icons_dir = ios_dir / "RefineIcons"
+    # Create RefineUIIcons directory
+    refine_icons_dir = ios_dir / "RefineUIIcons"
     refine_icons_dir.mkdir(parents=True, exist_ok=True)
     
     # Create Sources directory
@@ -62,7 +62,7 @@ def generate_refine_icons_swift(sources_dir: Path, icon_cases: list):
     swift_content = """import Foundation
 
 /// RefineUI System Icons
-@objc public enum RefineIcons: Int, Equatable, CaseIterable {
+@objc public enum RefineUIIcons: Int, Equatable, CaseIterable {
 """
     
     # Add cases for each icon
@@ -117,7 +117,7 @@ extension Image {
     /// Create an image from RefineUI icon
     /// - Parameter icon: The icon to display
     /// - Returns: SwiftUI Image
-    public init(refineIcon icon: RefineIcons) {
+    public init(refineIcon icon: RefineUIIcons) {
         self.init(icon.resourceString)
     }
 }
@@ -130,7 +130,7 @@ extension UIImage {
     /// Create an image from RefineUI icon
     /// - Parameter icon: The icon to display
     /// - Returns: UIImage
-    public convenience init?(refineIcon icon: RefineIcons) {
+    public convenience init?(refineIcon icon: RefineUIIcons) {
         self.init(named: icon.resourceString)
     }
 }
@@ -151,20 +151,20 @@ def generate_package_swift(refine_icons_dir: Path):
 import PackageDescription
 
 let package = Package(
-    name: "RefineIcons",
+    name: "RefineUIIcons",
     platforms: [
         .iOS(.v13),
         .macOS(.v10_15)
     ],
     products: [
         .library(
-            name: "RefineIcons",
-            targets: ["RefineIcons"]
+            name: "RefineUIIcons",
+            targets: ["RefineUIIcons"]
         )
     ],
     targets: [
         .target(
-            name: "RefineIcons",
+            name: "RefineUIIcons",
             path: "Sources",
             resources: [
                 .process("Resources")

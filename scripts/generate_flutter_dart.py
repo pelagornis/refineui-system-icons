@@ -88,12 +88,12 @@ export 'src/refineui_icons.dart';
 /// import 'package:refineui_system_icons/refineui_system_icons.dart';
 /// 
 /// // Using Icon widget
-/// Icon(RefineIcons.home)
+/// Icon(RefineUIIcons.home)
 /// 
 /// // Using Text widget
 /// Text(
-///   String.fromCharCode(RefineIcons.home.codePoint),
-///   style: TextStyle(fontFamily: RefineIcons.home.fontFamily),
+///   String.fromCharCode(RefineUIIcons.home.codePoint),
+///   style: TextStyle(fontFamily: RefineUIIcons.home.fontFamily),
 /// )
 /// ```
 /// 

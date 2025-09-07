@@ -67,12 +67,14 @@ def update_versions(version):
         if (package_path / "package.json").exists():
             run_command(f"npm version {version} --no-git-tag-version", cwd=package_path)
     
-    # Update iOS Podspec
-    podspec_path = ROOT_DIR / "RefineIcons.podspec"
+    # Update iOS Podspec (if exists)
+    podspec_path = ROOT_DIR / "RefineUIIcons.podspec"
     if podspec_path.exists():
         content = podspec_path.read_text()
         content = re.sub(r"s\.version\s*=\s*['\"][^'\"]*['\"]", f's.version = \'{version}\'', content)
         podspec_path.write_text(content)
+    else:
+        print(f"ℹ️  Podspec file not found: {podspec_path} (using Swift Package Manager)")
     
     # Update iOS Package.swift
     package_swift_path = ROOT_DIR / "Package.swift"

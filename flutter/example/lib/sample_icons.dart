@@ -23,14 +23,14 @@ class SampleIcons {
       // Access
       SampleIcon(
         name: 'access',
-        iconData: RefineIcons.Access,
+        iconData: RefineUIIcons.Access,
         size: 16,
         style: 'regular',
         displayName: 'Access',
       ),
       SampleIcon(
         name: 'access',
-        iconData: RefineIconsFilled.Access,
+        iconData: RefineUIIconsFilled.Access,
         size: 16,
         style: 'filled',
         displayName: 'Access',
@@ -39,14 +39,14 @@ class SampleIcons {
       // Accessibility
       SampleIcon(
         name: 'accessibility',
-        iconData: RefineIcons.Accessibility,
+        iconData: RefineUIIcons.Accessibility,
         size: 16,
         style: 'regular',
         displayName: 'Accessibility',
       ),
       SampleIcon(
         name: 'accessibility',
-        iconData: RefineIconsFilled.Accessibility,
+        iconData: RefineUIIconsFilled.Accessibility,
         size: 16,
         style: 'filled',
         displayName: 'Accessibility',
@@ -55,14 +55,14 @@ class SampleIcons {
       // Add
       SampleIcon(
         name: 'add',
-        iconData: RefineIcons.Add,
+        iconData: RefineUIIcons.Add,
         size: 16,
         style: 'regular',
         displayName: 'Add',
       ),
       SampleIcon(
         name: 'add',
-        iconData: RefineIconsFilled.Add,
+        iconData: RefineUIIconsFilled.Add,
         size: 16,
         style: 'filled',
         displayName: 'Add',
@@ -71,14 +71,14 @@ class SampleIcons {
       // Airplane
       SampleIcon(
         name: 'airplane',
-        iconData: RefineIcons.Airplane,
+        iconData: RefineUIIcons.Airplane,
         size: 16,
         style: 'regular',
         displayName: 'Airplane',
       ),
       SampleIcon(
         name: 'airplane',
-        iconData: RefineIconsFilled.Airplane,
+        iconData: RefineUIIconsFilled.Airplane,
         size: 16,
         style: 'filled',
         displayName: 'Airplane',
@@ -87,14 +87,14 @@ class SampleIcons {
       // Album
       SampleIcon(
         name: 'album',
-        iconData: RefineIcons.Album,
+        iconData: RefineUIIcons.Album,
         size: 16,
         style: 'regular',
         displayName: 'Album',
       ),
       SampleIcon(
         name: 'album',
-        iconData: RefineIconsFilled.Album,
+        iconData: RefineUIIconsFilled.Album,
         size: 16,
         style: 'filled',
         displayName: 'Album',
@@ -103,14 +103,14 @@ class SampleIcons {
       // Alert
       SampleIcon(
         name: 'alert',
-        iconData: RefineIcons.Alert,
+        iconData: RefineUIIcons.Alert,
         size: 16,
         style: 'regular',
         displayName: 'Alert',
       ),
       SampleIcon(
         name: 'alert',
-        iconData: RefineIconsFilled.Alert,
+        iconData: RefineUIIconsFilled.Alert,
         size: 16,
         style: 'filled',
         displayName: 'Alert',
@@ -119,14 +119,14 @@ class SampleIcons {
       // Home
       SampleIcon(
         name: 'home',
-        iconData: RefineIcons.Home,
+        iconData: RefineUIIcons.Home,
         size: 16,
         style: 'regular',
         displayName: 'Home',
       ),
       SampleIcon(
         name: 'home',
-        iconData: RefineIconsFilled.Home,
+        iconData: RefineUIIconsFilled.Home,
         size: 16,
         style: 'filled',
         displayName: 'Home',
@@ -135,14 +135,14 @@ class SampleIcons {
       // Settings
       SampleIcon(
         name: 'settings',
-        iconData: RefineIcons.Settings,
+        iconData: RefineUIIcons.Settings,
         size: 16,
         style: 'regular',
         displayName: 'Settings',
       ),
       SampleIcon(
         name: 'settings',
-        iconData: RefineIconsFilled.Settings,
+        iconData: RefineUIIconsFilled.Settings,
         size: 16,
         style: 'filled',
         displayName: 'Settings',
@@ -151,14 +151,14 @@ class SampleIcons {
       // Search
       SampleIcon(
         name: 'search',
-        iconData: RefineIcons.Search,
+        iconData: RefineUIIcons.Search,
         size: 16,
         style: 'regular',
         displayName: 'Search',
       ),
       SampleIcon(
         name: 'search',
-        iconData: RefineIconsFilled.Search,
+        iconData: RefineUIIconsFilled.Search,
         size: 16,
         style: 'filled',
         displayName: 'Search',
@@ -167,14 +167,14 @@ class SampleIcons {
       // Heart
       SampleIcon(
         name: 'heart',
-        iconData: RefineIcons.Heart,
+        iconData: RefineUIIcons.Heart,
         size: 16,
         style: 'regular',
         displayName: 'Heart',
       ),
       SampleIcon(
         name: 'heart',
-        iconData: RefineIconsFilled.Heart,
+        iconData: RefineUIIconsFilled.Heart,
         size: 16,
         style: 'filled',
         displayName: 'Heart',

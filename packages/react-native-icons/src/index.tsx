@@ -10,7 +10,7 @@ export {
   createIconComponent, 
   getIconChar, 
   getIconClass, 
-  getFontFamily
+  getFontFamily 
 } from './utils';
 
 // === Type export ===
