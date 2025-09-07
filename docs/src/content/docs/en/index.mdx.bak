@@ -1,0 +1,59 @@
+---
+title: RefineUI System Icons
+description: Cross-platform icon library for modern applications
+template: splash
+hero:
+  tagline: 모든 플랫폼을 위한 통합 아이콘 라이브러리
+  image:
+    file: ../../assets/houston.webp
+  actions:
+    - text: 시작하기
+      link: /getting-started/introduction/
+      icon: right-arrow
+    - text: 아이콘 검색
+      link: /icons/search/
+      icon: search
+    - text: GitHub에서 보기
+      link: https://github.com/pelagornis/refineui-system-icons
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+import IconSearch from '../../components/IconSearch.astro';
+
+## 아이콘 검색
+
+<IconSearch />
+
+## 플랫폼 지원
+
+<CardGrid stagger>
+	<Card title="Flutter" icon="rocket">
+		Flutter 앱에서 사용할 수 있는 아이콘 라이브러리
+	</Card>
+	<Card title="React" icon="react">
+		React 웹 애플리케이션을 위한 컴포넌트
+	</Card>
+	<Card title="React Native" icon="mobile">
+		React Native 모바일 앱용 아이콘
+	</Card>
+	<Card title="iOS" icon="apple">
+		Swift로 작성된 iOS 네이티브 아이콘
+	</Card>
+	<Card title="Android" icon="android">
+		Kotlin으로 작성된 Android 네이티브 아이콘
+	</Card>
+	<Card title="Web" icon="globe">
+		웹용 CSS 폰트 및 SVG 아이콘
+	</Card>
+</CardGrid>
+
+## 주요 특징
+
+- 🎨 **일관된 디자인**: 모든 플랫폼에서 동일한 시각적 경험
+- 📱 **반응형**: 다양한 크기와 해상도 지원
+- ⚡ **성능 최적화**: 가벼운 번들 크기와 빠른 로딩
+- 🔧 **쉬운 사용**: 간단한 API와 직관적인 네이밍
+- 🌍 **다국어 지원**: 글로벌 애플리케이션을 위한 준비
+- 🔍 **강력한 검색**: 5,000+ 아이콘을 빠르게 찾기

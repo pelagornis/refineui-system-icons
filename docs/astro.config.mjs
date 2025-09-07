@@ -26,25 +26,27 @@ export const locales = {
 export default defineConfig({
   integrations: [
     starlight({
+      logo: {
+        dark: "./src/assets/page-dark.svg",
+        light: "./src/assets/page-light.svg",
+        alt: "Starlight Page",
+      },
       title: "RefineUI System Icons",
       description: "Cross-platform icon library for modern applications",
-      social: [
-        {
-          icon: "github",
-          label: "GitHub",
-          href: "https://github.com/pelagornis/refineui-system-icons",
-        },
-      ],
+      editLink: {
+        baseUrl:
+          "https://github.com/pelagornis/refineui-system-icons/edit/main/docs/",
+      },
       sidebar: [
         {
-          label: "시작하기",
+          label: "Getting Started",
           items: [
-            { label: "소개", slug: "getting-started/introduction" },
-            { label: "설치", slug: "getting-started/installation" },
+            { label: "Introduction", slug: "getting-started/introduction" },
+            { label: "Installation", slug: "getting-started/installation" },
           ],
         },
         {
-          label: "플랫폼 가이드",
+          label: "Platform Guides",
           items: [
             { label: "Flutter", slug: "platforms/flutter" },
             { label: "React", slug: "platforms/react" },
@@ -55,19 +57,31 @@ export default defineConfig({
           ],
         },
         {
-          label: "아이콘 참조",
+          label: "Icon Reference",
           items: [
-            { label: "아이콘 검색", slug: "icons/search" },
-            { label: "모든 아이콘", slug: "icons/all-icons" },
+            { label: "Icon Search", slug: "icons/search" },
+            { label: "All Icons", slug: "icons/all-icons" },
           ],
         },
         {
-          label: "고급 사용법",
+          label: "Advanced Usage",
           items: [
-            { label: "커스터마이징", slug: "advanced/customization" },
-            { label: "테마 설정", slug: "advanced/theming" },
-            { label: "성능 최적화", slug: "advanced/performance" },
+            { label: "Customization", slug: "advanced/customization" },
+            { label: "Theming", slug: "advanced/theming" },
+            { label: "Performance", slug: "advanced/performance" },
           ],
+        },
+      ],
+      social: [
+        {
+          icon: "slack",
+          label: "Slack",
+          href: "https://pelagornis.slack.com/",
+        },
+        {
+          icon: "github",
+          label: "GitHub",
+          href: "https://github.com/pelagornis/refineui-system-icons",
         },
       ],
       plugins: [pagePlugin()],
