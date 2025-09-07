@@ -1,12 +1,6 @@
 name: Release Flutter Platform
 
 on:
-  workflow_dispatch:
-    inputs:
-      version:
-        description: "Version to release (e.g., 0.1.47)"
-        required: true
-        type: string
   push:
     tags:
       - "*"
@@ -53,11 +47,7 @@ jobs:
       - name: Get version
         id: get_version
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            VERSION="${{ github.event.inputs.version }}"
-          else
-            VERSION=${GITHUB_REF#refs/tags/}
-          fi
+          VERSION=${GITHUB_REF#refs/tags/}
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "Version: $VERSION"
 
@@ -136,7 +126,7 @@ jobs:
 
             - Update flutter/pubspec.yaml version field
             - Update flutter/CHANGELOG.md with version $VERSION notes
-            - Triggered by: ${{ github.event_name }}
+            - Triggered by tag: ${{ github.ref }}
             - Workflow: ${{ github.workflow }}
             - Commit: ${{ github.sha }}"
 
@@ -158,19 +148,6 @@ jobs:
             echo "✅ Committed version bump to main. New commit: $COMMIT_SHA"
           fi
 
-      - name: Create and Push Tag
-        if: github.event_name == 'workflow_dispatch'
-        run: |
-          VERSION="${{ steps.get_version.outputs.version }}"
-
-          # Create tag on the current commit (which has the updated pubspec.yaml)
-          git tag -a "v$VERSION" -m "Release version $VERSION"
-
-          # Push tag
-          git push origin "v$VERSION"
-
-          echo "✅ Created and pushed tag v$VERSION on updated commit"
-
       - name: Build Flutter platform
         run: |
           python3 scripts/generate_flutter_dart.py
@@ -183,10 +160,10 @@ jobs:
           flutter pub get
 
       - name: Create Flutter Release
-        if: startsWith(github.ref, 'refs/tags/') || github.event_name == 'workflow_dispatch'
+        if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: v${{ steps.get_version.outputs.version }}
+          tag_name: ${{ steps.get_version.outputs.version }}
           body: |
             ## 🎉 Flutter Platform Release ${{ steps.get_version.outputs.version }}
 
@@ -277,6 +254,25 @@ jobs:
           else
             echo "No tests found, skipping..."
           fi
+
+      - name: Setup pub.dev credentials
+        run: |
+          mkdir -p ~/.pub-cache
+          cat <<EOF > ~/.pub-cache/credentials.json
+          {
+            "accessToken":"${{ secrets.PUB_DEV_ACCESS_TOKEN }}",
+            "refreshToken":"${{ secrets.PUB_DEV_REFRESH_TOKEN }}",
+            "tokenEndpoint":"https://accounts.google.com/o/oauth2/token",
+            "scopes": ["openid", "https://www.googleapis.com/auth/userinfo.email"],
+            "expiration": 1570721159347
+          }
+          EOF
+
+      - name: Dry run publish
+        run: |
+          cd flutter
+          echo "🧪 Running dry-run publish for version ${{ needs.release.outputs.version }}"
+          flutter pub publish --dry-run
 
       - name: Publish to pub.dev
         run: |
