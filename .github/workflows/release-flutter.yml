@@ -10,7 +10,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build-flutter:
+  release:
     runs-on: ubuntu-latest
 
     steps:
@@ -41,27 +41,23 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Get version
+      - name: Extract version from tag
         id: get_version
         run: |
-          VERSION=${GITHUB_REF#refs/tags/}
+          RAW_TAG=${GITHUB_REF#refs/tags/}
+          VERSION=${RAW_TAG#v} # v 제거 (v0.1.35 → 0.1.35)
           echo "version=$VERSION" >> $GITHUB_OUTPUT
-          echo "Version: $VERSION"
+          echo "Detected version: $VERSION"
 
       - name: Update Flutter version
         run: |
           VERSION="${{ steps.get_version.outputs.version }}"
-
-          # Update Flutter pubspec.yaml version
           sed -i "s/^version:.*/version: $VERSION/" flutter/pubspec.yaml
-
           echo "✅ Updated Flutter version to $VERSION"
 
       - name: Update Flutter CHANGELOG
         run: |
           VERSION="${{ steps.get_version.outputs.version }}"
-
-          # Create temporary changelog entry file
           cat > /tmp/changelog_entry.md << EOF
           ## $VERSION
 
@@ -74,47 +70,20 @@ jobs:
 
           EOF
 
-          # Create new CHANGELOG.md with the new entry at the top
           cat /tmp/changelog_entry.md flutter/CHANGELOG.md > /tmp/new_changelog.md
           mv /tmp/new_changelog.md flutter/CHANGELOG.md
-
-          # Clean up
           rm -f /tmp/changelog_entry.md
-
           echo "✅ Updated Flutter CHANGELOG.md with version $VERSION"
 
-      - name: Commit and Push version changes
+      - name: Commit version & changelog to main
         run: |
-          echo "Committing and pushing version changes..."
+          VERSION="${{ steps.get_version.outputs.version }}"
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git config --local init.defaultBranch main
-
-          # Make our changes
           git add flutter/pubspec.yaml flutter/CHANGELOG.md
-          git status
-          git diff --cached
-
-          # Commit changes
-          git commit -m "chore(flutter): bump version to ${{ steps.get_version.outputs.version }}
-
-          - Update flutter/pubspec.yaml version field
-          - Update flutter/CHANGELOG.md with version ${{ steps.get_version.outputs.version }} notes
-          - Triggered by tag: ${{ github.ref }}
-          - Workflow: ${{ github.workflow }}
-          - Commit: ${{ github.sha }}"
-
-          # Try to push, if fails, pull and retry
-          for i in {1..3}; do
-            if git push origin HEAD:main; then
-              echo "✅ Successfully pushed version changes"
-              break
-            else
-              echo "Push failed, attempt $i/3. Pulling latest changes..."
-              git pull origin main --rebase
-              sleep 2
-            fi
-          done
+          git commit -m "chore(flutter): release $VERSION [skip ci]"
+          git push origin HEAD:main
+          echo "✅ Committed version bump to main"
 
       - name: Build Flutter platform
         run: |
@@ -127,23 +96,18 @@ jobs:
           cd example
           flutter pub get
 
-      - name: Create Flutter Release
-        if: startsWith(github.ref, 'refs/tags/')
+      - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ steps.get_version.outputs.version }}
+          tag_name: ${{ github.ref_name }}
+          name: "Flutter Platform Release ${{ steps.get_version.outputs.version }}"
           body: |
             ## 🎉 Flutter Platform Release ${{ steps.get_version.outputs.version }}
 
             ### 📦 Installation
             ```yaml
-            # pubspec.yaml
             dependencies:
               refineui_system_icons: ^${{ steps.get_version.outputs.version }}
-            ```
-
-            ```dart
-            import 'package:refineui_system_icons/refineui_system_icons.dart';
             ```
 
             ### 🦋 Features
@@ -152,39 +116,10 @@ jobs:
             - Cross-platform consistency
             - 434+ icons with multiple sizes and styles
             - High-performance rendering
-
-            ### 📁 Files
-            Flutter source code and pubspec.yaml are attached below.
         env:
           GITHUB_TOKEN: ${{ secrets.PELAGORNIS }}
-  publish:
-    needs: build-flutter
-    permissions:
-      id-token: write # Required for authentication using OIDC
-    runs-on: ubuntu-latest
-    environment: pub-dev
-    steps:
-      - uses: actions/checkout@v3
-      - uses: dart-lang/setup-dart@v1
-      - name: Setup Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: "3.19.0"
-          channel: "stable"
-      - name: Install dependencies
+
+      - name: Publish to pub.dev
         run: |
           cd flutter
-          flutter pub get
-      # Here you can insert custom steps you need
-      # - run: dart tool/generate-code.dart
-      - name: Publish
-        run: |
-          cd flutter
-          # Use the updated pubspec.yaml version (not the tag version)
-          CURRENT_VERSION=$(grep '^version:' pubspec.yaml | sed 's/version: //')
-
-          echo "Using updated pubspec.yaml version: $CURRENT_VERSION"
-          echo "This version was updated by the workflow, not from the tag"
-
-          # Publish with the updated version
           flutter pub publish --force
