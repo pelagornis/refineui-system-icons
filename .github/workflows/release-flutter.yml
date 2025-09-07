@@ -141,7 +141,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PELAGORNIS }}
 
-      - name: Publish to pub.dev
-        run: |
-          cd flutter
-          flutter pub publish --force
+  publish:
+    needs: release
+    permissions:
+      id-token: write # Required for authentication using OIDC
+      contents: read
+    uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
+    with:
+      package_path: flutter
+      publish_to: pub.dev
