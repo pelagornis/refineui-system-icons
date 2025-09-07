@@ -107,6 +107,19 @@ jobs:
 
           echo "✅ Committed version bump to main"
 
+      - name: Create and Push Tag
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          VERSION="${{ steps.get_version.outputs.version }}"
+
+          # Create tag on the current commit (which has the updated pubspec.yaml)
+          git tag -a "v$VERSION" -m "Release version $VERSION"
+
+          # Push tag
+          git push origin "v$VERSION"
+
+          echo "✅ Created and pushed tag v$VERSION on updated commit"
+
       - name: Build Flutter platform
         run: |
           python3 scripts/generate_flutter_dart.py
