@@ -3,192 +3,20 @@ name: Release Flutter Platform
 on:
   push:
     tags:
-      - "*"
+      - '[0-9]+.[0-9]+.[0-9]+' # tag pattern on pub.dev: '{{version}}'
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: false
-
+# Publish using custom workflow
 jobs:
-  build-flutter:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.PELAGORNIS }}
-          fetch-depth: 0
-
-      - name: Setup Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.11"
-
-      - name: Setup Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: "3.19.0"
-          channel: "stable"
-
-      - name: Configure Flutter
-        run: |
-          flutter config --no-analytics
-          flutter config --no-cli-animations
-
-      - name: Install Python dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
-      - name: Get version
-        id: get_version
-        run: |
-          VERSION=${GITHUB_REF#refs/tags/}
-          echo "version=$VERSION" >> $GITHUB_OUTPUT
-          echo "Version: $VERSION"
-
-      - name: Update Flutter version
-        run: |
-          VERSION="${{ steps.get_version.outputs.version }}"
-
-          # Update Flutter pubspec.yaml version
-          sed -i "s/^version:.*/version: $VERSION/" flutter/pubspec.yaml
-
-          echo "✅ Updated Flutter version to $VERSION"
-
-      - name: Update Flutter CHANGELOG
-        run: |
-          VERSION="${{ steps.get_version.outputs.version }}"
-
-          # Create temporary changelog entry file
-          cat > /tmp/changelog_entry.md << EOF
-          ## $VERSION
-
-          - Updated all platform versions to $VERSION
-          - Fixed React Native build errors and TypeScript conflicts
-          - Improved icon generation scripts for better consistency
-          - Enhanced package validation and publishing process
-          - Fixed Git push conflicts in release workflows
-          - Added concurrency controls to prevent workflow conflicts
-
-          EOF
-
-          # Create new CHANGELOG.md with the new entry at the top
-          cat /tmp/changelog_entry.md flutter/CHANGELOG.md > /tmp/new_changelog.md
-          mv /tmp/new_changelog.md flutter/CHANGELOG.md
-
-          # Clean up
-          rm -f /tmp/changelog_entry.md
-
-          echo "✅ Updated Flutter CHANGELOG.md with version $VERSION"
-
-      - name: Commit and Push version changes
-        run: |
-          echo "Committing and pushing version changes..."
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git config --local init.defaultBranch main
-
-          # Make our changes
-          git add flutter/pubspec.yaml flutter/CHANGELOG.md
-          git status
-          git diff --cached
-
-          # Commit changes
-          git commit -m "chore(flutter): bump version to ${{ steps.get_version.outputs.version }}
-
-          - Update flutter/pubspec.yaml version field
-          - Update flutter/CHANGELOG.md with version ${{ steps.get_version.outputs.version }} notes
-          - Triggered by tag: ${{ github.ref }}
-          - Workflow: ${{ github.workflow }}
-          - Commit: ${{ github.sha }}"
-
-          # Try to push, if fails, pull and retry
-          for i in {1..3}; do
-            if git push origin HEAD:main; then
-              echo "✅ Successfully pushed version changes"
-              break
-            else
-              echo "Push failed, attempt $i/3. Pulling latest changes..."
-              git pull origin main --rebase
-              sleep 2
-            fi
-          done
-
-      - name: Build Flutter platform
-        run: |
-          python3 scripts/generate_flutter_dart.py
-
-      - name: Get Flutter dependencies
-        run: |
-          cd flutter
-          flutter pub get
-          cd example
-          flutter pub get
-
-      - name: Create Flutter Release
-        if: startsWith(github.ref, 'refs/tags/')
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: ${{ steps.get_version.outputs.version }}
-          body: |
-            ## 🎉 Flutter Platform Release ${{ steps.get_version.outputs.version }}
-
-            ### 📦 Installation
-            ```yaml
-            # pubspec.yaml
-            dependencies:
-              refineui_system_icons: ^${{ steps.get_version.outputs.version }}
-            ```
-
-            ```dart
-            import 'package:refineui_system_icons/refineui_system_icons.dart';
-            ```
-
-            ### 🦋 Features
-            - Flutter-optimized components
-            - Material Design compatible
-            - Cross-platform consistency
-            - 434+ icons with multiple sizes and styles
-            - High-performance rendering
-
-            ### 📁 Files
-            Flutter source code and pubspec.yaml are attached below.
-        env:
-          GITHUB_TOKEN: ${{ secrets.PELAGORNIS }}
   publish:
-    needs: build-flutter
-    runs-on: ubuntu-latest
     permissions:
       id-token: write # Required for authentication using OIDC
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.PELAGORNIS }}
-          fetch-depth: 0
-
-      - name: Setup Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: "3.19.0"
-          channel: "stable"
-
-      - name: Configure Flutter
-        run: |
-          flutter config --no-analytics
-          flutter config --no-cli-animations
-
-      - name: Get Flutter dependencies
-        run: |
-          cd flutter
-          flutter pub get
-
-      - name: Publish to pub.dev
-        run: |
-          cd flutter
-          dart pub publish --dry-run
-          dart pub publish --force
-        env:
-          PUB_HOSTED_URL: https://pub.dev
+      - uses: actions/checkout@v3
+      - uses: dart-lang/setup-dart@v1
+      - name: Install dependencies
+        run: dart pub get
+      # Here you can insert custom steps you need
+      # - run: dart tool/generate-code.dart
+      - name: Publish
+        run: dart pub publish --force
