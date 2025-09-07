@@ -10,19 +10,14 @@ export {
   createIconComponent, 
   getIconChar, 
   getIconClass, 
-  getFontFamily 
+  getFontFamily
 } from './utils';
+
+// === Type export ===
+export type { IconProps } from './utils';
 
 // === IconUtils export ===
 export { default as IconUtils } from './IconUtils';
 
 // === Type export ===
 export type { IconData } from './IconUtils';
-
-// === IconProps interface export ===
-export interface IconProps extends TextProps {
-  size?: number;
-  color?: string;
-  style?: 'regular' | 'filled';
-  [key: string]: any;
-}

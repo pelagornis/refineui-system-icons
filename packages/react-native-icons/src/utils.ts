@@ -5,13 +5,13 @@ import IconUtils from './IconUtils';
 export interface IconProps extends TextProps {
   size?: number;
   color?: string;
-  style?: 'regular' | 'filled';
+  iconStyle?: 'regular' | 'filled';
   [key: string]: any;
 }
 
 // === Icon component creation method ===
 export const createIconComponent = (iconName: string, style: 'regular' | 'filled') => {
-  return React.forwardRef<Text, IconProps>((props, ref) => {
+  return (props: IconProps) => {
     const iconChar = IconUtils.getIconChar(iconName, style, props.size || 24);
     const fontFamily = IconUtils.getFontFamily(style);
 
@@ -24,12 +24,11 @@ export const createIconComponent = (iconName: string, style: 'regular' | 'filled
       lineHeight: 1,
     };
 
-    return React.createElement(Text, {
-      ref,
+    return React.createElement(Text as any, {
       style: [styleObj, props.style],
       ...props,
     }, iconChar);
-  });
+  };
 };
 
 // === Utility functions ===

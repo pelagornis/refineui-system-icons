@@ -224,7 +224,7 @@ def generate_filled_icons(src_dir):
     for icon_name in ICON_NAMES:
         content.append(f"export const {icon_name.capitalize()}Filled = createIconComponent('{icon_name.capitalize()}', 'filled');")
     
-    with open(src_dir / "regular-icons.ts", 'w', encoding='utf-8') as f:
+    with open(src_dir / "filled-icons.ts", 'w', encoding='utf-8') as f:
         f.write('\n'.join(content))
 
 def generate_utils(src_dir):
@@ -356,7 +356,7 @@ def generate_filled_icons_web(src_dir):
     for icon_name in ICON_NAMES:
         content.append(f"export const {icon_name.capitalize()}Filled = createIconHTML('{icon_name.capitalize()}', 'filled');")
     
-    with open(src_dir / "regular-icons.ts", 'w', encoding='utf-8') as f:
+    with open(src_dir / "filled-icons.ts", 'w', encoding='utf-8') as f:
         f.write('\n'.join(content))
 
 def generate_utils_web(src_dir):
