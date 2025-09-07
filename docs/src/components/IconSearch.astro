@@ -83,7 +83,14 @@
       const data = await response.json();
       
       // 데이터 구조 변환
-      const allIcons = [];
+      const allIcons: Array<{
+        name: string;
+        baseName: string;
+        displayName: string;
+        size: number;
+        style: string;
+        category: string;
+      }> = [];
       Object.entries(data.categories).forEach(([category, icons]) => {
         icons.forEach(iconName => {
           const parts = iconName.split('_');
