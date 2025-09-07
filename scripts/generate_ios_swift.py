@@ -109,13 +109,25 @@ def generate_extensions_swift(sources_dir: Path):
     
     swift_content = """import SwiftUI
 
+// MARK: - Bundle Helper
+extension Bundle {
+    /// The bundle for RefineUIIcons resources
+    static var refineUIIcons: Bundle {
+        #if SWIFT_PACKAGE
+        return Bundle.module
+        #else
+        return Bundle(for: RefineUIIcons.self)
+        #endif
+    }
+}
+
 // MARK: - SwiftUI Extensions
 extension Image {
     /// Create an image from RefineUI icon
     /// - Parameter icon: The icon to display
     /// - Returns: SwiftUI Image
     public init(refineIcon icon: RefineUIIcons) {
-        self.init(icon.resourceString)
+        self.init(icon.resourceString, bundle: Bundle.refineUIIcons)
     }
 }
 
@@ -128,7 +140,7 @@ extension UIImage {
     /// - Parameter icon: The icon to display
     /// - Returns: UIImage
     public convenience init?(refineIcon icon: RefineUIIcons) {
-        self.init(named: icon.resourceString)
+        self.init(named: icon.resourceString, in: Bundle.refineUIIcons, compatibleWith: nil)
     }
 }
 #endif
