@@ -21,7 +21,7 @@ def generate_ios_swift():
         return False
     
     # Get all available icon assets
-    assets_dir = ios_dir / "RefineUIIcons" / "Resources" / "Assets.xcassets"
+    assets_dir = ios_dir / "Resources" / "Assets.xcassets"
     if not assets_dir.exists():
         print(f"❌ Assets directory not found: {assets_dir}")
         return False
@@ -36,13 +36,10 @@ def generate_ios_swift():
     # Sort icon cases
     icon_cases.sort()
     
-    # Create RefineUIIcons directory
-    refine_icons_dir = ios_dir / "RefineUIIcons"
-    refine_icons_dir.mkdir(parents=True, exist_ok=True)
-    
-    # Create Sources directory
-    sources_dir = refine_icons_dir / "Sources"
-    sources_dir.mkdir(parents=True, exist_ok=True)
+    # Use existing Sources directory
+    sources_dir = ios_dir / "Sources"
+    if not sources_dir.exists():
+        sources_dir.mkdir(parents=True, exist_ok=True)
     
     # 1. Generate RefineIcons.swift file
     generate_refine_icons_swift(sources_dir, icon_cases)
@@ -51,7 +48,7 @@ def generate_ios_swift():
     generate_extensions_swift(sources_dir)
     
     # 3. Generate Package.swift file
-    generate_package_swift(refine_icons_dir)
+    generate_package_swift(ios_dir)
     
     print("✅ iOS Swift generation completed!")
     return True
@@ -88,11 +85,11 @@ def generate_refine_icons_swift(sources_dir: Path, icon_cases: list):
 """
     
     # Write to file
-    swift_file = sources_dir / "RefineIcons.swift"
+    swift_file = sources_dir / "RefineUIIcons.swift"
     with open(swift_file, 'w', encoding='utf-8') as f:
         f.write(swift_content)
     
-    print("✅ RefineIcons.swift generation completed")
+    print("✅ RefineUIIcons.swift generation completed")
 
 def convert_to_camel_case(icon_case: str) -> str:
     """Convert icon case name to camelCase."""
@@ -138,13 +135,13 @@ extension UIImage {
 """
     
     # Write to file
-    extensions_file = sources_dir / "RefineIcons+Extensions.swift"
+    extensions_file = sources_dir / "RefineUIIcons+Extensions.swift"
     with open(extensions_file, 'w', encoding='utf-8') as f:
         f.write(swift_content)
     
-    print("✅ RefineIcons+Extensions.swift generation completed")
+    print("✅ RefineUIIcons+Extensions.swift generation completed")
 
-def generate_package_swift(refine_icons_dir: Path):
+def generate_package_swift(ios_dir: Path):
     """Generates Package.swift file."""
     
     package_content = """// swift-tools-version: 5.7
@@ -175,7 +172,7 @@ let package = Package(
 """
     
     # Write to file
-    package_file = refine_icons_dir / "Package.swift"
+    package_file = ios_dir / "Package.swift"
     with open(package_file, 'w', encoding='utf-8') as f:
         f.write(package_content)
     
