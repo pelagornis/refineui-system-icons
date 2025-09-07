@@ -76,22 +76,22 @@ jobs:
         run: |
           VERSION="${{ steps.get_version.outputs.version }}"
           echo "Updating Flutter version to: $VERSION"
-          
+
           # 현재 버전 확인
           echo "Current version in pubspec.yaml:"
           grep "version:" flutter/pubspec.yaml
-          
+
           # 버전 업데이트
           sed -i "s/^version:.*/version: $VERSION/" flutter/pubspec.yaml
-          
+
           # 변경 사항 확인
           echo "Updated version in pubspec.yaml:"
           grep "version:" flutter/pubspec.yaml
-          
+
           # 파일 변경사항 확인
           echo "File changes:"
           git diff flutter/pubspec.yaml
-          
+
           echo "✅ Updated Flutter version to $VERSION"
 
       - name: Update Flutter CHANGELOG
@@ -126,7 +126,7 @@ jobs:
           git checkout main
 
           git add flutter/pubspec.yaml flutter/CHANGELOG.md
-          
+
           # 변경사항이 있는지 확인
           if git diff --staged --quiet; then
             echo "No changes to commit"
@@ -162,13 +162,13 @@ jobs:
         if: github.event_name == 'workflow_dispatch'
         run: |
           VERSION="${{ steps.get_version.outputs.version }}"
-          
+
           # Create tag on the current commit (which has the updated pubspec.yaml)
           git tag -a "v$VERSION" -m "Release version $VERSION"
-          
+
           # Push tag
           git push origin "v$VERSION"
-          
+
           echo "✅ Created and pushed tag v$VERSION on updated commit"
 
       - name: Build Flutter platform
@@ -254,10 +254,10 @@ jobs:
           cd flutter
           EXPECTED_VERSION="${{ needs.release.outputs.version }}"
           CURRENT_VERSION=$(grep "^version:" pubspec.yaml | sed 's/version: *//')
-          
+
           echo "Expected version: $EXPECTED_VERSION"
           echo "Current version: $CURRENT_VERSION"
-          
+
           if [ "$CURRENT_VERSION" != "$EXPECTED_VERSION" ]; then
             echo "❌ Version mismatch! Expected $EXPECTED_VERSION but got $CURRENT_VERSION"
             echo "Updating version again..."
