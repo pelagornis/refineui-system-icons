@@ -1,3 +1,12 @@
+## 0.3.3
+
+- Updated all platform versions to 0.3.3
+- Fixed React Native build errors and TypeScript conflicts
+- Improved icon generation scripts for better consistency
+- Enhanced package validation and publishing process
+- Fixed Git push conflicts in release workflows
+- Added concurrency controls to prevent workflow conflicts
+
 ## 0.3.2
 
 - Updated all platform versions to 0.3.2
