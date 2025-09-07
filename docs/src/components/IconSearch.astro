@@ -11,19 +11,21 @@
         <span class="filtered-count" id="filtered-count"></span>
       </div>
     </div>
-    
+
     <div class="search-controls">
       <div class="search-input-group">
-        <input 
-          type="text" 
-          id="icon-search" 
-          placeholder="Search by icon name..." 
+        <input
+          type="text"
+          id="icon-search"
+          placeholder="Search by icon name..."
           class="search-input"
           autocomplete="off"
         />
-        <button class="clear-search" id="clear-search" style="display: none;">×</button>
+        <button class="clear-search" id="clear-search" style="display: none;"
+          >×</button
+        >
       </div>
-      
+
       <div class="filter-group">
         <select id="category-filter" class="filter-select">
           <option value="">All Categories</option>
@@ -34,7 +36,7 @@
           <option value="사용자 인터페이스">User Interface</option>
           <option value="기타">Others</option>
         </select>
-        
+
         <select id="size-filter" class="filter-select">
           <option value="">All Sizes</option>
           <option value="16">16px</option>
@@ -44,17 +46,17 @@
           <option value="32">32px</option>
           <option value="48">48px</option>
         </select>
-        
+
         <select id="style-filter" class="filter-select">
           <option value="">All Styles</option>
           <option value="filled">Filled</option>
           <option value="regular">Regular</option>
         </select>
-        
+
         <button class="reset-filters" id="reset-filters">Reset</button>
       </div>
     </div>
-    
+
     <div class="quick-filters" id="quick-filters">
       <span class="quick-filter-label">Quick filters:</span>
       <button class="quick-filter-btn" data-filter="add">Add</button>
@@ -65,61 +67,71 @@
       <button class="quick-filter-btn" data-filter="edit">Edit</button>
     </div>
   </div>
-  
+
   <div class="search-results" id="search-results">
     <!-- 검색 결과가 여기에 표시됩니다 -->
   </div>
-  
+
   <div class="pagination" id="pagination">
     <!-- 페이지네이션이 여기에 표시됩니다 -->
   </div>
 </div>
 
 <script>
+  // 타입 정의
+  interface IconData {
+    name: string;
+    baseName: string;
+    displayName: string;
+    size: number;
+    style: string;
+    category: string;
+  }
+
+  interface IconDataResponse {
+    allIcons: IconData[];
+    categories: Record<string, string[]>;
+  }
+
   // 아이콘 데이터 로드
-  async function loadIconData() {
+  async function loadIconData(): Promise<IconDataResponse | null> {
     try {
-      const response = await fetch('/src/data/icons.json');
+      const response = await fetch("/src/data/icons.json");
       const data = await response.json();
-      
+
       // 데이터 구조 변환
-      const allIcons: Array<{
-        name: string;
-        baseName: string;
-        displayName: string;
-        size: number;
-        style: string;
-        category: string;
-      }> = [];
-      Object.entries(data.categories).forEach(([category, icons]) => {
-        icons.forEach(iconName => {
-          const parts = iconName.split('_');
+      const allIcons: IconData[] = [];
+      Object.entries(data.categories as Record<string, string[]>).forEach(([category, icons]) => {
+        icons.forEach((iconName: string) => {
+          const parts = iconName.split("_");
           const baseName = parts[0];
           const size = parts[1];
           const style = parts[2];
-          
+
           allIcons.push({
             name: iconName,
             baseName: baseName,
-            displayName: baseName.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+            displayName: baseName
+              .replace(/_/g, " ")
+              .replace(/\b\w/g, (l: string) => l.toUpperCase()),
             size: parseInt(size),
             style: style,
-            category: category
+            category: category,
           });
         });
       });
-      
+
       return { allIcons, categories: data.categories };
     } catch (error) {
-      console.error('아이콘 데이터 로드 실패:', error);
+      console.error("아이콘 데이터 로드 실패:", error);
       return null;
     }
   }
 
   // 아이콘 카드 생성
-  function createIconCard(icon) {
-    const card = document.createElement('div');
-    card.className = 'icon-card';
+  function createIconCard(icon: IconData): HTMLElement {
+    const card = document.createElement("div");
+    card.className = "icon-card";
     card.innerHTML = `
       <div class="icon-preview">
         <div class="icon-placeholder" data-icon="${icon.name}">
@@ -161,91 +173,95 @@
   }
 
   // 검색 및 필터링
-  function filterIcons(icons, searchTerm, category, size, style) {
-    return icons.filter(icon => {
-      const matchesSearch = !searchTerm || 
+  function filterIcons(icons: IconData[], searchTerm: string, category: string, size: string, style: string): IconData[] {
+    return icons.filter((icon: IconData) => {
+      const matchesSearch =
+        !searchTerm ||
         icon.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         icon.baseName.toLowerCase().includes(searchTerm.toLowerCase()) ||
         icon.displayName.toLowerCase().includes(searchTerm.toLowerCase());
-      
+
       const matchesCategory = !category || icon.category === category;
       const matchesSize = !size || icon.size === parseInt(size);
       const matchesStyle = !style || icon.style === style;
-      
+
       return matchesSearch && matchesCategory && matchesSize && matchesStyle;
     });
   }
 
   // 페이지네이션
-  function paginateItems(items, page, itemsPerPage) {
+  function paginateItems<T>(items: T[], page: number, itemsPerPage: number): T[] {
     const startIndex = (page - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
     return items.slice(startIndex, endIndex);
   }
 
   // 페이지네이션 생성
-  function createPagination(totalPages, currentPage) {
-    const pagination = document.getElementById('pagination');
-    if (totalPages <= 1) {
-      pagination.innerHTML = '';
+  function createPagination(totalPages: number, currentPage: number): void {
+    const pagination = document.getElementById("pagination");
+    if (!pagination || totalPages <= 1) {
+      if (pagination) pagination.innerHTML = "";
       return;
     }
 
     let html = '<div class="pagination-controls">';
-    
+
     // 이전 버튼
     if (currentPage > 1) {
       html += `<button class="page-btn" data-page="${currentPage - 1}">‹</button>`;
     }
-    
+
     // 페이지 번호들
     const startPage = Math.max(1, currentPage - 2);
     const endPage = Math.min(totalPages, currentPage + 2);
-    
+
     if (startPage > 1) {
       html += `<button class="page-btn" data-page="1">1</button>`;
       if (startPage > 2) {
         html += '<span class="page-ellipsis">...</span>';
       }
     }
-    
+
     for (let i = startPage; i <= endPage; i++) {
-      const isActive = i === currentPage ? 'active' : '';
+      const isActive = i === currentPage ? "active" : "";
       html += `<button class="page-btn ${isActive}" data-page="${i}">${i}</button>`;
     }
-    
+
     if (endPage < totalPages) {
       if (endPage < totalPages - 1) {
         html += '<span class="page-ellipsis">...</span>';
       }
       html += `<button class="page-btn" data-page="${totalPages}">${totalPages}</button>`;
     }
-    
+
     // 다음 버튼
     if (currentPage < totalPages) {
       html += `<button class="page-btn" data-page="${currentPage + 1}">›</button>`;
     }
-    
-    html += '</div>';
+
+    html += "</div>";
     pagination.innerHTML = html;
   }
 
   // 검색 결과 표시
-  function displaySearchResults(icons, page = 1) {
-    const resultsContainer = document.getElementById('search-results');
-    const filteredCount = document.getElementById('filtered-count');
+  function displaySearchResults(icons: IconData[], page: number = 1): void {
+    const resultsContainer = document.getElementById("search-results");
+    const filteredCount = document.getElementById("filtered-count");
+    
+    if (!resultsContainer || !filteredCount) return;
+    
     const itemsPerPage = 24;
     const paginatedIcons = paginateItems(icons, page, itemsPerPage);
     const totalPages = Math.ceil(icons.length / itemsPerPage);
-    
+
     // 필터된 결과 수 업데이트
     if (icons.length < 5207) {
       filteredCount.textContent = ` • ${icons.length} filtered`;
-      filteredCount.style.display = 'inline';
+      filteredCount.style.display = "inline";
     } else {
-      filteredCount.style.display = 'none';
+      filteredCount.style.display = "none";
     }
-    
+
     if (paginatedIcons.length === 0) {
       resultsContainer.innerHTML = `
         <div class="no-results">
@@ -257,165 +273,201 @@
       createPagination(0, 1);
       return;
     }
-    
-    resultsContainer.innerHTML = '';
-    paginatedIcons.forEach(icon => {
+
+    resultsContainer.innerHTML = "";
+    paginatedIcons.forEach((icon: IconData) => {
       const card = createIconCard(icon);
       resultsContainer.appendChild(card);
     });
-    
+
     createPagination(totalPages, page);
-    
+
     // 페이지네이션 이벤트 리스너
-    document.querySelectorAll('.page-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const newPage = parseInt(btn.dataset.page);
+    document.querySelectorAll(".page-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const newPage = parseInt((btn as HTMLElement).dataset.page || "1");
         displaySearchResults(icons, newPage);
         // 페이지 상단으로 스크롤
-        resultsContainer.scrollIntoView({ behavior: 'smooth' });
+        resultsContainer.scrollIntoView({ behavior: "smooth" });
       });
     });
   }
 
   // 플랫폼별 코드 생성
-  function generatePlatformCode(iconName, platform) {
-    const parts = iconName.split('_');
+  function generatePlatformCode(iconName: string, platform: string): string {
+    const parts = iconName.split("_");
     const baseName = parts[0];
     const size = parts[1];
     const style = parts[2];
-    
-    const codeMap = {
+
+    const codeMap: Record<string, string> = {
       flutter: `Icon(RefineUIIcons.${iconName})`,
       react: `<${baseName.charAt(0).toUpperCase() + baseName.slice(1)}${size}${style.charAt(0).toUpperCase() + style.slice(1)} />`,
-      web: `<i class="refineui-icon refineui-icon-${iconName}"></i>`
+      web: `<i class="refineui-icon refineui-icon-${iconName}"></i>`,
     };
-    
+
     return codeMap[platform] || iconName;
   }
 
   // 복사 기능
-  function setupCopyButtons() {
-    document.addEventListener('click', (e) => {
-      if (e.target.closest('.copy-btn')) {
-        const btn = e.target.closest('.copy-btn');
-        const iconName = btn.dataset.icon;
-        navigator.clipboard.writeText(iconName).then(() => {
-          const originalContent = btn.innerHTML;
-          btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>';
-          btn.style.color = '#10b981';
-          setTimeout(() => {
-            btn.innerHTML = originalContent;
-            btn.style.color = '';
-          }, 2000);
-        });
+  function setupCopyButtons(): void {
+    document.addEventListener("click", (e: Event) => {
+      const target = e.target as HTMLElement;
+      if (!target) return;
+
+      const copyBtn = target.closest(".copy-btn") as HTMLElement;
+      if (copyBtn) {
+        const iconName = copyBtn.dataset.icon;
+        if (iconName) {
+          navigator.clipboard.writeText(iconName).then(() => {
+            const originalContent = copyBtn.innerHTML;
+            copyBtn.innerHTML =
+              '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>';
+            copyBtn.style.color = "#10b981";
+            setTimeout(() => {
+              copyBtn.innerHTML = originalContent;
+              copyBtn.style.color = "";
+            }, 2000);
+          });
+        }
+        return;
       }
-      
-      if (e.target.closest('.action-btn')) {
-        const btn = e.target.closest('.action-btn');
-        const iconName = btn.dataset.icon;
-        const platform = btn.dataset.platform;
-        const code = generatePlatformCode(iconName, platform);
-        
-        navigator.clipboard.writeText(code).then(() => {
-          const originalContent = btn.innerHTML;
-          btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>';
-          btn.style.color = '#10b981';
-          setTimeout(() => {
-            btn.innerHTML = originalContent;
-            btn.style.color = '';
-          }, 2000);
-        });
+
+      const actionBtn = target.closest(".action-btn") as HTMLElement;
+      if (actionBtn) {
+        const iconName = actionBtn.dataset.icon;
+        const platform = actionBtn.dataset.platform;
+        if (iconName && platform) {
+          const code = generatePlatformCode(iconName, platform);
+          navigator.clipboard.writeText(code).then(() => {
+            const originalContent = actionBtn.innerHTML;
+            actionBtn.innerHTML =
+              '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>';
+            actionBtn.style.color = "#10b981";
+            setTimeout(() => {
+              actionBtn.innerHTML = originalContent;
+              actionBtn.style.color = "";
+            }, 2000);
+          });
+        }
       }
     });
   }
 
   // 퀵 필터 기능
-  function setupQuickFilters() {
-    document.addEventListener('click', (e) => {
-      if (e.target.classList.contains('quick-filter-btn')) {
-        const filter = e.target.dataset.filter;
-        const searchInput = document.getElementById('icon-search');
-        searchInput.value = filter;
-        searchInput.dispatchEvent(new Event('input'));
+  function setupQuickFilters(): void {
+    document.addEventListener("click", (e: Event) => {
+      const target = e.target as HTMLElement;
+      if (!target) return;
+
+      if (target.classList.contains("quick-filter-btn")) {
+        const filter = target.dataset.filter;
+        const searchInput = document.getElementById("icon-search") as HTMLInputElement;
+        if (searchInput && filter) {
+          searchInput.value = filter;
+          searchInput.dispatchEvent(new Event("input"));
+        }
       }
     });
   }
 
   // 검색 초기화 기능
-  function setupClearSearch() {
-    const searchInput = document.getElementById('icon-search');
-    const clearBtn = document.getElementById('clear-search');
-    
-    searchInput.addEventListener('input', () => {
-      clearBtn.style.display = searchInput.value ? 'block' : 'none';
+  function setupClearSearch(): void {
+    const searchInput = document.getElementById("icon-search") as HTMLInputElement;
+    const clearBtn = document.getElementById("clear-search") as HTMLElement;
+
+    if (!searchInput || !clearBtn) return;
+
+    searchInput.addEventListener("input", () => {
+      clearBtn.style.display = searchInput.value ? "block" : "none";
     });
-    
-    clearBtn.addEventListener('click', () => {
-      searchInput.value = '';
-      clearBtn.style.display = 'none';
-      searchInput.dispatchEvent(new Event('input'));
+
+    clearBtn.addEventListener("click", () => {
+      searchInput.value = "";
+      clearBtn.style.display = "none";
+      searchInput.dispatchEvent(new Event("input"));
     });
   }
 
   // 필터 초기화 기능
-  function setupResetFilters() {
-    document.getElementById('reset-filters').addEventListener('click', () => {
-      document.getElementById('icon-search').value = '';
-      document.getElementById('category-filter').value = '';
-      document.getElementById('size-filter').value = '';
-      document.getElementById('style-filter').value = '';
-      document.getElementById('clear-search').style.display = 'none';
-      
+  function setupResetFilters(): void {
+    const resetBtn = document.getElementById("reset-filters");
+    if (!resetBtn) return;
+
+    resetBtn.addEventListener("click", () => {
+      const searchInput = document.getElementById("icon-search") as HTMLInputElement;
+      const categoryFilter = document.getElementById("category-filter") as HTMLSelectElement;
+      const sizeFilter = document.getElementById("size-filter") as HTMLSelectElement;
+      const styleFilter = document.getElementById("style-filter") as HTMLSelectElement;
+      const clearBtn = document.getElementById("clear-search") as HTMLElement;
+
+      if (searchInput) searchInput.value = "";
+      if (categoryFilter) categoryFilter.value = "";
+      if (sizeFilter) sizeFilter.value = "";
+      if (styleFilter) styleFilter.value = "";
+      if (clearBtn) clearBtn.style.display = "none";
+
       // 검색 실행
-      const searchInput = document.getElementById('icon-search');
-      searchInput.dispatchEvent(new Event('input'));
+      if (searchInput) {
+        searchInput.dispatchEvent(new Event("input"));
+      }
     });
   }
 
   // 메인 초기화
-  async function init() {
+  async function init(): Promise<void> {
     const iconData = await loadIconData();
     if (!iconData) return;
-    
+
     let currentPage = 1;
     let filteredIcons = iconData.allIcons;
-    
+
     // 초기 결과 표시
     displaySearchResults(filteredIcons, currentPage);
-    
+
     // 검색 입력 이벤트
-    const searchInput = document.getElementById('icon-search');
-    const categoryFilter = document.getElementById('category-filter');
-    const sizeFilter = document.getElementById('size-filter');
-    const styleFilter = document.getElementById('style-filter');
-    
-    function performSearch() {
+    const searchInput = document.getElementById("icon-search") as HTMLInputElement;
+    const categoryFilter = document.getElementById("category-filter") as HTMLSelectElement;
+    const sizeFilter = document.getElementById("size-filter") as HTMLSelectElement;
+    const styleFilter = document.getElementById("style-filter") as HTMLSelectElement;
+
+    if (!searchInput || !categoryFilter || !sizeFilter || !styleFilter) return;
+
+    function performSearch(): void {
+      if (!iconData) return;
+      
       const searchTerm = searchInput.value;
       const category = categoryFilter.value;
       const size = sizeFilter.value;
       const style = styleFilter.value;
-      
-      filteredIcons = filterIcons(iconData.allIcons, searchTerm, category, size, style);
+
+      filteredIcons = filterIcons(
+        iconData.allIcons,
+        searchTerm,
+        category,
+        size,
+        style
+      );
       currentPage = 1;
       displaySearchResults(filteredIcons, currentPage);
     }
-    
+
     // 이벤트 리스너 설정
-    searchInput.addEventListener('input', performSearch);
-    categoryFilter.addEventListener('change', performSearch);
-    sizeFilter.addEventListener('change', performSearch);
-    styleFilter.addEventListener('change', performSearch);
-    
+    searchInput.addEventListener("input", performSearch);
+    categoryFilter.addEventListener("change", performSearch);
+    sizeFilter.addEventListener("change", performSearch);
+    styleFilter.addEventListener("change", performSearch);
+
     // 추가 기능 설정
     setupCopyButtons();
     setupQuickFilters();
     setupClearSearch();
     setupResetFilters();
-    
+
     // 키보드 단축키
-    document.addEventListener('keydown', (e) => {
+    document.addEventListener("keydown", (e: KeyboardEvent) => {
       if (e.ctrlKey || e.metaKey) {
-        if (e.key === 'k') {
+        if (e.key === "k") {
           e.preventDefault();
           searchInput.focus();
         }
@@ -424,7 +476,7 @@
   }
 
   // DOM 로드 완료 후 초기화
-  document.addEventListener('DOMContentLoaded', init);
+  document.addEventListener("DOMContentLoaded", init);
 </script>
 
 <style>
@@ -616,7 +668,11 @@
     align-items: center;
     height: 100px;
     margin-bottom: 1rem;
-    background: linear-gradient(135deg, var(--sl-color-bg-nav) 0%, var(--sl-color-bg) 100%);
+    background: linear-gradient(
+      135deg,
+      var(--sl-color-bg-nav) 0%,
+      var(--sl-color-bg) 100%
+    );
     border-radius: 0.5rem;
     border: 1px solid var(--sl-color-hairline);
   }
@@ -627,7 +683,11 @@
     justify-content: center;
     width: 56px;
     height: 56px;
-    background: linear-gradient(135deg, var(--sl-color-accent) 0%, var(--sl-color-accent-high) 100%);
+    background: linear-gradient(
+      135deg,
+      var(--sl-color-accent) 0%,
+      var(--sl-color-accent-high) 100%
+    );
     color: white;
     border-radius: 0.75rem;
     font-size: 0.75rem;
@@ -688,7 +748,7 @@
     color: var(--sl-color-text);
     word-break: break-all;
     border: 1px solid var(--sl-color-hairline);
-    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
   }
 
   .copy-btn {
@@ -837,12 +897,12 @@
     .filter-group {
       flex-direction: column;
     }
-    
+
     .filter-select,
     .reset-filters {
       width: 100%;
     }
-    
+
     .search-results {
       grid-template-columns: 1fr;
       gap: 1rem;
