@@ -53,7 +53,7 @@ jobs:
           ulimit -n 65536
           echo "File descriptor limit increased to $(ulimit -n)"
 
-          cd ios/RefineIcons
+          cd ios/
 
           swift package resolve
           swift build
