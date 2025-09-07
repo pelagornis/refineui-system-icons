@@ -159,8 +159,36 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PELAGORNIS }}
   publish:
     needs: build-flutter
+    runs-on: ubuntu-latest
     permissions:
       id-token: write # Required for authentication using OIDC
-    uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
-    with:
-      working-directory: flutter
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PELAGORNIS }}
+          fetch-depth: 0
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.19.0"
+          channel: "stable"
+
+      - name: Configure Flutter
+        run: |
+          flutter config --no-analytics
+          flutter config --no-cli-animations
+
+      - name: Get Flutter dependencies
+        run: |
+          cd flutter
+          flutter pub get
+
+      - name: Publish to pub.dev
+        run: |
+          cd flutter
+          dart pub publish --dry-run
+          dart pub publish --force
+        env:
+          PUB_HOSTED_URL: https://pub.dev
