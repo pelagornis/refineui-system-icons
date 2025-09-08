@@ -16,23 +16,22 @@ pnpm add @refineui/react-icons
 
 ```tsx
 import React from "react";
-import { Icon } from "@refineui/react-icons";
+import { Home, Search, Settings, Heart } from "@refineui/react-icons";
 
 function App() {
   return (
     <div>
       {/* Basic usage */}
-      <Icon name="home" size={24} />
+      <Home size={24} />
 
       {/* With custom color */}
-      <Icon name="search" size={20} color="#0078d4" />
+      <Search size={20} color="#0078d4" />
 
       {/* With custom className */}
-      <Icon name="settings" size={16} className="my-icon" />
+      <Settings size={16} className="my-icon" />
 
       {/* With onClick handler */}
-      <Icon
-        name="heart"
+      <Heart
         size={24}
         onClick={() => console.log("Heart clicked!")}
         style={{ cursor: "pointer" }}
@@ -48,13 +47,24 @@ export default App;
 
 ### Icon Categories
 
-- **Navigation**: `home`, `search`, `menu`, `back`, `forward`, `up`, `down`, `left`, `right`
-- **Actions**: `add`, `edit`, `delete`, `save`, `cancel`, `refresh`, `download`, `upload`
-- **Communication**: `mail`, `phone`, `chat`, `notification`, `bell`, `message`
-- **Media**: `play`, `pause`, `stop`, `volume`, `mute`, `camera`, `image`, `video`
-- **System**: `settings`, `gear`, `user`, `lock`, `unlock`, `key`, `shield`
-- **Files**: `folder`, `file`, `document`, `image`, `pdf`, `zip`, `download`
+- **Navigation**: `Home`, `Search`, `Menu`, `ArrowLeft`, `ArrowRight`, `ChevronUp`, `ChevronDown`
+- **Actions**: `Add`, `Edit`, `Delete`, `Save`, `Cancel`, `Refresh`, `Download`, `Upload`
+- **Communication**: `Mail`, `Phone`, `Chat`, `Notification`, `Bell`, `Message`
+- **Media**: `Play`, `Pause`, `Stop`, `Volume`, `Mute`, `Camera`, `Image`, `Video`
+- **System**: `Settings`, `Gear`, `Person`, `Lock`, `Unlock`, `Key`, `Shield`
+- **Files**: `Folder`, `Document`, `Image`, `Download`
 - **And many more...** (434+ icons total)
+
+### Icon Naming Convention
+
+Icons follow the pattern: `{Name}` (PascalCase)
+
+- **Style**: `Regular` or `Filled` (imported separately)
+- **Examples**:
+  - `Home` - Regular style home icon
+  - `HomeFilled` - Filled style home icon
+  - `Add` - Regular style add icon
+  - `AddFilled` - Filled style add icon
 
 ### Icon Sizes
 
@@ -69,29 +79,30 @@ export default App;
 ### TypeScript Support
 
 ```tsx
-import { Icon, IconProps } from "@refineui/react-icons";
+import { Home, Search, Settings, IconProps } from "@refineui/react-icons";
 
 interface MyComponentProps {
-  iconName: IconProps["name"];
-  iconSize?: IconProps["size"];
-  iconColor?: IconProps["color"];
-  iconStyle?: IconProps["iconStyle"];
+  iconType: "home" | "search" | "settings";
+  iconSize?: number;
+  iconColor?: string;
 }
 
-function MyComponent({ iconName, iconSize = 24, iconColor }: MyComponentProps) {
-  return <Icon name={iconName} size={iconSize} color={iconColor} />;
+function MyComponent({ iconType, iconSize = 24, iconColor }: MyComponentProps) {
+  const IconComponent =
+    iconType === "home" ? Home : iconType === "search" ? Search : Settings;
+
+  return <IconComponent size={iconSize} color={iconColor} />;
 }
 ```
 
 ### Custom Styling
 
 ```tsx
-import { Icon } from "@refineui/react-icons";
+import { Star } from "@refineui/react-icons";
 
 function CustomIcon() {
   return (
-    <Icon
-      name="star"
+    <Star
       size={24}
       className="my-custom-icon"
       style={{
@@ -131,8 +142,7 @@ function CustomIcon() {
 ### 3. **Accessibility**
 
 ```tsx
-<Icon
-  name="search"
+<Search
   size={24}
   aria-label="Search"
   role="button"
@@ -148,12 +158,11 @@ function CustomIcon() {
 ### 4. **Responsive Design**
 
 ```tsx
-import { Icon } from "@refineui/react-icons";
+import { Menu } from "@refineui/react-icons";
 
 function ResponsiveIcon() {
   return (
-    <Icon
-      name="menu"
+    <Menu
       size={window.innerWidth < 768 ? 20 : 24}
       className="responsive-icon"
     />
@@ -166,15 +175,15 @@ function ResponsiveIcon() {
 ### Navigation Bar
 
 ```tsx
-import { Icon } from "@refineui/react-icons";
+import { Menu, Search, Notification, Person } from "@refineui/react-icons";
 
 function NavigationBar() {
   return (
     <nav className="navbar">
-      <Icon name="menu" size={24} className="nav-icon" />
-      <Icon name="search" size={20} className="nav-icon" />
-      <Icon name="notification" size={20} className="nav-icon" />
-      <Icon name="user" size={20} className="nav-icon" />
+      <Menu size={24} className="nav-icon" />
+      <Search size={20} className="nav-icon" />
+      <Notification size={20} className="nav-icon" />
+      <Person size={20} className="nav-icon" />
     </nav>
   );
 }
@@ -183,37 +192,49 @@ function NavigationBar() {
 ### Button with Icon
 
 ```tsx
-import { Icon } from "@refineui/react-icons";
+import { Download } from "@refineui/react-icons";
 
-function IconButton({ iconName, children, onClick }) {
+function IconButton({ children, onClick }) {
   return (
     <button className="icon-button" onClick={onClick}>
-      <Icon name={iconName} size={16} />
+      <Download size={16} />
       {children}
     </button>
   );
 }
 
 // Usage
-<IconButton iconName="download" onClick={handleDownload}>
-  Download
-</IconButton>;
+<IconButton onClick={handleDownload}>Download</IconButton>;
 ```
 
 ### Icon Grid
 
 ```tsx
-import { Icon } from "@refineui/react-icons";
+import {
+  Home,
+  Search,
+  Settings,
+  Person,
+  Mail,
+  Phone,
+} from "@refineui/react-icons";
 
 function IconGrid() {
-  const icons = ["home", "search", "settings", "user", "mail", "phone"];
+  const icons = [
+    { component: Home, name: "home" },
+    { component: Search, name: "search" },
+    { component: Settings, name: "settings" },
+    { component: Person, name: "user" },
+    { component: Mail, name: "mail" },
+    { component: Phone, name: "phone" },
+  ];
 
   return (
     <div className="icon-grid">
-      {icons.map((iconName) => (
-        <div key={iconName} className="icon-item">
-          <Icon name={iconName} size={24} />
-          <span>{iconName}</span>
+      {icons.map(({ component: IconComponent, name }) => (
+        <div key={name} className="icon-item">
+          <IconComponent size={24} />
+          <span>{name}</span>
         </div>
       ))}
     </div>
@@ -227,42 +248,40 @@ function IconGrid() {
 
 ```tsx
 // Search for icons containing "home"
-const homeIcons = ["home", "home-filled", "home-outline"];
+const homeIcons = ["Home", "HomeFilled"];
 
 // Search for icons containing "arrow"
-const arrowIcons = ["arrow-up", "arrow-down", "arrow-left", "arrow-right"];
+const arrowIcons = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
 ```
 
 ### Icon Categories
 
 ```tsx
 const navigationIcons = [
-  "home",
-  "search",
-  "menu",
-  "back",
-  "forward",
-  "up",
-  "down",
-  "left",
-  "right",
-  "chevron-up",
-  "chevron-down",
-  "chevron-left",
-  "chevron-right",
+  "Home",
+  "Search",
+  "Menu",
+  "ArrowLeft",
+  "ArrowRight",
+  "ArrowUp",
+  "ArrowDown",
+  "ChevronUp",
+  "ChevronDown",
+  "ChevronLeft",
+  "ChevronRight",
 ];
 
 const actionIcons = [
-  "add",
-  "edit",
-  "delete",
-  "save",
-  "cancel",
-  "refresh",
-  "download",
-  "upload",
-  "copy",
-  "cut",
+  "Add",
+  "Edit",
+  "Delete",
+  "Save",
+  "Cancel",
+  "Refresh",
+  "Download",
+  "Upload",
+  "Copy",
+  "Cut",
 ];
 ```
 

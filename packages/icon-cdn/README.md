@@ -30,15 +30,15 @@ yarn add @refineui/icon-cdn
 ```html
 <!-- SVG icons -->
 <img
-  src="https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@0.3.1/icons/24/add-regular.svg"
+  src="https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@vTag/icons/24/add-regular.svg"
   alt="Add"
 />
 <img
-  src="https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@0.3.1/icons/32/heart-filled.svg"
+  src="https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@vTag/icons/32/heart-filled.svg"
   alt="Heart"
 />
 <img
-  src="https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@0.3.1/icons/32/add_square-filled.svg"
+  src="https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@vTag/icons/32/add_square-filled.svg"
   alt="Add Square"
 />
 ```
@@ -47,7 +47,7 @@ yarn add @refineui/icon-cdn
 
 ```css
 .add-icon {
-  background-image: url("https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@${tag}/icons/24/add-regular.svg");
+  background-image: url("https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@vTag/icons/24/add-regular.svg");
   background-size: contain;
   background-repeat: no-repeat;
   width: 24px;
@@ -55,7 +55,7 @@ yarn add @refineui/icon-cdn
 }
 
 .heart-icon {
-  background-image: url("https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@${tag}/icons/32/heart-filled.svg");
+  background-image: url("https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@vTag/icons/32/heart-filled.svg");
   background-size: contain;
   background-repeat: no-repeat;
   width: 32px;
@@ -67,7 +67,7 @@ yarn add @refineui/icon-cdn
 
 ```javascript
 function loadIcon(iconName, size = 24, style = "regular") {
-  const url = `https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@${tag}/icons/${size}/${iconName}-${style}.svg`;
+  const url = `https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@vTag/icons/${size}/${iconName}-${style}.svg`;
 
   const img = new Image();
   img.src = url;
@@ -88,7 +88,7 @@ document.body.appendChild(heartIcon);
 ### URL Structure
 
 ```
-https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@0.2.2/icons/{size}/{iconName}-{style}.svg
+https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@vTag/icons/{size}/{iconName}-{style}.svg
 ```
 
 ### Parameters
@@ -208,7 +208,7 @@ function createIconGallery(icons, size = 24, style = "regular") {
     `;
 
     const icon = document.createElement("img");
-    icon.src = `https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@0.2.2/icons/${size}/${iconName}-${style}.svg`;
+    icon.src = `https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@vTag/icons/${size}/${iconName}-${style}.svg`;
     icon.alt = iconName;
     icon.style.width = `${size}px`;
     icon.style.height = `${size}px`;
@@ -244,7 +244,7 @@ document.body.appendChild(gallery);
 ```javascript
 function loadIconAsync(iconName, size = 24, style = "regular") {
   return new Promise((resolve, reject) => {
-    const url = `https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@0.2.2/icons/${size}/${iconName}-${style}.svg`;
+    const url = `https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@vTag/icons/${size}/${iconName}-${style}.svg`;
 
     fetch(url)
       .then((response) => {
@@ -290,7 +290,7 @@ function preloadIcons(iconNames, size = 24, style = "regular") {
       const img = new Image();
       img.onload = () => resolve(iconName);
       img.onerror = () => resolve(iconName); // Continue even if some fail
-      img.src = `https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@0.2.2/icons/${size}/${iconName}-${style}.svg`;
+      img.src = `https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@vTag/icons/${size}/${iconName}-${style}.svg`;
     });
   });
 
@@ -322,7 +322,7 @@ criticalIcons.forEach((iconName) => {
   const link = document.createElement("link");
   link.rel = "preload";
   link.as = "image";
-  link.href = `https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@0.2.2/icons/24/${iconName}-regular.svg`;
+  link.href = `https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@vTag/icons/24/${iconName}-regular.svg`;
   document.head.appendChild(link);
 });
 
@@ -332,7 +332,7 @@ function lazyLoadIcon(iconName, container) {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         const icon = document.createElement("img");
-        icon.src = `https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@0.2.2/icons/24/${iconName}-regular.svg`;
+        icon.src = `https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@vTag/icons/24/${iconName}-regular.svg`;
         icon.alt = iconName;
         entry.target.appendChild(icon);
         observer.unobserve(entry.target);

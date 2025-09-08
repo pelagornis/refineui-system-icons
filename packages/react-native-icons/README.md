@@ -19,23 +19,22 @@ pnpm add @refineui/react-native-icons
 ```tsx
 import React from "react";
 import { View, Text } from "react-native";
-import { Icon } from "@refineui/react-native-icons";
+import { Home, Search, Settings, Heart } from "@refineui/react-native-icons";
 
 function App() {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       {/* Basic usage */}
-      <Icon name="home" size={24} />
+      <Home size={24} />
 
       {/* With custom color */}
-      <Icon name="search" size={20} color="#0078d4" />
+      <Search size={20} color="#0078d4" />
 
       {/* With custom style */}
-      <Icon name="settings" size={16} style={{ marginTop: 10 }} />
+      <Settings size={16} style={{ marginTop: 10 }} />
 
       {/* With onPress handler */}
-      <Icon
-        name="heart"
+      <Heart
         size={24}
         onPress={() => console.log("Heart pressed!")}
         style={{ marginTop: 10 }}
@@ -50,12 +49,11 @@ export default App;
 ### Touchable Icon
 
 ```tsx
-import { Icon } from "@refineui/react-native-icons";
+import { Star } from "@refineui/react-native-icons";
 
 function TouchableIcon() {
   return (
-    <Icon
-      name="star"
+    <Star
       size={24}
       onPress={() => console.log("Star pressed!")}
       style={{
@@ -72,13 +70,24 @@ function TouchableIcon() {
 
 ### Icon Categories
 
-- **Navigation**: `home`, `search`, `menu`, `back`, `forward`, `up`, `down`, `left`, `right`
-- **Actions**: `add`, `edit`, `delete`, `save`, `cancel`, `refresh`, `download`, `upload`
-- **Communication**: `mail`, `phone`, `chat`, `notification`, `bell`, `message`
-- **Media**: `play`, `pause`, `stop`, `volume`, `mute`, `camera`, `image`, `video`
-- **System**: `settings`, `gear`, `user`, `lock`, `unlock`, `key`, `shield`
-- **Files**: `folder`, `file`, `document`, `image`, `pdf`, `zip`, `download`
+- **Navigation**: `Home`, `Search`, `Menu`, `ArrowLeft`, `ArrowRight`, `ChevronUp`, `ChevronDown`
+- **Actions**: `Add`, `Edit`, `Delete`, `Save`, `Cancel`, `Refresh`, `Download`, `Upload`
+- **Communication**: `Mail`, `Phone`, `Chat`, `Notification`, `Bell`, `Message`
+- **Media**: `Play`, `Pause`, `Stop`, `Volume`, `Mute`, `Camera`, `Image`, `Video`
+- **System**: `Settings`, `Gear`, `Person`, `Lock`, `Unlock`, `Key`, `Shield`
+- **Files**: `Folder`, `Document`, `Image`, `Download`
 - **And many more...** (434+ icons total)
+
+### Icon Naming Convention
+
+Icons follow the pattern: `{Name}` (PascalCase)
+
+- **Style**: `Regular` or `Filled` (imported separately)
+- **Examples**:
+  - `Home` - Regular style home icon
+  - `HomeFilled` - Filled style home icon
+  - `Add` - Regular style add icon
+  - `AddFilled` - Filled style add icon
 
 ### Icon Sizes
 
@@ -93,29 +102,35 @@ function TouchableIcon() {
 ### TypeScript Support
 
 ```tsx
-import { Icon, IconProps } from "@refineui/react-native-icons";
+import {
+  Home,
+  Search,
+  Settings,
+  IconProps,
+} from "@refineui/react-native-icons";
 
 interface MyComponentProps {
-  iconName: IconProps["name"];
-  iconSize?: IconProps["size"];
-  iconColor?: IconProps["color"];
-  iconStyle?: IconProps["iconStyle"];
+  iconType: "home" | "search" | "settings";
+  iconSize?: number;
+  iconColor?: string;
 }
 
-function MyComponent({ iconName, iconSize = 24, iconColor }: MyComponentProps) {
-  return <Icon name={iconName} size={iconSize} color={iconColor} />;
+function MyComponent({ iconType, iconSize = 24, iconColor }: MyComponentProps) {
+  const IconComponent =
+    iconType === "home" ? Home : iconType === "search" ? Search : Settings;
+
+  return <IconComponent size={iconSize} color={iconColor} />;
 }
 ```
 
 ### Custom Styling
 
 ```tsx
-import { Icon } from "@refineui/react-native-icons";
+import { Star } from "@refineui/react-native-icons";
 
 function CustomIcon() {
   return (
-    <Icon
-      name="star"
+    <Star
       size={24}
       color="#ffd700"
       style={{
@@ -133,7 +148,7 @@ function CustomIcon() {
 ### Dynamic Icon Selection
 
 ```tsx
-import { Icon } from "@refineui/react-native-icons";
+import { Home, Search, Settings } from "@refineui/react-native-icons";
 
 function DynamicIcon({
   iconType,
@@ -141,14 +156,15 @@ function DynamicIcon({
   iconType: "home" | "search" | "settings";
 }) {
   const iconConfig = {
-    home: { name: "home", color: "#0078d4" },
-    search: { name: "search", color: "#107c10" },
-    settings: { name: "settings", color: "#d83b01" },
+    home: { component: Home, color: "#0078d4" },
+    search: { component: Search, color: "#107c10" },
+    settings: { component: Settings, color: "#d83b01" },
   };
 
   const config = iconConfig[iconType];
+  const IconComponent = config.component;
 
-  return <Icon name={config.name} size={24} color={config.color} />;
+  return <IconComponent size={24} color={config.color} />;
 }
 ```
 
@@ -162,31 +178,32 @@ function DynamicIcon({
 
 ```tsx
 import React, { useMemo } from "react";
-import { Icon } from "@refineui/react-native-icons";
+import { Home, Search, Settings } from "@refineui/react-native-icons";
 
-function OptimizedIcon({ iconName, size = 24 }) {
+function OptimizedIcon({ iconType, size = 24 }) {
   const iconProps = useMemo(
     () => ({
-      name: iconName,
       size,
       color: "#0078d4",
     }),
-    [iconName, size]
+    [size]
   );
 
-  return <Icon {...iconProps} />;
+  const IconComponent =
+    iconType === "home" ? Home : iconType === "search" ? Search : Settings;
+
+  return <IconComponent {...iconProps} />;
 }
 ```
 
 ### 2. **Accessibility**
 
 ```tsx
-import { Icon } from "@refineui/react-native-icons";
+import { Search } from "@refineui/react-native-icons";
 
 function AccessibleIcon() {
   return (
-    <Icon
-      name="search"
+    <Search
       size={24}
       accessible={true}
       accessibilityLabel="Search"
@@ -200,27 +217,30 @@ function AccessibleIcon() {
 ### 3. **Responsive Design**
 
 ```tsx
-import { Icon } from "@refineui/react-native-icons";
+import { Menu } from "@refineui/react-native-icons";
 import { Dimensions } from "react-native";
 
 function ResponsiveIcon() {
   const { width } = Dimensions.get("window");
   const iconSize = width < 768 ? 20 : 24;
 
-  return <Icon name="menu" size={iconSize} />;
+  return <Menu size={iconSize} />;
 }
 ```
 
 ### 4. **Theme Integration**
 
 ```tsx
-import { Icon } from "@refineui/react-native-icons";
+import { Home, Search, Settings } from "@refineui/react-native-icons";
 import { useTheme } from "@react-navigation/native";
 
-function ThemedIcon({ name, size = 24 }) {
+function ThemedIcon({ iconType, size = 24 }) {
   const theme = useTheme();
 
-  return <Icon name={name} size={size} color={theme.colors.primary} />;
+  const IconComponent =
+    iconType === "home" ? Home : iconType === "search" ? Search : Settings;
+
+  return <IconComponent size={size} color={theme.colors.primary} />;
 }
 ```
 
@@ -229,16 +249,12 @@ function ThemedIcon({ name, size = 24 }) {
 ### iOS Specific
 
 ```tsx
-import { Icon } from "@refineui/react-native-icons";
+import { Settings } from "@refineui/react-native-icons";
 import { Platform } from "react-native";
 
 function PlatformIcon() {
   return (
-    <Icon
-      name="settings"
-      size={24}
-      color={Platform.OS === "ios" ? "#007AFF" : "#0078d4"}
-    />
+    <Settings size={24} color={Platform.OS === "ios" ? "#007AFF" : "#0078d4"} />
   );
 }
 ```
@@ -246,16 +262,12 @@ function PlatformIcon() {
 ### Android Specific
 
 ```tsx
-import { Icon } from "@refineui/react-native-icons";
+import { Menu } from "@refineui/react-native-icons";
 import { Platform } from "react-native";
 
 function AndroidIcon() {
   return (
-    <Icon
-      name="menu"
-      size={24}
-      color={Platform.OS === "android" ? "#6200EA" : "#0078d4"}
-    />
+    <Menu size={24} color={Platform.OS === "android" ? "#6200EA" : "#0078d4"} />
   );
 }
 ```
@@ -265,16 +277,21 @@ function AndroidIcon() {
 ### Navigation Bar Icons
 
 ```tsx
-import { Icon } from "@refineui/react-native-icons";
+import {
+  Menu,
+  Search,
+  Notification,
+  Person,
+} from "@refineui/react-native-icons";
 import { View, StyleSheet } from "react-native";
 
 function NavigationBar() {
   return (
     <View style={styles.navBar}>
-      <Icon name="menu" size={24} style={styles.navIcon} />
-      <Icon name="search" size={20} style={styles.navIcon} />
-      <Icon name="notification" size={20} style={styles.navIcon} />
-      <Icon name="user" size={20} style={styles.navIcon} />
+      <Menu size={24} style={styles.navIcon} />
+      <Search size={20} style={styles.navIcon} />
+      <Notification size={20} style={styles.navIcon} />
+      <Person size={20} style={styles.navIcon} />
     </View>
   );
 }
@@ -298,57 +315,62 @@ const styles = StyleSheet.create({
 ### Button with Icon
 
 ```tsx
-import { Icon } from "@refineui/react-native-icons";
+import { Download } from "@refineui/react-native-icons";
 import { TouchableOpacity, Text, StyleSheet } from "react-native";
 
-function IconButton({ iconName, title, onPress }) {
+function IconButton({ title, onPress }) {
   return (
     <TouchableOpacity style={styles.button} onPress={onPress}>
-      <Icon name={iconName} size={16} color="#fff" />
+      <Download size={16} color="#fff" />
       <Text style={styles.buttonText}>{title}</Text>
     </TouchableOpacity>
   );
 }
+```
 
 const styles = StyleSheet.create({
-  button: {
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: "#0078d4",
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    borderRadius: 4,
-  },
-  buttonText: {
-    color: "#fff",
-    marginLeft: 8,
-    fontSize: 16,
-  },
+button: {
+flexDirection: "row",
+alignItems: "center",
+backgroundColor: "#0078d4",
+paddingHorizontal: 16,
+paddingVertical: 8,
+borderRadius: 4,
+},
+buttonText: {
+color: "#fff",
+marginLeft: 8,
+fontSize: 16,
+},
 });
-```
+
+````
 
 ### Icon Grid
 
 ```tsx
-import { Icon } from "@refineui/react-native-icons";
+import { Home, Search, Settings, Person, Mail, Phone } from "@refineui/react-native-icons";
 import { View, Text, StyleSheet, FlatList } from "react-native";
 
 function IconGrid() {
   const icons = [
-    { name: "home", label: "Home" },
-    { name: "search", label: "Search" },
-    { name: "settings", label: "Settings" },
-    { name: "user", label: "User" },
-    { name: "mail", label: "Mail" },
-    { name: "phone", label: "Phone" },
+    { component: Home, name: "home", label: "Home" },
+    { component: Search, name: "search", label: "Search" },
+    { component: Settings, name: "settings", label: "Settings" },
+    { component: Person, name: "user", label: "User" },
+    { component: Mail, name: "mail", label: "Mail" },
+    { component: Phone, name: "phone", label: "Phone" },
   ];
 
-  const renderIcon = ({ item }) => (
-    <View style={styles.iconItem}>
-      <Icon name={item.name} size={24} />
-      <Text style={styles.iconLabel}>{item.label}</Text>
-    </View>
-  );
+  const renderIcon = ({ item }) => {
+    const IconComponent = item.component;
+    return (
+      <View style={styles.iconItem}>
+        <IconComponent size={24} />
+        <Text style={styles.iconLabel}>{item.label}</Text>
+      </View>
+    );
+  };
 
   return (
     <FlatList
@@ -379,7 +401,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
 });
-```
+````
 
 ## 🔍 Icon Search and Discovery
 
@@ -387,12 +409,12 @@ const styles = StyleSheet.create({
 
 ```tsx
 const iconCategories = {
-  navigation: ["home", "search", "menu", "back", "forward"],
-  actions: ["add", "edit", "delete", "save", "cancel"],
-  communication: ["mail", "phone", "chat", "notification"],
-  media: ["play", "pause", "stop", "volume", "camera"],
-  system: ["settings", "gear", "user", "lock", "unlock"],
-  files: ["folder", "file", "document", "image", "pdf"],
+  navigation: ["Home", "Search", "Menu", "ArrowLeft", "ArrowRight"],
+  actions: ["Add", "Edit", "Delete", "Save", "Cancel"],
+  communication: ["Mail", "Phone", "Chat", "Notification"],
+  media: ["Play", "Pause", "Stop", "Volume", "Camera"],
+  system: ["Settings", "Gear", "Person", "Lock", "Unlock"],
+  files: ["Folder", "Document", "Image", "Download"],
 };
 ```
 
@@ -408,7 +430,7 @@ function searchIcons(query: string) {
 
 // Usage
 const searchResults = searchIcons("home");
-// Returns: ['home']
+// Returns: ['Home']
 ```
 
 ## 🛠️ Development
