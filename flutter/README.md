@@ -59,20 +59,20 @@ class MyHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // Using Icon widget with RefineIcons
-            Icon(RefineUIIcons.accessTime16Regular, size: 24),
+            Icon(RefineUIIcons.access_time_24_regular, size: 24),
 
             SizedBox(height: 20),
 
-            // Using Icon widget with RefineIconsFilled
-            Icon(RefineUIIconsFilled.accessTime16Filled, size: 24, color: Colors.blue),
+            // Using Icon widget with filled style
+            Icon(RefineUIIcons.access_time_24_filled, size: 24, color: Colors.blue),
 
             SizedBox(height: 20),
 
             // Using Text widget with font family
             Text(
-              String.fromCharCode(RefineUIIcons.accessTime16Regular.codePoint),
+              String.fromCharCode(RefineUIIcons.access_time_24_regular.codePoint),
               style: TextStyle(
-                fontFamily: RefineUIIcons.accessTime16Regular.fontFamily,
+                fontFamily: RefineUIIcons.access_time_24_regular.fontFamily,
                 fontSize: 24,
                 color: Colors.red,
               ),
@@ -83,8 +83,8 @@ class MyHomePage extends StatelessWidget {
             // Using in a button
             ElevatedButton.icon(
               onPressed: () => print('Button pressed!'),
-              icon: Icon(RefineUIIcons.accessTime16Regular, size: 16),
-              label: Text('Access Time'),
+              icon: Icon(RefineUIIcons.add_24_regular, size: 16),
+              label: Text('Add Item'),
             ),
           ],
         ),
@@ -98,32 +98,47 @@ class MyHomePage extends StatelessWidget {
 
 ### Icon Categories
 
-- **Access**: `accessTime16Regular`, `accessTime16Filled`, `accessTime20Regular`, etc.
-- **Add**: `add16Regular`, `add16Filled`, `add20Regular`, etc.
-- **Alert**: `alertBadge16Regular`, `alertBadge16Filled`, `alertBadge20Regular`, etc.
-- **Arrow**: `arrowDown16Regular`, `arrowDown16Filled`, `arrowLeft16Regular`, etc.
-- **Calendar**: `calendar16Regular`, `calendar16Filled`, `calendar20Regular`, etc.
-- **Checkmark**: `checkmark16Regular`, `checkmark16Filled`, `checkmark20Regular`, etc.
-- **Delete**: `delete16Regular`, `delete16Filled`, `delete20Regular`, etc.
-- **Edit**: `edit16Regular`, `edit16Filled`, `edit20Regular`, etc.
-- **Home**: `home16Regular`, `home16Filled`, `home20Regular`, etc.
-- **Search**: `search16Regular`, `search16Filled`, `search20Regular`, etc.
-- **Settings**: `settings16Regular`, `settings16Filled`, `settings20Regular`, etc.
+- **Access**: `access_time_16_regular`, `access_time_16_filled`, `access_time_20_regular`, etc.
+- **Add**: `add_16_regular`, `add_16_filled`, `add_20_regular`, etc.
+- **Alert**: `alert_badge_16_regular`, `alert_badge_16_filled`, `alert_badge_20_regular`, etc.
+- **Arrow**: `arrow_down_16_regular`, `arrow_down_16_filled`, `arrow_left_16_regular`, etc.
+- **Calendar**: `calendar_16_regular`, `calendar_16_filled`, `calendar_20_regular`, etc.
+- **Checkmark**: `checkmark_16_regular`, `checkmark_16_filled`, `checkmark_20_regular`, etc.
+- **Delete**: `delete_16_regular`, `delete_16_filled`, `delete_20_regular`, etc.
+- **Edit**: `edit_16_regular`, `edit_16_filled`, `edit_20_regular`, etc.
+- **Home**: `home_16_regular`, `home_16_filled`, `home_20_regular`, etc.
+- **Search**: `search_16_regular`, `search_16_filled`, `search_20_regular`, etc.
+- **Settings**: `settings_16_regular`, `settings_16_filled`, `settings_20_regular`, etc.
 - **And many more...** (434+ icons total)
 
-### Icon Sizes
+### Icon Naming Convention
 
-- **16px**: `accessTime16Regular`, `accessTime16Filled`
-- **20px**: `accessTime20Regular`, `accessTime20Filled`
-- **24px**: `accessTime24Regular`, `accessTime24Filled`
-- **28px**: `accessTime28Regular`, `accessTime28Filled`
-- **32px**: `accessTime32Regular`, `accessTime32Filled`
-- **48px**: `accessTime48Regular`, `accessTime48Filled`
+Icons follow the pattern: `{name}_{size}_{style}`
+
+- **Size**: `16`, `20`, `24`, `28`, `32`, `48`
+- **Style**: `filled` or `regular`
+
+Examples:
+
+- `add_24_regular` - 24px regular style add icon
+- `home_16_filled` - 16px filled style home icon
+- `settings_32_filled` - 32px filled style settings icon
+
+### Available Sizes
+
+All icons are available in the following sizes:
+
+- **16px**: `{name}_16_{style}` (e.g., `add_16_regular`)
+- **20px**: `{name}_20_{style}` (e.g., `add_20_regular`)
+- **24px**: `{name}_24_{style}` (e.g., `add_24_regular`) - Most common
+- **28px**: `{name}_28_{style}` (e.g., `add_28_regular`)
+- **32px**: `{name}_32_{style}` (e.g., `add_32_regular`)
+- **48px**: `{name}_48_{style}` (e.g., `add_48_regular`)
 
 ### Two Icon Styles
 
-- **Regular**: `RefineUIIcons.accessTime16Regular`
-- **Filled**: `RefineUIIconsFilled.accessTime16Filled`
+- **Regular**: `RefineUIIcons.add_24_regular`
+- **Filled**: `RefineUIIcons.add_24_filled`
 
 ## 🔧 Advanced Usage
 
@@ -267,7 +282,7 @@ class AccessibleIcon extends StatelessWidget {
       child: GestureDetector(
         onTap: () => print('Search tapped!'),
         child: RefineUIIcon(
-          RefineUIIcons.search,
+          RefineUIIcons.search_24_regular,
           size: 24,
         ),
       ),
@@ -318,23 +333,23 @@ class RefineUINavigationBar extends StatelessWidget {
       type: BottomNavigationBarType.fixed,
       items: [
         BottomNavigationBarItem(
-          icon: Icon(RefineUIIcons.home16Regular, size: 24),
-          activeIcon: Icon(RefineUIIconsFilled.home16Filled, size: 24, color: Colors.blue),
+          icon: Icon(RefineUIIcons.home_24_regular, size: 24),
+          activeIcon: Icon(RefineUIIcons.home_24_filled, size: 24, color: Colors.blue),
           label: 'Home',
         ),
         BottomNavigationBarItem(
-          icon: Icon(RefineUIIcons.search16Regular, size: 24),
-          activeIcon: Icon(RefineUIIconsFilled.search16Filled, size: 24, color: Colors.blue),
+          icon: Icon(RefineUIIcons.search_24_regular, size: 24),
+          activeIcon: Icon(RefineUIIcons.search_24_filled, size: 24, color: Colors.blue),
           label: 'Search',
         ),
         BottomNavigationBarItem(
-          icon: Icon(RefineUIIcons.settings16Regular, size: 24),
-          activeIcon: Icon(RefineUIIconsFilled.settings16Filled, size: 24, color: Colors.blue),
+          icon: Icon(RefineUIIcons.settings_24_regular, size: 24),
+          activeIcon: Icon(RefineUIIcons.settings_24_filled, size: 24, color: Colors.blue),
           label: 'Settings',
         ),
         BottomNavigationBarItem(
-          icon: Icon(RefineUIIcons.person16Regular, size: 24),
-          activeIcon: Icon(RefineUIIconsFilled.person16Filled, size: 24, color: Colors.blue),
+          icon: Icon(RefineUIIcons.person_24_regular, size: 24),
+          activeIcon: Icon(RefineUIIcons.person_24_filled, size: 24, color: Colors.blue),
           label: 'Profile',
         ),
       ],
@@ -400,7 +415,7 @@ python3 scripts/generate_flutter_dart.py
 
 1. **Icon not displaying**
 
-   - Check if the icon name is correct (e.g., `RefineUIIcons.accessTime16Regular`)
+   - Check if the icon name is correct (e.g., `RefineUIIcons.access_time_24_regular`)
    - Verify the package is installed: `flutter pub get`
    - Check Flutter console for errors
 
