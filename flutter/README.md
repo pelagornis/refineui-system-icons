@@ -420,7 +420,7 @@ python3 scripts/generate_flutter_dart.py
 - 📧 Email: support@pelagornis.com
 - 🐛 Issues: [GitHub Issues](https://github.com/pelagornis/refineui-system-icons/issues)
 - 📖 Documentation: [opensource.pelagornis.com](https://opensource.pelagornis.com)
-- 💬 Community: [Discord](https://pelagornis.slack.com/)
+- 💬 Community: [Slack](https://pelagornis.slack.com/)
 
 ## 📄 License
 
