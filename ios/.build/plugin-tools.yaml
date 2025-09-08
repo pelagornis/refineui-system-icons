@@ -1,0 +1,58 @@
+client:
+  name: basic
+  file-system: device-agnostic
+tools: {}
+targets:
+  "PackageStructure": ["<PackageStructure>"]
+  "RefineUIIcons-arm64-apple-macosx15.0-debug.module": ["<RefineUIIcons-arm64-apple-macosx15.0-debug.module>"]
+  "main": ["<RefineUIIcons-arm64-apple-macosx15.0-debug.module>"]
+  "test": ["<RefineUIIcons-arm64-apple-macosx15.0-debug.module>"]
+default: "main"
+nodes:
+  "/Users/jihoonahn/Desktop/refineui-system-icons/ios/Sources/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+commands:
+  "/Users/jihoonahn/Desktop/refineui-system-icons/ios/.build/arm64-apple-macosx/debug/RefineUIIcons.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Users/jihoonahn/Desktop/refineui-system-icons/ios/Sources/RefineUIIcons+Extensions.swift","/Users/jihoonahn/Desktop/refineui-system-icons/ios/Sources/RefineUIIcons.swift","/Users/jihoonahn/Desktop/refineui-system-icons/ios/.build/arm64-apple-macosx/debug/RefineUIIcons.build/DerivedSources/resource_bundle_accessor.swift"]
+    outputs: ["/Users/jihoonahn/Desktop/refineui-system-icons/ios/.build/arm64-apple-macosx/debug/RefineUIIcons.build/sources"]
+    description: "Write auxiliary file /Users/jihoonahn/Desktop/refineui-system-icons/ios/.build/arm64-apple-macosx/debug/RefineUIIcons.build/sources"
+
+  "/Users/jihoonahn/Desktop/refineui-system-icons/ios/.build/arm64-apple-macosx/debug/RefineUIIcons_RefineUIIcons.bundle/Resources":
+    tool: copy-tool
+    inputs: ["/Users/jihoonahn/Desktop/refineui-system-icons/ios/Resources/"]
+    outputs: ["/Users/jihoonahn/Desktop/refineui-system-icons/ios/.build/arm64-apple-macosx/debug/RefineUIIcons_RefineUIIcons.bundle/Resources/"]
+    description: "Copying /Users/jihoonahn/Desktop/refineui-system-icons/ios/Resources"
+
+  "/Users/jihoonahn/Desktop/refineui-system-icons/ios/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt":
+    tool: write-auxiliary-file
+    inputs: ["<swift-get-version>","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"]
+    outputs: ["/Users/jihoonahn/Desktop/refineui-system-icons/ios/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"]
+    always-out-of-date: "true"
+    description: "Write auxiliary file /Users/jihoonahn/Desktop/refineui-system-icons/ios/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+
+  "<RefineUIIcons-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/jihoonahn/Desktop/refineui-system-icons/ios/.build/arm64-apple-macosx/debug/RefineUIIcons.build/RefineUIIcons+Extensions.swift.o","/Users/jihoonahn/Desktop/refineui-system-icons/ios/.build/arm64-apple-macosx/debug/RefineUIIcons.build/RefineUIIcons.swift.o","/Users/jihoonahn/Desktop/refineui-system-icons/ios/.build/arm64-apple-macosx/debug/RefineUIIcons.build/resource_bundle_accessor.swift.o","/Users/jihoonahn/Desktop/refineui-system-icons/ios/.build/arm64-apple-macosx/debug/Modules/RefineUIIcons.swiftmodule"]
+    outputs: ["<RefineUIIcons-arm64-apple-macosx15.0-debug.module>"]
+
+  "C.RefineUIIcons-arm64-apple-macosx15.0-debug.module":
+    tool: shell
+    inputs: ["/Users/jihoonahn/Desktop/refineui-system-icons/ios/Sources/RefineUIIcons+Extensions.swift","/Users/jihoonahn/Desktop/refineui-system-icons/ios/Sources/RefineUIIcons.swift","/Users/jihoonahn/Desktop/refineui-system-icons/ios/.build/arm64-apple-macosx/debug/RefineUIIcons.build/DerivedSources/resource_bundle_accessor.swift","/Users/jihoonahn/Desktop/refineui-system-icons/ios/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt","<RefineUIIcons-arm64-apple-macosx15.0-debug.module-resources>","/Users/jihoonahn/Desktop/refineui-system-icons/ios/.build/arm64-apple-macosx/debug/RefineUIIcons.build/sources"]
+    outputs: ["/Users/jihoonahn/Desktop/refineui-system-icons/ios/.build/arm64-apple-macosx/debug/RefineUIIcons.build/RefineUIIcons+Extensions.swift.o","/Users/jihoonahn/Desktop/refineui-system-icons/ios/.build/arm64-apple-macosx/debug/RefineUIIcons.build/RefineUIIcons.swift.o","/Users/jihoonahn/Desktop/refineui-system-icons/ios/.build/arm64-apple-macosx/debug/RefineUIIcons.build/resource_bundle_accessor.swift.o","/Users/jihoonahn/Desktop/refineui-system-icons/ios/.build/arm64-apple-macosx/debug/Modules/RefineUIIcons.swiftmodule"]
+    description: "Compiling Swift Module 'RefineUIIcons' (3 sources)"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-module-name","RefineUIIcons","-emit-dependencies","-emit-module","-emit-module-path","/Users/jihoonahn/Desktop/refineui-system-icons/ios/.build/arm64-apple-macosx/debug/Modules/RefineUIIcons.swiftmodule","-output-file-map","/Users/jihoonahn/Desktop/refineui-system-icons/ios/.build/arm64-apple-macosx/debug/RefineUIIcons.build/output-file-map.json","-parse-as-library","-incremental","-c","@/Users/jihoonahn/Desktop/refineui-system-icons/ios/.build/arm64-apple-macosx/debug/RefineUIIcons.build/sources","-I","/Users/jihoonahn/Desktop/refineui-system-icons/ios/.build/arm64-apple-macosx/debug/Modules","-target","arm64-apple-macosx10.15","-enable-batch-mode","-index-store-path","/Users/jihoonahn/Desktop/refineui-system-icons/ios/.build/arm64-apple-macosx/debug/index/store","-Onone","-enable-testing","-j12","-DSWIFT_PACKAGE","-DDEBUG","-module-cache-path","/Users/jihoonahn/Desktop/refineui-system-icons/ios/.build/arm64-apple-macosx/debug/ModuleCache","-parseable-output","-parse-as-library","-emit-objc-header","-emit-objc-header-path","/Users/jihoonahn/Desktop/refineui-system-icons/ios/.build/arm64-apple-macosx/debug/RefineUIIcons.build/RefineUIIcons-Swift.h","-color-diagnostics","-swift-version","6","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g","-Xcc","-isysroot","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-Xcc","-fPIC","-Xcc","-g","-package-name","ios"]
+
+  "PackageStructure":
+    tool: package-structure-tool
+    inputs: ["/Users/jihoonahn/Desktop/refineui-system-icons/ios/Sources/","/Users/jihoonahn/Desktop/refineui-system-icons/ios/Package.swift","/Users/jihoonahn/Desktop/refineui-system-icons/ios/Package.resolved"]
+    outputs: ["<PackageStructure>"]
+    description: "Planning build"
+    allow-missing-inputs: true
+
+  "RefineUIIcons-arm64-apple-macosx15.0-debug.module-resources":
+    tool: phony
+    inputs: ["/Users/jihoonahn/Desktop/refineui-system-icons/ios/.build/arm64-apple-macosx/debug/RefineUIIcons_RefineUIIcons.bundle/Resources/"]
+    outputs: ["<RefineUIIcons-arm64-apple-macosx15.0-debug.module-resources>"]
+

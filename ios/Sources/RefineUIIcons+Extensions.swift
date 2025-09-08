@@ -35,11 +35,7 @@ public extension NSImage {
         // Force unwrap here because the resource strings
         // are generated so we can be confident that the image
         // exits at runtime.
-#if SWIFT_PACKAGE
-        return Bundle.module.image(forResource: NSImage.Name(refineUIIcon.resourceString))!
-#else
         return NSImage.refineUIIconBundle.image(forResource: NSImage.Name(refineUIIcon.resourceString))!
-#endif
     }
 }
 
@@ -61,11 +57,7 @@ public extension UIImage {
         // Force unwrap here because the resource strings
         // are generated so we can be confident that the image
         // exits at runtime.
-#if SWIFT_PACKAGE
-        self.init(named: refineUIIcon.resourceString, in: Bundle.module, compatibleWith: nil)!
-#else
         self.init(named: refineUIIcon.resourceString, in: UIImage.refineUIIconBundle, compatibleWith: nil)!
-#endif
     }
 }
 

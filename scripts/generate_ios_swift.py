@@ -47,9 +47,6 @@ def generate_ios_swift():
     # 2. Generate RefineIcons+Extensions.swift file
     generate_extensions_swift(sources_dir)
     
-    # 3. Generate Package.swift file
-    generate_package_swift(ios_dir)
-    
     print("✅ iOS Swift generation completed!")
     return True
 
@@ -149,11 +146,7 @@ public extension NSImage {
         // Force unwrap here because the resource strings
         // are generated so we can be confident that the image
         // exits at runtime.
-#if SWIFT_PACKAGE
-        return Bundle.module.image(forResource: NSImage.Name(refineUIIcon.resourceString))!
-#else
         return NSImage.refineUIIconBundle.image(forResource: NSImage.Name(refineUIIcon.resourceString))!
-#endif
     }
 }
 
@@ -175,11 +168,7 @@ public extension UIImage {
         // Force unwrap here because the resource strings
         // are generated so we can be confident that the image
         // exits at runtime.
-#if SWIFT_PACKAGE
-        self.init(named: refineUIIcon.resourceString, in: Bundle.module, compatibleWith: nil)!
-#else
         self.init(named: refineUIIcon.resourceString, in: UIImage.refineUIIconBundle, compatibleWith: nil)!
-#endif
     }
 }
 
@@ -204,42 +193,6 @@ public extension UIImageView {
     
     print("✅ RefineUIIcons+Extensions.swift generation completed")
 
-def generate_package_swift(ios_dir: Path):
-    """Generates Package.swift file."""
-    
-    package_content = """// swift-tools-version: 5.7
-import PackageDescription
-
-let package = Package(
-    name: "RefineUIIcons",
-    platforms: [
-        .iOS(.v13),
-        .macOS(.v10_15)
-    ],
-    products: [
-        .library(
-            name: "RefineUIIcons",
-            targets: ["RefineUIIcons"]
-        )
-    ],
-    targets: [
-        .target(
-            name: "RefineUIIcons",
-            path: "Sources",
-            resources: [
-                .process("Resources")
-            ]
-        )
-    ]
-)
-"""
-    
-    # Write to file
-    package_file = ios_dir / "Package.swift"
-    with open(package_file, 'w', encoding='utf-8') as f:
-        f.write(package_content)
-    
-    print("✅ Package.swift generation completed")
 
 if __name__ == "__main__":
     generate_ios_swift()
