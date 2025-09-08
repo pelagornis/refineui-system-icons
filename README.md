@@ -1,5 +1,7 @@
 # RefineUI System Icons 🎨
 
+![Official](https://badge.pelagornis.com/official.svg)
+
 A professional icon system designed for modern applications. It's an integrated icon package that can be used across multiple platforms including React, React Native, Web, iOS, Android, and Flutter.
 
 ## 📦 Package Structure
