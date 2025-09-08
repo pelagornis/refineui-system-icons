@@ -10,7 +10,7 @@ Add to your `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/refineui/system-icons.git", from: "0.1.22")
+    .package(url: "https://github.com/refineui/system-icons.git", from: "vTag")
 ]
 ```
 
