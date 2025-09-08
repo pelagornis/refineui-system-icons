@@ -1,3 +1,8 @@
+//
+//  Copyright (c) Pelagornis.
+//  Licensed under the MIT license.
+//
+
 import Foundation
 
 /// RefineUI System Icons
