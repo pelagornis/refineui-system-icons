@@ -1,4 +1,0 @@
-module RefineUIIcons {
-    header "/Users/jihoonahn/Desktop/refineui-system-icons/ios/.build/arm64-apple-macosx/debug/RefineUIIcons.build/RefineUIIcons-Swift.h"
-    requires objc
-}
