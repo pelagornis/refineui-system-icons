@@ -361,10 +361,9 @@ npm run build:fonts
 
 ### Getting Help
 
-- 📧 Email: support@refineui.com
-- 🐛 Issues: [GitHub Issues](https://github.com/refineui/system-icons/issues)
-- 📖 Documentation: [docs.refineui.com](https://docs.refineui.com)
-- 💬 Community: [Discord](https://discord.gg/refineui)
+- 📧 Email: support@pealgornis.com
+- 🐛 Issues: [GitHub Issues](https://github.com/pealgornis/refineui-system-icons/issues)
+- 💬 Community: [Slack](https://pelagornis.slack.com)
 
 ## 📄 License
 
