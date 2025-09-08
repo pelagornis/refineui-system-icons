@@ -515,10 +515,9 @@ npm run build:ios
 
 ### Getting Help
 
-- 📧 Email: support@refineui.com
-- 🐛 Issues: [GitHub Issues](https://github.com/refineui/system-icons/issues)
-- 📖 Documentation: [docs.refineui.com](https://docs.refineui.com)
-- 💬 Community: [Discord](https://discord.gg/refineui)
+- 📧 Email: support@pelagornis.com
+- 🐛 Issues: [GitHub Issues](https://github.com/pelagornis/refineui-system-icons/issues)
+- 💬 Community: [Slack](https://pelagornis.slack.com)
 
 ## 📄 License
 
