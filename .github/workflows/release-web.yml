@@ -120,9 +120,6 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.get_version.outputs.version }}
-          files: |
-            packages/react-icons/dist/**
-            packages/web-icons/dist/**
           body: |
             ## 🎉 Web Platform Release ${{ steps.get_version.outputs.version }}
 
@@ -138,8 +135,5 @@ jobs:
             - Web icons with font-based system
             - 434+ icons with multiple sizes and styles
             - Tree-shakable imports
-
-            ### 📁 Files
-            React Icons and Web Icons distribution files are attached below.
         env:
           GITHUB_TOKEN: ${{ secrets.PELAGORNIS }}

@@ -1,0 +1,86 @@
+name: Release Fonts
+
+on:
+  push:
+    tags:
+      - "*"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release-fonts:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PELAGORNIS }}
+          fetch-depth: 0
+
+      - name: Get version
+        id: get_version
+        run: |
+          VERSION=${GITHUB_REF#refs/tags/}
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Version: $VERSION"
+
+      - name: Build fonts
+        run: |
+          npm ci
+          npm run generate:fonts
+          npm run build:fonts
+          echo "✅ Fonts built successfully"
+
+      - name: Create Fonts Archive
+        run: |
+          cd fonts
+          zip -r ../refineui-system-icons-fonts-${{ steps.get_version.outputs.version }}.zip .
+          cd ..
+          echo "✅ Created fonts archive: refineui-system-icons-fonts-${{ steps.get_version.outputs.version }}.zip"
+
+      - name: Create Font Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.get_version.outputs.version }}
+          files: |
+            refineui-system-icons-fonts-${{ steps.get_version.outputs.version }}.zip
+          body: |
+            ## 🎨 RefineUI System Icons Fonts ${{ steps.get_version.outputs.version }}
+
+            ### 📦 Font Files
+            This release contains the complete font package for RefineUI System Icons.
+
+            ### 📁 Contents
+            - **Regular Font**: `refineui-system-icons-regular.*` (ttf, otf, woff2)
+            - **Filled Font**: `refineui-system-icons-filled.*` (ttf, otf, woff2)
+            - **CSS Files**: Ready-to-use CSS with font-face declarations
+            - **Icon Mapping**: JSON file with icon names and unicode mappings
+
+            ### 🚀 Usage
+            1. Download the zip file
+            2. Extract the fonts to your project
+            3. Include the CSS file in your HTML
+            4. Use the icons with CSS classes or unicode
+
+            ### 📋 Features
+            - 434+ icons with multiple sizes (16, 20, 24, 28, 32, 48px)
+            - Regular and Filled variants
+            - Multiple font formats (TTF, OTF, WOFF2)
+            - Optimized for web and desktop use
+            - Cross-platform compatibility
+
+            ### 💡 Example
+            ```css
+            @import url('./refineui-system-icons.css');
+
+            .icon {
+              font-family: 'RefineUI System Icons';
+              font-size: 24px;
+            }
+            ```
+        env:
+          GITHUB_TOKEN: ${{ secrets.PELAGORNIS }}

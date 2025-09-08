@@ -100,8 +100,6 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.get_version.outputs.version }}
-          files: |
-            packages/react-native-icons/dist/**
           body: |
             ## 🎉 React Native Platform Release ${{ steps.get_version.outputs.version }}
 
@@ -117,7 +115,7 @@ jobs:
             - 434+ icons with multiple sizes and styles
             - Mobile-optimized rendering
 
-            ### 📁 Files
-            React Native Icons distribution files are attached below.
+            ### 📁 Font Files
+            Font files are available in the attached zip archive.
         env:
           GITHUB_TOKEN: ${{ secrets.PELAGORNIS }}
