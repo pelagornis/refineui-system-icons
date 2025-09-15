@@ -29,13 +29,13 @@
     "icons",
     "refineui",
     "system-icons",
+    "pelagornis",
     "ui",
-    "flutter-style"
   ],
-  "author": "RefineUI Team",
+  "author": "Pelagornis",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/refineui/system-icons.git"
+    "url": "https://github.com/pelagornis/refineui-system-icons.git"
   }
 }
