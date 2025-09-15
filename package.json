@@ -34,6 +34,7 @@
   },
   "keywords": [
     "icons",
+    "pelagornis",
     "refineui",
     "system-icons",
     "ui",
@@ -44,10 +45,10 @@
     "ios",
     "android"
   ],
-  "author": "RefineUI Team",
+  "author": "Pelagornis",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/refineui/system-icons.git"
+    "url": "https://github.com/pelagornis/refineui-system-icons.git"
   }
 }
