@@ -22,20 +22,10 @@ extension Image {
 #if os(macOS)
 import AppKit
 
-private class RefineUIIconsBundleCheck {}
-
 public extension NSImage {
-#if REFINE_UI_ICONS_USE_RESOURCE_BUNDLES
-    @objc static let refineUIIconBundle = Bundle(path: Bundle(for: RefineUIIconsBundleCheck.self).path(forResource: "RefineUIIcons", ofType: "bundle")!)
-#else
-    @objc static let refineUIIconBundle = Bundle(for: RefineUIIconsBundleCheck.self)
-#endif
-    
     @objc static func refineUIIcon(_ refineUIIcon: RefineUIIcons) -> NSImage {
-        // Force unwrap here because the resource strings
-        // are generated so we can be confident that the image
-        // exits at runtime.
-        return NSImage.refineUIIconBundle.image(forResource: NSImage.Name(refineUIIcon.resourceString))!
+        // Use Bundle.module for Swift Package Manager resources
+        return Bundle.module.image(forResource: NSImage.Name(refineUIIcon.resourceString))!
     }
 }
 
@@ -44,20 +34,10 @@ public extension NSImage {
 #if os(iOS)
 import UIKit
 
-private class RefineUIIconsBundleCheck {}
-
 public extension UIImage {
-#if REFINE_UI_ICONS_USE_RESOURCE_BUNDLES
-    @objc static let refineUIIconBundle = Bundle(path: Bundle(for: RefineUIIconsBundleCheck.self).path(forResource: "RefineUIIcons", ofType: "bundle")!)
-#else
-    @objc static let refineUIIconBundle = Bundle(for: RefineUIIconsBundleCheck.self)
-#endif
-    
     @objc convenience init(refineUIIcon: RefineUIIcons) {
-        // Force unwrap here because the resource strings
-        // are generated so we can be confident that the image
-        // exits at runtime.
-        self.init(named: refineUIIcon.resourceString, in: UIImage.refineUIIconBundle, compatibleWith: nil)!
+        // Use Bundle.module for Swift Package Manager resources
+        self.init(named: refineUIIcon.resourceString, in: Bundle.module, compatibleWith: nil)!
     }
 }
 
