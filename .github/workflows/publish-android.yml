@@ -1,0 +1,61 @@
+name: Publish Android Library
+
+on:
+  push:
+    tags:
+      - "android-*.*.*"
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: "17"
+          distribution: "temurin"
+          cache: gradle
+
+      - name: Grant execute permission for gradlew
+        working-directory: android
+        run: chmod +x gradlew
+
+      - name: Build library
+        working-directory: android
+        run: ./gradlew :library:assemble
+
+      - name: Run tests
+        working-directory: android
+        run: ./gradlew :library:test
+
+      # ✅ Publish to Maven Central via Central Portal API
+      # Uses https://central.sonatype.com/api/v1/publisher/upload
+      - name: Publish to Maven Central
+        working-directory: android
+        env:
+          ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.SONATYPE_TOKEN_USERNAME }}
+          ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.SONATYPE_TOKEN_PASSWORD }}
+          ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.GPG_PASSPHRASE }}
+        run: |
+          # Decode Base64 GPG key to ASCII-armored format
+          export ORG_GRADLE_PROJECT_signingInMemoryKey=$(echo "${{ secrets.GPG_PRIVATE_KEY }}" | base64 --decode)
+
+          ./gradlew :library:publishAllPublicationsToMavenCentralRepository \
+            --no-configuration-cache \
+            --no-daemon \
+            --stacktrace
+
+      # ✅ Upload artifacts
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-library-artifacts
+          path: |
+            android/library/build/outputs/aar/*.aar
+            android/library/build/libs/*.jar
+          retention-days: 7
