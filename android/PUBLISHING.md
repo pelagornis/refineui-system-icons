@@ -1,67 +1,67 @@
 # Android Library - Maven Central Publishing Guide
 
-이 문서는 RefineUI System Icons Android 라이브러리를 Maven Central에 배포하는 방법을 설명합니다.
+This document explains how to publish the RefineUI System Icons Android library to Maven Central.
 
-## 사전 준비
+## Prerequisites
 
-### 1. Sonatype Central Portal 계정 설정
+### 1. Sonatype Central Portal Account Setup
 
-1. [Sonatype Central Portal](https://central.sonatype.com/)에 계정 생성
-2. User Token 생성:
-   - Account → Generate User Token
-   - Username과 Password를 안전하게 보관
+1. Create an account on [Sonatype Central Portal](https://central.sonatype.com/)
+2. Generate User Token:
+   - Go to Account → Generate User Token
+   - Store the Username and Password securely
 
-### 2. GPG 키 생성 및 설정
+### 2. GPG Key Generation and Setup
 
 ```bash
-# GPG 키 생성
+# Generate GPG key
 gpg --full-generate-key
 
-# 키 목록 확인
+# List secret keys
 gpg --list-secret-keys --keyid-format LONG
 
-# 공개 키를 키 서버에 업로드
+# Upload public key to key server
 gpg --keyserver keyserver.ubuntu.com --send-keys YOUR_KEY_ID
 
-# Private Key를 Base64로 인코딩
+# Export private key as Base64
 gpg --armor --export-secret-keys YOUR_KEY_ID | base64 > gpg-key.base64
 ```
 
-### 3. GitHub Secrets 설정
+### 3. GitHub Secrets Configuration
 
-Repository Settings → Secrets and variables → Actions에서 다음 secrets를 추가:
+Add the following secrets in Repository Settings → Secrets and variables → Actions:
 
-- `SONATYPE_TOKEN_USERNAME`: Sonatype User Token의 Username
-- `SONATYPE_TOKEN_PASSWORD`: Sonatype User Token의 Password
-- `GPG_PRIVATE_KEY`: Base64로 인코딩된 GPG private key (gpg-key.base64 파일 내용)
-- `GPG_PASSPHRASE`: GPG 키 생성 시 설정한 passphrase
+- `SONATYPE_TOKEN_USERNAME`: Username from Sonatype User Token
+- `SONATYPE_TOKEN_PASSWORD`: Password from Sonatype User Token
+- `GPG_PRIVATE_KEY`: Base64-encoded GPG private key (contents of gpg-key.base64 file)
+- `GPG_PASSPHRASE`: Passphrase set during GPG key creation
 
-## 배포 방법
+## Deployment Methods
 
-### 자동 배포 (GitHub Actions)
+### Automated Deployment (GitHub Actions)
 
-`.github/workflows/release-android.yml` 워크플로우가 자동으로 배포를 처리합니다.
+The `.github/workflows/release-android.yml` workflow handles automatic deployment.
 
-1. Git 태그 생성 및 푸시:
+1. Create and push a Git tag:
 
    ```bash
    git tag 0.3.14
    git push origin 0.3.14
    ```
 
-2. GitHub Actions가 자동으로:
-   - `gradle.properties`의 `VERSION_NAME`을 태그 버전으로 업데이트
-   - 변경사항 커밋 및 푸시
-   - Android XML 리소스 생성
-   - 빌드 및 검증
-   - Maven Central에 배포
-   - GitHub Release 생성
+2. GitHub Actions automatically:
+   - Updates `VERSION_NAME` in `gradle.properties` to the tag version
+   - Commits and pushes changes
+   - Generates Android XML resources
+   - Builds and validates
+   - Publishes to Maven Central
+   - Creates GitHub Release
 
-**참고**: 모든 태그가 모든 플랫폼에 배포를 트리거합니다. 특정 플랫폼만 배포하려면 워크플로우를 수정하거나 수동 배포를 사용하세요.
+**Note**: All tags trigger deployment for all platforms. To deploy only specific platforms, modify the workflow or use manual deployment.
 
-### 수동 배포 (로컬)
+### Manual Deployment (Local)
 
-1. `gradle.properties` 또는 환경 변수 설정:
+1. Set `gradle.properties` or environment variables:
 
    ```bash
    export ORG_GRADLE_PROJECT_mavenCentralUsername="your-username"
@@ -70,60 +70,60 @@ Repository Settings → Secrets and variables → Actions에서 다음 secrets�
    export ORG_GRADLE_PROJECT_signingInMemoryKeyPassword="your-passphrase"
    ```
 
-2. 배포 실행:
+2. Execute deployment:
    ```bash
    cd android
    ./gradlew :library:publishAllPublicationsToMavenCentralRepository
    ```
 
-## 배포 확인
+## Deployment Verification
 
-1. [Sonatype Central Portal](https://central.sonatype.com/)에 로그인
-2. Deployments 메뉴에서 배포 상태 확인
-3. 검증이 완료되면 자동으로 Maven Central에 동기화됩니다 (약 30분 소요)
+1. Log in to [Sonatype Central Portal](https://central.sonatype.com/)
+2. Check deployment status in the Deployments menu
+3. Once validated, it automatically syncs to Maven Central (takes ~30 minutes)
 
-## Gradle 설정 파일 구조
+## Gradle Configuration Structure
 
 ```
 android/
 ├── gradle/
-│   └── libs.versions.toml          # 플러그인 버전 관리
+│   └── libs.versions.toml          # Plugin version management
 ├── library/
-│   └── build.gradle.kts            # 라이브러리 빌드 및 배포 설정
-└── gradle.properties               # POM 메타데이터 설정
+│   └── build.gradle.kts            # Library build and publishing configuration
+└── gradle.properties               # POM metadata configuration
 ```
 
-## 버전 관리
+## Version Management
 
-- `android/gradle.properties`의 `VERSION_NAME` 값을 수정하여 버전 관리
-- Semantic Versioning 사용: `MAJOR.MINOR.PATCH`
-- Git 태그는 `android-X.Y.Z` 형식 사용
+- Manage versions by modifying the `VERSION_NAME` value in `android/gradle.properties`
+- Use Semantic Versioning: `MAJOR.MINOR.PATCH`
+- Git tags use the format: `X.Y.Z` (e.g., `0.3.14`)
 
-## 트러블슈팅
+## Troubleshooting
 
-### 1. GPG 서명 실패
+### 1. GPG Signing Failure
 
-- GPG 키가 올바르게 Base64 인코딩되었는지 확인
-- Passphrase가 정확한지 확인
+- Verify the GPG key is properly Base64 encoded
+- Verify the passphrase is correct
 
-### 2. Maven Central 업로드 실패
+### 2. Maven Central Upload Failure
 
-- Sonatype credentials가 올바른지 확인
-- Group ID와 namespace가 일치하는지 확인
+- Verify Sonatype credentials are correct
+- Verify Group ID and namespace match
 
-### 3. 검증 실패
+### 3. Validation Failure
 
-- POM 파일의 필수 정보가 모두 포함되어 있는지 확인
-- Source 및 Javadoc JAR가 생성되었는지 확인
+- Verify all required information is included in the POM file
+- Verify Source and Javadoc JARs are generated
 
-## 배포 정보 확인
+## Check Publication Information
 
 ```bash
 cd android
 ./gradlew :library:printPublicationInfo
 ```
 
-## 참고 자료
+## References
 
 - [Maven Central Publishing Requirements](https://central.sonatype.org/publish/requirements/)
 - [Vanniktech Maven Publish Plugin](https://vanniktech.github.io/gradle-maven-publish-plugin/)

@@ -2,33 +2,78 @@
 
 Native Android integration for RefineUI System Icons with XML drawables and vector graphics.
 
+[![Maven Central](https://img.shields.io/maven-central/v/com.pelagornis/refineui-system-icons.svg?label=Maven%20Central)](https://central.sonatype.com/artifact/com.pelagornis/refineui-system-icons)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![API](https://img.shields.io/badge/API-24%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=24)
+
+**5,000+ High-Quality System Icons** | Regular & Filled Styles | Vector Drawables | Material Design Compatible
+
 ## 📦 Installation
 
-### Gradle
+### Maven Central (Recommended)
 
-Add to your `build.gradle` (Module: app):
+Add the dependency to your project's `build.gradle` or `build.gradle.kts`:
+
+#### Gradle (Groovy)
 
 ```gradle
 dependencies {
-    implementation 'com.pelagornis:refineui-system-icons:vTag'
+    implementation 'com.pelagornis:refineui-system-icons:0.3.14'
 }
 ```
 
-### Manual Integration
+#### Gradle Kotlin DSL
 
-1. Copy the `android/library` folder to your project
-2. Add to your `settings.gradle`:
-
-```gradle
-include ':library'
-project(':library').projectDir = new File('path/to/android/library')
+```kotlin
+dependencies {
+    implementation("com.pelagornis:refineui-system-icons:0.3.14")
+}
 ```
 
-3. Add to your app's `build.gradle`:
+> 💡 **Tip**: For the latest version, check [Maven Central](https://central.sonatype.com/artifact/com.pelagornis/refineui-system-icons) or use `+` for automatic updates.
+
+### Version Catalog (Recommended)
+
+If you're using `gradle/libs.versions.toml`:
+
+```toml
+[versions]
+refineui-icons = "0.3.14"
+
+[libraries]
+refineui-system-icons = { group = "com.pelagornis", name = "refineui-system-icons", version.ref = "refineui-icons" }
+```
+
+```kotlin
+dependencies {
+    implementation(libs.refineui.system.icons)
+}
+```
+
+### Requirements
+
+- **minSdkVersion**: 24 (Android 7.0 Nougat)
+- **compileSdkVersion**: 34+
+- **Kotlin**: 1.8.0+
+
+### Manual Integration
+
+To build locally:
+
+1. Clone this repository
+2. Copy the `android/library` folder to your project
+3. Add to your `settings.gradle`:
+
+```gradle
+include ':refineui-system-icons'
+project(':refineui-system-icons').projectDir = new File('path/to/android/library')
+```
+
+4. Add to your app's `build.gradle`:
 
 ```gradle
 dependencies {
-    implementation project(':library')
+    implementation project(':refineui-system-icons')
 }
 ```
 
@@ -478,52 +523,152 @@ val searchResults = searchIcons("home")
 
 ```bash
 # Clone the repository
-git clone https://github.com/refineui/system-icons.git
-cd system-icons
+git clone https://github.com/pelagornis/refineui-system-icons.git
+cd refineui-system-icons
 
-# Install dependencies
-npm install
+# Install Python dependencies
+pip install -r requirements.txt
 
-# Build Android icons
-npm run generate:android
-npm run build:android
+# Generate Android XML resources
+python3 scripts/generate_android_xml.py
+
+# Build the Android library
+cd android
+./gradlew :library:assembleRelease
 ```
+
+### Publishing to Maven Central
+
+This library is automatically published to Maven Central via GitHub Actions.
+
+To publish manually:
+
+```bash
+cd android
+./gradlew :library:publishAllPublicationsToMavenCentralRepository
+```
+
+For more details, see [PUBLISHING.md](PUBLISHING.md).
 
 ### Adding New Icons
 
-1. Add SVG files to `src/icons/`
-2. Run `npm run generate:metadata`
-3. Run `npm run generate:android`
-4. Test your changes in Android app
+1. Add SVG files to the `assets/` directory
+2. Generate metadata: `python3 scripts/generate_metadata.py`
+3. Generate Android XML: `python3 scripts/generate_android_xml.py`
+4. Test changes in your Android app
 
 ## 🐛 Troubleshooting
 
 ### Common Issues
 
-1. **Icon not displaying**
+#### 1. Icon not displaying
 
-   - Check if the icon name is correct
-   - Verify the library is properly integrated
-   - Check Android Studio logs
+**Problem**: Icon is not showing on screen.
 
-2. **Build issues**
+**Solution**:
 
-   - Clean and rebuild project
-   - Check Gradle sync
-   - Verify dependencies
+- Verify the icon name is correct (`@drawable/icon_name_24_regular`)
+- Make sure you've run Gradle sync
+- Try Clean & Rebuild your project
+- Check Android Studio's Logcat for errors
 
-3. **Vector drawable issues**
-   - Ensure minSdk is 21+ for vector drawables
-   - Check for conflicting drawable names
-   - Verify XML syntax
+```bash
+# Clean & Rebuild
+./gradlew clean
+./gradlew assembleDebug
+```
+
+#### 2. Dependency Resolution Failed
+
+**Problem**: `Could not find com.pelagornis:refineui-system-icons:X.X.X`
+
+**Solution**:
+
+- Verify Maven Central repository is added:
+  ```gradle
+  repositories {
+      mavenCentral()
+  }
+  ```
+- Check if the version exists on [Maven Central](https://central.sonatype.com/artifact/com.pelagornis/refineui-system-icons)
+- Check network connection and proxy settings
+
+#### 3. Build issues
+
+**Problem**: Build fails with errors
+
+**Solution**:
+
+- Ensure minSdkVersion is 24 or higher
+- Update Gradle version: `./gradlew wrapper --gradle-version=8.0`
+- Ensure Kotlin version is 1.8.0 or higher
+- Clear Gradle cache: `./gradlew clean --refresh-dependencies`
+
+#### 4. Vector drawable issues
+
+**Problem**: Vector drawable rendering issues
+
+**Solution**:
+
+- Set minSdk to 21 or higher
+- Enable Vector Drawable support:
+  ```gradle
+  android {
+      defaultConfig {
+          vectorDrawables.useSupportLibrary = true
+      }
+  }
+  ```
+- Verify AppCompat library is being used
+
+#### 5. Resource name conflicts
+
+**Problem**: Resource name conflicts with other libraries
+
+**Solution**:
+
+- This library uses unique naming patterns for all drawables (`{name}_{size}_{style}`)
+- If conflicts occur, please report them on GitHub Issues
+
+### Performance Tips
+
+- **Proguard/R8**: Unused resources are automatically removed in release builds
+- **Vector Drawables**: Automatically optimized for all screen densities
+- **APK Size**: Includes ~6MB of vector drawables (compressed to ~1-2MB)
 
 ### Getting Help
 
-- 📧 Email: support@refineui.com
-- 🐛 Issues: [GitHub Issues](https://github.com/refineui/system-icons/issues)
-- 📖 Documentation: [docs.refineui.com](https://docs.refineui.com)
-- 💬 Community: [Discord](https://discord.gg/refineui)
+If your issue persists:
+
+- 🐛 **Issues**: [GitHub Issues](https://github.com/pelagornis/refineui-system-icons/issues)
+- 📖 **Documentation**: [Publishing Guide](PUBLISHING.md)
+- 💡 **Examples**: [Example App](../app)
+
+When submitting an issue, please include:
+
+- Android version
+- Gradle version
+- Library version
+- Error logs (full stack trace)
+- Minimal reproducible example
+
+## 🔗 Related Links
+
+- 📦 **Maven Central**: [com.pelagornis:refineui-system-icons](https://central.sonatype.com/artifact/com.pelagornis/refineui-system-icons)
+- 🔄 **Release Notes**: [GitHub Releases](https://github.com/pelagornis/refineui-system-icons/releases)
+- 🌐 **Other Platforms**:
+  - [iOS/Swift Package](../ios)
+  - [React](../packages/react-icons)
+  - [React Native](../packages/react-native-icons)
+  - [Flutter](../flutter)
+  - [Web](../packages/web-icons)
 
 ## 📄 License
 
-MIT License - see [LICENSE](LICENSE) file for details.
+MIT License - see [LICENSE](../LICENSE) file for details.
+
+## 🙏 Contributing
+
+Contributions are welcome! Bug reports, feature requests, and pull requests are all appreciated.
+
+For more details, see [PUBLISHING.md](PUBLISHING.md).
