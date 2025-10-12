@@ -48,8 +48,10 @@ mavenPublishing {
     // Publish to Maven Central via Central Portal
     publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
     
-    // Enable GPG signing for all publications
-    signAllPublications()
+    // Enable GPG signing for all publications (only in CI)
+    if (System.getenv("CI") == "true") {
+        signAllPublications()
+    }
     
     // Configure coordinates
     coordinates(
