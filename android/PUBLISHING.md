@@ -40,21 +40,24 @@ Repository Settings → Secrets and variables → Actions에서 다음 secrets�
 
 ### 자동 배포 (GitHub Actions)
 
-1. 버전 업데이트:
+`.github/workflows/release-android.yml` 워크플로우가 자동으로 배포를 처리합니다.
+
+1. Git 태그 생성 및 푸시:
 
    ```bash
-   # android/gradle.properties에서 VERSION_NAME 수정
-   VERSION_NAME=0.3.14
+   git tag 0.3.14
+   git push origin 0.3.14
    ```
 
-2. Git 태그 생성 및 푸시:
+2. GitHub Actions가 자동으로:
+   - `gradle.properties`의 `VERSION_NAME`을 태그 버전으로 업데이트
+   - 변경사항 커밋 및 푸시
+   - Android XML 리소스 생성
+   - 빌드 및 검증
+   - Maven Central에 배포
+   - GitHub Release 생성
 
-   ```bash
-   git tag android-0.3.14
-   git push origin android-0.3.14
-   ```
-
-3. GitHub Actions가 자동으로 배포를 진행합니다.
+**참고**: 모든 태그가 모든 플랫폼에 배포를 트리거합니다. 특정 플랫폼만 배포하려면 워크플로우를 수정하거나 수동 배포를 사용하세요.
 
 ### 수동 배포 (로컬)
 

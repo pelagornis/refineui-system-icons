@@ -52,8 +52,8 @@ jobs:
         run: |
           VERSION="${{ steps.get_version.outputs.version }}"
 
-          # Update Android build.gradle.kts version
-          sed -i "s/versionName = \".*\"/versionName = \"$VERSION\"/" android/library/build.gradle.kts
+          # Update gradle.properties VERSION_NAME
+          sed -i "s/VERSION_NAME=.*/VERSION_NAME=$VERSION/" android/gradle.properties
 
           echo "✅ Updated Android version to $VERSION"
 
@@ -65,14 +65,14 @@ jobs:
           git config --local init.defaultBranch main
 
           # Make our changes
-          git add android/library/build.gradle.kts
+          git add android/gradle.properties
           git status
           git diff --cached
 
           # Commit changes
           git commit -m "chore(android): bump version to ${{ steps.get_version.outputs.version }}
 
-          - Update android/library/build.gradle.kts versionName field
+          - Update android/gradle.properties VERSION_NAME field
           - Triggered by tag: ${{ github.ref }}
           - Workflow: ${{ github.workflow }}
           - Commit: ${{ github.sha }}"
@@ -99,6 +99,33 @@ jobs:
           ./gradlew assembleRelease
           ./gradlew lintRelease
 
+      # ✅ Publish to Maven Central via Central Portal API
+      # Uses https://central.sonatype.com/api/v1/publisher/upload
+      - name: Publish to Maven Central
+        working-directory: android
+        env:
+          ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.SONATYPE_TOKEN_USERNAME }}
+          ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.SONATYPE_TOKEN_PASSWORD }}
+          ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.GPG_PASSPHRASE }}
+        run: |
+          # Decode Base64 GPG key to ASCII-armored format
+          export ORG_GRADLE_PROJECT_signingInMemoryKey=$(echo "${{ secrets.GPG_PRIVATE_KEY }}" | base64 --decode)
+
+          ./gradlew :library:publishAllPublicationsToMavenCentralRepository \
+            --no-configuration-cache \
+            --no-daemon \
+            --stacktrace
+
+      # ✅ Upload artifacts
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-library-artifacts
+          path: |
+            android/library/build/outputs/aar/*.aar
+            android/library/build/libs/*.jar
+          retention-days: 7
+
       - name: Create Android Release
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
@@ -109,12 +136,17 @@ jobs:
 
             ### 📦 Installation
             ```gradle
-            // build.gradle
-            implementation 'com.pelagornis:library:latest.release'
+            // build.gradle or build.gradle.kts
+            dependencies {
+                implementation 'com.pelagornis:refineui-system-icons:${{ steps.get_version.outputs.version }}'
+            }
+            ```
 
-            // settings.gradle
-            include ':library'
-            project(':library').projectDir = new File('path/to/android/library')
+            Or use the latest version:
+            ```gradle
+            dependencies {
+                implementation 'com.pelagornis:refineui-system-icons:+'
+            }
             ```
 
             ### 🤖 Features
