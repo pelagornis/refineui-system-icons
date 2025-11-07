@@ -6,7 +6,7 @@
 import Foundation
 
 /// RefineUI System Icons
-@objc public enum RefineUIIcons: Int, Equatable, CaseIterable {
+@objc public enum RefineUIIcons: Int, Sendable, Equatable, CaseIterable {
     case accessTime16Filled = 0
     case accessTime16Regular = 1
     case accessTime20Filled = 2
