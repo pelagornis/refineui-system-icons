@@ -1,6 +1,6 @@
 {
   "name": "@refineui/web-icons",
-  "version": "0.3.17",
+  "version": "0.3.18",
   "description": "RefineUI System Icons for Web",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
