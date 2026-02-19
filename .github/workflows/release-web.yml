@@ -89,6 +89,11 @@ jobs:
           npm run generate:fonts
           npm run build:fonts
 
+      - name: Build web-icons
+        run: |
+          cd packages/web-icons
+          npm run build
+
       - name: Build icon-cdn
         run: |
           cd packages/icon-cdn
