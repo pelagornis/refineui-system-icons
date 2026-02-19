@@ -98,34 +98,33 @@ npm install @refineui/web-icons
 ```
 
 ```javascript
-import {
-  AccessibilityRegular,
-  Add16Filled,
-  Home32Regular,
-  SearchFilled,
-} from "@refineui/web-icons";
+import { createIconHTML, Add, AddFilled, getIconChar, getFontFamily } from "@refineui/web-icons";
 
-// Returns icon as string
-const accessibilityIcon = AccessibilityRegular(); // Returns string
-const addIconFilled = AddFilled(); // Returns string
+// Load font CSS first
+import "@refineui/web-icons/dist/fonts/refineui-system-icons.css";
 
-// Sized method
-const addIcon16 = Add16Filled(); // Returns string
-const homeIcon32 = Home32Regular(); // Returns string
+// Using createIconHTML - returns HTML string
+const addIconHTML = createIconHTML("Add", "regular");
+const html = addIconHTML(24, "currentColor", "my-icon");
+// → <span style="font-family: 'RefineUI-System-Icons-Regular'; ...">...</span>
 
-// Apply to DOM element
-const iconElement = document.createElement("span");
-iconElement.textContent = addIcon16;
-iconElement.style.fontFamily = "RefineUI-System-Icons-Filled";
+// Using named exports (signature: (size?, color?, className?) => string)
+const span24 = Add(24);                        // regular, size 24
+const span32Filled = AddFilled(32, "red", ""); // filled, size 32
+
+// Using utility functions for framework integration
+const char = getIconChar("Add", "regular", 24);
+const font = getFontFamily("regular");
+// Use in React/Vue: <span style={{ fontFamily: font }}>{char}</span>
 ```
 
 **Features:**
 
 - 🔤 Font-based icon system
 - 📦 434+ icons supported
-- 🎨 Multiple sizes and styles
-- 🚀 Lightweight and fast
-- 🔍 Built-in search and filtering
+- 🎨 Multiple sizes (16, 20, 24, 28, 32, 48px) and styles (regular, filled)
+- 🚀 Lightweight and framework-agnostic
+- 🔍 Built-in search and filtering via IconUtils
 
 ### 🤖 Android
 
@@ -217,7 +216,7 @@ Icon(
 
 ### 3. Icon Collection
 
-**433+ Icons covering:**
+**434+ Icons covering:**
 
 - 🧭 **Navigation**: home, search, arrow, chevron, location, map
 - ⚡ **Actions**: add, edit, delete, save, close, checkmark
