@@ -19,26 +19,23 @@ pnpm add @refineui/web-icons
 
 You need to load the font CSS once to display icons.
 
-**HTML**
-
-```html
-<link
-  rel="stylesheet"
-  href="node_modules/@refineui/web-icons/dist/fonts/refineui-system-icons.css"
-/>
-```
-
-**CSS**
-
-```css
-@import "@refineui/web-icons/dist/fonts/refineui-system-icons.css";
-```
-
-**JavaScript**
+**With a bundler (recommended)**
 
 ```javascript
 import "@refineui/web-icons/dist/fonts/refineui-system-icons.css";
 ```
+
+Bundlers (Vite, Webpack, Parcel, etc.) resolve this path via the package `exports` field.
+
+**Without a bundler (plain HTML)**
+
+The package does not expose a URL you can use directly in `href`. Copy the CSS (and fonts) from `node_modules/@refineui/web-icons/dist/fonts/` into your project’s static folder (e.g. `public/` or `static/`) and link it:
+
+```html
+<link rel="stylesheet" href="/path/to/your-copy/refineui-system-icons.css" />
+```
+
+Or use a CDN if you publish the file there.
 
 ### 2. Using HTML Strings (createIconHTML)
 
