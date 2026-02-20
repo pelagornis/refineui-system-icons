@@ -1,124 +1,105 @@
 #!/usr/bin/env python3
 """
 RefineUI System Icons - Font CSS Generator
-Generates CSS files based on font files.
+Generates CSS from fonts/icon-mapping.json (source of truth for unicode).
 """
 
-import os
+import json
 import sys
 from pathlib import Path
 
+
 def generate_font_css():
-    """Generates font CSS."""
-    print("🎨 Font CSS generation started...")
-    
+    """Generates font CSS using icon-mapping.json for correct unicode."""
     project_root = Path(__file__).parent.parent
     fonts_dir = project_root / "fonts"
-    
+    icon_mapping_path = fonts_dir / "icon-mapping.json"
+
     if not fonts_dir.exists():
         print(f"❌ Font directory not found: {fonts_dir}")
         return False
-    
-    # Find font files
+    if not icon_mapping_path.exists():
+        print(f"❌ icon-mapping.json not found: {icon_mapping_path}")
+        return False
+
+    with open(icon_mapping_path, "r", encoding="utf-8") as f:
+        icon_mapping = json.load(f)
+
+    # Find font files (by stem: refineui-system-icons-regular, refineui-system-icons-filled)
     ttf_files = list(fonts_dir.glob("*.ttf"))
     woff2_files = list(fonts_dir.glob("*.woff2"))
     woff_files = list(fonts_dir.glob("*.woff"))
-    
-    if not ttf_files and not woff2_files and not woff_files:
+    font_files = ttf_files + woff2_files + woff_files
+    if not font_files:
         print("❌ Font files not found.")
         return False
-    
-    # Generate CSS files
-    for font_file in ttf_files + woff2_files + woff_files:
-        generate_css_for_font(font_file)
-    
-    print("🎉 Font CSS generation completed!")
-    return True
 
-def generate_css_for_font(font_file: Path):
-    """Generates CSS for a specific font file."""
-    font_name = font_file.stem
-    font_family = font_name.replace('-', ' ').title()
-    
-    # Determine font type
-    if font_file.suffix == '.ttf':
-        font_type = 'truetype'
-    elif font_file.suffix == '.woff2':
-        font_type = 'woff2'
-    elif font_file.suffix == '.woff':
-        font_type = 'woff'
-    else:
-        return
-    
-    # CSS filename
-    css_file = font_file.with_suffix('.css')
-    
-    # Generate CSS content
-    css_content = f"""/* RefineUI System Icons Font CSS - {font_family} */
+    # Build icon classes from icon-mapping (correct unicode per class)
+    icons_by_style = {"regular": [], "filled": []}
+    for css_class, entry in icon_mapping.get("icons", {}).items():
+        style = entry.get("style")
+        if style not in icons_by_style:
+            continue
+        unicode_val = entry.get("unicode")
+        if unicode_val is not None:
+            hex_part = hex(int(unicode_val))[2:].upper()
+            if len(hex_part) <= 4:
+                hex_part = hex_part.zfill(4)
+            content_hex = "\\" + hex_part
+        else:
+            content_hex = (entry.get("unicode_hex") or "").strip()
+            if content_hex and not content_hex.startswith("\\"):
+                content_hex = "\\" + content_hex
+        icons_by_style[style].append((css_class, content_hex, entry.get("name"), entry.get("size")))
+
+    # Font type for src
+    def font_type(p):
+        if p.suffix == ".ttf":
+            return "truetype"
+        if p.suffix == ".woff2":
+            return "woff2"
+        if p.suffix == ".woff":
+            return "woff"
+        return "truetype"
+
+    for font_file in font_files:
+        font_name = font_file.stem
+        font_family = font_name.replace("-", " ").title()
+        is_regular = "regular" in font_name.lower()
+        is_filled = "filled" in font_name.lower()
+        style = "regular" if is_regular else ("filled" if is_filled else None)
+        if style is None:
+            continue
+
+        css_file = font_file.with_suffix(".css")
+        ft = font_type(font_file)
+        css_content = f"""/* RefineUI System Icons Font CSS - {font_family} */
 @font-face {{
     font-family: '{font_family}';
-    src: url('./{font_file.name}') format('{font_type}');
+    src: url('./{font_file.name}') format('{ft}');
     font-weight: normal;
     font-style: normal;
     font-display: block;
 }}
 
-/* Individual icon classes */
+/* Icon classes (from icon-mapping.json) */
 """
-    
-    # Generate icon classes (example - actual logic needs to be more sophisticated)
-    icon_sizes = [16, 20, 24, 28, 32, 48]
-    icon_styles = ['regular', 'filled']
-    
-    # 270 icon names (from generate_270_icons.py)
-    icon_names = [
-        'access', 'accessibility', 'add', 'airplane', 'album', 'alert', 'align', 'android', 'app', 'appstore',
-        'autosum', 'backpack', 'backspace', 'badge', 'balloon', 'bar', 'barcode', 'battery', 'block', 'bluetooth',
-        'blur', 'board', 'book', 'bookmark', 'bug', 'calculator', 'calendar', 'camera', 'cart', 'carton',
-        'chart', 'chat', 'checkmark', 'chess', 'chevron', 'circle', 'clipboard', 'clock', 'cloud', 'clover',
-        'code', 'comma', 'comment', 'cone', 'contrast', 'control', 'cookie', 'copy', 'couch', 'cpu',
-        'crop', 'crown', 'css', 'cube', 'cursor', 'cut', 'dart', 'database', 'delete', 'dentist',
-        'desk', 'desktop', 'dialpad', 'diamond', 'dismiss', 'doctor', 'document', 'door', 'drag', 'drawer',
-        'drop', 'dual', 'dumbbell', 'dust', 'earth', 'edit', 'elevator', 'emoji', 'engine', 'equal',
-        'error', 'eye', 'eyedropper', 'fast', 'filmstrip', 'filter', 'fire', 'flag', 'flash', 'flashlight',
-        'flip', 'folder', 'frame', 'full', 'games', 'gantt', 'gas', 'gavel', 'gif', 'gift',
-        'git', 'glasses', 'global', 'grid', 'guest', 'guitar', 'hammer', 'hard', 'hat', 'hd',
-        'hdr', 'headphones', 'headset', 'heart', 'hexagon', 'highlight', 'highway', 'home', 'hourglass', 'html',
-        'image', 'important', 'incognito', 'info', 'ios', 'iot', 'javascript', 'joystick', 'json', 'key',
-        'keyboard', 'kiosk', 'kotlin', 'laptop', 'layer', 'lightbulb', 'line', 'link', 'local', 'location',
-        'lock', 'luggage', 'macos', 'mail', 'mailbox', 'map', 'markdown', 'math', 'megaphone', 'mic',
-        'moon', 'more', 'mouse', 'movie', 'network', 'news', 'next', 'note', 'notebook', 'notepad',
-        'number', 'opacity', 'open', 'options', 'organization', 'orientation', 'oval', 'oven', 'padding', 'page',
-        'paint', 'parallelogram', 'password', 'pause', 'payment', 'pen', 'pentagon', 'person', 'phone', 'piano',
-        'pin', 'pipeline', 'play', 'playstore', 'port', 'power', 'preview', 'previous', 'print', 'pulse',
-        'python', 'qr', 'question', 'radio', 'ram', 'record', 'rectangle', 'refineui', 'rewind', 'rhombus',
-        'ribbon', 'road', 'rocket', 'rotation', 'router', 'rss', 'ruler', 'run', 'save', 'scales',
-        'script', 'search', 'send', 'serial', 'server', 'service', 'settings', 'shape', 'shapes', 'share',
-        'shell', 'shield', 'shopping', 'sim', 'slide', 'smartwatch', 'sound', 'spacebar', 'sport', 'spray',
-        'square', 'star', 'stop', 'subtract', 'swift', 'tab', 'tablet', 'tag', 'target', 'temperature',
-        'tent', 'text', 'textbox', 'thinking', 'ticket', 'timer', 'toggle', 'toolbox', 'trophy', 'tv',
-        'typescript', 'umbrella', 'usb', 'verified', 'video', 'voicemail', 'vote', 'walkie', 'wallet', 'wand',
-        'warning', 'washer', 'water', 'weather', 'web', 'wifi', 'windows', 'wrench', 'xray', 'zoom'
-    ]
-    
-    # Generate CSS classes for each icon
-    for icon_name in icon_names:
-        for size in icon_sizes:
-            for style in icon_styles:
-                css_content += f""".ic_refineui_{icon_name}_{size}_{style}:before {{
+        for css_class, content_hex, _name, _size in icons_by_style.get(style, []):
+            if not content_hex:
+                continue
+            css_content += f""".{css_class}:before {{
     font-family: '{font_family}';
     font-weight: normal;
     font-style: normal;
-    content: "\\F{size:04d}";
+    content: "{content_hex}";
 }}
-
 """
-    
-    # Save CSS file
-    with open(css_file, 'w', encoding='utf-8') as f:
-        f.write(css_content)
-    
-    print(f"✅ {css_file.name} generation completed")
+        css_file.write_text(css_content, encoding="utf-8")
+        print(f"✅ {css_file.name} generated")
+
+    print("🎉 Font CSS generation completed!")
+    return True
+
 
 if __name__ == "__main__":
     success = generate_font_css()

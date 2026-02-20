@@ -12,6 +12,7 @@
     "dev": "npm run dev --workspaces",
     "generate:metadata": "node scripts/generate-metadata.js",
     "generate:web-icons": "python3 scripts/generate_web_icons.py",
+    "sync:web-icons-unicode": "node scripts/sync-web-icons-unicode.js",
     "generate:platforms": "python3 scripts/generate_platforms.py",
     "generate:android": "python3 scripts/generate_android_xml.py",
     "generate:ios": "python3 scripts/generate_ios_swift.py",

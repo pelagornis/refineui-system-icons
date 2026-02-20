@@ -2,11 +2,22 @@
 """
 RefineUI System Icons - Android XML Generator
 Generates Android XML drawable files.
+Uses fonts/icon-mapping.json for correct unicode per icon/size/style.
 """
 
-import os
+import json
 import sys
 from pathlib import Path
+
+
+def load_icon_mapping(project_root):
+    """Load icon-mapping.json (source of truth for unicode)."""
+    path = project_root / "fonts" / "icon-mapping.json"
+    if not path.exists():
+        return None
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
+
 
 def generate_android_xml():
     """Generates Android XML drawable files."""
@@ -14,6 +25,9 @@ def generate_android_xml():
     
     project_root = Path(__file__).parent.parent
     android_dir = project_root / "android"
+    icon_mapping = load_icon_mapping(project_root)
+    if not icon_mapping:
+        print("⚠️  fonts/icon-mapping.json not found; unicode will be wrong (size as codepoint).")
     
     if not android_dir.exists():
         print(f"❌ Android directory not found: {android_dir}")
@@ -65,7 +79,7 @@ def generate_android_xml():
     for icon_name in ICON_NAMES:
         for size in ICON_SIZES:
             for style in ICON_STYLES:
-                xml_content = generate_xml_content(icon_name, size, style)
+                xml_content = generate_xml_content(icon_name, size, style, icon_mapping)
                 xml_filename = f"ic_refineui_{icon_name}_{size}_{style}.xml"
                 xml_path = drawable_dir / xml_filename
                 
@@ -77,11 +91,16 @@ def generate_android_xml():
     print(f"✅ Android XML generation completed: {total_files} files")
     return True
 
-def generate_xml_content(icon_name: str, size: int, style: str) -> str:
-    """Generates XML drawable content."""
-    
-    # Icon unicode (should be fetched from font in practice)
-    unicode = f"\\uF{size:04d}"
+def generate_xml_content(icon_name: str, size: int, style: str, icon_mapping: dict = None) -> str:
+    """Generates XML drawable content. Uses icon-mapping.json unicode when available."""
+    css_class = f"ic_refineui_{icon_name}_{size}_{style}"
+    unicode_codepoint = None
+    if icon_mapping and icon_mapping.get("icons") and css_class in icon_mapping["icons"]:
+        unicode_codepoint = icon_mapping["icons"][css_class].get("unicode")
+    if unicode_codepoint is None:
+        unicode_codepoint = 0xF0000 + size  # fallback (wrong but avoids crash)
+    # Use actual Unicode character so XML is valid UTF-8
+    text_char = chr(int(unicode_codepoint))
     
     xml_content = f"""<?xml version="1.0" encoding="utf-8"?>
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
@@ -93,7 +112,7 @@ def generate_xml_content(icon_name: str, size: int, style: str) -> str:
     <text
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="{unicode}"
+        android:text="{text_char}"
         android:textSize="{size}sp"
         android:textColor="@android:color/black"
         android:fontFamily="RefineUI-System-Icons-{style.title()}"
