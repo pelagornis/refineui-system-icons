@@ -93,7 +93,8 @@ jobs:
         run: |
           cp fonts/*.woff2 packages/web-icons/fonts/ 2>/dev/null || true
           cp fonts/*.woff packages/web-icons/fonts/ 2>/dev/null || true
-          cp fonts/refineui-system-icons*.css packages/web-icons/fonts/
+          # Do NOT copy root fonts/*.css — it uses wrong unicode mapping (size as codepoint).
+          # packages/web-icons/fonts/*.css (correct mapping from metadata) must be preserved.
 
       - name: Build web-icons
         run: |
