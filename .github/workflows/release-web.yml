@@ -89,6 +89,12 @@ jobs:
           npm run generate:fonts
           npm run build:fonts
 
+      - name: Copy fonts into web-icons package
+        run: |
+          cp fonts/*.woff2 packages/web-icons/fonts/ 2>/dev/null || true
+          cp fonts/*.woff packages/web-icons/fonts/ 2>/dev/null || true
+          cp fonts/refineui-system-icons*.css packages/web-icons/fonts/
+
       - name: Build web-icons
         run: |
           cd packages/web-icons

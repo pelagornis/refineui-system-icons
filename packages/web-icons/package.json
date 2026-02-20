@@ -22,7 +22,7 @@
   ],
   "scripts": {
     "build": "rollup -c && npm run copy-fonts",
-    "copy-fonts": "mkdir -p dist/fonts && cp fonts/*.woff2 dist/fonts/ && cp fonts/*.css dist/fonts/",
+    "copy-fonts": "mkdir -p dist/fonts && cp fonts/*.woff2 dist/fonts/ && (cp fonts/*.woff dist/fonts/ || true) && cp fonts/*.css dist/fonts/",
     "prepublishOnly": "npm run build",
     "dev": "rollup -c -w",
     "clean": "rimraf dist"
