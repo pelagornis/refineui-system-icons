@@ -1,6 +1,15 @@
 # RefineUI System Icons Font
 
-You can use RefineUI System Icons as fonts. Regular and Filled styles are separated.
+You can use RefineUI System Icons as fonts.
+
+## Building fonts (maintainers)
+
+TTF files are **generated** from `assets/*/svg` and `fonts/icon-mapping.json` (unicode per icon), so the font codepoints match the CSS and metadata. From repo root:
+
+- `npm run generate:ttf` — builds `fonts/*.ttf` (requires [FontForge](https://fontforge.org/))
+- `npm run build:fonts` — converts TTF → WOFF2/WOFF and generates `fonts/*.css`
+
+CI (release-fonts, release-web) runs both so release artifacts use the same mapping as `icon-mapping.json`. Regular and Filled styles are separated.
 
 ## Usage
 

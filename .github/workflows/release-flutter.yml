@@ -51,6 +51,14 @@ jobs:
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "Version: $VERSION"
 
+      - name: Build fonts and copy to Flutter package
+        run: |
+          sudo apt-get update && sudo apt-get install -y fontforge
+          pip install fonttools brotli
+          fontforge -script scripts/generate_ttf_from_svg.py
+          python3 scripts/build_fonts.py
+          python3 scripts/copy_fonts_to_packages.py
+
       - name: Debug Git status before update
         run: |
           echo "Current branch:"

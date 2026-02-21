@@ -137,10 +137,11 @@ def build_all_platforms():
     print("🦋 Generating Flutter Dart...")
     run_command("npm run generate:flutter")
     
-    # Generate fonts
+    # Generate fonts (TTF from SVGs + icon-mapping, then WOFF2/WOFF + CSS, then copy to packages)
     print("🔤 Generating fonts...")
-    run_command("npm run generate:fonts")
+    run_command("npm run generate:ttf")
     run_command("npm run build:fonts")
+    run_command("npm run copy:fonts")
     
     # Build all platforms
     print("🚀 Building all platforms...")

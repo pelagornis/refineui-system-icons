@@ -30,7 +30,9 @@ jobs:
       - name: Build fonts
         run: |
           npm ci
-          npm run generate:fonts
+          sudo apt-get update && sudo apt-get install -y fontforge
+          pip install fonttools brotli
+          npm run generate:ttf
           npm run build:fonts
           echo "✅ Fonts built successfully"
 

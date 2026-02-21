@@ -86,15 +86,14 @@ jobs:
         run: |
           npm run generate:metadata
           npm run generate:web-icons
-          npm run generate:fonts
+          sudo apt-get update && sudo apt-get install -y fontforge
+          pip install fonttools brotli
+          npm run generate:ttf
           npm run build:fonts
+          npm run copy:fonts
 
-      - name: Copy fonts into web-icons package
-        run: |
-          cp fonts/*.woff2 packages/web-icons/fonts/ 2>/dev/null || true
-          cp fonts/*.woff packages/web-icons/fonts/ 2>/dev/null || true
-          # Do NOT copy root fonts/*.css — it uses wrong unicode mapping (size as codepoint).
-          # packages/web-icons/fonts/*.css (correct mapping from metadata) must be preserved.
+      - name: Sync web-icons unicode from icon-mapping
+        run: npm run sync:web-icons-unicode
 
       - name: Build web-icons
         run: |

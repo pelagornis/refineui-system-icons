@@ -11,6 +11,7 @@ Shared scripts for RefineUI System Icons. Run from repo root.
 | Script | Purpose |
 |--------|---------|
 | `generate-metadata.js` | Root metadata from assets + fonts (legacy). |
+| `generate_ttf_from_svg.py` | TTF from `assets/*/svg` + `icon-mapping.json` (run with `fontforge -script`; used in CI). |
 | `generate_font_css.py` | Font CSS from `icon-mapping.json` (root `fonts/*.css`). |
 | `generate_platforms.py` | Orchestrates: Android XML, iOS Swift, Flutter Dart, Web packages. |
 | `generate_android_xml.py` | Android drawable XMLs (unicode from icon-mapping). |
@@ -28,7 +29,8 @@ Shared scripts for RefineUI System Icons. Run from repo root.
 
 | Script | Purpose |
 |--------|---------|
-| `build_fonts.py` | TTF → WOFF2/WOFF, then font CSS. |
+| `build_fonts.py` | TTF → WOFF2/WOFF, then font CSS. Run after `generate:ttf` so TTF exist (from SVGs + icon-mapping). |
+| `copy_fonts_to_packages.py` | Copy root `fonts/` to `packages/web-icons`, `react-icons`, `react-native-icons`, and `flutter/lib/fonts`. Run after `build:fonts`. |
 | `build_platforms.py` | Build React Native, Flutter, iOS, Android, web-test. |
 | `build_all.py` | Full pipeline: metadata → font CSS → generate platforms → npm build → fonts → platform builds. |
 

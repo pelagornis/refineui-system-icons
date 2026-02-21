@@ -2,3 +2,5 @@ requests>=2.31.0
 pathlib2>=2.3.7
 typing-extensions>=4.7.1
 python-dotenv>=1.0.0
+fonttools>=4.0.0
+brotli>=1.0.0
