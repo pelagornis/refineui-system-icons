@@ -103,8 +103,8 @@ import { createIconHTML, Add, AddFilled, getIconChar, getFontFamily } from "@ref
 // Load font CSS first
 import "@refineui/web-icons/dist/fonts/refineui-system-icons.css";
 
-// Using createIconHTML - returns HTML string
-const addIconHTML = createIconHTML("Add", "regular");
+// Using createIconHTML - returns HTML string (icon name: hyphenated, e.g. "add", "local-language")
+const addIconHTML = createIconHTML("add", "regular");
 const html = addIconHTML(24, "currentColor", "my-icon");
 // → <span style="font-family: 'RefineUI-System-Icons-Regular'; ...">...</span>
 
@@ -112,8 +112,8 @@ const html = addIconHTML(24, "currentColor", "my-icon");
 const span24 = Add(24);                        // regular, size 24
 const span32Filled = AddFilled(32, "red", ""); // filled, size 32
 
-// Using utility functions for framework integration
-const char = getIconChar("Add", "regular", 24);
+// Using utility functions (icon name: hyphenated)
+const char = getIconChar("add", "regular", 24);
 const font = getFontFamily("regular");
 // Use in React/Vue: <span style={{ fontFamily: font }}>{char}</span>
 ```
@@ -197,6 +197,14 @@ Icon(
 - 📱 Cross-platform consistency
 - 🚀 High-performance rendering
 
+## 📌 Icon Naming
+
+- **API / URL / metadata**: Use **hyphenated** names, no spaces (e.g. `add`, `local-language`, `weather-sunny`).
+- **React / React Native**: Component names are PascalCase (e.g. `Add`, `LocalLanguageFilled`).
+- **Android**: Resource names use underscores (e.g. `ic_refineui_local_language_24_regular`).
+
+See each platform’s README for details.
+
 ## 🎯 Key Features
 
 ### 1. Centralized Metadata
@@ -231,7 +239,7 @@ Icon(
 
 - **Sizes**: 16, 20, 24, 28, 32, 48px variants
 - **Styles**: Regular and filled variants
-- **Naming**: Consistent snake_case format
+- **Naming**: **Hyphenated** (e.g. `add`, `local-language`) for API/URL and metadata; **PascalCase** for React component names (e.g. `Add`, `LocalLanguageFilled`). No spaces in icon identifiers.
 - **Colors**: Customizable tint colors
 - **Accessibility**: Built-in alt text and ARIA support
 

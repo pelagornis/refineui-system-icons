@@ -12,10 +12,15 @@ export const createIconURL = (iconName: string, size: number = 24, style: 'regul
 export const getCDNBaseUrl = () => CDN_BASE_URL;
 
 // === Functions needed for build.ts ===
+/** Normalize to canonical icon name (lowercase, hyphen, no spaces) */
+function toCanonicalName(name: string): string {
+  return String(name).trim().toLowerCase().replace(/\s+/g, '-');
+}
+
 export const mapIconName = (iconDir: string): string => {
-  // Convert folder name to icon name using the mapping from constants
   const { ICON_NAME_MAPPING } = require('./constants');
-  return ICON_NAME_MAPPING[iconDir] || iconDir.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+  const canonical = toCanonicalName(iconDir);
+  return ICON_NAME_MAPPING[canonical] ?? canonical;
 };
 
 export const generateSampleSVG = (iconName: string, size: number, style: string): string => {

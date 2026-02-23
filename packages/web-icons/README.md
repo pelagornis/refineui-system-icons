@@ -45,11 +45,13 @@ Or use a CDN if you publish the file there.
 Pass an icon name and style (`regular` | `filled`), and it returns a function that accepts size, color, and className.  
 The returned function generates a `<span>` HTML string.
 
+**Icon names** use **hyphenated** form (no spaces), e.g. `add`, `local-language`, `weather-sunny`. Legacy names with spaces are normalized internally.
+
 ```javascript
 import { createIconHTML, Add, AddFilled } from "@refineui/web-icons";
 
-// Using createIconHTML directly
-const addIconHTML = createIconHTML("Add", "regular");
+// Using createIconHTML directly (icon name: hyphenated)
+const addIconHTML = createIconHTML("add", "regular");
 const html = addIconHTML(24, "currentColor", "my-icon");
 // → <span style="font-family: 'RefineUI-System-Icons-Regular'; ...">...</span>
 
@@ -64,7 +66,7 @@ const span32Filled = AddFilled(32, "red", ""); // filled, size 32
 - **regular**: `Add`, `Gavel`, `Home`, `Calendar`, etc. (PascalCase)
 - **filled**: `AddFilled`, `GavelFilled`, `HomeFilled`, etc. (name + `Filled`)
 
-Each export is equivalent to `createIconHTML(name, 'regular'|'filled')`.
+Each export is equivalent to `createIconHTML(name, 'regular'|'filled')` where `name` is the hyphenated identifier (e.g. `local-language`).
 
 ### 3. Using Unicode/Class Only (Framework Rendering)
 
@@ -73,13 +75,13 @@ When rendering directly in React, Vue, etc., you can use `getIconChar` + `getFon
 ```javascript
 import { getIconChar, getFontFamily, getIconClass } from "@refineui/web-icons";
 
-// Unicode character + font family (always set font-family so the glyph is not blank)
-const char = getIconChar("Add", "regular", 24);
+// Unicode character + font family (icon name: hyphenated)
+const char = getIconChar("add", "regular", 24);
 const font = getFontFamily("regular");
 // <span style={{ fontFamily: font, fontSize: 24 }}>{char}</span>
 
 // CSS class name — only works if the font CSS is loaded (see §1). Otherwise you get empty space.
-const className = getIconClass("Gavel", "regular", 24);
+const className = getIconClass("gavel", "regular", 24);
 // <span className={className} />
 ```
 
@@ -92,11 +94,11 @@ Use `IconUtils` for metadata queries, icon search, and support checks.
 ```javascript
 import { IconUtils } from "@refineui/web-icons";
 
-IconUtils.getAllIconNames();           // Array of all icon names
+IconUtils.getAllIconNames();           // Array of all icon names (hyphenated, e.g. "local-language")
 IconUtils.getSupportedSizes();         // [16, 20, 24, 28, 32, 48]
-IconUtils.getIconInfo("Add");          // Icon metadata
-IconUtils.searchIcons("arrow");       // Icons containing 'arrow' in name/description
-IconUtils.isIconSupported("Add", "regular", 24); // true/false
+IconUtils.getIconInfo("add");          // Icon metadata (use hyphenated name)
+IconUtils.searchIcons("arrow");        // Icons containing 'arrow' in name/description
+IconUtils.isIconSupported("add", "regular", 24); // true/false
 ```
 
 ## 📤 API Summary
@@ -120,7 +122,7 @@ IconUtils.isIconSupported("Add", "regular", 24); // true/false
 When font CSS is loaded, you can use the following classes:
 
 - Base: `.ic_refineui`, `.ic_refineui_regular`, `.ic_refineui_filled`
-- Per icon: `getIconClass('Gavel', 'regular', 24)` → e.g., `ic_refineui_gavel_24_regular`
+- Per icon: `getIconClass('gavel', 'regular', 24)` → e.g., `ic_refineui_gavel_24_regular`
 
 Font families:
 

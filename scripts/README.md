@@ -5,6 +5,8 @@ Shared scripts for RefineUI System Icons. Run from repo root.
 ## Source of truth
 
 - **`fonts/icon-mapping.json`** – Unicode/codepoint for each icon (size, style). Used by font CSS, metadata sync, and Android XML.
+  - **`name`**: Canonical icon name (lowercase, hyphenated, no spaces), e.g. `local-language`.
+  - **`css_class`**: Font/SVG class (underscores), e.g. `ic_refineui_local_language_24_regular`.
 
 ## Generate (outputs source/assets)
 

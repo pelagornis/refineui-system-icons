@@ -38,7 +38,7 @@ yarn add @refineui/icon-cdn
   alt="Heart"
 />
 <img
-  src="https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@vTag/icons/32/add_square-filled.svg"
+  src="https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@vTag/icons/32/add-square-filled.svg"
   alt="Add Square"
 />
 ```
@@ -93,11 +93,11 @@ https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@vTag/icons/{size}/{iconName}-{st
 
 ### Parameters
 
-| Parameter  | Type   | Description             | Examples               |
-| ---------- | ------ | ----------------------- | ---------------------- |
-| `size`     | number | Icon size in pixels     | 16, 20, 24, 28, 32, 48 |
-| `iconName` | string | Icon name in snake_case | add, heart, add_square |
-| `style`    | string | Icon style variant      | regular, filled        |
+| Parameter  | Type   | Description                    | Examples                    |
+| ---------- | ------ | ------------------------------ | --------------------------- |
+| `size`     | number | Icon size in pixels            | 16, 20, 24, 28, 32, 48      |
+| `iconName` | string | Icon name (hyphenated, no spaces) | add, heart, add-square, local-language |
+| `style`    | string | Icon style variant             | regular, filled             |
 
 ### Available Formats
 
@@ -105,14 +105,15 @@ https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@vTag/icons/{size}/{iconName}-{st
 
 ### Icon Naming Convention
 
-Icons follow a consistent naming pattern:
+Icons use **hyphenated** names (no spaces):
 
-- **Format**: `icon-name-style`
+- **Format**: `{iconName}-{style}.svg` where `iconName` is lowercase with hyphens (e.g. `local-language`)
 - **Examples**:
   - `add-regular`
   - `heart-filled`
-  - `add_square-filled`
-  - `access_time-regular`
+  - `add-square-filled`
+  - `access-time-regular`
+  - `local-language-regular`
 
 ## 🎨 Available Icons
 

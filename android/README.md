@@ -567,7 +567,7 @@ For more details, see [PUBLISHING.md](PUBLISHING.md).
 
 **Solution**:
 
-- Verify the icon name is correct (`@drawable/icon_name_24_regular`)
+- Verify the icon name is correct. Drawables are named `ic_refineui_{name}_{size}_{style}` where `name` uses underscores (e.g. `local_language` → `@drawable/ic_refineui_local_language_24_regular`)
 - Make sure you've run Gradle sync
 - Try Clean & Rebuild your project
 - Check Android Studio's Logcat for errors

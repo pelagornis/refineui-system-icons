@@ -43,13 +43,11 @@ def generate_font_css():
         unicode_val = entry.get("unicode")
         if unicode_val is not None:
             hex_part = hex(int(unicode_val))[2:].upper()
-            if len(hex_part) <= 4:
-                hex_part = hex_part.zfill(4)
-            content_hex = "\\" + hex_part
+            # CSS: use 6 hex digits for supplementary plane (U+10000+) to avoid parse ambiguity
+            content_hex = "\\" + hex_part.zfill(6)
         else:
-            content_hex = (entry.get("unicode_hex") or "").strip()
-            if content_hex and not content_hex.startswith("\\"):
-                content_hex = "\\" + content_hex
+            raw = (entry.get("unicode_hex") or "").strip().lstrip("\\")
+            content_hex = "\\" + raw.zfill(6) if raw else ""
         icons_by_style[style].append((css_class, content_hex, entry.get("name"), entry.get("size")))
 
     # Font type for src
@@ -103,6 +101,78 @@ def generate_font_css():
 """
         css_file.write_text(css_content, encoding="utf-8")
         print(f"✅ {css_file.name} generated")
+
+    # Generate combined CSS (both styles, multiple font formats) for package consumption
+    combined_path = fonts_dir / "refineui-system-icons.css"
+    regular_stem = "refineui-system-icons-regular"
+    filled_stem = "refineui-system-icons-filled"
+    font_family_regular = font_family_by_style["regular"]
+    font_family_filled = font_family_by_style["filled"]
+    combined = f"""/* RefineUI System Icons Font CSS - Combined */
+/* Regular style */
+@font-face {{
+    font-family: '{font_family_regular}';
+    src: url('./{regular_stem}.woff2') format('woff2'),
+         url('./{regular_stem}.woff') format('woff'),
+         url('./{regular_stem}.ttf') format('truetype'),
+         url('./{regular_stem}.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}}
+
+/* Filled style */
+@font-face {{
+    font-family: '{font_family_filled}';
+    src: url('./{filled_stem}.woff2') format('woff2'),
+         url('./{filled_stem}.woff') format('woff'),
+         url('./{filled_stem}.ttf') format('truetype'),
+         url('./{filled_stem}.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}}
+
+/* Base icon class */
+.ic_refineui {{
+    font-size: 1em;
+    line-height: 1;
+    font-weight: normal;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}}
+
+/* Regular style class */
+.ic_refineui_regular {{
+    font-family: '{font_family_regular}';
+    font-weight: normal;
+    font-style: normal;
+}}
+
+/* Filled style class */
+.ic_refineui_filled {{
+    font-family: '{font_family_filled}';
+    font-weight: normal;
+    font-style: normal;
+}}
+
+/* Individual icon classes */
+"""
+    for style in ("regular", "filled"):
+        font_family = font_family_by_style[style]
+        for css_class, content_hex, _name, _size in icons_by_style.get(style, []):
+            if not content_hex:
+                continue
+            combined += f""".{css_class}:before {{
+    font-family: '{font_family}';
+    font-weight: normal;
+    font-style: normal;
+    content: "{content_hex}";
+}}
+"""
+    combined_path.write_text(combined, encoding="utf-8")
+    print(f"✅ {combined_path.name} generated")
 
     print("🎉 Font CSS generation completed!")
     return True

@@ -2,6 +2,8 @@
 
 You can use RefineUI System Icons as fonts.
 
+**Naming:** Icon metadata uses **hyphenated** names (e.g. `access-time`, `local-language`). CSS classes use underscores (e.g. `ic_refineui_access_time_24_regular`) and match `icon-mapping.json`’s `css_class`.
+
 ## Building fonts (maintainers)
 
 TTF files are **generated** from `assets/*/svg` and `fonts/icon-mapping.json` (unicode per icon), so the font codepoints match the CSS and metadata. From repo root:

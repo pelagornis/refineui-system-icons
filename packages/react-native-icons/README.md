@@ -80,7 +80,7 @@ function TouchableIcon() {
 
 ### Icon Naming Convention
 
-Icons follow the pattern: `{Name}` (PascalCase)
+Components use **PascalCase** (e.g. `Home`, `LocalLanguageFilled`). Canonical icon names in API/metadata use **hyphenated** form with no spaces (e.g. `local-language`).
 
 - **Style**: `Regular` or `Filled` (imported separately)
 - **Examples**:

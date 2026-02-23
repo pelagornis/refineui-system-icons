@@ -415,7 +415,7 @@ python3 scripts/generate_flutter_dart.py
 
 1. **Icon not displaying**
 
-   - Check if the icon name is correct (e.g., `RefineUIIcons.access_time_24_regular`)
+   - Check if the icon name is correct (e.g., `RefineUIIcons.access_time_24_regular`). Flutter uses snake_case for icon identifiers.
    - Verify the package is installed: `flutter pub get`
    - Check Flutter console for errors
 
