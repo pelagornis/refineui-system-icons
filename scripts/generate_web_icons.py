@@ -6,12 +6,13 @@ Generates icons for React, Web, CDN, React Native packages.
 
 import json
 import os
+import re
 import sys
 from pathlib import Path
 
 def to_export_name(icon_name: str) -> str:
-    """Valid JS export name: 'Local language' -> 'LocalLanguage'."""
-    return "".join(w.capitalize() for w in icon_name.split())
+    """Valid JS export name: 'local-language' or 'Local language' -> 'LocalLanguage'."""
+    return "".join(w.capitalize() for w in re.split(r"[\s\-]+", icon_name) if w)
 
 
 def to_display_name(icon_name: str) -> str:

@@ -70,7 +70,8 @@ async function copySVGFiles(): Promise<void> {
         
         // Create files for each style
         for (const style of BUILD_CONFIG.styles) {
-          const fileName = `${iconName}-${style}.svg`;
+          // Match createIconURL: icon name with hyphens (e.g. flip-verticial-regular.svg)
+          const fileName = `${iconName.replace(/_/g, '-')}-${style}.svg`;
           const outputPath = path.join(sizeDir, fileName);
           
           // Find the corresponding SVG file
@@ -160,9 +161,10 @@ async function generateMetadata(): Promise<void> {
       for (const file of files) {
         if (file.endsWith('.svg')) {
           const iconName = file.replace('.svg', '');
-          const [name, style] = iconName.split('-');
-          
-          if (name && style) {
+          const parts = iconName.split('-');
+          const style = parts.pop();
+          const name = parts.join('-');
+          if (name && style && (style === 'regular' || style === 'filled')) {
             metadata.icons.push({
               name: name,
               style: style as 'regular' | 'filled',

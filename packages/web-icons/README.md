@@ -15,6 +15,9 @@ pnpm add @refineui/web-icons
 
 ## 🚀 Usage
 
+> **⚠️ Icons show as an empty rectangle (□) if the font is not loaded.**  
+> You must import the font CSS **once** in your app (e.g. in the root layout or main entry) before using `createIconHTML`, `getIconClass`, or named exports.
+
 ### 1. Load Font CSS
 
 You need to load the font CSS once to display icons.
@@ -124,11 +127,15 @@ Font families:
 - Regular: `RefineUI-System-Icons-Regular`
 - Filled: `RefineUI-System-Icons-Filled`
 
-## ⚠️ Troubleshooting: Empty space instead of icon
+## ⚠️ Troubleshooting: Empty rectangle (□) or empty space
 
-- **getIconClass:** The class uses `:before` and the icon font. If the **font CSS is not loaded**, the browser has no glyph → empty space. **Fix:** Load the font CSS once (see §1), e.g. `import "@refineui/web-icons/dist/fonts/refineui-system-icons.css"`.
-- **Font file 404:** The CSS references `./refineui-system-icons-regular.woff2` (and `.woff`). If your bundler serves CSS and fonts from different paths, the woff2 request may 404. Check the Network tab; fix by copying `dist/fonts/*` to your public assets or configuring the bundler so the font URLs resolve.
-- **getIconChar:** The character must be rendered with the icon font. If you don’t set `font-family` on the element, the glyph won’t show. **Fix:** Set `style={{ fontFamily: getFontFamily('regular'), fontSize: 24 }}` on the element, or use `createIconHTML("Local language", "regular")(24)`.
+- **Empty rectangle / hollow box:** The icon font is **not loaded**. The span and unicode character are correct, but the browser has no font to draw the glyph. **Fix:** Import the font CSS **before** any icon is rendered, e.g. in your app entry:
+  ```javascript
+  import "@refineui/web-icons/dist/fonts/refineui-system-icons.css";
+  ```
+- **Font file 404:** The CSS references `./refineui-system-icons-regular.woff2`. If the woff2 request 404s (check Network tab), copy `node_modules/@refineui/web-icons/dist/fonts/*` to your public folder or configure the bundler so font URLs resolve.
+- **getIconClass:** Same as above — font CSS must be loaded or you get empty space.
+- **getIconChar:** Use `createIconHTML` (which sets `font-family` on the span), or set `fontFamily: getFontFamily('regular')` on the element yourself.
 
 ## 📁 Package Structure
 

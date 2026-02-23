@@ -23,8 +23,8 @@
     }
   },
   "icons": {
-    "Gavel": {
-      "name": "Gavel",
+    "gavel": {
+      "name": "gavel",
       "slug": "gavel",
       "size": [
         16,
@@ -189,8 +189,8 @@
         }
       }
     },
-    "Diamond": {
-      "name": "Diamond",
+    "diamond": {
+      "name": "diamond",
       "slug": "diamond",
       "size": [
         16,
@@ -355,8 +355,8 @@
         }
       }
     },
-    "Filmstrip": {
-      "name": "Filmstrip",
+    "filmstrip": {
+      "name": "filmstrip",
       "slug": "filmstrip",
       "size": [
         16,
@@ -521,8 +521,8 @@
         }
       }
     },
-    "Organization": {
-      "name": "Organization",
+    "organization": {
+      "name": "organization",
       "slug": "organization",
       "size": [
         16,
@@ -687,8 +687,8 @@
         }
       }
     },
-    "Pause": {
-      "name": "Pause",
+    "pause": {
+      "name": "pause",
       "slug": "pause",
       "size": [
         16,
@@ -853,8 +853,8 @@
         }
       }
     },
-    "Vote": {
-      "name": "Vote",
+    "vote": {
+      "name": "vote",
       "slug": "vote",
       "size": [
         16,
@@ -1019,8 +1019,8 @@
         }
       }
     },
-    "Power": {
-      "name": "Power",
+    "power": {
+      "name": "power",
       "slug": "power",
       "size": [
         16,
@@ -1185,8 +1185,8 @@
         }
       }
     },
-    "Crown": {
-      "name": "Crown",
+    "crown": {
+      "name": "crown",
       "slug": "crown",
       "size": [
         16,
@@ -1351,8 +1351,8 @@
         }
       }
     },
-    "Shield": {
-      "name": "Shield",
+    "shield": {
+      "name": "shield",
       "slug": "shield",
       "size": [
         16,
@@ -1517,8 +1517,8 @@
         }
       }
     },
-    "Note": {
-      "name": "Note",
+    "note": {
+      "name": "note",
       "slug": "note",
       "size": [
         16,
@@ -1683,8 +1683,8 @@
         }
       }
     },
-    "Orientation": {
-      "name": "Orientation",
+    "orientation": {
+      "name": "orientation",
       "slug": "orientation",
       "size": [
         16,
@@ -1849,8 +1849,8 @@
         }
       }
     },
-    "Settings": {
-      "name": "Settings",
+    "settings": {
+      "name": "settings",
       "slug": "settings",
       "size": [
         16,
@@ -2015,8 +2015,8 @@
         }
       }
     },
-    "Home": {
-      "name": "Home",
+    "home": {
+      "name": "home",
       "slug": "home",
       "size": [
         16,
@@ -2181,8 +2181,8 @@
         }
       }
     },
-    "Database": {
-      "name": "Database",
+    "database": {
+      "name": "database",
       "slug": "database",
       "size": [
         16,
@@ -2347,8 +2347,8 @@
         }
       }
     },
-    "Options": {
-      "name": "Options",
+    "options": {
+      "name": "options",
       "slug": "options",
       "size": [
         16,
@@ -2513,8 +2513,8 @@
         }
       }
     },
-    "Dust": {
-      "name": "Dust",
+    "dust": {
+      "name": "dust",
       "slug": "dust",
       "size": [
         16,
@@ -2679,8 +2679,8 @@
         }
       }
     },
-    "Luggage": {
-      "name": "Luggage",
+    "luggage": {
+      "name": "luggage",
       "slug": "luggage",
       "size": [
         16,
@@ -2845,8 +2845,8 @@
         }
       }
     },
-    "Autosum": {
-      "name": "Autosum",
+    "autosum": {
+      "name": "autosum",
       "slug": "autosum",
       "size": [
         16,
@@ -3011,8 +3011,8 @@
         }
       }
     },
-    "Pipeline": {
-      "name": "Pipeline",
+    "pipeline": {
+      "name": "pipeline",
       "slug": "pipeline",
       "size": [
         16,
@@ -3177,8 +3177,8 @@
         }
       }
     },
-    "Drawer": {
-      "name": "Drawer",
+    "drawer": {
+      "name": "drawer",
       "slug": "drawer",
       "size": [
         16,
@@ -3343,8 +3343,8 @@
         }
       }
     },
-    "Next": {
-      "name": "Next",
+    "next": {
+      "name": "next",
       "slug": "next",
       "size": [
         16,
@@ -3509,8 +3509,8 @@
         }
       }
     },
-    "Tablet": {
-      "name": "Tablet",
+    "tablet": {
+      "name": "tablet",
       "slug": "tablet",
       "size": [
         16,
@@ -3675,8 +3675,8 @@
         }
       }
     },
-    "Piano": {
-      "name": "Piano",
+    "piano": {
+      "name": "piano",
       "slug": "piano",
       "size": [
         16,
@@ -3841,8 +3841,8 @@
         }
       }
     },
-    "Flag": {
-      "name": "Flag",
+    "flag": {
+      "name": "flag",
       "slug": "flag",
       "size": [
         16,
@@ -4007,8 +4007,8 @@
         }
       }
     },
-    "Video": {
-      "name": "Video",
+    "video": {
+      "name": "video",
       "slug": "video",
       "size": [
         16,
@@ -4173,8 +4173,8 @@
         }
       }
     },
-    "Balloon": {
-      "name": "Balloon",
+    "balloon": {
+      "name": "balloon",
       "slug": "balloon",
       "size": [
         16,
@@ -4339,8 +4339,8 @@
         }
       }
     },
-    "Movie": {
-      "name": "Movie",
+    "movie": {
+      "name": "movie",
       "slug": "movie",
       "size": [
         16,
@@ -4505,8 +4505,8 @@
         }
       }
     },
-    "Hammer": {
-      "name": "Hammer",
+    "hammer": {
+      "name": "hammer",
       "slug": "hammer",
       "size": [
         16,
@@ -4671,8 +4671,8 @@
         }
       }
     },
-    "Gas": {
-      "name": "Gas",
+    "gas": {
+      "name": "gas",
       "slug": "gas",
       "size": [
         16,
@@ -4837,8 +4837,8 @@
         }
       }
     },
-    "Password": {
-      "name": "Password",
+    "password": {
+      "name": "password",
       "slug": "password",
       "size": [
         16,
@@ -5003,8 +5003,8 @@
         }
       }
     },
-    "Pin": {
-      "name": "Pin",
+    "pin": {
+      "name": "pin",
       "slug": "pin",
       "size": [
         16,
@@ -5169,8 +5169,8 @@
         }
       }
     },
-    "Eye": {
-      "name": "Eye",
+    "eye": {
+      "name": "eye",
       "slug": "eye",
       "size": [
         16,
@@ -5335,8 +5335,8 @@
         }
       }
     },
-    "Macos": {
-      "name": "Macos",
+    "macos": {
+      "name": "macos",
       "slug": "macos",
       "size": [
         16,
@@ -5501,8 +5501,8 @@
         }
       }
     },
-    "Calendar": {
-      "name": "Calendar",
+    "calendar": {
+      "name": "calendar",
       "slug": "calendar",
       "size": [
         16,
@@ -5667,8 +5667,8 @@
         }
       }
     },
-    "Bookmark": {
-      "name": "Bookmark",
+    "bookmark": {
+      "name": "bookmark",
       "slug": "bookmark",
       "size": [
         16,
@@ -5833,8 +5833,8 @@
         }
       }
     },
-    "Calculator": {
-      "name": "Calculator",
+    "calculator": {
+      "name": "calculator",
       "slug": "calculator",
       "size": [
         16,
@@ -5999,8 +5999,8 @@
         }
       }
     },
-    "Record": {
-      "name": "Record",
+    "record": {
+      "name": "record",
       "slug": "record",
       "size": [
         16,
@@ -6165,8 +6165,8 @@
         }
       }
     },
-    "Desk": {
-      "name": "Desk",
+    "desk": {
+      "name": "desk",
       "slug": "desk",
       "size": [
         16,
@@ -6331,8 +6331,8 @@
         }
       }
     },
-    "Hourglass": {
-      "name": "Hourglass",
+    "hourglass": {
+      "name": "hourglass",
       "slug": "hourglass",
       "size": [
         16,
@@ -6497,8 +6497,8 @@
         }
       }
     },
-    "Previous": {
-      "name": "Previous",
+    "previous": {
+      "name": "previous",
       "slug": "previous",
       "size": [
         16,
@@ -6663,8 +6663,8 @@
         }
       }
     },
-    "Clover": {
-      "name": "Clover",
+    "clover": {
+      "name": "clover",
       "slug": "clover",
       "size": [
         16,
@@ -6829,8 +6829,8 @@
         }
       }
     },
-    "Refineui": {
-      "name": "Refineui",
+    "refineui": {
+      "name": "refineui",
       "slug": "refineui",
       "size": [
         16,
@@ -6995,8 +6995,8 @@
         }
       }
     },
-    "Checkmark": {
-      "name": "Checkmark",
+    "checkmark": {
+      "name": "checkmark",
       "slug": "checkmark",
       "size": [
         16,
@@ -7161,8 +7161,8 @@
         }
       }
     },
-    "Chat": {
-      "name": "Chat",
+    "chat": {
+      "name": "chat",
       "slug": "chat",
       "size": [
         16,
@@ -7327,8 +7327,8 @@
         }
       }
     },
-    "Smartwatch": {
-      "name": "Smartwatch",
+    "smartwatch": {
+      "name": "smartwatch",
       "slug": "smartwatch",
       "size": [
         16,
@@ -7493,8 +7493,8 @@
         }
       }
     },
-    "Water": {
-      "name": "Water",
+    "water": {
+      "name": "water",
       "slug": "water",
       "size": [
         16,
@@ -7659,8 +7659,8 @@
         }
       }
     },
-    "Hd": {
-      "name": "Hd",
+    "hd": {
+      "name": "hd",
       "slug": "hd",
       "size": [
         16,
@@ -7825,8 +7825,8 @@
         }
       }
     },
-    "Delete": {
-      "name": "Delete",
+    "delete": {
+      "name": "delete",
       "slug": "delete",
       "size": [
         16,
@@ -7991,8 +7991,8 @@
         }
       }
     },
-    "Board": {
-      "name": "Board",
+    "board": {
+      "name": "board",
       "slug": "board",
       "size": [
         16,
@@ -8157,8 +8157,8 @@
         }
       }
     },
-    "Subtract": {
-      "name": "Subtract",
+    "subtract": {
+      "name": "subtract",
       "slug": "subtract",
       "size": [
         16,
@@ -8323,8 +8323,8 @@
         }
       }
     },
-    "Python": {
-      "name": "Python",
+    "python": {
+      "name": "python",
       "slug": "python",
       "size": [
         16,
@@ -8489,8 +8489,8 @@
         }
       }
     },
-    "Verified": {
-      "name": "Verified",
+    "verified": {
+      "name": "verified",
       "slug": "verified",
       "size": [
         16,
@@ -8655,8 +8655,8 @@
         }
       }
     },
-    "Css": {
-      "name": "Css",
+    "css": {
+      "name": "css",
       "slug": "css",
       "size": [
         16,
@@ -8821,8 +8821,8 @@
         }
       }
     },
-    "Cursor": {
-      "name": "Cursor",
+    "cursor": {
+      "name": "cursor",
       "slug": "cursor",
       "size": [
         16,
@@ -8987,8 +8987,8 @@
         }
       }
     },
-    "Couch": {
-      "name": "Couch",
+    "couch": {
+      "name": "couch",
       "slug": "couch",
       "size": [
         16,
@@ -9153,8 +9153,8 @@
         }
       }
     },
-    "Cpu": {
-      "name": "Cpu",
+    "cpu": {
+      "name": "cpu",
       "slug": "cpu",
       "size": [
         16,
@@ -9319,8 +9319,8 @@
         }
       }
     },
-    "Appstore": {
-      "name": "Appstore",
+    "appstore": {
+      "name": "appstore",
       "slug": "appstore",
       "size": [
         16,
@@ -9485,8 +9485,8 @@
         }
       }
     },
-    "Heart": {
-      "name": "Heart",
+    "heart": {
+      "name": "heart",
       "slug": "heart",
       "size": [
         16,
@@ -9651,8 +9651,8 @@
         }
       }
     },
-    "Wrench": {
-      "name": "Wrench",
+    "wrench": {
+      "name": "wrench",
       "slug": "wrench",
       "size": [
         16,
@@ -9817,8 +9817,8 @@
         }
       }
     },
-    "Highlight": {
-      "name": "Highlight",
+    "highlight": {
+      "name": "highlight",
       "slug": "highlight",
       "size": [
         16,
@@ -9983,8 +9983,8 @@
         }
       }
     },
-    "Washer": {
-      "name": "Washer",
+    "washer": {
+      "name": "washer",
       "slug": "washer",
       "size": [
         16,
@@ -10149,8 +10149,8 @@
         }
       }
     },
-    "Person": {
-      "name": "Person",
+    "person": {
+      "name": "person",
       "slug": "person",
       "size": [
         16,
@@ -10315,8 +10315,8 @@
         }
       }
     },
-    "Dart": {
-      "name": "Dart",
+    "dart": {
+      "name": "dart",
       "slug": "dart",
       "size": [
         16,
@@ -10481,8 +10481,8 @@
         }
       }
     },
-    "Highway": {
-      "name": "Highway",
+    "highway": {
+      "name": "highway",
       "slug": "highway",
       "size": [
         16,
@@ -10647,8 +10647,8 @@
         }
       }
     },
-    "Comment": {
-      "name": "Comment",
+    "comment": {
+      "name": "comment",
       "slug": "comment",
       "size": [
         16,
@@ -10813,8 +10813,8 @@
         }
       }
     },
-    "Mail": {
-      "name": "Mail",
+    "mail": {
+      "name": "mail",
       "slug": "mail",
       "size": [
         16,
@@ -10979,8 +10979,8 @@
         }
       }
     },
-    "Alert": {
-      "name": "Alert",
+    "alert": {
+      "name": "alert",
       "slug": "alert",
       "size": [
         16,
@@ -11145,8 +11145,8 @@
         }
       }
     },
-    "Web": {
-      "name": "Web",
+    "web": {
+      "name": "web",
       "slug": "web",
       "size": [
         16,
@@ -11311,8 +11311,8 @@
         }
       }
     },
-    "Target": {
-      "name": "Target",
+    "target": {
+      "name": "target",
       "slug": "target",
       "size": [
         16,
@@ -11477,8 +11477,8 @@
         }
       }
     },
-    "Mailbox": {
-      "name": "Mailbox",
+    "mailbox": {
+      "name": "mailbox",
       "slug": "mailbox",
       "size": [
         16,
@@ -11643,8 +11643,8 @@
         }
       }
     },
-    "Markdown": {
-      "name": "Markdown",
+    "markdown": {
+      "name": "markdown",
       "slug": "markdown",
       "size": [
         16,
@@ -11809,8 +11809,8 @@
         }
       }
     },
-    "Camera": {
-      "name": "Camera",
+    "camera": {
+      "name": "camera",
       "slug": "camera",
       "size": [
         16,
@@ -11975,8 +11975,8 @@
         }
       }
     },
-    "Location": {
-      "name": "Location",
+    "location": {
+      "name": "location",
       "slug": "location",
       "size": [
         16,
@@ -12141,8 +12141,8 @@
         }
       }
     },
-    "Payment": {
-      "name": "Payment",
+    "payment": {
+      "name": "payment",
       "slug": "payment",
       "size": [
         16,
@@ -12307,8 +12307,8 @@
         }
       }
     },
-    "Trophy": {
-      "name": "Trophy",
+    "trophy": {
+      "name": "trophy",
       "slug": "trophy",
       "size": [
         16,
@@ -12473,8 +12473,8 @@
         }
       }
     },
-    "Square": {
-      "name": "Square",
+    "square": {
+      "name": "square",
       "slug": "square",
       "size": [
         16,
@@ -12639,8 +12639,8 @@
         }
       }
     },
-    "Hdr": {
-      "name": "Hdr",
+    "hdr": {
+      "name": "hdr",
       "slug": "hdr",
       "size": [
         16,
@@ -12805,8 +12805,8 @@
         }
       }
     },
-    "Typescript": {
-      "name": "Typescript",
+    "typescript": {
+      "name": "typescript",
       "slug": "typescript",
       "size": [
         16,
@@ -12971,8 +12971,8 @@
         }
       }
     },
-    "Cube": {
-      "name": "Cube",
+    "cube": {
+      "name": "cube",
       "slug": "cube",
       "size": [
         16,
@@ -13137,8 +13137,8 @@
         }
       }
     },
-    "Moon": {
-      "name": "Moon",
+    "moon": {
+      "name": "moon",
       "slug": "moon",
       "size": [
         16,
@@ -13303,8 +13303,8 @@
         }
       }
     },
-    "Folder": {
-      "name": "Folder",
+    "folder": {
+      "name": "folder",
       "slug": "folder",
       "size": [
         16,
@@ -13469,8 +13469,8 @@
         }
       }
     },
-    "Chart": {
-      "name": "Chart",
+    "chart": {
+      "name": "chart",
       "slug": "chart",
       "size": [
         16,
@@ -13635,8 +13635,8 @@
         }
       }
     },
-    "Doctor": {
-      "name": "Doctor",
+    "doctor": {
+      "name": "doctor",
       "slug": "doctor",
       "size": [
         16,
@@ -13801,8 +13801,8 @@
         }
       }
     },
-    "Timer": {
-      "name": "Timer",
+    "timer": {
+      "name": "timer",
       "slug": "timer",
       "size": [
         16,
@@ -13967,8 +13967,8 @@
         }
       }
     },
-    "Rss": {
-      "name": "Rss",
+    "rss": {
+      "name": "rss",
       "slug": "rss",
       "size": [
         16,
@@ -14133,8 +14133,8 @@
         }
       }
     },
-    "Road": {
-      "name": "Road",
+    "road": {
+      "name": "road",
       "slug": "road",
       "size": [
         16,
@@ -14299,8 +14299,8 @@
         }
       }
     },
-    "Crop": {
-      "name": "Crop",
+    "crop": {
+      "name": "crop",
       "slug": "crop",
       "size": [
         16,
@@ -14465,8 +14465,8 @@
         }
       }
     },
-    "Pulse": {
-      "name": "Pulse",
+    "pulse": {
+      "name": "pulse",
       "slug": "pulse",
       "size": [
         16,
@@ -14631,8 +14631,8 @@
         }
       }
     },
-    "Oven": {
-      "name": "Oven",
+    "oven": {
+      "name": "oven",
       "slug": "oven",
       "size": [
         16,
@@ -14797,8 +14797,8 @@
         }
       }
     },
-    "Code": {
-      "name": "Code",
+    "code": {
+      "name": "code",
       "slug": "code",
       "size": [
         16,
@@ -14963,8 +14963,8 @@
         }
       }
     },
-    "Emoji": {
-      "name": "Emoji",
+    "emoji": {
+      "name": "emoji",
       "slug": "emoji",
       "size": [
         16,
@@ -15129,8 +15129,8 @@
         }
       }
     },
-    "Guitar": {
-      "name": "Guitar",
+    "guitar": {
+      "name": "guitar",
       "slug": "guitar",
       "size": [
         16,
@@ -15295,8 +15295,8 @@
         }
       }
     },
-    "Pentagon": {
-      "name": "Pentagon",
+    "pentagon": {
+      "name": "pentagon",
       "slug": "pentagon",
       "size": [
         16,
@@ -15461,8 +15461,8 @@
         }
       }
     },
-    "Important": {
-      "name": "Important",
+    "important": {
+      "name": "important",
       "slug": "important",
       "size": [
         16,
@@ -15627,8 +15627,8 @@
         }
       }
     },
-    "Mic": {
-      "name": "Mic",
+    "mic": {
+      "name": "mic",
       "slug": "mic",
       "size": [
         16,
@@ -15793,8 +15793,8 @@
         }
       }
     },
-    "Headphones": {
-      "name": "Headphones",
+    "headphones": {
+      "name": "headphones",
       "slug": "headphones",
       "size": [
         16,
@@ -15959,8 +15959,8 @@
         }
       }
     },
-    "Stop": {
-      "name": "Stop",
+    "stop": {
+      "name": "stop",
       "slug": "stop",
       "size": [
         16,
@@ -16125,8 +16125,8 @@
         }
       }
     },
-    "Cone": {
-      "name": "Cone",
+    "cone": {
+      "name": "cone",
       "slug": "cone",
       "size": [
         16,
@@ -16291,8 +16291,8 @@
         }
       }
     },
-    "Desktop": {
-      "name": "Desktop",
+    "desktop": {
+      "name": "desktop",
       "slug": "desktop",
       "size": [
         16,
@@ -16457,8 +16457,8 @@
         }
       }
     },
-    "Server": {
-      "name": "Server",
+    "server": {
+      "name": "server",
       "slug": "server",
       "size": [
         16,
@@ -16623,8 +16623,8 @@
         }
       }
     },
-    "Shapes": {
-      "name": "Shapes",
+    "shapes": {
+      "name": "shapes",
       "slug": "shapes",
       "size": [
         16,
@@ -16789,8 +16789,8 @@
         }
       }
     },
-    "Frame": {
-      "name": "Frame",
+    "frame": {
+      "name": "frame",
       "slug": "frame",
       "size": [
         16,
@@ -16955,8 +16955,8 @@
         }
       }
     },
-    "Comma": {
-      "name": "Comma",
+    "comma": {
+      "name": "comma",
       "slug": "comma",
       "size": [
         16,
@@ -17121,8 +17121,8 @@
         }
       }
     },
-    "Html": {
-      "name": "Html",
+    "html": {
+      "name": "html",
       "slug": "html",
       "size": [
         16,
@@ -17287,8 +17287,8 @@
         }
       }
     },
-    "Kotlin": {
-      "name": "Kotlin",
+    "kotlin": {
+      "name": "kotlin",
       "slug": "kotlin",
       "size": [
         16,
@@ -17453,8 +17453,8 @@
         }
       }
     },
-    "Rewind": {
-      "name": "Rewind",
+    "rewind": {
+      "name": "rewind",
       "slug": "rewind",
       "size": [
         16,
@@ -17619,8 +17619,8 @@
         }
       }
     },
-    "Key": {
-      "name": "Key",
+    "key": {
+      "name": "key",
       "slug": "key",
       "size": [
         16,
@@ -17785,8 +17785,8 @@
         }
       }
     },
-    "Spacebar": {
-      "name": "Spacebar",
+    "spacebar": {
+      "name": "spacebar",
       "slug": "spacebar",
       "size": [
         16,
@@ -17951,8 +17951,8 @@
         }
       }
     },
-    "Hexagon": {
-      "name": "Hexagon",
+    "hexagon": {
+      "name": "hexagon",
       "slug": "hexagon",
       "size": [
         16,
@@ -18117,8 +18117,8 @@
         }
       }
     },
-    "Bug": {
-      "name": "Bug",
+    "bug": {
+      "name": "bug",
       "slug": "bug",
       "size": [
         16,
@@ -18283,8 +18283,8 @@
         }
       }
     },
-    "Document": {
-      "name": "Document",
+    "document": {
+      "name": "document",
       "slug": "document",
       "size": [
         16,
@@ -18449,8 +18449,8 @@
         }
       }
     },
-    "Tab": {
-      "name": "Tab",
+    "tab": {
+      "name": "tab",
       "slug": "tab",
       "size": [
         16,
@@ -18615,8 +18615,8 @@
         }
       }
     },
-    "Tv": {
-      "name": "Tv",
+    "tv": {
+      "name": "tv",
       "slug": "tv",
       "size": [
         16,
@@ -18781,8 +18781,8 @@
         }
       }
     },
-    "Glasses": {
-      "name": "Glasses",
+    "glasses": {
+      "name": "glasses",
       "slug": "glasses",
       "size": [
         16,
@@ -18947,8 +18947,8 @@
         }
       }
     },
-    "Drag": {
-      "name": "Drag",
+    "drag": {
+      "name": "drag",
       "slug": "drag",
       "size": [
         16,
@@ -19113,8 +19113,8 @@
         }
       }
     },
-    "Megaphone": {
-      "name": "Megaphone",
+    "megaphone": {
+      "name": "megaphone",
       "slug": "megaphone",
       "size": [
         16,
@@ -19279,8 +19279,8 @@
         }
       }
     },
-    "Print": {
-      "name": "Print",
+    "print": {
+      "name": "print",
       "slug": "print",
       "size": [
         16,
@@ -19445,8 +19445,8 @@
         }
       }
     },
-    "Ios": {
-      "name": "Ios",
+    "ios": {
+      "name": "ios",
       "slug": "ios",
       "size": [
         16,
@@ -19611,8 +19611,8 @@
         }
       }
     },
-    "Script": {
-      "name": "Script",
+    "script": {
+      "name": "script",
       "slug": "script",
       "size": [
         16,
@@ -19777,8 +19777,8 @@
         }
       }
     },
-    "Image": {
-      "name": "Image",
+    "image": {
+      "name": "image",
       "slug": "image",
       "size": [
         16,
@@ -19943,8 +19943,8 @@
         }
       }
     },
-    "Dentist": {
-      "name": "Dentist",
+    "dentist": {
+      "name": "dentist",
       "slug": "dentist",
       "size": [
         16,
@@ -20109,8 +20109,8 @@
         }
       }
     },
-    "Iot": {
-      "name": "Iot",
+    "iot": {
+      "name": "iot",
       "slug": "iot",
       "size": [
         16,
@@ -20275,8 +20275,8 @@
         }
       }
     },
-    "Scales": {
-      "name": "Scales",
+    "scales": {
+      "name": "scales",
       "slug": "scales",
       "size": [
         16,
@@ -20441,8 +20441,8 @@
         }
       }
     },
-    "Dismiss": {
-      "name": "Dismiss",
+    "dismiss": {
+      "name": "dismiss",
       "slug": "dismiss",
       "size": [
         16,
@@ -20607,8 +20607,8 @@
         }
       }
     },
-    "Tent": {
-      "name": "Tent",
+    "tent": {
+      "name": "tent",
       "slug": "tent",
       "size": [
         16,
@@ -20773,8 +20773,8 @@
         }
       }
     },
-    "Rectangle": {
-      "name": "Rectangle",
+    "rectangle": {
+      "name": "rectangle",
       "slug": "rectangle",
       "size": [
         16,
@@ -20939,8 +20939,8 @@
         }
       }
     },
-    "Gift": {
-      "name": "Gift",
+    "gift": {
+      "name": "gift",
       "slug": "gift",
       "size": [
         16,
@@ -21105,8 +21105,8 @@
         }
       }
     },
-    "Question": {
-      "name": "Question",
+    "question": {
+      "name": "question",
       "slug": "question",
       "size": [
         16,
@@ -21271,8 +21271,8 @@
         }
       }
     },
-    "Search": {
-      "name": "Search",
+    "search": {
+      "name": "search",
       "slug": "search",
       "size": [
         16,
@@ -21437,8 +21437,8 @@
         }
       }
     },
-    "Mouse": {
-      "name": "Mouse",
+    "mouse": {
+      "name": "mouse",
       "slug": "mouse",
       "size": [
         16,
@@ -21603,8 +21603,8 @@
         }
       }
     },
-    "Ribbon": {
-      "name": "Ribbon",
+    "ribbon": {
+      "name": "ribbon",
       "slug": "ribbon",
       "size": [
         16,
@@ -21769,8 +21769,8 @@
         }
       }
     },
-    "Pen": {
-      "name": "Pen",
+    "pen": {
+      "name": "pen",
       "slug": "pen",
       "size": [
         16,
@@ -21935,8 +21935,8 @@
         }
       }
     },
-    "Info": {
-      "name": "Info",
+    "info": {
+      "name": "info",
       "slug": "info",
       "size": [
         16,
@@ -22101,8 +22101,8 @@
         }
       }
     },
-    "Oval": {
-      "name": "Oval",
+    "oval": {
+      "name": "oval",
       "slug": "oval",
       "size": [
         16,
@@ -22267,8 +22267,8 @@
         }
       }
     },
-    "Usb": {
-      "name": "Usb",
+    "usb": {
+      "name": "usb",
       "slug": "usb",
       "size": [
         16,
@@ -22433,8 +22433,8 @@
         }
       }
     },
-    "Edit": {
-      "name": "Edit",
+    "edit": {
+      "name": "edit",
       "slug": "edit",
       "size": [
         16,
@@ -22599,8 +22599,8 @@
         }
       }
     },
-    "Warning": {
-      "name": "Warning",
+    "warning": {
+      "name": "warning",
       "slug": "warning",
       "size": [
         16,
@@ -22765,8 +22765,8 @@
         }
       }
     },
-    "Star": {
-      "name": "Star",
+    "star": {
+      "name": "star",
       "slug": "star",
       "size": [
         16,
@@ -22931,8 +22931,8 @@
         }
       }
     },
-    "Flash": {
-      "name": "Flash",
+    "flash": {
+      "name": "flash",
       "slug": "flash",
       "size": [
         16,
@@ -23097,8 +23097,8 @@
         }
       }
     },
-    "Drop": {
-      "name": "Drop",
+    "drop": {
+      "name": "drop",
       "slug": "drop",
       "size": [
         16,
@@ -23263,8 +23263,8 @@
         }
       }
     },
-    "Map": {
-      "name": "Map",
+    "map": {
+      "name": "map",
       "slug": "map",
       "size": [
         16,
@@ -23429,8 +23429,8 @@
         }
       }
     },
-    "Json": {
-      "name": "Json",
+    "json": {
+      "name": "json",
       "slug": "json",
       "size": [
         16,
@@ -23595,8 +23595,8 @@
         }
       }
     },
-    "Layer": {
-      "name": "Layer",
+    "layer": {
+      "name": "layer",
       "slug": "layer",
       "size": [
         16,
@@ -23761,8 +23761,8 @@
         }
       }
     },
-    "Fire": {
-      "name": "Fire",
+    "fire": {
+      "name": "fire",
       "slug": "fire",
       "size": [
         16,
@@ -23927,8 +23927,8 @@
         }
       }
     },
-    "Add": {
-      "name": "Add",
+    "add": {
+      "name": "add",
       "slug": "add",
       "size": [
         16,
@@ -24093,8 +24093,8 @@
         }
       }
     },
-    "Thinking": {
-      "name": "Thinking",
+    "thinking": {
+      "name": "thinking",
       "slug": "thinking",
       "size": [
         16,
@@ -24259,8 +24259,8 @@
         }
       }
     },
-    "Incognito": {
-      "name": "Incognito",
+    "incognito": {
+      "name": "incognito",
       "slug": "incognito",
       "size": [
         16,
@@ -24425,8 +24425,8 @@
         }
       }
     },
-    "Link": {
-      "name": "Link",
+    "link": {
+      "name": "link",
       "slug": "link",
       "size": [
         16,
@@ -24591,8 +24591,8 @@
         }
       }
     },
-    "News": {
-      "name": "News",
+    "news": {
+      "name": "news",
       "slug": "news",
       "size": [
         16,
@@ -24757,8 +24757,8 @@
         }
       }
     },
-    "Opacity": {
-      "name": "Opacity",
+    "opacity": {
+      "name": "opacity",
       "slug": "opacity",
       "size": [
         16,
@@ -24923,8 +24923,8 @@
         }
       }
     },
-    "Line": {
-      "name": "Line",
+    "line": {
+      "name": "line",
       "slug": "line",
       "size": [
         16,
@@ -25089,8 +25089,8 @@
         }
       }
     },
-    "Rhombus": {
-      "name": "Rhombus",
+    "rhombus": {
+      "name": "rhombus",
       "slug": "rhombus",
       "size": [
         16,
@@ -25255,8 +25255,8 @@
         }
       }
     },
-    "Ruler": {
-      "name": "Ruler",
+    "ruler": {
+      "name": "ruler",
       "slug": "ruler",
       "size": [
         16,
@@ -25421,8 +25421,8 @@
         }
       }
     },
-    "Swift": {
-      "name": "Swift",
+    "swift": {
+      "name": "swift",
       "slug": "swift",
       "size": [
         16,
@@ -25587,8 +25587,8 @@
         }
       }
     },
-    "Earth": {
-      "name": "Earth",
+    "earth": {
+      "name": "earth",
       "slug": "earth",
       "size": [
         16,
@@ -25753,8 +25753,8 @@
         }
       }
     },
-    "Blur": {
-      "name": "Blur",
+    "blur": {
+      "name": "blur",
       "slug": "blur",
       "size": [
         16,
@@ -25919,8 +25919,8 @@
         }
       }
     },
-    "Bluetooth": {
-      "name": "Bluetooth",
+    "bluetooth": {
+      "name": "bluetooth",
       "slug": "bluetooth",
       "size": [
         16,
@@ -26085,8 +26085,8 @@
         }
       }
     },
-    "Android": {
-      "name": "Android",
+    "android": {
+      "name": "android",
       "slug": "android",
       "size": [
         16,
@@ -26251,8 +26251,8 @@
         }
       }
     },
-    "Airplane": {
-      "name": "Airplane",
+    "airplane": {
+      "name": "airplane",
       "slug": "airplane",
       "size": [
         16,
@@ -26417,8 +26417,8 @@
         }
       }
     },
-    "Toolbox": {
-      "name": "Toolbox",
+    "toolbox": {
+      "name": "toolbox",
       "slug": "toolbox",
       "size": [
         16,
@@ -26583,8 +26583,8 @@
         }
       }
     },
-    "Guest": {
-      "name": "Guest",
+    "guest": {
+      "name": "guest",
       "slug": "guest",
       "size": [
         16,
@@ -26749,8 +26749,8 @@
         }
       }
     },
-    "Cloud": {
-      "name": "Cloud",
+    "cloud": {
+      "name": "cloud",
       "slug": "cloud",
       "size": [
         16,
@@ -26915,8 +26915,8 @@
         }
       }
     },
-    "Cut": {
-      "name": "Cut",
+    "cut": {
+      "name": "cut",
       "slug": "cut",
       "size": [
         16,
@@ -27081,8 +27081,8 @@
         }
       }
     },
-    "Book": {
-      "name": "Book",
+    "book": {
+      "name": "book",
       "slug": "book",
       "size": [
         16,
@@ -27247,8 +27247,8 @@
         }
       }
     },
-    "Umbrella": {
-      "name": "Umbrella",
+    "umbrella": {
+      "name": "umbrella",
       "slug": "umbrella",
       "size": [
         16,
@@ -27413,8 +27413,8 @@
         }
       }
     },
-    "Wallet": {
-      "name": "Wallet",
+    "wallet": {
+      "name": "wallet",
       "slug": "wallet",
       "size": [
         16,
@@ -27579,8 +27579,8 @@
         }
       }
     },
-    "Cart": {
-      "name": "Cart",
+    "cart": {
+      "name": "cart",
       "slug": "cart",
       "size": [
         16,
@@ -27745,8 +27745,8 @@
         }
       }
     },
-    "Phone": {
-      "name": "Phone",
+    "phone": {
+      "name": "phone",
       "slug": "phone",
       "size": [
         16,
@@ -27911,8 +27911,8 @@
         }
       }
     },
-    "Padding": {
-      "name": "Padding",
+    "padding": {
+      "name": "padding",
       "slug": "padding",
       "size": [
         16,
@@ -28077,8 +28077,8 @@
         }
       }
     },
-    "Zoom": {
-      "name": "Zoom",
+    "zoom": {
+      "name": "zoom",
       "slug": "zoom",
       "size": [
         16,
@@ -28243,8 +28243,8 @@
         }
       }
     },
-    "Ticket": {
-      "name": "Ticket",
+    "ticket": {
+      "name": "ticket",
       "slug": "ticket",
       "size": [
         16,
@@ -28409,8 +28409,8 @@
         }
       }
     },
-    "Equal": {
-      "name": "Equal",
+    "equal": {
+      "name": "equal",
       "slug": "equal",
       "size": [
         16,
@@ -28575,8 +28575,8 @@
         }
       }
     },
-    "Backspace": {
-      "name": "Backspace",
+    "backspace": {
+      "name": "backspace",
       "slug": "backspace",
       "size": [
         16,
@@ -28741,8 +28741,8 @@
         }
       }
     },
-    "Chess": {
-      "name": "Chess",
+    "chess": {
+      "name": "chess",
       "slug": "chess",
       "size": [
         16,
@@ -28907,8 +28907,8 @@
         }
       }
     },
-    "Flashlight": {
-      "name": "Flashlight",
+    "flashlight": {
+      "name": "flashlight",
       "slug": "flashlight",
       "size": [
         16,
@@ -29073,8 +29073,8 @@
         }
       }
     },
-    "Kiosk": {
-      "name": "Kiosk",
+    "kiosk": {
+      "name": "kiosk",
       "slug": "kiosk",
       "size": [
         16,
@@ -29239,8 +29239,8 @@
         }
       }
     },
-    "Copy": {
-      "name": "Copy",
+    "copy": {
+      "name": "copy",
       "slug": "copy",
       "size": [
         16,
@@ -29405,8 +29405,8 @@
         }
       }
     },
-    "Circle": {
-      "name": "Circle",
+    "circle": {
+      "name": "circle",
       "slug": "circle",
       "size": [
         16,
@@ -29571,8 +29571,8 @@
         }
       }
     },
-    "Dialpad": {
-      "name": "Dialpad",
+    "dialpad": {
+      "name": "dialpad",
       "slug": "dialpad",
       "size": [
         16,
@@ -29737,8 +29737,8 @@
         }
       }
     },
-    "Voicemail": {
-      "name": "Voicemail",
+    "voicemail": {
+      "name": "voicemail",
       "slug": "voicemail",
       "size": [
         16,
@@ -29903,8 +29903,8 @@
         }
       }
     },
-    "Contrast": {
-      "name": "Contrast",
+    "contrast": {
+      "name": "contrast",
       "slug": "contrast",
       "size": [
         16,
@@ -30069,8 +30069,8 @@
         }
       }
     },
-    "Cookie": {
-      "name": "Cookie",
+    "cookie": {
+      "name": "cookie",
       "slug": "cookie",
       "size": [
         16,
@@ -30235,8 +30235,8 @@
         }
       }
     },
-    "Lightbulb": {
-      "name": "Lightbulb",
+    "lightbulb": {
+      "name": "lightbulb",
       "slug": "lightbulb",
       "size": [
         16,
@@ -30401,8 +30401,8 @@
         }
       }
     },
-    "Rocket": {
-      "name": "Rocket",
+    "rocket": {
+      "name": "rocket",
       "slug": "rocket",
       "size": [
         16,
@@ -30567,8 +30567,8 @@
         }
       }
     },
-    "Text": {
-      "name": "Text",
+    "text": {
+      "name": "text",
       "slug": "text",
       "size": [
         16,
@@ -30733,8 +30733,8 @@
         }
       }
     },
-    "Joystick": {
-      "name": "Joystick",
+    "joystick": {
+      "name": "joystick",
       "slug": "joystick",
       "size": [
         16,
@@ -30899,8 +30899,8 @@
         }
       }
     },
-    "Backpack": {
-      "name": "Backpack",
+    "backpack": {
+      "name": "backpack",
       "slug": "backpack",
       "size": [
         16,
@@ -31065,8 +31065,8 @@
         }
       }
     },
-    "Notebook": {
-      "name": "Notebook",
+    "notebook": {
+      "name": "notebook",
       "slug": "notebook",
       "size": [
         16,
@@ -31231,8 +31231,8 @@
         }
       }
     },
-    "Javascript": {
-      "name": "Javascript",
+    "javascript": {
+      "name": "javascript",
       "slug": "javascript",
       "size": [
         16,
@@ -31397,8 +31397,8 @@
         }
       }
     },
-    "Filter": {
-      "name": "Filter",
+    "filter": {
+      "name": "filter",
       "slug": "filter",
       "size": [
         16,
@@ -31563,8 +31563,8 @@
         }
       }
     },
-    "Run": {
-      "name": "Run",
+    "run": {
+      "name": "run",
       "slug": "run",
       "size": [
         16,
@@ -31729,8 +31729,8 @@
         }
       }
     },
-    "Laptop": {
-      "name": "Laptop",
+    "laptop": {
+      "name": "laptop",
       "slug": "laptop",
       "size": [
         16,
@@ -31895,8 +31895,8 @@
         }
       }
     },
-    "Windows": {
-      "name": "Windows",
+    "windows": {
+      "name": "windows",
       "slug": "windows",
       "size": [
         16,
@@ -32061,8 +32061,8 @@
         }
       }
     },
-    "Eyedropper": {
-      "name": "Eyedropper",
+    "eyedropper": {
+      "name": "eyedropper",
       "slug": "eyedropper",
       "size": [
         16,
@@ -32227,8 +32227,8 @@
         }
       }
     },
-    "Play": {
-      "name": "Play",
+    "play": {
+      "name": "play",
       "slug": "play",
       "size": [
         16,
@@ -32393,8 +32393,8 @@
         }
       }
     },
-    "Rotation": {
-      "name": "Rotation",
+    "rotation": {
+      "name": "rotation",
       "slug": "rotation",
       "size": [
         16,
@@ -32559,8 +32559,8 @@
         }
       }
     },
-    "Parallelogram": {
-      "name": "Parallelogram",
+    "parallelogram": {
+      "name": "parallelogram",
       "slug": "parallelogram",
       "size": [
         16,
@@ -32725,8 +32725,8 @@
         }
       }
     },
-    "Temperature": {
-      "name": "Temperature",
+    "temperature": {
+      "name": "temperature",
       "slug": "temperature",
       "size": [
         16,
@@ -32891,8 +32891,8 @@
         }
       }
     },
-    "Sim": {
-      "name": "Sim",
+    "sim": {
+      "name": "sim",
       "slug": "sim",
       "size": [
         16,
@@ -33057,8 +33057,8 @@
         }
       }
     },
-    "Accessibility": {
-      "name": "Accessibility",
+    "accessibility": {
+      "name": "accessibility",
       "slug": "accessibility",
       "size": [
         16,
@@ -33223,8 +33223,8 @@
         }
       }
     },
-    "Save": {
-      "name": "Save",
+    "save": {
+      "name": "save",
       "slug": "save",
       "size": [
         16,
@@ -33389,8 +33389,8 @@
         }
       }
     },
-    "Playstore": {
-      "name": "Playstore",
+    "playstore": {
+      "name": "playstore",
       "slug": "playstore",
       "size": [
         16,
@@ -33555,8 +33555,8 @@
         }
       }
     },
-    "Elevator": {
-      "name": "Elevator",
+    "elevator": {
+      "name": "elevator",
       "slug": "elevator",
       "size": [
         16,
@@ -33721,8 +33721,8 @@
         }
       }
     },
-    "Send": {
-      "name": "Send",
+    "send": {
+      "name": "send",
       "slug": "send",
       "size": [
         16,
@@ -33887,8 +33887,8 @@
         }
       }
     },
-    "Album": {
-      "name": "Album",
+    "album": {
+      "name": "album",
       "slug": "album",
       "size": [
         16,
@@ -34053,8 +34053,8 @@
         }
       }
     },
-    "Engine": {
-      "name": "Engine",
+    "engine": {
+      "name": "engine",
       "slug": "engine",
       "size": [
         16,
@@ -34219,8 +34219,8 @@
         }
       }
     },
-    "Games": {
-      "name": "Games",
+    "games": {
+      "name": "games",
       "slug": "games",
       "size": [
         16,
@@ -34385,8 +34385,8 @@
         }
       }
     },
-    "Textbox": {
-      "name": "Textbox",
+    "textbox": {
+      "name": "textbox",
       "slug": "textbox",
       "size": [
         16,
@@ -34551,8 +34551,8 @@
         }
       }
     },
-    "Tag": {
-      "name": "Tag",
+    "tag": {
+      "name": "tag",
       "slug": "tag",
       "size": [
         16,
@@ -34717,8 +34717,8 @@
         }
       }
     },
-    "Global": {
-      "name": "Global",
+    "global": {
+      "name": "global",
       "slug": "global",
       "size": [
         16,
@@ -34883,8 +34883,8 @@
         }
       }
     },
-    "Wand": {
-      "name": "Wand",
+    "wand": {
+      "name": "wand",
       "slug": "wand",
       "size": [
         16,
@@ -35049,8 +35049,8 @@
         }
       }
     },
-    "Notepad": {
-      "name": "Notepad",
+    "notepad": {
+      "name": "notepad",
       "slug": "notepad",
       "size": [
         16,
@@ -35215,8 +35215,8 @@
         }
       }
     },
-    "Open": {
-      "name": "Open",
+    "open": {
+      "name": "open",
       "slug": "open",
       "size": [
         16,
@@ -35381,8 +35381,8 @@
         }
       }
     },
-    "Git": {
-      "name": "Git",
+    "git": {
+      "name": "git",
       "slug": "git",
       "size": [
         16,
@@ -35547,8 +35547,8 @@
         }
       }
     },
-    "Xray": {
-      "name": "Xray",
+    "xray": {
+      "name": "xray",
       "slug": "xray",
       "size": [
         16,
@@ -35713,8 +35713,8 @@
         }
       }
     },
-    "Keyboard": {
-      "name": "Keyboard",
+    "keyboard": {
+      "name": "keyboard",
       "slug": "keyboard",
       "size": [
         16,
@@ -35879,8 +35879,8 @@
         }
       }
     },
-    "Clock": {
-      "name": "Clock",
+    "clock": {
+      "name": "clock",
       "slug": "clock",
       "size": [
         16,
@@ -36045,8 +36045,8 @@
         }
       }
     },
-    "Ram": {
-      "name": "Ram",
+    "ram": {
+      "name": "ram",
       "slug": "ram",
       "size": [
         16,
@@ -36211,8 +36211,8 @@
         }
       }
     },
-    "Door": {
-      "name": "Door",
+    "door": {
+      "name": "door",
       "slug": "door",
       "size": [
         16,
@@ -36377,8 +36377,8 @@
         }
       }
     },
-    "Block": {
-      "name": "Block",
+    "block": {
+      "name": "block",
       "slug": "block",
       "size": [
         16,
@@ -36543,8 +36543,8 @@
         }
       }
     },
-    "Share": {
-      "name": "Share",
+    "share": {
+      "name": "share",
       "slug": "share",
       "size": [
         16,
@@ -36709,8 +36709,8 @@
         }
       }
     },
-    "Gif": {
-      "name": "Gif",
+    "gif": {
+      "name": "gif",
       "slug": "gif",
       "size": [
         16,
@@ -36875,8 +36875,8 @@
         }
       }
     },
-    "Grid": {
-      "name": "Grid",
+    "grid": {
+      "name": "grid",
       "slug": "grid",
       "size": [
         16,
@@ -37041,8 +37041,8 @@
         }
       }
     },
-    "Badge": {
-      "name": "Badge",
+    "badge": {
+      "name": "badge",
       "slug": "badge",
       "size": [
         16,
@@ -37207,8 +37207,8 @@
         }
       }
     },
-    "Clipboard": {
-      "name": "Clipboard",
+    "clipboard": {
+      "name": "clipboard",
       "slug": "clipboard",
       "size": [
         16,
@@ -37373,8 +37373,8 @@
         }
       }
     },
-    "Router": {
-      "name": "Router",
+    "router": {
+      "name": "router",
       "slug": "router",
       "size": [
         16,
@@ -37539,8 +37539,8 @@
         }
       }
     },
-    "Dumbbell": {
-      "name": "Dumbbell",
+    "dumbbell": {
+      "name": "dumbbell",
       "slug": "dumbbell",
       "size": [
         16,
@@ -37705,8 +37705,8 @@
         }
       }
     },
-    "Code block": {
-      "name": "Code block",
+    "code-block": {
+      "name": "code-block",
       "slug": "code-block",
       "size": [
         16,
@@ -37798,8 +37798,8 @@
         }
       }
     },
-    "Full screen minimize": {
-      "name": "Full screen minimize",
+    "full-screen-minimize": {
+      "name": "full-screen-minimize",
       "slug": "full-screen-minimize",
       "size": [
         16,
@@ -37891,8 +37891,8 @@
         }
       }
     },
-    "Shell script": {
-      "name": "Shell script",
+    "shell-script": {
+      "name": "shell-script",
       "slug": "shell-script",
       "size": [
         16,
@@ -37984,8 +37984,8 @@
         }
       }
     },
-    "Port usb c": {
-      "name": "Port usb c",
+    "port-usb-c": {
+      "name": "port-usb-c",
       "slug": "port-usb-c",
       "size": [
         16,
@@ -38077,8 +38077,8 @@
         }
       }
     },
-    "Keyboard shift uppercase": {
-      "name": "Keyboard shift uppercase",
+    "keyboard-shift-uppercase": {
+      "name": "keyboard-shift-uppercase",
       "slug": "keyboard-shift-uppercase",
       "size": [
         16,
@@ -38170,8 +38170,8 @@
         }
       }
     },
-    "Line horizontal 1": {
-      "name": "Line horizontal 1",
+    "line-horizontal-1": {
+      "name": "line-horizontal-1",
       "slug": "line-horizontal-1",
       "size": [
         16,
@@ -38263,8 +38263,8 @@
         }
       }
     },
-    "Preview link": {
-      "name": "Preview link",
+    "preview-link": {
+      "name": "preview-link",
       "slug": "preview-link",
       "size": [
         16,
@@ -38356,8 +38356,8 @@
         }
       }
     },
-    "Flip verticial": {
-      "name": "Flip verticial",
+    "flip-verticial": {
+      "name": "flip-verticial",
       "slug": "flip-verticial",
       "size": [
         16,
@@ -38449,8 +38449,8 @@
         }
       }
     },
-    "More verticial": {
-      "name": "More verticial",
+    "more-verticial": {
+      "name": "more-verticial",
       "slug": "more-verticial",
       "size": [
         16,
@@ -38542,8 +38542,8 @@
         }
       }
     },
-    "App folder": {
-      "name": "App folder",
+    "app-folder": {
+      "name": "app-folder",
       "slug": "app-folder",
       "size": [
         16,
@@ -38635,8 +38635,8 @@
         }
       }
     },
-    "Lock closed": {
-      "name": "Lock closed",
+    "lock-closed": {
+      "name": "lock-closed",
       "slug": "lock-closed",
       "size": [
         16,
@@ -38728,8 +38728,8 @@
         }
       }
     },
-    "Number symbol": {
-      "name": "Number symbol",
+    "number-symbol": {
+      "name": "number-symbol",
       "slug": "number-symbol",
       "size": [
         16,
@@ -38821,8 +38821,8 @@
         }
       }
     },
-    "Edit off": {
-      "name": "Edit off",
+    "edit-off": {
+      "name": "edit-off",
       "slug": "edit-off",
       "size": [
         16,
@@ -38914,8 +38914,8 @@
         }
       }
     },
-    "More circle": {
-      "name": "More circle",
+    "more-circle": {
+      "name": "more-circle",
       "slug": "more-circle",
       "size": [
         16,
@@ -39007,8 +39007,8 @@
         }
       }
     },
-    "Chevron left": {
-      "name": "Chevron left",
+    "chevron-left": {
+      "name": "chevron-left",
       "slug": "chevron-left",
       "size": [
         16,
@@ -39100,8 +39100,8 @@
         }
       }
     },
-    "Open off": {
-      "name": "Open off",
+    "open-off": {
+      "name": "open-off",
       "slug": "open-off",
       "size": [
         16,
@@ -39193,8 +39193,8 @@
         }
       }
     },
-    "Serial port": {
-      "name": "Serial port",
+    "serial-port": {
+      "name": "serial-port",
       "slug": "serial-port",
       "size": [
         16,
@@ -39286,8 +39286,8 @@
         }
       }
     },
-    "Zoom out": {
-      "name": "Zoom out",
+    "zoom-out": {
+      "name": "zoom-out",
       "slug": "zoom-out",
       "size": [
         16,
@@ -39379,8 +39379,8 @@
         }
       }
     },
-    "Battery 80": {
-      "name": "Battery 80",
+    "battery-80": {
+      "name": "battery-80",
       "slug": "battery-80",
       "size": [
         16,
@@ -39472,8 +39472,8 @@
         }
       }
     },
-    "Fast forward": {
-      "name": "Fast forward",
+    "fast-forward": {
+      "name": "fast-forward",
       "slug": "fast-forward",
       "size": [
         16,
@@ -39565,8 +39565,8 @@
         }
       }
     },
-    "Add square": {
-      "name": "Add square",
+    "add-square": {
+      "name": "add-square",
       "slug": "add-square",
       "size": [
         16,
@@ -39658,8 +39658,8 @@
         }
       }
     },
-    "Battery 20": {
-      "name": "Battery 20",
+    "battery-20": {
+      "name": "battery-20",
       "slug": "battery-20",
       "size": [
         16,
@@ -39751,8 +39751,8 @@
         }
       }
     },
-    "Textbox align bottom left": {
-      "name": "Textbox align bottom left",
+    "textbox-align-bottom-left": {
+      "name": "textbox-align-bottom-left",
       "slug": "textbox-align-bottom-left",
       "size": [
         16,
@@ -39844,8 +39844,8 @@
         }
       }
     },
-    "Weather snow": {
-      "name": "Weather snow",
+    "weather-snow": {
+      "name": "weather-snow",
       "slug": "weather-snow",
       "size": [
         16,
@@ -39937,8 +39937,8 @@
         }
       }
     },
-    "Toggle multiple": {
-      "name": "Toggle multiple",
+    "toggle-multiple": {
+      "name": "toggle-multiple",
       "slug": "toggle-multiple",
       "size": [
         16,
@@ -40030,8 +40030,8 @@
         }
       }
     },
-    "Pulse square": {
-      "name": "Pulse square",
+    "pulse-square": {
+      "name": "pulse-square",
       "slug": "pulse-square",
       "size": [
         16,
@@ -40123,8 +40123,8 @@
         }
       }
     },
-    "Slide layout": {
-      "name": "Slide layout",
+    "slide-layout": {
+      "name": "slide-layout",
       "slug": "slide-layout",
       "size": [
         16,
@@ -40216,8 +40216,8 @@
         }
       }
     },
-    "Video play pause": {
-      "name": "Video play pause",
+    "video-play-pause": {
+      "name": "video-play-pause",
       "slug": "video-play-pause",
       "size": [
         16,
@@ -40309,8 +40309,8 @@
         }
       }
     },
-    "Textbox align bottom": {
-      "name": "Textbox align bottom",
+    "textbox-align-bottom": {
+      "name": "textbox-align-bottom",
       "slug": "textbox-align-bottom",
       "size": [
         16,
@@ -40402,8 +40402,8 @@
         }
       }
     },
-    "Usb cable": {
-      "name": "Usb cable",
+    "usb-cable": {
+      "name": "usb-cable",
       "slug": "usb-cable",
       "size": [
         16,
@@ -40495,8 +40495,8 @@
         }
       }
     },
-    "Battery 10": {
-      "name": "Battery 10",
+    "battery-10": {
+      "name": "battery-10",
       "slug": "battery-10",
       "size": [
         16,
@@ -40588,8 +40588,8 @@
         }
       }
     },
-    "Location arrow": {
-      "name": "Location arrow",
+    "location-arrow": {
+      "name": "location-arrow",
       "slug": "location-arrow",
       "size": [
         16,
@@ -40681,8 +40681,8 @@
         }
       }
     },
-    "Emoji sad": {
-      "name": "Emoji sad",
+    "emoji-sad": {
+      "name": "emoji-sad",
       "slug": "emoji-sad",
       "size": [
         16,
@@ -40774,8 +40774,8 @@
         }
       }
     },
-    "Full screen maximize": {
-      "name": "Full screen maximize",
+    "full-screen-maximize": {
+      "name": "full-screen-maximize",
       "slug": "full-screen-maximize",
       "size": [
         16,
@@ -40867,8 +40867,8 @@
         }
       }
     },
-    "Sport basketball": {
-      "name": "Sport basketball",
+    "sport-basketball": {
+      "name": "sport-basketball",
       "slug": "sport-basketball",
       "size": [
         16,
@@ -40960,8 +40960,8 @@
         }
       }
     },
-    "Record stop": {
-      "name": "Record stop",
+    "record-stop": {
+      "name": "record-stop",
       "slug": "record-stop",
       "size": [
         16,
@@ -41053,8 +41053,8 @@
         }
       }
     },
-    "Emoji angry": {
-      "name": "Emoji angry",
+    "emoji-angry": {
+      "name": "emoji-angry",
       "slug": "emoji-angry",
       "size": [
         16,
@@ -41146,8 +41146,8 @@
         }
       }
     },
-    "Gantt chart": {
-      "name": "Gantt chart",
+    "gantt-chart": {
+      "name": "gantt-chart",
       "slug": "gantt-chart",
       "size": [
         16,
@@ -41239,8 +41239,8 @@
         }
       }
     },
-    "Flip horizontal": {
-      "name": "Flip horizontal",
+    "flip-horizontal": {
+      "name": "flip-horizontal",
       "slug": "flip-horizontal",
       "size": [
         16,
@@ -41332,8 +41332,8 @@
         }
       }
     },
-    "Hdr off": {
-      "name": "Hdr off",
+    "hdr-off": {
+      "name": "hdr-off",
       "slug": "hdr-off",
       "size": [
         16,
@@ -41425,8 +41425,8 @@
         }
       }
     },
-    "Headphones mic": {
-      "name": "Headphones mic",
+    "headphones-mic": {
+      "name": "headphones-mic",
       "slug": "headphones-mic",
       "size": [
         16,
@@ -41518,8 +41518,8 @@
         }
       }
     },
-    "Align right": {
-      "name": "Align right",
+    "align-right": {
+      "name": "align-right",
       "slug": "align-right",
       "size": [
         16,
@@ -41611,8 +41611,8 @@
         }
       }
     },
-    "Number circle 9": {
-      "name": "Number circle 9",
+    "number-circle-9": {
+      "name": "number-circle-9",
       "slug": "number-circle-9",
       "size": [
         16,
@@ -41704,8 +41704,8 @@
         }
       }
     },
-    "Number circle 0": {
-      "name": "Number circle 0",
+    "number-circle-0": {
+      "name": "number-circle-0",
       "slug": "number-circle-0",
       "size": [
         16,
@@ -41797,8 +41797,8 @@
         }
       }
     },
-    "Barcode scanner": {
-      "name": "Barcode scanner",
+    "barcode-scanner": {
+      "name": "barcode-scanner",
       "slug": "barcode-scanner",
       "size": [
         16,
@@ -41890,8 +41890,8 @@
         }
       }
     },
-    "Local language": {
-      "name": "Local language",
+    "local-language": {
+      "name": "local-language",
       "slug": "local-language",
       "size": [
         16,
@@ -41983,8 +41983,8 @@
         }
       }
     },
-    "Slide eraser": {
-      "name": "Slide eraser",
+    "slide-eraser": {
+      "name": "slide-eraser",
       "slug": "slide-eraser",
       "size": [
         16,
@@ -42076,8 +42076,8 @@
         }
       }
     },
-    "Shape union": {
-      "name": "Shape union",
+    "shape-union": {
+      "name": "shape-union",
       "slug": "shape-union",
       "size": [
         16,
@@ -42169,8 +42169,8 @@
         }
       }
     },
-    "Number circle 7": {
-      "name": "Number circle 7",
+    "number-circle-7": {
+      "name": "number-circle-7",
       "slug": "number-circle-7",
       "size": [
         16,
@@ -42262,8 +42262,8 @@
         }
       }
     },
-    "Battery 50": {
-      "name": "Battery 50",
+    "battery-50": {
+      "name": "battery-50",
       "slug": "battery-50",
       "size": [
         16,
@@ -42355,8 +42355,8 @@
         }
       }
     },
-    "Ios chevron ltr": {
-      "name": "Ios chevron ltr",
+    "ios-chevron-ltr": {
+      "name": "ios-chevron-ltr",
       "slug": "ios-chevron-ltr",
       "size": [
         16,
@@ -42448,8 +42448,8 @@
         }
       }
     },
-    "Bar chart horizontal descending": {
-      "name": "Bar chart horizontal descending",
+    "bar-chart-horizontal-descending": {
+      "name": "bar-chart-horizontal-descending",
       "slug": "bar-chart-horizontal-descending",
       "size": [
         16,
@@ -42541,8 +42541,8 @@
         }
       }
     },
-    "Emoji laugh": {
-      "name": "Emoji laugh",
+    "emoji-laugh": {
+      "name": "emoji-laugh",
       "slug": "emoji-laugh",
       "size": [
         16,
@@ -42634,8 +42634,8 @@
         }
       }
     },
-    "Emoji grimacing": {
-      "name": "Emoji grimacing",
+    "emoji-grimacing": {
+      "name": "emoji-grimacing",
       "slug": "emoji-grimacing",
       "size": [
         16,
@@ -42727,8 +42727,8 @@
         }
       }
     },
-    "Dismiss circle": {
-      "name": "Dismiss circle",
+    "dismiss-circle": {
+      "name": "dismiss-circle",
       "slug": "dismiss-circle",
       "size": [
         16,
@@ -42820,8 +42820,8 @@
         }
       }
     },
-    "Slide add": {
-      "name": "Slide add",
+    "slide-add": {
+      "name": "slide-add",
       "slug": "slide-add",
       "size": [
         16,
@@ -42913,8 +42913,8 @@
         }
       }
     },
-    "Square multiple": {
-      "name": "Square multiple",
+    "square-multiple": {
+      "name": "square-multiple",
       "slug": "square-multiple",
       "size": [
         16,
@@ -43006,8 +43006,8 @@
         }
       }
     },
-    "Chat add": {
-      "name": "Chat add",
+    "chat-add": {
+      "name": "chat-add",
       "slug": "chat-add",
       "size": [
         16,
@@ -43099,8 +43099,8 @@
         }
       }
     },
-    "Number symbol circle": {
-      "name": "Number symbol circle",
+    "number-symbol-circle": {
+      "name": "number-symbol-circle",
       "slug": "number-symbol-circle",
       "size": [
         16,
@@ -43192,8 +43192,8 @@
         }
       }
     },
-    "More horizontal": {
-      "name": "More horizontal",
+    "more-horizontal": {
+      "name": "more-horizontal",
       "slug": "more-horizontal",
       "size": [
         16,
@@ -43285,8 +43285,8 @@
         }
       }
     },
-    "Number circle 6": {
-      "name": "Number circle 6",
+    "number-circle-6": {
+      "name": "number-circle-6",
       "slug": "number-circle-6",
       "size": [
         16,
@@ -43378,8 +43378,8 @@
         }
       }
     },
-    "Chevron up": {
-      "name": "Chevron up",
+    "chevron-up": {
+      "name": "chevron-up",
       "slug": "chevron-up",
       "size": [
         16,
@@ -43471,8 +43471,8 @@
         }
       }
     },
-    "Number circle 1": {
-      "name": "Number circle 1",
+    "number-circle-1": {
+      "name": "number-circle-1",
       "slug": "number-circle-1",
       "size": [
         16,
@@ -43564,8 +43564,8 @@
         }
       }
     },
-    "Line horizontal 1 dashes": {
-      "name": "Line horizontal 1 dashes",
+    "line-horizontal-1-dashes": {
+      "name": "line-horizontal-1-dashes",
       "slug": "line-horizontal-1-dashes",
       "size": [
         16,
@@ -43657,8 +43657,8 @@
         }
       }
     },
-    "Access time": {
-      "name": "Access time",
+    "access-time": {
+      "name": "access-time",
       "slug": "access-time",
       "size": [
         16,
@@ -43750,8 +43750,8 @@
         }
       }
     },
-    "Textbox align top right": {
-      "name": "Textbox align top right",
+    "textbox-align-top-right": {
+      "name": "textbox-align-top-right",
       "slug": "textbox-align-top-right",
       "size": [
         16,
@@ -43843,8 +43843,8 @@
         }
       }
     },
-    "Battery 60": {
-      "name": "Battery 60",
+    "battery-60": {
+      "name": "battery-60",
       "slug": "battery-60",
       "size": [
         16,
@@ -43936,8 +43936,8 @@
         }
       }
     },
-    "Number circle 8": {
-      "name": "Number circle 8",
+    "number-circle-8": {
+      "name": "number-circle-8",
       "slug": "number-circle-8",
       "size": [
         16,
@@ -44029,8 +44029,8 @@
         }
       }
     },
-    "Eye off": {
-      "name": "Eye off",
+    "eye-off": {
+      "name": "eye-off",
       "slug": "eye-off",
       "size": [
         16,
@@ -44122,8 +44122,8 @@
         }
       }
     },
-    "Sport soccer": {
-      "name": "Sport soccer",
+    "sport-soccer": {
+      "name": "sport-soccer",
       "slug": "sport-soccer",
       "size": [
         16,
@@ -44215,8 +44215,8 @@
         }
       }
     },
-    "Keyboard tab": {
-      "name": "Keyboard tab",
+    "keyboard-tab": {
+      "name": "keyboard-tab",
       "slug": "keyboard-tab",
       "size": [
         16,
@@ -44308,8 +44308,8 @@
         }
       }
     },
-    "Organization horizontal": {
-      "name": "Organization horizontal",
+    "organization-horizontal": {
+      "name": "organization-horizontal",
       "slug": "organization-horizontal",
       "size": [
         16,
@@ -44401,8 +44401,8 @@
         }
       }
     },
-    "Document border": {
-      "name": "Document border",
+    "document-border": {
+      "name": "document-border",
       "slug": "document-border",
       "size": [
         16,
@@ -44494,8 +44494,8 @@
         }
       }
     },
-    "Textbox align middle right": {
-      "name": "Textbox align middle right",
+    "textbox-align-middle-right": {
+      "name": "textbox-align-middle-right",
       "slug": "textbox-align-middle-right",
       "size": [
         16,
@@ -44587,8 +44587,8 @@
         }
       }
     },
-    "Keyboard lock": {
-      "name": "Keyboard lock",
+    "keyboard-lock": {
+      "name": "keyboard-lock",
       "slug": "keyboard-lock",
       "size": [
         16,
@@ -44680,8 +44680,8 @@
         }
       }
     },
-    "Chat empty": {
-      "name": "Chat empty",
+    "chat-empty": {
+      "name": "chat-empty",
       "slug": "chat-empty",
       "size": [
         16,
@@ -44773,8 +44773,8 @@
         }
       }
     },
-    "Wifi 1": {
-      "name": "Wifi 1",
+    "wifi-1": {
+      "name": "wifi-1",
       "slug": "wifi-1",
       "size": [
         16,
@@ -44866,8 +44866,8 @@
         }
       }
     },
-    "Keyboard option": {
-      "name": "Keyboard option",
+    "keyboard-option": {
+      "name": "keyboard-option",
       "slug": "keyboard-option",
       "size": [
         16,
@@ -44959,8 +44959,8 @@
         }
       }
     },
-    "Emoji meh": {
-      "name": "Emoji meh",
+    "emoji-meh": {
+      "name": "emoji-meh",
       "slug": "emoji-meh",
       "size": [
         16,
@@ -45052,8 +45052,8 @@
         }
       }
     },
-    "Delete off": {
-      "name": "Delete off",
+    "delete-off": {
+      "name": "delete-off",
       "slug": "delete-off",
       "size": [
         16,
@@ -45145,8 +45145,8 @@
         }
       }
     },
-    "Square hint": {
-      "name": "Square hint",
+    "square-hint": {
+      "name": "square-hint",
       "slug": "square-hint",
       "size": [
         16,
@@ -45238,8 +45238,8 @@
         }
       }
     },
-    "Bar chart vertical descending": {
-      "name": "Bar chart vertical descending",
+    "bar-chart-vertical-descending": {
+      "name": "bar-chart-vertical-descending",
       "slug": "bar-chart-vertical-descending",
       "size": [
         16,
@@ -45331,8 +45331,8 @@
         }
       }
     },
-    "Text align justify": {
-      "name": "Text align justify",
+    "text-align-justify": {
+      "name": "text-align-justify",
       "slug": "text-align-justify",
       "size": [
         16,
@@ -45424,8 +45424,8 @@
         }
       }
     },
-    "Dual screen": {
-      "name": "Dual screen",
+    "dual-screen": {
+      "name": "dual-screen",
       "slug": "dual-screen",
       "size": [
         16,
@@ -45517,8 +45517,8 @@
         }
       }
     },
-    "Hourglass half": {
-      "name": "Hourglass half",
+    "hourglass-half": {
+      "name": "hourglass-half",
       "slug": "hourglass-half",
       "size": [
         16,
@@ -45610,8 +45610,8 @@
         }
       }
     },
-    "Emoji surprise": {
-      "name": "Emoji surprise",
+    "emoji-surprise": {
+      "name": "emoji-surprise",
       "slug": "emoji-surprise",
       "size": [
         16,
@@ -45703,8 +45703,8 @@
         }
       }
     },
-    "Keyboard return": {
-      "name": "Keyboard return",
+    "keyboard-return": {
+      "name": "keyboard-return",
       "slug": "keyboard-return",
       "size": [
         16,
@@ -45796,8 +45796,8 @@
         }
       }
     },
-    "Text align center": {
-      "name": "Text align center",
+    "text-align-center": {
+      "name": "text-align-center",
       "slug": "text-align-center",
       "size": [
         16,
@@ -45889,8 +45889,8 @@
         }
       }
     },
-    "Ios chevron rtl": {
-      "name": "Ios chevron rtl",
+    "ios-chevron-rtl": {
+      "name": "ios-chevron-rtl",
       "slug": "ios-chevron-rtl",
       "size": [
         16,
@@ -45982,8 +45982,8 @@
         }
       }
     },
-    "Align top": {
-      "name": "Align top",
+    "align-top": {
+      "name": "align-top",
       "slug": "align-top",
       "size": [
         16,
@@ -46075,8 +46075,8 @@
         }
       }
     },
-    "Align left": {
-      "name": "Align left",
+    "align-left": {
+      "name": "align-left",
       "slug": "align-left",
       "size": [
         16,
@@ -46168,8 +46168,8 @@
         }
       }
     },
-    "Zoom in": {
-      "name": "Zoom in",
+    "zoom-in": {
+      "name": "zoom-in",
       "slug": "zoom-in",
       "size": [
         16,
@@ -46261,8 +46261,8 @@
         }
       }
     },
-    "Textbox align bottom right": {
-      "name": "Textbox align bottom right",
+    "textbox-align-bottom-right": {
+      "name": "textbox-align-bottom-right",
       "slug": "textbox-align-bottom-right",
       "size": [
         16,
@@ -46354,8 +46354,8 @@
         }
       }
     },
-    "Gift card": {
-      "name": "Gift card",
+    "gift-card": {
+      "name": "gift-card",
       "slug": "gift-card",
       "size": [
         16,
@@ -46447,8 +46447,8 @@
         }
       }
     },
-    "Battery 0": {
-      "name": "Battery 0",
+    "battery-0": {
+      "name": "battery-0",
       "slug": "battery-0",
       "size": [
         16,
@@ -46540,8 +46540,8 @@
         }
       }
     },
-    "Qr code": {
-      "name": "Qr code",
+    "qr-code": {
+      "name": "qr-code",
       "slug": "qr-code",
       "size": [
         16,
@@ -46633,8 +46633,8 @@
         }
       }
     },
-    "Port hdmi": {
-      "name": "Port hdmi",
+    "port-hdmi": {
+      "name": "port-hdmi",
       "slug": "port-hdmi",
       "size": [
         16,
@@ -46726,8 +46726,8 @@
         }
       }
     },
-    "Align center vertical": {
-      "name": "Align center vertical",
+    "align-center-vertical": {
+      "name": "align-center-vertical",
       "slug": "align-center-vertical",
       "size": [
         16,
@@ -46819,8 +46819,8 @@
         }
       }
     },
-    "Desktop mac": {
-      "name": "Desktop mac",
+    "desktop-mac": {
+      "name": "desktop-mac",
       "slug": "desktop-mac",
       "size": [
         16,
@@ -46912,8 +46912,8 @@
         }
       }
     },
-    "Folder open": {
-      "name": "Folder open",
+    "folder-open": {
+      "name": "folder-open",
       "slug": "folder-open",
       "size": [
         16,
@@ -47005,8 +47005,8 @@
         }
       }
     },
-    "Weather sunny": {
-      "name": "Weather sunny",
+    "weather-sunny": {
+      "name": "weather-sunny",
       "slug": "weather-sunny",
       "size": [
         16,
@@ -47098,8 +47098,8 @@
         }
       }
     },
-    "Alert off": {
-      "name": "Alert off",
+    "alert-off": {
+      "name": "alert-off",
       "slug": "alert-off",
       "size": [
         16,
@@ -47191,8 +47191,8 @@
         }
       }
     },
-    "Video clip": {
-      "name": "Video clip",
+    "video-clip": {
+      "name": "video-clip",
       "slug": "video-clip",
       "size": [
         16,
@@ -47284,8 +47284,8 @@
         }
       }
     },
-    "Chevron right": {
-      "name": "Chevron right",
+    "chevron-right": {
+      "name": "chevron-right",
       "slug": "chevron-right",
       "size": [
         16,
@@ -47377,8 +47377,8 @@
         }
       }
     },
-    "Equal off": {
-      "name": "Equal off",
+    "equal-off": {
+      "name": "equal-off",
       "slug": "equal-off",
       "size": [
         16,
@@ -47470,8 +47470,8 @@
         }
       }
     },
-    "Align center horizontal": {
-      "name": "Align center horizontal",
+    "align-center-horizontal": {
+      "name": "align-center-horizontal",
       "slug": "align-center-horizontal",
       "size": [
         16,
@@ -47563,8 +47563,8 @@
         }
       }
     },
-    "Textbox align middle left": {
-      "name": "Textbox align middle left",
+    "textbox-align-middle-left": {
+      "name": "textbox-align-middle-left",
       "slug": "textbox-align-middle-left",
       "size": [
         16,
@@ -47656,8 +47656,8 @@
         }
       }
     },
-    "Textbox align center": {
-      "name": "Textbox align center",
+    "textbox-align-center": {
+      "name": "textbox-align-center",
       "slug": "textbox-align-center",
       "size": [
         16,
@@ -47749,8 +47749,8 @@
         }
       }
     },
-    "Keyboard backspace": {
-      "name": "Keyboard backspace",
+    "keyboard-backspace": {
+      "name": "keyboard-backspace",
       "slug": "keyboard-backspace",
       "size": [
         16,
@@ -47842,8 +47842,8 @@
         }
       }
     },
-    "Weather thunderstorm": {
-      "name": "Weather thunderstorm",
+    "weather-thunderstorm": {
+      "name": "weather-thunderstorm",
       "slug": "weather-thunderstorm",
       "size": [
         16,
@@ -47935,8 +47935,8 @@
         }
       }
     },
-    "Text align left": {
-      "name": "Text align left",
+    "text-align-left": {
+      "name": "text-align-left",
       "slug": "text-align-left",
       "size": [
         16,
@@ -48028,8 +48028,8 @@
         }
       }
     },
-    "Image circle": {
-      "name": "Image circle",
+    "image-circle": {
+      "name": "image-circle",
       "slug": "image-circle",
       "size": [
         16,
@@ -48121,8 +48121,8 @@
         }
       }
     },
-    "Gas station": {
-      "name": "Gas station",
+    "gas-station": {
+      "name": "gas-station",
       "slug": "gas-station",
       "size": [
         16,
@@ -48214,8 +48214,8 @@
         }
       }
     },
-    "Ios arrow ltr": {
-      "name": "Ios arrow ltr",
+    "ios-arrow-ltr": {
+      "name": "ios-arrow-ltr",
       "slug": "ios-arrow-ltr",
       "size": [
         16,
@@ -48307,8 +48307,8 @@
         }
       }
     },
-    "Server play": {
-      "name": "Server play",
+    "server-play": {
+      "name": "server-play",
       "slug": "server-play",
       "size": [
         16,
@@ -48400,8 +48400,8 @@
         }
       }
     },
-    "Port usb a": {
-      "name": "Port usb a",
+    "port-usb-a": {
+      "name": "port-usb-a",
       "slug": "port-usb-a",
       "size": [
         16,
@@ -48493,8 +48493,8 @@
         }
       }
     },
-    "Hourglass one quarter": {
-      "name": "Hourglass one quarter",
+    "hourglass-one-quarter": {
+      "name": "hourglass-one-quarter",
       "slug": "hourglass-one-quarter",
       "size": [
         16,
@@ -48586,8 +48586,8 @@
         }
       }
     },
-    "Share android": {
-      "name": "Share android",
+    "share-android": {
+      "name": "share-android",
       "slug": "share-android",
       "size": [
         16,
@@ -48679,8 +48679,8 @@
         }
       }
     },
-    "Key multiple": {
-      "name": "Key multiple",
+    "key-multiple": {
+      "name": "key-multiple",
       "slug": "key-multiple",
       "size": [
         16,
@@ -48772,8 +48772,8 @@
         }
       }
     },
-    "Carton box": {
-      "name": "Carton box",
+    "carton-box": {
+      "name": "carton-box",
       "slug": "carton-box",
       "size": [
         16,
@@ -48865,8 +48865,8 @@
         }
       }
     },
-    "Service bell": {
-      "name": "Service bell",
+    "service-bell": {
+      "name": "service-bell",
       "slug": "service-bell",
       "size": [
         16,
@@ -48958,8 +48958,8 @@
         }
       }
     },
-    "Alert badge": {
-      "name": "Alert badge",
+    "alert-badge": {
+      "name": "alert-badge",
       "slug": "alert-badge",
       "size": [
         16,
@@ -49051,8 +49051,8 @@
         }
       }
     },
-    "App title": {
-      "name": "App title",
+    "app-title": {
+      "name": "app-title",
       "slug": "app-title",
       "size": [
         16,
@@ -49144,8 +49144,8 @@
         }
       }
     },
-    "Play circle": {
-      "name": "Play circle",
+    "play-circle": {
+      "name": "play-circle",
       "slug": "play-circle",
       "size": [
         16,
@@ -49237,8 +49237,8 @@
         }
       }
     },
-    "Error circle": {
-      "name": "Error circle",
+    "error-circle": {
+      "name": "error-circle",
       "slug": "error-circle",
       "size": [
         16,
@@ -49330,8 +49330,8 @@
         }
       }
     },
-    "Slide grid": {
-      "name": "Slide grid",
+    "slide-grid": {
+      "name": "slide-grid",
       "slug": "slide-grid",
       "size": [
         16,
@@ -49423,8 +49423,8 @@
         }
       }
     },
-    "Lock open": {
-      "name": "Lock open",
+    "lock-open": {
+      "name": "lock-open",
       "slug": "lock-open",
       "size": [
         16,
@@ -49516,8 +49516,8 @@
         }
       }
     },
-    "Clock alarm": {
-      "name": "Clock alarm",
+    "clock-alarm": {
+      "name": "clock-alarm",
       "slug": "clock-alarm",
       "size": [
         16,
@@ -49609,8 +49609,8 @@
         }
       }
     },
-    "Slide content": {
-      "name": "Slide content",
+    "slide-content": {
+      "name": "slide-content",
       "slug": "slide-content",
       "size": [
         16,
@@ -49702,8 +49702,8 @@
         }
       }
     },
-    "Payment wireless": {
-      "name": "Payment wireless",
+    "payment-wireless": {
+      "name": "payment-wireless",
       "slug": "payment-wireless",
       "size": [
         16,
@@ -49795,8 +49795,8 @@
         }
       }
     },
-    "Paint bucket": {
-      "name": "Paint bucket",
+    "paint-bucket": {
+      "name": "paint-bucket",
       "slug": "paint-bucket",
       "size": [
         16,
@@ -49888,8 +49888,8 @@
         }
       }
     },
-    "Person voice": {
-      "name": "Person voice",
+    "person-voice": {
+      "name": "person-voice",
       "slug": "person-voice",
       "size": [
         16,
@@ -49981,8 +49981,8 @@
         }
       }
     },
-    "Sport baseball": {
-      "name": "Sport baseball",
+    "sport-baseball": {
+      "name": "sport-baseball",
       "slug": "sport-baseball",
       "size": [
         16,
@@ -50074,8 +50074,8 @@
         }
       }
     },
-    "Radio button": {
-      "name": "Radio button",
+    "radio-button": {
+      "name": "radio-button",
       "slug": "radio-button",
       "size": [
         16,
@@ -50167,8 +50167,8 @@
         }
       }
     },
-    "Pause circle": {
-      "name": "Pause circle",
+    "pause-circle": {
+      "name": "pause-circle",
       "slug": "pause-circle",
       "size": [
         16,
@@ -50260,8 +50260,8 @@
         }
       }
     },
-    "Text align right": {
-      "name": "Text align right",
+    "text-align-right": {
+      "name": "text-align-right",
       "slug": "text-align-right",
       "size": [
         16,
@@ -50353,8 +50353,8 @@
         }
       }
     },
-    "Hat graduation": {
-      "name": "Hat graduation",
+    "hat-graduation": {
+      "name": "hat-graduation",
       "slug": "hat-graduation",
       "size": [
         16,
@@ -50446,8 +50446,8 @@
         }
       }
     },
-    "Textbox align top": {
-      "name": "Textbox align top",
+    "textbox-align-top": {
+      "name": "textbox-align-top",
       "slug": "textbox-align-top",
       "size": [
         16,
@@ -50539,8 +50539,8 @@
         }
       }
     },
-    "Weather blowing snow": {
-      "name": "Weather blowing snow",
+    "weather-blowing-snow": {
+      "name": "weather-blowing-snow",
       "slug": "weather-blowing-snow",
       "size": [
         16,
@@ -50632,8 +50632,8 @@
         }
       }
     },
-    "Bar chart vertical": {
-      "name": "Bar chart vertical",
+    "bar-chart-vertical": {
+      "name": "bar-chart-vertical",
       "slug": "bar-chart-vertical",
       "size": [
         16,
@@ -50725,8 +50725,8 @@
         }
       }
     },
-    "Battery 70": {
-      "name": "Battery 70",
+    "battery-70": {
+      "name": "battery-70",
       "slug": "battery-70",
       "size": [
         16,
@@ -50818,8 +50818,8 @@
         }
       }
     },
-    "Shopping bag": {
-      "name": "Shopping bag",
+    "shopping-bag": {
+      "name": "shopping-bag",
       "slug": "shopping-bag",
       "size": [
         16,
@@ -50911,8 +50911,8 @@
         }
       }
     },
-    "Flashlight off": {
-      "name": "Flashlight off",
+    "flashlight-off": {
+      "name": "flashlight-off",
       "slug": "flashlight-off",
       "size": [
         16,
@@ -51004,8 +51004,8 @@
         }
       }
     },
-    "Shape intersect": {
-      "name": "Shape intersect",
+    "shape-intersect": {
+      "name": "shape-intersect",
       "slug": "shape-intersect",
       "size": [
         16,
@@ -51097,8 +51097,8 @@
         }
       }
     },
-    "Battery 100": {
-      "name": "Battery 100",
+    "battery-100": {
+      "name": "battery-100",
       "slug": "battery-100",
       "size": [
         16,
@@ -51190,8 +51190,8 @@
         }
       }
     },
-    "Hourglass three quarter": {
-      "name": "Hourglass three quarter",
+    "hourglass-three-quarter": {
+      "name": "hourglass-three-quarter",
       "slug": "hourglass-three-quarter",
       "size": [
         16,
@@ -51283,8 +51283,8 @@
         }
       }
     },
-    "Road cone": {
-      "name": "Road cone",
+    "road-cone": {
+      "name": "road-cone",
       "slug": "road-cone",
       "size": [
         16,
@@ -51376,8 +51376,8 @@
         }
       }
     },
-    "Sound source": {
-      "name": "Sound source",
+    "sound-source": {
+      "name": "sound-source",
       "slug": "sound-source",
       "size": [
         16,
@@ -51469,8 +51469,8 @@
         }
       }
     },
-    "Add circle": {
-      "name": "Add circle",
+    "add-circle": {
+      "name": "add-circle",
       "slug": "add-circle",
       "size": [
         16,
@@ -51562,8 +51562,8 @@
         }
       }
     },
-    "App recent": {
-      "name": "App recent",
+    "app-recent": {
+      "name": "app-recent",
       "slug": "app-recent",
       "size": [
         16,
@@ -51655,8 +51655,8 @@
         }
       }
     },
-    "Shape subtract": {
-      "name": "Shape subtract",
+    "shape-subtract": {
+      "name": "shape-subtract",
       "slug": "shape-subtract",
       "size": [
         16,
@@ -51748,8 +51748,8 @@
         }
       }
     },
-    "Chevron down": {
-      "name": "Chevron down",
+    "chevron-down": {
+      "name": "chevron-down",
       "slug": "chevron-down",
       "size": [
         16,
@@ -51841,8 +51841,8 @@
         }
       }
     },
-    "Pulse circle": {
-      "name": "Pulse circle",
+    "pulse-circle": {
+      "name": "pulse-circle",
       "slug": "pulse-circle",
       "size": [
         16,
@@ -51934,8 +51934,8 @@
         }
       }
     },
-    "Align bottom": {
-      "name": "Align bottom",
+    "align-bottom": {
+      "name": "align-bottom",
       "slug": "align-bottom",
       "size": [
         16,
@@ -52027,8 +52027,8 @@
         }
       }
     },
-    "Battery 40": {
-      "name": "Battery 40",
+    "battery-40": {
+      "name": "battery-40",
       "slug": "battery-40",
       "size": [
         16,
@@ -52120,8 +52120,8 @@
         }
       }
     },
-    "Ios arrow rtl": {
-      "name": "Ios arrow rtl",
+    "ios-arrow-rtl": {
+      "name": "ios-arrow-rtl",
       "slug": "ios-arrow-rtl",
       "size": [
         16,
@@ -52213,8 +52213,8 @@
         }
       }
     },
-    "Mail read": {
-      "name": "Mail read",
+    "mail-read": {
+      "name": "mail-read",
       "slug": "mail-read",
       "size": [
         16,
@@ -52306,8 +52306,8 @@
         }
       }
     },
-    "Keyboard command": {
-      "name": "Keyboard command",
+    "keyboard-command": {
+      "name": "keyboard-command",
       "slug": "keyboard-command",
       "size": [
         16,
@@ -52399,8 +52399,8 @@
         }
       }
     },
-    "Weather snowflake": {
-      "name": "Weather snowflake",
+    "weather-snowflake": {
+      "name": "weather-snowflake",
       "slug": "weather-snowflake",
       "size": [
         16,
@@ -52492,8 +52492,8 @@
         }
       }
     },
-    "Flag off": {
-      "name": "Flag off",
+    "flag-off": {
+      "name": "flag-off",
       "slug": "flag-off",
       "size": [
         16,
@@ -52585,8 +52585,8 @@
         }
       }
     },
-    "Weather rain": {
-      "name": "Weather rain",
+    "weather-rain": {
+      "name": "weather-rain",
       "slug": "weather-rain",
       "size": [
         16,
@@ -52678,8 +52678,8 @@
         }
       }
     },
-    "Dismiss square": {
-      "name": "Dismiss square",
+    "dismiss-square": {
+      "name": "dismiss-square",
       "slug": "dismiss-square",
       "size": [
         16,
@@ -52771,8 +52771,8 @@
         }
       }
     },
-    "Number circle 4": {
-      "name": "Number circle 4",
+    "number-circle-4": {
+      "name": "number-circle-4",
       "slug": "number-circle-4",
       "size": [
         16,
@@ -52864,8 +52864,8 @@
         }
       }
     },
-    "Number circle 3": {
-      "name": "Number circle 3",
+    "number-circle-3": {
+      "name": "number-circle-3",
       "slug": "number-circle-3",
       "size": [
         16,
@@ -52957,8 +52957,8 @@
         }
       }
     },
-    "Number symbol square": {
-      "name": "Number symbol square",
+    "number-symbol-square": {
+      "name": "number-symbol-square",
       "slug": "number-symbol-square",
       "size": [
         16,
@@ -53050,8 +53050,8 @@
         }
       }
     },
-    "Control button": {
-      "name": "Control button",
+    "control-button": {
+      "name": "control-button",
       "slug": "control-button",
       "size": [
         16,
@@ -53143,8 +53143,8 @@
         }
       }
     },
-    "Eyedropper off": {
-      "name": "Eyedropper off",
+    "eyedropper-off": {
+      "name": "eyedropper-off",
       "slug": "eyedropper-off",
       "size": [
         16,
@@ -53236,8 +53236,8 @@
         }
       }
     },
-    "Spray can": {
-      "name": "Spray can",
+    "spray-can": {
+      "name": "spray-can",
       "slug": "spray-can",
       "size": [
         16,
@@ -53329,8 +53329,8 @@
         }
       }
     },
-    "Textbox align middle": {
-      "name": "Textbox align middle",
+    "textbox-align-middle": {
+      "name": "textbox-align-middle",
       "slug": "textbox-align-middle",
       "size": [
         16,
@@ -53422,8 +53422,8 @@
         }
       }
     },
-    "Flash off": {
-      "name": "Flash off",
+    "flash-off": {
+      "name": "flash-off",
       "slug": "flash-off",
       "size": [
         16,
@@ -53515,8 +53515,8 @@
         }
       }
     },
-    "Textbox align bottom center": {
-      "name": "Textbox align bottom center",
+    "textbox-align-bottom-center": {
+      "name": "textbox-align-bottom-center",
       "slug": "textbox-align-bottom-center",
       "size": [
         16,
@@ -53608,8 +53608,8 @@
         }
       }
     },
-    "Hard drive": {
-      "name": "Hard drive",
+    "hard-drive": {
+      "name": "hard-drive",
       "slug": "hard-drive",
       "size": [
         16,
@@ -53701,8 +53701,8 @@
         }
       }
     },
-    "Page fit": {
-      "name": "Page fit",
+    "page-fit": {
+      "name": "page-fit",
       "slug": "page-fit",
       "size": [
         16,
@@ -53794,8 +53794,8 @@
         }
       }
     },
-    "Shape exclude": {
-      "name": "Shape exclude",
+    "shape-exclude": {
+      "name": "shape-exclude",
       "slug": "shape-exclude",
       "size": [
         16,
@@ -53887,8 +53887,8 @@
         }
       }
     },
-    "Number circle 2": {
-      "name": "Number circle 2",
+    "number-circle-2": {
+      "name": "number-circle-2",
       "slug": "number-circle-2",
       "size": [
         16,
@@ -53980,8 +53980,8 @@
         }
       }
     },
-    "Weather cloudy": {
-      "name": "Weather cloudy",
+    "weather-cloudy": {
+      "name": "weather-cloudy",
       "slug": "weather-cloudy",
       "size": [
         16,
@@ -54073,8 +54073,8 @@
         }
       }
     },
-    "Headset vr": {
-      "name": "Headset vr",
+    "headset-vr": {
+      "name": "headset-vr",
       "slug": "headset-vr",
       "size": [
         16,
@@ -54166,8 +54166,8 @@
         }
       }
     },
-    "Number circle 5": {
-      "name": "Number circle 5",
+    "number-circle-5": {
+      "name": "number-circle-5",
       "slug": "number-circle-5",
       "size": [
         16,
@@ -54259,8 +54259,8 @@
         }
       }
     },
-    "Heart broken": {
-      "name": "Heart broken",
+    "heart-broken": {
+      "name": "heart-broken",
       "slug": "heart-broken",
       "size": [
         16,
@@ -54352,8 +54352,8 @@
         }
       }
     },
-    "Battery 90": {
-      "name": "Battery 90",
+    "battery-90": {
+      "name": "battery-90",
       "slug": "battery-90",
       "size": [
         16,
@@ -54445,8 +54445,8 @@
         }
       }
     },
-    "Server link": {
-      "name": "Server link",
+    "server-link": {
+      "name": "server-link",
       "slug": "server-link",
       "size": [
         16,
@@ -54538,8 +54538,8 @@
         }
       }
     },
-    "Math symbols": {
-      "name": "Math symbols",
+    "math-symbols": {
+      "name": "math-symbols",
       "slug": "math-symbols",
       "size": [
         16,
@@ -54631,8 +54631,8 @@
         }
       }
     },
-    "Battery 30": {
-      "name": "Battery 30",
+    "battery-30": {
+      "name": "battery-30",
       "slug": "battery-30",
       "size": [
         16,
@@ -54724,8 +54724,8 @@
         }
       }
     },
-    "Slide hide": {
-      "name": "Slide hide",
+    "slide-hide": {
+      "name": "slide-hide",
       "slug": "slide-hide",
       "size": [
         16,
@@ -54817,8 +54817,8 @@
         }
       }
     },
-    "Pen off": {
-      "name": "Pen off",
+    "pen-off": {
+      "name": "pen-off",
       "slug": "pen-off",
       "size": [
         16,
@@ -54910,8 +54910,8 @@
         }
       }
     },
-    "Filmstrip off": {
-      "name": "Filmstrip off",
+    "filmstrip-off": {
+      "name": "filmstrip-off",
       "slug": "filmstrip-off",
       "size": [
         16,
@@ -55003,8 +55003,8 @@
         }
       }
     },
-    "Share ios": {
-      "name": "Share ios",
+    "share-ios": {
+      "name": "share-ios",
       "slug": "share-ios",
       "size": [
         16,
@@ -55096,8 +55096,8 @@
         }
       }
     },
-    "Line dashes": {
-      "name": "Line dashes",
+    "line-dashes": {
+      "name": "line-dashes",
       "slug": "line-dashes",
       "size": [
         16,
@@ -55189,8 +55189,8 @@
         }
       }
     },
-    "Port micro usb": {
-      "name": "Port micro usb",
+    "port-micro-usb": {
+      "name": "port-micro-usb",
       "slug": "port-micro-usb",
       "size": [
         16,
@@ -55282,8 +55282,8 @@
         }
       }
     },
-    "Keyboard off": {
-      "name": "Keyboard off",
+    "keyboard-off": {
+      "name": "keyboard-off",
       "slug": "keyboard-off",
       "size": [
         16,
@@ -55375,8 +55375,8 @@
         }
       }
     },
-    "Toggle right": {
-      "name": "Toggle right",
+    "toggle-right": {
+      "name": "toggle-right",
       "slug": "toggle-right",
       "size": [
         16,
@@ -55468,8 +55468,8 @@
         }
       }
     },
-    "Wifi 2": {
-      "name": "Wifi 2",
+    "wifi-2": {
+      "name": "wifi-2",
       "slug": "wifi-2",
       "size": [
         16,
@@ -55561,8 +55561,8 @@
         }
       }
     },
-    "Bar chart horizontal": {
-      "name": "Bar chart horizontal",
+    "bar-chart-horizontal": {
+      "name": "bar-chart-horizontal",
       "slug": "bar-chart-horizontal",
       "size": [
         16,
@@ -55654,8 +55654,8 @@
         }
       }
     },
-    "Equal circle": {
-      "name": "Equal circle",
+    "equal-circle": {
+      "name": "equal-circle",
       "slug": "equal-circle",
       "size": [
         16,
@@ -55747,8 +55747,8 @@
         }
       }
     },
-    "Home checkmark": {
-      "name": "Home checkmark",
+    "home-checkmark": {
+      "name": "home-checkmark",
       "slug": "home-checkmark",
       "size": [
         16,
@@ -55840,8 +55840,8 @@
         }
       }
     },
-    "Paint brush": {
-      "name": "Paint brush",
+    "paint-brush": {
+      "name": "paint-brush",
       "slug": "paint-brush",
       "size": [
         16,
@@ -55933,8 +55933,8 @@
         }
       }
     },
-    "Textbox align top center": {
-      "name": "Textbox align top center",
+    "textbox-align-top-center": {
+      "name": "textbox-align-top-center",
       "slug": "textbox-align-top-center",
       "size": [
         16,
@@ -56026,8 +56026,8 @@
         }
       }
     },
-    "Keyboard shift": {
-      "name": "Keyboard shift",
+    "keyboard-shift": {
+      "name": "keyboard-shift",
       "slug": "keyboard-shift",
       "size": [
         16,
@@ -56119,8 +56119,8 @@
         }
       }
     },
-    "Textbox align top left": {
-      "name": "Textbox align top left",
+    "textbox-align-top-left": {
+      "name": "textbox-align-top-left",
       "slug": "textbox-align-top-left",
       "size": [
         16,
@@ -56212,8 +56212,8 @@
         }
       }
     },
-    "Walkie talkie": {
-      "name": "Walkie talkie",
+    "walkie-talkie": {
+      "name": "walkie-talkie",
       "slug": "walkie-talkie",
       "size": [
         16,
@@ -56305,8 +56305,8 @@
         }
       }
     },
-    "Wifi 4": {
-      "name": "Wifi 4",
+    "wifi-4": {
+      "name": "wifi-4",
       "slug": "wifi-4",
       "size": [
         16,
@@ -56398,8 +56398,8 @@
         }
       }
     },
-    "Emoji cool": {
-      "name": "Emoji cool",
+    "emoji-cool": {
+      "name": "emoji-cool",
       "slug": "emoji-cool",
       "size": [
         16,
@@ -56491,8 +56491,8 @@
         }
       }
     },
-    "Json file": {
-      "name": "Json file",
+    "json-file": {
+      "name": "json-file",
       "slug": "json-file",
       "size": [
         16,
@@ -56584,8 +56584,8 @@
         }
       }
     },
-    "Wifi 3": {
-      "name": "Wifi 3",
+    "wifi-3": {
+      "name": "wifi-3",
       "slug": "wifi-3",
       "size": [
         16,
@@ -56677,8 +56677,8 @@
         }
       }
     },
-    "Toggle left": {
-      "name": "Toggle left",
+    "toggle-left": {
+      "name": "toggle-left",
       "slug": "toggle-left",
       "size": [
         16,
@@ -56770,8 +56770,8 @@
         }
       }
     },
-    "Network check": {
-      "name": "Network check",
+    "network-check": {
+      "name": "network-check",
       "slug": "network-check",
       "size": [
         16,
@@ -56863,8 +56863,8 @@
         }
       }
     },
-    "Question circle": {
-      "name": "Question circle",
+    "question-circle": {
+      "name": "question-circle",
       "slug": "question-circle",
       "size": [
         16,

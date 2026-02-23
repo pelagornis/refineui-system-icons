@@ -21,29 +21,30 @@ const metadataPaths = [
   path.join(projectRoot, "packages", "icon-cdn", "src", "metadata.json"),
 ];
 
-/** name -> slug (e.g. "Local language" -> "local-language") */
-function nameToSlug(name) {
+/** Canonical icon name: no spaces, hyphenated lowercase (e.g. "Local language" -> "local-language") */
+function toCanonicalName(name) {
   return String(name)
     .toLowerCase()
     .trim()
     .replace(/\s+/g, "-");
 }
 
-/** Build per-icon-name aggregate from icon-mapping for creating missing entries */
+/** Build per-icon-name aggregate from icon-mapping (keyed by canonical name) */
 function buildNameToMapping(iconMapping) {
   const byName = new Map();
   for (const [cssClass, entry] of Object.entries(iconMapping.icons || {})) {
     const { name: iconName, size, style, unicode, unicode_hex, css_class } = entry;
     if (!iconName || size === undefined || !style || unicode === undefined) continue;
+    const canonical = toCanonicalName(iconName);
 
-    if (!byName.has(iconName)) {
-      byName.set(iconName, {
+    if (!byName.has(canonical)) {
+      byName.set(canonical, {
         sizes: new Set(),
         styles: new Set(),
         unicodeMapping: {},
       });
     }
-    const agg = byName.get(iconName);
+    const agg = byName.get(canonical);
     agg.sizes.add(Number(size));
     agg.styles.add(style);
     if (!agg.unicodeMapping[size]) agg.unicodeMapping[size] = {};
@@ -56,28 +57,41 @@ function buildNameToMapping(iconMapping) {
   return byName;
 }
 
-/** Ensure metadata.icons has an entry for every icon name in icon-mapping (create if missing) */
+/** Ensure metadata.icons uses canonical keys and has an entry for every icon (create if missing) */
 function ensureMissingIcons(metadata, nameToMapping) {
   const supportedSizes = metadata.supportedSizes || [16, 20, 24, 28, 32, 48];
   const supportedStyles = metadata.supportedStyles || ["regular", "filled"];
   let added = 0;
-  for (const [iconName, agg] of nameToMapping) {
-    if (metadata.icons[iconName]) continue;
+  for (const [canonicalName, agg] of nameToMapping) {
+    if (metadata.icons[canonicalName]) continue;
     const sizes = Array.from(agg.sizes).sort((a, b) => a - b);
     const styles = Array.from(agg.styles);
-    metadata.icons[iconName] = {
-      name: iconName,
-      slug: nameToSlug(iconName),
+    metadata.icons[canonicalName] = {
+      name: canonicalName,
+      slug: canonicalName,
       size: sizes.length ? sizes : supportedSizes,
       style: styles.length ? styles : supportedStyles,
       keyword: "refineui-icon",
-      description: `Icon: ${iconName}.`,
+      description: `Icon: ${canonicalName}.`,
       files: [],
       unicodeMapping: agg.unicodeMapping,
     };
     added++;
   }
   return added;
+}
+
+/** Migrate metadata.icons: keys with spaces -> canonical (hyphen) keys */
+function migrateIconKeysToCanonical(metadata) {
+  const icons = metadata.icons || {};
+  for (const key of Object.keys(icons)) {
+    const canonical = toCanonicalName(key);
+    if (canonical === key) continue;
+    if (!icons[canonical]) {
+      icons[canonical] = { ...icons[key], name: canonical, slug: canonical };
+    }
+    delete icons[key];
+  }
 }
 
 function syncOne(iconMapping, metadataPath, nameToMapping) {
@@ -88,6 +102,7 @@ function syncOne(iconMapping, metadataPath, nameToMapping) {
   }
 
   const metadata = JSON.parse(fs.readFileSync(metadataPath, "utf8"));
+  migrateIconKeysToCanonical(metadata);
   const added = ensureMissingIcons(metadata, nameToMapping);
 
   let updated = 0;
@@ -96,8 +111,9 @@ function syncOne(iconMapping, metadataPath, nameToMapping) {
   for (const [cssClass, entry] of Object.entries(iconMapping.icons)) {
     const { name: iconName, size, style, unicode, unicode_hex, css_class } = entry;
     if (!iconName || size === undefined || !style || unicode === undefined) continue;
+    const canonicalName = toCanonicalName(iconName);
 
-    const iconData = metadata.icons[iconName];
+    const iconData = metadata.icons[canonicalName];
     if (!iconData) {
       skipped++;
       continue;
