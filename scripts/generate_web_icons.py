@@ -4,56 +4,44 @@ RefineUI System Icons - Web Icons Generator
 Generates icons for React, Web, CDN, React Native packages.
 """
 
+import json
 import os
 import sys
 from pathlib import Path
 
 def to_export_name(icon_name: str) -> str:
-    """Valid JS export name: 'local language' -> 'LocalLanguage'."""
+    """Valid JS export name: 'Local language' -> 'LocalLanguage'."""
     return "".join(w.capitalize() for w in icon_name.split())
 
 
 def to_display_name(icon_name: str) -> str:
-    """Display name for createIconHTML (matches metadata key): 'local language' -> 'Local language'."""
-    return (icon_name[0].upper() + icon_name[1:]) if icon_name else icon_name
+    """Display name for createIconHTML (matches metadata key). From icon-mapping already correct."""
+    return icon_name or ""
 
 
-# Icon names (include names with spaces, e.g. 'local language')
-ICON_NAMES = [
-    'access', 'accessibility', 'add', 'airplane', 'album', 'alert', 'align', 'android', 'app', 'appstore',
-    'autosum', 'backpack', 'backspace', 'badge', 'balloon', 'bar', 'barcode', 'battery', 'block', 'bluetooth',
-    'blur', 'board', 'book', 'bookmark', 'bug', 'calculator', 'calendar', 'camera', 'cart', 'carton',
-    'chart', 'chat', 'checkmark', 'chess', 'chevron', 'circle', 'clipboard', 'clock', 'cloud', 'clover',
-    'code', 'comma', 'comment', 'cone', 'contrast', 'control', 'cookie', 'copy', 'couch', 'cpu',
-    'crop', 'crown', 'css', 'cube', 'cursor', 'cut', 'dart', 'database', 'delete', 'dentist',
-    'desk', 'desktop', 'dialpad', 'diamond', 'dismiss', 'doctor', 'document', 'door', 'drag', 'drawer',
-    'drop', 'dual', 'dumbbell', 'dust', 'earth', 'edit', 'elevator', 'emoji', 'engine', 'equal',
-    'error', 'eye', 'eyedropper', 'fast', 'filmstrip', 'filter', 'fire', 'flag', 'flash', 'flashlight',
-    'flip', 'folder', 'frame', 'full', 'games', 'gantt', 'gas', 'gavel', 'gif', 'gift',
-    'git', 'glasses', 'global', 'grid', 'guest', 'guitar', 'hammer', 'hard', 'hat', 'hd',
-    'hdr', 'headphones', 'headset', 'heart', 'hexagon', 'highlight', 'highway', 'home', 'hourglass', 'html',
-    'image', 'important', 'incognito', 'info', 'ios', 'iot', 'javascript', 'joystick', 'json', 'key',
-    'keyboard', 'kiosk', 'kotlin', 'laptop', 'layer', 'lightbulb', 'line', 'link', 'local', 'local language', 'location',
-    'lock', 'luggage', 'macos', 'mail', 'mailbox', 'map', 'markdown', 'math', 'megaphone', 'mic',
-    'moon', 'more', 'mouse', 'movie', 'network', 'news', 'next', 'note', 'notebook', 'notepad',
-    'number', 'opacity', 'open', 'options', 'organization', 'orientation', 'oval', 'oven', 'padding', 'page',
-    'paint', 'parallelogram', 'password', 'pause', 'payment', 'pen', 'pentagon', 'person', 'phone', 'piano',
-    'pin', 'pipeline', 'play', 'playstore', 'port', 'power', 'preview', 'previous', 'print', 'pulse',
-    'python', 'qr', 'question', 'radio', 'ram', 'record', 'rectangle', 'refineui', 'rewind', 'rhombus',
-    'ribbon', 'road', 'rocket', 'rotation', 'router', 'rss', 'ruler', 'run', 'save', 'scales',
-    'script', 'search', 'send', 'serial', 'server', 'service', 'settings', 'shape', 'shapes', 'share',
-    'shell', 'shield', 'shopping', 'sim', 'slide', 'smartwatch', 'sound', 'spacebar', 'sport', 'spray',
-    'square', 'star', 'stop', 'subtract', 'swift', 'tab', 'tablet', 'tag', 'target', 'temperature',
-    'tent', 'text', 'textbox', 'thinking', 'ticket', 'timer', 'toggle', 'toolbox', 'trophy', 'tv',
-    'typescript', 'umbrella', 'usb', 'verified', 'video', 'voicemail', 'vote', 'walkie', 'wallet', 'wand',
-    'warning', 'washer', 'water', 'weather', 'web', 'wifi', 'windows', 'wrench', 'xray', 'zoom'
-]
+def load_icon_names(project_root: Path):
+    """Load unique icon names from fonts/icon-mapping.json (matches metadata.icons keys)."""
+    path = project_root / "fonts" / "icon-mapping.json"
+    if not path.exists():
+        return None
+    with open(path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    names = sorted(set(e.get("name") for e in (data.get("icons") or {}).values() if e.get("name")))
+    return names if names else None
+
+
+ICON_NAMES = []  # Filled in generate_web_icons() from icon-mapping.json
 
 def generate_web_icons():
     """Generates web icons."""
     print("🌐 Web icon generation started...")
     
     project_root = Path(__file__).parent.parent
+    global ICON_NAMES
+    ICON_NAMES = load_icon_names(project_root)
+    if not ICON_NAMES:
+        print("❌ Could not load icon names from fonts/icon-mapping.json")
+        return False
     
     # 1. Generate React Icons
     if not generate_react_icons(project_root):
@@ -660,9 +648,6 @@ def generate_utils_rn(src_dir):
 
 if __name__ == "__main__":
     print("🚀 Web icon package generation started...")
-    print(f"📊 Total {len(ICON_NAMES)} icons × 2 styles = {len(ICON_NAMES) * 2} export const")
-    
-    # Generate web icon packages
     success = generate_web_icons()
     
     if success:

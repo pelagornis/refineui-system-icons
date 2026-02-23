@@ -1,7 +1,7 @@
 /* RefineUI System Icons Font CSS - Refineui System Icons Regular */
 @font-face {
     font-family: 'Refineui System Icons Regular';
-    src: url('./refineui-system-icons-regular.woff2') format('woff2');
+    src: url('./refineui-system-icons-regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: block;

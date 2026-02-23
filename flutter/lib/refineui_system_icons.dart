@@ -1,5 +1,6 @@
 library refineui_system_icons;
 
+export 'src/refineui_system_icons_base.dart';
 export 'src/refineui_icons.dart';
 
 /// RefineUI System Icons for Flutter
