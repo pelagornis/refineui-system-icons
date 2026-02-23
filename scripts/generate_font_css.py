@@ -62,14 +62,21 @@ def generate_font_css():
             return "woff"
         return "truetype"
 
+    # font_family from icon-mapping (matches metadata / getFontFamily)
+    styles_config = icon_mapping.get("styles") or {}
+    font_family_by_style = {
+        "regular": (styles_config.get("regular") or {}).get("font_family") or "RefineUI-System-Icons-Regular",
+        "filled": (styles_config.get("filled") or {}).get("font_family") or "RefineUI-System-Icons-Filled",
+    }
+
     for font_file in font_files:
         font_name = font_file.stem
-        font_family = font_name.replace("-", " ").title()
         is_regular = "regular" in font_name.lower()
         is_filled = "filled" in font_name.lower()
         style = "regular" if is_regular else ("filled" if is_filled else None)
         if style is None:
             continue
+        font_family = font_family_by_style[style]
 
         css_file = font_file.with_suffix(".css")
         ft = font_type(font_file)
