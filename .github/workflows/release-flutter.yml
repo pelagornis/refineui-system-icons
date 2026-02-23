@@ -138,14 +138,21 @@ jobs:
             - Workflow: ${{ github.workflow }}
             - Commit: ${{ github.sha }}"
 
-            # Try to push, if fails, pull and retry
+            # Try to push, if fails, stash unstaged (built fonts etc.), pull --rebase, push, stash pop
             for i in {1..3}; do
               if git push origin HEAD:main; then
                 echo "✅ Successfully pushed version changes"
                 break
               else
-                echo "Push failed, attempt $i/3. Pulling latest changes..."
+                echo "Push failed, attempt $i/3. Stashing unstaged changes, pulling, retrying..."
+                git stash push -u -m "ci: built fonts and package assets"
                 git pull origin main --rebase
+                if git push origin HEAD:main; then
+                  echo "✅ Successfully pushed after rebase"
+                  git stash pop || true
+                  break
+                fi
+                git stash pop || true
                 sleep 2
               fi
             done
