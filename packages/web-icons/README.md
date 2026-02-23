@@ -70,15 +70,17 @@ When rendering directly in React, Vue, etc., you can use `getIconChar` + `getFon
 ```javascript
 import { getIconChar, getFontFamily, getIconClass } from "@refineui/web-icons";
 
-// Unicode character + font family
-const char = getIconChar("Add", "regular", 24);  // The icon character
-const font = getFontFamily("regular");           // 'RefineUI-System-Icons-Regular'
+// Unicode character + font family (always set font-family so the glyph is not blank)
+const char = getIconChar("Add", "regular", 24);
+const font = getFontFamily("regular");
 // <span style={{ fontFamily: font, fontSize: 24 }}>{char}</span>
 
-// CSS class name (when font CSS is loaded)
-const className = getIconClass("Gavel", "regular", 24); // e.g., 'ic_refineui_gavel_24_regular'
+// CSS class name — only works if the font CSS is loaded (see §1). Otherwise you get empty space.
+const className = getIconClass("Gavel", "regular", 24);
 // <span className={className} />
 ```
+
+**If you see empty space:** the icon font is not loaded. Either import the font CSS once (see §1), or use `createIconHTML(iconName, style)(size)` so the span includes inline `font-family` and the icon character (you still need the font file loaded via CSS somewhere).
 
 ### 4. IconUtils (Advanced)
 
@@ -121,6 +123,12 @@ Font families:
 
 - Regular: `RefineUI-System-Icons-Regular`
 - Filled: `RefineUI-System-Icons-Filled`
+
+## ⚠️ Troubleshooting: Empty space instead of icon
+
+- **getIconClass:** The class uses `:before` and the icon font. If the **font CSS is not loaded**, the browser has no glyph → empty space. **Fix:** Load the font CSS once (see §1), e.g. `import "@refineui/web-icons/dist/fonts/refineui-system-icons.css"`.
+- **Font file 404:** The CSS references `./refineui-system-icons-regular.woff2` (and `.woff`). If your bundler serves CSS and fonts from different paths, the woff2 request may 404. Check the Network tab; fix by copying `dist/fonts/*` to your public assets or configuring the bundler so the font URLs resolve.
+- **getIconChar:** The character must be rendered with the icon font. If you don’t set `font-family` on the element, the glyph won’t show. **Fix:** Set `style={{ fontFamily: getFontFamily('regular'), fontSize: 24 }}` on the element, or use `createIconHTML("Local language", "regular")(24)`.
 
 ## 📁 Package Structure
 

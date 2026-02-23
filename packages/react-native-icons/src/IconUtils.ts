@@ -7,6 +7,9 @@ function nameToSlug(name: string): string {
 function pascalToSlug(name: string): string {
   return String(name).replace(/([A-Z])/g, '-$1').toLowerCase().replace(/^-/, '');
 }
+function normalizeIconName(name: string): string {
+  return String(name).trim().replace(/\s+/g, ' ');
+}
 
 export interface IconProps {
   style?: any;
@@ -44,8 +47,11 @@ class ReactNativeIconUtils {
   }
 
   private getIconData(iconName: string): IconData | null {
+    if (!iconName || typeof iconName !== 'string') return null;
     const direct = this.metadata.icons[iconName];
     if (direct) return direct;
+    const normalized = normalizeIconName(iconName);
+    if (normalized && this.metadata.icons[normalized]) return this.metadata.icons[normalized];
     const slug = nameToSlug(iconName);
     const bySlug = Object.values(this.metadata.icons).find((icon) => icon.slug === slug);
     if (bySlug) return bySlug;
@@ -77,11 +83,11 @@ class ReactNativeIconUtils {
   // Create unsized icon (default 24px)
   private createUnsizedIcon(iconName: string, style: 'regular' | 'filled', props: IconProps = {}): React.ReactElement | null {
     const iconData = this.getIconData(iconName);
-    if (!iconData) return null;
+    if (!iconData?.unicodeMapping) return null;
 
     const defaultSize = 24;
-    const unicodeInfo = iconData.unicodeMapping[defaultSize]?.[style];
-    if (!unicodeInfo) return null;
+    const unicodeInfo = iconData.unicodeMapping[String(defaultSize)]?.[style];
+    if (!unicodeInfo || unicodeInfo.unicode == null) return null;
 
     const fontFamily = this.fontFamilies[style].font_family;
     
@@ -100,10 +106,10 @@ class ReactNativeIconUtils {
   // Create sized icon
   private createSizedIcon(iconName: string, size: number, style: 'regular' | 'filled', props: IconProps = {}): React.ReactElement | null {
     const iconData = this.getIconData(iconName);
-    if (!iconData) return null;
+    if (!iconData?.unicodeMapping) return null;
 
-    const unicodeInfo = iconData.unicodeMapping[size]?.[style];
-    if (!unicodeInfo) return null;
+    const unicodeInfo = iconData.unicodeMapping[String(size)]?.[style];
+    if (!unicodeInfo || unicodeInfo.unicode == null) return null;
 
     const fontFamily = this.fontFamilies[style].font_family;
     
@@ -122,19 +128,19 @@ class ReactNativeIconUtils {
   // Utility methods
   getIconChar(iconName: string, style: 'regular' | 'filled' = 'regular', size: number = 24): string | null {
     const iconData = this.getIconData(iconName);
-    if (!iconData) return null;
+    if (!iconData?.unicodeMapping) return null;
 
-    const unicodeInfo = iconData.unicodeMapping[size]?.[style];
-    if (!unicodeInfo) return null;
+    const unicodeInfo = iconData.unicodeMapping[String(size)]?.[style];
+    if (!unicodeInfo || unicodeInfo.unicode == null) return null;
 
     return String.fromCodePoint(unicodeInfo.unicode);
   }
 
   getIconClass(iconName: string, style: 'regular' | 'filled' = 'regular', size: number = 24): string | null {
     const iconData = this.getIconData(iconName);
-    if (!iconData) return null;
+    if (!iconData?.unicodeMapping) return null;
 
-    const unicodeInfo = iconData.unicodeMapping[size]?.[style];
+    const unicodeInfo = iconData.unicodeMapping[String(size)]?.[style];
     if (!unicodeInfo) return null;
 
     return unicodeInfo.cssClass;

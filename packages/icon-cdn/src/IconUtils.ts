@@ -19,6 +19,16 @@ export interface Metadata {
   icons: { [key: string]: IconData };
 }
 
+function nameToSlug(name: string): string {
+  return String(name).toLowerCase().trim().replace(/\s+/g, '-');
+}
+function pascalToSlug(name: string): string {
+  return String(name).replace(/([A-Z])/g, '-$1').toLowerCase().replace(/^-/, '');
+}
+function normalizeIconName(name: string): string {
+  return String(name).trim().replace(/\s+/g, ' ');
+}
+
 class IconUtils {
   private metadata: Metadata;
   private fontFamilies: any;
@@ -28,15 +38,29 @@ class IconUtils {
     this.fontFamilies = metadata.fontFamilies;
   }
 
+  /** Resolve icon data by name or by slug (handles "Local language", "LocalLanguage", extra spaces) */
+  private getIconData(iconName: string): IconData | null {
+    if (!iconName || typeof iconName !== 'string') return null;
+    const direct = this.metadata.icons[iconName];
+    if (direct) return direct;
+    const normalized = normalizeIconName(iconName);
+    if (normalized && this.metadata.icons[normalized]) return this.metadata.icons[normalized];
+    const slug = nameToSlug(iconName);
+    const bySlug = Object.values(this.metadata.icons).find((icon) => icon.slug === slug);
+    if (bySlug) return bySlug;
+    const slugPascal = pascalToSlug(iconName);
+    return Object.values(this.metadata.icons).find((icon) => icon.slug === slugPascal) || null;
+  }
+
   /**
    * Get the unicode character of the icon
    */
   getIconChar(iconName: string, style: 'regular' | 'filled' = 'regular', size: number = 24): string | null {
-    const iconData = this.metadata.icons[iconName];
-    if (!iconData) return null;
+    const iconData = this.getIconData(iconName);
+    if (!iconData?.unicodeMapping) return null;
 
-    const unicodeInfo = iconData.unicodeMapping[size]?.[style];
-    if (!unicodeInfo) return null;
+    const unicodeInfo = iconData.unicodeMapping[String(size)]?.[style];
+    if (!unicodeInfo || unicodeInfo.unicode == null) return null;
 
     return String.fromCodePoint(unicodeInfo.unicode);
   }
@@ -45,10 +69,10 @@ class IconUtils {
    * Get the CSS class name of the icon
    */
   getIconClass(iconName: string, style: 'regular' | 'filled' = 'regular', size: number = 24): string | null {
-    const iconData = this.metadata.icons[iconName];
-    if (!iconData) return null;
+    const iconData = this.getIconData(iconName);
+    if (!iconData?.unicodeMapping) return null;
 
-    const unicodeInfo = iconData.unicodeMapping[size]?.[style];
+    const unicodeInfo = iconData.unicodeMapping[String(size)]?.[style];
     if (!unicodeInfo) return null;
 
     return unicodeInfo.cssClass;
@@ -79,7 +103,7 @@ class IconUtils {
    * Get icon info
    */
   getIconInfo(iconName: string): IconData | null {
-    return this.metadata.icons[iconName] || null;
+    return this.getIconData(iconName);
   }
 
   /**
@@ -87,7 +111,7 @@ class IconUtils {
    */
   searchIcons(query: string): string[] {
     const searchTerm = query.toLowerCase();
-    return Object.keys(this.metadata.icons).filter(iconName => 
+    return Object.keys(this.metadata.icons).filter(iconName =>
       iconName.toLowerCase().includes(searchTerm) ||
       (this.metadata.icons[iconName]?.description || '').toLowerCase().includes(searchTerm)
     );
@@ -97,7 +121,7 @@ class IconUtils {
    * Check if an icon is supported for a specific size and style
    */
   isIconSupported(iconName: string, style: 'regular' | 'filled' = 'regular', size: number = 24): boolean {
-    const iconData = this.metadata.icons[iconName];
+    const iconData = this.getIconData(iconName);
     if (!iconData) return false;
 
     return iconData.size.includes(size) && iconData.style.includes(style);
