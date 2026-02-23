@@ -2017,18 +2017,18 @@
       "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/16/flip_horizontal-regular.svg"
     },
     {
-      "name": "flip_vertcial",
+      "name": "flip_verticial",
       "style": "filled",
       "size": 16,
-      "fileName": "flip_vertcial-filled.svg",
-      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/16/flip_vertcial-filled.svg"
+      "fileName": "flip_verticial-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/16/flip_verticial-filled.svg"
     },
     {
-      "name": "flip_vertcial",
+      "name": "flip_verticial",
       "style": "regular",
       "size": 16,
-      "fileName": "flip_vertcial-regular.svg",
-      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/16/flip_vertcial-regular.svg"
+      "fileName": "flip_verticial-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/16/flip_verticial-regular.svg"
     },
     {
       "name": "folder",
@@ -3109,18 +3109,18 @@
       "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/16/link-regular.svg"
     },
     {
-      "name": "locallanguage",
+      "name": "local_language",
       "style": "filled",
       "size": 16,
-      "fileName": "locallanguage-filled.svg",
-      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/16/locallanguage-filled.svg"
+      "fileName": "local_language-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/16/local_language-filled.svg"
     },
     {
-      "name": "locallanguage",
+      "name": "local_language",
       "style": "regular",
       "size": 16,
-      "fileName": "locallanguage-regular.svg",
-      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/16/locallanguage-regular.svg"
+      "fileName": "local_language-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/16/local_language-regular.svg"
     },
     {
       "name": "location",
@@ -3361,18 +3361,18 @@
       "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/16/more_horizontal-regular.svg"
     },
     {
-      "name": "more_vertcial",
+      "name": "more_verticial",
       "style": "filled",
       "size": 16,
-      "fileName": "more_vertcial-filled.svg",
-      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/16/more_vertcial-filled.svg"
+      "fileName": "more_verticial-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/16/more_verticial-filled.svg"
     },
     {
-      "name": "more_vertcial",
+      "name": "more_verticial",
       "style": "regular",
       "size": 16,
-      "fileName": "more_vertcial-regular.svg",
-      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/16/more_vertcial-regular.svg"
+      "fileName": "more_verticial-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/16/more_verticial-regular.svg"
     },
     {
       "name": "mouse",
@@ -8093,18 +8093,18 @@
       "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/20/flip_horizontal-regular.svg"
     },
     {
-      "name": "flip_vertcial",
+      "name": "flip_verticial",
       "style": "filled",
       "size": 20,
-      "fileName": "flip_vertcial-filled.svg",
-      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/20/flip_vertcial-filled.svg"
+      "fileName": "flip_verticial-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/20/flip_verticial-filled.svg"
     },
     {
-      "name": "flip_vertcial",
+      "name": "flip_verticial",
       "style": "regular",
       "size": 20,
-      "fileName": "flip_vertcial-regular.svg",
-      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/20/flip_vertcial-regular.svg"
+      "fileName": "flip_verticial-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/20/flip_verticial-regular.svg"
     },
     {
       "name": "folder",
@@ -9185,18 +9185,18 @@
       "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/20/link-regular.svg"
     },
     {
-      "name": "locallanguage",
+      "name": "local_language",
       "style": "filled",
       "size": 20,
-      "fileName": "locallanguage-filled.svg",
-      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/20/locallanguage-filled.svg"
+      "fileName": "local_language-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/20/local_language-filled.svg"
     },
     {
-      "name": "locallanguage",
+      "name": "local_language",
       "style": "regular",
       "size": 20,
-      "fileName": "locallanguage-regular.svg",
-      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/20/locallanguage-regular.svg"
+      "fileName": "local_language-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/20/local_language-regular.svg"
     },
     {
       "name": "location",
@@ -9437,18 +9437,18 @@
       "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/20/more_horizontal-regular.svg"
     },
     {
-      "name": "more_vertcial",
+      "name": "more_verticial",
       "style": "filled",
       "size": 20,
-      "fileName": "more_vertcial-filled.svg",
-      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/20/more_vertcial-filled.svg"
+      "fileName": "more_verticial-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/20/more_verticial-filled.svg"
     },
     {
-      "name": "more_vertcial",
+      "name": "more_verticial",
       "style": "regular",
       "size": 20,
-      "fileName": "more_vertcial-regular.svg",
-      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/20/more_vertcial-regular.svg"
+      "fileName": "more_verticial-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/20/more_verticial-regular.svg"
     },
     {
       "name": "mouse",
@@ -14169,18 +14169,18 @@
       "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/24/flip_horizontal-regular.svg"
     },
     {
-      "name": "flip_vertcial",
+      "name": "flip_verticial",
       "style": "filled",
       "size": 24,
-      "fileName": "flip_vertcial-filled.svg",
-      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/24/flip_vertcial-filled.svg"
+      "fileName": "flip_verticial-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/24/flip_verticial-filled.svg"
     },
     {
-      "name": "flip_vertcial",
+      "name": "flip_verticial",
       "style": "regular",
       "size": 24,
-      "fileName": "flip_vertcial-regular.svg",
-      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/24/flip_vertcial-regular.svg"
+      "fileName": "flip_verticial-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/24/flip_verticial-regular.svg"
     },
     {
       "name": "folder",
@@ -15261,18 +15261,18 @@
       "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/24/link-regular.svg"
     },
     {
-      "name": "locallanguage",
+      "name": "local_language",
       "style": "filled",
       "size": 24,
-      "fileName": "locallanguage-filled.svg",
-      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/24/locallanguage-filled.svg"
+      "fileName": "local_language-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/24/local_language-filled.svg"
     },
     {
-      "name": "locallanguage",
+      "name": "local_language",
       "style": "regular",
       "size": 24,
-      "fileName": "locallanguage-regular.svg",
-      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/24/locallanguage-regular.svg"
+      "fileName": "local_language-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/24/local_language-regular.svg"
     },
     {
       "name": "location",
@@ -15513,18 +15513,18 @@
       "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/24/more_horizontal-regular.svg"
     },
     {
-      "name": "more_vertcial",
+      "name": "more_verticial",
       "style": "filled",
       "size": 24,
-      "fileName": "more_vertcial-filled.svg",
-      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/24/more_vertcial-filled.svg"
+      "fileName": "more_verticial-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/24/more_verticial-filled.svg"
     },
     {
-      "name": "more_vertcial",
+      "name": "more_verticial",
       "style": "regular",
       "size": 24,
-      "fileName": "more_vertcial-regular.svg",
-      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/24/more_vertcial-regular.svg"
+      "fileName": "more_verticial-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/24/more_verticial-regular.svg"
     },
     {
       "name": "mouse",
@@ -20245,18 +20245,18 @@
       "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/28/flip_horizontal-regular.svg"
     },
     {
-      "name": "flip_vertcial",
+      "name": "flip_verticial",
       "style": "filled",
       "size": 28,
-      "fileName": "flip_vertcial-filled.svg",
-      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/28/flip_vertcial-filled.svg"
+      "fileName": "flip_verticial-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/28/flip_verticial-filled.svg"
     },
     {
-      "name": "flip_vertcial",
+      "name": "flip_verticial",
       "style": "regular",
       "size": 28,
-      "fileName": "flip_vertcial-regular.svg",
-      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/28/flip_vertcial-regular.svg"
+      "fileName": "flip_verticial-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/28/flip_verticial-regular.svg"
     },
     {
       "name": "folder",
@@ -21337,18 +21337,18 @@
       "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/28/link-regular.svg"
     },
     {
-      "name": "locallanguage",
+      "name": "local_language",
       "style": "filled",
       "size": 28,
-      "fileName": "locallanguage-filled.svg",
-      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/28/locallanguage-filled.svg"
+      "fileName": "local_language-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/28/local_language-filled.svg"
     },
     {
-      "name": "locallanguage",
+      "name": "local_language",
       "style": "regular",
       "size": 28,
-      "fileName": "locallanguage-regular.svg",
-      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/28/locallanguage-regular.svg"
+      "fileName": "local_language-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/28/local_language-regular.svg"
     },
     {
       "name": "location",
@@ -21589,18 +21589,18 @@
       "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/28/more_horizontal-regular.svg"
     },
     {
-      "name": "more_vertcial",
+      "name": "more_verticial",
       "style": "filled",
       "size": 28,
-      "fileName": "more_vertcial-filled.svg",
-      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/28/more_vertcial-filled.svg"
+      "fileName": "more_verticial-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/28/more_verticial-filled.svg"
     },
     {
-      "name": "more_vertcial",
+      "name": "more_verticial",
       "style": "regular",
       "size": 28,
-      "fileName": "more_vertcial-regular.svg",
-      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/28/more_vertcial-regular.svg"
+      "fileName": "more_verticial-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/28/more_verticial-regular.svg"
     },
     {
       "name": "mouse",
@@ -26321,18 +26321,18 @@
       "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/32/flip_horizontal-regular.svg"
     },
     {
-      "name": "flip_vertcial",
+      "name": "flip_verticial",
       "style": "filled",
       "size": 32,
-      "fileName": "flip_vertcial-filled.svg",
-      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/32/flip_vertcial-filled.svg"
+      "fileName": "flip_verticial-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/32/flip_verticial-filled.svg"
     },
     {
-      "name": "flip_vertcial",
+      "name": "flip_verticial",
       "style": "regular",
       "size": 32,
-      "fileName": "flip_vertcial-regular.svg",
-      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/32/flip_vertcial-regular.svg"
+      "fileName": "flip_verticial-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/32/flip_verticial-regular.svg"
     },
     {
       "name": "folder",
@@ -27413,18 +27413,18 @@
       "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/32/link-regular.svg"
     },
     {
-      "name": "locallanguage",
+      "name": "local_language",
       "style": "filled",
       "size": 32,
-      "fileName": "locallanguage-filled.svg",
-      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/32/locallanguage-filled.svg"
+      "fileName": "local_language-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/32/local_language-filled.svg"
     },
     {
-      "name": "locallanguage",
+      "name": "local_language",
       "style": "regular",
       "size": 32,
-      "fileName": "locallanguage-regular.svg",
-      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/32/locallanguage-regular.svg"
+      "fileName": "local_language-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/32/local_language-regular.svg"
     },
     {
       "name": "location",
@@ -27665,18 +27665,18 @@
       "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/32/more_horizontal-regular.svg"
     },
     {
-      "name": "more_vertcial",
+      "name": "more_verticial",
       "style": "filled",
       "size": 32,
-      "fileName": "more_vertcial-filled.svg",
-      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/32/more_vertcial-filled.svg"
+      "fileName": "more_verticial-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/32/more_verticial-filled.svg"
     },
     {
-      "name": "more_vertcial",
+      "name": "more_verticial",
       "style": "regular",
       "size": 32,
-      "fileName": "more_vertcial-regular.svg",
-      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/32/more_vertcial-regular.svg"
+      "fileName": "more_verticial-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/32/more_verticial-regular.svg"
     },
     {
       "name": "mouse",
@@ -32397,18 +32397,18 @@
       "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/48/flip_horizontal-regular.svg"
     },
     {
-      "name": "flip_vertcial",
+      "name": "flip_verticial",
       "style": "filled",
       "size": 48,
-      "fileName": "flip_vertcial-filled.svg",
-      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/48/flip_vertcial-filled.svg"
+      "fileName": "flip_verticial-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/48/flip_verticial-filled.svg"
     },
     {
-      "name": "flip_vertcial",
+      "name": "flip_verticial",
       "style": "regular",
       "size": 48,
-      "fileName": "flip_vertcial-regular.svg",
-      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/48/flip_vertcial-regular.svg"
+      "fileName": "flip_verticial-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/48/flip_verticial-regular.svg"
     },
     {
       "name": "folder",
@@ -33489,18 +33489,18 @@
       "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/48/link-regular.svg"
     },
     {
-      "name": "locallanguage",
+      "name": "local_language",
       "style": "filled",
       "size": 48,
-      "fileName": "locallanguage-filled.svg",
-      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/48/locallanguage-filled.svg"
+      "fileName": "local_language-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/48/local_language-filled.svg"
     },
     {
-      "name": "locallanguage",
+      "name": "local_language",
       "style": "regular",
       "size": 48,
-      "fileName": "locallanguage-regular.svg",
-      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/48/locallanguage-regular.svg"
+      "fileName": "local_language-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/48/local_language-regular.svg"
     },
     {
       "name": "location",
@@ -33741,18 +33741,18 @@
       "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/48/more_horizontal-regular.svg"
     },
     {
-      "name": "more_vertcial",
+      "name": "more_verticial",
       "style": "filled",
       "size": 48,
-      "fileName": "more_vertcial-filled.svg",
-      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/48/more_vertcial-filled.svg"
+      "fileName": "more_verticial-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/48/more_verticial-filled.svg"
     },
     {
-      "name": "more_vertcial",
+      "name": "more_verticial",
       "style": "regular",
       "size": 48,
-      "fileName": "more_vertcial-regular.svg",
-      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/48/more_vertcial-regular.svg"
+      "fileName": "more_verticial-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/48/more_verticial-regular.svg"
     },
     {
       "name": "mouse",

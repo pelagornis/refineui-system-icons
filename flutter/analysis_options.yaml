@@ -1,5 +1,9 @@
 include: package:flutter_lints/flutter.yaml
 
+analyzer:
+  errors:
+    constant_identifier_names: ignore  # generated icon constants use snake_case (e.g. access_time_24_regular)
+
 linter:
   rules:
     - always_declare_return_types
@@ -9,7 +13,6 @@ linter:
     - await_only_futures
     - camel_case_types
     - cancel_subscriptions
-    # - constant_identifier_names  # Disabled for generated icon constants
     - control_flow_in_finally
     # - directives_ordering  # Disabled for flexibility
     - empty_catches

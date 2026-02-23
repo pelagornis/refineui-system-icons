@@ -41,15 +41,19 @@ class IconUtils {
   /** Resolve icon data by name or by slug (handles "Local language", "LocalLanguage", extra spaces) */
   private getIconData(iconName: string): IconData | null {
     if (!iconName || typeof iconName !== 'string') return null;
-    const direct = this.metadata.icons[iconName];
+    const direct = this.metadata.icons[iconName] ?? null;
     if (direct) return direct;
     const normalized = normalizeIconName(iconName);
-    if (normalized && this.metadata.icons[normalized]) return this.metadata.icons[normalized];
+    if (normalized) {
+      const found = this.metadata.icons[normalized] ?? null;
+      if (found) return found;
+    }
     const slug = nameToSlug(iconName);
     const bySlug = Object.values(this.metadata.icons).find((icon) => icon.slug === slug);
     if (bySlug) return bySlug;
     const slugPascal = pascalToSlug(iconName);
-    return Object.values(this.metadata.icons).find((icon) => icon.slug === slugPascal) || null;
+    const byPascal = Object.values(this.metadata.icons).find((icon) => icon.slug === slugPascal);
+    return byPascal ?? null;
   }
 
   /**
