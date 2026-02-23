@@ -8,7 +8,17 @@ import os
 import sys
 from pathlib import Path
 
-# 270 icon names (extracted from fonts)
+def to_export_name(icon_name: str) -> str:
+    """Valid JS export name: 'local language' -> 'LocalLanguage'."""
+    return "".join(w.capitalize() for w in icon_name.split())
+
+
+def to_display_name(icon_name: str) -> str:
+    """Display name for createIconHTML (matches metadata key): 'local language' -> 'Local language'."""
+    return (icon_name[0].upper() + icon_name[1:]) if icon_name else icon_name
+
+
+# Icon names (include names with spaces, e.g. 'local language')
 ICON_NAMES = [
     'access', 'accessibility', 'add', 'airplane', 'album', 'alert', 'align', 'android', 'app', 'appstore',
     'autosum', 'backpack', 'backspace', 'badge', 'balloon', 'bar', 'barcode', 'battery', 'block', 'bluetooth',
@@ -23,7 +33,7 @@ ICON_NAMES = [
     'git', 'glasses', 'global', 'grid', 'guest', 'guitar', 'hammer', 'hard', 'hat', 'hd',
     'hdr', 'headphones', 'headset', 'heart', 'hexagon', 'highlight', 'highway', 'home', 'hourglass', 'html',
     'image', 'important', 'incognito', 'info', 'ios', 'iot', 'javascript', 'joystick', 'json', 'key',
-    'keyboard', 'kiosk', 'kotlin', 'laptop', 'layer', 'lightbulb', 'line', 'link', 'local', 'location',
+    'keyboard', 'kiosk', 'kotlin', 'laptop', 'layer', 'lightbulb', 'line', 'link', 'local', 'local language', 'location',
     'lock', 'luggage', 'macos', 'mail', 'mailbox', 'map', 'markdown', 'math', 'megaphone', 'mic',
     'moon', 'more', 'mouse', 'movie', 'network', 'news', 'next', 'note', 'notebook', 'notepad',
     'number', 'opacity', 'open', 'options', 'organization', 'orientation', 'oval', 'oven', 'padding', 'page',
@@ -204,7 +214,7 @@ def generate_regular_icons(src_dir):
     
     # Regular style icons
     for icon_name in ICON_NAMES:
-        content.append(f"export const {icon_name.capitalize()} = createIconComponent('{icon_name.capitalize()}', 'regular');")
+        content.append(f"export const {to_export_name(icon_name)} = createIconComponent('{to_display_name(icon_name)}', 'regular');")
     
     with open(src_dir / "regular-icons.ts", 'w', encoding='utf-8') as f:
         f.write('\n'.join(content))
@@ -222,7 +232,7 @@ def generate_filled_icons(src_dir):
     
     # Filled style icons
     for icon_name in ICON_NAMES:
-        content.append(f"export const {icon_name.capitalize()}Filled = createIconComponent('{icon_name.capitalize()}', 'filled');")
+        content.append(f"export const {to_export_name(icon_name)}Filled = createIconComponent('{to_display_name(icon_name)}', 'filled');")
     
     with open(src_dir / "filled-icons.ts", 'w', encoding='utf-8') as f:
         f.write('\n'.join(content))
@@ -334,9 +344,9 @@ def generate_regular_icons_web(src_dir):
         "",
     ]
     
-    # Regular style icons
+    # Regular style icons (export name: PascalCase for names with spaces)
     for icon_name in ICON_NAMES:
-        content.append(f"export const {icon_name.capitalize()} = createIconHTML('{icon_name.capitalize()}', 'regular');")
+        content.append(f"export const {to_export_name(icon_name)} = createIconHTML('{to_display_name(icon_name)}', 'regular');")
     
     with open(src_dir / "regular-icons.ts", 'w', encoding='utf-8') as f:
         f.write('\n'.join(content))
@@ -354,7 +364,7 @@ def generate_filled_icons_web(src_dir):
     
     # Filled style icons
     for icon_name in ICON_NAMES:
-        content.append(f"export const {icon_name.capitalize()}Filled = createIconHTML('{icon_name.capitalize()}', 'filled');")
+        content.append(f"export const {to_export_name(icon_name)}Filled = createIconHTML('{to_display_name(icon_name)}', 'filled');")
     
     with open(src_dir / "filled-icons.ts", 'w', encoding='utf-8') as f:
         f.write('\n'.join(content))
@@ -443,7 +453,7 @@ def generate_regular_icons_cdn(src_dir):
     
     # Regular style icons
     for icon_name in ICON_NAMES:
-        content.append(f"export const {icon_name.capitalize()}Regular = createIconURL('{icon_name.lower()}', 24, 'regular');")
+        content.append(f"export const {to_export_name(icon_name)}Regular = createIconURL('{icon_name.lower().replace(chr(32), '-')}', 24, 'regular');")
     
     with open(src_dir / "regular-icons.ts", 'w', encoding='utf-8') as f:
         f.write('\n'.join(content))
@@ -461,7 +471,7 @@ def generate_filled_icons_cdn(src_dir):
     
     # Filled style icons
     for icon_name in ICON_NAMES:
-        content.append(f"export const {icon_name.capitalize()}Filled = createIconURL('{icon_name.lower()}', 24, 'filled');")
+        content.append(f"export const {to_export_name(icon_name)}Filled = createIconURL('{icon_name.lower().replace(chr(32), '-')}', 24, 'filled');")
     
     with open(src_dir / "filled-icons.ts", 'w', encoding='utf-8') as f:
         f.write('\n'.join(content))
@@ -569,7 +579,7 @@ def generate_regular_icons_rn(src_dir):
     
     # Regular style icons
     for icon_name in ICON_NAMES:
-        content.append(f"export const {icon_name.capitalize()} = createIconComponent('{icon_name.capitalize()}', 'regular');")
+        content.append(f"export const {to_export_name(icon_name)} = createIconComponent('{to_display_name(icon_name)}', 'regular');")
     
     with open(src_dir / "regular-icons.ts", 'w', encoding='utf-8') as f:
         f.write('\n'.join(content))
@@ -587,7 +597,7 @@ def generate_filled_icons_rn(src_dir):
     
     # Filled style icons
     for icon_name in ICON_NAMES:
-        content.append(f"export const {icon_name.capitalize()}Filled = createIconComponent('{icon_name.capitalize()}', 'filled');")
+        content.append(f"export const {to_export_name(icon_name)}Filled = createIconComponent('{to_display_name(icon_name)}', 'filled');")
     
     with open(src_dir / "filled-icons.ts", 'w', encoding='utf-8') as f:
         f.write('\n'.join(content))

@@ -1,6 +1,18 @@
 import React from 'react';
 import metadata from './metadata.json';
 
+/** Display name to slug (e.g. "Local language" -> "local-language") */
+function nameToSlug(name: string): string {
+  return String(name).toLowerCase().trim().replace(/\s+/g, '-');
+}
+/** PascalCase to slug (e.g. "LocalLanguage" -> "local-language") for fallback lookup */
+function pascalToSlug(name: string): string {
+  return String(name)
+    .replace(/([A-Z])/g, '-$1')
+    .toLowerCase()
+    .replace(/^-/, '');
+}
+
 export interface IconProps {
   style?: React.CSSProperties;
   className?: string;
@@ -36,6 +48,17 @@ class ReactIconUtils {
     this.fontFamilies = metadata.fontFamilies;
   }
 
+  /** Resolve icon data by name or by slug (handles "Local language" and "LocalLanguage") */
+  private getIconData(iconName: string): IconData | null {
+    const direct = this.metadata.icons[iconName];
+    if (direct) return direct;
+    const slug = nameToSlug(iconName);
+    const bySlug = Object.values(this.metadata.icons).find((icon) => icon.slug === slug);
+    if (bySlug) return bySlug;
+    const slugPascal = pascalToSlug(iconName);
+    return Object.values(this.metadata.icons).find((icon) => icon.slug === slugPascal) || null;
+  }
+
   // === Icon style method ===
   // Dynamic icon creation method
   createIconMethod(iconName: string, props: IconProps = {}): React.ReactElement | null {
@@ -59,7 +82,7 @@ class ReactIconUtils {
 
   // Generate unsized icons (default 24px)
   private createUnsizedIcon(iconName: string, style: 'regular' | 'filled', props: IconProps = {}): React.ReactElement | null {
-    const iconData = this.metadata.icons[iconName];
+    const iconData = this.getIconData(iconName);
     if (!iconData) return null;
 
     const defaultSize = 24;
@@ -82,7 +105,7 @@ class ReactIconUtils {
 
   // Generate sized icons
   private createSizedIcon(iconName: string, size: number, style: 'regular' | 'filled', props: IconProps = {}): React.ReactElement | null {
-    const iconData = this.metadata.icons[iconName];
+    const iconData = this.getIconData(iconName);
     if (!iconData) return null;
 
     const unicodeInfo = iconData.unicodeMapping[size]?.[style];
@@ -104,7 +127,7 @@ class ReactIconUtils {
 
   // Utility methods
   getIconChar(iconName: string, style: 'regular' | 'filled' = 'regular', size: number = 24): string | null {
-    const iconData = this.metadata.icons[iconName];
+    const iconData = this.getIconData(iconName);
     if (!iconData) return null;
 
     const unicodeInfo = iconData.unicodeMapping[size]?.[style];
@@ -114,7 +137,7 @@ class ReactIconUtils {
   }
 
   getIconClass(iconName: string, style: 'regular' | 'filled' = 'regular', size: number = 24): string | null {
-    const iconData = this.metadata.icons[iconName];
+    const iconData = this.getIconData(iconName);
     if (!iconData) return null;
 
     const unicodeInfo = iconData.unicodeMapping[size]?.[style];
@@ -140,7 +163,7 @@ class ReactIconUtils {
   }
 
   getIconInfo(iconName: string): IconData | null {
-    return this.metadata.icons[iconName] || null;
+    return this.getIconData(iconName);
   }
 
   searchIcons(query: string): string[] {

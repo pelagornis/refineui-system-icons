@@ -142,6 +142,7 @@ export const LightbulbFilled = createIconComponent('Lightbulb', 'filled');
 export const LineFilled = createIconComponent('Line', 'filled');
 export const LinkFilled = createIconComponent('Link', 'filled');
 export const LocalFilled = createIconComponent('Local', 'filled');
+export const LocalLanguageFilled = createIconComponent('Local language', 'filled');
 export const LocationFilled = createIconComponent('Location', 'filled');
 export const LockFilled = createIconComponent('Lock', 'filled');
 export const LuggageFilled = createIconComponent('Luggage', 'filled');

@@ -142,6 +142,7 @@ export const Lightbulb = createIconHTML('Lightbulb', 'regular');
 export const Line = createIconHTML('Line', 'regular');
 export const Link = createIconHTML('Link', 'regular');
 export const Local = createIconHTML('Local', 'regular');
+export const LocalLanguage = createIconHTML('Local language', 'regular');
 export const Location = createIconHTML('Location', 'regular');
 export const Lock = createIconHTML('Lock', 'regular');
 export const Luggage = createIconHTML('Luggage', 'regular');

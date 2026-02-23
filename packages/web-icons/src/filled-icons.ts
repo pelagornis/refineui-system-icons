@@ -142,6 +142,7 @@ export const LightbulbFilled = createIconHTML('Lightbulb', 'filled');
 export const LineFilled = createIconHTML('Line', 'filled');
 export const LinkFilled = createIconHTML('Link', 'filled');
 export const LocalFilled = createIconHTML('Local', 'filled');
+export const LocalLanguageFilled = createIconHTML('Local language', 'filled');
 export const LocationFilled = createIconHTML('Location', 'filled');
 export const LockFilled = createIconHTML('Lock', 'filled');
 export const LuggageFilled = createIconHTML('Luggage', 'filled');

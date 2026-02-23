@@ -19,6 +19,26 @@ def load_icon_mapping(project_root):
         return json.load(f)
 
 
+def get_icon_names_from_mapping(icon_mapping):
+    """
+    Extract unique icon names from icon-mapping.json css_class.
+    css_class format: ic_refineui_<name>_<size>_<style>  e.g. ic_refineui_local_language_24_regular
+    Returns sorted list of <name> (supports names with underscores, e.g. local_language).
+    """
+    if not icon_mapping or not icon_mapping.get("icons"):
+        return None
+    names = set()
+    for css_class in icon_mapping["icons"].keys():
+        if not css_class.startswith("ic_refineui_"):
+            continue
+        parts = css_class[len("ic_refineui_"):].split("_")
+        if len(parts) >= 3:
+            # last two are size and style
+            name = "_".join(parts[:-2])
+            names.add(name)
+    return sorted(names)
+
+
 def generate_android_xml():
     """Generates Android XML drawable files."""
     print("🤖 Android XML generation started...")
@@ -29,40 +49,14 @@ def generate_android_xml():
     if not icon_mapping:
         print("⚠️  fonts/icon-mapping.json not found; unicode will be wrong (size as codepoint).")
     
+    ICON_NAMES = get_icon_names_from_mapping(icon_mapping)
+    if not ICON_NAMES:
+        print("⚠️  No icon names from icon-mapping; cannot generate Android XML.")
+        return False
+    
     if not android_dir.exists():
         print(f"❌ Android directory not found: {android_dir}")
         return False
-    
-    # 270 icon names
-    ICON_NAMES = [
-        'access', 'accessibility', 'add', 'airplane', 'album', 'alert', 'align', 'android', 'app', 'appstore',
-        'autosum', 'backpack', 'backspace', 'badge', 'balloon', 'bar', 'barcode', 'battery', 'block', 'bluetooth',
-        'blur', 'board', 'book', 'bookmark', 'bug', 'calculator', 'calendar', 'camera', 'cart', 'carton',
-        'chart', 'chat', 'checkmark', 'chess', 'chevron', 'circle', 'clipboard', 'clock', 'cloud', 'clover',
-        'code', 'comma', 'comment', 'cone', 'contrast', 'control', 'cookie', 'copy', 'couch', 'cpu',
-        'crop', 'crown', 'css', 'cube', 'cursor', 'cut', 'dart', 'database', 'delete', 'dentist',
-        'desk', 'desktop', 'dialpad', 'diamond', 'dismiss', 'doctor', 'document', 'door', 'drag', 'drawer',
-        'drop', 'dual', 'dumbbell', 'dust', 'earth', 'edit', 'elevator', 'emoji', 'engine', 'equal',
-        'error', 'eye', 'eyedropper', 'fast', 'filmstrip', 'filter', 'fire', 'flag', 'flash', 'flashlight',
-        'flip', 'folder', 'frame', 'full', 'games', 'gantt', 'gas', 'gavel', 'gif', 'gift',
-        'git', 'glasses', 'global', 'grid', 'guest', 'guitar', 'hammer', 'hard', 'hat', 'hd',
-        'hdr', 'headphones', 'headset', 'heart', 'hexagon', 'highlight', 'highway', 'home', 'hourglass', 'html',
-        'image', 'important', 'incognito', 'info', 'ios', 'iot', 'javascript', 'joystick', 'json', 'key',
-        'keyboard', 'kiosk', 'kotlin', 'laptop', 'layer', 'lightbulb', 'line', 'link', 'local', 'location',
-        'lock', 'luggage', 'macos', 'mail', 'mailbox', 'map', 'markdown', 'math', 'megaphone', 'mic',
-        'moon', 'more', 'mouse', 'movie', 'network', 'news', 'next', 'note', 'notebook', 'notepad',
-        'number', 'opacity', 'open', 'options', 'organization', 'orientation', 'oval', 'oven', 'padding', 'page',
-        'paint', 'parallelogram', 'password', 'pause', 'payment', 'pen', 'pentagon', 'person', 'phone', 'piano',
-        'pin', 'pipeline', 'play', 'playstore', 'port', 'power', 'preview', 'previous', 'print', 'pulse',
-        'python', 'qr', 'question', 'radio', 'ram', 'record', 'rectangle', 'refineui', 'rewind', 'rhombus',
-        'ribbon', 'road', 'rocket', 'rotation', 'router', 'rss', 'ruler', 'run', 'save', 'scales',
-        'script', 'search', 'send', 'serial', 'server', 'service', 'settings', 'shape', 'shapes', 'share',
-        'shell', 'shield', 'shopping', 'sim', 'slide', 'smartwatch', 'sound', 'spacebar', 'sport', 'spray',
-        'square', 'star', 'stop', 'subtract', 'swift', 'tab', 'tablet', 'tag', 'target', 'temperature',
-        'tent', 'text', 'textbox', 'thinking', 'ticket', 'timer', 'toggle', 'toolbox', 'trophy', 'tv',
-        'typescript', 'umbrella', 'usb', 'verified', 'video', 'voicemail', 'vote', 'walkie', 'wallet', 'wand',
-        'warning', 'washer', 'water', 'weather', 'web', 'wifi', 'windows', 'wrench', 'xray', 'zoom'
-    ]
     
     # Icon sizes
     ICON_SIZES = [16, 20, 24, 28, 32, 48]

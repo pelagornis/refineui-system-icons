@@ -142,6 +142,7 @@ export const Lightbulb = createIconComponent('Lightbulb', 'regular');
 export const Line = createIconComponent('Line', 'regular');
 export const Link = createIconComponent('Link', 'regular');
 export const Local = createIconComponent('Local', 'regular');
+export const LocalLanguage = createIconComponent('Local language', 'regular');
 export const Location = createIconComponent('Location', 'regular');
 export const Lock = createIconComponent('Lock', 'regular');
 export const Luggage = createIconComponent('Luggage', 'regular');

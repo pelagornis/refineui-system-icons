@@ -142,6 +142,7 @@ export const LightbulbRegular = createIconURL('lightbulb', 24, 'regular');
 export const LineRegular = createIconURL('line', 24, 'regular');
 export const LinkRegular = createIconURL('link', 24, 'regular');
 export const LocalRegular = createIconURL('local', 24, 'regular');
+export const LocalLanguageRegular = createIconURL('local-language', 24, 'regular');
 export const LocationRegular = createIconURL('location', 24, 'regular');
 export const LockRegular = createIconURL('lock', 24, 'regular');
 export const LuggageRegular = createIconURL('luggage', 24, 'regular');
