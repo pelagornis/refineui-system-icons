@@ -62,6 +62,29 @@ def build_style_glyphs(icons_obj):
     return by_style
 
 
+def css_class_to_svg_stem_candidates(css_class):
+    """
+    icon-mapping uses underscore in name (e.g. code_block) but SVG filenames
+    often use hyphen (code-block) for names that had spaces. Return [css_class, alt_stem].
+    """
+    prefix = "ic_refineui_"
+    if not css_class.startswith(prefix):
+        return [css_class]
+    rest = css_class[len(prefix):]
+    parts = rest.split("_")
+    if len(parts) < 3:
+        return [css_class]
+    # last two: size, style; the rest is name (may be multi-part e.g. code, block)
+    name_parts = parts[:-2]
+    size, style = parts[-2], parts[-1]
+    name_underscore = "_".join(name_parts)
+    name_hyphen = "-".join(name_parts)
+    if name_hyphen == name_underscore:
+        return [css_class]
+    alt_stem = prefix + name_hyphen + "_" + size + "_" + style
+    return [css_class, alt_stem]
+
+
 def generate_style_font(style, glyph_list, stem_to_path, font_family_name):
     """Create one TTF for the given style."""
     font = fontforge.font()
@@ -73,8 +96,13 @@ def generate_style_font(style, glyph_list, stem_to_path, font_family_name):
     added = 0
     missing = []
     for css_class, unicode_val in glyph_list:
-        svg_path = stem_to_path.get(css_class)
-        if not svg_path or not os.path.isfile(svg_path):
+        svg_path = None
+        for stem in css_class_to_svg_stem_candidates(css_class):
+            p = stem_to_path.get(stem)
+            if p and os.path.isfile(p):
+                svg_path = p
+                break
+        if not svg_path:
             missing.append(css_class)
             continue
         try:

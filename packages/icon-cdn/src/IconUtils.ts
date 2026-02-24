@@ -22,6 +22,9 @@ export interface Metadata {
 function nameToSlug(name: string): string {
   return String(name).toLowerCase().trim().replace(/\s+/g, '-');
 }
+function normalizeSlug(s: string): string {
+  return nameToSlug(String(s).replace(/_/g, '-'));
+}
 function pascalToSlug(name: string): string {
   return String(name).replace(/([A-Z])/g, '-$1').toLowerCase().replace(/^-/, '');
 }
@@ -38,21 +41,51 @@ class IconUtils {
     this.fontFamilies = metadata.fontFamilies;
   }
 
-  /** Resolve icon data by name or by slug (handles "Local language", "LocalLanguage", extra spaces) */
+  /** Resolve icon data by name or by slug (handles "Local language", "LocalLanguage", "weather-sunny" / "weather_sunny", extra spaces) */
   private getIconData(iconName: string): IconData | null {
     if (!iconName || typeof iconName !== 'string') return null;
     const direct = this.metadata.icons[iconName] ?? null;
     if (direct) return direct;
+    const slugForDirect = nameToSlug(iconName);
+    const bySlugDirect = this.metadata.icons[slugForDirect] ?? null;
+    if (bySlugDirect) return bySlugDirect;
+    const withUnderscore = this.metadata.icons[iconName.replace(/-/g, '_')] ?? null;
+    if (withUnderscore) return withUnderscore;
+    const withHyphen = this.metadata.icons[iconName.replace(/_/g, '-')] ?? null;
+    if (withHyphen) return withHyphen;
+    const keys = Object.keys(this.metadata.icons);
+    const matchKey = keys.find(
+      (k) =>
+        k === iconName ||
+        normalizeSlug(k) === slugForDirect ||
+        k.replace(/-/g, '_') === iconName ||
+        k.replace(/_/g, '-') === iconName
+    );
+    if (matchKey) return this.metadata.icons[matchKey] ?? null;
     const normalized = normalizeIconName(iconName);
     if (normalized) {
       const found = this.metadata.icons[normalized] ?? null;
       if (found) return found;
     }
-    const slug = nameToSlug(iconName);
-    const bySlug = Object.values(this.metadata.icons).find((icon) => icon.slug === slug);
+    const slug = slugForDirect;
+    const bySlug = Object.values(this.metadata.icons).find(
+      (icon) =>
+        icon.slug === slug ||
+        icon.slug === slug.replace(/-/g, '_') ||
+        icon.slug === slug.replace(/_/g, '-') ||
+        normalizeSlug(icon.slug) === slug ||
+        normalizeSlug(icon.name) === slug
+    );
     if (bySlug) return bySlug;
     const slugPascal = pascalToSlug(iconName);
-    const byPascal = Object.values(this.metadata.icons).find((icon) => icon.slug === slugPascal);
+    const byPascal = Object.values(this.metadata.icons).find(
+      (icon) =>
+        icon.slug === slugPascal ||
+        icon.slug === slugPascal.replace(/-/g, '_') ||
+        icon.slug === slugPascal.replace(/_/g, '-') ||
+        normalizeSlug(icon.slug) === slugPascal ||
+        normalizeSlug(icon.name) === slugPascal
+    );
     return byPascal ?? null;
   }
 
