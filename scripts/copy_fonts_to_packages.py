@@ -13,10 +13,10 @@ FONTS_DIR = ROOT_DIR / "fonts"
 
 # (destination dir, list of glob patterns for files to copy)
 COPY_TARGETS = [
-    # Web / React: woff2, woff, css (bundle uses woff2; css has unicode from icon-mapping)
-    (ROOT_DIR / "packages" / "web-icons" / "fonts", ["*.woff2", "*.woff", "*.css"]),
-    (ROOT_DIR / "packages" / "react-icons" / "fonts", ["*.woff2", "*.woff", "*.css"]),
-    (ROOT_DIR / "packages" / "react-native-icons" / "fonts", ["*.woff2", "*.woff", "*.css"]),
+    # Web / React: woff2, woff, otf, css (bundle uses woff2; css references otf fallback)
+    (ROOT_DIR / "packages" / "web-icons" / "fonts", ["*.woff2", "*.woff", "*.otf", "*.css"]),
+    (ROOT_DIR / "packages" / "react-icons" / "fonts", ["*.woff2", "*.woff", "*.otf", "*.css"]),
+    (ROOT_DIR / "packages" / "react-native-icons" / "fonts", ["*.woff2", "*.woff", "*.otf", "*.css"]),
     # Flutter: TTF only (pubspec references .ttf)
     (ROOT_DIR / "flutter" / "lib" / "fonts", ["*.ttf"]),
 ]

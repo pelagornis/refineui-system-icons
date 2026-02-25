@@ -9,6 +9,7 @@ from _lib import ROOT_DIR, SCRIPTS_DIR, run_command
 def main():
     print("🎯 RefineUI System Icons full build\n")
     run_command("npm run generate:metadata", "Metadata generation")
+    run_command("npm run generate:icon-mapping", "Icon mapping from assets")
     run_command("npm run generate:ttf", "TTF from SVGs", required=False)
     run_command(f"python3 {SCRIPTS_DIR}/generate_platforms.py", "Platform file generation")
     run_command("npm run build", "Packages build")

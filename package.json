@@ -11,6 +11,7 @@
     "build": "npm run build --workspaces",
     "dev": "npm run dev --workspaces",
     "generate:metadata": "node scripts/generate-metadata.js",
+    "generate:icon-mapping": "python3 scripts/generate_icon_mapping.py",
     "generate:web-icons": "python3 scripts/generate_web_icons.py",
     "sync:web-icons-unicode": "node scripts/sync-web-icons-unicode.js",
     "generate:platforms": "python3 scripts/generate_platforms.py",

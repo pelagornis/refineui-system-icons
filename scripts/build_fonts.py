@@ -6,6 +6,24 @@ from pathlib import Path
 from _lib import ROOT_DIR, SCRIPTS_DIR, run_command
 
 
+def convert_to_otf(ttf_path: Path, otf_path: Path) -> bool:
+    """Convert TTF to OTF using fontforge."""
+    import subprocess
+    try:
+        cmd = [
+            "fontforge", "-lang=ff", "-c",
+            "Open($argv[1]); Generate($argv[2])",
+            str(ttf_path.resolve()),
+            str(otf_path.resolve()),
+        ]
+        subprocess.run(cmd, check=True, capture_output=True)
+        print(f"  ✅ OTF: {ttf_path.name}")
+        return True
+    except (subprocess.CalledProcessError, FileNotFoundError) as e:
+        print(f"  ⚠️ OTF failed: {e}")
+        return False
+
+
 def convert_with_fonttools(ttf_path: Path, woff_path: Path, woff2_path: Path) -> bool:
     """Convert TTF to WOFF and WOFF2 using fonttools. Returns True if at least one succeeded."""
     try:
@@ -44,6 +62,10 @@ def main():
     for ttf in sorted(fonts_dir.glob("*.ttf")):
         woff2 = ttf.with_suffix(".woff2")
         woff = ttf.with_suffix(".woff")
+        otf = ttf.with_suffix(".otf")
+        # OTF (fontforge)
+        convert_to_otf(ttf, otf)
+        # WOFF2, WOFF (fonttools)
         if convert_with_fonttools(ttf, woff, woff2):
             continue
         # Fallback to CLI if fonttools failed or not installed
