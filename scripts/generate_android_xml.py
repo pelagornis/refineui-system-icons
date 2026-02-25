@@ -67,14 +67,21 @@ def generate_android_xml():
     # Create drawable directory
     drawable_dir = android_dir / "app" / "src" / "main" / "res" / "drawable"
     drawable_dir.mkdir(parents=True, exist_ok=True)
-    
+
+    # Remove invalid drawables (Android allows only [a-z0-9_]; hyphens are invalid)
+    for f in drawable_dir.glob("ic_refineui_*.xml"):
+        if "-" in f.stem:
+            f.unlink()
+
     # Generate XML files for each icon
+    # Android resource names must be [a-z0-9_]; hyphens are invalid
     total_files = 0
     for icon_name in ICON_NAMES:
+        android_name = icon_name.replace("-", "_")
         for size in ICON_SIZES:
             for style in ICON_STYLES:
                 xml_content = generate_xml_content(icon_name, size, style, icon_mapping)
-                xml_filename = f"ic_refineui_{icon_name}_{size}_{style}.xml"
+                xml_filename = f"ic_refineui_{android_name}_{size}_{style}.xml"
                 xml_path = drawable_dir / xml_filename
                 
                 with open(xml_path, 'w', encoding='utf-8') as f:
