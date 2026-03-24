@@ -133,7 +133,7 @@ def generate_font_css():
     font-display: block;
 }}
 
-/* Base icon class */
+/* Base icon class (no flex/justify-content — keeps glyph alignment predictable) */
 .ic_refineui {{
     font-size: 1em;
     line-height: 1;

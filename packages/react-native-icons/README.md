@@ -23,7 +23,7 @@ import { Home, Search, Settings, Heart } from "@refineui/react-native-icons";
 
 function App() {
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+    <View style={{ flex: 1, padding: 24 }}>
       {/* Basic usage */}
       <Home size={24} />
 
