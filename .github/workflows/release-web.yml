@@ -9,6 +9,10 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: false
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   release-web:
     runs-on: ubuntu-latest
@@ -23,7 +27,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
           cache: "npm"
           registry-url: "https://registry.npmjs.org"
 
@@ -102,6 +106,11 @@ jobs:
       - name: Sync web-icons unicode from icon-mapping
         run: npm run sync:web-icons-unicode
 
+      - name: Build react-icons
+        run: |
+          cd packages/react-icons
+          npm run build
+
       - name: Build web-icons
         run: |
           cd packages/web-icons
@@ -115,21 +124,24 @@ jobs:
       - name: Publish React Icons to npm
         run: |
           cd packages/react-icons
-          npm publish --access public
+          test -f dist/index.js
+          npm publish --access public --provenance
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}
 
       - name: Publish Web Icons to npm
         run: |
           cd packages/web-icons
-          npm publish --access public
+          test -f dist/index.js
+          npm publish --access public --provenance
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}
 
       - name: Publish Icon CDN to npm
         run: |
           cd packages/icon-cdn
-          npm publish --access public
+          test -f dist/index.js
+          npm publish --access public --provenance
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}
 
