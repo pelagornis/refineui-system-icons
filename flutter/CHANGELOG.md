@@ -1,3 +1,7 @@
+## 0.3.36
+
+- Updated all platform versions to 0.3.36
+
 ## 0.3.35
 
 - Updated all platform versions to 0.3.35
