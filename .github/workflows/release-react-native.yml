@@ -51,32 +51,37 @@ jobs:
           echo "Committing and pushing version changes..."
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git config --local init.defaultBranch main
 
-          # Make our changes
+          VERSION="${{ steps.get_version.outputs.version }}"
+          git checkout main
+
+          sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" packages/react-native-icons/package.json
+
           git add packages/react-native-icons/package.json
           git status
           git diff --cached
 
-          # Commit changes
-          git commit -m "chore(react-native): bump package version to ${{ steps.get_version.outputs.version }}
+          if git diff --staged --quiet; then
+            echo "✅ Version files already at $VERSION, skipping commit"
+          else
+            git commit -m "chore(react-native): bump package version to $VERSION
 
-          - Update packages/react-native-icons/package.json version
-          - Triggered by tag: ${{ github.ref }}
-          - Workflow: ${{ github.workflow }}
-          - Commit: ${{ github.sha }}"
+            - Update packages/react-native-icons/package.json version
+            - Triggered by tag: ${{ github.ref }}
+            - Workflow: ${{ github.workflow }}
+            - Commit: ${{ github.sha }}"
 
-          # Try to push, if fails, pull and retry
-          for i in {1..3}; do
-            if git push origin HEAD:main; then
-              echo "✅ Successfully pushed version changes"
-              break
-            else
-              echo "Push failed, attempt $i/3. Pulling latest changes..."
-              git pull origin main --rebase
-              sleep 2
-            fi
-          done
+            for i in {1..3}; do
+              if git push origin HEAD:main; then
+                echo "✅ Successfully pushed version changes"
+                break
+              else
+                echo "Push failed, attempt $i/3. Pulling latest changes..."
+                git pull origin main --rebase
+                sleep 2
+              fi
+            done
+          fi
 
       - name: Build React Native platform
         run: |

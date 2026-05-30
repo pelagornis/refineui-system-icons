@@ -52,8 +52,8 @@ jobs:
         run: |
           VERSION="${{ steps.get_version.outputs.version }}"
 
-          # Update gradle.properties VERSION_NAME
           sed -i "s/VERSION_NAME=.*/VERSION_NAME=$VERSION/" android/gradle.properties
+          sed -i "s/version = findProperty(\"VERSION_NAME\") as String? ?: \".*\"/version = findProperty(\"VERSION_NAME\") as String? ?: \"$VERSION\"/" android/library/build.gradle.kts
 
           echo "✅ Updated Android version to $VERSION"
 
@@ -62,32 +62,38 @@ jobs:
           echo "Committing and pushing version changes..."
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git config --local init.defaultBranch main
 
-          # Make our changes
-          git add android/gradle.properties
+          VERSION="${{ steps.get_version.outputs.version }}"
+          git checkout main
+
+          sed -i "s/VERSION_NAME=.*/VERSION_NAME=$VERSION/" android/gradle.properties
+          sed -i "s/version = findProperty(\"VERSION_NAME\") as String? ?: \".*\"/version = findProperty(\"VERSION_NAME\") as String? ?: \"$VERSION\"/" android/library/build.gradle.kts
+
+          git add android/gradle.properties android/library/build.gradle.kts
           git status
           git diff --cached
 
-          # Commit changes
-          git commit -m "chore(android): bump version to ${{ steps.get_version.outputs.version }}
+          if git diff --staged --quiet; then
+            echo "✅ Version files already at $VERSION, skipping commit"
+          else
+            git commit -m "chore(android): bump version to $VERSION
 
-          - Update android/gradle.properties VERSION_NAME field
-          - Triggered by tag: ${{ github.ref }}
-          - Workflow: ${{ github.workflow }}
-          - Commit: ${{ github.sha }}"
+            - Update android/gradle.properties VERSION_NAME field
+            - Triggered by tag: ${{ github.ref }}
+            - Workflow: ${{ github.workflow }}
+            - Commit: ${{ github.sha }}"
 
-          # Try to push, if fails, pull and retry
-          for i in {1..3}; do
-            if git push origin HEAD:main; then
-              echo "✅ Successfully pushed version changes"
-              break
-            else
-              echo "Push failed, attempt $i/3. Pulling latest changes..."
-              git pull origin main --rebase
-              sleep 2
-            fi
-          done
+            for i in {1..3}; do
+              if git push origin HEAD:main; then
+                echo "✅ Successfully pushed version changes"
+                break
+              else
+                echo "Push failed, attempt $i/3. Pulling latest changes..."
+                git pull origin main --rebase
+                sleep 2
+              fi
+            done
+          fi
 
       - name: Build Android platform
         run: |

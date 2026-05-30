@@ -95,22 +95,22 @@ jobs:
       - name: Update Flutter CHANGELOG
         run: |
           VERSION="${{ steps.get_version.outputs.version }}"
-          cat > /tmp/changelog_entry.md << EOF
+
+          if head -n 1 flutter/CHANGELOG.md | grep -q "^## $VERSION$"; then
+            echo "✅ CHANGELOG already has entry for $VERSION, skipping"
+          else
+            cat > /tmp/changelog_entry.md << EOF
           ## $VERSION
 
           - Updated all platform versions to $VERSION
-          - Fixed React Native build errors and TypeScript conflicts
-          - Improved icon generation scripts for better consistency
-          - Enhanced package validation and publishing process
-          - Fixed Git push conflicts in release workflows
-          - Added concurrency controls to prevent workflow conflicts
 
           EOF
 
-          cat /tmp/changelog_entry.md flutter/CHANGELOG.md > /tmp/new_changelog.md
-          mv /tmp/new_changelog.md flutter/CHANGELOG.md
-          rm -f /tmp/changelog_entry.md
-          echo "✅ Updated Flutter CHANGELOG.md with version $VERSION"
+            cat /tmp/changelog_entry.md flutter/CHANGELOG.md > /tmp/new_changelog.md
+            mv /tmp/new_changelog.md flutter/CHANGELOG.md
+            rm -f /tmp/changelog_entry.md
+            echo "✅ Updated Flutter CHANGELOG.md with version $VERSION"
+          fi
 
       - name: Commit version & changelog to main
         id: commit_version
