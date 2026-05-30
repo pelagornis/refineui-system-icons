@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, TextProps } from 'react-native';
 import IconUtils from './IconUtils';
+import { mergeNativeIconTextStyle } from './mergeNativeIconTextStyle';
 
 export interface IconProps extends TextProps {
   size?: number;
@@ -17,16 +18,19 @@ export const createIconComponent = (iconName: string, style: 'regular' | 'filled
 
     if (!iconChar) return null;
 
+    const iconSize = props.size || 24;
     const styleObj = {
       fontFamily,
-      fontSize: props.size || 24,
+      fontSize: iconSize,
       color: props.color || 'currentColor',
-      lineHeight: 1,
+      // RN treats numeric lineHeight as px; on web 1px clips icon glyphs.
+      lineHeight: iconSize,
     };
 
+    const { style: userStyle, ...rest } = props;
     return React.createElement(Text as any, {
-      style: [styleObj, props.style],
-      ...props,
+      ...rest,
+      style: mergeNativeIconTextStyle(styleObj, userStyle),
     }, iconChar);
   };
 };

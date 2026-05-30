@@ -1,21 +1,33 @@
 #!/usr/bin/env python3
 """RefineUI System Icons - Full build: metadata, fonts, platforms, packages."""
 import sys
-from pathlib import Path
 
-from _lib import ROOT_DIR, SCRIPTS_DIR, run_command
+from _lib import SCRIPTS_DIR, run_command
 
 
 def main():
     print("🎯 RefineUI System Icons full build\n")
-    run_command("npm run generate:metadata", "Metadata generation")
+
+    # 1. Metadata & mapping (icon-mapping.json is source of truth for unicode)
+    run_command("npm run generate:metadata", "Metadata generation", required=False)
     run_command("npm run generate:icon-mapping", "Icon mapping from assets")
+
+    # 2. Fonts — build and copy before npm package build so dist includes latest fonts
     run_command("npm run generate:ttf", "TTF from SVGs", required=False)
-    run_command(f"python3 {SCRIPTS_DIR}/generate_platforms.py", "Platform file generation")
+    run_command("npm run build:fonts", "Font build (WOFF2/WOFF + CSS)", required=False)
+    run_command("npm run copy:fonts", "Copy fonts to packages", required=False)
+
+    # 3. Platform sources & package metadata
+    run_command("npm run generate:platforms", "Platform file generation")
+    run_command("npm run sync:web-icons-unicode", "Sync package metadata unicode")
+
+    # 4. Icon CDN SVG files, then all npm package dist builds
+    run_command("npm run build:icon-cdn", "Icon CDN SVG build", required=False)
     run_command("npm run build", "Packages build")
-    run_command(f"python3 {SCRIPTS_DIR}/build_fonts.py", "Font build (WOFF2/WOFF + CSS)")
-    run_command(f"python3 {SCRIPTS_DIR}/copy_fonts_to_packages.py", "Copy fonts to web/react-native/flutter packages")
-    run_command(f"python3 {SCRIPTS_DIR}/build_platforms.py", "Platform builds", required=False)
+
+    # 5. Optional native example app builds
+    run_command(f"python3 {SCRIPTS_DIR}/build_platforms.py", "Platform example builds", required=False)
+
     print("🎉 Full build completed!")
     return 0
 

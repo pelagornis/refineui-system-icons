@@ -28,6 +28,22 @@ ICON_MAPPING_PATH = os.path.join(FONTS_DIR, "icon-mapping.json")
 FONT_NAME = "RefineUI System Icons"
 STYLES = ("regular", "filled")
 OUTPUT_NAMES = {"regular": "refineui-system-icons-regular.ttf", "filled": "refineui-system-icons-filled.ttf"}
+EM_SIZE = 1024
+
+
+def normalize_glyph(glyph, font):
+    """Center imported SVG outlines in a fixed em square for Flutter/Web icon fonts."""
+    em = float(font.em)
+    bbox = glyph.boundingBox()
+    if bbox is None or None in bbox:
+        glyph.width = int(em)
+        return
+
+    minx, miny, maxx, maxy = bbox
+    offset_x = (em - (maxx - minx)) / 2.0 - minx
+    offset_y = (em - (maxy - miny)) / 2.0 - miny
+    glyph.transform((1, 0, 0, 1, offset_x, offset_y))
+    glyph.width = int(em)
 
 
 def find_svg_by_stem():
@@ -88,6 +104,9 @@ def css_class_to_svg_stem_candidates(css_class):
 def generate_style_font(style, glyph_list, stem_to_path, font_family_name):
     """Create one TTF for the given style."""
     font = fontforge.font()
+    font.em = EM_SIZE
+    font.ascent = int(EM_SIZE * 0.88)
+    font.descent = int(EM_SIZE * 0.12)
     font.familyname = font_family_name
     font.fullname = font_family_name
     font.fontname = font_family_name.replace(" ", "-")
@@ -108,6 +127,7 @@ def generate_style_font(style, glyph_list, stem_to_path, font_family_name):
         try:
             glyph = font.createChar(unicode_val)
             glyph.importOutlines(svg_path)
+            normalize_glyph(glyph, font)
             added += 1
         except Exception as e:
             print("  Warning: {} (unicode {}): {}".format(css_class, unicode_val, e), file=sys.stderr)

@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
-"""RefineUI System Icons - Build platform projects (React Native, Flutter, iOS, Android)."""
+"""RefineUI System Icons - Build platform projects (React Native, Flutter, iOS, Android, web)."""
 import sys
-from pathlib import Path
 
 from _lib import ROOT_DIR, run_command
 
@@ -16,8 +15,8 @@ def main():
         run_command("cd ios && pod install", "iOS Pods", required=False)
     if (ROOT_DIR / "android").exists():
         run_command("cd android && ./gradlew build", "Android", required=False)
-    if (ROOT_DIR / "web-test").exists():
-        run_command("cd web-test && npm run build", "Web test", required=False)
+    if (ROOT_DIR / "web").exists():
+        run_command("cd web && npm run build", "Web playground", required=False)
     print("🎉 Platform builds completed!")
     return 0
 

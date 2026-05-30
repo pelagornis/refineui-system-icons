@@ -13,9 +13,11 @@ export const getCDNBaseUrl = () => CDN_BASE_URL;
 
 // === Functions needed for build.ts ===
 export const mapIconName = (iconDir: string): string => {
-  // Convert folder name to icon name using the mapping from constants
   const { ICON_NAME_MAPPING } = require('./constants');
-  return ICON_NAME_MAPPING[iconDir] || iconDir.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+  const normalized = iconDir.toLowerCase().trim().replace(/\s+/g, '-').replace(/_/g, '-');
+  if (ICON_NAME_MAPPING[normalized]) return ICON_NAME_MAPPING[normalized];
+  if (ICON_NAME_MAPPING[iconDir]) return ICON_NAME_MAPPING[iconDir];
+  return normalized;
 };
 
 export const generateSampleSVG = (iconName: string, size: number, style: string): string => {

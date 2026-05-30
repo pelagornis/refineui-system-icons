@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "totalIcons": 5244,
+  "totalIcons": 5280,
   "sizes": [
     16,
     20,
@@ -5251,6 +5251,20 @@
       "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/16/target-regular.svg"
     },
     {
+      "name": "tasklist",
+      "style": "filled",
+      "size": 16,
+      "fileName": "tasklist-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/16/tasklist-filled.svg"
+    },
+    {
+      "name": "tasklist",
+      "style": "regular",
+      "size": 16,
+      "fileName": "tasklist-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/16/tasklist-regular.svg"
+    },
+    {
       "name": "temperature",
       "style": "filled",
       "size": 16,
@@ -5963,6 +5977,34 @@
       "size": 16,
       "fileName": "weathersunny-regular.svg",
       "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/16/weathersunny-regular.svg"
+    },
+    {
+      "name": "weathersunnyhigh",
+      "style": "filled",
+      "size": 16,
+      "fileName": "weathersunnyhigh-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/16/weathersunnyhigh-filled.svg"
+    },
+    {
+      "name": "weathersunnyhigh",
+      "style": "regular",
+      "size": 16,
+      "fileName": "weathersunnyhigh-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/16/weathersunnyhigh-regular.svg"
+    },
+    {
+      "name": "weathersunnylow",
+      "style": "filled",
+      "size": 16,
+      "fileName": "weathersunnylow-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/16/weathersunnylow-filled.svg"
+    },
+    {
+      "name": "weathersunnylow",
+      "style": "regular",
+      "size": 16,
+      "fileName": "weathersunnylow-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/16/weathersunnylow-regular.svg"
     },
     {
       "name": "weatherthunderstorm",
@@ -11369,6 +11411,20 @@
       "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/20/target-regular.svg"
     },
     {
+      "name": "tasklist",
+      "style": "filled",
+      "size": 20,
+      "fileName": "tasklist-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/20/tasklist-filled.svg"
+    },
+    {
+      "name": "tasklist",
+      "style": "regular",
+      "size": 20,
+      "fileName": "tasklist-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/20/tasklist-regular.svg"
+    },
+    {
       "name": "temperature",
       "style": "filled",
       "size": 20,
@@ -12081,6 +12137,34 @@
       "size": 20,
       "fileName": "weathersunny-regular.svg",
       "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/20/weathersunny-regular.svg"
+    },
+    {
+      "name": "weathersunnyhigh",
+      "style": "filled",
+      "size": 20,
+      "fileName": "weathersunnyhigh-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/20/weathersunnyhigh-filled.svg"
+    },
+    {
+      "name": "weathersunnyhigh",
+      "style": "regular",
+      "size": 20,
+      "fileName": "weathersunnyhigh-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/20/weathersunnyhigh-regular.svg"
+    },
+    {
+      "name": "weathersunnylow",
+      "style": "filled",
+      "size": 20,
+      "fileName": "weathersunnylow-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/20/weathersunnylow-filled.svg"
+    },
+    {
+      "name": "weathersunnylow",
+      "style": "regular",
+      "size": 20,
+      "fileName": "weathersunnylow-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/20/weathersunnylow-regular.svg"
     },
     {
       "name": "weatherthunderstorm",
@@ -17487,6 +17571,20 @@
       "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/24/target-regular.svg"
     },
     {
+      "name": "tasklist",
+      "style": "filled",
+      "size": 24,
+      "fileName": "tasklist-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/24/tasklist-filled.svg"
+    },
+    {
+      "name": "tasklist",
+      "style": "regular",
+      "size": 24,
+      "fileName": "tasklist-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/24/tasklist-regular.svg"
+    },
+    {
       "name": "temperature",
       "style": "filled",
       "size": 24,
@@ -18199,6 +18297,34 @@
       "size": 24,
       "fileName": "weathersunny-regular.svg",
       "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/24/weathersunny-regular.svg"
+    },
+    {
+      "name": "weathersunnyhigh",
+      "style": "filled",
+      "size": 24,
+      "fileName": "weathersunnyhigh-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/24/weathersunnyhigh-filled.svg"
+    },
+    {
+      "name": "weathersunnyhigh",
+      "style": "regular",
+      "size": 24,
+      "fileName": "weathersunnyhigh-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/24/weathersunnyhigh-regular.svg"
+    },
+    {
+      "name": "weathersunnylow",
+      "style": "filled",
+      "size": 24,
+      "fileName": "weathersunnylow-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/24/weathersunnylow-filled.svg"
+    },
+    {
+      "name": "weathersunnylow",
+      "style": "regular",
+      "size": 24,
+      "fileName": "weathersunnylow-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/24/weathersunnylow-regular.svg"
     },
     {
       "name": "weatherthunderstorm",
@@ -23605,6 +23731,20 @@
       "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/28/target-regular.svg"
     },
     {
+      "name": "tasklist",
+      "style": "filled",
+      "size": 28,
+      "fileName": "tasklist-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/28/tasklist-filled.svg"
+    },
+    {
+      "name": "tasklist",
+      "style": "regular",
+      "size": 28,
+      "fileName": "tasklist-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/28/tasklist-regular.svg"
+    },
+    {
       "name": "temperature",
       "style": "filled",
       "size": 28,
@@ -24317,6 +24457,34 @@
       "size": 28,
       "fileName": "weathersunny-regular.svg",
       "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/28/weathersunny-regular.svg"
+    },
+    {
+      "name": "weathersunnyhigh",
+      "style": "filled",
+      "size": 28,
+      "fileName": "weathersunnyhigh-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/28/weathersunnyhigh-filled.svg"
+    },
+    {
+      "name": "weathersunnyhigh",
+      "style": "regular",
+      "size": 28,
+      "fileName": "weathersunnyhigh-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/28/weathersunnyhigh-regular.svg"
+    },
+    {
+      "name": "weathersunnylow",
+      "style": "filled",
+      "size": 28,
+      "fileName": "weathersunnylow-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/28/weathersunnylow-filled.svg"
+    },
+    {
+      "name": "weathersunnylow",
+      "style": "regular",
+      "size": 28,
+      "fileName": "weathersunnylow-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/28/weathersunnylow-regular.svg"
     },
     {
       "name": "weatherthunderstorm",
@@ -29723,6 +29891,20 @@
       "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/32/target-regular.svg"
     },
     {
+      "name": "tasklist",
+      "style": "filled",
+      "size": 32,
+      "fileName": "tasklist-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/32/tasklist-filled.svg"
+    },
+    {
+      "name": "tasklist",
+      "style": "regular",
+      "size": 32,
+      "fileName": "tasklist-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/32/tasklist-regular.svg"
+    },
+    {
       "name": "temperature",
       "style": "filled",
       "size": 32,
@@ -30435,6 +30617,34 @@
       "size": 32,
       "fileName": "weathersunny-regular.svg",
       "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/32/weathersunny-regular.svg"
+    },
+    {
+      "name": "weathersunnyhigh",
+      "style": "filled",
+      "size": 32,
+      "fileName": "weathersunnyhigh-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/32/weathersunnyhigh-filled.svg"
+    },
+    {
+      "name": "weathersunnyhigh",
+      "style": "regular",
+      "size": 32,
+      "fileName": "weathersunnyhigh-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/32/weathersunnyhigh-regular.svg"
+    },
+    {
+      "name": "weathersunnylow",
+      "style": "filled",
+      "size": 32,
+      "fileName": "weathersunnylow-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/32/weathersunnylow-filled.svg"
+    },
+    {
+      "name": "weathersunnylow",
+      "style": "regular",
+      "size": 32,
+      "fileName": "weathersunnylow-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/32/weathersunnylow-regular.svg"
     },
     {
       "name": "weatherthunderstorm",
@@ -35841,6 +36051,20 @@
       "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/48/target-regular.svg"
     },
     {
+      "name": "tasklist",
+      "style": "filled",
+      "size": 48,
+      "fileName": "tasklist-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/48/tasklist-filled.svg"
+    },
+    {
+      "name": "tasklist",
+      "style": "regular",
+      "size": 48,
+      "fileName": "tasklist-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/48/tasklist-regular.svg"
+    },
+    {
       "name": "temperature",
       "style": "filled",
       "size": 48,
@@ -36553,6 +36777,34 @@
       "size": 48,
       "fileName": "weathersunny-regular.svg",
       "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/48/weathersunny-regular.svg"
+    },
+    {
+      "name": "weathersunnyhigh",
+      "style": "filled",
+      "size": 48,
+      "fileName": "weathersunnyhigh-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/48/weathersunnyhigh-filled.svg"
+    },
+    {
+      "name": "weathersunnyhigh",
+      "style": "regular",
+      "size": 48,
+      "fileName": "weathersunnyhigh-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/48/weathersunnyhigh-regular.svg"
+    },
+    {
+      "name": "weathersunnylow",
+      "style": "filled",
+      "size": 48,
+      "fileName": "weathersunnylow-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/48/weathersunnylow-filled.svg"
+    },
+    {
+      "name": "weathersunnylow",
+      "style": "regular",
+      "size": 48,
+      "fileName": "weathersunnylow-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/48/weathersunnylow-regular.svg"
     },
     {
       "name": "weatherthunderstorm",

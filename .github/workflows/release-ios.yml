@@ -46,7 +46,8 @@ jobs:
 
       - name: Build iOS platform
         run: |
-          python3 scripts/generate_ios_swift.py
+          npm run generate:icon-mapping
+          npm run generate:ios
 
       - name: Validate iOS package
         run: |

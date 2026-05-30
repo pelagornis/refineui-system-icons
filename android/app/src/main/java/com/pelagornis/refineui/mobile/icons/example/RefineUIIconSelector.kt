@@ -40,6 +40,8 @@ class RefineUIIconSelector(private val context: Context) {
             if (resourceName.startsWith("ic_refineui_")) {
                 try {
                     val resourceId = resources.getIdentifier(resourceName, "drawable", packageName)
+                        .takeIf { it != 0 }
+                        ?: resources.getIdentifier(resourceName, "drawable", "com.refineui.icons")
                     if (resourceId != 0) {
                         val iconInfo = parseIconInfo(resourceName, resourceId)
                         if (iconInfo != null) {
@@ -64,29 +66,13 @@ class RefineUIIconSelector(private val context: Context) {
         
         // Automatically find all resources starting with ic_refineui_ in the library
         try {
-            // Get all drawable fields from the library package's resources
-            val libraryPackageName = "com.refineui.icons"
-            val libraryClass = Class.forName("$libraryPackageName.R\$drawable")
-            val fields = libraryClass.fields
-            
-            for (field in fields) {
-                val resourceName = field.name
-                if (resourceName.startsWith("ic_refineui_")) {
-                    try {
-                        val resourceId = field.getInt(null)
-                        if (resourceId != 0) {
-                            drawableNames.add(resourceName)
-                            Log.d(TAG, "Found icon in library: $resourceName")
-                        }
-                    } catch (e: Exception) {
-                        Log.w(TAG, "Failed to get resource ID for $resourceName: ${e.message}")
-                    }
-                }
-            }
+            collectDrawableNames(drawableNames, "com.refineui.icons")
+            collectDrawableNames(drawableNames, packageName)
         } catch (e: Exception) {
-            Log.w(TAG, "Failed to access library R class: ${e.message}")
-            
-            // Fallback: manually add only a few icons
+            Log.w(TAG, "Failed to access R classes: ${e.message}")
+        }
+
+        if (drawableNames.isEmpty()) {
             val fallbackIcons = listOf(
                 "ic_refineui_add_24_filled",
                 "ic_refineui_home_24_regular",
@@ -95,10 +81,12 @@ class RefineUIIconSelector(private val context: Context) {
                 "ic_refineui_heart_24_filled",
                 "ic_refineui_star_24_regular"
             )
-            
+
             for (iconName in fallbackIcons) {
-                val resourceId = resources.getIdentifier(iconName, "drawable", "com.refineui.icons")
-                if (resourceId != 0) {
+                val resourceId = resources.getIdentifier(iconName, "drawable", packageName)
+                    .takeIf { it != 0 }
+                    ?: resources.getIdentifier(iconName, "drawable", "com.refineui.icons")
+                if (resourceId != null && resourceId != 0) {
                     drawableNames.add(iconName)
                     Log.d(TAG, "Found fallback icon: $iconName")
                 }
@@ -106,7 +94,24 @@ class RefineUIIconSelector(private val context: Context) {
         }
         
         Log.d(TAG, "Total icons found: ${drawableNames.size}")
-        return drawableNames
+        return drawableNames.distinct()
+    }
+
+    private fun collectDrawableNames(drawableNames: MutableList<String>, targetPackage: String) {
+        try {
+            val drawableClass = Class.forName("$targetPackage.R\$drawable")
+            for (field in drawableClass.fields) {
+                val resourceName = field.name
+                if (!resourceName.startsWith("ic_refineui_")) continue
+                val resourceId = field.getInt(null)
+                if (resourceId != 0) {
+                    drawableNames.add(resourceName)
+                    Log.d(TAG, "Found icon in $targetPackage: $resourceName")
+                }
+            }
+        } catch (e: Exception) {
+            Log.w(TAG, "Failed to access $targetPackage R class: ${e.message}")
+        }
     }
     
     /**

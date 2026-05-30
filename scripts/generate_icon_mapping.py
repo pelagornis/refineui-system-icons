@@ -34,6 +34,34 @@ def find_all_svg_stems():
     return sorted(stems, key=lambda x: (x[1], int(x[2]), x[3]))  # name, size, style
 
 
+def dedupe_css_class_to_entry(css_class_to_entry: dict) -> tuple[dict, int]:
+    """Keep one mapping entry per (name, size, style), preferring on-disk SVG stems."""
+    asset_stems = {svg_path.stem for svg_path in ASSETS_DIR.rglob("*.svg")} if ASSETS_DIR.exists() else set()
+    best_by_key: dict[tuple[str, str, str], tuple[tuple[int, int, str], str, dict]] = {}
+
+    for css_class, entry in css_class_to_entry.items():
+        name = entry.get("name")
+        size = str(entry.get("size"))
+        style = entry.get("style")
+        if not name or not size or not style:
+            continue
+
+        canonical = f"ic_refineui_{name}_{size}_{style}"
+        score = (
+            1 if css_class in asset_stems else 0,
+            1 if css_class == canonical else 0,
+            int(entry.get("unicode") or 0),
+        )
+        key = (name, size, style)
+        existing = best_by_key.get(key)
+        if existing is None or score > existing[0]:
+            best_by_key[key] = (score, css_class, entry)
+
+    deduped = {css_class: entry for _, css_class, entry in best_by_key.values()}
+    removed = len(css_class_to_entry) - len(deduped)
+    return deduped, removed
+
+
 def build_icon_mapping():
     """Build icon-mapping from assets. Merge with existing to preserve unicode for known icons."""
     stems = find_all_svg_stems()
@@ -73,6 +101,8 @@ def build_icon_mapping():
         next_unicode += 1
         added += 1
 
+    css_class_to_entry, removed = dedupe_css_class_to_entry(css_class_to_entry)
+
     # Build output
     regular_count = sum(1 for e in css_class_to_entry.values() if e.get("style") == "regular")
     filled_count = sum(1 for e in css_class_to_entry.values() if e.get("style") == "filled")
@@ -86,16 +116,18 @@ def build_icon_mapping():
         },
         "icons": {k: v for k, v in sorted(css_class_to_entry.items())},
     }
-    return output, added
+    return output, added, removed
 
 
 def main():
     print("📋 Generating icon-mapping from assets...")
     FONTS_DIR.mkdir(parents=True, exist_ok=True)
-    output, added = build_icon_mapping()
+    output, added, removed = build_icon_mapping()
     with open(ICON_MAPPING_PATH, "w", encoding="utf-8") as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
     total = len(output["icons"])
+    if removed:
+        print(f"ℹ️  Removed {removed} duplicate icon-mapping entries")
     print(f"✅ icon-mapping.json: {total} icons (신규 {added}개)")
     return 0
 

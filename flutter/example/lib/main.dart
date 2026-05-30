@@ -58,13 +58,13 @@ class _MyHomePageState extends State<MyHomePage> {
     filteredIcons = allIcons.where((icon) {
       final matchesStyle = icon.style == selectedStyle;
       final matchesSize = icon.size.toString() == selectedSize;
-      final matchesSearch = searchQuery.isEmpty || 
+      final matchesSearch = searchQuery.isEmpty ||
           icon.name.toLowerCase().contains(searchQuery.toLowerCase()) ||
           icon.displayName.toLowerCase().contains(searchQuery.toLowerCase());
-      
+
       return matchesStyle && matchesSize && matchesSearch;
     }).toList();
-    
+
     setState(() {});
   }
 
@@ -194,21 +194,22 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
             children: [
-              // Icon
-              Icon(
-                icon.iconData,
-                size: double.parse(selectedSize) * 0.8, // Slightly reduce icon size
-                color: Theme.of(context).primaryColor,
+              Center(
+                child: Icon(
+                  icon.iconData,
+                  size: icon.size.toDouble() * 0.85,
+                  color: Theme.of(context).primaryColor,
+                ),
               ),
               const SizedBox(height: 4),
-              
+
               // Icon name
               Flexible(
                 child: Text(
                   icon.displayName,
                   style: const TextStyle(fontSize: 9),
                   textAlign: TextAlign.center,
-                  maxLines: 1,
+                  maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
               ),

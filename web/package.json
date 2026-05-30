@@ -1,0 +1,26 @@
+{
+  "name": "@refineui/web-playground",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@refineui/react-icons": "*",
+    "@refineui/react-native-icons": "*",
+    "@refineui/web-icons": "*",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-native-web": "^0.19.13"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.24",
+    "@types/react-dom": "^18.3.7",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11"
+  }
+}

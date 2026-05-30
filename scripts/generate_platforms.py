@@ -10,8 +10,9 @@ def main():
     print("🌐 Platform file generation\n")
     if (ROOT_DIR / "android").exists():
         run_command(f"python3 {SCRIPTS_DIR}/generate_android_xml.py", "Android XML", required=False)
-    if (ROOT_DIR / "ios").exists():
-        run_command(f"python3 {SCRIPTS_DIR}/generate_ios_swift.py", "iOS Swift", required=False)
+    if (ROOT_DIR / "ios").exists() or (ROOT_DIR / "flutter").exists():
+        run_command(f"python3 {SCRIPTS_DIR}/generate_font_platform_icons.py", "Flutter/iOS font icons", required=False)
+        run_command(f"python3 {SCRIPTS_DIR}/generate_ios_assets.py", "iOS asset catalog", required=False)
     if (ROOT_DIR / "flutter").exists():
         run_command(f"python3 {SCRIPTS_DIR}/generate_flutter_dart.py", "Flutter Dart", required=False)
     run_command(f"python3 {SCRIPTS_DIR}/generate_web_icons.py", "Web icon packages", required=False)

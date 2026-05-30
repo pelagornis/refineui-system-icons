@@ -1,5 +1,7 @@
 import React from 'react';
+import type { CSSProperties } from 'react';
 import metadata from './metadata.json';
+import { mergeFontIconStyles } from './mergeFontIconStyles';
 
 /** Display name to slug (e.g. "Local language" -> "local-language") */
 function nameToSlug(name: string): string {
@@ -130,12 +132,15 @@ class ReactIconUtils {
     
     return React.createElement('span', {
       ...props,
-      style: {
-        fontFamily,
-        fontSize: `${defaultSize}px`,
-        lineHeight: 1,
-        ...props.style
-      },
+      style: mergeFontIconStyles(
+        {
+          fontFamily,
+          fontSize: `${defaultSize}px`,
+          lineHeight: 1,
+          verticalAlign: 'middle',
+        },
+        props.style
+      ),
       children: String.fromCodePoint(unicodeInfo.unicode)
     });
   }
@@ -152,12 +157,15 @@ class ReactIconUtils {
     
     return React.createElement('span', {
       ...props,
-      style: {
-        fontFamily,
-        fontSize: `${size}px`,
-        lineHeight: 1,
-        ...props.style
-      },
+      style: mergeFontIconStyles(
+        {
+          fontFamily,
+          fontSize: `${size}px`,
+          lineHeight: 1,
+          verticalAlign: 'middle',
+        },
+        props.style
+      ),
       children: String.fromCodePoint(unicodeInfo.unicode)
     });
   }

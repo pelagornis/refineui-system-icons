@@ -68,6 +68,7 @@ def generate_main_dart(lib_dir: Path, icon_names: list):
     
     dart_content = """library refineui_system_icons;
 
+export 'src/refineui_icon_catalog.dart';
 export 'src/refineui_icons.dart';
 
 /// RefineUI System Icons for Flutter

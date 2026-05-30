@@ -5,23 +5,26 @@
   "private": true,
   "type": "commonjs",
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "web"
   ],
   "scripts": {
     "build": "npm run build --workspaces",
     "dev": "npm run dev --workspaces",
+    "dev:web": "npm run dev --workspace=@refineui/web-playground",
     "generate:metadata": "node scripts/generate-metadata.js",
     "generate:icon-mapping": "python3 scripts/generate_icon_mapping.py",
     "generate:web-icons": "python3 scripts/generate_web_icons.py",
     "sync:web-icons-unicode": "node scripts/sync-web-icons-unicode.js",
     "generate:platforms": "python3 scripts/generate_platforms.py",
     "generate:android": "python3 scripts/generate_android_xml.py",
-    "generate:ios": "python3 scripts/generate_ios_swift.py",
+    "generate:ios": "python3 scripts/generate_ios.py",
     "generate:flutter": "python3 scripts/generate_flutter_dart.py",
     "generate:ttf": "fontforge -script scripts/generate_ttf_from_svg.py",
     "generate:fonts": "python3 scripts/generate_font_css.py",
     "build:fonts": "python3 scripts/build_fonts.py",
     "copy:fonts": "python3 scripts/copy_fonts_to_packages.py",
+    "build:icon-cdn": "npm run build --workspace=@refineui/icon-cdn",
     "build:platforms": "python3 scripts/build_platforms.py",
     "build:all": "python3 scripts/build_all.py",
     "extract:figma": "python3 -u scripts/figma_icon_extractor.py",

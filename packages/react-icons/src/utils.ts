@@ -1,5 +1,7 @@
 import React from 'react';
+import type { CSSProperties } from 'react';
 import IconUtils from './IconUtils';
+import { mergeFontIconStyles } from './mergeFontIconStyles';
 
 export interface IconProps {
   size?: number;
@@ -18,18 +20,20 @@ export const createIconComponent = (iconName: string, style: 'regular' | 'filled
 
     if (!iconChar) return null;
 
-    const styleObj: React.CSSProperties = {
-      fontFamily,
-      fontSize: props.size || 24,
-      color: props.color || 'currentColor',
-      display: 'inline-block',
-      lineHeight: 1,
-      verticalAlign: 'middle',
-    };
-
-    if (props.style) {
-      Object.assign(styleObj, props.style);
-    }
+    const userCss =
+      props.style && typeof props.style === 'object' && !Array.isArray(props.style)
+        ? (props.style as CSSProperties)
+        : undefined;
+    const styleObj = mergeFontIconStyles(
+      {
+        fontFamily,
+        fontSize: props.size || 24,
+        color: props.color || 'currentColor',
+        lineHeight: 1,
+        verticalAlign: 'middle',
+      },
+      userCss
+    );
 
     return React.createElement('span', {
       style: styleObj,

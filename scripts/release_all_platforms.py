@@ -114,39 +114,10 @@ def install_dependencies():
     print("✅ Dependencies installed")
 
 def build_all_platforms():
-    """Build icons for all platforms."""
+    """Build icons for all platforms (uses canonical build_all.py pipeline)."""
     print("🔨 Building all platforms...")
-    
-    # Generate metadata
-    print("📋 Generating metadata...")
-    run_command("npm run generate:metadata")
-    
-    # Generate web icons
-    print("🌐 Generating web icons...")
-    run_command("npm run generate:web-icons")
-    
-    # Generate Android XML
-    print("🤖 Generating Android XML...")
-    run_command("npm run generate:android")
-    
-    # Generate iOS Swift
-    print("🍎 Generating iOS Swift...")
-    run_command("npm run generate:ios")
-    
-    # Generate Flutter Dart
-    print("🦋 Generating Flutter Dart...")
-    run_command("npm run generate:flutter")
-    
-    # Generate fonts (TTF from SVGs + icon-mapping, then WOFF2/WOFF + CSS, then copy to packages)
-    print("🔤 Generating fonts...")
-    run_command("npm run generate:ttf")
-    run_command("npm run build:fonts")
-    run_command("npm run copy:fonts")
-    
-    # Build all platforms
-    print("🚀 Building all platforms...")
+    run_command("npm run generate:icon-mapping")
     run_command("npm run build:all")
-    
     print("✅ All platforms built successfully")
 
 def create_release_packages():

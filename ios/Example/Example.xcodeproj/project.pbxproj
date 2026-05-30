@@ -104,7 +104,7 @@
 			mainGroup = DC73A42A2E9B97CD0090A652;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				DC73A4592E9B997F0090A652 /* XCLocalSwiftPackageReference "../../../refineui-system-icons" */,
+				DC73A4592E9B997F0090A652 /* XCLocalSwiftPackageReference "../.." */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = DC73A4342E9B97CD0090A652 /* Products */;
@@ -265,7 +265,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7JA353ZJMP;
+				DEVELOPMENT_TEAM = PG5KXQ6FWQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -297,7 +297,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7JA353ZJMP;
+				DEVELOPMENT_TEAM = PG5KXQ6FWQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -348,7 +348,7 @@
 /* Begin XCLocalSwiftPackageReference section */
 		DC73A4592E9B997F0090A652 /* XCLocalSwiftPackageReference "../.." */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = "../..";
+			relativePath = ../..;
 		};
 /* End XCLocalSwiftPackageReference section */
 
