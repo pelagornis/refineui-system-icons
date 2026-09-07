@@ -174,28 +174,22 @@ jobs:
           cd example
           flutter pub get
 
+      - name: Build release notes from CHANGELOG
+        if: startsWith(github.ref, 'refs/tags/')
+        run: |
+          python3 scripts/extract_changelog_section.py \
+            "${{ steps.get_version.outputs.version }}" \
+            release-notes.md
+          cat release-notes.md
+
       - name: Create Flutter Release
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
         with:
+          token: ${{ secrets.PELAGORNIS }}
           tag_name: ${{ steps.get_version.outputs.version }}
-          body: |
-            ## 🎉 Flutter Platform Release ${{ steps.get_version.outputs.version }}
-
-            ### 📦 Installation
-            ```yaml
-            dependencies:
-              refineui_system_icons: ^${{ steps.get_version.outputs.version }}
-            ```
-
-            ### 🦋 Features
-            - Flutter-optimized components
-            - Material Design compatible
-            - Cross-platform consistency
-            - 434+ icons with multiple sizes and styles
-            - High-performance rendering
-        env:
-          GITHUB_TOKEN: ${{ secrets.PELAGORNIS }}
+          name: RefineUI System Icons ${{ steps.get_version.outputs.version }}
+          body_path: release-notes.md
 
   publish:
     needs: release

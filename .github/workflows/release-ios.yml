@@ -59,34 +59,19 @@ jobs:
           swift package resolve
           swift build
 
+      - name: Build release notes from CHANGELOG
+        if: startsWith(github.ref, 'refs/tags/')
+        run: |
+          python3 scripts/extract_changelog_section.py \
+            "${{ steps.get_version.outputs.version }}" \
+            release-notes.md
+          cat release-notes.md
+
       - name: Create iOS Release
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
         with:
+          token: ${{ secrets.PELAGORNIS }}
           tag_name: ${{ steps.get_version.outputs.version }}
-          body: |
-            ## 🎉 iOS Platform Release ${{ steps.get_version.outputs.version }}
-
-            ### 📦 Installation
-
-            #### Swift Package Manager
-            ```swift
-            // Package.swift
-            .package(url: "https://github.com/pelagornis/refineui-system-icons.git", from: "${{ steps.get_version.outputs.version }}")
-            ```
-
-            ### 🍎 Features
-            - Native iOS integration
-            - SF Symbols compatible
-            - SwiftUI and UIKit support
-            - 434+ icons with multiple sizes and styles
-            - Optimized for iOS performance
-
-            ### 📁 Files
-            iOS source code and Package.swift files are attached below.
-
-            ### 🚀 Publishing Status
-            - ✅ Swift Package Manager: Available
-            - ✅ GitHub Release: Created
-        env:
-          GITHUB_TOKEN: ${{ secrets.PELAGORNIS }}
+          name: RefineUI System Icons ${{ steps.get_version.outputs.version }}
+          body_path: release-notes.md

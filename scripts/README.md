@@ -69,6 +69,7 @@ npm run build:all
 | `build_all.py` | `build:all` | 전체 파이프라인 |
 | `build_platforms.py` | `build:platforms` | example 앱 빌드 (web, flutter, …) |
 | `version_bump.py` | `version:bump` | 버전 일괄 bump |
+| `extract_changelog_section.py` | (CI) | `flutter/CHANGELOG.md` → GitHub Release notes |
 | `release.sh` | — | tag 릴리즈 |
 | `release_all_platforms.py` | `release:all` | 멀티 플랫폼 릴리즈 |
 
