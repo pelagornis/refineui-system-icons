@@ -1,3 +1,8 @@
+## 0.3.39
+
+- Updated all platform versions to 0.3.39
+- Added panel-left icon across platforms
+
 ## 0.3.38
 
 - Updated all platform versions to 0.3.38
