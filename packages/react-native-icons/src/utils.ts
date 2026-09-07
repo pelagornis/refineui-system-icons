@@ -18,13 +18,11 @@ export const createIconComponent = (iconName: string, style: 'regular' | 'filled
 
     if (!iconChar) return null;
 
-    const iconSize = props.size || 24;
     const styleObj = {
       fontFamily,
-      fontSize: iconSize,
+      fontSize: props.size || 24,
       color: props.color || 'currentColor',
-      // RN treats numeric lineHeight as px; on web 1px clips icon glyphs.
-      lineHeight: iconSize,
+      lineHeight: 1,
     };
 
     const { style: userStyle, ...rest } = props;

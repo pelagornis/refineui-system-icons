@@ -6,9 +6,8 @@ RefineUI System Icons 빌드·릴리즈 스크립트. **repo root**에서 실행
 
 | 경로 | 역할 |
 |------|------|
-| `assets/*/svg/*.svg` | 원본 SVG |
-| `fonts/icon-mapping.json` | unicode, css_class, name (**핵심**) |
-| `figma_cache.json` | Figma 추출 캐시 |
+| `assets/*/svg/*.svg` | **원본 SVG (기준)** |
+| `fonts/icon-mapping.json` | unicode, css_class, name (assets에서 생성) |
 
 ## Canonical 빌드 (로컬 / CI)
 
@@ -27,27 +26,12 @@ npm run build:all
 7. `npm run build` — packages dist
 8. `build_platforms.py` — example 앱 빌드 (optional)
 
-신규 아이콘 반영 시 Figma 추출:
+## 신규 아이콘 추가
 
-```bash
-npm run extract:figma:cache          # figma_cache.json 기반
-# 또는
-npm run extract:figma                # Figma REST API
-# 토큰 만료 시: sync_figma_cache_from_metadata.py + download_mcp_assets.py
-npm run build:all
-```
-
----
-
-## Figma → assets
-
-| Script | Purpose |
-|--------|---------|
-| `figma_icon_extractor.py` | Figma REST / cache / build-cache |
-| `sync_figma_cache_from_metadata.py` | Desktop MCP metadata → figma_cache.json |
-| `download_mcp_assets.py` | MCP asset URL → SVG (REST 403 fallback) |
-
-npm: `extract:figma`, `extract:figma:cache`, `extract:figma:build-cache`
+1. `assets/<IconName>/svg/` 에 SVG 추가 (예: `ic_refineui_crown_24_regular.svg`)
+2. (선택) 같은 폴더에 `metadata.json` 추가
+3. `npm run build:all`
+4. 버전 bump → 태그 → 릴리스
 
 ---
 
@@ -104,7 +88,8 @@ npm: `extract:figma`, `extract:figma:cache`, `extract:figma:build-cache`
 
 - **`_lib.py`** — `run_command()`, `ROOT_DIR`, `SCRIPTS_DIR`
 
-## Removed (2025)
+## Removed
 
 - `generate_ios_swift.py` — xcassets 스캔 기반 구 generator. `generate_ios.py`로 대체
 - `packages/react-icons/scripts/*` — `generate_web_icons.py`로 통합
+- Figma 추출 파이프라인 — `figma_icon_extractor.py`, `sync_figma_cache_from_metadata.py`, `download_mcp_assets.py`, `figma_cache.json`, `extract:figma*` npm scripts. 원본은 `assets/`만 사용

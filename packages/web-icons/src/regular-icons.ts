@@ -280,6 +280,7 @@ export const Padding = createIconHTML('padding', 'regular');
 export const PageFit = createIconHTML('page-fit', 'regular');
 export const PaintBrush = createIconHTML('paint-brush', 'regular');
 export const PaintBucket = createIconHTML('paint-bucket', 'regular');
+export const PanelLeft = createIconHTML('panel-left', 'regular');
 export const Parallelogram = createIconHTML('parallelogram', 'regular');
 export const Password = createIconHTML('password', 'regular');
 export const Pause = createIconHTML('pause', 'regular');

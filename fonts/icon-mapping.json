@@ -5,11 +5,11 @@
   "styles": {
     "regular": {
       "font_family": "RefineUI-System-Icons-Regular",
-      "count": 2657
+      "count": 2663
     },
     "filled": {
       "font_family": "RefineUI-System-Icons-Filled",
-      "count": 2657
+      "count": 2663
     }
   },
   "icons": {
@@ -26844,6 +26844,102 @@
       "unicode": 987258,
       "unicode_hex": "\\0F107A",
       "css_class": "ic_refineui_paint-bucket_48_regular"
+    },
+    "ic_refineui_panel-left_16_filled": {
+      "name": "panel-left",
+      "size": "16",
+      "style": "filled",
+      "unicode": 988235,
+      "unicode_hex": "\\0F144B",
+      "css_class": "ic_refineui_panel-left_16_filled"
+    },
+    "ic_refineui_panel-left_16_regular": {
+      "name": "panel-left",
+      "size": "16",
+      "style": "regular",
+      "unicode": 988236,
+      "unicode_hex": "\\0F144C",
+      "css_class": "ic_refineui_panel-left_16_regular"
+    },
+    "ic_refineui_panel-left_20_filled": {
+      "name": "panel-left",
+      "size": "20",
+      "style": "filled",
+      "unicode": 988237,
+      "unicode_hex": "\\0F144D",
+      "css_class": "ic_refineui_panel-left_20_filled"
+    },
+    "ic_refineui_panel-left_20_regular": {
+      "name": "panel-left",
+      "size": "20",
+      "style": "regular",
+      "unicode": 988238,
+      "unicode_hex": "\\0F144E",
+      "css_class": "ic_refineui_panel-left_20_regular"
+    },
+    "ic_refineui_panel-left_24_filled": {
+      "name": "panel-left",
+      "size": "24",
+      "style": "filled",
+      "unicode": 988239,
+      "unicode_hex": "\\0F144F",
+      "css_class": "ic_refineui_panel-left_24_filled"
+    },
+    "ic_refineui_panel-left_24_regular": {
+      "name": "panel-left",
+      "size": "24",
+      "style": "regular",
+      "unicode": 988240,
+      "unicode_hex": "\\0F1450",
+      "css_class": "ic_refineui_panel-left_24_regular"
+    },
+    "ic_refineui_panel-left_28_filled": {
+      "name": "panel-left",
+      "size": "28",
+      "style": "filled",
+      "unicode": 988241,
+      "unicode_hex": "\\0F1451",
+      "css_class": "ic_refineui_panel-left_28_filled"
+    },
+    "ic_refineui_panel-left_28_regular": {
+      "name": "panel-left",
+      "size": "28",
+      "style": "regular",
+      "unicode": 988242,
+      "unicode_hex": "\\0F1452",
+      "css_class": "ic_refineui_panel-left_28_regular"
+    },
+    "ic_refineui_panel-left_32_filled": {
+      "name": "panel-left",
+      "size": "32",
+      "style": "filled",
+      "unicode": 988243,
+      "unicode_hex": "\\0F1453",
+      "css_class": "ic_refineui_panel-left_32_filled"
+    },
+    "ic_refineui_panel-left_32_regular": {
+      "name": "panel-left",
+      "size": "32",
+      "style": "regular",
+      "unicode": 988244,
+      "unicode_hex": "\\0F1454",
+      "css_class": "ic_refineui_panel-left_32_regular"
+    },
+    "ic_refineui_panel-left_48_filled": {
+      "name": "panel-left",
+      "size": "48",
+      "style": "filled",
+      "unicode": 988245,
+      "unicode_hex": "\\0F1455",
+      "css_class": "ic_refineui_panel-left_48_filled"
+    },
+    "ic_refineui_panel-left_48_regular": {
+      "name": "panel-left",
+      "size": "48",
+      "style": "regular",
+      "unicode": 988246,
+      "unicode_hex": "\\0F1456",
+      "css_class": "ic_refineui_panel-left_48_regular"
     },
     "ic_refineui_parallelogram_16_filled": {
       "name": "parallelogram",

@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "totalIcons": 5280,
+  "totalIcons": 5292,
   "sizes": [
     16,
     20,
@@ -3891,6 +3891,20 @@
       "size": 16,
       "fileName": "paintbucket-regular.svg",
       "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/16/paintbucket-regular.svg"
+    },
+    {
+      "name": "panelleft",
+      "style": "filled",
+      "size": 16,
+      "fileName": "panelleft-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/16/panelleft-filled.svg"
+    },
+    {
+      "name": "panelleft",
+      "style": "regular",
+      "size": 16,
+      "fileName": "panelleft-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/16/panelleft-regular.svg"
     },
     {
       "name": "parallelogram",
@@ -10053,6 +10067,20 @@
       "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/20/paintbucket-regular.svg"
     },
     {
+      "name": "panelleft",
+      "style": "filled",
+      "size": 20,
+      "fileName": "panelleft-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/20/panelleft-filled.svg"
+    },
+    {
+      "name": "panelleft",
+      "style": "regular",
+      "size": 20,
+      "fileName": "panelleft-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/20/panelleft-regular.svg"
+    },
+    {
       "name": "parallelogram",
       "style": "filled",
       "size": 20,
@@ -16211,6 +16239,20 @@
       "size": 24,
       "fileName": "paintbucket-regular.svg",
       "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/24/paintbucket-regular.svg"
+    },
+    {
+      "name": "panelleft",
+      "style": "filled",
+      "size": 24,
+      "fileName": "panelleft-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/24/panelleft-filled.svg"
+    },
+    {
+      "name": "panelleft",
+      "style": "regular",
+      "size": 24,
+      "fileName": "panelleft-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/24/panelleft-regular.svg"
     },
     {
       "name": "parallelogram",
@@ -22373,6 +22415,20 @@
       "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/28/paintbucket-regular.svg"
     },
     {
+      "name": "panelleft",
+      "style": "filled",
+      "size": 28,
+      "fileName": "panelleft-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/28/panelleft-filled.svg"
+    },
+    {
+      "name": "panelleft",
+      "style": "regular",
+      "size": 28,
+      "fileName": "panelleft-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/28/panelleft-regular.svg"
+    },
+    {
       "name": "parallelogram",
       "style": "filled",
       "size": 28,
@@ -28533,6 +28589,20 @@
       "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/32/paintbucket-regular.svg"
     },
     {
+      "name": "panelleft",
+      "style": "filled",
+      "size": 32,
+      "fileName": "panelleft-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/32/panelleft-filled.svg"
+    },
+    {
+      "name": "panelleft",
+      "style": "regular",
+      "size": 32,
+      "fileName": "panelleft-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/32/panelleft-regular.svg"
+    },
+    {
       "name": "parallelogram",
       "style": "filled",
       "size": 32,
@@ -34691,6 +34761,20 @@
       "size": 48,
       "fileName": "paintbucket-regular.svg",
       "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/48/paintbucket-regular.svg"
+    },
+    {
+      "name": "panelleft",
+      "style": "filled",
+      "size": 48,
+      "fileName": "panelleft-filled.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/48/panelleft-filled.svg"
+    },
+    {
+      "name": "panelleft",
+      "style": "regular",
+      "size": 48,
+      "fileName": "panelleft-regular.svg",
+      "url": "https://cdn.jsdelivr.net/npm/@refineui/icon-cdn@1.0.0/icons/48/panelleft-regular.svg"
     },
     {
       "name": "parallelogram",

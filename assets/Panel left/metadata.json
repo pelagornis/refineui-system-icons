@@ -1,0 +1,17 @@
+{
+  "name": "Panel left",
+  "size": [
+    16,
+    20,
+    24,
+    28,
+    32,
+    48
+  ],
+  "style": [
+    "regular",
+    "filled"
+  ],
+  "keyword": "refineui-icon",
+  "description": "Used in panel left scenarios."
+}

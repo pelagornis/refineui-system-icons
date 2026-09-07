@@ -1,9 +1,9 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-05-29T16:57:51.949Z",
-  "totalIcons": 10996,
+  "generatedAt": "2026-09-07T05:37:12.439Z",
+  "totalIcons": 11069,
   "assets": {
-    "count": 440,
+    "count": 441,
     "icons": [
       {
         "name": "Access time",
@@ -2776,6 +2776,16 @@
         "formats": []
       },
       {
+        "name": "Panel left",
+        "path": "assets/Panel left",
+        "files": {
+          "svg": 0,
+          "png": 0,
+          "total": 2
+        },
+        "formats": []
+      },
+      {
         "name": "Parallelogram",
         "path": "assets/Parallelogram",
         "files": {
@@ -4408,7 +4418,7 @@
     ]
   },
   "fonts": {
-    "count": 10556,
+    "count": 10628,
     "icons": [
       {
         "name": "access-time",
@@ -17977,6 +17987,42 @@
         "class": ".ic_refineui_target_48_filled:before"
       },
       {
+        "name": "task-list",
+        "style": "filled",
+        "type": "font",
+        "class": ".ic_refineui_task-list_16_filled:before"
+      },
+      {
+        "name": "task-list",
+        "style": "filled",
+        "type": "font",
+        "class": ".ic_refineui_task-list_20_filled:before"
+      },
+      {
+        "name": "task-list",
+        "style": "filled",
+        "type": "font",
+        "class": ".ic_refineui_task-list_24_filled:before"
+      },
+      {
+        "name": "task-list",
+        "style": "filled",
+        "type": "font",
+        "class": ".ic_refineui_task-list_28_filled:before"
+      },
+      {
+        "name": "task-list",
+        "style": "filled",
+        "type": "font",
+        "class": ".ic_refineui_task-list_32_filled:before"
+      },
+      {
+        "name": "task-list",
+        "style": "filled",
+        "type": "font",
+        "class": ".ic_refineui_task-list_48_filled:before"
+      },
+      {
         "name": "temperature",
         "style": "filled",
         "type": "font",
@@ -19775,6 +19821,78 @@
         "style": "filled",
         "type": "font",
         "class": ".ic_refineui_weather-snowflake_48_filled:before"
+      },
+      {
+        "name": "weather-sunny-high",
+        "style": "filled",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-high_16_filled:before"
+      },
+      {
+        "name": "weather-sunny-high",
+        "style": "filled",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-high_20_filled:before"
+      },
+      {
+        "name": "weather-sunny-high",
+        "style": "filled",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-high_24_filled:before"
+      },
+      {
+        "name": "weather-sunny-high",
+        "style": "filled",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-high_28_filled:before"
+      },
+      {
+        "name": "weather-sunny-high",
+        "style": "filled",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-high_32_filled:before"
+      },
+      {
+        "name": "weather-sunny-high",
+        "style": "filled",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-high_48_filled:before"
+      },
+      {
+        "name": "weather-sunny-low",
+        "style": "filled",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-low_16_filled:before"
+      },
+      {
+        "name": "weather-sunny-low",
+        "style": "filled",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-low_20_filled:before"
+      },
+      {
+        "name": "weather-sunny-low",
+        "style": "filled",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-low_24_filled:before"
+      },
+      {
+        "name": "weather-sunny-low",
+        "style": "filled",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-low_28_filled:before"
+      },
+      {
+        "name": "weather-sunny-low",
+        "style": "filled",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-low_32_filled:before"
+      },
+      {
+        "name": "weather-sunny-low",
+        "style": "filled",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-low_48_filled:before"
       },
       {
         "name": "weather-sunny",
@@ -33811,6 +33929,42 @@
         "class": ".ic_refineui_target_48_regular:before"
       },
       {
+        "name": "task-list",
+        "style": "regular",
+        "type": "font",
+        "class": ".ic_refineui_task-list_16_regular:before"
+      },
+      {
+        "name": "task-list",
+        "style": "regular",
+        "type": "font",
+        "class": ".ic_refineui_task-list_20_regular:before"
+      },
+      {
+        "name": "task-list",
+        "style": "regular",
+        "type": "font",
+        "class": ".ic_refineui_task-list_24_regular:before"
+      },
+      {
+        "name": "task-list",
+        "style": "regular",
+        "type": "font",
+        "class": ".ic_refineui_task-list_28_regular:before"
+      },
+      {
+        "name": "task-list",
+        "style": "regular",
+        "type": "font",
+        "class": ".ic_refineui_task-list_32_regular:before"
+      },
+      {
+        "name": "task-list",
+        "style": "regular",
+        "type": "font",
+        "class": ".ic_refineui_task-list_48_regular:before"
+      },
+      {
         "name": "temperature",
         "style": "regular",
         "type": "font",
@@ -35609,6 +35763,78 @@
         "style": "regular",
         "type": "font",
         "class": ".ic_refineui_weather-snowflake_48_regular:before"
+      },
+      {
+        "name": "weather-sunny-high",
+        "style": "regular",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-high_16_regular:before"
+      },
+      {
+        "name": "weather-sunny-high",
+        "style": "regular",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-high_20_regular:before"
+      },
+      {
+        "name": "weather-sunny-high",
+        "style": "regular",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-high_24_regular:before"
+      },
+      {
+        "name": "weather-sunny-high",
+        "style": "regular",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-high_28_regular:before"
+      },
+      {
+        "name": "weather-sunny-high",
+        "style": "regular",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-high_32_regular:before"
+      },
+      {
+        "name": "weather-sunny-high",
+        "style": "regular",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-high_48_regular:before"
+      },
+      {
+        "name": "weather-sunny-low",
+        "style": "regular",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-low_16_regular:before"
+      },
+      {
+        "name": "weather-sunny-low",
+        "style": "regular",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-low_20_regular:before"
+      },
+      {
+        "name": "weather-sunny-low",
+        "style": "regular",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-low_24_regular:before"
+      },
+      {
+        "name": "weather-sunny-low",
+        "style": "regular",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-low_28_regular:before"
+      },
+      {
+        "name": "weather-sunny-low",
+        "style": "regular",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-low_32_regular:before"
+      },
+      {
+        "name": "weather-sunny-low",
+        "style": "regular",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-low_48_regular:before"
       },
       {
         "name": "weather-sunny",
@@ -49645,6 +49871,42 @@
         "class": ".ic_refineui_target_48_regular:before"
       },
       {
+        "name": "task-list",
+        "style": "regular",
+        "type": "font",
+        "class": ".ic_refineui_task-list_16_regular:before"
+      },
+      {
+        "name": "task-list",
+        "style": "regular",
+        "type": "font",
+        "class": ".ic_refineui_task-list_20_regular:before"
+      },
+      {
+        "name": "task-list",
+        "style": "regular",
+        "type": "font",
+        "class": ".ic_refineui_task-list_24_regular:before"
+      },
+      {
+        "name": "task-list",
+        "style": "regular",
+        "type": "font",
+        "class": ".ic_refineui_task-list_28_regular:before"
+      },
+      {
+        "name": "task-list",
+        "style": "regular",
+        "type": "font",
+        "class": ".ic_refineui_task-list_32_regular:before"
+      },
+      {
+        "name": "task-list",
+        "style": "regular",
+        "type": "font",
+        "class": ".ic_refineui_task-list_48_regular:before"
+      },
+      {
         "name": "temperature",
         "style": "regular",
         "type": "font",
@@ -51443,6 +51705,78 @@
         "style": "regular",
         "type": "font",
         "class": ".ic_refineui_weather-snowflake_48_regular:before"
+      },
+      {
+        "name": "weather-sunny-high",
+        "style": "regular",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-high_16_regular:before"
+      },
+      {
+        "name": "weather-sunny-high",
+        "style": "regular",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-high_20_regular:before"
+      },
+      {
+        "name": "weather-sunny-high",
+        "style": "regular",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-high_24_regular:before"
+      },
+      {
+        "name": "weather-sunny-high",
+        "style": "regular",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-high_28_regular:before"
+      },
+      {
+        "name": "weather-sunny-high",
+        "style": "regular",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-high_32_regular:before"
+      },
+      {
+        "name": "weather-sunny-high",
+        "style": "regular",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-high_48_regular:before"
+      },
+      {
+        "name": "weather-sunny-low",
+        "style": "regular",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-low_16_regular:before"
+      },
+      {
+        "name": "weather-sunny-low",
+        "style": "regular",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-low_20_regular:before"
+      },
+      {
+        "name": "weather-sunny-low",
+        "style": "regular",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-low_24_regular:before"
+      },
+      {
+        "name": "weather-sunny-low",
+        "style": "regular",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-low_28_regular:before"
+      },
+      {
+        "name": "weather-sunny-low",
+        "style": "regular",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-low_32_regular:before"
+      },
+      {
+        "name": "weather-sunny-low",
+        "style": "regular",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-low_48_regular:before"
       },
       {
         "name": "weather-sunny",
@@ -65479,6 +65813,42 @@
         "class": ".ic_refineui_target_48_filled:before"
       },
       {
+        "name": "task-list",
+        "style": "filled",
+        "type": "font",
+        "class": ".ic_refineui_task-list_16_filled:before"
+      },
+      {
+        "name": "task-list",
+        "style": "filled",
+        "type": "font",
+        "class": ".ic_refineui_task-list_20_filled:before"
+      },
+      {
+        "name": "task-list",
+        "style": "filled",
+        "type": "font",
+        "class": ".ic_refineui_task-list_24_filled:before"
+      },
+      {
+        "name": "task-list",
+        "style": "filled",
+        "type": "font",
+        "class": ".ic_refineui_task-list_28_filled:before"
+      },
+      {
+        "name": "task-list",
+        "style": "filled",
+        "type": "font",
+        "class": ".ic_refineui_task-list_32_filled:before"
+      },
+      {
+        "name": "task-list",
+        "style": "filled",
+        "type": "font",
+        "class": ".ic_refineui_task-list_48_filled:before"
+      },
+      {
         "name": "temperature",
         "style": "filled",
         "type": "font",
@@ -67277,6 +67647,78 @@
         "style": "filled",
         "type": "font",
         "class": ".ic_refineui_weather-snowflake_48_filled:before"
+      },
+      {
+        "name": "weather-sunny-high",
+        "style": "filled",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-high_16_filled:before"
+      },
+      {
+        "name": "weather-sunny-high",
+        "style": "filled",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-high_20_filled:before"
+      },
+      {
+        "name": "weather-sunny-high",
+        "style": "filled",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-high_24_filled:before"
+      },
+      {
+        "name": "weather-sunny-high",
+        "style": "filled",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-high_28_filled:before"
+      },
+      {
+        "name": "weather-sunny-high",
+        "style": "filled",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-high_32_filled:before"
+      },
+      {
+        "name": "weather-sunny-high",
+        "style": "filled",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-high_48_filled:before"
+      },
+      {
+        "name": "weather-sunny-low",
+        "style": "filled",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-low_16_filled:before"
+      },
+      {
+        "name": "weather-sunny-low",
+        "style": "filled",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-low_20_filled:before"
+      },
+      {
+        "name": "weather-sunny-low",
+        "style": "filled",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-low_24_filled:before"
+      },
+      {
+        "name": "weather-sunny-low",
+        "style": "filled",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-low_28_filled:before"
+      },
+      {
+        "name": "weather-sunny-low",
+        "style": "filled",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-low_32_filled:before"
+      },
+      {
+        "name": "weather-sunny-low",
+        "style": "filled",
+        "type": "font",
+        "class": ".ic_refineui_weather-sunny-low_48_filled:before"
       },
       {
         "name": "weather-sunny",

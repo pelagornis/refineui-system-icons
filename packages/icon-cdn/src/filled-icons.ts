@@ -280,6 +280,7 @@ export const PaddingFilled = createIconURL('padding', 24, 'filled');
 export const PageFitFilled = createIconURL('page-fit', 24, 'filled');
 export const PaintBrushFilled = createIconURL('paint-brush', 24, 'filled');
 export const PaintBucketFilled = createIconURL('paint-bucket', 24, 'filled');
+export const PanelLeftFilled = createIconURL('panel-left', 24, 'filled');
 export const ParallelogramFilled = createIconURL('parallelogram', 24, 'filled');
 export const PasswordFilled = createIconURL('password', 24, 'filled');
 export const PauseFilled = createIconURL('pause', 24, 'filled');

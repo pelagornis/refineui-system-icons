@@ -280,6 +280,7 @@ export const PaddingRegular = createIconURL('padding', 24, 'regular');
 export const PageFitRegular = createIconURL('page-fit', 24, 'regular');
 export const PaintBrushRegular = createIconURL('paint-brush', 24, 'regular');
 export const PaintBucketRegular = createIconURL('paint-bucket', 24, 'regular');
+export const PanelLeftRegular = createIconURL('panel-left', 24, 'regular');
 export const ParallelogramRegular = createIconURL('parallelogram', 24, 'regular');
 export const PasswordRegular = createIconURL('password', 24, 'regular');
 export const PauseRegular = createIconURL('pause', 24, 'regular');

@@ -57718,6 +57718,99 @@
           }
         }
       }
+    },
+    "panel-left": {
+      "name": "panel-left",
+      "slug": "panel-left",
+      "size": [
+        16,
+        20,
+        24,
+        28,
+        32,
+        48
+      ],
+      "style": [
+        "filled",
+        "regular"
+      ],
+      "keyword": "refineui-icon",
+      "description": "Icon: panel-left.",
+      "files": [],
+      "unicodeMapping": {
+        "16": {
+          "filled": {
+            "unicode": 988235,
+            "unicodeHex": "\\0F144B",
+            "cssClass": "ic_refineui_panel-left_16_filled"
+          },
+          "regular": {
+            "unicode": 988236,
+            "unicodeHex": "\\0F144C",
+            "cssClass": "ic_refineui_panel-left_16_regular"
+          }
+        },
+        "20": {
+          "filled": {
+            "unicode": 988237,
+            "unicodeHex": "\\0F144D",
+            "cssClass": "ic_refineui_panel-left_20_filled"
+          },
+          "regular": {
+            "unicode": 988238,
+            "unicodeHex": "\\0F144E",
+            "cssClass": "ic_refineui_panel-left_20_regular"
+          }
+        },
+        "24": {
+          "filled": {
+            "unicode": 988239,
+            "unicodeHex": "\\0F144F",
+            "cssClass": "ic_refineui_panel-left_24_filled"
+          },
+          "regular": {
+            "unicode": 988240,
+            "unicodeHex": "\\0F1450",
+            "cssClass": "ic_refineui_panel-left_24_regular"
+          }
+        },
+        "28": {
+          "filled": {
+            "unicode": 988241,
+            "unicodeHex": "\\0F1451",
+            "cssClass": "ic_refineui_panel-left_28_filled"
+          },
+          "regular": {
+            "unicode": 988242,
+            "unicodeHex": "\\0F1452",
+            "cssClass": "ic_refineui_panel-left_28_regular"
+          }
+        },
+        "32": {
+          "filled": {
+            "unicode": 988243,
+            "unicodeHex": "\\0F1453",
+            "cssClass": "ic_refineui_panel-left_32_filled"
+          },
+          "regular": {
+            "unicode": 988244,
+            "unicodeHex": "\\0F1454",
+            "cssClass": "ic_refineui_panel-left_32_regular"
+          }
+        },
+        "48": {
+          "filled": {
+            "unicode": 988245,
+            "unicodeHex": "\\0F1455",
+            "cssClass": "ic_refineui_panel-left_48_filled"
+          },
+          "regular": {
+            "unicode": 988246,
+            "unicodeHex": "\\0F1456",
+            "cssClass": "ic_refineui_panel-left_48_regular"
+          }
+        }
+      }
     }
   }
 }

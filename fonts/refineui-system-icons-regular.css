@@ -10070,6 +10070,42 @@
     font-style: normal;
     content: "\0F107A";
 }
+.ic_refineui_panel-left_16_regular:before {
+    font-family: 'RefineUI-System-Icons-Regular';
+    font-weight: normal;
+    font-style: normal;
+    content: "\0F144C";
+}
+.ic_refineui_panel-left_20_regular:before {
+    font-family: 'RefineUI-System-Icons-Regular';
+    font-weight: normal;
+    font-style: normal;
+    content: "\0F144E";
+}
+.ic_refineui_panel-left_24_regular:before {
+    font-family: 'RefineUI-System-Icons-Regular';
+    font-weight: normal;
+    font-style: normal;
+    content: "\0F1450";
+}
+.ic_refineui_panel-left_28_regular:before {
+    font-family: 'RefineUI-System-Icons-Regular';
+    font-weight: normal;
+    font-style: normal;
+    content: "\0F1452";
+}
+.ic_refineui_panel-left_32_regular:before {
+    font-family: 'RefineUI-System-Icons-Regular';
+    font-weight: normal;
+    font-style: normal;
+    content: "\0F1454";
+}
+.ic_refineui_panel-left_48_regular:before {
+    font-family: 'RefineUI-System-Icons-Regular';
+    font-weight: normal;
+    font-style: normal;
+    content: "\0F1456";
+}
 .ic_refineui_parallelogram_16_regular:before {
     font-family: 'RefineUI-System-Icons-Regular';
     font-weight: normal;
