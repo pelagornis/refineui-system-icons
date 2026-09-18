@@ -163,7 +163,8 @@ def main():
         if os.path.isfile(flatten_script):
             print("Flattening SVGs for font import...")
             import subprocess
-            subprocess.check_call([sys.executable, flatten_script])
+            # fontforge -script makes sys.executable FontForge, which cannot run this file.
+            subprocess.check_call(["python3", flatten_script])
     stem_to_path = find_svg_by_stem()
     print("Found {} SVGs under assets/".format(len(stem_to_path)))
 

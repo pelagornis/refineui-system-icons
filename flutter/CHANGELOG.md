@@ -1,3 +1,8 @@
+## 0.3.41
+
+- Synced package-lock.json so release installs include the docs workspace
+- Run the font SVG flatten step with python3 instead of FontForge
+
 ## 0.3.40
 
 - Replaced placeholder CDN SVGs for multi-word icon names with the real assets
