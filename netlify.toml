@@ -1,0 +1,10 @@
+# Base is docs/ so the root Package.swift is outside the site directory.
+# Otherwise Netlify installs default Swift 5.4, which has no Ubuntu 24.04 tarball.
+[build]
+  base = "docs"
+  command = "pnpm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+  PNPM_FLAGS = "--shamefully-hoist"
