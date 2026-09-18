@@ -4,14 +4,8 @@
     android:height="24dp"
     android:viewportWidth="24"
     android:viewportHeight="24">
-    
-    <text
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="󱍈"
-        android:textSize="24sp"
-        android:textColor="@android:color/black"
-        android:fontFamily="RefineUI-System-Icons-Regular"
-        android:gravity="center" />
-        
+    <path android:fillColor="#FF000000" android:fillType="evenOdd" android:pathData="M 16 9.75 C 17.1046 9.75 18 8.85457 18 7.75 C 18 6.64543 17.1046 5.75 16 5.75 C 14.8954 5.75 14 6.64543 14 7.75 C 14 8.85457 14.8954 9.75 16 9.75 Z M 16 8.45 C 16.3866 8.45 16.7 8.1366 16.7 7.75 C 16.7 7.3634 16.3866 7.05 16 7.05 C 15.6134 7.05 15.3 7.3634 15.3 7.75 C 15.3 8.1366 15.6134 8.45 16 8.45 Z"/>
+    <path android:fillColor="#FF000000" android:fillType="evenOdd" android:pathData="M 4 7.75 C 4 5.67893 5.67893 4 7.75 4 H 16.25 C 18.3211 4 20 5.67893 20 7.75 C 20 9.82107 18.3211 11.5 16.25 11.5 H 7.75 C 5.67893 11.5 4 9.82107 4 7.75 Z M 7.75 5.3 H 16.25 C 17.6031 5.3 18.7 6.3969 18.7 7.75 C 18.7 9.1031 17.6031 10.2 16.25 10.2 H 7.75 C 6.3969 10.2 5.3 9.1031 5.3 7.75 C 5.3 6.3969 6.3969 5.3 7.75 5.3 Z"/>
+    <path android:fillColor="#FF000000" android:fillType="evenOdd" android:pathData="M 10 16.25 C 10 17.3546 9.10457 18.25 8 18.25 C 6.89543 18.25 6 17.3546 6 16.25 C 6 15.1454 6.89543 14.25 8 14.25 C 9.10457 14.25 10 15.1454 10 16.25 Z M 8.7 16.25 C 8.7 16.6366 8.3866 16.95 8 16.95 C 7.6134 16.95 7.3 16.6366 7.3 16.25 C 7.3 15.8634 7.6134 15.55 8 15.55 C 8.3866 15.55 8.7 15.8634 8.7 16.25 Z"/>
+    <path android:fillColor="#FF000000" android:fillType="evenOdd" android:pathData="M 4 16.25 C 4 14.1789 5.67893 12.5 7.75 12.5 H 16.25 C 18.3211 12.5 20 14.1789 20 16.25 C 20 18.3211 18.3211 20 16.25 20 H 7.75 C 5.67893 20 4 18.3211 4 16.25 Z M 7.75 13.8 H 16.25 C 17.6031 13.8 18.7 14.8969 18.7 16.25 C 18.7 17.6031 17.6031 18.7 16.25 18.7 H 7.75 C 6.3969 18.7 5.3 17.6031 5.3 16.25 C 5.3 14.8969 6.3969 13.8 7.75 13.8 Z"/>
 </vector>

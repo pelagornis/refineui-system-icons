@@ -20,7 +20,7 @@
     "generate:android": "python3 scripts/generate_android_xml.py",
     "generate:ios": "python3 scripts/generate_ios.py",
     "generate:flutter": "python3 scripts/generate_flutter_dart.py",
-    "generate:ttf": "fontforge -script scripts/generate_ttf_from_svg.py",
+    "generate:ttf": "python3 scripts/flatten_svg_for_font.py && fontforge -script scripts/generate_ttf_from_svg.py",
     "generate:fonts": "python3 scripts/generate_font_css.py",
     "build:fonts": "python3 scripts/build_fonts.py",
     "copy:fonts": "python3 scripts/copy_fonts_to_packages.py",
@@ -31,7 +31,8 @@
     "version:bump": "python3 scripts/version_bump.py",
     "clean": "npm run clean --workspaces",
     "test": "npm run test --workspaces",
-    "lint": "npm run lint --workspaces"
+    "lint": "npm run lint --workspaces",
+    "flatten:svg-for-font": "python3 scripts/flatten_svg_for_font.py"
   },
   "devDependencies": {
     "@types/node": "^18.0.0",

@@ -137,3 +137,5 @@ jspm_packages/
 # Temporary folders
 tmp/
 temp/
+# Flattened SVGs for font import (generated)
+fonts/.svg-flat/

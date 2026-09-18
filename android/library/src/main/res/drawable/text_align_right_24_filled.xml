@@ -4,8 +4,7 @@
     android:height="24dp"
     android:viewportWidth="24"
     android:viewportHeight="24">
-    
-    <!-- Convert SVG content here -->
-    <path android:fillColor="#000000" android:pathData="M12,2C6.48,2 2,6.48 2,12s4.48,10 10,10 10,-4.48 10,-10S17.52,2 12,2z"/>
-    
+    <path android:fillColor="#FF000000" android:pathData="M 8 8 C 8 7.44772 8.44772 7 9 7 H 18 C 18.5523 7 19 7.44772 19 8 C 19 8.55228 18.5523 9 18 9 H 9 C 8.44772 9 8 8.55228 8 8 Z"/>
+    <path android:fillColor="#FF000000" android:pathData="M 4 12 C 4 11.4477 4.44772 11 5 11 H 18 C 18.5523 11 19 11.4477 19 12 C 19 12.5523 18.5523 13 18 13 H 5 C 4.44772 13 4 12.5523 4 12 Z"/>
+    <path android:fillColor="#FF000000" android:pathData="M 13 15 C 12.4477 15 12 15.4477 12 16 C 12 16.5523 12.4477 17 13 17 H 18 C 18.5523 17 19 16.5523 19 16 C 19 15.4477 18.5523 15 18 15 H 13 Z"/>
 </vector>

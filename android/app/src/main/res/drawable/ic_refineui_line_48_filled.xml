@@ -4,14 +4,5 @@
     android:height="48dp"
     android:viewportWidth="48"
     android:viewportHeight="48">
-    
-    <text
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="󰙱"
-        android:textSize="48sp"
-        android:textColor="@android:color/black"
-        android:fontFamily="RefineUI-System-Icons-Filled"
-        android:gravity="center" />
-        
+    <path android:fillColor="#FF000000" android:pathData="M 39.4143 8.58574 C 40.1952 9.36672 40.1952 10.633 39.4143 11.4139 L 11.4139 39.4143 C 10.6329 40.1952 9.36672 40.1952 8.58574 39.4143 C 7.80475 38.6333 7.80475 37.367 8.58574 36.5861 L 36.5861 8.58574 C 37.3671 7.80475 38.6333 7.80475 39.4143 8.58574 Z"/>
 </vector>

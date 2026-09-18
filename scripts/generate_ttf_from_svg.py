@@ -47,15 +47,23 @@ def normalize_glyph(glyph, font):
 
 
 def find_svg_by_stem():
-    """Build map: filename stem (no .svg) -> absolute path."""
+    """Build map: filename stem (no .svg) -> absolute path.
+    Prefer fonts/.svg-flat/ (picosvg / mask-flattened) when present.
+    """
     stem_to_path = {}
+    flat_dir = os.path.join(FONTS_DIR, ".svg-flat")
+    if os.path.isdir(flat_dir):
+        for f in os.listdir(flat_dir):
+            if f.endswith(".svg"):
+                stem_to_path[f[:-4]] = os.path.join(flat_dir, f)
     if not os.path.isdir(ASSETS_DIR):
         return stem_to_path
     for dirpath, _dirnames, filenames in os.walk(ASSETS_DIR):
         for f in filenames:
             if f.endswith(".svg"):
                 stem = f[:-4]
-                stem_to_path[stem] = os.path.join(dirpath, f)
+                if stem not in stem_to_path:
+                    stem_to_path[stem] = os.path.join(dirpath, f)
     return stem_to_path
 
 
@@ -148,6 +156,14 @@ def main():
         os.makedirs(FONTS_DIR)
 
     data = load_icon_mapping()
+    # Prefer pre-flattened SVGs (run: python3 scripts/flatten_svg_for_font.py)
+    flat_dir = os.path.join(FONTS_DIR, ".svg-flat")
+    if not os.path.isdir(flat_dir) or not os.listdir(flat_dir):
+        flatten_script = os.path.join(SCRIPT_DIR, "flatten_svg_for_font.py")
+        if os.path.isfile(flatten_script):
+            print("Flattening SVGs for font import...")
+            import subprocess
+            subprocess.check_call([sys.executable, flatten_script])
     stem_to_path = find_svg_by_stem()
     print("Found {} SVGs under assets/".format(len(stem_to_path)))
 

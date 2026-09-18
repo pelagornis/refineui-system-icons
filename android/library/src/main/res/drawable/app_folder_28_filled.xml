@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="24dp"
-    android:height="24dp"
-    android:viewportWidth="24"
-    android:viewportHeight="24">
-    
-    <!-- Convert SVG content here -->
-    <path android:fillColor="#000000" android:pathData="M12,2C6.48,2 2,6.48 2,12s4.48,10 10,10 10,-4.48 10,-10S17.52,2 12,2z"/>
-    
+    android:width="28dp"
+    android:height="28dp"
+    android:viewportWidth="28"
+    android:viewportHeight="28">
+    <path android:fillColor="#FF000000" android:fillType="evenOdd" android:pathData="M 9.08333 7.91667 C 8.439 7.91667 7.91667 8.439 7.91667 9.08333 V 12.5833 C 7.91667 13.2277 8.439 13.75 9.08333 13.75 H 12.5833 C 13.2277 13.75 13.75 13.2277 13.75 12.5833 V 9.08333 C 13.75 8.439 13.2277 7.91667 12.5833 7.91667 H 9.08333 Z"/>
+    <path android:fillColor="#FF000000" android:fillType="evenOdd" android:pathData="M 7.91667 16.0833 C 7.91667 15.439 8.439 14.9167 9.08333 14.9167 H 12.5833 C 13.2277 14.9167 13.75 15.439 13.75 16.0833 V 19.5833 C 13.75 20.2277 13.2277 20.75 12.5833 20.75 H 9.08333 C 8.439 20.75 7.91667 20.2277 7.91667 19.5833 V 16.0833 Z"/>
+    <path android:fillColor="#FF000000" android:fillType="evenOdd" android:pathData="M 16.0833 14.9167 C 15.439 14.9167 14.9167 15.439 14.9167 16.0833 V 19.5833 C 14.9167 20.2277 15.439 20.75 16.0833 20.75 H 19.5833 C 20.2277 20.75 20.75 20.2277 20.75 19.5833 V 16.0833 C 20.75 15.439 20.2277 14.9167 19.5833 14.9167 H 16.0833 Z"/>
+    <path android:fillColor="#FF000000" android:fillType="evenOdd" android:pathData="M 14.9167 9.08333 C 14.9167 8.439 15.439 7.91667 16.0833 7.91667 H 19.5833 C 20.2277 7.91667 20.75 8.439 20.75 9.08333 V 12.5833 C 20.75 13.2277 20.2277 13.75 19.5833 13.75 H 16.0833 C 15.439 13.75 14.9167 13.2277 14.9167 12.5833 V 9.08333 Z"/>
+    <path android:fillColor="#FF000000" android:fillType="evenOdd" android:pathData="M 7.33333 5 C 6.04467 5 5 6.04467 5 7.33333 V 21.3333 C 5 22.622 6.04467 23.6667 7.33333 23.6667 H 21.3333 C 22.622 23.6667 23.6667 22.622 23.6667 21.3333 V 7.33333 C 23.6667 6.04467 22.622 5 21.3333 5 H 7.33333 Z M 21.3333 6.51667 H 7.33333 C 6.8823 6.51667 6.51667 6.8823 6.51667 7.33333 V 21.3333 C 6.51667 21.7844 6.8823 22.15 7.33333 22.15 H 21.3333 C 21.7844 22.15 22.15 21.7844 22.15 21.3333 V 7.33333 C 22.15 6.8823 21.7844 6.51667 21.3333 6.51667 Z"/>
 </vector>

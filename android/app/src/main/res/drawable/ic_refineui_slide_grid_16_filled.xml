@@ -4,14 +4,9 @@
     android:height="16dp"
     android:viewportWidth="16"
     android:viewportHeight="16">
-    
-    <text
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="󱇽"
-        android:textSize="16sp"
-        android:textColor="@android:color/black"
-        android:fontFamily="RefineUI-System-Icons-Filled"
-        android:gravity="center" />
-        
+    <path android:fillColor="#FF000000" android:fillType="evenOdd" android:pathData="M 4.56667 6.16667 C 4.56667 5.8353 4.8353 5.56667 5.16667 5.56667 H 7.5 C 7.83137 5.56667 8.1 5.8353 8.1 6.16667 V 7.16667 C 8.1 7.49804 7.83137 7.76667 7.5 7.76667 H 5.16667 C 4.8353 7.76667 4.56667 7.49804 4.56667 7.16667 V 6.16667 Z"/>
+    <path android:fillColor="#FF000000" android:fillType="evenOdd" android:pathData="M 9.16667 5.56667 C 8.8353 5.56667 8.56667 5.8353 8.56667 6.16667 V 7.16667 C 8.56667 7.49804 8.8353 7.76667 9.16667 7.76667 H 11.5 C 11.8314 7.76667 12.1 7.49804 12.1 7.16667 V 6.16667 C 12.1 5.8353 11.8314 5.56667 11.5 5.56667 H 9.16667 Z"/>
+    <path android:fillColor="#FF000000" android:fillType="evenOdd" android:pathData="M 8.56667 8.83333 C 8.56667 8.50196 8.8353 8.23333 9.16667 8.23333 H 11.5 C 11.8314 8.23333 12.1 8.50196 12.1 8.83333 V 9.83333 C 12.1 10.1647 11.8314 10.4333 11.5 10.4333 H 9.16667 C 8.8353 10.4333 8.56667 10.1647 8.56667 9.83333 V 8.83333 Z"/>
+    <path android:fillColor="#FF000000" android:fillType="evenOdd" android:pathData="M 5.16667 8.23333 C 4.8353 8.23333 4.56667 8.50196 4.56667 8.83333 V 9.83333 C 4.56667 10.1647 4.8353 10.4333 5.16667 10.4333 H 7.5 C 7.83137 10.4333 8.1 10.1647 8.1 9.83333 V 8.83333 C 8.1 8.50196 7.83137 8.23333 7.5 8.23333 H 5.16667 Z"/>
+    <path android:fillColor="#FF000000" android:fillType="evenOdd" android:pathData="M 4.33333 4 C 3.59695 4 3 4.59695 3 5.33333 V 10.6667 C 3 11.403 3.59695 12 4.33333 12 H 12.3333 C 13.0697 12 13.6667 11.403 13.6667 10.6667 V 5.33333 C 13.6667 4.59695 13.0697 4 12.3333 4 H 4.33333 Z M 12.3333 4.86667 H 4.33333 C 4.0756 4.86667 3.86667 5.0756 3.86667 5.33333 V 10.6667 C 3.86667 10.9244 4.0756 11.1333 4.33333 11.1333 H 12.3333 C 12.5911 11.1333 12.8 10.9244 12.8 10.6667 V 5.33333 C 12.8 5.0756 12.5911 4.86667 12.3333 4.86667 Z"/>
 </vector>

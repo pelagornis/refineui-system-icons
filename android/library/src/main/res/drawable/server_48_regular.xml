@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="24dp"
-    android:height="24dp"
-    android:viewportWidth="24"
-    android:viewportHeight="24">
-    
-    <!-- Convert SVG content here -->
-    <path android:fillColor="#000000" android:pathData="M12,2C6.48,2 2,6.48 2,12s4.48,10 10,10 10,-4.48 10,-10S17.52,2 12,2z"/>
-    
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    <path android:fillColor="#FF000000" android:pathData="M 14 15.7 C 13.282 15.7 12.7 16.282 12.7 17 C 12.7 17.718 13.282 18.3 14 18.3 H 22 C 22.718 18.3 23.3 17.718 23.3 17 C 23.3 16.282 22.718 15.7 22 15.7 H 14 Z"/>
+    <path android:fillColor="#FF000000" android:pathData="M 34 17 C 34 17.718 33.418 18.3 32.7 18.3 C 31.9821 18.3 31.4 17.718 31.4 17 C 31.4 16.282 31.9821 15.7 32.7 15.7 C 33.418 15.7 34 16.282 34 17 Z"/>
+    <path android:fillColor="#FF000000" android:fillType="evenOdd" android:pathData="M 8 15 C 8 12.7909 9.79086 11 12 11 H 36 C 38.2091 11 40 12.7909 40 15 V 19 C 40 21.2091 38.2091 23 36 23 H 12 C 9.79086 23 8 21.2091 8 19 V 15 Z M 12 13.6 H 36 C 36.7732 13.6 37.4 14.2268 37.4 15 V 19 C 37.4 19.7732 36.7732 20.4 36 20.4 H 12 C 11.2268 20.4 10.6 19.7732 10.6 19 V 15 C 10.6 14.2268 11.2268 13.6 12 13.6 Z"/>
+    <path android:fillColor="#FF000000" android:pathData="M 12.7 31 C 12.7 30.282 13.282 29.7 14 29.7 H 22 C 22.718 29.7 23.3 30.282 23.3 31 C 23.3 31.718 22.718 32.3 22 32.3 H 14 C 13.282 32.3 12.7 31.718 12.7 31 Z"/>
+    <path android:fillColor="#FF000000" android:pathData="M 32.7 32.3 C 33.418 32.3 34 31.718 34 31 C 34 30.282 33.418 29.7 32.7 29.7 C 31.9821 29.7 31.4 30.282 31.4 31 C 31.4 31.718 31.9821 32.3 32.7 32.3 Z"/>
+    <path android:fillColor="#FF000000" android:fillType="evenOdd" android:pathData="M 8 29 C 8 26.7909 9.79086 25 12 25 H 36 C 38.2091 25 40 26.7909 40 29 V 33 C 40 35.2091 38.2091 37 36 37 H 12 C 9.79086 37 8 35.2091 8 33 V 29 Z M 12 27.6 H 36 C 36.7732 27.6 37.4 28.2268 37.4 29 V 33 C 37.4 33.7732 36.7732 34.4 36 34.4 H 12 C 11.2268 34.4 10.6 33.7732 10.6 33 V 29 C 10.6 28.2268 11.2268 27.6 12 27.6 Z"/>
 </vector>

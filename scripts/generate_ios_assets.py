@@ -63,11 +63,17 @@ def generate_ios_assets() -> int:
         name_part, size, style = match.group(1), match.group(2), match.group(3).lower()
         ios_stem = ios_resource_stem(name_part, size, style)
         imageset_dir = XCASSETS / f"{ios_stem}.imageset"
-        if imageset_dir.exists():
-            skipped += 1
+        ios_filename = f"{ios_stem}.svg"
+        dest_svg = imageset_dir / ios_filename
+        if imageset_dir.exists() and dest_svg.exists():
+            if dest_svg.read_bytes() == svg_path.read_bytes():
+                skipped += 1
+                continue
+            # refresh stale SVG copy
+            create_imageset(imageset_dir, svg_path, ios_filename)
+            created += 1
             continue
 
-        ios_filename = f"{ios_stem}.svg"
         create_imageset(imageset_dir, svg_path, ios_filename)
         created += 1
 

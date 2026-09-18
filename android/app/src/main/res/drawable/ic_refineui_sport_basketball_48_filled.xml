@@ -4,14 +4,12 @@
     android:height="48dp"
     android:viewportWidth="48"
     android:viewportHeight="48">
-    
-    <text
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="󱉃"
-        android:textSize="48sp"
-        android:textColor="@android:color/black"
-        android:fontFamily="RefineUI-System-Icons-Filled"
-        android:gravity="center" />
-        
+    <path android:fillColor="#FF000000" android:pathData="M 37.3377 25.3 H 31.4612 C 31.9053 28.1475 33.1943 30.7136 34.415 32.432 L 36.239 34.3062 C 38.3242 31.8325 39.6731 28.7178 39.948 25.3 H 37.3377 Z"/>
+    <path android:fillColor="#FF000000" android:pathData="M 34.3524 15.4913 C 32.2707 17.8105 31.4248 20.298 31.3127 22.7 H 37.3377 H 39.948 C 39.6715 19.2621 38.3083 16.1309 36.2021 13.6502 L 34.3524 15.4913 Z"/>
+    <path android:fillColor="#FF000000" android:pathData="M 28.7113 22.7 C 28.8273 19.6876 29.8814 16.531 32.5119 13.6502 L 34.3524 11.8001 C 31.8713 9.69264 28.7391 8.32858 25.3 8.05205 V 10.6623 V 22.7 H 28.7113 Z"/>
+    <path android:fillColor="#FF000000" android:pathData="M 19.1407 22.7 H 22.7 V 10.6623 V 8.05205 C 19.2863 8.32654 16.1749 9.67256 13.7027 11.7535 L 15.4204 13.7064 C 16.9371 15.7315 18.5938 18.8971 19.1117 22.4895 C 19.1218 22.5595 19.1314 22.6297 19.1407 22.7 Z"/>
+    <path android:fillColor="#FF000000" android:pathData="M 16.5142 22.7 C 16.0716 19.8614 14.7892 17.3025 13.5719 15.5841 L 11.8137 13.6315 C 9.69855 16.1151 8.32918 19.2534 8.05205 22.7 H 10.6623 H 16.5142 Z"/>
+    <path android:fillColor="#FF000000" android:pathData="M 13.6359 32.4945 C 15.7083 30.1793 16.5509 27.697 16.6628 25.3 H 10.6623 H 8.05205 C 8.32806 28.7326 9.68748 31.8594 11.7881 34.3383 L 13.6359 32.4945 Z"/>
+    <path android:fillColor="#FF000000" android:pathData="M 22.7 37.3377 V 25.3 H 19.2642 C 19.1483 28.3084 18.0969 31.4605 15.4741 34.3383 L 13.6359 36.19 C 16.1188 38.3031 19.2554 39.671 22.7 39.948 V 37.3377 Z"/>
+    <path android:fillColor="#FF000000" android:pathData="M 25.3 25.3 V 37.3377 V 39.948 C 28.7681 39.6691 31.9241 38.2843 34.415 36.1465 L 32.5645 34.3062 C 31.0452 32.2817 29.3827 29.1103 28.8638 25.5105 C 28.8537 25.4405 28.844 25.3703 28.8348 25.3 H 25.3 Z"/>
 </vector>

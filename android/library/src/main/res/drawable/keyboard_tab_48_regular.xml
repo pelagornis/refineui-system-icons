@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="24dp"
-    android:height="24dp"
-    android:viewportWidth="24"
-    android:viewportHeight="24">
-    
-    <!-- Convert SVG content here -->
-    <path android:fillColor="#000000" android:pathData="M12,2C6.48,2 2,6.48 2,12s4.48,10 10,10 10,-4.48 10,-10S17.52,2 12,2z"/>
-    
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    <path android:fillColor="#FF000000" android:pathData="M 22.6673 10.3904 C 22.1648 9.87739 21.3417 9.86888 20.8288 10.3714 C 20.3158 10.8738 20.3073 11.6971 20.8098 12.21 L 31.0836 22.6998 H 9.30009 C 8.58207 22.6998 8 23.2819 8 24 C 8 24.7181 8.58207 25.3002 9.30009 25.3002 H 31.0836 L 20.8098 35.79 C 20.3073 36.303 20.3158 37.1262 20.8288 37.6286 C 21.3417 38.1311 22.1648 38.1226 22.6673 37.6096 L 34.6259 25.3997 C 35.3876 24.622 35.3876 23.378 34.6259 22.6003 L 22.6673 10.3904 Z"/>
+    <path android:fillColor="#FF000000" android:pathData="M 40 11.3002 C 40 10.5821 39.4179 10 38.6999 10 C 37.9819 10 37.3998 10.5821 37.3998 11.3002 V 36.6998 C 37.3998 37.4179 37.9819 38 38.6999 38 C 39.4179 38 40 37.4179 40 36.6998 V 11.3002 Z"/>
 </vector>

@@ -4,14 +4,7 @@
     android:height="28dp"
     android:viewportWidth="28"
     android:viewportHeight="28">
-    
-    <text
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="󰕻"
-        android:textSize="28sp"
-        android:textColor="@android:color/black"
-        android:fontFamily="RefineUI-System-Icons-Regular"
-        android:gravity="center" />
-        
+    <path android:fillColor="#FF000000" android:pathData="M 15.2083 9.95833 C 15.2083 10.4416 14.8166 10.8333 14.3333 10.8333 C 13.8501 10.8333 13.4583 10.4416 13.4583 9.95833 C 13.4583 9.47508 13.8501 9.08333 14.3333 9.08333 C 14.8166 9.08333 15.2083 9.47508 15.2083 9.95833 Z"/>
+    <path android:fillColor="#FF000000" android:pathData="M 15.0917 12.5833 C 15.0917 12.1645 14.7521 11.825 14.3333 11.825 C 13.9145 11.825 13.575 12.1645 13.575 12.5833 V 19.5833 C 13.575 20.0021 13.9145 20.3417 14.3333 20.3417 C 14.7521 20.3417 15.0917 20.0021 15.0917 19.5833 V 12.5833 Z"/>
+    <path android:fillColor="#FF000000" android:fillType="evenOdd" android:pathData="M 14.3333 23.6667 C 19.488 23.6667 23.6667 19.488 23.6667 14.3333 C 23.6667 9.17868 19.488 5 14.3333 5 C 9.17868 5 5 9.17868 5 14.3333 C 5 19.488 9.17868 23.6667 14.3333 23.6667 Z M 14.3333 22.15 C 18.6504 22.15 22.15 18.6504 22.15 14.3333 C 22.15 10.0163 18.6504 6.51667 14.3333 6.51667 C 10.0163 6.51667 6.51667 10.0163 6.51667 14.3333 C 6.51667 18.6504 10.0163 22.15 14.3333 22.15 Z"/>
 </vector>
