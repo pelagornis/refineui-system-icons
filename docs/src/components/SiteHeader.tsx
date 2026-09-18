@@ -83,7 +83,7 @@ export default function SiteHeader({ base, current }: SiteHeaderProps) {
 
             <Button
               variant="ghost"
-              size="sm"
+              size="md"
               layout="icon"
               onClick={toggleTheme}
               aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
