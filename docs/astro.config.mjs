@@ -28,6 +28,12 @@ export default defineConfig({
           find: /^@refineui\/react-icons$/,
           replacement: path.join(reactIconsSrc, 'index.tsx'),
         },
+        // Published @refineui/web-icons lags the committed font files, and the
+        // docs render glyphs from that font. Always use the repo fonts.
+        {
+          find: '@refineui/web-icons/dist/fonts',
+          replacement: path.join(repoRoot, 'packages/web-icons/fonts'),
+        },
       ],
     },
     server: {

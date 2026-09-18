@@ -23,10 +23,11 @@ Or from this directory: `npm run dev`, `npm run build`, `npm run preview`, `npm 
 `@refineui/react-icons` to `packages/react-icons/src`. The site therefore builds on a fresh clone
 without building the icon package first — the same approach `web/vite.config.ts` uses.
 
-`@refineui/react/refineui.css` does import `@refineui/web-icons/dist/...`, which is gitignored in
-this repo, so `predev`/`prebuild` build that workspace package first. On Netlify the site base is
-`docs/` (root `Package.swift` would otherwise make the image install Swift 5.4) and the published
-package from `docs/pnpm-lock.yaml` supplies those fonts, so the workspace build is skipped.
+`@refineui/react/refineui.css` does import `@refineui/web-icons/dist/...`. Those files are the
+committed `packages/web-icons/fonts` (aliased in `astro.config.mjs`), not the npm package, which
+still ships the pre-fix Appstore and Accessibility glyphs. `predev`/`prebuild` still build the
+workspace package locally. On Netlify the site base is `docs/` so the root `Package.swift` does
+not make the image install Swift 5.4, and that workspace build is skipped.
 
 The gallery catalogue in `src/data/icons.ts` is derived from
 `packages/react-icons/src/metadata.json` at build time. Icon slugs map 1:1 to the package's named
