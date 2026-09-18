@@ -7,7 +7,7 @@ plugins {
 }
 
 group = findProperty("GROUP") as String? ?: "com.pelagornis"
-version = findProperty("VERSION_NAME") as String? ?: "0.3.41"
+version = findProperty("VERSION_NAME") as String? ?: "0.3.42"
 
 android {
     namespace = "com.pelagornis.refineui.icons"
