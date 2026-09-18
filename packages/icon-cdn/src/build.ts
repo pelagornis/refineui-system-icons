@@ -73,9 +73,11 @@ async function copySVGFiles(): Promise<void> {
           // Match createIconURL: icon name with hyphens (e.g. flip-verticial-regular.svg)
           const fileName = `${iconName.replace(/_/g, '-')}-${style}.svg`;
           const outputPath = path.join(sizeDir, fileName);
-          
-          // Find the corresponding SVG file
-          const svgFileName = `ic_refineui_${iconName.replace(/_/g, '-')}_${size}_${style}.svg`;
+
+          // Asset files keep the folder slug (weather-sunny-low). CDN names drop
+          // those separators (weathersunnylow), so lookup and output are different.
+          const sourceSlug = iconDir.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+          const svgFileName = `ic_refineui_${sourceSlug}_${size}_${style}.svg`;
           const sourceSvgPath = path.join(svgDir, svgFileName);
           
           if (await fs.pathExists(sourceSvgPath)) {

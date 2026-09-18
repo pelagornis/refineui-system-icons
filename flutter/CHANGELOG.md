@@ -1,3 +1,8 @@
+## 0.3.40
+
+- Replaced placeholder CDN SVGs for multi-word icon names with the real assets
+- Kept hyphens when the icon CDN build looks up source files
+
 ## 0.3.39
 
 - Updated all platform versions to 0.3.39
