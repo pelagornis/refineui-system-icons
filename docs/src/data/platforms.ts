@@ -10,7 +10,7 @@ export const REGISTRY_VERSIONS = {
   npm: '0.3.42',
   pub: '0.3.42',
   swift: '0.3.42',
-  maven: '0.3.15',
+  maven: '0.3.42',
   cdn: '0.3.42',
 } as const;
 
