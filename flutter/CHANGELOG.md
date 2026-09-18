@@ -1,3 +1,7 @@
+## 0.3.42
+
+- Release Android artifacts to Maven Central automatically after upload
+
 ## 0.3.41
 
 - Synced package-lock.json so release installs include the docs workspace

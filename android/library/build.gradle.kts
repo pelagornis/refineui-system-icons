@@ -46,7 +46,7 @@ dependencies {
 // https://central.sonatype.com/api/v1/
 mavenPublishing {
     // Publish to Maven Central via Central Portal
-    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
+    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL, automaticRelease = true)
     
     // Enable GPG signing for all publications (only in CI)
     if (System.getenv("CI") == "true") {
