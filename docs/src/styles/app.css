@@ -1,0 +1,98 @@
+/* Foundation variables + Tailwind theme, then the Web Kit component styles.
+   `refineui.css` also pulls in the RefineUI System Icons font faces used by
+   both `WebIcon` and the `@refineui/react-icons` components. */
+@import '@refineui/tokens/tailwind.css';
+@import '@refineui/react/refineui.css';
+
+/* Web Kit components ship Tailwind utilities inside their compiled output, so
+   the class scanner has to look there as well as in this project. */
+@source '../../node_modules/@refineui/react/dist';
+
+/* `Text` and every component that sizes its own label build the typography
+   class at runtime (`refineui-typo-${token}`), so the scanner never sees them. */
+@source inline(
+  'refineui-typo-{heading-1,heading-2,heading-3,heading-4,title-1,title-2,title-3,sub-title-1,sub-title-2,body-1,body-2,body-3,body-4,caption-1,caption-2,caption-3}'
+);
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* `Container` intentionally ships `max-w-full`; the docs pin a reading width. */
+.docs-shell {
+  max-width: 1280px;
+}
+
+/* Reading column. The shell is 1280px; without this the article sits on its left edge. */
+.docs-prose {
+  width: 100%;
+  max-width: 76ch;
+  margin-inline: auto;
+}
+
+.docs-figure,
+.docs-figures img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.docs-figures {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--refineui-spacing-size-medium, 12px);
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: var(--refineui-color-alias-background-primary);
+  color: var(--refineui-color-alias-foreground-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+  flex: 1;
+}
+
+/* One line above the catalog. The header already names the product. */
+.docs-intro {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--refineui-spacing-size-medium, 12px);
+  margin: 0 0 var(--refineui-spacing-size-large, 16px);
+}
+
+.docs-intro a {
+  color: var(--refineui-color-alias-foreground-primary);
+  text-decoration: none;
+}
+
+.docs-intro a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.docs-intro a:focus-visible {
+  outline: 2px solid var(--refineui-color-alias-border-focus);
+  outline-offset: 2px;
+  border-radius: var(--refineui-radius-rounded-small);
+}
+
+/* Icon gallery: 6 across on desktop, fewer on narrow viewports. */
+@media (max-width: 768px) {
+  .docs-icon-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .docs-icon-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}

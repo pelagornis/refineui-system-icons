@@ -1,0 +1,169 @@
+---
+import {
+  Container,
+  Divider,
+  Link,
+  Stack,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+  Text,
+} from '@refineui/react';
+import Layout from '../layouts/Layout.astro';
+import PlatformSetup from '../components/PlatformSetup';
+import CodeBlock from '../components/CodeBlock.astro';
+import { SUPPORTED_SIZES, TOTAL_ICONS } from '../data/icons';
+
+const props = [
+  {
+    name: 'size',
+    type: 'number',
+    fallback: '24',
+    description: `One of ${SUPPORTED_SIZES.join(', ')}. Selects the glyph drawn for that size.`,
+  },
+  {
+    name: 'color',
+    type: 'string',
+    fallback: 'currentColor',
+    description: 'Any CSS color. Inherits from the parent by default.',
+  },
+  {
+    name: 'className',
+    type: 'string',
+    fallback: '—',
+    description: 'Applied to the rendered span.',
+  },
+  {
+    name: 'style',
+    type: 'CSSProperties',
+    fallback: '—',
+    description: 'Merged over the generated font styles.',
+  },
+  {
+    name: 'onClick',
+    type: '() => void',
+    fallback: '—',
+    description: 'Click handler on the rendered span.',
+  },
+];
+---
+
+<Layout
+  title="Usage · RefineUI System Icons"
+  description="Install and configure RefineUI System Icons on React, React Native, web, CDN, iOS, Android and Flutter."
+  current="usage"
+>
+  <Container padding="sizeLarge" className="docs-shell">
+    <Stack direction="column" gap="sizeLarge" className="docs-prose py-refineui-size-xx-large">
+      <Stack direction="column" gap="sizeSmall">
+        <Text variant="displaySm" as="h1">Install &amp; setup</Text>
+        <Text variant="bodyLg" as="p" className="text-refineui-alias-foreground-secondary">
+          The same {TOTAL_ICONS} icons ship to seven targets. Pick your platform for the exact
+          install command, the setup step it needs, and a snippet you can copy straight into your
+          project.
+        </Text>
+      </Stack>
+
+      <PlatformSetup client:load />
+
+      <Divider />
+
+      <Stack direction="column" gap="sizeLarge">
+        <Stack direction="column" gap="sizeSmall">
+          <Text variant="headingSm" as="h2">React props</Text>
+          <Text variant="bodyMd" as="p" className="text-refineui-alias-foreground-secondary">
+            Every icon in <code>@refineui/react-icons</code> and{' '}
+            <code>@refineui/react-native-icons</code> takes the same props.
+          </Text>
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>Prop</TableHead>
+                <TableHead>Type</TableHead>
+                <TableHead>Default</TableHead>
+                <TableHead>Description</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {
+                props.map((prop) => (
+                  <TableRow>
+                    <TableCell><code>{prop.name}</code></TableCell>
+                    <TableCell><code>{prop.type}</code></TableCell>
+                    <TableCell><code>{prop.fallback}</code></TableCell>
+                    <TableCell>{prop.description}</TableCell>
+                  </TableRow>
+                ))
+              }
+            </TableBody>
+          </Table>
+        </Stack>
+
+        <Stack direction="column" gap="sizeSmall">
+          <Text variant="headingSm" as="h2">Naming</Text>
+          <Text variant="bodyMd" as="p" className="text-refineui-alias-foreground-secondary">
+            Every platform derives its identifier from the same slug, so <code>local-language</code>
+            {' '}resolves consistently across all of them.
+          </Text>
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>Platform</TableHead>
+                <TableHead>Identifier</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              <TableRow>
+                <TableCell>React · React Native · Web</TableCell>
+                <TableCell><code>LocalLanguage</code> / <code>LocalLanguageFilled</code></TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>iOS</TableCell>
+                <TableCell><code>.localLanguage24Regular</code></TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>Android</TableCell>
+                <TableCell><code>@drawable/ic_refineui_local_language_24_regular</code></TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>Flutter</TableCell>
+                <TableCell><code>RefineUIIcons.local_language_24_regular</code></TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>CDN</TableCell>
+                <TableCell><code>icons/24/local-language-regular.svg</code></TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
+        </Stack>
+
+        <Stack direction="column" gap="sizeSmall">
+          <Text variant="headingSm" as="h2">Dynamic icons</Text>
+          <Text variant="bodyMd" as="p" className="text-refineui-alias-foreground-secondary">
+            When the icon name is only known at runtime, use <code>IconUtils</code>. It accepts sized
+            and unsized method names and returns a React element, or <code>null</code> when no glyph
+            exists.
+          </Text>
+          <CodeBlock
+            code={`import { IconUtils } from '@refineui/react-icons';
+
+IconUtils.createIconMethod('AccessibilityRegular');
+IconUtils.createIconMethod('Add24Filled', { style: { color: 'tomato' } });
+
+IconUtils.searchIcons('language');
+IconUtils.getIconChar('local-language', 'regular', 24);`}
+          />
+        </Stack>
+
+        <Divider />
+
+        <Text variant="bodyMd" as="p">
+          <Link href={import.meta.env.BASE_URL}>Browse all {TOTAL_ICONS} icons</Link>
+        </Text>
+      </Stack>
+    </Stack>
+  </Container>
+</Layout>

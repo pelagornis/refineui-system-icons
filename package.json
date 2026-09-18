@@ -6,12 +6,15 @@
   "type": "commonjs",
   "workspaces": [
     "packages/*",
-    "web"
+    "web",
+    "docs"
   ],
   "scripts": {
     "build": "npm run build --workspaces",
     "dev": "npm run dev --workspaces",
     "dev:web": "npm run dev --workspace=@refineui/web-playground",
+    "dev:docs": "npm run dev --workspace=@refineui/docs",
+    "build:docs": "npm run build --workspace=@refineui/docs",
     "generate:metadata": "node scripts/generate-metadata.js",
     "generate:icon-mapping": "python3 scripts/generate_icon_mapping.py",
     "generate:web-icons": "python3 scripts/generate_web_icons.py",

@@ -1,0 +1,40 @@
+{
+  "name": "@refineui/docs",
+  "version": "0.3.39",
+  "private": true,
+  "type": "module",
+  "description": "RefineUI System Icons documentation site",
+  "scripts": {
+    "generate:availability": "node scripts/generate-availability.mjs",
+    "predev": "npm run build --workspace=@refineui/web-icons --prefix .. && npm run generate:availability",
+    "dev": "astro dev",
+    "start": "astro dev",
+    "prebuild": "npm run build --workspace=@refineui/web-icons --prefix .. && npm run generate:availability",
+    "build": "astro build",
+    "preview": "astro preview",
+    "precheck": "npm run generate:availability",
+    "check": "tsc --noEmit",
+    "clean": "rm -rf dist .astro"
+  },
+  "dependencies": {
+    "@astrojs/react": "^4.4.0",
+    "@refineui/react": "0.0.4",
+    "@refineui/react-icons": "*",
+    "@refineui/tokens": "1.0.2",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^5.16.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "typescript": "^6.0.3"
+  },
+  "pnpm": {
+    "overrides": {
+      "@refineui/tokens": "1.0.2"
+    }
+  }
+}

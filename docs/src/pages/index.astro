@@ -1,0 +1,22 @@
+---
+import { Container, Text } from "@refineui/react";
+import Layout from "../layouts/Layout.astro";
+import IconBrowser from "../components/IconBrowser";
+import { TOTAL_ICONS } from "../data/icons";
+
+const base = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+---
+
+<Layout
+  title="RefineUI System Icons"
+  description={`Browse all ${TOTAL_ICONS} RefineUI system icons, rendered with the @refineui/react-icons components.`}
+  current="icons"
+>
+  <Container padding="sizeXXLarge" className="docs-shell">
+    <div id="icons">
+      <IconBrowser client:load />
+    </div>
+  </Container>
+</Layout>

@@ -1,0 +1,103 @@
+{
+  "metadataSizes": [
+    12,
+    16,
+    20,
+    24,
+    28,
+    32,
+    48
+  ],
+  "platforms": {
+    "react": {
+      "sizes": [
+        12,
+        16,
+        20,
+        24,
+        28,
+        32,
+        48
+      ],
+      "unsupportedSlugs": []
+    },
+    "react-native": {
+      "sizes": [
+        12,
+        16,
+        20,
+        24,
+        28,
+        32,
+        48
+      ],
+      "unsupportedSlugs": []
+    },
+    "web": {
+      "sizes": [
+        12,
+        16,
+        20,
+        24,
+        28,
+        32,
+        48
+      ],
+      "unsupportedSlugs": []
+    },
+    "cdn": {
+      "sizes": [
+        16,
+        20,
+        24,
+        28,
+        32,
+        48
+      ],
+      "unsupportedSlugs": []
+    },
+    "ios": {
+      "sizes": [
+        12,
+        16,
+        20,
+        24,
+        28,
+        32,
+        48
+      ],
+      "unsupportedSlugs": []
+    },
+    "android": {
+      "sizes": [
+        16,
+        20,
+        24,
+        28,
+        32,
+        48
+      ],
+      "unsupportedSlugs": [
+        "button",
+        "form",
+        "navigation",
+        "panel-left",
+        "task-list",
+        "weather-sunny-high",
+        "weather-sunny-low"
+      ]
+    },
+    "flutter": {
+      "sizes": [
+        12,
+        16,
+        20,
+        24,
+        28,
+        32,
+        48
+      ],
+      "unsupportedSlugs": []
+    }
+  }
+}

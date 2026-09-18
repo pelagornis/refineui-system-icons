@@ -1,0 +1,320 @@
+---
+import {
+  Container,
+  Divider,
+  Link,
+  Stack,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+  Text,
+} from '@refineui/react';
+import Layout from '../layouts/Layout.astro';
+import availability from '../data/availability.json';
+import { SUPPORTED_SIZES, TOTAL_ICONS } from '../data/icons';
+
+const platformLabel: Record<string, string> = {
+  react: 'React',
+  'react-native': 'React Native',
+  web: 'Web',
+  cdn: 'CDN',
+  ios: 'iOS',
+  android: 'Android',
+  flutter: 'Flutter',
+};
+
+const platformRows = Object.entries(availability.platforms).map(([id, info]) => ({
+  label: platformLabel[id] ?? id,
+  sizes: info.sizes.join(', '),
+}));
+
+const androidMissing = availability.platforms.android.unsupportedSlugs;
+
+const strokeWeight = [
+  ['16', '0.65'],
+  ['20', '1.083'],
+  ['24', '1.3'],
+  ['28', '1.517'],
+  ['32', '1.733'],
+  ['48', '2.6'],
+];
+
+const squareRadius = [
+  ['16', '1'],
+  ['20', '1.667'],
+  ['24', '2'],
+  ['28', '2.333'],
+  ['32', '2.667'],
+  ['48', '4'],
+];
+
+const addSquareRadius = [
+  ['16', '2'],
+  ['24', '3'],
+  ['32', '4'],
+  ['48', '6'],
+];
+const filePattern = 'assets/{Category}/svg/ic_refineui_{slug}_{size}_{regular|filled}.svg';
+
+const base = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+---
+
+<Layout
+  title="Guidelines · RefineUI System Icons"
+  description="Naming, stroke, corner radius, size, and color rules for RefineUI System Icons."
+  current="guidelines"
+>
+  <Container padding="sizeLarge" className="docs-shell">
+    <Stack direction="column" gap="sizeLarge" className="docs-prose py-refineui-size-xx-large">
+      <Stack direction="column" gap="sizeSmall">
+        <Text variant="displaySm" as="h1">Guidelines</Text>
+        <Text variant="bodyLg" as="p" className="text-refineui-alias-foreground-secondary">
+          How the {TOTAL_ICONS} icons are named, drawn, sized, and colored. The measurements
+          below come from specific glyphs. They are not one token that every icon follows.
+        </Text>
+      </Stack>
+
+      <Stack direction="column" gap="sizeLarge">
+        <Stack direction="column" gap="sizeSmall">
+          <Text variant="headingSm" as="h2">Naming</Text>
+          <img
+            class="docs-figure"
+            src={`${base}guideline/naming.svg`}
+            alt="How a slug becomes a React component name, an Android drawable, and a font glyph."
+            width="1102"
+            height="378"
+          />
+          <Text variant="bodyMd" as="p" className="text-refineui-alias-foreground-secondary">
+            The slug is kebab-case. The name segment has no underscores. Source files live under
+            a category folder, then <code>svg/</code>.
+          </Text>
+          <Text variant="bodyMd" as="p" className="text-refineui-alias-foreground-secondary">
+            <code>assets/Local language/svg/ic_refineui_local-language_24_regular.svg</code>
+          </Text>
+          <Text variant="bodyMd" as="p" className="text-refineui-alias-foreground-secondary">
+            Pattern: <code>{filePattern}</code>.
+            Regular and filled are two styles of the same slug. In the icon fonts they share a
+            codepoint across two files. That is intentional. Same-style names do not collide.
+          </Text>
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>Platform</TableHead>
+                <TableHead>Identifier</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              <TableRow>
+                <TableCell>Slug, metadata, CDN</TableCell>
+                <TableCell><code>local-language</code></TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>React · React Native · Web</TableCell>
+                <TableCell><code>LocalLanguage</code> / <code>LocalLanguageFilled</code></TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>iOS</TableCell>
+                <TableCell><code>.localLanguage24Regular</code></TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>Android</TableCell>
+                <TableCell><code>@drawable/ic_refineui_local_language_24_regular</code></TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>Flutter</TableCell>
+                <TableCell><code>RefineUIIcons.local_language_24_regular</code></TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>CDN path</TableCell>
+                <TableCell><code>icons/24/local-language-regular.svg</code></TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
+        </Stack>
+
+        <Divider />
+
+        <Stack direction="column" gap="sizeSmall">
+          <Text variant="headingSm" as="h2">Stroke</Text>
+          <img
+            class="docs-figure"
+            src={`${base}guideline/stroke.svg`}
+            alt="Stroke weight of 1.3 at 24, called out on the grid."
+            width="1102"
+            height="532"
+          />
+          <Text variant="bodyMd" as="p" className="text-refineui-alias-foreground-secondary">
+            Draw a filled shape, not an SVG stroke. Across every regular 24px file, nothing paints
+            a stroke. <code>panel-left</code> sets <code>stroke="none"</code>, which draws nothing.
+            Holes, including Accessibility, are cut with <code>fill-rule="evenodd"</code>.
+          </Text>
+          <Text variant="bodyMd" as="p" className="text-refineui-alias-foreground-secondary">
+            At 24px the weight is 1.3. Square's outline is that band: the outer edge sits at 4 and
+            the inner edge at 5.3. From 20px up, the same Square outline scales with the artboard,
+            size times 1.3 / 24. At 16px it is 0.65, tighter than that ratio. There is no Square
+            at 12px, so 12 is not in the table. Do not use 1.5.
+          </Text>
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>Size</TableHead>
+                <TableHead>Stroke</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {
+                strokeWeight.map(([size, width]) => (
+                  <TableRow>
+                    <TableCell><code>{size}</code></TableCell>
+                    <TableCell><code>{width}</code></TableCell>
+                  </TableRow>
+                ))
+              }
+            </TableBody>
+          </Table>
+        </Stack>
+
+        <Divider />
+
+        <Stack direction="column" gap="sizeSmall">
+          <Text variant="headingSm" as="h2">Corner radius</Text>
+          <img
+            class="docs-figure"
+            src={`${base}guideline/cornerradius.svg`}
+            alt="Corner radius called out on a person glyph and a mail glyph."
+            width="1102"
+            height="426"
+          />
+          <Text variant="bodyMd" as="p" className="text-refineui-alias-foreground-secondary">
+            Corner radius is per glyph. There is no Square asset at 12px, so that size is omitted.
+            From 20px up, the outer corner of Square regular is the size divided by 12. At 16px it
+            is 1, which is tighter than 16/12.
+          </Text>
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>Size</TableHead>
+                <TableHead>Square outer radius</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {
+                squareRadius.map(([size, radius]) => (
+                  <TableRow>
+                    <TableCell><code>{size}</code></TableCell>
+                    <TableCell><code>{radius}</code></TableCell>
+                  </TableRow>
+                ))
+              }
+            </TableBody>
+          </Table>
+          <Text variant="bodyMd" as="p" className="text-refineui-alias-foreground-secondary">
+            The same glyph can carry two radii. The inner edge of the Square 24 ring has radius 0.7.
+            Add-square is not Square. Its outer radius, on the sizes that were measured, is 2 at 16,
+            3 at 24, 4 at 32, and 6 at 48. 20 and 28 were not measured.
+          </Text>
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>Size</TableHead>
+                <TableHead>Add-square outer radius</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {
+                addSquareRadius.map(([size, radius]) => (
+                  <TableRow>
+                    <TableCell><code>{size}</code></TableCell>
+                    <TableCell><code>{radius}</code></TableCell>
+                  </TableRow>
+                ))
+              }
+            </TableBody>
+          </Table>
+        </Stack>
+
+        <Divider />
+
+        <Stack direction="column" gap="sizeSmall">
+          <Text variant="headingSm" as="h2">Size</Text>
+          <img
+            class="docs-figure"
+            src={`${base}guideline/sizes.svg`}
+            alt="The same house glyph drawn at 12, 16, 20, 24, 28, 32, and 48."
+            width="1102"
+            height="532"
+          />
+          <Text variant="bodyMd" as="p" className="text-refineui-alias-foreground-secondary">
+            The component <code>size</code> prop defaults to 24 and accepts {SUPPORTED_SIZES.join(', ')}.
+            Use the file drawn for that size. Scaling a 24px glyph in CSS will not match the weight
+            or the corner that was drawn for another size.
+          </Text>
+          <Text variant="bodyMd" as="p" className="text-refineui-alias-foreground-secondary">
+            12px ships in React, React Native, web, iOS, and Flutter. It is not in the CDN or Android
+            packages. Android is also missing {androidMissing.length} icons: {androidMissing.join(', ')}.
+          </Text>
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>Platform</TableHead>
+                <TableHead>Sizes</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {
+                platformRows.map((row) => (
+                  <TableRow>
+                    <TableCell>{row.label}</TableCell>
+                    <TableCell><code>{row.sizes}</code></TableCell>
+                  </TableRow>
+                ))
+              }
+            </TableBody>
+          </Table>
+        </Stack>
+
+        <Divider />
+
+        <Stack direction="column" gap="sizeSmall">
+          <Text variant="headingSm" as="h2">Theme</Text>
+          <div class="docs-figures">
+            <img
+              src={`${base}guideline/themeregular.svg`}
+              alt="Regular house, one black fill on a light panel."
+              width="546"
+              height="314"
+            />
+            <img
+              src={`${base}guideline/themefilled.svg`}
+              alt="Filled house, one black fill on a light panel."
+              width="546"
+              height="314"
+            />
+          </div>
+          <Text variant="bodyMd" as="p" className="text-refineui-alias-foreground-secondary">
+            The set is one color. Painted fills in the source SVGs are black (<code>black</code>,
+            and <code>#000000</code> on <code>panel-left</code>). React, React Native, and web
+            default <code>color</code> to <code>currentColor</code>, so the icon follows the text
+            around it. iOS imagesets are template images. Android vectors are black fills so the
+            app can tint them. Do not add a second color to a glyph.
+          </Text>
+          <Text variant="bodyMd" as="p" className="text-refineui-alias-foreground-secondary">
+            The light and dark toggle on this site only changes the page. It stores <code>refineui-docs-theme</code> and sets <code>data-theme</code>. Icons still inherit
+            the current text color. There is no separate dark glyph.
+          </Text>
+        </Stack>
+
+        <Divider />
+
+        <Text variant="bodyMd" as="p">
+          <Link href={`${import.meta.env.BASE_URL}usage`}>Install and platform setup</Link>
+        </Text>
+      </Stack>
+    </Stack>
+  </Container>
+</Layout>
