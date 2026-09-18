@@ -7,11 +7,11 @@ import availability from './availability.json';
  * always the repository version — Maven Central lags behind the npm packages.
  */
 export const REGISTRY_VERSIONS = {
-  npm: '0.3.42',
-  pub: '0.3.42',
-  swift: '0.3.42',
-  maven: '0.3.42',
-  cdn: '0.3.42',
+  npm: '0.3.43',
+  pub: '0.3.43',
+  swift: '0.3.43',
+  maven: '0.3.43',
+  cdn: '0.3.43',
 } as const;
 
 export type PlatformId =

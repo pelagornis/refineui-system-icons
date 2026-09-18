@@ -31,7 +31,7 @@ jobs:
         run: |
           npm ci
           sudo apt-get update && sudo apt-get install -y fontforge
-          pip install fonttools brotli
+          pip install fonttools brotli picosvg
           npm run generate:ttf
           npm run build:fonts
           echo "✅ Fonts built successfully"
