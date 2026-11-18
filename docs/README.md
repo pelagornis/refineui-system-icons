@@ -8,14 +8,24 @@ doubles as a smoke test for the published package.
 
 ## Commands
 
-Run from the repository root:
+Run from the repository root with any of npm, pnpm, or bun:
 
 ```bash
-npm run dev:docs      # start the dev server on http://localhost:4321
-npm run build:docs    # build to docs/dist
+npm run dev:docs      # or: pnpm dev:docs / bun run dev:docs
+npm run build:docs
 ```
 
-Or from this directory: `npm run dev`, `npm run build`, `npm run preview`, `npm run check`.
+Or from this directory:
+
+```bash
+npm install   # or: pnpm install / bun install
+npm run dev   # or: pnpm dev / bun run dev
+npm run build
+npm run preview
+npm run check
+```
+
+Install snippets on the Usage page also cover **npm · pnpm · bun · yarn**.
 
 ## How it resolves the icons
 
@@ -57,7 +67,7 @@ the icon is unavailable. It runs from `predev`, `prebuild` and `precheck`, and t
 committed so changes in platform coverage show up in review. Regenerate it manually with:
 
 ```bash
-npm run generate:availability
+npm run generate:availability   # or: pnpm / bun run generate:availability
 ```
 
 ## Tailwind

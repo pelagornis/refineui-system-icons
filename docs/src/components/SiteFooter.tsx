@@ -1,18 +1,14 @@
 import {
   Footer,
   FooterBrand,
-  FooterBrandName,
   FooterCopyright,
   FooterExplore,
   FooterGroup,
   FooterGroupLabel,
   FooterLink,
-  FooterLogo,
   FooterMeta,
-  FooterMetaEnd,
   FooterNav,
   FooterSocial,
-  WebIcon,
 } from '@refineui/react';
 import { RefineUILogo } from '../resources/logo/RefineUILogo';
 
@@ -98,7 +94,7 @@ export default function SiteFooter({ base }: SiteFooterProps) {
             </svg>
           </FooterLink>
           <FooterLink href="https://ui.pelagornis.com" target="_blank" aria-label="RefineUI">
-            <RefineUILogo className="size-4" color="currentColor" />
+            <RefineUILogo />
           </FooterLink>
         </FooterSocial>
 

@@ -74,8 +74,8 @@ const base = import.meta.env.BASE_URL.endsWith('/')
       <Stack direction="column" gap="sizeSmall">
         <Text variant="displaySm" as="h1">Guidelines</Text>
         <Text variant="bodyLg" as="p" className="text-refineui-alias-foreground-secondary">
-          How the {TOTAL_ICONS} icons are named, drawn, sized, and colored. The measurements
-          below come from specific glyphs. They are not one token that every icon follows.
+          How the {TOTAL_ICONS} icons are named, drawn, sized, and colored. The measurements below
+          are observations from representative glyphs—not universal tokens for every icon.
         </Text>
       </Stack>
 
@@ -90,16 +90,16 @@ const base = import.meta.env.BASE_URL.endsWith('/')
             height="378"
           />
           <Text variant="bodyMd" as="p" className="text-refineui-alias-foreground-secondary">
-            The slug is kebab-case. The name segment has no underscores. Source files live under
-            a category folder, then <code>svg/</code>.
+            Use a kebab-case slug with no underscores. Source files live in a category folder,
+            followed by <code>svg/</code>.
           </Text>
           <Text variant="bodyMd" as="p" className="text-refineui-alias-foreground-secondary">
             <code>assets/Local language/svg/ic_refineui_local-language_24_regular.svg</code>
           </Text>
           <Text variant="bodyMd" as="p" className="text-refineui-alias-foreground-secondary">
             Pattern: <code>{filePattern}</code>.
-            Regular and filled are two styles of the same slug. In the icon fonts they share a
-            codepoint across two files. That is intentional. Same-style names do not collide.
+            Regular and filled are two treatments of one slug. In the icon fonts, they intentionally
+            share a codepoint in separate font files, so names within one treatment never collide.
           </Text>
           <Table>
             <TableHeader>
@@ -149,15 +149,15 @@ const base = import.meta.env.BASE_URL.endsWith('/')
             height="532"
           />
           <Text variant="bodyMd" as="p" className="text-refineui-alias-foreground-secondary">
-            Draw a filled shape, not an SVG stroke. Across every regular 24px file, nothing paints
-            a stroke. <code>panel-left</code> sets <code>stroke="none"</code>, which draws nothing.
-            Holes, including Accessibility, are cut with <code>fill-rule="evenodd"</code>.
+            Draw the outline as a filled shape, not with an SVG <code>stroke</code>. The regular 24px
+            assets paint fills only; <code>panel-left</code>, for example, declares <code>stroke="none"</code>.
+            Use <code>fill-rule="evenodd"</code> to cut holes such as those in Accessibility.
           </Text>
           <Text variant="bodyMd" as="p" className="text-refineui-alias-foreground-secondary">
-            At 24px the weight is 1.3. Square's outline is that band: the outer edge sits at 4 and
-            the inner edge at 5.3. From 20px up, the same Square outline scales with the artboard,
-            size times 1.3 / 24. At 16px it is 0.65, tighter than that ratio. There is no Square
-            at 12px, so 12 is not in the table. Do not use 1.5.
+            At 24px, Square’s outline is 1.3px wide: its outer edge is at 4 and its inner edge at
+            5.3. From 20px upward, it scales with the artboard (<code>size × 1.3 / 24</code>). At 16px,
+            it is a tighter 0.65px. Square has no 12px asset, so 12px is omitted. Avoid substituting
+            a 1.5px stroke.
           </Text>
           <Table>
             <TableHeader>
@@ -191,9 +191,9 @@ const base = import.meta.env.BASE_URL.endsWith('/')
             height="426"
           />
           <Text variant="bodyMd" as="p" className="text-refineui-alias-foreground-secondary">
-            Corner radius is per glyph. There is no Square asset at 12px, so that size is omitted.
-            From 20px up, the outer corner of Square regular is the size divided by 12. At 16px it
-            is 1, which is tighter than 16/12.
+            Corner radius is chosen per glyph. Square has no 12px asset, so that size is omitted.
+            From 20px upward, Square regular’s outer radius is <code>size / 12</code>. At 16px it is
+            1px, slightly tighter than that ratio.
           </Text>
           <Table>
             <TableHeader>
@@ -214,9 +214,9 @@ const base = import.meta.env.BASE_URL.endsWith('/')
             </TableBody>
           </Table>
           <Text variant="bodyMd" as="p" className="text-refineui-alias-foreground-secondary">
-            The same glyph can carry two radii. The inner edge of the Square 24 ring has radius 0.7.
-            Add-square is not Square. Its outer radius, on the sizes that were measured, is 2 at 16,
-            3 at 24, 4 at 32, and 6 at 48. 20 and 28 were not measured.
+            A glyph can use more than one radius: Square 24’s inner ring has a 0.7px radius.
+            Add-square is a separate construction. Its measured outer radii are 2px at 16, 3px at 24,
+            4px at 32, and 6px at 48; 20px and 28px were not measured.
           </Text>
           <Table>
             <TableHeader>
@@ -251,12 +251,12 @@ const base = import.meta.env.BASE_URL.endsWith('/')
           />
           <Text variant="bodyMd" as="p" className="text-refineui-alias-foreground-secondary">
             The component <code>size</code> prop defaults to 24 and accepts {SUPPORTED_SIZES.join(', ')}.
-            Use the file drawn for that size. Scaling a 24px glyph in CSS will not match the weight
-            or the corner that was drawn for another size.
+            Prefer the asset drawn for the target size. Scaling a 24px glyph in CSS changes its intended
+            weight and corner treatment.
           </Text>
           <Text variant="bodyMd" as="p" className="text-refineui-alias-foreground-secondary">
-            12px ships in React, React Native, web, iOS, and Flutter. It is not in the CDN or Android
-            packages. Android is also missing {androidMissing.length} icons: {androidMissing.join(', ')}.
+            12px ships in React, React Native, web, iOS, Flutter, and GPUI. The CDN and Android packages
+            do not include it. Android also omits {androidMissing.length} icons: {androidMissing.join(', ')}.
           </Text>
           <Table>
             <TableHeader>
@@ -297,11 +297,11 @@ const base = import.meta.env.BASE_URL.endsWith('/')
             />
           </div>
           <Text variant="bodyMd" as="p" className="text-refineui-alias-foreground-secondary">
-            The set is one color. Painted fills in the source SVGs are black (<code>black</code>,
-            and <code>#000000</code> on <code>panel-left</code>). React, React Native, and web
-            default <code>color</code> to <code>currentColor</code>, so the icon follows the text
-            around it. iOS imagesets are template images. Android vectors are black fills so the
-            app can tint them. Do not add a second color to a glyph.
+            The set is single-color. Source SVG fills are black (<code>black</code>, and <code>#000000</code>
+            on <code>panel-left</code>). React, React Native, and web default to <code>currentColor</code>,
+            so icons inherit nearby text color. iOS imagesets are templates, while Android vectors use black
+            fills for app tinting. GPUI rasterizes the embedded SVG, so transform <code>Icon::svg()</code> in
+            a custom asset pipeline when you need another color. Do not introduce a second glyph color.
           </Text>
           <Text variant="bodyMd" as="p" className="text-refineui-alias-foreground-secondary">
             The light and dark toggle on this site only changes the page. It stores <code>refineui-docs-theme</code> and sets <code>data-theme</code>. Icons still inherit

@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Badge,
   Divider,
+  SegmentedControl,
+  SegmentedControlItem,
   Stack,
   Tabs,
   TabsContent,
@@ -10,11 +12,29 @@ import {
   Text,
   Toaster,
 } from '@refineui/react';
-import { PLATFORMS } from '../data/platforms';
+import {
+  PACKAGE_MANAGERS,
+  PLATFORMS,
+  type PackageManager,
+  type SetupStep,
+} from '../data/platforms';
 import { CodeSnippet } from './CodeSnippet';
+
+const PM_STORAGE_KEY = 'refineui-docs-package-manager';
 
 export default function PlatformSetup() {
   const [platformId, setPlatformId] = useState(PLATFORMS[0].id);
+  const [packageManager, setPackageManager] = useState<PackageManager>('npm');
+
+  useEffect(() => {
+    const stored = localStorage.getItem(PM_STORAGE_KEY) as PackageManager | null;
+    if (stored && PACKAGE_MANAGERS.includes(stored)) setPackageManager(stored);
+  }, []);
+
+  const selectPackageManager = (value: PackageManager) => {
+    setPackageManager(value);
+    localStorage.setItem(PM_STORAGE_KEY, value);
+  };
 
   return (
     <>
@@ -44,25 +64,13 @@ export default function PlatformSetup() {
               <Divider />
 
               {platform.steps.map((step) => (
-                <Stack key={step.title} direction="column" gap="sizeXSmall">
-                  <Text
-                    variant="captionSm"
-                    as="h4"
-                    className="uppercase tracking-wide text-refineui-alias-foreground-tertiary"
-                  >
-                    {step.title}
-                  </Text>
-                  {step.note && (
-                    <Text
-                      variant="captionLg"
-                      as="p"
-                      className="text-refineui-alias-foreground-secondary"
-                    >
-                      {step.note}
-                    </Text>
-                  )}
-                  <CodeSnippet code={step.code} label={`${platform.label} ${step.title}`} />
-                </Stack>
+                <SetupStepBlock
+                  key={step.title}
+                  platformLabel={platform.label}
+                  step={step}
+                  packageManager={packageManager}
+                  onPackageManagerChange={selectPackageManager}
+                />
               ))}
             </Stack>
           </TabsContent>
@@ -71,5 +79,62 @@ export default function PlatformSetup() {
 
       <Toaster />
     </>
+  );
+}
+
+interface SetupStepBlockProps {
+  platformLabel: string;
+  step: SetupStep;
+  packageManager: PackageManager;
+  onPackageManagerChange: (value: PackageManager) => void;
+}
+
+function SetupStepBlock({
+  platformLabel,
+  step,
+  packageManager,
+  onPackageManagerChange,
+}: SetupStepBlockProps) {
+  const installCode = step.install?.[packageManager];
+
+  return (
+    <Stack direction="column" gap="sizeXSmall">
+      <Text
+        variant="captionSm"
+        as="h4"
+        className="uppercase tracking-wide text-refineui-alias-foreground-tertiary"
+      >
+        {step.title}
+      </Text>
+      {step.note && (
+        <Text variant="captionLg" as="p" className="text-refineui-alias-foreground-secondary">
+          {step.note}
+        </Text>
+      )}
+
+      {step.install ? (
+        <Stack direction="column" gap="sizeXSmall">
+          <SegmentedControl
+            value={packageManager}
+            onValueChange={(value) => onPackageManagerChange(value as PackageManager)}
+            aria-label="Package manager"
+          >
+            {PACKAGE_MANAGERS.map((manager) => (
+              <SegmentedControlItem key={manager} value={manager}>
+                {manager}
+              </SegmentedControlItem>
+            ))}
+          </SegmentedControl>
+          {installCode && (
+            <CodeSnippet
+              code={installCode}
+              label={`${platformLabel} ${step.title} (${packageManager})`}
+            />
+          )}
+        </Stack>
+      ) : (
+        step.code && <CodeSnippet code={step.code} label={`${platformLabel} ${step.title}`} />
+      )}
+    </Stack>
   );
 }

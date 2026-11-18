@@ -12,6 +12,7 @@ export const REGISTRY_VERSIONS = {
   swift: '0.3.43',
   maven: '0.3.43',
   cdn: '0.3.43',
+  gpui: '0.5.0',
 } as const;
 
 export type PlatformId =
@@ -21,12 +22,20 @@ export type PlatformId =
   | 'cdn'
   | 'ios'
   | 'android'
-  | 'flutter';
+  | 'flutter'
+  | 'gpui';
+
+export type PackageManager = 'npm' | 'pnpm' | 'bun' | 'yarn';
+
+export const PACKAGE_MANAGERS: PackageManager[] = ['npm', 'pnpm', 'bun', 'yarn'];
 
 export interface SetupStep {
   title: string;
   note?: string;
-  code: string;
+  /** Single snippet (setup, config, etc.) */
+  code?: string;
+  /** Install commands keyed by package manager — shown as a tab strip */
+  install?: Record<PackageManager, string>;
 }
 
 export interface IconUsageContext {
@@ -67,6 +76,16 @@ function capitalize(value: string): string {
   return value.charAt(0).toUpperCase() + value.slice(1);
 }
 
+/** Install snippets for every JS package manager the docs surface. */
+function installCommands(pkg: string): Record<PackageManager, string> {
+  return {
+    npm: `npm install ${pkg}`,
+    pnpm: `pnpm add ${pkg}`,
+    bun: `bun add ${pkg}`,
+    yarn: `yarn add ${pkg}`,
+  };
+}
+
 export const PLATFORMS: PlatformDef[] = [
   {
     id: 'react',
@@ -76,7 +95,7 @@ export const PLATFORMS: PlatformDef[] = [
     summary:
       'Named React components backed by the icon font. One component covers every supported size.',
     steps: [
-      { title: 'Install', code: 'npm install @refineui/react-icons' },
+      { title: 'Install', install: installCommands('@refineui/react-icons') },
       {
         title: 'Register the font',
         note: 'Import once at your app entry point — the components only position a glyph.',
@@ -98,7 +117,7 @@ export const PLATFORMS: PlatformDef[] = [
     summary:
       'The same component API rendered through a native Text node. Icons are font glyphs, so the two font families have to be bundled with the app.',
     steps: [
-      { title: 'Install', code: 'npm install @refineui/react-native-icons' },
+      { title: 'Install', install: installCommands('@refineui/react-native-icons') },
       {
         title: 'Bundle the fonts',
         note: 'The package ships web font formats only. Copy the OTF files into your app assets and link them so the RefineUI-System-Icons-Regular and RefineUI-System-Icons-Filled families resolve.',
@@ -123,7 +142,7 @@ module.exports = {
     summary:
       'Framework-free helpers that return an HTML string, for vanilla projects or any templating layer.',
     steps: [
-      { title: 'Install', code: 'npm install @refineui/web-icons' },
+      { title: 'Install', install: installCommands('@refineui/web-icons') },
       {
         title: 'Register the font',
         code: `import '@refineui/web-icons/dist/fonts/refineui-system-icons.css';`,
@@ -135,6 +154,29 @@ module.exports = {
 
 element.innerHTML = ${name}(${size});`;
     },
+  },
+  {
+    id: 'gpui',
+    label: 'GPUI',
+    coordinate: 'refineui-gpui-icons',
+    version: REGISTRY_VERSIONS.gpui,
+    summary:
+      'Embedded SVGs for GPUI. Select a typed icon name, then pass it straight to GPUI’s image element.',
+    steps: [
+      {
+        title: 'Add the Git dependency',
+        note: 'GPUI is pre-1.0, so pin the same GPUI revision in your application when you need reproducible builds. On macOS, install Xcode’s Metal Toolchain before building a GPUI app.',
+        code: `[dependencies]
+gpui = { git = "https://github.com/zed-industries/zed", package = "gpui" }
+refineui-gpui-icons = { git = "https://github.com/pelagornis/refineui-system-icons.git", package = "refineui-gpui-icons" }`,
+      },
+    ],
+    iconUsage: ({ icon, style, size }) => `use gpui::{img, px, Styled};
+use refineui_gpui_icons::{icons, Icon};
+
+img(Icon::new(icons.${toSnake(icon.slug).toUpperCase()}).${style}().at(${size}))
+  .w(px(${size}.))
+  .h(px(${size}.))`,
   },
   {
     id: 'cdn',

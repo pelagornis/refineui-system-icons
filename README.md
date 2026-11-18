@@ -11,7 +11,8 @@ packages/
 ├── react-icons/          # React icon package
 ├── react-native-icons/   # React Native icon package
 ├── web-icons/            # Web icon package
-└── icon-cdn/             # CDN package for direct access
+├── icon-cdn/             # CDN package for direct access
+└── gpui-icons/           # GPUI (Rust) icon package
 ```
 
 ## 🚀 Quick Installation
@@ -197,6 +198,36 @@ Icon(
 - 📱 Cross-platform consistency
 - 🚀 High-performance rendering
 
+### 🦀 GPUI
+
+Add the RefineUI package beside your GPUI dependency. It embeds the repository’s SVG assets at
+build time, so no application-level asset registration is needed.
+
+```toml
+[dependencies]
+gpui = { git = "https://github.com/zed-industries/zed", package = "gpui" }
+refineui-gpui-icons = { git = "https://github.com/pelagornis/refineui-system-icons.git", package = "refineui-gpui-icons" }
+```
+
+```rust
+use gpui::{img, px, Styled};
+use refineui_gpui_icons::{icons, Icon};
+
+let add_icon = img(Icon::new(icons::ADD).regular().at(24))
+    .w(px(24.))
+    .h(px(24.));
+```
+
+`icons` exposes kebab-case names as screaming-snake constants: `local-language` becomes
+`icons::LOCAL_LANGUAGE`. GPUI rasterizes SVGs as images, so use `Icon::svg()` with a custom
+asset pipeline if you need to recolor an icon.
+
+To inspect the whole set in a native GPUI window, run:
+
+```bash
+cargo +1.98.1 run --manifest-path packages/gpui-icons/Cargo.toml --features browser --example icon-browser
+```
+
 ## 📌 Icon Naming
 
 - **API / URL / metadata**: Use **hyphenated** names, no spaces (e.g. `add`, `local-language`, `weather-sunny`).
@@ -302,7 +333,7 @@ release/
 
 - Node.js 18+
 - Python 3.9+
-- npm or yarn
+- npm, pnpm, bun, or yarn
 
 ### Setup
 
@@ -339,10 +370,9 @@ npm run generate:fonts     # Generate font CSS
 npm run release:all        # Release all platforms
 npm run version:bump       # Bump version
 
-# Utility commands
-npm run clean              # Clean build files
-npm run test               # Run tests
-npm run lint               # Lint code
+# Documentation commands
+npm run dev:docs           # Start the documentation site
+npm run build:docs         # Build the documentation site
 ```
 
 ## 📚 Documentation

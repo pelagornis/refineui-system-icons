@@ -35,7 +35,8 @@ class MetadataGenerator {
       const metadata = {
         version: "1.0.0",
         generatedAt: new Date().toISOString(),
-        totalIcons: iconAssets.length + fontIcons.length,
+        // Asset folders are the source of truth; font entries are derived glyphs.
+        totalIcons: iconAssets.length,
         assets: {
           count: iconAssets.length,
           icons: iconAssets,
@@ -123,9 +124,19 @@ class MetadataGenerator {
 
   async getIconInfo(iconPath, iconName) {
     try {
-      const files = await fs.readdir(iconPath);
-      const svgFiles = files.filter((file) => file.endsWith(".svg"));
-      const pngFiles = files.filter((file) => file.endsWith(".png"));
+      // Glyphs live under `assets/<Icon>/svg/` (and optional png/). Count
+      // recursively so metadata matches what designers see on disk.
+      const svgFiles = await this.listFilesRecursive(iconPath, ".svg");
+      const pngFiles = await this.listFilesRecursive(iconPath, ".png");
+      const sizes = new Set();
+      const styles = new Set();
+      for (const file of svgFiles) {
+        const match = /_(\d+)_(regular|filled)\.svg$/i.exec(file);
+        if (match) {
+          sizes.add(Number(match[1]));
+          styles.add(match[2].toLowerCase());
+        }
+      }
 
       return {
         name: iconName,
@@ -133,9 +144,11 @@ class MetadataGenerator {
         files: {
           svg: svgFiles.length,
           png: pngFiles.length,
-          total: files.length,
+          total: svgFiles.length + pngFiles.length,
         },
-        formats: svgFiles.length > 0 ? ["svg"] : [],
+        sizes: [...sizes].sort((a, b) => a - b),
+        styles: [...styles].sort(),
+        formats: svgFiles.length > 0 ? ["svg"] : pngFiles.length > 0 ? ["png"] : [],
       };
     } catch (error) {
       console.warn(
@@ -146,20 +159,36 @@ class MetadataGenerator {
     }
   }
 
+  async listFilesRecursive(dir, extension) {
+    const out = [];
+    const entries = await fs.readdir(dir, { withFileTypes: true });
+    for (const entry of entries) {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) {
+        out.push(...(await this.listFilesRecursive(full, extension)));
+      } else if (entry.isFile() && entry.name.toLowerCase().endsWith(extension)) {
+        out.push(full);
+      }
+    }
+    return out;
+  }
+
   extractIconClassesFromCSS(cssContent) {
     const icons = [];
-    const iconClassRegex = /\.ic_refineui_([^_]+)_\d+_(regular|filled):before/g;
+    const iconClassRegex = /\.ic_refineui_(.+?)_(\d+)_(regular|filled):before/g;
     let match;
 
     while ((match = iconClassRegex.exec(cssContent)) !== null) {
       const iconName = match[1];
-      const style = match[2];
+      const size = Number(match[2]);
+      const style = match[3];
 
       icons.push({
         name: iconName,
+        size,
         style: style,
         type: "font",
-        class: match[0],
+        class: match[0].replace(/:before$/, ""),
       });
     }
 

@@ -1,6 +1,7 @@
 import { useState, type ReactNode } from 'react';
 import {
   Badge,
+  Button,
   Divider,
   Drawer,
   DrawerBody,
@@ -50,7 +51,13 @@ export function IconDetail({ icon, style, size, onClose, onStyleChange }: IconDe
       size="md"
     >
       <DrawerContent>
-        <DrawerHeader showClose>
+        <DrawerHeader
+          actions={
+            <Button variant="ghost" size="sm" layout="icon" onClick={onClose} aria-label="Close icon details">
+              <span aria-hidden="true">×</span>
+            </Button>
+          }
+        >
           <DrawerTitle>{icon?.label ?? ''}</DrawerTitle>
           <DrawerDescription>{icon?.description ?? ''}</DrawerDescription>
         </DrawerHeader>

@@ -86,6 +86,16 @@ const flutterConsts = new Set(
   ].map((m) => m[1])
 );
 
+const gpuiAssets = new Set();
+function collectGpuiAssets(directory) {
+  for (const entry of readdirSync(directory, { withFileTypes: true })) {
+    const location = path.join(directory, entry.name);
+    if (entry.isDirectory()) collectGpuiAssets(location);
+    else if (entry.name.endsWith('.svg')) gpuiAssets.add(entry.name);
+  }
+}
+collectGpuiAssets(path.join(repoRoot, 'assets'));
+
 const reactExports = namedExports('react-icons');
 const reactNativeExports = namedExports('react-native-icons');
 const webExports = namedExports('web-icons');
@@ -105,6 +115,7 @@ const resolvers = {
   android: ({ slug, style, size }) =>
     drawables.has(`ic_refineui_${toSnake(slug)}_${size}_${style}`),
   flutter: ({ slug, style, size }) => flutterConsts.has(`${toSnake(slug)}_${size}_${style}`),
+  gpui: ({ slug, style, size }) => gpuiAssets.has(`ic_refineui_${slug}_${size}_${style}.svg`),
 };
 
 const metadataSizes = [...new Set(triples.map((t) => t.size))].sort((a, b) => a - b);

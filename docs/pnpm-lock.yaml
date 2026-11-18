@@ -4,9 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-overrides:
-  '@refineui/tokens': 1.0.2
-
 importers:
 
   .:
@@ -15,14 +12,14 @@ importers:
         specifier: ^4.4.0
         version: 4.4.2(@types/react-dom@18.3.7(@types/react@18.3.31))(@types/react@18.3.31)(jiti@2.7.0)(lightningcss@1.32.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@refineui/react':
-        specifier: 0.0.4
-        version: 0.0.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@4.3.3)
+        specifier: 0.5.0
+        version: 0.5.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@4.3.3)
       '@refineui/react-icons':
         specifier: '*'
         version: 0.3.39(react@18.3.1)
       '@refineui/tokens':
-        specifier: 1.0.2
-        version: 1.0.2(tailwindcss@4.3.3)
+        specifier: 2.2.2
+        version: 2.2.2(tailwindcss@4.3.3)
       '@tailwindcss/vite':
         specifier: ^4.3.3
         version: 4.3.3(vite@6.4.3(jiti@2.7.0)(lightningcss@1.32.0))
@@ -646,28 +643,28 @@ packages:
     peerDependencies:
       react: '>=16.8.0'
 
-  '@refineui/react@0.0.4':
-    resolution: {integrity: sha512-lXADYKNIFslDUWb1fayNJi3mtRHgoMHGVCPdc6/4fJR18hNd1PKSLAlhLoXmU8t1TSYmGrvFJCTOcKDWKvxAQw==}
+  '@refineui/react@0.5.0':
+    resolution: {integrity: sha512-Irrf2qU+at5IUihE556htwHyRDdZAgoi9ZHnq28rXCNI06kqD3ozJ1a5Trtkw+4m6c+eeOGRyvKgWI4O7TXGgw==}
     peerDependencies:
       react: '>=18.0.0'
       react-dom: '>=18.0.0'
 
-  '@refineui/tokens@1.0.2':
-    resolution: {integrity: sha512-BG0fYND018JvV5tfUFcRnNqf+x/l9Z4I5jrlGJXqZaY76hiAV8UdvMrTmD+FxIUu7nYDlECYIZeohT9jSDhGgg==}
+  '@refineui/tokens@2.2.2':
+    resolution: {integrity: sha512-BRTM+lTR/OslYft8eUGvugAHP3f2AWghhsMjf6kWbpfYZWEHhAJcCyVByDfAeUXAhaKQwaNgzaUBYKPdAjgp7w==}
     peerDependencies:
       tailwindcss: ^4.0.0
     peerDependenciesMeta:
       tailwindcss:
         optional: true
 
-  '@refineui/utilities@0.0.1':
-    resolution: {integrity: sha512-Pci6/Art6tm0aGOn0hUdmshA5QjoQ/M4UdittyFsHAg3sLZIkHTQNPgyQgL2RB6M7IdcxiVNHPBpwc5HFVNDug==}
+  '@refineui/utilities@0.0.4':
+    resolution: {integrity: sha512-kz4iFTU9ixcr6A5iOPSqU8HmUgNoWYLCeKQi9CX7tF03oCXwPokISRQFW5qnLQZIhW9jnFdO1QHU4DRNTxEy8w==}
     peerDependencies:
       react: '>=18.0.0'
       react-dom: '>=18.0.0'
 
-  '@refineui/version@1.0.0':
-    resolution: {integrity: sha512-pGcPWOAWimuINc4/zqpFKGoMl/Owp1RKkUlyO1zJVyhue05lcU3wbkKXIy9Fgx7Q2qJjKkNFXAQjueyB5ed5AA==}
+  '@refineui/version@1.0.1':
+    resolution: {integrity: sha512-FPZYKdLPfSVH9Q+7x+LjQVq9dc5ggWqVBmGva954swnaObEO/Gv1td/aULg8Y18NWXIMpQ7khkaUE9N+OnNeug==}
 
   '@refineui/web-icons@0.3.39':
     resolution: {integrity: sha512-pNXa4ok8TCvwD3+5aFZnaiFW1QNw3y2UykmEy4yiv1QEbBP7CQx+L23KzTheNwIPtEqRBedLVat/cB+IIumWTw==}
@@ -2579,10 +2576,10 @@ snapshots:
     dependencies:
       react: 18.3.1
 
-  '@refineui/react@0.0.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@4.3.3)':
+  '@refineui/react@0.5.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@4.3.3)':
     dependencies:
-      '@refineui/tokens': 1.0.2(tailwindcss@4.3.3)
-      '@refineui/utilities': 0.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@refineui/tokens': 2.2.2(tailwindcss@4.3.3)
+      '@refineui/utilities': 0.0.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@refineui/web-icons': 0.3.39
       clsx: 2.1.1
       react: 18.3.1
@@ -2590,19 +2587,19 @@ snapshots:
     transitivePeerDependencies:
       - tailwindcss
 
-  '@refineui/tokens@1.0.2(tailwindcss@4.3.3)':
+  '@refineui/tokens@2.2.2(tailwindcss@4.3.3)':
     dependencies:
       '@swc/helpers': 0.5.23
     optionalDependencies:
       tailwindcss: 4.3.3
 
-  '@refineui/utilities@0.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@refineui/utilities@0.0.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@refineui/version': 1.0.0
+      '@refineui/version': 1.0.1
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@refineui/version@1.0.0':
+  '@refineui/version@1.0.1':
     dependencies:
       tslib: 2.8.1
 

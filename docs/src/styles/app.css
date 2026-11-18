@@ -38,10 +38,24 @@ html {
   border-radius: 12px;
 }
 
+/* Guideline diagrams read as reference cards while preserving their own grid. */
+.docs-figure,
+.docs-figures {
+  border: 1px solid var(--refineui-color-alias-border-subtle);
+  background: var(--refineui-color-alias-background-secondary);
+  box-shadow: 0 12px 30px color-mix(in srgb, var(--refineui-color-alias-foreground-primary) 6%, transparent);
+}
+
+.docs-figure {
+  padding: clamp(0.5rem, 1.5vw, 1rem);
+}
+
 .docs-figures {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--refineui-spacing-size-medium, 12px);
+  padding: clamp(0.5rem, 1.5vw, 1rem);
+  border-radius: 12px;
 }
 
 body {
