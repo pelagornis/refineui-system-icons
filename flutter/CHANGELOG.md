@@ -1,3 +1,7 @@
+## 0.5.1
+
+- Updated all platform versions to 0.5.1
+
 ## 0.3.43
 
 - Refresh the npm lockfile so docs installs @refineui/react 0.0.4 and @refineui/tokens 1.0.2
