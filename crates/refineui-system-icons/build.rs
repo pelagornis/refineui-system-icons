@@ -27,7 +27,11 @@ fn parse_asset(path: &Path) -> Option<(String, u16, String)> {
 
 fn constant_name(slug: &str) -> String {
     let mut name = slug.replace('-', "_").to_ascii_uppercase();
-    if name.chars().next().is_some_and(|character| character.is_ascii_digit()) {
+    if name
+        .chars()
+        .next()
+        .is_some_and(|character| character.is_ascii_digit())
+    {
         name.insert(0, '_');
     }
     name
@@ -47,13 +51,17 @@ fn main() {
     let mut assets = Vec::new();
     let mut slugs = BTreeSet::new();
     for (index, source) in files.iter().enumerate() {
-        let Some((slug, size, style)) = parse_asset(source) else { continue };
-        fs::copy(source, copied_dir.join(format!("{index}.svg"))).expect("copy icon into build output");
+        let Some((slug, size, style)) = parse_asset(source) else {
+            continue;
+        };
+        fs::copy(source, copied_dir.join(format!("{index}.svg")))
+            .expect("copy icon into build output");
         assets.push((slug.clone(), size, style, index));
         slugs.insert(slug);
     }
 
-    let mut generated = File::create(out_dir.join("generated.rs")).expect("create generated registry");
+    let mut generated =
+        File::create(out_dir.join("generated.rs")).expect("create generated registry");
     writeln!(generated, "pub(crate) static ASSETS: &[IconAsset] = &[").unwrap();
     for (slug, size, style, index) in assets {
         writeln!(generated, "    IconAsset {{ slug: {slug:?}, size: {size}, style: IconStyle::{}, svg: include_str!(concat!(env!(\"OUT_DIR\"), \"/refineui-icons/{index}.svg\")) }},", if style == "regular" { "Regular" } else { "Filled" }).unwrap();
@@ -66,7 +74,12 @@ fn main() {
     writeln!(generated, "];\n").unwrap();
     writeln!(generated, "/// Named icon identifiers for use with [`Icon`].\npub mod icons {{\n    use super::IconName;").unwrap();
     for slug in slugs {
-        writeln!(generated, "    pub const {}: IconName = IconName::new({slug:?});", constant_name(&slug)).unwrap();
+        writeln!(
+            generated,
+            "    pub const {}: IconName = IconName::new({slug:?});",
+            constant_name(&slug)
+        )
+        .unwrap();
     }
     writeln!(generated, "}}").unwrap();
 }

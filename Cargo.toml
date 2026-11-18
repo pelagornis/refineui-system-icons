@@ -1,0 +1,6 @@
+[workspace]
+members = [
+  "crates/refineui-system-icons",
+  "examples/gpui-icon-browser",
+]
+resolver = "2"

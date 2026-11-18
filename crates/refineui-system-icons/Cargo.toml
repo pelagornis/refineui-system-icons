@@ -1,5 +1,5 @@
 [package]
-name = "refineui-gpui-icons"
+name = "refineui-system-icons"
 version = "0.5.0"
 edition = "2021"
 rust-version = "1.98"
@@ -16,14 +16,8 @@ include = ["Cargo.toml", "README.md", "LICENSE", "build.rs", "src/**"]
 [features]
 default = ["gpui"]
 gpui = ["dep:gpui"]
-browser = ["gpui", "dep:gpui_platform"]
 
 [dependencies]
 # GPUI is pre-1.0 and intentionally follows its upstream API. Pin this in an
 # application when reproducible builds are more important than new GPUI APIs.
 gpui = { git = "https://github.com/zed-industries/zed", package = "gpui", optional = true }
-gpui_platform = { git = "https://github.com/zed-industries/zed", package = "gpui_platform", optional = true, features = ["font-kit", "wayland", "x11"] }
-
-[[example]]
-name = "icon-browser"
-required-features = ["browser"]

@@ -158,7 +158,7 @@ element.innerHTML = ${name}(${size});`;
   {
     id: 'gpui',
     label: 'GPUI',
-    coordinate: 'refineui-gpui-icons',
+    coordinate: 'refineui-system-icons',
     version: REGISTRY_VERSIONS.gpui,
     summary:
       'Embedded SVGs for GPUI. Select a typed icon name, then pass it straight to GPUI’s image element.',
@@ -168,11 +168,11 @@ element.innerHTML = ${name}(${size});`;
         note: 'GPUI is pre-1.0, so pin the same GPUI revision in your application when you need reproducible builds. On macOS, install Xcode’s Metal Toolchain before building a GPUI app.',
         code: `[dependencies]
 gpui = { git = "https://github.com/zed-industries/zed", package = "gpui" }
-refineui-gpui-icons = { git = "https://github.com/pelagornis/refineui-system-icons.git", package = "refineui-gpui-icons" }`,
+refineui-system-icons = { git = "https://github.com/pelagornis/refineui-system-icons.git", package = "refineui-system-icons" }`,
       },
     ],
     iconUsage: ({ icon, style, size }) => `use gpui::{img, px, Styled};
-use refineui_gpui_icons::{icons, Icon};
+use refineui_system_icons::{icons, Icon};
 
 img(Icon::new(icons.${toSnake(icon.slug).toUpperCase()}).${style}().at(${size}))
   .w(px(${size}.))

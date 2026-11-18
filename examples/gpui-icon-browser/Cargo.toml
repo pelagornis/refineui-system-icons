@@ -1,0 +1,12 @@
+[package]
+name = "refineui-gpui-icon-browser"
+version = "0.5.0"
+edition = "2021"
+rust-version = "1.98"
+publish = false
+description = "Browse every RefineUI System Icon in a GPUI window"
+
+[dependencies]
+gpui = { git = "https://github.com/zed-industries/zed", package = "gpui" }
+gpui_platform = { git = "https://github.com/zed-industries/zed", package = "gpui_platform", features = ["font-kit", "wayland", "x11"] }
+refineui-system-icons = { path = "../../crates/refineui-system-icons" }

@@ -11,8 +11,11 @@ packages/
 ├── react-icons/          # React icon package
 ├── react-native-icons/   # React Native icon package
 ├── web-icons/            # Web icon package
-├── icon-cdn/             # CDN package for direct access
-└── gpui-icons/           # GPUI (Rust) icon package
+└── icon-cdn/             # CDN package for direct access
+crates/
+└── refineui-system-icons/ # Reusable GPUI (Rust) icon library
+examples/
+└── gpui-icon-browser/    # Native GPUI icon browser
 ```
 
 ## 🚀 Quick Installation
@@ -206,12 +209,12 @@ build time, so no application-level asset registration is needed.
 ```toml
 [dependencies]
 gpui = { git = "https://github.com/zed-industries/zed", package = "gpui" }
-refineui-gpui-icons = { git = "https://github.com/pelagornis/refineui-system-icons.git", package = "refineui-gpui-icons" }
+refineui-system-icons = { git = "https://github.com/pelagornis/refineui-system-icons.git", package = "refineui-system-icons" }
 ```
 
 ```rust
 use gpui::{img, px, Styled};
-use refineui_gpui_icons::{icons, Icon};
+use refineui_system_icons::{icons, Icon};
 
 let add_icon = img(Icon::new(icons::ADD).regular().at(24))
     .w(px(24.))
@@ -225,7 +228,7 @@ asset pipeline if you need to recolor an icon.
 To inspect the whole set in a native GPUI window, run:
 
 ```bash
-cargo +1.98.1 run --manifest-path packages/gpui-icons/Cargo.toml --features browser --example icon-browser
+cargo +1.98.1 run -p refineui-gpui-icon-browser
 ```
 
 ## 📌 Icon Naming

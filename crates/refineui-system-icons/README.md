@@ -1,4 +1,4 @@
-# RefineUI GPUI Icons
+# RefineUI System Icons for GPUI
 
 Embedded RefineUI System Icons for GPUI. The package reads the repository's
 source SVGs at build time, so a Git dependency contains every icon without an
@@ -8,12 +8,12 @@ recommended by GPUI.
 ```toml
 [dependencies]
 gpui = { git = "https://github.com/zed-industries/zed", package = "gpui" }
-refineui-gpui-icons = { git = "https://github.com/pelagornis/refineui-system-icons.git", package = "refineui-gpui-icons" }
+refineui-system-icons = { git = "https://github.com/pelagornis/refineui-system-icons.git", package = "refineui-system-icons" }
 ```
 
 ```rust
 use gpui::{img, px, Styled};
-use refineui_gpui_icons::{icons, Icon};
+use refineui_system_icons::{icons, Icon};
 
 let save_icon = img(Icon::new(icons::SAVE).filled().at(24)).w(px(24.)).h(px(24.));
 ```
@@ -30,10 +30,10 @@ pipeline.
 
 ## Icon browser example
 
-Run the included GPUI icon browser to inspect the complete set:
+The GPUI icon browser is a separate workspace app, so the library stays focused on reusable embedded assets. Run it to inspect the complete set:
 
 ```bash
-cargo +1.98.1 run --manifest-path packages/gpui-icons/Cargo.toml --features browser --example icon-browser
+cargo +1.98.1 run -p refineui-gpui-icon-browser
 ```
 
 On macOS, GPUI requires Xcode and its Metal Toolchain. If the compiler reports
