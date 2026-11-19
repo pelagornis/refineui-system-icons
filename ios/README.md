@@ -10,14 +10,14 @@ Add to your `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/refineui/system-icons.git", from: "vTag")
+    .package(url: "https://github.com/pelagornis/refineui-system-icons.git", from: "0.5.1")
 ]
 ```
 
 Or add via Xcode:
 
 1. File → Add Package Dependencies
-2. Enter URL: `https://github.com/refineui/system-icons.git`
+2. Enter URL: `https://github.com/pelagornis/refineui-system-icons.git`
 3. Select version and add to target
 
 ## 🚀 Quick Start
@@ -153,8 +153,8 @@ All icons are available in the following sizes:
 
 ```bash
 # Clone the repository
-git clone https://github.com/refineui/system-icons.git
-cd system-icons
+git clone https://github.com/pelagornis/refineui-system-icons.git
+cd refineui-system-icons
 
 # Install dependencies
 npm install

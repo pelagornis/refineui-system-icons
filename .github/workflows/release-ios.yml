@@ -4,6 +4,12 @@ on:
   push:
     tags:
       - "*"
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Semantic version to validate and release"
+        required: true
+        type: string
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -11,7 +17,9 @@ concurrency:
 
 jobs:
   release-ios:
-    runs-on: macos-latest
+    # Keep the Xcode/Swift environment stable. `macos-latest` tracks the
+    # newest macOS image and can change underneath a release workflow.
+    runs-on: macos-15
 
     steps:
       - name: Checkout
@@ -25,6 +33,15 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install Node dependencies
+        run: npm ci
+
       - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
@@ -33,7 +50,11 @@ jobs:
       - name: Get version
         id: get_version
         run: |
-          VERSION=${GITHUB_REF#refs/tags/}
+          VERSION="${{ inputs.version || github.ref_name }}"
+          if [[ ! "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+([-.+][0-9A-Za-z.-]+)?$ ]]; then
+            echo "Release tags must use semantic versioning (received: $VERSION)" >&2
+            exit 1
+          fi
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "Version: $VERSION"
 
@@ -53,14 +74,13 @@ jobs:
         run: |
           ulimit -n 65536
           echo "File descriptor limit increased to $(ulimit -n)"
-
-          cd ios/
-
+          # Package.swift lives at the repository root and its target points
+          # at ios/. Running from ios/ makes SwiftPM fail to find the manifest.
           swift package resolve
-          swift build
+          swift build --configuration release
 
       - name: Build release notes from CHANGELOG
-        if: startsWith(github.ref, 'refs/tags/')
+        if: github.event_name == 'workflow_dispatch' || startsWith(github.ref, 'refs/tags/')
         run: |
           python3 scripts/extract_changelog_section.py \
             "${{ steps.get_version.outputs.version }}" \
@@ -68,7 +88,7 @@ jobs:
           cat release-notes.md
 
       - name: Create iOS Release
-        if: startsWith(github.ref, 'refs/tags/')
+        if: github.event_name == 'workflow_dispatch' || startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
         with:
           token: ${{ secrets.PELAGORNIS }}
